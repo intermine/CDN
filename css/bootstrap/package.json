@@ -9,14 +9,14 @@
    ],
    "maintainers": [
        {
-           "name": "Twitter",
+           "name": "Twitter Developers",
            "web": "http:///www.twitter.com/" 
        }
    ],
    "repositories": [
        {
            "type": "git",
-           "url": "https://github.com/necolas/normalize.css" 
+           "url": "https://github.com/twitter/bootstrap.git" 
        } 
    ]
 
