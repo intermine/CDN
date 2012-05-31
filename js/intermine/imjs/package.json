@@ -1,0 +1,23 @@
+{
+    "name": "intermine.imjs",
+    "filename": "intermine.imjs.js",
+    "homepage": "http://github.com/alexkalderimis/imjs",
+    "keywords": [
+       "intermine",
+       "webservice"
+   ],
+   "maintainers": [
+       {
+           "name": "Alex Kalderimis",
+           "email": "alex@intermine.org",
+           "web": "http://intermine.org"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "http://github.com/alexkalderimis/imjs"
+       }
+   ]
+
+}

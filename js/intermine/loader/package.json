@@ -1,0 +1,23 @@
+{
+    "name": "intermine.api-loader",
+    "filename": "intermine.api.js",
+    "homepage": "http://github.com/radekstepan/intermine-api-loader",
+    "keywords": [
+       "intermine",
+       "loader"
+   ],
+   "maintainers": [
+       {
+           "name": "Radek Stepan",
+           "email": "radek@intermine.org",
+           "web": "http://intermine.org"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "http://github.com/radekstepan/intermine-api-loader"
+       }
+   ]
+
+}

@@ -1,0 +1,23 @@
+{
+    "name": "intermine.widgets",
+    "filename": "intermine.widgets.js",
+    "homepage": "http://github.com/radekstepan/intermine-widget-client",
+    "keywords": [
+       "intermine",
+       "widgets"
+   ],
+   "maintainers": [
+       {
+           "name": "Radek Stepan",
+           "email": "radek@intermine.org",
+           "web": "http://intermine.org"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "http://github.com/radekstepan/intermine-widget-client"
+       }
+   ]
+
+}
