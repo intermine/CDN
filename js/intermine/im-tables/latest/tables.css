@@ -1,0 +1,958 @@
+
+a.im-pagination-button {
+    cursor: pointer;
+}
+
+div.dataTables_length select {
+    width: 75px;
+}
+
+div.dataTables_filter label {
+    float: right;
+}
+
+div.dataTables_info {
+    padding-top: 8px;
+}
+
+.im-current-page form {
+    display: inline;
+    float: left;
+}
+
+.im-current-page form > select, .im-current-page form > input {
+    width: 5em;
+}
+
+table.table {
+    clear: both;
+    margin-bottom: 6px !important;
+}
+
+.im-table-container .table tbody > tr td {
+    font-size: 0.9em;
+}
+
+.im-cell-link {
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
+.im-table-container .table tbody > tr td.im-highlight {
+    background: #6fb9de;
+}
+
+.table td.im-highlight a {
+    color: white;
+    font-weight: bold;
+}
+
+.im-table-container > .table tr > .im-minimised-col {
+    background-color: #dfdfdf;
+}
+
+.bootstrap .table-striped tbody tr:nth-child(odd) td.im-minimised-col {
+    background-color: #eee;
+}
+
+.btn.im-reorderer {
+    float: left;
+    display: inline;
+    position: relative;
+    left: 3em;
+}
+
+
+th .im-col-summary.navbar {
+    margin-bottom: 0px;
+}
+
+table.progress {
+    padding: 5em 3em;
+}
+
+.im-table-throbber h2 {
+    color: #ccc;
+}
+
+
+
+.im-table-overlay {
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 3px 3px #333;
+    -webkit-box-shadow: 0 0 3px 3px #333;
+    box-shadow: 0 0 3px 3px #333;
+    position: absolute;
+    opacity: 0.4;
+    background-color: #333;
+    z-index: 5000;
+}
+
+.im-table-overlay.discrete {
+    opacity: 0;
+    z-index: -1000;
+}
+
+.im-table-overlay h1 {
+    color: white;
+    position: absolute;
+    font-size: 64px;
+    /*margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;*/
+}
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+    cursor: pointer;
+}
+
+.im-table-container > table > thead > tr {
+    color: white;
+    background-color: #2c2c2c;
+}
+
+.im-col-order-dialog > .modal-body {
+    max-height: 500px;
+}
+
+.im-col-order-dialog {
+    display: none;
+}
+
+.im-reordering-container {
+    max-width: 80%;
+}
+
+.well .scroll-bar {
+    box-shadow: inset 0 1px 3px #fff, inset 0 -8px 2px #cbe6f2;
+    text-shadow: 0 1px #fff;
+}
+
+.well .im-reorderable {
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.1);  
+    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.1);  
+    box-shadow: 1px 3px 3px #ababab, inset 0 0 3px rgba(0, 0, 0, 0.1);  
+}
+
+.im-sorting-container > .placeholder {
+    color: #bbb;
+    padding: 1em;
+    font-size: 1.5em;
+    display: none;
+    border-width: 2px;
+    border-style: dashed;
+    border-radius: 10px;
+}
+.im-sorting-container > .placeholder:last-child {
+    display: block;    
+}
+
+.im-summary.dropdown {
+    display: inline-block;
+    float: right;
+}
+
+.im-dropdown-summary h3 {
+    margin-left: 1em;
+}
+
+.im-th-buttons .dropdown-menu {
+    padding: 0.2em;
+    color: #333;
+    left: -9px;
+    top: 19px;
+    min-width: 22em;
+    max-width: 25em;
+    font-family: 'Muli', 'Helvetica', sans-serif;
+    font-weight: normal;
+}
+
+tr > th:last-child .im-th-buttons .dropdown-menu {
+    left: -22em;
+}
+
+tr > th:last-child .im-th-buttons .dropdown-menu::after {
+    left: 286px;
+}
+tr > th:last-child .im-th-buttons .dropdown-menu::before {
+    left: 286px;
+}
+
+.im-selector-col {
+    width: 10%;
+}
+
+.im-item-col {
+    width: 80%;
+}
+
+.im-count-col {
+    width: 10%;
+}
+
+.im-prop-col {
+    10%;
+}
+
+.im-filter {
+    position: relative;
+    top: -0.5em;
+    margin-right: 0.5em;
+}
+
+.im-pie-facet .im-item-col {
+    width: 70%;
+}
+
+.im-col-summary .dropdown-menu a {
+    display: inline-block;
+    clear: none;
+}
+
+.im-dropdown-summary .im-item-table {
+    display: block;
+    max-height: 20em;
+    overflow: auto;
+}
+
+.im-dropdown-summary label.im-con-overview {
+    width: 100%;
+}
+
+.im-dropdown-summary .im-constraints form {
+    margin-bottom: 0.5em;
+}
+
+.im-con-overview .im-con-summary {
+    margin-bottom: 5px;
+}
+.im-con-summary {
+    width: 75%;
+    display: inline-block;
+}
+
+.im-con-overview i {
+    float: right;
+}
+
+/*
+.dropdown.open .summary-img {
+    border-color: rgba(82, 168, 236, 0.8);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6); 
+
+}
+*/
+
+th > i {
+    float: right;
+    margin-right: 1em;
+}
+
+.im-table-container table.table tbody tr td.active {
+    background-color: rgba(200, 240, 240, 0.35)
+}
+
+.im-query-results {
+    min-height: 30em;
+}
+
+.im-result-field {
+    width: 100%;
+    margin: -8px;
+    padding: 8px;
+}
+
+.im-dropdown-summary .im-constraints h3 {
+
+}
+
+.im-dropdown-summary .im-constraints button[type="submit"] {
+    width: 40%;
+}
+
+.im-value-options.btn-group {
+    float: right;
+}
+
+.im-query-actions .dropdown-menu, .typeahead.dropdown-menu {
+    max-width: none;
+}
+
+.im-query-actions > * {
+    max-width: 22%;
+}
+
+/* Actions (export, create list, etc.) */
+
+.im-query-actions li {
+    list-style-type: none;
+    margin: 0.5em 0em;
+}
+
+.im-query-actions li > .btn {
+   width: 15em;
+}
+
+.im-query-actions li > .btn-group > .btn:first-child {
+    width: 13em;
+    max-width: 77%;
+}
+
+
+.im-query-actions fieldset.control-group > label.radio {
+    width: 100%;
+}
+
+.im-action > form > .btn-group {
+    margin-top: 1em;
+}
+
+.im-export-destinations.form {
+    display: block;
+    margin: 0 0.2em;
+}
+
+.typeahead.dropdown-menu strong {
+    color: #08c;
+}
+
+.typeahead.dropdown-menu .active strong {
+    color: white;
+    text-transform: uppercase;
+}
+
+.im-constraint label {
+    padding: 0;
+    display: block;
+    font-weight: bold;
+}
+
+.im-constraint .table td {
+    vertical-align: middle;
+    font-size: 0.9em;
+}
+
+.im-list-creation-dialogue input.input-xlarge {
+    width: 80%;
+}
+
+.im-query-tools select, .im-query-tools input, .im-query-tools label  {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0.4em;
+}
+
+.im-constraint {
+    font-size: 0.9em;
+}
+
+.colvis {
+    float: left;
+}
+
+.node-adder label {
+    margin-right: 0.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.null-value {
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+.im-node {
+    border-left: 1px solid #aaa;
+    padding: 0.5em;
+    display: inline-block;
+    list-style-type: none;
+}
+
+.im-constraint {
+    list-style-type: none;
+}
+
+.im-node i {
+    margin-left: 1em;
+}
+
+.im-node:first-child {
+    border-left: none;
+}
+
+.node-adder {
+    width: 100%;
+}
+
+.node-remover dd input {
+    margin-right: 1em;
+}
+
+.node-remover dt {
+    border-top: 1px solid #ddd;
+    padding-top: 0.5em;
+    margin-top: 0.5em;
+}
+
+.node-remover dt i {
+    float: right;
+    margin-right: 2em;
+}
+
+.node-remover dd {
+    display: none;
+}
+
+.im-constraints {
+    padding: 0.5em;
+}
+
+.im-col-summary .dropdown-menu .divider {
+    background-color: transparent;
+}
+
+.im-constraints ul {
+    margin-left: 0;
+}
+
+.im-constraint form label i {
+    float: right;
+    margin-right: 0.5em;
+}
+
+.im-constraint fieldset, .im-constraint .btn-group {
+    display: none;
+}
+
+.new.im-constraint fieldset, .new.im-constraint .btn-group {
+    width: 100%;
+    display: block;
+}
+
+.im-constraint-adder select, .im-constraint-adder input {
+    display: inline-block;
+}
+
+.im-constraint .btn-group {
+    margin: 0.3em;
+}
+
+.im-query-facets input {
+    margin: 0em 0 1em 0;
+}
+
+.im-query-facets .im-count-col {
+    min-width: 150px;
+}
+
+.im-facet-bar {
+    float: right;
+    text-align: right;
+    padding: 0.2em;
+    padding-right: 1em;
+    background: #ced2de;
+    border-radius: 0.5em;
+    overflow: visible;
+    font-weight: bold;
+}
+
+.im-query-facets {
+    background: #e7edf4;
+    border: 1px solid #ccc;
+    box-shadow: inset 1px 2px 2px #bbb;
+    padding: 2em;
+    margin-right: 0.5em;
+}
+
+.im-dropdown-summary .im-filter, .im-dropdown-summary .input-prepend {
+   padding: 0 0.5em 0 0.5em;
+}
+
+.im-query-facets > .im-column-summary > dl {
+    box-shadow: 1px 1px 2px #888;
+    border: 1px solid #bbb;
+    background: #efefef;
+    margin-bottom: 0.5em;
+
+}
+
+.im-column-summary > dl:empty {
+    padding: 1em;
+}
+
+.im-column-summary > dl:empty:after {
+    content: "All items are unique.";
+}
+
+.im-query-facets > .im-column-summary > dl > dt {
+/* IE10 */ 
+background-image: -ms-linear-gradient(top, #D9EDF7 0%, #D0DEF5 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #D9EDF7 0%, #D0DEF5 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #D9EDF7 0%, #D0DEF5 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #D9EDF7), color-stop(1, #D0DEF5));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #D9EDF7 0%, #D0DEF5 100%);
+
+/* Proposed W3C Markup */ 
+background-image: linear-gradient(top, #D9EDF7 0%, #D0DEF5 100%);
+    padding: 0.3em 0.5em;
+}
+
+.im-query-facets > .im-column-summary > dl > .im-facet {
+    padding: 0.2em 1em;
+}
+
+input.im-extra-value {
+    width: 100%;
+    margin-top: 0.4em;
+}
+
+input.im-constraint-adder {
+    margin-bottom: 0.5em;
+}
+
+.im-constraint a {
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    float: right;
+}
+
+.im-constraint-edit a {
+    display: none;
+}
+
+.btn-toggle-selection:after {
+    content: "Select All";
+}
+
+.btn-toggle-selection.im-invert:after {
+    content: "Invert Selection"
+}
+
+.table .alert-error {
+    padding: 1em;
+    max-width: 30em;
+    min-height: 10em;
+    margin-top: 5em;
+    margin-left: 5em;
+    margin-bottom: 5em;
+}
+
+.table .alert-error .close {
+    right: -8px;
+    top: -10px;
+}
+
+#logged-in-notice a.username {
+    max-width: 10em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+#logged-in {
+    display: none;
+}
+#logged-in.logged-in {
+    display: inline-block;
+}
+#logged-out {
+    display: inline-block;
+}
+#logged-out.logged-in {
+    display: none;
+}
+
+.v9.unsupported {
+    display: none;
+}
+
+.im-con-summary {
+    margin-left: 0px;
+    margin-bottom: 0.5em;
+}
+
+.dataTables_paginate.paging_bootstrap {
+    position: relative;
+    right: -50px;
+}
+
+.im-table-summary {
+    float: left;
+    position: relative;
+    left: 20px;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0.3em;
+    margin-bottom: 0.5em;
+}
+
+.im-table-container > table.table > thead:last-child > tr:last-child > th:first-child {
+    border-radius: 4px 0 0 0;
+}
+.im-table-container > table.table > thead:last-child > tr:last-child > th:last-child {
+    border-radius: 0 4px 0 0;
+}
+
+form.im-join {
+    margin-bottom: 0px;
+    margin-top: -4px;
+}
+
+.im-column-group {
+    line-height: 1.7em;
+}
+
+.im-facet .form {
+    margin-bottom: 0;
+}
+
+.im-facet .im-item-table {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.compact .im-query-actionbar > ul {
+    float: right;
+}
+
+.im-query-actionbar > ul > .im-action {
+    margin: 0 1em;
+    display: block;
+    float: left;
+}
+
+.im-query-actionbar > ul > .im-action > .btn-group > a.btn, 
+.im-query-actionbar > ul > .im-action.node-adder input,
+.im-query-actionbar > ul > .im-action > a.btn {
+    padding-top: 10px;
+    padding-bottom: 11px;
+}
+
+.im-query-actionbar > ul > .im-action.node-adder {
+    width: 217px;
+}
+
+/* FACETS */
+
+.im-col-summary.dropdown .im-item-table {
+    border-top: 1px solid #ddd;
+}
+
+.im-dropdown-summary > .im-column-summary tr > th,
+.im-dropdown-summary > .im-column-summary tr > td {
+    border-left: none;
+}
+
+.im-facet .input-prepend {
+    width: 100%;
+}
+
+.im-facet-count {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+.im-col-summary {
+    padding-right: 1em;
+}
+.im-column-summary dl {
+    margin: 0px;
+}
+.im-column-summary dl dd {
+    display: none;
+}
+.im-column-summary dl dd a {
+    display: inline-block;
+    width: 100%;
+}
+.im-column-summary dl dt i {
+    margin-right: 0.5em;
+}
+
+.im-table-container > .table > thead > tr > th {
+    height: 100%;
+}
+
+.im-th-buttons {
+    float: right;
+    max-width: 25px;
+    display: block;
+    margin-bottom: 0.2em;
+}
+
+.bootstrap .table thead th {
+    vertical-align: top;
+    padding: 1px;
+}
+
+.im-col-title {
+    padding: 0.5em;
+    position: relative;
+    top: 0.5em;
+}
+
+.dropdown.open > .im-th-button {
+    background: #2c2c2c;
+}
+
+.im-th-button {
+    display: inline-block;
+    float: right;
+    margin-bottom: -4px;
+    color: white;
+    padding: 0px 1px 0px 1px;
+    font-family: serif;
+    vertical-align: top;
+}
+
+.im-col-remover {
+}
+
+/* .im-col-remover:after {
+    content: "x";
+} */
+
+.im-numeric-facet input, .im-numeric-facet label {
+    display: inline-block;
+}
+
+.im-numeric-facet .facet-content {
+    display: none;
+}
+.im-numeric-facet input {
+    display: inline-block;
+    border: 0px;
+    font-weight: bold;
+    width: 3em;
+}
+
+.im-facet {
+    display: none;
+}
+
+.im-dropdown-summary .im-facet {
+    display: block;
+}
+
+.im-pie-facet form td, .im-pie-facet form th {
+    font-size: 0.8em;
+    line-height: 1em;
+    vertical-align: middle;
+}
+.im-pie-facet form input[type="checkbox"] {
+    height: 1em;
+}
+
+form tr.active {
+    background: #D9EDF7;
+}
+
+.im-item-table > table > tbody > tr.active > td {
+    background-color: transparent;
+}
+
+.im-query-actions form {
+    margin-top: 1em;
+}
+
+.im-query-actions .im-add-to-list form {
+    margin-left: 1em;
+    width: 250px;
+}
+
+.im-code-gen .modal {
+    width: 700px;
+}
+
+.im-code-gen .modal {
+    max-height: 600;
+    overflow: auto;
+}
+
+.im-list-creation-dialogue {
+    display: none;
+}
+
+.im-query-actions ul.im-list-tags {
+    width: 23em;
+    margin: 1em 0;
+    padding: 0 0 0.5em 0.5em;
+}
+
+.im-query-actions ul.im-list-tags.suggestions {
+    margin-top: 0;
+}
+
+.label i {
+}
+
+ul.im-list-tags .label {
+    max-width: 22em;
+    display: inline-block;
+}
+ul.im-list-tags .tag-text {
+    display: inline-block;
+    max-width: 18em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul.im-list-tags li {
+    display: inline-block;
+    float: left;
+    margin: 0.5em 0.5em 0 0;
+}
+
+.im-item-field { 
+    background: #eee;
+}
+
+.im-item-details { 
+}
+
+.im-item-details td { 
+    max-height: 5em;
+    overflow: hidden;
+}
+
+/* SVG styles */
+path, circle {
+    fill: #D9EDF7;
+    stroke: #3A87AD;
+    stroke-width: 2px;
+}
+
+path.falses {
+    fill: #bce8f1;
+}
+
+path.disabled {
+    opacity: 0.5;
+}
+
+path.selected {
+    fill: #c9aad4;
+}
+
+path.yaxis {
+    stroke: #555;
+    stroke-width: 1px;
+}
+
+path.tickline {
+    stroke: #ddd;
+    stroke-width: 1px;
+}
+
+text.pie-label {
+    font-size: 14px;
+}
+
+.im-sort-direction {
+    height: 100%;
+    font-weight: bold;
+    padding-right: 1em;
+    margin-right: 0.2em;
+    border-right: 1px solid #bbb;
+}
+
+.tooltip {
+    z-index: 2000 !important;
+}
+
+.im-sort-direction.asc:after {
+    content: "A..Z";
+}
+
+.im-sort-direction.desc:after {
+    content: "Z..A";
+}
+
+.numeric .im-sort-direction.asc:after {
+    content: "1..2";
+}
+
+.numeric .im-sort-direction.desc:after {
+    content: "2..1";
+}
+
+.scroll-bar {
+    overflow: hidden;
+}
+
+.scroll-bar-wrap .scroll-bar {
+    display: table-cell;
+    cursor: move;
+    height: 1.8em;
+    padding: 0 0 0 0;
+    text-align: center;
+    vertical-align: center;
+    font-size: 10px;
+    margin: 0;
+}
+.scroll-bar-wrap .scroll-bar.scrolling {
+    box-shadow: inset 0 1px 3px #fff, inset 0 -8px 2px #cbe6f2, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0;
+    outline: thin dotted \9;
+}
+
+.scroll-bar:after {
+    content: "::::::";
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.scroll-bar-wrap.well {
+    height: 2.4em;
+    clear: left;
+    padding: 0.1em 4px 0.1em 2px;
+    box-shadow: inset 1px 2px 2px #bbb;
+    margin-bottom: 1em;;
+    margin-top: -1.5em;;
+    overflow: hidden;
+    background: whiteSmoke;
+    font-size: 8px;
+}
+
+.im-facet .slider {
+    margin: 1em 1.5em;
+    width: 85%;
+    font-size: 0.8em;
+}
+
+.ui-slider-range.ui-widget-header {
+    background:#D9EDF7;
+}
+
+.im-confinement {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+    .im-query-results {
+        width: 100% !important;
+    }
+    .im-query-toolbox {
+        width: 95% !important;
+    }
+}
+
+
+

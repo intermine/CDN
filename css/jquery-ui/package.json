@@ -1,0 +1,22 @@
+{
+    "name": "jQuery UI",
+    "filename": "jquery-ui.css",
+    "description": "jQuery UI provides abstractions for low-level interaction and animation, advanced effects and high-level, themeable widgets, built on top of the jQuery JavaScript Library, that you can use to build highly interactive web applications.",
+    "homepage": "http://jqueryui.com/",
+    "keywords": [
+       "ui"
+   ],
+   "maintainers": [
+       {
+           "name": "jQuery Developers",
+           "web": "http:///www.jquery.com/" 
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "https://github.com/jquery/jquery-ui" 
+       } 
+   ]
+
+}

@@ -1,0 +1,23 @@
+{
+    "name": "intermine.tables",
+    "filename": "imtables.js",
+    "homepage": "http://github.com/alexkalderimis/im-tables",
+    "keywords": [
+       "intermine",
+       "tables"
+   ],
+   "maintainers": [
+       {
+           "name": "Alex Kalderimis",
+           "email": "alex@intermine.org",
+           "web": "http://intermine.org"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "http://github.com/alexkalderimis/im-tables"
+       }
+   ]
+
+}
