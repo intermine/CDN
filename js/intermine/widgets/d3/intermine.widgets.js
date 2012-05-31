@@ -1063,7 +1063,6 @@ temp_dispatch_event = function(dispatch) {
   };
   listeners = [];
   listenerByName = new d3_Map;
-  console.log(listenerByName);
   event.on = function(name, listener) {
     var i, l;
     l = listenerByName.get(name);
@@ -1478,8 +1477,7 @@ factory = function(Backbone) {
       opts.name = this.name || this.id;
       switch (type) {
         case "AJAXTransport":
-          opts.title = opts.statusText;
-          opts.text = opts.responseText;
+          opts.title = "AJAX Request Failed";
           break;
         case "JSONResponse":
           opts.title = "Invalid JSON Response";
@@ -1611,8 +1609,11 @@ factory = function(Backbone) {
             });
           }
         },
-        error: function(err) {
-          return _this.error(err, "AJAXTransport");
+        error: function(request, status, error) {
+          clearTimeout(timeout);
+          return _this.error({
+            'text': "" + _this.service + "list/chart"
+          }, "AJAXTransport");
         }
       });
     };
@@ -1721,8 +1722,11 @@ factory = function(Backbone) {
             });
           }
         },
-        error: function(err) {
-          return _this.error(err, "AJAXTransport");
+        error: function(request, status, error) {
+          clearTimeout(timeout);
+          return _this.error({
+            'text': "" + _this.service + "list/table"
+          }, "AJAXTransport");
         }
       });
     };
@@ -1857,8 +1861,11 @@ factory = function(Backbone) {
             });
           }
         },
-        error: function(err) {
-          return _this.error(err, "AJAXTransport");
+        error: function(request, status, error) {
+          clearTimeout(timeout);
+          return _this.error({
+            'text': "" + _this.service + "list/enrichment"
+          }, "AJAXTransport");
         }
       });
     };
@@ -3101,41 +3108,41 @@ Widgets = (function() {
   Widgets.prototype.resources = [
     {
       name: 'JSON',
-      path: 'http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.2/json3.min.js',
+      path: 'http://cdn.intermine.org/js/json3/3.2.2/json3.min.js',
       type: 'js'
     }, {
       name: "jQuery",
-      path: "http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js",
+      path: "http://cdn.intermine.org/js/jquery/1.7.2/jquery.min.js",
       type: "js",
       wait: true
     }, {
       name: "_",
-      path: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js",
+      path: "http://cdn.intermine.org/js/underscore.js/1.3.3/underscore-min.js",
       type: "js",
       wait: true
     }, {
       name: "Backbone",
-      path: "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js",
+      path: "http://cdn.intermine.org/js/backbone.js/0.9.2/backbone-min.js",
       type: "js",
       wait: true
     }, {
       name: "d3",
-      path: "http://aragorn:1111/js/d3.v2.js",
+      path: "http://cdn.intermine.org/js/d3/2.8.1/d3.v2.min.js",
       type: "js"
     }, {
-      path: "https://raw.github.com/alexkalderimis/imjs/master/src/model.js",
+      path: "http://cdn.intermine.org/js/intermine/imjs/latest/model.js",
       type: "js"
     }, {
-      path: "https://raw.github.com/alexkalderimis/imjs/master/src/query.js",
+      path: "http://cdn.intermine.org/js/intermine/imjs/latest/query.js",
       type: "js"
     }, {
-      path: "https://raw.github.com/alexkalderimis/imjs/master/src/service.js",
+      path: "http://cdn.intermine.org/js/intermine/imjs/latest/service.js",
       type: "js"
     }, {
-      path: "http://canvg.googlecode.com/svn/trunk/rgbcolor.js",
+      path: "http://cdn.intermine.org/js/canvg/latest/rgbcolor.js",
       type: "js"
     }, {
-      path: "http://canvg.googlecode.com/svn/trunk/canvg.js",
+      path: "http://cdn.intermine.org/js/canvg/latest/canvg.js",
       type: "js"
     }
   ];
