@@ -1,0 +1,23 @@
+{
+    "name": "canvg",
+    "filename": "canvg.js",
+    "description": "canvg is a SVG parser and renderer. It takes a URL to a SVG file or the text of an SVG file, parses it in JavaScript, and renders the result on a Canvas element. The rendering speed of the examples is about as fast as native SVG.",
+    "homepage": "http://code.google.com/p/canvg/",
+    "keywords": [
+       "canvas",
+       "svg"
+   ],
+   "maintainers": [
+       {
+           "name": "Gabe Lerner",
+           "email": "gabelerner@gmail.com"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "svn",
+           "url": "http://canvg.googlecode.com/svn/trunk/"
+       }
+   ]
+
+}
