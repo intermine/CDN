@@ -12,3 +12,7 @@ Maintain resources used in InterMine apps
 ## Where?
 
 The repo is cloned on **met0** powered by nginx on port 1000 and should be accessible through [http://cdn.intermine.org](http://cdn.intermine.org)
+
+## InterMine JavaScript API Loader
+
+A symbolic link is made from `./api` to `js/intermine/api-loader/latest/intermine.api.js` to easily resolve (some) InterMine resources.
