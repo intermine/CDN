@@ -1,0 +1,21 @@
+{
+    "name": "Mocha",
+    "filename": "mocha.js",
+    "description": "Mocha is a feature-rich JavaScript test framework running on node and the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.",
+    "homepage": "http://visionmedia.github.com/mocha/",
+    "keywords": [
+       "testing"
+   ],
+   "maintainers": [
+       {
+           "name": "Visionmedia Team"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "https://github.com/visionmedia/mocha"
+       }
+   ]
+
+}
