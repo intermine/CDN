@@ -1,0 +1,24 @@
+{
+    "name": "mynd",
+    "filename": "mynd.js",
+    "description": "Precise minimalist SVG based charting library based on d3.",
+    "homepage": "https://github.com/radekstepan/mynd",
+    "keywords": [
+       "svg",
+       "charts"
+   ],
+   "maintainers": [
+       {
+           "name": "Radek Stepan",
+	   "email": "dev@radekstepan.com",
+           "web": "http://radekstepan.com" 
+       } 
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "https://github.com/radekstepan/mynd" 
+       } 
+   ]
+
+}
