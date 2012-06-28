@@ -776,6 +776,112 @@ td.im-result-subtable .im-subtable {
     width: 80%;
 }
 
+.im-query-trail {
+    position: relative;
+}
+
+
+.im-query-trail.well.minimised {
+    padding: 10px;
+}
+
+.im-query-trail.minimised h2,
+.im-query-trail.minimised .im-step-count {
+    font-size: 1em;
+}
+
+.im-query-trail .btn-small,
+.im-query-trail.minimised .im-step-details,
+.im-query-trail.minimised .btn {
+    display: none;
+}
+
+.im-query-trail.minimised .btn-small {
+    float: right;
+    display: inline-block;
+}
+
+
+.im-query-trail .im-minimiser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fefefe;
+    border-bottom: 1px solid #dedede;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    color: #ababab;
+    text-align: center;
+    box-shadow: 0px 2px 3px #ababab;
+    cursor: pointer;
+}
+
+.im-query-trail .im-step {
+    height: 100%;
+    margin-top: 1em;
+    margin-right: 3em;
+    display: inline-block;
+    list-style-type: none;
+    border: 1px solid #dedede;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    background: white;
+    position: relative;
+}
+
+.im-query-trail.minimised .im-step {
+    margin-right: 1.5em;
+}
+
+.im-query-trail .im-step:after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 25%;
+    width: 0;
+    height: 0;
+    border-top: 42px solid transparent;
+    border-left: 26px solid #dedede;
+    border-bottom: 42px solid transparent;
+}
+
+.minimised .im-step::after {
+    border-top: 15px solid transparent;
+    border-left: 7px solid #dedede;
+    border-bottom: 15px solid transparent;
+}
+
+.im-query-trail .im-step .label {
+    padding-left: 1em;
+    margin-left: 1em;
+    padding-right: 1em;
+    margin-right: 1em;
+}
+
+.im-query-trail .im-step .btn {
+    margin-top: 1em;
+}
+
+.im-query-trail.minimised .im-step .btn {
+    margin-top: 0;
+}
+
+.im-step-count {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.im-query-trail .im-step::after {
+    clear: both;
+}
+
+.im-query-trail .im-step li {
+    list-style-type: none;
+    display: none;
+}
+
 .im-query-tools select, .im-query-tools input, .im-query-tools label  {
     margin-top: 0px;
     margin-bottom: 0px;

@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Wed Jun 27 2012 13:57:37 GMT+0100 (BST)
+ * Built at Thu Jun 28 2012 16:08:48 GMT+0100 (BST)
 */
 
 
@@ -615,7 +615,7 @@
   });
 
   scope("intermine.query.tools", function(exporting) {
-    var PANE_HTML, TAB_HTML, ToolBar, Tools;
+    var PANE_HTML, Step, TAB_HTML, ToolBar, Tools, Trail;
     TAB_HTML = _.template("<li>\n    <a href=\"#<%= ref %>\" data-toggle=\"tab\">\n        <%= title %>\n    </a>\n</li>");
     PANE_HTML = _.template("<div class=\"tab-pane\" id=\"<%= ref %>\"></div>");
     exporting(Tools = (function(_super) {
@@ -675,7 +675,7 @@
       return Tools;
 
     })(Backbone.View));
-    return exporting(ToolBar = (function(_super) {
+    exporting(ToolBar = (function(_super) {
 
       __extends(ToolBar, _super);
 
@@ -697,6 +697,210 @@
       };
 
       return ToolBar;
+
+    })(Backbone.View));
+    Step = (function(_super) {
+
+      __extends(Step, _super);
+
+      function Step() {
+        return Step.__super__.constructor.apply(this, arguments);
+      }
+
+      Step.prototype.className = 'im-step';
+
+      Step.prototype.tagName = 'li';
+
+      Step.prototype.initialize = function(opts) {
+        var _this = this;
+        Step.__super__.initialize.call(this, opts);
+        this.model.on('got:count', function(count) {
+          return _this.$('.im-step-count .count').text(intermine.utils.numToString(count, ',', 3));
+        });
+        this.model.on('is:current', function(isCurrent) {
+          _this.$('.btn').toggleClass('btn-warning', !isCurrent).attr({
+            disabled: isCurrent
+          });
+          return _this.$('.btn-large').text(isCurrent ? "Current State" : "Revert to this State");
+        });
+        return this.model.on('remove', function() {
+          return _this.remove();
+        });
+      };
+
+      Step.prototype.events = {
+        'click h4': function(e) {
+          $(e.target).find('i').toggleClass("icon-chevron-right icon-chevron-down");
+          return $(e.target).next().children().toggle();
+        },
+        'click .btn': 'revertToThisState'
+      };
+
+      Step.prototype.revertToThisState = function(e) {
+        this.model.trigger('revert', this.model);
+        return this.$('.btn-small').tooltip('hide');
+      };
+
+      Step.prototype.render = function() {
+        var addSection, c, clist, details, jlist, p, path, ps, q, style, toLabel, v, vlist, _fn, _fn1, _fn2, _i, _j, _len, _len1, _ref, _ref1,
+          _this = this;
+        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\"><i class=icon-refresh></i></button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-large\" disabled>Current State</button>");
+        this.$('.btn-small').tooltip();
+        q = this.model.get('query');
+        details = this.$('.im-step-details');
+        addSection = function(n, things) {
+          var section;
+          section = $("<div>\n    <h4>\n        <i class=\"icon-chevron-right\"></i>\n        " + n + " " + things + "\n    </h4>\n    <ul></ul>\n</div>");
+          section.appendTo(details);
+          return section.find('ul');
+        };
+        toLabel = function(text, type) {
+          return "<span class=\"label label-" + type + "\">" + text + "</span>";
+        };
+        ps = (function() {
+          var _i, _len, _ref, _results;
+          _ref = q.views;
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            v = _ref[_i];
+            _results.push(q.getPathInfo(v));
+          }
+          return _results;
+        })();
+        vlist = addSection(ps.length, 'Columns');
+        _fn = function(p) {
+          var li;
+          li = $('<li>');
+          vlist.append(li);
+          return p.getDisplayName(function(name) {
+            return li.append(toLabel(name, 'path'));
+          });
+        };
+        for (_i = 0, _len = ps.length; _i < _len; _i++) {
+          p = ps[_i];
+          _fn(p);
+        }
+        clist = addSection(q.constraints.length, 'Filters');
+        _ref = q.constraints;
+        _fn1 = function(c) {
+          var li;
+          li = $('<li>');
+          clist.append(li);
+          return q.getPathInfo(c.path).getDisplayName(function(name) {
+            li.append(toLabel(name, 'path'));
+            li.append(toLabel(c.op, 'info'));
+            if (c.value != null) {
+              return li.append(toLabel(c.value, 'value'));
+            } else if (c.values != null) {
+              return li.append(toLabel(c.values.join(', '), 'value'));
+            }
+          });
+        };
+        for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
+          c = _ref[_j];
+          _fn1(c);
+        }
+        jlist = addSection(_.size(q.joins), 'Joins');
+        _ref1 = q.joins;
+        _fn2 = function(path, style) {
+          var li;
+          li = $('<li>');
+          jlist.append(li);
+          return q.getPathInfo(path).getDisplayName(function(name) {
+            li.append(toLabel(name, 'path'));
+            return li.append(toLabel(style, 'info'));
+          });
+        };
+        for (path in _ref1) {
+          style = _ref1[path];
+          _fn2(path, style);
+        }
+        return this;
+      };
+
+      return Step;
+
+    })(Backbone.View);
+    return exporting(Trail = (function(_super) {
+
+      __extends(Trail, _super);
+
+      function Trail() {
+        this.minumaximise = __bind(this.minumaximise, this);
+        return Trail.__super__.constructor.apply(this, arguments);
+      }
+
+      Trail.prototype.className = "im-query-trail well minimised";
+
+      Trail.prototype.tagName = "ul";
+
+      Trail.prototype.events = {
+        'click .im-minimiser': 'minumaximise'
+      };
+
+      Trail.prototype.minumaximise = function() {
+        return this.$el.toggleClass("minimised");
+      };
+
+      Trail.prototype.startListening = function() {
+        var _this = this;
+        this.query.on("change:constraints", this.addStep("Changed Filters"));
+        this.query.on("change:views", this.addStep("Changed Columns"));
+        return this.query.on('count:is', function(count) {
+          return _this.states.last().trigger('got:count', count);
+        });
+      };
+
+      Trail.prototype.initialize = function(query, display) {
+        var _this = this;
+        this.query = query;
+        this.display = display;
+        this.currentStep = 0;
+        this.states = new Backbone.Collection();
+        this.states.on('add', function(state) {
+          return _this.$el.append(new Step({
+            model: state
+          }).render().el);
+        });
+        this.states.on('add remove', function() {
+          return _this.$el.toggle(_this.states.size() > 1);
+        });
+        this.states.on('revert', function(state) {
+          var num;
+          _this.query = state.get('query').clone();
+          num = state.get('stepNo');
+          _this.display.loadQuery(_this.query);
+          _this.startListening();
+          _this.states.remove(_this.states.filter(function(s) {
+            return s.get('stepNo') > num;
+          }));
+          return state.trigger('is:current', true);
+        });
+        this.addStep('Original State')();
+        return this.startListening();
+      };
+
+      Trail.prototype.addStep = function(title) {
+        var _this = this;
+        return function() {
+          _this.states.each(function(state) {
+            return state.trigger('is:current', false);
+          });
+          return _this.states.add({
+            query: _this.query.clone(),
+            title: title,
+            stepNo: _this.currentStep++
+          });
+        };
+      };
+
+      Trail.prototype.render = function() {
+        this.$el.append("<div class=\"im-minimiser\">view details</div>");
+        this.addStep("Original State");
+        return this;
+      };
+
+      return Trail;
 
     })(Backbone.View));
   });
@@ -1306,7 +1510,8 @@
           count: intermine.utils.numToString(result.iTotalRecords, ",", 3),
           roots: "rows"
         });
-        return summary.html(html);
+        summary.html(html);
+        return this.query.trigger('count:is', result.iTotalRecords);
       };
 
       Table.prototype.serveResultsFromCache = function(start, size) {
@@ -3836,28 +4041,38 @@
 
       DashBoard.prototype.TABLE_CLASSES = "span9 im-query-results";
 
+      DashBoard.prototype.loadQuery = function(q) {
+        var k, v, _ref, _ref1;
+        this.main.empty();
+        if ((_ref = this.toolbar) != null) {
+          _ref.remove();
+        }
+        this.table = new intermine.query.results.Table(q, this.main);
+        _ref1 = this.tableProperties;
+        for (k in _ref1) {
+          v = _ref1[k];
+          this.table[k] = v;
+        }
+        this.table.render();
+        return this.renderTools(q);
+      };
+
       DashBoard.prototype.render = function() {
         var promise,
           _this = this;
         this.$el.addClass("bootstrap");
         promise = this.service.query(this.query, function(q) {
-          var cb, evt, k, main, v, _ref, _ref1, _results;
-          main = _this.make("div", {
+          var cb, evt, _ref, _results;
+          _this.main = $(_this.make("div", {
             "class": _this.TABLE_CLASSES
-          });
-          _this.$el.append(main);
-          _this.table = new intermine.query.results.Table(q, main);
-          _ref = _this.tableProperties;
-          for (k in _ref) {
-            v = _ref[k];
-            _this.table[k] = v;
-          }
-          _this.table.render();
-          _this.renderTools(q);
-          _ref1 = _this.queryEvents;
+          }));
+          _this.$el.append(_this.main);
+          _this.loadQuery(q, _this.main);
+          _this.renderTrail(q);
+          _ref = _this.queryEvents;
           _results = [];
-          for (evt in _ref1) {
-            cb = _ref1[evt];
+          for (evt in _ref) {
+            cb = _ref[evt];
             _results.push(q.on(evt, cb));
           }
           return _results;
@@ -3869,13 +4084,19 @@
       };
 
       DashBoard.prototype.renderTools = function(q) {
-        var toolbar, tools;
+        var tools;
         tools = this.make("div", {
           "class": "span3 im-query-toolbox"
         });
         this.$el.append(tools);
-        toolbar = new intermine.query.tools.Tools(q);
-        return toolbar.render().$el.appendTo(tools);
+        this.toolbar = new intermine.query.tools.Tools(q);
+        return this.toolbar.render().$el.appendTo(tools);
+      };
+
+      DashBoard.prototype.renderTrail = function(q) {
+        var trail;
+        trail = new intermine.query.tools.Trail(q, this);
+        return trail.render().$el.prependTo(this.el);
       };
 
       return DashBoard;
@@ -3894,9 +4115,8 @@
       CompactView.prototype.TABLE_CLASSES = "im-query-results";
 
       CompactView.prototype.renderTools = function(q) {
-        var toolbar;
-        toolbar = new intermine.query.tools.ToolBar(q);
-        return toolbar.render().$el.prependTo(this.el);
+        this.toolbar = new intermine.query.tools.ToolBar(q);
+        return this.toolbar.render().$el.insertBefore(this.main);
       };
 
       return CompactView;
