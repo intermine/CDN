@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Fri Jun 29 2012 11:15:08 GMT+0100 (BST)
+ * Built at Fri Jun 29 2012 12:02:08 GMT+0100 (BST)
 */
 
 
@@ -718,10 +718,11 @@
           return _this.$('.im-step-count .count').text(intermine.utils.numToString(count, ',', 3));
         });
         this.model.on('is:current', function(isCurrent) {
-          _this.$('.btn').toggleClass('btn-warning', !isCurrent).attr({
+          _this.$('.btn').toggleClass('btn-inverse', !isCurrent).attr({
             disabled: isCurrent
           });
-          return _this.$('.btn-large').text(isCurrent ? "Current State" : "Revert to this State");
+          _this.$('.btn-main').text(isCurrent ? "Current State" : "Revert to this State");
+          return _this.$('.btn i').toggleClass('icon-white', !isCurrent);
         });
         return this.model.on('remove', function() {
           return _this.remove();
@@ -744,7 +745,7 @@
       Step.prototype.render = function() {
         var addSection, c, clist, details, jlist, p, path, ps, q, style, toLabel, v, vlist, _fn, _fn1, _fn2, _i, _j, _len, _len1, _ref, _ref1,
           _this = this;
-        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\">\n    <i class=icon-refresh></i>\n</button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-large\" disabled>Current State</button>");
+        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\">\n    <i class=icon-refresh></i>\n</button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-main\" disabled>Current State</button>");
         this.$('.btn-small').tooltip();
         q = this.model.get('query');
         details = this.$('.im-step-details');

@@ -370,6 +370,9 @@
     font-size: 0.95em;
 }
 
+.typeahead.dropdown-menu li  {
+    list-style-type: none;
+}
 .typeahead.dropdown-menu li > a {
     width: 100%;
     display: inline-block;
@@ -796,9 +799,11 @@ td.im-result-subtable .im-subtable {
     display: none;
 }
 
+.im-query-trail.minimised .im-step-count,
 .im-query-trail.minimised .btn-small {
     float: right;
     display: inline-block;
+    margin-left: 1em;
 }
 
 
@@ -1024,6 +1029,10 @@ li.im-outer-joined-path {
     list-style-type: none;
     padding: 0.2em 0;
     border-bottom: 1px solid #ddd;
+}
+
+.im-reorderable h4 {
+    display: inline-block;
 }
 
 .im-reorderable li.im-outer-joined-path {
