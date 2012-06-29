@@ -408,6 +408,12 @@
   border-radius: 4px;
 }
 
+.im-query-display .pagination li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
 .im-query-results .pagination {
     float: right;
     display: inline;
