@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Fri Jun 29 2012 12:02:08 GMT+0100 (BST)
+ * Built at Fri Jun 29 2012 12:43:12 GMT+0100 (BST)
 */
 
 
@@ -1593,7 +1593,6 @@
       Table.prototype.render = function() {
         var tel;
         this.$el.empty();
-        this.$el.append("<div class=\"im-table-summary\"></div>");
         tel = this.make("table", this.tableAttrs);
         this.$el.append(tel);
         jQuery(tel).append("<h2>Building table</h2>\n<div class=\"progress progress-striped active progress-info\">\n    <div class=\"bar\" style=\"width: 100%\"></div>\n</div>");
@@ -1649,14 +1648,14 @@
       Table.prototype.onSetupSuccess = function(telem) {
         var _this = this;
         return function(result) {
-          var $pagination, $scrollwrapper, $telem, currentPageButton, currentPos, pageSelector, reorderer, scrollbar;
+          var $pagination, $scrollwrapper, $telem, $widgets, currentPageButton, currentPos, pageSelector, reorderer, scrollbar;
           $telem = jQuery(telem).empty();
-          reorderer = new intermine.query.results.table.ColumnOrderer(_this.query);
-          reorderer.render().$el.insertBefore(telem);
-          $pagination = $(_this.paginationTempl()).insertBefore(telem);
+          $widgets = $('<div>').insertBefore(telem);
+          $pagination = $(_this.paginationTempl()).appendTo($widgets);
           $pagination.find('li').tooltip({
             placement: "left"
           });
+          $widgets.append("<div class=\"im-table-summary\"></div>");
           pageSelector = $pagination.find('select').change(function() {
             _this.table.goToPage(pageSelector.val());
             currentPageButton.show();
@@ -1671,8 +1670,10 @@
             currentPageButton.hide();
             return pageSelector.parent().show();
           });
+          reorderer = new intermine.query.results.table.ColumnOrderer(_this.query);
+          reorderer.render().$el.appendTo($widgets);
           if (_this.bar === 'horizontal') {
-            $scrollwrapper = $(_this.horizontalScroller).insertBefore(telem);
+            $scrollwrapper = $(_this.horizontalScroller).appendTo($widgets);
             scrollbar = _this.$('.scroll-bar');
             currentPos = 0;
             scrollbar.draggable({
@@ -1706,6 +1707,7 @@
               }
             });
           }
+          $widgets.append("<div style=\"clear:both\"></div>");
           _this.table = new ResultsTable(_this.query, _this.getRowData);
           _this.table.setElement(telem);
           if (_this.pageSize != null) {
@@ -4194,7 +4196,7 @@
         return this.query.on("change:sortorder", this.initSorting);
       };
 
-      ColumnOrderer.prototype.template = _.template("<a class=\"btn btn-large im-reorderer\">\n    <i class=\"icon-move\"></i>\n    Manage Columns\n</a>\n<div class=\"modal fade im-col-order-dialog\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Manage Columns</a>\n    </div>\n    <div class=\"modal-body\">\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a data-target=\".im-reordering\" data-toggle=\"tab\">Re-Order Columns</a></li>\n            <li><a data-target=\".im-sorting\" data-toggle=\"tab\">Re-Sort Columns</a></li>\n        </ul>\n        <div class=\"tab-content\">\n            <div class=\"tab-pane fade im-reordering active in\">\n                <div class=\"node-adder\"></div>\n                <ul class=\"im-reordering-container well\"></ul>\n            </div>\n            <div class=\"tab-pane fade im-sorting\">\n                <ul class=\"im-sorting-container well\"></ul>\n                <ul class=\"im-sorting-container-possibilities well\"></ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <a class=\"btn btn-cancel\">\n            Cancel\n        </a>\n        <a class=\"btn pull-right btn-primary\">\n            Apply\n        </a>\n    </div>\n</div>");
+      ColumnOrderer.prototype.template = _.template("<a class=\"btn btn-large im-reorderer\">\n    <i class=\"icon-move\"></i>\n    Manage Columns\n</a>\n<div class=\"modal fade im-col-order-dialog\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Manage Columns</a>\n    </div>\n    <div class=\"modal-body\">\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a data-target=\".im-reordering\" data-toggle=\"tab\">Re-Order Columns</a></li>\n            <li><a data-target=\".im-sorting\" data-toggle=\"tab\">Re-Sort Columns</a></li>\n        </ul>\n        <div class=\"tab-content\">\n            <div class=\"tab-pane fade im-reordering active in\">\n                <div class=\"node-adder\"></div>\n                <ul class=\"im-reordering-container well\"></ul>\n            </div>\n            <div class=\"tab-pane fade im-sorting\">\n                <ul class=\"im-sorting-container well\"></ul>\n                <ul class=\"im-sorting-container-possibilities well\"></ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <a class=\"btn btn-cancel\">\n            Cancel\n        </a>\n        <a class=\"btn pull-right btn-primary\">\n            Apply\n        </a>\n    </div>\n</div>\n<div style=\"clear: both;\"></div>");
 
       ColumnOrderer.prototype.viewTemplate = _.template("<li class=\"im-reorderable breadcrumb\" data-col-idx=\"<%= idx %>\" data-path=\"<%- path %>\">\n    <i class=\"icon-move\"></i>\n    <h4 class=\"im-display-name\"><%- displayName %></span>\n</li>");
 
