@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Thu Jun 28 2012 16:08:48 GMT+0100 (BST)
+ * Built at Fri Jun 29 2012 11:15:08 GMT+0100 (BST)
 */
 
 
@@ -744,7 +744,7 @@
       Step.prototype.render = function() {
         var addSection, c, clist, details, jlist, p, path, ps, q, style, toLabel, v, vlist, _fn, _fn1, _fn2, _i, _j, _len, _len1, _ref, _ref1,
           _this = this;
-        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\"><i class=icon-refresh></i></button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-large\" disabled>Current State</button>");
+        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\">\n    <i class=icon-refresh></i>\n</button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-large\" disabled>Current State</button>");
         this.$('.btn-small').tooltip();
         q = this.model.get('query');
         details = this.$('.im-step-details');
@@ -2541,7 +2541,7 @@
       ActionBar.prototype.extraClass = "im-action";
 
       ActionBar.prototype.actionClasses = function() {
-        return [intermine.query.columns.ColumnAdder, ListManager, CodeGenerator, Exporters];
+        return [ListManager, CodeGenerator, Exporters];
       };
 
       return ActionBar;
@@ -3447,7 +3447,7 @@
 
   scope("intermine.results.table", function(exporting) {
     var CELL_HTML, Cell, HIDDEN_FIELDS, NullCell, SubTable;
-    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\" style=\"display: none\" data-obj-id=\"<%= id %>\" \n    <% if (selected) { %>checked <% }; %>\n    data-obj-type=\"<%= type %>\">\n<% if (value == null) { %>\n<span class=\"null-value\">no value</span>\n<% } else { %>\n    <a class=\"im-cell-link\" href=\"<%= base %><%= url %>\"><%= value %></a>\n<% } %>\n<% if (field == 'url') { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\" style=\"display: none\" data-obj-id=\"<%= id %>\" \n    <% if (selected) { %>checked <% }; %>\n    data-obj-type=\"<%= type %>\">\n<% if (value == null) { %>\n    <span class=\"null-value\">no value</span>\n<% } else { %>\n    <% if (url != null && url.match(/^http/)) { %>\n      <a class=\"im-cell-link\" href=\"<%= url %>\"><%= value %></a>\n    <% } else { %>\n      <a class=\"im-cell-link\" href=\"<%= base %><%= url %>\"><%= value %></a>\n    <% } %>\n<% } %>\n<% if (field == 'url') { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
     HIDDEN_FIELDS = ["class", "objectId"];
     exporting(SubTable = (function(_super) {
 
@@ -4193,7 +4193,7 @@
         return this.query.on("change:sortorder", this.initSorting);
       };
 
-      ColumnOrderer.prototype.template = _.template("<a class=\"btn btn-large im-reorderer\">\n    <i class=\"icon-move\"></i>\n    Manage Columns\n</a>\n<div class=\"modal fade im-col-order-dialog\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Manage Columns</a>\n    </div>\n    <div class=\"modal-body\">\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a data-target=\".im-reordering\" data-toggle=\"tab\">Re-Order Columns</a></li>\n            <li><a data-target=\".im-sorting\" data-toggle=\"tab\">Re-Sort Columns</a></li>\n        </ul>\n        <div class=\"tab-content\">\n            <div class=\"tab-pane fade im-reordering active in\">\n                <ul class=\"im-reordering-container well\"></ul>\n            </div>\n            <div class=\"tab-pane fade im-sorting\">\n                <ul class=\"im-sorting-container well\"></ul>\n                <ul class=\"im-sorting-container-possibilities well\"></ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <a class=\"btn btn-cancel\">\n            Cancel\n        </a>\n        <a class=\"btn pull-right btn-primary\">\n            Apply\n        </a>\n    </div>\n</div>");
+      ColumnOrderer.prototype.template = _.template("<a class=\"btn btn-large im-reorderer\">\n    <i class=\"icon-move\"></i>\n    Manage Columns\n</a>\n<div class=\"modal fade im-col-order-dialog\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Manage Columns</a>\n    </div>\n    <div class=\"modal-body\">\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a data-target=\".im-reordering\" data-toggle=\"tab\">Re-Order Columns</a></li>\n            <li><a data-target=\".im-sorting\" data-toggle=\"tab\">Re-Sort Columns</a></li>\n        </ul>\n        <div class=\"tab-content\">\n            <div class=\"tab-pane fade im-reordering active in\">\n                <div class=\"node-adder\"></div>\n                <ul class=\"im-reordering-container well\"></ul>\n            </div>\n            <div class=\"tab-pane fade im-sorting\">\n                <ul class=\"im-sorting-container well\"></ul>\n                <ul class=\"im-sorting-container-possibilities well\"></ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <a class=\"btn btn-cancel\">\n            Cancel\n        </a>\n        <a class=\"btn pull-right btn-primary\">\n            Apply\n        </a>\n    </div>\n</div>");
 
       ColumnOrderer.prototype.viewTemplate = _.template("<li class=\"im-reorderable breadcrumb\" data-col-idx=\"<%= idx %>\" data-path=\"<%- path %>\">\n    <i class=\"icon-move\"></i>\n    <h4 class=\"im-display-name\"><%- displayName %></span>\n</li>");
 
@@ -4232,7 +4232,7 @@
       };
 
       ColumnOrderer.prototype.initOrdering = function() {
-        var colContainer, i, processed, v, _fn, _i, _len, _ref,
+        var ca, colContainer, i, nodeAdder, processed, v, _fn, _i, _len, _ref,
           _this = this;
         colContainer = this.$('.im-reordering-container');
         colContainer.empty();
@@ -4297,6 +4297,9 @@
           v = _ref[i];
           _fn(v, i);
         }
+        nodeAdder = this.$('.node-adder');
+        ca = new intermine.query.columns.ColumnAdder(this.query);
+        nodeAdder.empty().append(ca.render().el);
         return colContainer;
       };
 
