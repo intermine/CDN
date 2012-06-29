@@ -1,0 +1,21 @@
+{
+    "name": "font-awesome",
+    "filename": "font-awesome.css",
+    "description": "Font Awesome provides bootstrap compatible vector fonts",
+    "homepage": "http://fortawesome.github.com/Font-Awesome",
+    "keywords": [
+       "cross browser, html5, noimages"
+   ],
+   "maintainers": [
+       {
+           "name": "Dave Gandy"
+       }
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "https://github.com/fortawesome/Font-Awesome.git" 
+       } 
+   ]
+
+}
