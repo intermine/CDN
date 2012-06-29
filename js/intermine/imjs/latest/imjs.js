@@ -1431,12 +1431,8 @@
     };
 
     Query.prototype.select = function(views) {
-      var v, _i, _len;
       this.views = [];
-      for (_i = 0, _len = views.length; _i < _len; _i++) {
-        v = views[_i];
-        this.addToSelect(v);
-      }
+      this.addToSelect(views);
       return this;
     };
 
