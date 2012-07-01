@@ -219,12 +219,12 @@
     var _displayNameCache = {};
 
     PathInfo.prototype.getDisplayName = function(cb) {
-        var wrapped, self = this;
+        var wrapped, promise, self = this;
         var cacheKey = this.toString() + ":" + _.map(this.subclasses, function(v, k) {return k + "=" + v}).join(';');
         var displayName;
-        if (_displayNameCache[cacheKey] != null) {
+        if (this.displayName != null || _displayNameCache[cacheKey] != null) {
             promise = new Deferred();
-            displayName = _displayNameCache[cacheKey];
+            displayName = (this.displayName || _displayNameCache[cacheKey]);
             if (cb != null) {
                 cb(displayName);
             }
@@ -1323,7 +1323,7 @@
 
       this.adjustPath = __bind(this.adjustPath, this);
 
-      var _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8;
+      var _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
       _.defaults(this, {
         constraints: [],
         views: [],
@@ -1334,12 +1334,13 @@
       if (properties == null) {
         properties = {};
       }
+      this.displayNames = (_ref2 = properties.aliases) != null ? _ref2 : {};
       this.service = service != null ? service : {};
-      this.model = (_ref2 = properties.model) != null ? _ref2 : {};
-      this.summaryFields = (_ref3 = properties.summaryFields) != null ? _ref3 : {};
-      this.root = (_ref4 = properties.root) != null ? _ref4 : properties.from;
-      this.maxRows = (_ref5 = (_ref6 = properties.size) != null ? _ref6 : properties.limit) != null ? _ref5 : properties.maxRows;
-      this.start = (_ref7 = (_ref8 = properties.start) != null ? _ref8 : properties.offset) != null ? _ref7 : 0;
+      this.model = (_ref3 = properties.model) != null ? _ref3 : {};
+      this.summaryFields = (_ref4 = properties.summaryFields) != null ? _ref4 : {};
+      this.root = (_ref5 = properties.root) != null ? _ref5 : properties.from;
+      this.maxRows = (_ref6 = (_ref7 = properties.size) != null ? _ref7 : properties.limit) != null ? _ref6 : properties.maxRows;
+      this.start = (_ref8 = (_ref9 = properties.start) != null ? _ref9 : properties.offset) != null ? _ref8 : 0;
       this.select(properties.views || properties.select || []);
       this.addConstraints(properties.constraints || properties.where || []);
       this.addJoins(properties.joins || properties.join || []);
@@ -1482,8 +1483,13 @@
     };
 
     Query.prototype.getPathInfo = function(path) {
-      var _ref2;
-      return (_ref2 = this.service.model) != null ? _ref2.getPathInfo(this.adjustPath(path), this.getSubclasses()) : void 0;
+      var adjusted, pi, _ref2;
+      adjusted = this.adjustPath(path);
+      pi = (_ref2 = this.service.model) != null ? _ref2.getPathInfo(adjusted, this.getSubclasses()) : void 0;
+      if (adjusted in this.displayNames) {
+        pi.displayName = this.displayNames[adjusted];
+      }
+      return pi;
     };
 
     Query.prototype.getSubclasses = function() {
