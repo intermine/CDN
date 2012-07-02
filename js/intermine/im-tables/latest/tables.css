@@ -483,6 +483,12 @@ table.table {
     left: 3em;
 }
 
+.im-table-container th.im-has-constraint {
+    border: 2px dashed #ccc;
+}
+.im-table-container th.im-has-constraint .im-col-filters {
+    color: #08c;
+}
 
 th .im-col-summary.navbar {
     margin-bottom: 0px;
@@ -572,6 +578,7 @@ table.table thead .sorting_desc_disabled {
     display: block;    
 }
 
+
 .im-summary.dropdown {
     display: inline-block;
     float: right;
@@ -590,6 +597,10 @@ table.table thead .sorting_desc_disabled {
     max-width: 26em;
     font-family: 'Muli', 'Helvetica', sans-serif;
     font-weight: normal;
+}
+
+.im-filter-summary .dropdown-menu {
+    top: 65px;
 }
 
 tr > th:last-child .im-th-buttons .dropdown-menu {
@@ -743,9 +754,10 @@ td.im-result-subtable .im-subtable {
 }
 
 .node-adder .dropdown-menu {
-    max-height: 50em;
-    overflow: auto;
-    min-width: 22em;
+    max-height: 20em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 36em;
 }
 
 .im-query-actionbar .im-action::after {
@@ -794,9 +806,22 @@ td.im-result-subtable .im-subtable {
     position: relative;
 }
 
-
 .im-query-trail.well.minimised {
     padding: 10px;
+}
+
+.im-query-trail a.shade {
+    float: right;
+}
+
+.im-query-trail.well.toggled {
+    padding: 0;
+    height: 0.5em;
+    min-height: 0;
+}
+
+.im-query-trail .im-trail-summary {
+    float: left;
 }
 
 .im-query-trail.minimised h2,
@@ -1285,7 +1310,7 @@ form.im-join {
 
 .im-th-buttons {
     float: right;
-    max-width: 25px;
+    max-width: 1em;
     display: block;
     margin-bottom: 0.2em;
 }

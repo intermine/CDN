@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Fri Jun 29 2012 12:43:12 GMT+0100 (BST)
+ * Built at Mon Jul 02 2012 14:13:30 GMT+0100 (BST)
 */
 
 
@@ -164,7 +164,8 @@
       Attribute.prototype.handleClick = function(e) {
         e.stopPropagation();
         e.preventDefault();
-        return this.evts.trigger('chosen', this.path);
+        this.evts.trigger('chosen', this.path);
+        return this.$el.addClass('active');
       };
 
       Attribute.prototype.initialize = function(query, path, depth, evts) {
@@ -526,8 +527,6 @@
 
       ConstraintAdder.prototype.showTree = function(e) {
         var pathFinder;
-        e.stopPropagation();
-        e.preventDefault();
         if (this.$pathfinder) {
           this.$pathfinder.remove();
           return this.$pathfinder = null;
@@ -592,10 +591,7 @@
           placeholder: this.inputPlaceholder
         });
         this.$el.append(input);
-        browser = $(this.make('button', {
-          type: "button",
-          "class": "btn"
-        }, "Browse"));
+        browser = $("<button type=\"button\" class=\"btn btn-chooser\" data-toggle=\"button\">\n    <i class=\"icon-sitemap\"></i>\n    Browse\n</button>");
         approver = $(this.make('button', {
           type: "button",
           "class": "btn btn-primary",
@@ -745,7 +741,7 @@
       Step.prototype.render = function() {
         var addSection, c, clist, details, jlist, p, path, ps, q, style, toLabel, v, vlist, _fn, _fn1, _fn2, _i, _j, _len, _len1, _ref, _ref1,
           _this = this;
-        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\">\n    <i class=icon-refresh></i>\n</button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-main\" disabled>Current State</button>");
+        this.$el.append("<h2>" + (this.model.get('title')) + "</h2>\n<div class=\"im-step-details\"></div>\n<button class=\"btn btn-small\" disabled title=\"Revert to this state\">\n    <i class=icon-undo></i>\n</button>\n<div class=\"im-step-count\"><span class=\"count\"></span> rows</div>\n<button class=\"btn btn-main\" disabled>Current State</button>");
         this.$('.btn-small').tooltip();
         q = this.model.get('query');
         details = this.$('.im-step-details');
@@ -836,7 +832,15 @@
       Trail.prototype.tagName = "ul";
 
       Trail.prototype.events = {
-        'click .im-minimiser': 'minumaximise'
+        'click a.details': 'minumaximise',
+        'click a.shade': 'toggle'
+      };
+
+      Trail.prototype.toggle = function() {
+        var _this = this;
+        return this.$('.im-step').slideToggle('fast', function() {
+          return _this.$el.toggleClass("toggled");
+        });
       };
 
       Trail.prototype.minumaximise = function() {
@@ -864,6 +868,7 @@
           }).render().el);
         });
         this.states.on('add remove', function() {
+          _this.$('.im-trail-summary').text("query history: " + (_this.states.size()) + " states");
           return _this.$el.toggle(_this.states.size() > 1);
         });
         this.states.on('revert', function(state) {
@@ -896,7 +901,7 @@
       };
 
       Trail.prototype.render = function() {
-        this.$el.append("<div class=\"im-minimiser\">view details</div>");
+        this.$el.append("<div class=\"im-minimiser\">\n  <span class=\"im-trail-summary\"></span>\n  <a class=\"details\" href=\"#\">view details</a>\n  <a href=\"#\" class=\"shade\"><i class=\"icon-minus-sign\"></i></a>\n</div>");
         this.addStep("Original State");
         return this;
       };
@@ -907,10 +912,14 @@
   });
 
   scope("intermine.css", {
+    unsorted: "icon-sort",
+    sortedASC: "icon-sort-up",
+    sortedDESC: "icon-sort-down",
     headerIcon: "icon-white",
     headerIconRemove: "icon-remove-sign",
     headerIconHide: "icon-minus-sign",
-    headerIconSummary: "icon-info-sign"
+    headerIconFilter: "icon-filter",
+    headerIconSummary: "icon-bar-chart"
   });
 
   scope("intermine.query.results", function(exporting) {
@@ -1091,11 +1100,11 @@
       };
 
       ResultsTable.prototype.columnHeaderTempl = function(ctx) {
-        return _.template("<th title=\"<%- title %>\">\n    <div class=\"navbar\">\n        <div class=\"im-th-buttons\">\n            <% if (sortable) { %>\n                <div class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n                    <i class=\"icon-resize-vertical " + intermine.css.headerIcon + "\"></i>\n                </div>\n            <% }; %>\n            <div class=\"im-th-button im-col-remover\" title=\"remove this column\" data-view=\"<%= view %>\">\n                <i class=\"" + intermine.css.headerIconRemove + " " + intermine.css.headerIcon + "\"></i>\n            </div>\n            <div class=\"im-th-button im-col-minumaximiser\" title=\"Hide column\" data-col-idx=\"<%= i %>\">\n                <i class=\"" + intermine.css.headerIconHide + " " + intermine.css.headerIcon + "\"></i>\n            </div>\n            <div class=\"dropdown im-summary\">\n                <div class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n                    data-toggle=\"dropdown\" data-col-idx=\"<%= i %>\" >\n                    <i class=\"" + intermine.css.headerIconSummary + " " + intermine.css.headerIcon + "\"></i>\n                </div>\n                <div class=\"dropdown-menu\">\n                    <div>Could not ititialise the column summary.</div>\n                </div>\n            </div>\n        </div>\n        <span class=\"im-col-title\"><%- title %></span>\n    </div>\n</th>", ctx);
+        return _.template("<th title=\"<%- title %>\">\n    <div class=\"navbar\">\n        <div class=\"im-th-buttons\">\n            <% if (sortable) { %>\n                <div class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n                    <i class=\"icon-sorting " + intermine.css.unsorted + " " + intermine.css.headerIcon + "\"></i>\n                </div>\n            <% }; %>\n            <div class=\"im-th-button im-col-remover\" title=\"remove this column\" data-view=\"<%= view %>\">\n                <i class=\"" + intermine.css.headerIconRemove + " " + intermine.css.headerIcon + "\"></i>\n            </div>\n            <div class=\"im-th-button im-col-minumaximiser\" title=\"Hide column\" data-col-idx=\"<%= i %>\">\n                <i class=\"" + intermine.css.headerIconHide + " " + intermine.css.headerIcon + "\"></i>\n            </div>\n            <div class=\"dropdown im-filter-summary\">\n                <div class=\"im-th-button im-col-filters dropdown-toggle\"\n                     title=\"column summary\"\n                     data-toggle=\"dropdown\" data-col-idx=\"<%= i %>\" >\n                    <i class=\"" + intermine.css.headerIconFilter + " " + intermine.css.headerIcon + "\"></i>\n                </div>\n                <div class=\"dropdown-menu\">\n                    <div>Could not ititialise the filter summary.</div>\n                </div>\n            </div>\n            <div class=\"dropdown im-summary\">\n                <div class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n                    data-toggle=\"dropdown\" data-col-idx=\"<%= i %>\" >\n                    <i class=\"" + intermine.css.headerIconSummary + " " + intermine.css.headerIcon + "\"></i>\n                </div>\n                <div class=\"dropdown-menu\">\n                    <div>Could not ititialise the column summary.</div>\n                </div>\n            </div>\n        </div>\n        <span class=\"im-col-title\"><%- title %></span>\n    </div>\n</th>", ctx);
       };
 
       ResultsTable.prototype.buildColumnHeader = function(view, i, title, tr) {
-        var cmd, cmds, direction, expandAll, minumaximiser, path, q, setDirectionClass, sortButton, sortable, th,
+        var cmd, cmds, direction, expandAll, filterSummary, minumaximiser, path, q, setDirectionClass, sortButton, sortable, th,
           _this = this;
         q = this.query;
         direction = q.getSortDirection(view);
@@ -1107,30 +1116,30 @@
           sortable: sortable
         }));
         tr.append(th);
+        if (_.any(q.constraints, (function(c) {
+          return !!c.path.match(view);
+        }))) {
+          th.addClass('im-has-constraint');
+        }
         th.find('.im-th-button').tooltip({
           placement: "left"
         });
-        sortButton = th.find('.icon-resize-vertical');
+        sortButton = th.find('.icon-sorting');
         setDirectionClass = function(d) {
-          sortButton.addClass("icon-resize-vertical");
-          sortButton.removeClass("icon-arrow-up icon-arrow-down");
-          switch (d) {
-            case 'ASC':
-              return sortButton.toggleClass("icon-resize-vertical icon-arrow-up");
-            case 'DESC':
-              return sortButton.toggleClass("icon-resize-vertical icon-arrow-down");
+          sortButton.addClass(intermine.css.unsorted);
+          sortButton.removeClass("" + intermine.css.sortedASC + " " + intermine.css.sortedDESC);
+          if (d) {
+            return sortButton.toggleClass("" + intermine.css.unsorted + " " + intermine.css['sorted' + d]);
           }
         };
         setDirectionClass(direction);
         this.query.on("set:sortorder", function() {
           var sd;
           sd = q.getSortDirection(view);
-          if (sd) {
-            return setDirectionClass(sd);
-          }
+          return setDirectionClass(sd);
         });
         direction = ResultsTable.nextDirections[direction] || "ASC";
-        sortButton.click(function(e) {
+        sortButton.parent().click(function(e) {
           var $elem;
           $elem = $(this);
           q.orderBy([
@@ -1139,15 +1148,6 @@
               direction: direction
             }
           ]);
-          tr.find('.im-col-sort-indicator i').removeClass("icon-arrow-up icon-arrow-down");
-          tr.find('.im-col-sort-indicator i').addClass("icon-resize-vertical");
-          switch (direction) {
-            case "ASC":
-              sortButton.toggleClass("icon-resize-vertical icon-arrow-up");
-              break;
-            case "DESC":
-              sortButton.toggleClass("icon-resize-vertical icon-arrow-down");
-          }
           return direction = ResultsTable.nextDirections[direction];
         });
         minumaximiser = th.find('.im-col-minumaximiser');
@@ -1158,12 +1158,14 @@
           th.find('.im-col-title').toggle(!isMinimised);
           return _this.fill();
         });
+        filterSummary = th.find('.im-col-filters');
+        filterSummary.click(this.showFilterSummary(view)).dropdown();
         path = q.getPathInfo(view);
         if (path.isAttribute()) {
           return th.find('.summary-img').click(this.showColumnSummary(path)).dropdown();
         } else {
           th.find('.summary-img').click(this.showOuterJoinedColumnSummaries(path)).dropdown();
-          expandAll = $("<div class=\"im-th-button\" title=\"Expand/Collapse all subtables\">\n    <i class=\"icon-th-list icon-white\"></i>\n</div>");
+          expandAll = $("<div class=\"im-th-button\" title=\"Expand/Collapse all subtables\">\n    <i class=\"icon-table icon-white\"></i>\n</div>");
           expandAll.tooltip({
             placement: 'left'
           });
@@ -1242,6 +1244,20 @@
           $el = jQuery(e.target).closest('.summary-img');
           if (!$el.parent().hasClass('open')) {
             summ = new intermine.query.results.OuterJoinDropDown(path, _this.query);
+            $el.siblings('.dropdown-menu').html(summ.render().el);
+          }
+          return false;
+        };
+      };
+
+      ResultsTable.prototype.showFilterSummary = function(path) {
+        var _this = this;
+        return function(e) {
+          var $el, summ;
+          console.log(path);
+          $el = jQuery(e.target).closest('.im-col-filters');
+          if (!$el.parent().hasClass('open')) {
+            summ = new intermine.query.filters.SingleColumnConstraints(_this.query, path);
             $el.siblings('.dropdown-menu').html(summ.render().el);
           }
           return false;
@@ -1934,7 +1950,7 @@
         var cons, heading, summ;
         heading = new SummaryHeading(this.query, this.view);
         heading.render().$el.appendTo(this.el);
-        cons = new intermine.query.filters.SingleColumnConstraints(this.query, this.view);
+        cons = new intermine.query.filters.SingleColumnConstraintsSummary(this.query, this.view);
         cons.render().$el.appendTo(this.el);
         summ = new intermine.results.ColumnSummary(this.view, this.query);
         summ.noTitle = true;
@@ -1995,7 +2011,7 @@
   });
 
   scope("intermine.query.filters", function(exporting) {
-    var Constraints, FACETS, Facets, Filters, SingleColumnConstraints, SingleConstraintAdder;
+    var Constraints, FACETS, Facets, Filters, SingleColumnConstraints, SingleColumnConstraintsSummary, SingleConstraintAdder;
     exporting(Filters = (function(_super) {
 
       __extends(Filters, _super);
@@ -2126,7 +2142,7 @@
       };
 
       Constraints.prototype.render = function() {
-        var c, cons, ul, _fn, _i, _len,
+        var c, cons, ul, _fn, _i, _len, _ref,
           _this = this;
         cons = this.getConstraints();
         this.$el.empty();
@@ -2140,7 +2156,9 @@
           c = cons[_i];
           _fn(c);
         }
-        this.getConAdder().render().$el.appendTo(this.el);
+        if ((_ref = this.getConAdder()) != null) {
+          _ref.render().$el.appendTo(this.el);
+        }
         return this;
       };
 
@@ -2183,7 +2201,7 @@
       return SingleConstraintAdder;
 
     })(intermine.query.ConstraintAdder);
-    return exporting(SingleColumnConstraints = (function(_super) {
+    exporting(SingleColumnConstraints = (function(_super) {
 
       __extends(SingleColumnConstraints, _super);
 
@@ -2206,16 +2224,29 @@
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           c = _ref[_i];
-          if (c.path === this.view) {
+          if (c.path.match(this.view)) {
             _results.push(c);
           }
         }
         return _results;
       };
 
-      SingleColumnConstraints.prototype.render = function() {
+      return SingleColumnConstraints;
+
+    })(Constraints));
+    return exporting(SingleColumnConstraintsSummary = (function(_super) {
+
+      __extends(SingleColumnConstraintsSummary, _super);
+
+      function SingleColumnConstraintsSummary() {
+        return SingleColumnConstraintsSummary.__super__.constructor.apply(this, arguments);
+      }
+
+      SingleColumnConstraintsSummary.prototype.getConAdder = function() {};
+
+      SingleColumnConstraintsSummary.prototype.render = function() {
         var cons;
-        SingleColumnConstraints.__super__.render.call(this);
+        SingleColumnConstraintsSummary.__super__.render.call(this);
         cons = this.getConstraints();
         if (cons.length < 1) {
           this.undelegateEvents();
@@ -2224,13 +2255,13 @@
         return this;
       };
 
-      return SingleColumnConstraints;
+      return SingleColumnConstraintsSummary;
 
-    })(Constraints));
+    })(SingleColumnConstraints));
   });
 
   scope("intermine.query.columns", function(exporting) {
-    var ATTR_HTML, ColumnAdder, Columns, CurrentColumns, JOIN_TOGGLE_HTML, Selectable;
+    var ATTR_HTML, Columns, CurrentColumns, JOIN_TOGGLE_HTML, Selectable;
     exporting(Columns = (function(_super) {
 
       __extends(Columns, _super);
@@ -2301,28 +2332,6 @@
       return CurrentColumns;
 
     })(Backbone.View);
-    exporting(ColumnAdder = (function(_super) {
-
-      __extends(ColumnAdder, _super);
-
-      function ColumnAdder() {
-        this.handleSubmission = __bind(this.handleSubmission, this);
-        return ColumnAdder.__super__.constructor.apply(this, arguments);
-      }
-
-      ColumnAdder.prototype.className = "form node-adder input-append";
-
-      ColumnAdder.prototype.handleSubmission = function(e) {
-        var newPath;
-        e.preventDefault();
-        e.stopPropagation();
-        newPath = this.$('input').val();
-        return this.query.addToSelect(newPath);
-      };
-
-      return ColumnAdder;
-
-    })(intermine.query.ConstraintAdder));
     JOIN_TOGGLE_HTML = _.template("<form class=\"form-inline pull-right im-join\">\n<div class=\"btn-group\" data-toggle=\"buttons-radio\">\n    <button data-style=\"INNER\" class=\"btn btn-small <% print(outer ? \"\" : \"active\") %>\">\n    Required\n    </button>\n    <button data-style=\"OUTER\" class=\"btn btn-small <% print(outer ? \"active\" : \"\") %>\">\n    Optional\n    </button>\n</div></form>");
     ATTR_HTML = _.template("<input type=\"checkbox\" \n    data-path=\"<%= path %>\"\n    <% inQuery ? print(\"checked\") : \"\" %> >\n<span class=\"im-view-option\">\n    <%= name %> (<% print(type.replace(\"java.lang.\", \"\")) %>)\n</span>");
     return Selectable = (function(_super) {
@@ -2691,7 +2700,7 @@
       return ListDialogue;
 
     })(Backbone.View);
-    ListAppender = (function(_super) {
+    exporting(ListAppender = (function(_super) {
 
       __extends(ListAppender, _super);
 
@@ -2832,7 +2841,7 @@
 
       return ListAppender;
 
-    })(ListDialogue);
+    })(ListDialogue));
     openWindowWithPost = function(uri, name, params) {
       var form, value, w;
       form = $("<form method=\"POST\" action=\"" + uri + "\" target=\"" + name + "\">");
@@ -3500,7 +3509,7 @@
       SubTable.prototype.render = function() {
         var colRoot, colStr, icon, row, summary, t, v, _fn, _fn1, _i, _j, _len, _len1, _ref, _ref1,
           _this = this;
-        icon = this.rows.length > 0 ? '<i class=icon-th-list></i>' : '<i class=icon-non-existent></i>';
+        icon = this.rows.length > 0 ? '<i class=icon-table></i>' : '<i class=icon-non-existent></i>';
         summary = $("<span>" + icon + "&nbsp;" + (this.getSummaryText()) + "</span>");
         summary.addClass('im-subtable-summary').appendTo(this.$el);
         t = $('<table><thead><tr></tr></thead><tbody></tbody></table>');
@@ -4128,7 +4137,7 @@
   });
 
   scope("intermine.query.results.table", function(exporting) {
-    var ColumnOrderer, OuterJoinGroup;
+    var ColumnAdder, ColumnOrderer, OuterJoinGroup;
     OuterJoinGroup = (function(_super) {
 
       __extends(OuterJoinGroup, _super);
@@ -4142,16 +4151,52 @@
       OuterJoinGroup.prototype.className = 'im-reorderable breadcrumb';
 
       OuterJoinGroup.prototype.initialize = function(query, ojg, views, indices) {
+        var paths, v;
         this.query = query;
         this.ojg = ojg;
-        this.views = views;
         this.indices = indices;
+        paths = (function() {
+          var _i, _len, _results;
+          _results = [];
+          for (_i = 0, _len = views.length; _i < _len; _i++) {
+            v = views[_i];
+            _results.push(this.query.getPathInfo(v));
+          }
+          return _results;
+        }).call(this);
+        return this.nodes = _.groupBy(paths, function(p) {
+          return p.getParent().toString();
+        });
+      };
+
+      OuterJoinGroup.prototype.getViews = function() {
+        var key, ret, _fn, _i, _len, _ref,
+          _this = this;
+        ret = [];
+        _ref = _.sortBy(_.keys(this.nodes), function(k) {
+          return k.length;
+        });
+        _fn = function(key) {
+          var node, p, _j, _len1, _results;
+          node = _this.nodes[key];
+          _results = [];
+          for (_j = 0, _len1 = node.length; _j < _len1; _j++) {
+            p = node[_j];
+            _results.push(ret.push(p.toString()));
+          }
+          return _results;
+        };
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          key = _ref[_i];
+          _fn(key);
+        }
+        return ret;
       };
 
       OuterJoinGroup.prototype.render = function() {
-        var h4, ul, v, _fn, _i, _len, _ref,
+        var h4, key, ul, _fn, _i, _len, _ref,
           _this = this;
-        this.$el.append('<i class=icon-move></i>');
+        this.$el.append('<i class="icon-reorder pull-right"></i>');
         h4 = $('<h4>');
         this.$el.append(h4);
         this.ojg.getDisplayName(function(name) {
@@ -4160,28 +4205,84 @@
         this.$el.data('indices', this.indices);
         this.$el.data('path', this.ojg.toString());
         ul = $('<ul>');
-        _ref = this.views;
-        _fn = function(v) {
-          var li;
-          li = $('<li class="im-outer-joined-path">');
-          ul.append(li);
-          return _this.query.getPathInfo(v).getDisplayName(function(name) {
-            return _this.ojg.getDisplayName(function(ojname) {
-              return li.text(name.replace(ojname, '').replace(/^\s*>?\s*/, ''));
-            });
-          });
+        _ref = _.sortBy(_.keys(this.nodes), function(k) {
+          return k.length;
+        });
+        _fn = function(key) {
+          var p, paths, _j, _len1, _results;
+          paths = _this.nodes[key];
+          _results = [];
+          for (_j = 0, _len1 = paths.length; _j < _len1; _j++) {
+            p = paths[_j];
+            _results.push((function(p) {
+              var li;
+              li = $('<li class="im-outer-joined-path">');
+              ul.append(li);
+              return p.getDisplayName(function(name) {
+                return _this.ojg.getDisplayName(function(ojname) {
+                  return li.text(name.replace(ojname, '').replace(/^\s*>?\s*/, ''));
+                });
+              });
+            })(p));
+          }
+          return _results;
         };
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          v = _ref[_i];
-          _fn(v);
+          key = _ref[_i];
+          _fn(key);
         }
         this.$el.append(ul);
         return this;
       };
 
+      OuterJoinGroup.prototype.addPath = function(path) {
+        var node, pi;
+        pi = this.query.getPathInfo(path);
+        node = this.nodes[pi.getParent().toString()];
+        if (node == null) {
+          node = this.nodes[pi.getParent().toString()] = [];
+        }
+        node.push(pi);
+        this.$el.empty();
+        return this.render();
+      };
+
       return OuterJoinGroup;
 
     })(Backbone.View);
+    ColumnAdder = (function(_super) {
+
+      __extends(ColumnAdder, _super);
+
+      function ColumnAdder() {
+        this.handleSubmission = __bind(this.handleSubmission, this);
+        return ColumnAdder.__super__.constructor.apply(this, arguments);
+      }
+
+      ColumnAdder.prototype.className = "form node-adder input-append";
+
+      ColumnAdder.prototype.handleSubmission = function(e) {
+        var newPath, _ref;
+        e.preventDefault();
+        e.stopPropagation();
+        newPath = this.$('input').val();
+        this.query.trigger('column-orderer:selected', newPath);
+        this.$('.btn-chooser').button('toggle');
+        if ((_ref = this.$pathfinder) != null) {
+          _ref.remove();
+        }
+        return this.$pathfinder = null;
+      };
+
+      ColumnAdder.prototype.render = function() {
+        ColumnAdder.__super__.render.call(this);
+        this.$('input').hide();
+        return this;
+      };
+
+      return ColumnAdder;
+
+    })(intermine.query.ConstraintAdder);
     return exporting(ColumnOrderer = (function(_super) {
 
       __extends(ColumnOrderer, _super);
@@ -4192,13 +4293,35 @@
       }
 
       ColumnOrderer.prototype.initialize = function(query) {
+        var _this = this;
         this.query = query;
-        return this.query.on("change:sortorder", this.initSorting);
+        this.query.on("change:sortorder", this.initSorting);
+        return this.query.on('column-orderer:selected', function(path) {
+          var moveableView, ojg;
+          if (_this.query.isOuterJoined(path)) {
+            ojg = _.last(_.sortBy(_.filter(_.values(_this.ojgs), function(ojg) {
+              return !!path.match(ojg.ojg.toString());
+            }), function(ojg) {
+              return ojg.ojg.descriptors.length;
+            }));
+            return ojg.addPath(path);
+          } else {
+            moveableView = $(_this.viewTemplate({
+              path: path,
+              displayName: path,
+              idx: ''
+            }));
+            _this.query.getPathInfo(path).getDisplayName(function(name) {
+              return moveableView.find('.im-display-name').text(name);
+            });
+            return moveableView.appendTo(_this.$('.im-reordering-container'));
+          }
+        });
       };
 
-      ColumnOrderer.prototype.template = _.template("<a class=\"btn btn-large im-reorderer\">\n    <i class=\"icon-move\"></i>\n    Manage Columns\n</a>\n<div class=\"modal fade im-col-order-dialog\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Manage Columns</a>\n    </div>\n    <div class=\"modal-body\">\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a data-target=\".im-reordering\" data-toggle=\"tab\">Re-Order Columns</a></li>\n            <li><a data-target=\".im-sorting\" data-toggle=\"tab\">Re-Sort Columns</a></li>\n        </ul>\n        <div class=\"tab-content\">\n            <div class=\"tab-pane fade im-reordering active in\">\n                <div class=\"node-adder\"></div>\n                <ul class=\"im-reordering-container well\"></ul>\n            </div>\n            <div class=\"tab-pane fade im-sorting\">\n                <ul class=\"im-sorting-container well\"></ul>\n                <ul class=\"im-sorting-container-possibilities well\"></ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <a class=\"btn btn-cancel\">\n            Cancel\n        </a>\n        <a class=\"btn pull-right btn-primary\">\n            Apply\n        </a>\n    </div>\n</div>\n<div style=\"clear: both;\"></div>");
+      ColumnOrderer.prototype.template = _.template("<a class=\"btn btn-large im-reorderer\">\n    <i class=\"icon-wrench\"></i>\n    Manage Columns\n</a>\n<div class=\"modal fade im-col-order-dialog\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Manage Columns</a>\n    </div>\n    <div class=\"modal-body\">\n        <ul class=\"nav nav-tabs\">\n            <li class=\"active\"><a data-target=\".im-reordering\" data-toggle=\"tab\">Re-Order Columns</a></li>\n            <li><a data-target=\".im-sorting\" data-toggle=\"tab\">Re-Sort Columns</a></li>\n        </ul>\n        <div class=\"tab-content\">\n            <div class=\"tab-pane fade im-reordering active in\">\n                <div class=\"node-adder\"></div>\n                <ul class=\"im-reordering-container well\"></ul>\n            </div>\n            <div class=\"tab-pane fade im-sorting\">\n                <ul class=\"im-sorting-container well\"></ul>\n                <ul class=\"im-sorting-container-possibilities well\"></ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <a class=\"btn btn-cancel\">\n            Cancel\n        </a>\n        <a class=\"btn pull-right btn-primary\">\n            Apply\n        </a>\n    </div>\n</div>\n<div style=\"clear: both;\"></div>");
 
-      ColumnOrderer.prototype.viewTemplate = _.template("<li class=\"im-reorderable breadcrumb\" data-col-idx=\"<%= idx %>\" data-path=\"<%- path %>\">\n    <i class=\"icon-move\"></i>\n    <h4 class=\"im-display-name\"><%- displayName %></span>\n</li>");
+      ColumnOrderer.prototype.viewTemplate = _.template("<li class=\"im-reorderable breadcrumb\" data-col-idx=\"<%= idx %>\" data-path=\"<%- path %>\">\n    <i class=\"icon-reorder pull-right\"\"></i>\n    <h4 class=\"im-display-name\"><%- displayName %></span>\n</li>");
 
       ColumnOrderer.prototype.render = function() {
         var colContainer,
@@ -4235,14 +4358,14 @@
       };
 
       ColumnOrderer.prototype.initOrdering = function() {
-        var ca, colContainer, i, nodeAdder, processed, v, _fn, _i, _len, _ref,
+        var ca, colContainer, i, nodeAdder, v, _fn, _i, _len, _ref,
           _this = this;
         colContainer = this.$('.im-reordering-container');
         colContainer.empty();
-        processed = {};
+        this.ojgs = {};
         _ref = this.query.views;
         _fn = function(v, i) {
-          var indices, moveableView, oj, pi, vandi, views, x;
+          var indices, moveableView, oj, ojStr, ojg, pi, vandi, views, x;
           if (_this.query.isOuterJoined(v)) {
             pi = _this.query.getPathInfo(v);
             oj = _this.query.joins[pi.toString()] === 'OUTER' ? pi : null;
@@ -4250,14 +4373,15 @@
               pi = pi.getParent();
               oj = _this.query.joins[pi.toString()] === 'OUTER' ? pi : oj;
             }
-            if (!processed[oj.toString()]) {
+            ojStr = oj.toString();
+            if (!_this.ojgs[ojStr]) {
               vandi = (function() {
                 var _j, _len1, _ref1, _results;
                 _ref1 = this.query.views;
                 _results = [];
                 for (i = _j = 0, _len1 = _ref1.length; _j < _len1; i = ++_j) {
                   v = _ref1[i];
-                  if (v.match(oj.toString())) {
+                  if (v.match(ojStr)) {
                     _results.push([v, i]);
                   }
                 }
@@ -4281,8 +4405,9 @@
                 }
                 return _results;
               })();
-              moveableView = new OuterJoinGroup(_this.query, oj, views, indices).render().el;
-              processed[oj.toString()] = true;
+              ojg = new OuterJoinGroup(_this.query, oj, views, indices);
+              _this.ojgs[ojStr] = ojg;
+              moveableView = ojg.render().el;
             }
           } else {
             moveableView = $(_this.viewTemplate({
@@ -4301,7 +4426,7 @@
           _fn(v, i);
         }
         nodeAdder = this.$('.node-adder');
-        ca = new intermine.query.columns.ColumnAdder(this.query);
+        ca = new ColumnAdder(this.query);
         nodeAdder.empty().append(ca.render().el);
         return colContainer;
       };
@@ -4316,12 +4441,13 @@
         return $(e.target).toggleClass("asc desc");
       };
 
-      ColumnOrderer.prototype.soTemplate = _.template("<li class=\"im-reorderable breadcrumb im-soe\" \n    data-path=\"<%- path %>\" data-direction=\"<%- direction %>\">\n    <% if (direction === 'ASC') { %>\n        <span class=\"im-sort-direction asc\"></span>\n    <% } else { %>\n        <span class=\"im-sort-direction desc\"></span>\n    <% } %>\n    <%- path %>\n    <i class=\"icon-minus pull-right im-remove-soe\" title=\"Remove this column from the sort order\"></i>\n</li>");
+      ColumnOrderer.prototype.soTemplate = _.template("<li class=\"im-reorderable breadcrumb im-soe\" \n    data-path=\"<%- path %>\" data-direction=\"<%- direction %>\">\n    <% if (direction === 'ASC') { %>\n        <span class=\"im-sort-direction asc\"></span>\n    <% } else { %>\n        <span class=\"im-sort-direction desc\"></span>\n    <% } %>\n    <span class=\"im-path\" title=\"<%- path %>\"><%- path %></span>\n    <i class=\"icon-minus pull-right im-remove-soe\" title=\"Remove this column from the sort order\"></i>\n</li>");
 
-      ColumnOrderer.prototype.possibleSortOptionTemplate = _.template("<li class=\"im-reorderable breadcrumb\" data-path=\"<%- path %>\">\n    <%- path %>\n    <i class=\"icon-plus pull-right im-add-soe\" title=\"Add this column to the sort order\"></i>\n</li>");
+      ColumnOrderer.prototype.possibleSortOptionTemplate = _.template("<li class=\"im-reorderable breadcrumb\" data-path=\"<%- path %>\">\n    <i class=\"icon-plus pull-right im-add-soe\" title=\"Add this column to the sort order\"></i>\n    <span title=\"<%- path %>\"><%- path %></span>\n</li>");
 
       ColumnOrderer.prototype.removeSortOrder = function(e) {
-        var $elem, path, possibilities, psoe;
+        var $elem, path, possibilities, psoe,
+          _this = this;
         $elem = $(e.target).parent();
         path = $elem.data("path");
         $elem.find('.im-remove-soe').tooltip("hide");
@@ -4330,6 +4456,11 @@
         psoe = $(this.possibleSortOptionTemplate({
           path: path
         }));
+        (function(psoe) {
+          return _this.query.getPathInfo(path).getDisplayName(function(name) {
+            return psoe.find('span').text(name);
+          });
+        })(psoe);
         psoe.draggable({
           revert: "invalid",
           revertDuration: 100
@@ -4355,11 +4486,28 @@
       ColumnOrderer.prototype.makeSortOrderElem = function(so) {
         var soe, _ref;
         soe = $(this.soTemplate(so));
+        this.query.getPathInfo(so.path).getDisplayName(function(name) {
+          return soe.find('.im-path').text(name);
+        });
         if (_ref = this.query.getPathInfo(so.path).getType(), __indexOf.call(intermine.Model.NUMERIC_TYPES, _ref) >= 0) {
           soe.addClass("numeric");
         }
         soe.find('.im-remove-soe').tooltip();
         return soe;
+      };
+
+      ColumnOrderer.prototype.makeSortOption = function(path) {
+        var option,
+          _this = this;
+        option = $(this.possibleSortOptionTemplate({
+          path: path
+        }));
+        (function(option) {
+          return _this.query.getPathInfo(path).getDisplayName(function(name) {
+            return option.find('span').text(name);
+          });
+        })(option);
+        return option;
       };
 
       ColumnOrderer.prototype.initSorting = function() {
@@ -4378,9 +4526,7 @@
         for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
           v = _ref1[_j];
           if (!this.query.getSortDirection(v) && !this.query.isOuterJoined(v)) {
-            possibilities.append(this.possibleSortOptionTemplate({
-              path: v
-            }));
+            possibilities.append(this.makeSortOption(v));
           }
         }
         _ref2 = this.query.getQueryNodes();
@@ -4391,9 +4537,7 @@
             for (_l = 0, _len3 = _ref3.length; _l < _len3; _l++) {
               cn = _ref3[_l];
               if (cn.isAttribute() && (_ref4 = cn.toPathString(), __indexOf.call(this.query.views, _ref4) < 0)) {
-                possibilities.append(this.possibleSortOptionTemplate({
-                  path: cn.toPathString()
-                }));
+                possibilities.append(this.makeSortOption(cn.toPathString()));
               }
             }
           }
@@ -4435,7 +4579,7 @@
       };
 
       ColumnOrderer.prototype.changeOrder = function(e) {
-        var lis, newViews, p, paths, pi, v, _i, _j, _len, _len1, _ref;
+        var lis, newViews, ojg, p, paths, pi, v, _i, _j, _len, _len1, _ref;
         lis = this.$('.im-reordering-container li');
         paths = lis.map(function(i, e) {
           return $(e).data('path');
@@ -4447,12 +4591,12 @@
           if (pi.isAttribute()) {
             newViews.push(p);
           } else {
-            _ref = this.query.views;
+            console.log(p, this.ojgs);
+            ojg = this.ojgs[p];
+            _ref = ojg.getViews();
             for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
               v = _ref[_j];
-              if (v.match(p)) {
-                newViews.push(v);
-              }
+              newViews.push(v);
             }
           }
         }
