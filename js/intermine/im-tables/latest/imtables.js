@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Mon Jul 02 2012 14:29:06 GMT+0100 (BST)
+ * Built at Mon Jul 02 2012 15:54:39 GMT+0100 (BST)
 */
 
 
@@ -1947,11 +1947,9 @@
       };
 
       DropDownColumnSummary.prototype.render = function() {
-        var cons, heading, summ;
+        var heading, summ;
         heading = new SummaryHeading(this.query, this.view);
         heading.render().$el.appendTo(this.el);
-        cons = new intermine.query.filters.SingleColumnConstraintsSummary(this.query, this.view);
-        cons.render().$el.appendTo(this.el);
         summ = new intermine.results.ColumnSummary(this.view, this.query);
         summ.noTitle = true;
         summ.render().$el.appendTo(this.el);
@@ -4709,11 +4707,13 @@
 
       FacetView.prototype.render = function() {
         var _this = this;
-        this.$dt = $(FACET_TITLE(this.facet)).appendTo(this.el);
-        this.$dt.click(function() {
-          _this.$dt.siblings().slideToggle();
-          return _this.$dt.find('i').first().toggleClass('icon-chevron-right icon-chevron-down');
-        });
+        if (!this.noTitle) {
+          this.$dt = $(FACET_TITLE(this.facet)).appendTo(this.el);
+          this.$dt.click(function() {
+            _this.$dt.siblings().slideToggle();
+            return _this.$dt.find('i').first().toggleClass('icon-chevron-right icon-chevron-down');
+          });
+        }
         return this;
       };
 
@@ -5053,7 +5053,7 @@
         return PieFacet.__super__.constructor.apply(this, arguments);
       }
 
-      PieFacet.prototype.className = 'im-pie-facet im-facet';
+      PieFacet.prototype.className = 'im-grouped-facet im-facet';
 
       PieFacet.prototype.initialize = function(query, facet, items, hasMore, filterTerm) {
         var _ref,
@@ -5659,36 +5659,32 @@
       };
 
       ActiveConstraint.prototype.render = function() {
-        var $label, $select, conDetails, fs, i, lis, lisB, op, p, parts, val;
-        parts = this.getTitleParts();
-        conDetails = [];
+        var $label, $select, fs, op, sp, toL, ul, val,
+          _this = this;
+        $label = $("<label class=\"im-con-overview\">\n</label>");
+        this.addIcons($label);
+        ul = $('<ul class="breadcrumb">').appendTo($label);
+        toL = function(content, type) {
+          return $("<span class=\"label label-" + type + "\">" + content + "</span>");
+        };
+        if (this.con.title != null) {
+          ul.append(toL(this.con.title, 'path'));
+        } else {
+          sp = toL(this.con.path, 'path');
+          (function(sp) {
+            return _this.query.getPathInfo(_this.con.path).getDisplayName(function(name) {
+              return sp.text(name);
+            });
+          })(sp);
+          ul.append(sp);
+        }
         if ((op = this.getTitleOp())) {
-          conDetails.push(op);
+          ul.append(toL(op, 'op'));
         }
         if ((val = this.getTitleVal())) {
-          conDetails.push(val);
+          ul.append(toL(val, 'value'));
         }
-        lis = (function() {
-          var _i, _len, _results;
-          _results = [];
-          for (i = _i = 0, _len = parts.length; _i < _len; i = ++_i) {
-            p = parts[i];
-            _results.push("<li class=\"" + (i + 1 === parts.length ? 'active' : '') + "\">" + p + "</li>");
-          }
-          return _results;
-        })();
-        lisB = (function() {
-          var _i, _len, _results;
-          _results = [];
-          for (_i = 0, _len = conDetails.length; _i < _len; _i++) {
-            p = conDetails[_i];
-            _results.push("<li>" + p + "</li>");
-          }
-          return _results;
-        })();
-        $label = $("<label class=\"im-con-overview\">\n    <ul class=\"im-con-summary breadcrumb\">\n        " + (lis.join("<span class='divider'>" + PATH_SEGMENT_DIVIDER + "</span>")) + "\n        " + (lisB.join('&nbsp')) + "\n    </ul>\n</label>");
         this.$el.append($label);
-        this.addIcons($label);
         fs = $("<fieldset class=\"im-constraint-options\"></fieldset>").appendTo(this.el);
         $select = $("<select class=\"span4 im-ops\"><option>" + this.con.op + "</option></select>");
         $select.appendTo(fs);
