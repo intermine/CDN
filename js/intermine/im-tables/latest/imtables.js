@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Wed Jul 04 2012 19:53:47 GMT+0100 (BST)
+ * Built at Wed Jul 04 2012 20:01:55 GMT+0100 (BST)
 */
 
 
@@ -5947,15 +5947,16 @@
             return _this.valueChanged(input.val());
           });
           (function(input) {
-            _this.query.filterSummary(_this.con.path, "", 100, function(items) {
+            return _this.query.filterSummary(_this.con.path, "", 100, function(items) {
               if (((items != null ? items.length : void 0) > 0) && (items[0].item != null)) {
-                return input.typeahead({
+                input.typeahead({
                   source: _.pluck(items, 'item')
                 });
               }
-            });
-            return _this.query.on('cancel:add-constraint change:constraints', function() {
-              return input.data('typeahead').$menu.remove();
+              return _this.query.on('cancel:add-constraint', function() {
+                var _ref1;
+                return (_ref1 = input.data('typeahead')) != null ? _ref1.$menu.remove() : void 0;
+              });
             });
           })(input);
         }
