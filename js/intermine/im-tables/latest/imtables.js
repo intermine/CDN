@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Thu Jul 05 2012 12:34:16 GMT+0100 (BST)
+ * Built at Thu Jul 05 2012 12:46:10 GMT+0100 (BST)
 */
 
 
@@ -3219,7 +3219,7 @@
       return CodeGenerator;
 
     })(Backbone.View);
-    ListCreator = (function(_super) {
+    exporting(ListCreator = (function(_super) {
 
       __extends(ListCreator, _super);
 
@@ -3459,7 +3459,7 @@
 
       return ListCreator;
 
-    })(ListDialogue);
+    })(ListDialogue));
     return ListManager = (function(_super) {
 
       __extends(ListManager, _super);
