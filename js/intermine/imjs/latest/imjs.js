@@ -854,6 +854,13 @@
 
         this.findById = function(table, objId, cb) {
             this.query({from: table, select: ["**"], where: {"id": objId}}, function(q) {
+                for (var i = 0; i < q.views.length; i++) {
+                    var view = q.views[i];
+                    var parts = view.split('.');
+                    if (parts.length > 2) {
+                        q.addJoin(parts.slice(0, parts.length - 1).join('.'));
+                    }
+                }
                 q.records(function(rs) {
                     cb(rs[0]);
                 });
