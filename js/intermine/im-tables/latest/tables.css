@@ -604,6 +604,8 @@ table.table thead .sorting_desc_disabled {
     margin-top: 2em;
 }
 
+.im-export-dialogue .galaxy-toggle { height: 18px } /* Fix for issue in FlyMine */
+
 .im-export-dialogue .im-galaxy-options,
 .im-export-dialogue .im-row-selection, 
 .im-export-dialogue .im-col-options {
