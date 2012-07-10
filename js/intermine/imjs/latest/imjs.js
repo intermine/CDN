@@ -1291,7 +1291,7 @@
     };
 
     Query.prototype.trigger = function() {
-      var all, args, calls, event, events, node, rest, tail;
+      var all, args, calls, event, events, node, rest, tail, _ref2;
       events = arguments[0], rest = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
       calls = this._callbacks;
       if (!calls) {
@@ -1319,7 +1319,9 @@
         tail = node.tail;
         args = node.event ? [node.event].concat(rest) : rest;
         while ((node = node.next) !== tail) {
-          node.callback.apply(node.context || this, args);
+          if ((_ref2 = node.callback) != null) {
+            _ref2.apply(node.context || this, args);
+          }
         }
       }
       return this;
