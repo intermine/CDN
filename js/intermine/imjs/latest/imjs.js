@@ -1524,7 +1524,7 @@
     };
 
     Query.prototype.canHaveMultipleValues = function(path) {
-      return this.service.model.hasCollection(this.adjustPath(path));
+      return this.getPathInfo(path).containsCollection();
     };
 
     Query.prototype.getQueryNodes = function() {
