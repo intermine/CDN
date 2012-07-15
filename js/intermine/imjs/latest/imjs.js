@@ -1229,7 +1229,7 @@
 
     Query.NULL_OPS = ['IS NULL', 'IS NOT NULL'];
 
-    Query.ATTRIBUTE_VALUE_OPS = ["=", "!=", ">", ">=", "<", "<=", "CONTAINS"];
+    Query.ATTRIBUTE_VALUE_OPS = ["=", "!=", ">", ">=", "<", "<=", "CONTAINS", "LIKE", "NOT LIKE"];
 
     Query.MULTIVALUE_OPS = ['ONE OF', 'NONE OF'];
 
@@ -1254,7 +1254,11 @@
       "<=": "<=",
       "le": "<=",
       "contains": "CONTAINS",
+      "CONTAINS": "CONTAINS",
       "like": "LIKE",
+      "LIKE": "LIKE",
+      "not like": "NOT LIKE",
+      "NOT LIKE": "NOT LIKE",
       "lookup": "LOOKUP",
       "IS NULL": "IS NULL",
       "is null": "IS NULL",
