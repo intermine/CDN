@@ -1402,8 +1402,11 @@
       return this.trigger('change:views', this.views);
     };
 
-    Query.prototype.removeConstraint = function(con) {
+    Query.prototype.removeConstraint = function(con, silent) {
       var c, iscon, orig, reduced;
+      if (silent == null) {
+        silent = false;
+      }
       orig = this.constraints;
       iscon = typeof con === 'string' ? (function(c) {
         return c.code === con;
@@ -1426,8 +1429,10 @@
         throw "Did not remove a single constraint. original = " + orig + ", reduced = " + reduced;
       }
       this.constraints = reduced;
-      this.trigger('change:constraints');
-      return this.trigger('removed:constraints', _.difference(orig, reduced));
+      if (!silent) {
+        this.trigger('change:constraints');
+        return this.trigger('removed:constraints', _.difference(orig, reduced));
+      }
     };
 
     Query.prototype.addToSelect = function(views) {
