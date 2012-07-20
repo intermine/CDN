@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Fri Jul 20 2012 17:37:59 GMT+0100 (BST)
+ * Built at Fri Jul 20 2012 18:24:16 GMT+0100 (BST)
 */
 
 
@@ -93,6 +93,10 @@
     }
     return ns;
   };
+
+  scope("intermine", {
+    scope: scope
+  }, true);
 
   scope("intermine.icons", {
     Yes: "icon-star",
