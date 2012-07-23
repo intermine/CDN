@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Fri Jul 20 2012 19:19:57 GMT+0100 (BST)
+ * Built at Mon Jul 23 2012 10:23:23 GMT+0100 (BST)
 */
 
 
@@ -3543,10 +3543,10 @@
           case 'tab':
           case 'csv':
             opts.append("<label>\n    <span class=\"span4\">\n        " + intermine.messages.actions.ColumnHeaders + "\n    </span>\n    <span class=\"span8\">\n        <input type=\"checkbox\" class=\"im-column-headers pull-right\">\n    </span>\n</label>");
-            return opts.find('.im-column-headers').toggleClass('active', !!requestInfo.get('columnHeaders')).click(function(e) {
-              var btn;
-              btn = $(this);
-              return requestInfo.set('columnHeaders', btn.is('.active'));
+            return opts.find('.im-column-headers').change(function(e) {
+              return requestInfo.set({
+                columnHeaders: $(this).is(':checked')
+              });
             });
           case 'bed':
             chrPref = $("<label>\n    <span class=\"span4\">\n        " + intermine.messages.actions.ChrPrefix + "\n    </span>\n    <input type=\"checkbox\" class=\"span8\">\n    <div style=\"clear:both\"></div>\n</label>");
@@ -4571,7 +4571,7 @@
 
   scope("intermine.results.table", function(exporting) {
     var CELL_HTML, Cell, HIDDEN_FIELDS, NullCell, SubTable;
-    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\" style=\"display: none\" data-obj-id=\"<%= id %>\" \n    <% if (selected) { %>checked <% }; %>\n    data-obj-type=\"<%= type %>\">\n<% if (value == null) { %>\n    <span class=\"null-value\">no value</span>\n<% } else { %>\n    <% if (url != null && url.match(/^http/)) { %>\n      <a class=\"im-cell-link\" href=\"<%= url %>\"><%= value %></a>\n    <% } else { %>\n      <a class=\"im-cell-link\" href=\"<%= base %><%= url %>\"><%= value %></a>\n    <% } %>\n<% } %>\n<% if (field == 'url') { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\" style=\"display: none\" data-obj-id=\"<%= id %>\" \n    <% if (selected) { %>checked <% }; %>\n    data-obj-type=\"<%= type %>\">\n<% if (value == null) { %>\n    <span class=\"null-value\">no value</span>\n<% } else { %>\n    <% if (url != null && url.match(/^http/)) { %>\n      <a class=\"im-cell-link\" href=\"<%= url %>\">\n        <% if (!url.match(window.location.origin)) { %>\n            <i class=\"icon-globe\"></i>\n        <% } %>\n    <% } else { %>\n      <a class=\"im-cell-link\" href=\"<%= base %><%= url %>\">\n    <% } %>\n        <%- value %>\n    </a>\n<% } %>\n<% if (field == 'url') { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
     HIDDEN_FIELDS = ["class", "objectId"];
     exporting(SubTable = (function(_super) {
 
@@ -5282,7 +5282,6 @@
       OuterJoinGroup.prototype.initialize = function(query, newView) {
         this.query = query;
         this.newView = newView;
-        console.log(this.newView);
         return this.newView.on('destroy', this.remove, this);
       };
 
@@ -5414,7 +5413,6 @@
       }
 
       ViewNode.prototype.initialize = function() {
-        console.log("Initializing");
         if (this.get('isOuterJoined')) {
           return this.nodes = _.groupBy(this.get('paths'), function(p) {
             return p.getParent().toString();
