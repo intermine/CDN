@@ -1092,7 +1092,7 @@
             var promise = Deferred();
             service.fetchModel(function(m) {
                 service.fetchSummaryFields(function(sfs) {
-                    _.defaults(options, {model: m, summaryFields: sfs});
+                    _.extend(options, {model: m, summaryFields: sfs});
                     var q;
                     try {
                         q = new Query(options, service);
