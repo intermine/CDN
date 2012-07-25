@@ -827,10 +827,6 @@ ul.im-cols h4 {
     margin-right: 0.5em;
 }
 
-.im-grouped-facet .im-item-col {
-    width: 70%;
-}
-
 .im-col-summary .dropdown-menu a {
     display: inline-block;
     clear: none;
@@ -860,6 +856,10 @@ ul.im-cols h4 {
 
 .im-dropdown-summary .im-item-table th.im-item-value {
     width: 65%;
+}
+
+.im-dropdown-summary .im-item-table td.im-item-col {
+    white-space: normal;
 }
 
 .im-dropdown-summary .im-grouped-facet .im-item-table th.im-item-value {
