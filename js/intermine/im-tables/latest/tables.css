@@ -847,7 +847,7 @@ ul.im-cols h4 {
     overflow-x: hidden;
 }
 .im-dropdown-summary .im-item-table th.im-item-selector {
-    width: 10%;
+    width: 7.5%;
 }
 
 .im-dropdown-summary .im-grouped-facet .im-item-table th.im-item-selector {
@@ -855,7 +855,7 @@ ul.im-cols h4 {
 }
 
 .im-dropdown-summary .im-item-table th.im-item-value {
-    width: 65%;
+    width: 67.5%;
 }
 
 .im-dropdown-summary .im-item-table td.im-item-col {
@@ -1715,8 +1715,8 @@ form tr.active {
     background: #D9EDF7;
 }
 
-.im-query-display .im-item-table > table > tbody > tr.hover > td,
-.im-query-display .im-item-table > table > tbody > tr.active > td {
+.im-query-display .im-item-table > table.table > tbody > tr.hover > td,
+.im-query-display .im-item-table > table.table > tbody > tr.active > td {
     background-color: transparent;
 }
 
