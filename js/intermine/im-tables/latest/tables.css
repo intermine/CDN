@@ -850,7 +850,7 @@ ul.im-cols h4 {
     width: 7.5%;
 }
 
-.im-dropdown-summary .im-grouped-facet .im-item-table th.im-item-selector {
+.im-dropdown-summary .im-pie-facet .im-item-table th.im-item-selector {
     width: 15%;
 }
 
@@ -862,7 +862,7 @@ ul.im-cols h4 {
     white-space: normal;
 }
 
-.im-dropdown-summary .im-grouped-facet .im-item-table th.im-item-value {
+.im-dropdown-summary .im-pie-facet .im-item-table th.im-item-value {
     width: 55%;
 }
 
@@ -870,7 +870,7 @@ ul.im-cols h4 {
     width: 20%;
 }
 
-.im-dropdown-summary  .im-grouped-facet .im-item-table th.im-item-count {
+.im-dropdown-summary  .im-pie-facet .im-item-table th.im-item-count {
     width: 12.5%;
 }
 
