@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Thu Jul 26 2012 14:50:24 GMT+0100 (BST)
+ * Built at Mon Jul 30 2012 11:12:07 GMT+0100 (BST)
 */
 
 
@@ -1382,7 +1382,8 @@
           $el = jQuery(e.target).closest('.summary-img');
           if (!$el.parent().hasClass('open')) {
             summ = new intermine.query.results.OuterJoinDropDown(path, _this.query);
-            $el.siblings('.dropdown-menu').html(summ.render().el);
+            $el.siblings('.dropdown-menu').html(summ.el);
+            summ.render();
           }
           return false;
         };
@@ -2307,27 +2308,35 @@
             return _results;
           }).call(this);
         }
-        _fn = function(v) {
-          var li;
-          li = $("<li class=\"im-outer-joined-path\"><a href=\"#\"></a></li>");
-          _this.$el.append(li);
-          _this.query.getPathInfo(v).getDisplayName(function(name) {
-            return li.find('a').text(name);
-          });
-          return li.click(function(e) {
-            var summ;
-            e.stopPropagation();
-            e.preventDefault();
-            summ = new intermine.query.results.DropDownColumnSummary(v, _this.query);
-            _this.$el.parent().html(summ.render().el);
-            return _this.remove();
-          });
-        };
-        for (_i = 0, _len = vs.length; _i < _len; _i++) {
-          v = vs[_i];
-          _fn(v);
+        if (vs.length === 1) {
+          this.showPathSummary(vs[0]);
+        } else {
+          _fn = function(v) {
+            var li;
+            li = $("<li class=\"im-outer-joined-path\"><a href=\"#\"></a></li>");
+            _this.$el.append(li);
+            _this.query.getPathInfo(v).getDisplayName(function(name) {
+              return li.find('a').text(name);
+            });
+            return li.click(function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+              return _this.showPathSummary(v);
+            });
+          };
+          for (_i = 0, _len = vs.length; _i < _len; _i++) {
+            v = vs[_i];
+            _fn(v);
+          }
         }
         return this;
+      };
+
+      OuterJoinDropDown.prototype.showPathSummary = function(v) {
+        var summ;
+        summ = new intermine.query.results.DropDownColumnSummary(v, this.query);
+        this.$el.parent().html(summ.render().el);
+        return this.remove();
       };
 
       return OuterJoinDropDown;
