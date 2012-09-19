@@ -178,13 +178,14 @@
     };
 
     PathInfo.prototype.getEndClass = function() {
+        var endClassName, endClass = null;
         if (this.isRoot()) {
-            return this.root;
+            endClass = this.root;
+        } else if (this.isClass()) {
+            endClassName = this.subclasses[this.toString()] || this.end.referencedType;
+            endClass = this.model.classes[endClassName];
         }
-        if (this.isClass()) {
-            return this.model.classes[this.end.referencedType];
-        }
-        return null;
+        return endClass;
     };
 
     PathInfo.prototype.getParent = function() {
