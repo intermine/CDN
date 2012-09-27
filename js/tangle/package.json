@@ -1,0 +1,14 @@
+{
+    "name": "Tangle",
+    "filename": "Tangle.js",
+    "version": "0.1.0",
+    "description": "Library for creating reactive documents.",
+    "keywords": [
+        "reactive documents"
+    ],
+    "homepage": "http://worrydream.com/Tangle",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/worrydream/Tangle.git"
+    }
+}
