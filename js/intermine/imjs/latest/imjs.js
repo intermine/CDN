@@ -994,26 +994,31 @@
             return promise;
         };
 
+        this.fetchList = function(name, cb) {
+            var self = this, promise = Deferred().fail(self.errorHandler);
+            this.fetchLists(function(lists) {
+                var l = _.find(lists, function(l) { return l.name === name });
+                cb(l);
+                promise.resolve(l);
+            }).fail(promise.reject);
+            return promise;
+        }
+
         this.combineLists = function(operation) {
             var self = this;
             return function(options, cb) {
-                var promise = Deferred();
-                var path = LIST_OPERATION_PATHS[operation];
-                var params = {
-                    name: options.name,
-                    tags: options.tags.join(';'),
-                    lists: options.lists.join(";"),
-                    description: options.description
-                };
+                var promise = Deferred().fail(self.errorHandler),
+                    path = LIST_OPERATION_PATHS[operation],
+                    params = {
+                        name: options.name,
+                        tags: options.tags.join(';'),
+                        lists: options.lists.join(";"),
+                        description: options.description
+                    };
                 self.makeRequest(path, params, function(data) {
                     var name = data.listName;
-                    self.fetchLists(function(ls) {
-                        var l = _(ls).find(function(l) {return l.name === name});
-                        cb(l);
-                        promise.resolve(l);
-                    }).fail(promise.reject);
+                    self.fetchList(name, cb).fail(promise.reject);
                 }).fail(promise.reject);
-                promise.fail(self.errorHandler);
                 return promise;
             };
         };
@@ -1282,7 +1287,9 @@
       "WITHIN": "WITHIN",
       "within": "WITHIN",
       "OVERLAPS": "OVERLAPS",
-      "overlaps": "OVERLAPS"
+      "overlaps": "OVERLAPS",
+      "ISA": "ISA",
+      "isa": "ISA"
     };
 
     Query.prototype.on = function(events, callback, context) {
@@ -1888,7 +1895,12 @@
               return _results;
             })();
             if (__indexOf.call(keys, 'isa') >= 0) {
-              constraint.type = con.isa;
+              if (_.isArray(con.isa)) {
+                constraint.op = k;
+                constraint.values = con.isa;
+              } else {
+                constraint.type = con.isa;
+              }
             } else {
               if (__indexOf.call(keys, 'extraValue') >= 0) {
                 constraint.extraValue = con.extraValue;
@@ -1899,7 +1911,11 @@
                   continue;
                 }
                 constraint.op = k;
-                constraint.value = v;
+                if (_.isArray(v)) {
+                  constraint.values = v;
+                } else {
+                  constraint.value = v;
+                }
               }
             }
           }
@@ -2170,6 +2186,7 @@
 (function(exports, IS_NODE) {
 
     var _;
+    var TAGS_PATH = "list/tags";
     if (IS_NODE) {
         _ = require('underscore')._;
     } else {
@@ -2180,24 +2197,24 @@
         exports = intermine;
     }
 
+    var isFolder = function(t) {
+        return t.substr(0, t.indexOf(":")) === '__folder__';
+    };
+    var getFolderName = function(t) {
+        return t.substr(t.indexOf(":") + 1);
+    };
+
     var List = function(properties, service) {
 
         _(this).extend(properties);
         this.service = service;
         this.dateCreated = this.dateCreated ? new Date(this.dateCreated) : null;
 
-        var isFolder = function(t) {
-            return t.substr(0, t.indexOf(":")) === '__folder__';
-        };
-        var getFolderName = function(t) {
-            return t.substr(t.indexOf(":") + 1);
-        };
-
         this.folders = _(this.tags).chain()
                                    .filter(isFolder)
                                    .map(getFolderName)
                                    .value();
-        
+
         /**
          * Does this list have a given tag?
          *
@@ -2242,7 +2259,7 @@
          * Get enrichment statistics for this list.
          *
          * @see intermine.service#enrichment
-         * @param data A map of key-value terms with the following keys: 'widget', 'maxp', 'correction'.
+         * @param data A map of key-value terms with the following keys: 'widget', 'maxp', 'correction', and optionally 'filter' and 'population'.
          * @param cb a function of the type [(results) -> void] to call on completion of this request.
          * @return jQuery.Deferred
          */
@@ -2250,6 +2267,17 @@
             data.list = this.name;
             return this.service.enrichment(data, cb);
         };
+
+        this.shareWithUser = function(recipient, cb) {
+            var data = {list: this.name, with: recipient};
+            return this.service.makeRequest("lists/shares", data, cb, "POST");
+        };
+
+        this.inviteUserToShare = function(recipient, cb) {
+            var data = {list: this.name, to: recipient, notify: true};
+            return this.service.makeRequest("lists/invitations", data, cb, "POST");
+        };
+
     };
 
     exports.List = List;
