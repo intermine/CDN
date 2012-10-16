@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Tue Oct 09 2012 16:27:46 GMT+0100 (BST)
+ * Built at Tue Oct 16 2012 12:43:54 GMT+0100 (BST)
 */
 
 
@@ -4134,7 +4134,7 @@
             }, "" + l.name + " (" + l.size + " " + (intermine.utils.pluralise(l.type, l.size)) + ")");
           };
           _this.$('.im-receiving-list').append(ls.filter(function(l) {
-            return !l.hasTag("im:public");
+            return l.authorized;
           }).map(toOpt));
           return _this.onlyShowCompatibleOptions();
         });
