@@ -1,9 +1,11 @@
 (function() {
-var CSSLoader, JSLoader, Load, Loader,
+var CSSLoader, JSLoader, Load, Loader, root,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __slice = [].slice;
+
+root = this;
 
 Loader = (function() {
 
@@ -18,9 +20,9 @@ Loader = (function() {
     return tag.onreadystatechange = function() {
       var state;
       state = tag.readyState;
-      if (state === "complete" || state === "loaded") {
+      if (state === 'complete' || state === 'loaded') {
         tag.onreadystatechange = null;
-        return window.setTimeout(callback, 0);
+        return root.setTimeout(callback, 0);
       }
     };
   };
@@ -35,9 +37,9 @@ JSLoader = (function(_super) {
 
   function JSLoader(path, callback) {
     var script;
-    script = document.createElement("script");
+    script = document.createElement('script');
     script.src = path;
-    script.type = "text/javascript";
+    script.type = 'text/javascript';
     if (callback) {
       this.setCallback(script, callback);
     }
@@ -54,9 +56,9 @@ CSSLoader = (function(_super) {
 
   function CSSLoader(path, callback) {
     var sheet;
-    sheet = document.createElement("link");
-    sheet.rel = "stylesheet";
-    sheet.type = "text/css";
+    sheet = document.createElement('link');
+    sheet.rel = 'stylesheet';
+    sheet.type = 'text/css';
     sheet.href = path;
     if (callback) {
       this.setCallback(sheet, callback);
@@ -86,7 +88,7 @@ Load = (function() {
     var resource,
       _this = this;
     if (this.wait) {
-      return window.setTimeout((function() {
+      return root.setTimeout((function() {
         return _this.load(resources);
       }), 0);
     } else {
@@ -97,8 +99,16 @@ Load = (function() {
         }
         switch (resource.type) {
           case "js":
-            if (resource.name != null) {
-              if ((window[resource.name] != null) && (typeof window[resource.name] === "function" || "object")) {
+            if ((resource.isLoaded != null) && typeof resource.isLoaded === 'function') {
+              if (resource.isLoaded()) {
+                this.done(resource);
+              } else {
+                new JSLoader(resource.path, function() {
+                  return _this.done(resource);
+                });
+              }
+            } else if (resource.name != null) {
+              if ((root[resource.name] != null) && (typeof root[resource.name] === 'function' || 'object')) {
                 this.done(resource);
               } else {
                 new JSLoader(resource.path, function() {
@@ -117,7 +127,7 @@ Load = (function() {
         }
       }
       if (this.count || this.wait) {
-        return window.setTimeout((function() {
+        return root.setTimeout((function() {
           return _this.load(resources);
         }), 0);
       } else {
@@ -137,8 +147,8 @@ Load = (function() {
 
 })();
 
-if (!window['intermine']) {
-  window['intermine'] = {};
+if (!root.intermine) {
+  root.intermine = {};
 }
 
 intermine.load = function() {
@@ -167,5 +177,5 @@ intermine.load = function() {
   }
 };
 
-intermine.resources = {"widgets":{"latest":"http://cdn.intermine.org/js/intermine/widgets/latest/intermine.widgets.js","1.0.0":"http://cdn.intermine.org/js/intermine/widgets/1.0.0/intermine.widgets.js","1.1.0":"http://cdn.intermine.org/js/intermine/widgets/1.1.0/intermine.widgets.js","1.1.7":"http://cdn.intermine.org/js/intermine/widgets/1.1.7/intermine.widgets.js","1.1.8":"http://cdn.intermine.org/js/intermine/widgets/1.1.8/intermine.widgets.js","1.1.9":"http://cdn.intermine.org/js/intermine/widgets/1.1.9/intermine.widgets.js","1.1.10":"http://cdn.intermine.org/js/intermine/widgets/1.1.10/intermine.widgets.js","1.2.0":"http://cdn.intermine.org/js/intermine/widgets/1.2.0/intermine.widgets.js","1.2.1":"http://cdn.intermine.org/js/intermine/widgets/1.2.1/intermine.widgets.js","1.3.0":"http://cdn.intermine.org/js/intermine/widgets/1.3.0/intermine.widgets.js","1.4.0":"http://cdn.intermine.org/js/intermine/widgets/1.4.0/intermine.widgets.js","1.4.1":"http://cdn.intermine.org/js/intermine/widgets/1.4.1/intermine.widgets.js","1.4.2":"http://cdn.intermine.org/js/intermine/widgets/1.4.2/intermine.widgets.js","1.6.7":"http://cdn.intermine.org/js/intermine/widgets/1.6.7/intermine.widgets.js"},"reportWidgets":{"latest":"http://cdn.intermine.org/js/intermine/report-widgets/latest/intermine.reportWidgets.js"}};
+intermine.resources = {"widgets":{"latest":"http://cdn.intermine.org/js/intermine/widgets/latest/intermine.widgets.js","1.0.0":"http://cdn.intermine.org/js/intermine/widgets/1.0.0/intermine.widgets.js","1.1.0":"http://cdn.intermine.org/js/intermine/widgets/1.1.0/intermine.widgets.js","1.1.7":"http://cdn.intermine.org/js/intermine/widgets/1.1.7/intermine.widgets.js","1.1.8":"http://cdn.intermine.org/js/intermine/widgets/1.1.8/intermine.widgets.js","1.1.9":"http://cdn.intermine.org/js/intermine/widgets/1.1.9/intermine.widgets.js","1.1.10":"http://cdn.intermine.org/js/intermine/widgets/1.1.10/intermine.widgets.js","1.2.0":"http://cdn.intermine.org/js/intermine/widgets/1.2.0/intermine.widgets.js","1.2.1":"http://cdn.intermine.org/js/intermine/widgets/1.2.1/intermine.widgets.js","1.3.0":"http://cdn.intermine.org/js/intermine/widgets/1.3.0/intermine.widgets.js","1.4.0":"http://cdn.intermine.org/js/intermine/widgets/1.4.0/intermine.widgets.js","1.4.1":"http://cdn.intermine.org/js/intermine/widgets/1.4.1/intermine.widgets.js","1.4.2":"http://cdn.intermine.org/js/intermine/widgets/1.4.2/intermine.widgets.js","1.6.7":"http://cdn.intermine.org/js/intermine/widgets/1.6.7/intermine.widgets.js","1.6.8":"http://cdn.intermine.org/js/intermine/widgets/1.6.8/intermine.widgets.js"},"reportWidgets":{"latest":"http://cdn.intermine.org/js/intermine/report-widgets/latest/intermine.reportWidgets.js"}};
 }).call(this);
