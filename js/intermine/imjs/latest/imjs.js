@@ -699,6 +699,9 @@
             var url   = this.root + path;
             var errorCB = this.errorHandler;
             data = data || {};
+            if (_.isArray(data)) { // We also accept lists of pairs.
+                data = _.foldl(data, function(m, pair) { m[pair[0]] = pair[1]; return m;}, {});
+            }
             cb = cb || function() {};
             if (this.token) {
                 data.token = this.token;
