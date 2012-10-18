@@ -593,7 +593,7 @@
       }, 'DELETE');
     };
 
-    User.prototype.clearPreferences = function(key) {
+    User.prototype.clearPreferences = function() {
       return this._do_pref_req({}, 'DELETE');
     };
 
@@ -602,19 +602,10 @@
     };
 
     User.prototype._do_pref_req = function(data, method) {
-      var cb, p2, promise,
-        _this = this;
-      promise = Deferred();
-      if (!this.hasPreferences) {
-        promise.reject("not available", "This service does not provide preferences");
-      } else {
-        cb = function(resp) {
-          return _this.preferences = resp.preferences;
-        };
-        p2 = this.service.makeRequest("user/preferences", data, null, method);
-        p2.done(cb).then(promise.resolve, promise.reject);
-      }
-      return promise;
+      var _this = this;
+      return this.service.manageUserPreferences(method, data).done(function(prefs) {
+        return _this.preferences = prefs;
+      });
     };
 
     return User;
@@ -1068,10 +1059,14 @@
         this.fetchVersion = function(cb) {
             var self = this;
             var promise = Deferred();
+            if (cb == null) {
+                cb = function() {};
+            }
             if (typeof this.version === "undefined") {
                 this.makeRequest(VERSION_PATH, null, function(data) {
                     this.version = data.version;
                     cb(this.version);
+                    promise.resolve(this.version);
                 }).fail(promise.reject);
             } else {
                 cb(this.version);
@@ -1201,6 +1196,12 @@
         };
 
 
+        /**
+         * Construct a query, and yield it to the callback.
+         * @param options The query defined in a JSON structure
+         * @param cb The continuation of this function.
+         * @return {Deffered} a promise to make a query.
+         */
         this.query = function(options, cb) {
             var service = this;
             var promise = Deferred();
@@ -1225,6 +1226,19 @@
             }).fail(promise.reject);
             promise.fail(this.errorHandler);
             return promise;
+        };
+
+        this.manageUserPreferences = function(method, data) {
+            var service = this;
+            return this.fetchVersion().pipe(function(v) {
+                if (v >= 11) {
+                    return service.makeRequest("user/preferences", data, null, method)
+                                  .pipe(function(resp) {return resp.preferences});
+                } else {
+                    return Deferred().reject('not available',
+                        'This service does not provide preferences');
+                }
+            }, this.errorHandler);
         };
 
         constructor(properties || {});
