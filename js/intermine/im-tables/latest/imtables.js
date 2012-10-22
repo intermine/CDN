@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Mon Oct 22 2012 16:07:20 GMT+0100 (BST)
+ * Built at Mon Oct 22 2012 18:03:22 GMT+0100 (BST)
 */
 
 
@@ -623,18 +623,18 @@
       ConstraintAdder.prototype.multiSelect = false;
 
       ConstraintAdder.prototype.reset = function() {
-        console.log("ConstraintAdder#reset()");
-        this.$pathfinder.remove();
+        var _ref;
+        if ((_ref = this.$pathfinder) != null) {
+          _ref.remove();
+        }
         return this.$pathfinder = null;
       };
 
       ConstraintAdder.prototype.showTree = function(e) {
         var pathFinder, treeRoot;
-        console.log("ConstraintAdder#showTree()");
         if (this.$pathfinder != null) {
           return this.reset();
         } else {
-          console.log("This tree is " + this.cid);
           treeRoot = this.getTreeRoot();
           pathFinder = new PathChooser(this.query, treeRoot, 0, this.handleChoice, this.isDisabled, this.refsOK, this.multiSelect);
           pathFinder.render();
@@ -666,7 +666,6 @@
 
       ConstraintAdder.prototype.render = function() {
         var approver, browser;
-        console.log("ConstraintAdder#render()");
         browser = $("<button type=\"button\" class=\"btn btn-chooser\" data-toggle=\"button\">\n    <i class=\"icon-sitemap\"></i>\n    Browse for column\n</button>");
         approver = $(this.make('button', {
           type: "button",
@@ -5635,18 +5634,22 @@
       ColumnAdder.prototype.className = "form node-adder btn-group";
 
       ColumnAdder.prototype.initialize = function(query) {
-        console.log("ColumnAdder#initialize()");
         ColumnAdder.__super__.initialize.call(this, query);
         return this.chosen = [];
       };
 
       ColumnAdder.prototype.handleChoice = function(path) {
+        var $b;
         if (_.include(this.chosen, path)) {
           this.chosen = _.without(this.chosen, path);
         } else {
           this.chosen.push(path);
         }
-        return this.applyChanges();
+        this.applyChanges();
+        $b = this.$('.btn-chooser');
+        if ($b.is('.active')) {
+          return $b.button('toggle');
+        }
       };
 
       ColumnAdder.prototype.handleSubmission = function(e) {
@@ -5661,11 +5664,8 @@
       };
 
       ColumnAdder.prototype.reset = function() {
-        console.log("ColumnAdder#reset()");
         ColumnAdder.__super__.reset.call(this);
-        this.chosen = [];
-        this.$('.btn-chooser').button('reset');
-        return this.$('.btn-primary').fadeOut('slow');
+        return this.chosen = [];
       };
 
       ColumnAdder.prototype.refsOK = false;
@@ -5678,7 +5678,6 @@
       };
 
       ColumnAdder.prototype.render = function() {
-        console.log("ColumnAdder#render()");
         ColumnAdder.__super__.render.call(this);
         this.$('input').remove();
         return this;
@@ -5782,9 +5781,7 @@
         var _this = this;
         this.query = query;
         this.newView = new NewViewNodes();
-        this.newView.on('add remove change', _.compose((function() {
-          return console.log("NewViewNodes.on('add remove change')");
-        }), this.drawOrder), this);
+        this.newView.on('add remove change', this.drawOrder, this);
         this.newView.on('destroy', function(nv) {
           return _this.newView.remove(nv);
         });
@@ -5852,7 +5849,6 @@
       ColumnsDialogue.prototype.initOrdering = function() {
         var isOuterJoined, node, oj, ojStr, path, paths, v, _i, _len, _ref,
           _this = this;
-        console.log("ColumnsDialogue#initOrdering()");
         this.newView.reset();
         this.ojgs = {};
         _ref = this.query.views;
@@ -5893,13 +5889,13 @@
             });
           }
         }
-        return this.drawOrder();
+        this.drawOrder();
+        return this.drawSelector();
       };
 
       ColumnsDialogue.prototype.drawOrder = function() {
-        var ca, colContainer, nodeAdder,
+        var colContainer,
           _this = this;
-        console.log("ColumnsDialogue#drawOrder()");
         colContainer = this.$('.im-reordering-container');
         colContainer.empty();
         colContainer.tooltip({
@@ -5928,12 +5924,16 @@
           }
           return colContainer.append(moveableView);
         });
-        nodeAdder = this.$('.node-adder');
-        ca = new ColumnAdder(this.query);
-        nodeAdder.empty().append(ca.render().el);
         return colContainer.sortable({
           items: 'li.im-reorderable'
         });
+      };
+
+      ColumnsDialogue.prototype.drawSelector = function() {
+        var ca, nodeAdder;
+        nodeAdder = this.$('.node-adder');
+        ca = new ColumnAdder(this.query);
+        return nodeAdder.empty().append(ca.render().el);
       };
 
       ColumnsDialogue.prototype.updateOrder = function(e, ui) {
