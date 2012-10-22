@@ -1407,7 +1407,7 @@
       "NONE OF": "NONE OF",
       "none of": "NONE OF",
       "in": "IN",
-      "not in": "IN",
+      "not in": "NOT IN",
       "IN": "IN",
       "NOT IN": "NOT IN",
       "WITHIN": "WITHIN",

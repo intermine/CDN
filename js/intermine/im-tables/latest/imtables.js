@@ -7,7 +7,7 @@
  * Copyright 2012, Alex Kalderimis
  * Released under the LGPL license.
  * 
- * Built at Mon Oct 22 2012 12:11:36 GMT+0100 (BST)
+ * Built at Mon Oct 22 2012 16:07:20 GMT+0100 (BST)
 */
 
 
@@ -623,19 +623,23 @@
       ConstraintAdder.prototype.multiSelect = false;
 
       ConstraintAdder.prototype.reset = function() {
+        console.log("ConstraintAdder#reset()");
         this.$pathfinder.remove();
         return this.$pathfinder = null;
       };
 
       ConstraintAdder.prototype.showTree = function(e) {
-        var pathFinder;
+        var pathFinder, treeRoot;
+        console.log("ConstraintAdder#showTree()");
         if (this.$pathfinder != null) {
           return this.reset();
         } else {
-          root = this.getTreeRoot();
-          pathFinder = new PathChooser(this.query, root, 0, this.handleChoice, this.isDisabled, this.refsOK, this.multiSelect);
-          pathFinder.render().$el.appendTo(this.el).show();
-          pathFinder.$el.css({
+          console.log("This tree is " + this.cid);
+          treeRoot = this.getTreeRoot();
+          pathFinder = new PathChooser(this.query, treeRoot, 0, this.handleChoice, this.isDisabled, this.refsOK, this.multiSelect);
+          pathFinder.render();
+          this.$el.append(pathFinder.el);
+          pathFinder.$el.show().css({
             top: this.$el.height()
           });
           return this.$pathfinder = pathFinder;
@@ -662,6 +666,7 @@
 
       ConstraintAdder.prototype.render = function() {
         var approver, browser;
+        console.log("ConstraintAdder#render()");
         browser = $("<button type=\"button\" class=\"btn btn-chooser\" data-toggle=\"button\">\n    <i class=\"icon-sitemap\"></i>\n    Browse for column\n</button>");
         approver = $(this.make('button', {
           type: "button",
@@ -4725,7 +4730,11 @@
           li = $("<li></li>");
           ul.append(li);
           countQuery = _this.query.clone();
-          countQuery.select([node.append("id").toPathString()]);
+          try {
+            countQuery.select([node.append("id").toPathString()]);
+          } catch (err) {
+            return;
+          }
           countQuery.orderBy([]);
           li.click(function() {
             return _this.openDialogue(node.getType().name, countQuery);
@@ -5397,12 +5406,13 @@
         obj[field] = obj.value;
         obj.selected = false;
         obj.selectable = false;
+        obj.base = '';
         return this.attributes = obj;
       };
 
       return FPObject;
 
-    })(Backbone.Model));
+    })(NullObject));
   });
 
   scope("intermine.query.results", function(exporting) {
@@ -5625,6 +5635,7 @@
       ColumnAdder.prototype.className = "form node-adder btn-group";
 
       ColumnAdder.prototype.initialize = function(query) {
+        console.log("ColumnAdder#initialize()");
         ColumnAdder.__super__.initialize.call(this, query);
         return this.chosen = [];
       };
@@ -5635,21 +5646,22 @@
         } else {
           this.chosen.push(path);
         }
-        if (this.chosen.length > 0) {
-          return this.$('.btn-primary').fadeIn('slow');
-        } else {
-          return this.$('.btn-primary').fadeOut('slow');
-        }
+        return this.applyChanges();
       };
 
       ColumnAdder.prototype.handleSubmission = function(e) {
         e.preventDefault();
         e.stopPropagation();
+        return this.applyChanges();
+      };
+
+      ColumnAdder.prototype.applyChanges = function() {
         this.query.trigger('column-orderer:selected', this.chosen);
         return this.reset();
       };
 
       ColumnAdder.prototype.reset = function() {
+        console.log("ColumnAdder#reset()");
         ColumnAdder.__super__.reset.call(this);
         this.chosen = [];
         this.$('.btn-chooser').button('reset');
@@ -5666,6 +5678,7 @@
       };
 
       ColumnAdder.prototype.render = function() {
+        console.log("ColumnAdder#render()");
         ColumnAdder.__super__.render.call(this);
         this.$('input').remove();
         return this;
@@ -5769,7 +5782,9 @@
         var _this = this;
         this.query = query;
         this.newView = new NewViewNodes();
-        this.newView.on('add remove change', this.drawOrder, this);
+        this.newView.on('add remove change', _.compose((function() {
+          return console.log("NewViewNodes.on('add remove change')");
+        }), this.drawOrder), this);
         this.newView.on('destroy', function(nv) {
           return _this.newView.remove(nv);
         });
@@ -5837,6 +5852,7 @@
       ColumnsDialogue.prototype.initOrdering = function() {
         var isOuterJoined, node, oj, ojStr, path, paths, v, _i, _len, _ref,
           _this = this;
+        console.log("ColumnsDialogue#initOrdering()");
         this.newView.reset();
         this.ojgs = {};
         _ref = this.query.views;
@@ -5883,6 +5899,7 @@
       ColumnsDialogue.prototype.drawOrder = function() {
         var ca, colContainer, nodeAdder,
           _this = this;
+        console.log("ColumnsDialogue#drawOrder()");
         colContainer = this.$('.im-reordering-container');
         colContainer.empty();
         colContainer.tooltip({
