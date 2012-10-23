@@ -1344,7 +1344,7 @@
   };
 
   simpleConStr = function(c) {
-    return "<constraint " + (conAttrs(c, ['path', 'op', 'code', 'value', 'extraValue'])) + "/>";
+    return "<constraint " + (conAttrs(c, ['path', 'op', 'code', 'value', 'extraValue', 'type'])) + "/>";
   };
 
   multiConStr = function(c) {
