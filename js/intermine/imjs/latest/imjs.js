@@ -974,13 +974,17 @@
             cb = cb || function() {};
             var self = this;
             var promise = Deferred();
+            var handler = function(resp) {
+                var user = new User(self, resp.user);
+                cb(user);
+                promise.resolve(user);
+            };
             self.fetchVersion(function(v) {
                 if (v < 9) {
                     var msg = "The who-am-i service requires version 9, this is only version " + v;
                     promise.reject("not available", msg);
                 } else {
-                    self.makeRequest("user/whoami", null, function(resp) {cb(new User(self, resp.user))})
-                        .then(promise.resolve, promise.reject);
+                    self.makeRequest("user/whoami", null).then(handler, promise.reject);
                 }
             });
             return promise;
