@@ -662,6 +662,10 @@
         intersect: "lists/intersect",
         diff: "lists/diff"
     };
+    var IDENTITY = function(x) { return x; };
+    var HAS_PROTOCOL = /^https?:\/\//i;
+    var HAS_SUFFIX = /service\/?$/i;
+    var SUFFIX = "/service/";
 
     var Service = function(properties) {
 
@@ -679,8 +683,9 @@
         }
 
         var getResulteriser = function(cb) { return function(data) {
-            cb = cb || function() {};
+            cb = cb || IDENTITY;
             cb(data.results, data);
+            return data.results;
         }};
 
         var getFormat = function(def) {
@@ -913,9 +918,8 @@
         };
 
         this.enrichment = function(req, cb) {
-            cb = cb || _.identity;
             _.defaults(req, {maxp: 0.05});
-            return this.makeRequest(ENRICHMENT_PATH, req, function(data) {cb(data.results)});
+            return this.makeRequest(ENRICHMENT_PATH, req, getResulteriser(cb));
         };
 
         this.search = function(options, cb) {
@@ -927,7 +931,7 @@
                 options = {};
             }
             options = options || {};
-            cb      = cb      || function() {};
+            cb      = cb      || IDENTITY;
             _.defaults(options, {term: "", facets: {}});
             var req = {q: options.term, start: options.start, size: options.size};
             if (options.facets) {
@@ -956,6 +960,8 @@
         };
 
         this.findById = function(table, objId, cb) {
+            var promise = Deferred();
+            cb = cb || IDENTITY;
             this.query({from: table, select: ["**"], where: {"id": objId}}, function(q) {
                 for (var i = 0; i < q.views.length; i++) {
                     var view = q.views[i];
@@ -966,15 +972,15 @@
                 }
                 q.records(function(rs) {
                     cb(rs[0]);
-                });
-            });
+                    promise.resolve(rs[0]);
+                }).fail(promise.reject);
+            }).fail(promise.reject);
+            return promise;
         };
 
         this.whoami = function(cb) {
-            cb = cb || function() {};
-            var self = this;
-            var promise = Deferred();
-            var handler = function(resp) {
+            cb = cb || IDENTITY;
+            var self = this, promise = Deferred(), handler = function(resp) {
                 var user = new User(self, resp.user);
                 cb(user);
                 promise.resolve(user);
@@ -984,9 +990,9 @@
                     var msg = "The who-am-i service requires version 9, this is only version " + v;
                     promise.reject("not available", msg);
                 } else {
-                    self.makeRequest("user/whoami", null).then(handler, promise.reject);
+                    self.makeRequest("user/whoami").then(handler, promise.reject);
                 }
-            });
+            }).fail(promise.reject);
             return promise;
         };
 
@@ -1032,15 +1038,15 @@
             return this.makeRequest(QUERY_RESULTS_PATH + "/tablerows", req, getResulteriser(cb), 'POST');
         };
 
-
         var constructor = _.bind(function(properties) {
             var root = properties.root;
-            if (root && !/^https?:\/\//i.test(root)) {
+            if (!HAS_PROTOCOL.test(root)) {
                 root = DEFAULT_PROTOCOL + root;
             }
-            if (root && !/service\/?$/i.test(root)) {
-                root = root + "/service/";
+            if (!HAS_SUFFIX.test(root)) {
+                root = root + SUFFIX;
             }
+            root = root.replace(/ice$/, "ice/");
             if (properties.errorHandler) {
                 this.errorHandler = properties.errorHandler;
             } else {
