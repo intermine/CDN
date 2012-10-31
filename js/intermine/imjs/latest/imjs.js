@@ -619,7 +619,19 @@
 
 (function(exports, IS_NODE) {
 
-    var Model, Query, List, _, Deferred, User;
+    var Model, Query, List, _, Deferred, User, ACCEPT_HEADER;
+    ACCEPT_HEADER = {
+        "json": "application/json",
+        "jsonobjects": "application/json;type=objects",
+        "jsontable": "application/json;type=table",
+        "jsonrows": "application/json;type=rows",
+        "jsoncount": "application/json;type=count",
+        "jsonp": "application/jsonp",
+        "jsonpobjects": "application/jsonp;type=objects",
+        "jsonptable": "application/jsonp;type=table",
+        "jsonprows": "application/jsonp;type=rows",
+        "jsonpcount": "application/jsonp;type=count"
+    };
     if (IS_NODE) {
         _ = require('underscore')._;
         Deferred = require('jquery-deferred').Deferred;
@@ -639,6 +651,11 @@
             exports.intermine = {};
         }
         exports = exports.intermine;
+        var converters = {};
+        _.each(_.keys(ACCEPT_HEADER), function(dataType) {
+            converters["text " + dataType] = jQuery.parseJSON;
+        });
+        jQuery.ajaxSetup({accepts: ACCEPT_HEADER, contents: {json: /json/}, converters: converters});
     } 
 
     var to_query_string = IS_NODE ? qs.stringify : jQuery.param;
@@ -721,30 +738,26 @@
 
             if (!(IS_NODE || jQuery.support.cors)) {
                 data.method = method;
-                method = false; 
+                method = "GET"; 
                 url += "?callback=?";
                 dataType = "jsonp";
                 console.log("No CORS support: going for jsonp");
-            } else if (IS_NODE && !method) {
+            } else if (!method) {
                 method = "GET";
             }
 
-            if (method) {
-                if (method === "DELETE") {
-                    // grumble grumble struts grumble grumble...
-                    url += "?" + to_query_string(data);
-                }
-                return this.doReq({
-                    data: data,
-                    dataType: "json",
-                    success: cb,
-                    error: errorCB,
-                    url: url,
-                    type: method
-                }, itemByItem);
-            } else {
-                return jQuery.getJSON(url, data, cb);
+            if (method === "DELETE") {
+                // grumble grumble struts grumble grumble...
+                url += "?" + to_query_string(data);
             }
+            return this.doReq({
+                data: data,
+                dataType: data.format,
+                success: cb,
+                error: errorCB,
+                url: url,
+                type: method
+            }, itemByItem);
         };
 
         if (IS_NODE) {
@@ -850,7 +863,7 @@
                 var url = URL.parse(opts.url, true);
                 url.method = opts.type;
                 url.port = url.port || 80;
-                url.headers = {'User-Agent': 'node-http/imjs'};
+                url.headers = {'User-Agent': 'node-http/imjs', 'Accept': ACCEPT_HEADER[opts.dataType]};
                 if (url.method === 'GET' && _(opts.data).size()) {
                     url.path += "?" + postdata;
                 } else if (url.method === 'POST') {
