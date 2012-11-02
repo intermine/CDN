@@ -805,9 +805,9 @@
         }
 
         var getResultProcessor = function(key) { return function(cb) { return function(data) {
-            cb = cb || IDENTITY;
-            cb(data[key], data);
-            return data.results;
+            var item = data[key];
+            (cb || IDENTITY)(item, data);
+            return item;
         }}};
 
         var getResulteriser = getResultProcessor('results');
@@ -827,6 +827,7 @@
         this.makeRequest = function(path, data, cb, method, itemByItem) {
             var url   = this.root + path;
             var errorCB = this.errorHandler;
+            method = method || "GET";
             data = data || {};
             if (_.isArray(data)) { // We also accept lists of pairs.
                 data = _.foldl(data, function(m, pair) { m[pair[0]] = pair[1]; return m;}, {});
@@ -835,28 +836,31 @@
             if (this.token) {
                 data.token = this.token;
             }
-            var dataType = "json";
             data.format = getFormat(data.format);
 
             if (_(cb).isArray()) {
                 errorCB = cb[1];
                 cb = cb[0];
             }
-
-            if (!(IS_NODE || jQuery.support.cors)) {
+            if (/jsonp/.test(data.format)) {
+                // Tunnel the method in a parameter.
                 data.method = method;
                 method = "GET"; 
                 url += "?callback=?";
-                dataType = "jsonp";
-                console.log("No CORS support: going for jsonp");
-            } else if (!method) {
-                method = "GET";
+            }
+            // IE requires that we tunnel DELETE and PUT requests.
+            if (!this.supports(method)) {
+                data.method = method;
+                method = this.getEffectiveMethod(method);
             }
 
             if (method === "DELETE") {
                 // grumble grumble struts grumble grumble...
+                // (struts won't read query data from the request body
+                // of DELETE requests).
                 url += "?" + to_query_string(data);
             }
+
             return this.doReq({
                 data: data,
                 dataType: data.format,
@@ -866,6 +870,9 @@
                 type: method
             }, itemByItem);
         };
+
+        this.supports = function() { return true; };
+        this.getEffectiveMethod = IDENTITY;
 
         if (IS_NODE) {
             this.rowByRow = function(q, page, cbs) {
@@ -996,6 +1003,14 @@
         } else {
             this.doReq = function(opts) {
                 return jQuery.ajax(opts);
+            }
+            if (typeof XDomainRequest !== 'undefined') {
+                this.getEffectiveMethod = (function(mapping) {
+                    return function(x) { return mapping[x]; }
+                })({POST: "PUT", DELETE: "GET"});
+                this.supports = function(method) {
+                    return this.getEffectiveMethod(method) === method;
+                };
             }
             var __wrap_cbs = function(cbs) {
                 var wrappedSuccess, error;
@@ -1184,35 +1199,26 @@
         };
 
         this.fetchTemplates = function(cb) {
-            var promise = Deferred();
-            this.makeRequest(TEMPLATES_PATH, null, function(data) {
-                cb(data.templates);
-                promise.resolve(data.templates);
-            }).fail(promise.reject);
-            promise.fail(this.errorHandler);
-            return promise;
+            return this.makeRequest(TEMPLATES_PATH).pipe(getResultProcessor('templates')(cb));
         };
 
         this.fetchLists = function(cb) {
-            var self = this;
-            var promise = Deferred();
-            this.makeRequest(LISTS_PATH, null, function(data) {
-                var lists = _(data.lists).map(function (l) {return new List(l, self)});
-                cb(lists);
-                promise.resolve(lists);
-            }).fail(promise.reject);
-            promise.fail(this.errorHandler);
-            return promise;
+            var self = this, toLists = function(data) {
+                return _(data.lists).map(function (l) {return new List(l, self)});
+            };
+            return this.makeRequest(LISTS_PATH).pipe(toLists).then(cb || IDENTITY);
         };
 
         this.fetchList = function(name, cb) {
-            var self = this, promise = Deferred().fail(self.errorHandler);
-            this.fetchLists(function(lists) {
+            var promise = this.fetchLists(), processor = function(lists) {
                 var l = _.find(lists, function(l) { return l.name === name });
-                cb(l);
-                promise.resolve(l);
-            }).fail(promise.reject);
-            return promise;
+                if (l == null) {
+                    promise.reject("List not found");
+                } 
+                return l;
+            };
+
+            return promise.pipe(processor).then(cb || IDENTITY);
         }
 
         this.combineLists = function(operation) {
