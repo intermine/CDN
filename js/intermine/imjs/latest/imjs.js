@@ -1007,7 +1007,7 @@
             if (typeof XDomainRequest !== 'undefined') {
                 this.getEffectiveMethod = (function(mapping) {
                     return function(x) { return mapping[x]; }
-                })({POST: "PUT", DELETE: "GET"});
+                })({PUT: "POST", DELETE: "GET"});
                 this.supports = function(method) {
                     return this.getEffectiveMethod(method) === method;
                 };
@@ -2535,13 +2535,13 @@
         };
 
         this.shareWithUser = function(recipient, cb) {
-            var data = {list: this.name, with: recipient};
-            return this.service.makeRequest("lists/shares", data, cb, "POST");
+            var data = {'list': this.name, 'with': recipient};
+            return this.service.makeRequest('lists/shares', data, cb, 'POST');
         };
 
         this.inviteUserToShare = function(recipient, cb) {
-            var data = {list: this.name, to: recipient, notify: true};
-            return this.service.makeRequest("lists/invitations", data, cb, "POST");
+            var data = {'list': this.name, 'to': recipient, 'notify': true};
+            return this.service.makeRequest("lists/invitations", data, cb, 'POST');
         };
 
     };
