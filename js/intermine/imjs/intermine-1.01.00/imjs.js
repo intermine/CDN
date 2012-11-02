@@ -2003,6 +2003,16 @@
       });
     };
 
+    Query.prototype.getOuterJoin = function(path) {
+      var joinPaths,
+        _this = this;
+      path = this.adjustPath(path);
+      joinPaths = _.sortBy(_.keys(this.joins), 'length').reverse();
+      return _.find(joinPaths, function(p) {
+        return _this.joins[p] === 'OUTER' && path.indexOf(p) === 0;
+      });
+    };
+
     Query.prototype._parse_sort_order = function(input) {
       var k, so, v;
       so = input;
