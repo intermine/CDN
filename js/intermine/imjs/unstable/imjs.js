@@ -1756,7 +1756,7 @@
       this.root = (_ref5 = properties.root) != null ? _ref5 : properties.from;
       this.maxRows = (_ref6 = (_ref7 = properties.size) != null ? _ref7 : properties.limit) != null ? _ref6 : properties.maxRows;
       this.start = (_ref8 = (_ref9 = properties.start) != null ? _ref9 : properties.offset) != null ? _ref8 : 0;
-      this.select(properties.views || properties.select || []);
+      this.select(properties.views || properties.view || properties.select || []);
       this.addConstraints(properties.constraints || properties.where || []);
       this.addJoins(properties.joins || properties.join || []);
       this.orderBy(properties.sortOrder || properties.orderBy || []);
