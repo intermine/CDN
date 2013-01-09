@@ -1,0 +1,19 @@
+{
+    "name": "underscore.deferred",
+    "filename": "underscore.deferred.min.js",
+    "version": "0.2.0",
+    "description": "This is a port of jQuery.Deferred as an Underscore mixin, but it can be used without any depencencies. It currently matches the Deferred specifications and implementation from jQuery 1.8.0, with all the associated helpers.",
+    "homepage": "https://github.com/wookiehangover/underscore.deferred",
+    "keywords": [
+       "utility",
+       "promises",
+       "deferred",
+       "underscore"
+   ],
+   "repositories": [
+       {
+           "type": "git",
+           "url": "git://github.com/wookiehangover/underscore.deferred.git" 
+       } 
+   ]
+}
