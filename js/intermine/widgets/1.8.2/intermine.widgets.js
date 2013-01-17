@@ -790,185 +790,6 @@ factory = function(Backbone) {
   })(InterMineWidget);
   
 
-  /* Core Model for Enrichment and Table Models.
-  */
-  
-  var CoreCollection, CoreModel, EnrichmentResults, EnrichmentRow, TableResults, TableRow,
-    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-  
-  CoreModel = (function(_super) {
-  
-    __extends(CoreModel, _super);
-  
-    function CoreModel() {
-      this.toggleSelected = __bind(this.toggleSelected, this);
-  
-      this.validate = __bind(this.validate, this);
-      return CoreModel.__super__.constructor.apply(this, arguments);
-    }
-  
-    CoreModel.prototype.defaults = {
-      "selected": false
-    };
-  
-    CoreModel.prototype.initialize = function(row, widget) {
-      this.widget = widget;
-      return this.validate(row);
-    };
-  
-    CoreModel.prototype.validate = function(row) {
-      return this.widget.validateType(row, this.spec);
-    };
-  
-    CoreModel.prototype.toggleSelected = function() {
-      return this.set({
-        selected: !this.get("selected")
-      });
-    };
-  
-    return CoreModel;
-  
-  })(Backbone.Model);
-  
-  CoreCollection = (function(_super) {
-  
-    __extends(CoreCollection, _super);
-  
-    function CoreCollection() {
-      return CoreCollection.__super__.constructor.apply(this, arguments);
-    }
-  
-    CoreCollection.prototype.model = CoreModel;
-  
-    CoreCollection.prototype.selected = function() {
-      return this.filter(function(row) {
-        return row.get("selected");
-      });
-    };
-  
-    CoreCollection.prototype.toggleSelected = function() {
-      var model, _i, _j, _len, _len1, _ref, _ref1, _results, _results1;
-      if (this.models.length - this.selected().length) {
-        _ref = this.models;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          model = _ref[_i];
-          _results.push(model.set({
-            "selected": true
-          }, {
-            'silent': true
-          }));
-        }
-        return _results;
-      } else {
-        _ref1 = this.models;
-        _results1 = [];
-        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-          model = _ref1[_j];
-          _results1.push(model.set({
-            "selected": false
-          }, {
-            'silent': true
-          }));
-        }
-        return _results1;
-      }
-    };
-  
-    return CoreCollection;
-  
-  })(Backbone.Collection);
-  
-  /* Models underpinning Enrichment Widget results.
-  */
-  
-  
-  EnrichmentRow = (function(_super) {
-  
-    __extends(EnrichmentRow, _super);
-  
-    function EnrichmentRow() {
-      return EnrichmentRow.__super__.constructor.apply(this, arguments);
-    }
-  
-    EnrichmentRow.prototype.spec = {
-      "description": type.isString,
-      "identifier": type.isString,
-      "matches": type.isInteger,
-      "p-value": type.isInteger,
-      "selected": type.isBoolean,
-      "externalLink": type.isString
-    };
-  
-    EnrichmentRow.prototype.toJSON = function() {
-      var attributes;
-      attributes = _.clone(this.attributes);
-      if (attributes['p-value'] < 0.001) {
-        attributes['p-value'] = attributes['p-value'].toExponential(6);
-      } else {
-        attributes['p-value'] = attributes['p-value'].toFixed(6);
-      }
-      return attributes;
-    };
-  
-    return EnrichmentRow;
-  
-  })(CoreModel);
-  
-  EnrichmentResults = (function(_super) {
-  
-    __extends(EnrichmentResults, _super);
-  
-    function EnrichmentResults() {
-      return EnrichmentResults.__super__.constructor.apply(this, arguments);
-    }
-  
-    EnrichmentResults.prototype.model = EnrichmentRow;
-  
-    return EnrichmentResults;
-  
-  })(CoreCollection);
-  
-  /* Models underpinning Table Widget results.
-  */
-  
-  
-  TableRow = (function(_super) {
-  
-    __extends(TableRow, _super);
-  
-    function TableRow() {
-      return TableRow.__super__.constructor.apply(this, arguments);
-    }
-  
-    TableRow.prototype.spec = {
-      "matches": type.isInteger,
-      "identifier": type.isInteger,
-      "descriptions": type.isArray,
-      "selected": type.isBoolean
-    };
-  
-    return TableRow;
-  
-  })(CoreModel);
-  
-  TableResults = (function(_super) {
-  
-    __extends(TableResults, _super);
-  
-    function TableResults() {
-      return TableResults.__super__.constructor.apply(this, arguments);
-    }
-  
-    TableResults.prototype.model = TableRow;
-  
-    return TableResults;
-  
-  })(CoreCollection);
-  
-
   /* Chart Widget bar onclick box.
   */
   
@@ -1209,7 +1030,7 @@ factory = function(Backbone) {
   
     EnrichmentLengthCorrectionView.prototype.seeWhich = function(e) {
       var pq;
-      pq = JSON.parse(this.whichDiscardedPq);
+      pq = JSON.parse(this.pathQueryGeneLengthNull);
       this.cb(pq);
       return e.preventDefault();
     };
@@ -2292,9 +2113,6 @@ factory = function(Backbone) {
           opts = merge(extraAttribute.gene_length, {
             'el': $(this.el).find('div.form form'),
             'widget': this,
-            'gene_length_correction': this.response.gene_length_correction,
-            'percentage_gene_length_not_null': this.response.percentage_gene_length_not_null,
-            'whichDiscardedPq': this.response.pathQueryGeneLengthNull,
             'cb': this.options.resultsCb
           });
           new EnrichmentLengthCorrectionView(opts);
@@ -2473,13 +2291,191 @@ factory = function(Backbone) {
   })(Backbone.View);
   
 
+  /* Core Model for Enrichment and Table Models.
+  */
+  
+  var CoreCollection, CoreModel, EnrichmentResults, EnrichmentRow, TableResults, TableRow,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+    __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+  
+  CoreModel = (function(_super) {
+  
+    __extends(CoreModel, _super);
+  
+    function CoreModel() {
+      this.toggleSelected = __bind(this.toggleSelected, this);
+  
+      this.validate = __bind(this.validate, this);
+      return CoreModel.__super__.constructor.apply(this, arguments);
+    }
+  
+    CoreModel.prototype.defaults = {
+      "selected": false
+    };
+  
+    CoreModel.prototype.initialize = function(row, widget) {
+      this.widget = widget;
+      return this.validate(row);
+    };
+  
+    CoreModel.prototype.validate = function(row) {
+      return this.widget.validateType(row, this.spec);
+    };
+  
+    CoreModel.prototype.toggleSelected = function() {
+      return this.set({
+        selected: !this.get("selected")
+      });
+    };
+  
+    return CoreModel;
+  
+  })(Backbone.Model);
+  
+  CoreCollection = (function(_super) {
+  
+    __extends(CoreCollection, _super);
+  
+    function CoreCollection() {
+      return CoreCollection.__super__.constructor.apply(this, arguments);
+    }
+  
+    CoreCollection.prototype.model = CoreModel;
+  
+    CoreCollection.prototype.selected = function() {
+      return this.filter(function(row) {
+        return row.get("selected");
+      });
+    };
+  
+    CoreCollection.prototype.toggleSelected = function() {
+      var model, _i, _j, _len, _len1, _ref, _ref1, _results, _results1;
+      if (this.models.length - this.selected().length) {
+        _ref = this.models;
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          model = _ref[_i];
+          _results.push(model.set({
+            "selected": true
+          }, {
+            'silent': true
+          }));
+        }
+        return _results;
+      } else {
+        _ref1 = this.models;
+        _results1 = [];
+        for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+          model = _ref1[_j];
+          _results1.push(model.set({
+            "selected": false
+          }, {
+            'silent': true
+          }));
+        }
+        return _results1;
+      }
+    };
+  
+    return CoreCollection;
+  
+  })(Backbone.Collection);
+  
+  /* Models underpinning Enrichment Widget results.
+  */
+  
+  
+  EnrichmentRow = (function(_super) {
+  
+    __extends(EnrichmentRow, _super);
+  
+    function EnrichmentRow() {
+      return EnrichmentRow.__super__.constructor.apply(this, arguments);
+    }
+  
+    EnrichmentRow.prototype.spec = {
+      "description": type.isString,
+      "identifier": type.isString,
+      "matches": type.isInteger,
+      "p-value": type.isInteger,
+      "selected": type.isBoolean,
+      "externalLink": type.isString
+    };
+  
+    EnrichmentRow.prototype.toJSON = function() {
+      var attributes;
+      attributes = _.clone(this.attributes);
+      if (attributes['p-value'] < 0.001) {
+        attributes['p-value'] = attributes['p-value'].toExponential(6);
+      } else {
+        attributes['p-value'] = attributes['p-value'].toFixed(6);
+      }
+      return attributes;
+    };
+  
+    return EnrichmentRow;
+  
+  })(CoreModel);
+  
+  EnrichmentResults = (function(_super) {
+  
+    __extends(EnrichmentResults, _super);
+  
+    function EnrichmentResults() {
+      return EnrichmentResults.__super__.constructor.apply(this, arguments);
+    }
+  
+    EnrichmentResults.prototype.model = EnrichmentRow;
+  
+    return EnrichmentResults;
+  
+  })(CoreCollection);
+  
+  /* Models underpinning Table Widget results.
+  */
+  
+  
+  TableRow = (function(_super) {
+  
+    __extends(TableRow, _super);
+  
+    function TableRow() {
+      return TableRow.__super__.constructor.apply(this, arguments);
+    }
+  
+    TableRow.prototype.spec = {
+      "matches": type.isInteger,
+      "identifier": type.isInteger,
+      "descriptions": type.isArray,
+      "selected": type.isBoolean
+    };
+  
+    return TableRow;
+  
+  })(CoreModel);
+  
+  TableResults = (function(_super) {
+  
+    __extends(TableResults, _super);
+  
+    function TableResults() {
+      return TableResults.__super__.constructor.apply(this, arguments);
+    }
+  
+    TableResults.prototype.model = TableRow;
+  
+    return TableResults;
+  
+  })(CoreCollection);
+  
+
   return {
 
     "ChartWidget": ChartWidget,
     "EnrichmentWidget": EnrichmentWidget,
     "InterMineWidget": InterMineWidget,
     "TableWidget": TableWidget,
-    "CoreModel": CoreModel,
     "ChartPopoverView": ChartPopoverView,
     "EnrichmentRowView": EnrichmentRowView,
     "EnrichmentLengthCorrectionView": EnrichmentLengthCorrectionView,
@@ -2489,7 +2485,8 @@ factory = function(Backbone) {
     "EnrichmentPopoverView": EnrichmentPopoverView,
     "TableView": TableView,
     "TableRowView": TableRowView,
-    "EnrichmentView": EnrichmentView
+    "EnrichmentView": EnrichmentView,
+    "CoreModel": CoreModel
   };
 };
 /* Interface to InterMine Widgets.
