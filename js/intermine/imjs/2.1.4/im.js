@@ -1343,8 +1343,8 @@ Thu Jun 14 13:18:14 BST 2012
 
     List.prototype.shareWithUser = function(recipient, cb) {
       return this.service.post(SHARES, {
-        list: this.name,
-        "with": recipient
+        'list': this.name,
+        'with': recipient
       }).done(cb);
     };
 
