@@ -1,4 +1,4 @@
-/*! imjs - v2.1.3 - 2013-02-28 */
+/*! imjs - v2.1.1 - 2013-02-27 */
 
 /**
 This library is open source software according to the definition of the
@@ -126,7 +126,7 @@ Thu Jun 14 13:18:14 BST 2012
       imjs.VERSION = pkg.version;
     }
   } else {
-    imjs.VERSION = "2.1.3";
+    imjs.VERSION = "2.1.1";
   }
 
 }).call(this);
@@ -844,13 +844,10 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     PathInfo.prototype.getDisplayName = function(cb) {
-      var cached, custom, params, path, _ref,
+      var cached, params, path, _ref,
         _this = this;
-      if (custom = this.displayName) {
-        return success(custom);
-      }
       if ((_ref = this.namePromise) == null) {
-        this.namePromise = (cached = NAMES[this.ident]) ? success(cached) : !(this.model.service != null) ? error("No service") : (path = 'model' + (concatMap(function(d) {
+        this.namePromise = (cached = this.displayName || NAMES[this.ident]) ? success(cached) : !(this.model.service != null) ? error("No service") : (path = 'model' + (concatMap(function(d) {
           return '/' + d.name;
         }))(this.allDescriptors()), params = (set({
           format: 'json'
@@ -1756,7 +1753,7 @@ Thu Jun 14 13:18:14 BST 2012
 
       this.select = __bind(this.select, this);
 
-      var _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9,
+      var _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9,
         _this = this;
       _.defaults(this, {
         constraints: [],
@@ -1768,13 +1765,13 @@ Thu Jun 14 13:18:14 BST 2012
       if (properties == null) {
         properties = {};
       }
-      this.displayNames = _.extend({}, (_ref2 = (_ref3 = properties.displayNames) != null ? _ref3 : properties.aliases) != null ? _ref2 : {});
+      this.displayNames = (_ref2 = properties.aliases) != null ? _ref2 : {};
       this.service = service != null ? service : {};
-      this.model = (_ref4 = properties.model) != null ? _ref4 : {};
-      this.summaryFields = (_ref5 = properties.summaryFields) != null ? _ref5 : {};
-      this.root = (_ref6 = properties.root) != null ? _ref6 : properties.from;
-      this.maxRows = (_ref7 = (_ref8 = properties.size) != null ? _ref8 : properties.limit) != null ? _ref7 : properties.maxRows;
-      this.start = (_ref9 = (_ref10 = properties.start) != null ? _ref10 : properties.offset) != null ? _ref9 : 0;
+      this.model = (_ref3 = properties.model) != null ? _ref3 : {};
+      this.summaryFields = (_ref4 = properties.summaryFields) != null ? _ref4 : {};
+      this.root = (_ref5 = properties.root) != null ? _ref5 : properties.from;
+      this.maxRows = (_ref6 = (_ref7 = properties.size) != null ? _ref7 : properties.limit) != null ? _ref6 : properties.maxRows;
+      this.start = (_ref8 = (_ref9 = properties.start) != null ? _ref9 : properties.offset) != null ? _ref8 : 0;
       this.select(properties.views || properties.view || properties.select || []);
       this.addConstraints(properties.constraints || properties.where || []);
       this.addJoins(properties.joins || properties.join || []);
@@ -2572,54 +2569,18 @@ Thu Jun 14 13:18:14 BST 2012
     reqMeth = "_" + f + "_req";
     getMeth = "get" + (f.toUpperCase());
     uriMeth = getMeth + "URI";
-    Query.prototype[getMeth] = function(opts, cb) {
-      var req, v, _ref3;
-      if (opts == null) {
-        opts = {};
-      }
+    Query.prototype[getMeth] = function(cb) {
+      var req;
       if (cb == null) {
         cb = function() {};
       }
-      if (_.isFunction(opts)) {
-        _ref3 = [{}, opts], opts = _ref3[0], cb = _ref3[1];
-      }
-      if ((opts != null ? opts.view : void 0) != null) {
-        opts.view = (function() {
-          var _j, _len1, _ref4, _results;
-          _ref4 = opts.view;
-          _results = [];
-          for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
-            v = _ref4[_j];
-            _results.push(this.getPathInfo(v).toString());
-          }
-          return _results;
-        }).call(this);
-      }
-      req = _.extend(this[reqMeth](), opts);
+      req = this[reqMeth]();
       return this.service.post('query/results/' + f, req).done(cb);
     };
-    return Query.prototype[uriMeth] = function(opts, cb) {
-      var req, v, _ref3;
-      if (opts == null) {
-        opts = {};
-      }
-      if (_.isFunction(opts)) {
-        _ref3 = [{}, opts], opts = _ref3[0], cb = _ref3[1];
-      }
-      if ((opts != null ? opts.view : void 0) != null) {
-        opts.view = (function() {
-          var _j, _len1, _ref4, _results;
-          _ref4 = opts.view;
-          _results = [];
-          for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
-            v = _ref4[_j];
-            _results.push(this.getPathInfo(v).toString());
-          }
-          return _results;
-        }).call(this);
-      }
-      req = _.extend(this[reqMeth](), opts);
-      if (this.service.token != null) {
+    return Query.prototype[uriMeth] = function(cb) {
+      var req, _ref3;
+      req = this[reqMeth]();
+      if (((_ref3 = this.service) != null ? _ref3.token : void 0) != null) {
         req.token = this.service.token;
       }
       return "" + this.service.root + "query/results/" + f + "?" + (toQueryString(req));
