@@ -3453,7 +3453,7 @@ Thu Jun 14 13:18:14 BST 2012
       var _this = this;
       return $.when(this.fetchModel(), this.fetchSummaryFields()).pipe(function(m, sfs) {
         var args, service;
-        args = _.defaults({}, options, {
+        args = _.extend({}, options, {
           model: m,
           summaryFields: sfs
         });
