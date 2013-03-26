@@ -23144,7 +23144,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Mar 26 2013 13:46:06 GMT+0000 (GMT)
+ * Built at Tue Mar 26 2013 16:36:26 GMT+0000 (GMT)
 */
 
 
@@ -32366,7 +32366,7 @@ Thu Jun 14 13:18:14 BST 2012
       NumericFacet.prototype.drawSlider = function() {
         var _this = this;
 
-        $(this.container).append("<div class=\"btn-group pull-right\">\n  <button class=\"btn btn-primary disabled\">Apply</button>\n  <button class=\"btn btn-cancel disabled\">Reset</button>\n</div>\n<label>Range:</label>\n<input type=\"text\" data-var=\"min\" class=\"im-range-min input im-range-val\" value=\"" + this.min + "\">\n<span>...</span>\n<input type=\"text\" data-var=\"max\" class=\"im-range-max input im-range-val\" value=\"" + this.max + "\">\n<div class=\"slider\"></div>");
+        $(this.container).append("<div class=\"btn-group pull-right\">\n  <button class=\"btn btn-primary disabled\">Apply</button>\n  <button class=\"btn btn-cancel disabled\">Reset</button>\n</div>\n<input type=\"text\" data-var=\"min\" class=\"im-range-min input im-range-val\" value=\"" + this.min + "\">\n<span>...</span>\n<input type=\"text\" data-var=\"max\" class=\"im-range-max input im-range-val\" value=\"" + this.max + "\">\n<div class=\"slider\"></div>");
         return this.$slider = this.$('.slider').slider({
           range: true,
           min: this.min,
