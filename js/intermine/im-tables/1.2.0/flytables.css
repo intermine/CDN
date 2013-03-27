@@ -978,6 +978,9 @@
     color: #555;
 }
 
+.intermine .im-query-results .im-result-field input[type="checkbox"] {
+    vertical-align: top;
+}
 .intermine .im-query-results .im-table-container td.im-result-field:hover {
     background: #9f67ad;
 }
@@ -7528,3 +7531,15 @@ td > .im-no-results {
     padding: 0;
 }
 
+.intermine ::-webkit-input-placeholder {
+    color: #999;
+}
+.intermine ::-moz-placeholder {
+    color: #999;
+}
+.intermine :-moz-placeholder {
+    color: #999;
+}
+.intermine :-ms-input-placeholder {
+    color: #999;
+}

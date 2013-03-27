@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Mar 26 2013 16:36:26 GMT+0000 (GMT)
+ * Built at Wed Mar 27 2013 10:49:19 GMT+0000 (GMT)
 */
 
 
@@ -9400,8 +9400,46 @@
           },
           'click .im-filter .im-filter-out': function(e) {
             return _this.addConstraint(e, negateOps(basicOps));
-          }
+          },
+          'keyup .im-filter-values': 'filterItems',
+          'click .im-clear-value-filter': 'clearValueFilter'
         };
+      };
+
+      PieFacet.prototype.filterItems = function(e) {
+        var $input, current, parts, test;
+
+        $input = this.$('.im-filter-values');
+        current = $input.val();
+        if (this.hasMore || (this.filterTerm && current < this.filterTerm.length)) {
+          return _.delay((function() {
+            return this.query.trigger('filter:summary', current);
+          }), 750);
+        } else {
+          parts = (current != null ? current : '').toLowerCase().split(/\s+/);
+          test = function(str) {
+            return _.all(parts, function(part) {
+              return !!(str && ~str.toLowerCase().indexOf(part));
+            });
+          };
+          return this.items.each(function(x) {
+            return x.set({
+              visibility: test(x.get('item'))
+            });
+          });
+        }
+      };
+
+      PieFacet.prototype.clearValueFilter = function() {
+        var $input;
+
+        $input = this.$('.im-filter-values');
+        $input.val(this.filterTerm);
+        return this.items.each(function(x) {
+          return x.set({
+            visibility: true
+          });
+        });
       };
 
       PieFacet.prototype.loadMoreItems = function() {
@@ -9633,7 +9671,7 @@
         return this;
       };
 
-      PieFacet.prototype.filterControls = "<div class=\"input-prepend\">\n    <span class=\"add-on\"><i class=\"icon-refresh\"></i></span><input type=\"text\" class=\"input-medium  filter-values\" placeholder=\"Filter values\">\n</div>";
+      PieFacet.prototype.filterControls = "<div class=\"input-prepend\">\n    <span class=\"add-on im-clear-value-filter\">\n      <i class=\"icon-refresh\"></i>\n    </span>\n    <input type=\"text\" class=\"input-medium  im-filter-values\" placeholder=\"Filter values\">\n</div>";
 
       PieFacet.prototype.getDownloadPopover = function() {
         var href, i, icons, lis, name, param;
@@ -9675,7 +9713,6 @@
           container: this.el
         });
         $btns.on('click', function(e) {
-          console.log("Tooltipping", e);
           return $btns.tooltip('hide');
         });
         $grp.find('.dropdown-toggle').click(function(e) {
@@ -9715,34 +9752,13 @@
       };
 
       PieFacet.prototype.initFilter = function() {
-        var $valFilter, facet, xs;
+        var $valFilter, xs;
 
         xs = this.items;
-        $valFilter = this.$('.filter-values');
+        $valFilter = this.$('.im-filter-values');
         if (this.filterTerm) {
-          $valFilter.val(this.filterTerm);
+          return $valFilter.val(this.filterTerm);
         }
-        facet = this;
-        $valFilter.keyup(function(e) {
-          var pattern;
-
-          if (facet.hasMore || (facet.filterTerm && $(this).val().length < facet.filterTerm.length)) {
-            return _.delay((function() {
-              return facet.query.trigger('filter:summary', $valFilter.val());
-            }), 750);
-          } else {
-            pattern = new RegExp($(this).val(), "i");
-            return xs.each(function(x) {
-              return x.set("visibility", pattern.test(x.get("item")));
-            });
-          }
-        });
-        return $valFilter.prev().click(function(e) {
-          $(this).next().val(facet.filterTerm);
-          return xs.each(function(x) {
-            return x.set("visibility", true);
-          });
-        });
       };
 
       PieFacet.prototype.colClasses = ["im-item-selector", "im-item-value", "im-item-count"];
@@ -9972,14 +9988,20 @@
 
         BooleanFacet.__super__.initialize.apply(this, arguments);
         if (this.items.length === 2) {
-          return this.items.on('change:selected', function(quello, selected) {
-            return _this.items.each(function(questo) {
-              if (selected && questo !== quello) {
-                return questo.set({
+          return this.items.on('change:selected', function(x, selected) {
+            var someAreSelected;
+
+            _this.items.each(function(y) {
+              if (selected && x !== y) {
+                return y.set({
                   selected: false
                 });
               }
             });
+            someAreSelected = _this.items.any(function(item) {
+              return !!item.get("selected");
+            });
+            return _this.$('.im-filtering.btn').attr("disabled", !someAreSelected);
           });
         }
       };
@@ -9988,7 +10010,9 @@
 
       BooleanFacet.prototype.initFilter = function() {};
 
-      BooleanFacet.prototype.buttons = "<button type=\"submit\" class=\"btn btn-primary\" disabled>Filter</button>\n<button class=\"btn btn-cancel\" disabled>Reset</button>";
+      BooleanFacet.prototype.buttons = function() {
+        return "<button type=\"submit\" class=\"btn btn-primary im-filtering im-filter-in\" disabled>Filter</button>\n<button class=\"btn btn-cancel im-filtering\" disabled>Reset</button>";
+      };
 
       return BooleanFacet;
 
