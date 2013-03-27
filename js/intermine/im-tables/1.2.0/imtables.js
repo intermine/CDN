@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Mar 27 2013 17:22:55 GMT+0000 (GMT)
+ * Built at Wed Mar 27 2013 17:50:03 GMT+0000 (GMT)
 */
 
 
@@ -4465,8 +4465,13 @@
   });
 
   (function() {
-    var ColumnAdder, ColumnsDialogue, NewViewNodes, ViewNode, _ref, _ref1, _ref2, _ref3;
+    var ColumnAdder, ColumnsDialogue, NewViewNodes, ViewNode, byEl, _ref, _ref1, _ref2, _ref3;
 
+    byEl = function(el) {
+      return function(nv) {
+        return nv.el === el;
+      };
+    };
     ColumnAdder = (function(_super) {
       __extends(ColumnAdder, _super);
 
@@ -4763,7 +4768,24 @@
         'change input.im-only-in-view': 'onlyShowOptionsInView',
         'change .im-sortables-filter': 'filterSortables',
         'keyup .im-sortables-filter': 'filterSortables',
-        'sortupdate .im-reordering-container': 'updateOrder'
+        'sortstop .im-sorting-container': 'onSortStop',
+        'sortupdate .im-reordering-container': 'updateOrder',
+        'sortupdate .im-sorting-container': 'updateSorting'
+      };
+
+      ColumnsDialogue.prototype.onSortStop = function(e, ui) {
+        var left, oe, removed, top, well, wtop, _ref4;
+
+        _ref4 = ui.offset, top = _ref4.top, left = _ref4.left;
+        well = ui.item.closest('.well');
+        wtop = well.offset().top;
+        removed = (top + ui.item.height() < wtop) || (top > wtop + well.height());
+        oe = this.sortOrder.find(byEl(ui.item[0]));
+        if (removed) {
+          return _.defer(function() {
+            return oe.destroy();
+          });
+        }
       };
 
       ColumnsDialogue.prototype.onHidden = function(e) {
@@ -4882,7 +4904,7 @@
       };
 
       ColumnsDialogue.prototype.updateOrder = function(e, ui) {
-        var byEl, el, lis, reorderedState;
+        var el, lis, reorderedState;
 
         lis = this.$('.im-view-element');
         byEl = function(el) {
@@ -4901,10 +4923,30 @@
           }
           return _results;
         }).call(this);
-        if (!reorderedState.length) {
-          debugger;
-        }
         return this.newView.reset(reorderedState);
+      };
+
+      ColumnsDialogue.prototype.updateSorting = function(e, ui) {
+        var el, lis, reorderedState;
+
+        lis = this.$('.im-in-order');
+        byEl = function(el) {
+          return function(oe) {
+            return oe.el === el;
+          };
+        };
+        reorderedState = (function() {
+          var _i, _len, _ref4, _results;
+
+          _ref4 = lis.get();
+          _results = [];
+          for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+            el = _ref4[_i];
+            _results.push(this.sortOrder.find(byEl(el)));
+          }
+          return _results;
+        }).call(this);
+        return this.sortOrder.reset(reorderedState);
       };
 
       ColumnsDialogue.prototype.sortingPlaceholder = "<div class=\"placeholder\">\n    Drop columns here.\n</div>";
@@ -7101,6 +7143,12 @@
         };
       };
 
+      Table.prototype.getCurrentPageSize = function() {
+        var _ref3, _ref4;
+
+        return (_ref3 = (_ref4 = this.table) != null ? _ref4.pageSize : void 0) != null ? _ref3 : this.pageSize;
+      };
+
       Table.prototype.getCurrentPage = function() {
         if (this.table.pageSize) {
           return Math.floor(this.table.pageStart / this.table.pageSize);
@@ -7530,10 +7578,6 @@
         }
       };
 
-      Cell.prototype.events = {
-        'click': 'activateChooser'
-      };
-
       Cell.prototype.initialize = function() {
         var field, path;
 
@@ -7543,6 +7587,33 @@
         field = this.options.field;
         path = this.path = this.options.node.append(field);
         return this.$el.addClass('im-type-' + path.getType().toLowerCase());
+      };
+
+      Cell.prototype.events = function() {
+        var _this = this;
+
+        return {
+          'shown': function() {
+            var _ref2;
+
+            return (_ref2 = _this.cellPreview) != null ? _ref2.reposition() : void 0;
+          },
+          'show': function(e) {
+            _this.options.query.trigger('showing:preview', _this.el);
+            if (_this.model.get('is:selecting')) {
+              return e != null ? e.preventDefault() : void 0;
+            }
+          },
+          'hide': function(e) {
+            var _ref2;
+
+            return (_ref2 = _this.model.cachedPopover) != null ? _ref2.detach() : void 0;
+          },
+          'click': 'activateChooser',
+          'click a.im-cell-link': function(e) {
+            return e != null ? e.stopPropagation() : void 0;
+          }
+        };
       };
 
       Cell.prototype.listenToQuery = function(q) {
@@ -7634,8 +7705,7 @@
       };
 
       Cell.prototype.setupPreviewOverlay = function() {
-        var options,
-          _this = this;
+        var options;
 
         options = {
           container: this.el,
@@ -7651,22 +7721,6 @@
           content: this.getPopoverContent,
           placement: this.getPopoverPlacement
         };
-        this.$el.on('shown', function() {
-          return _this.cellPreview.reposition();
-        });
-        this.$el.on('show', function() {
-          return _this.options.query.trigger('showing:preview', _this.el);
-        });
-        this.$el.on('show', function(e) {
-          if (_this.model.get('is:selecting')) {
-            return e.preventDefault();
-          }
-        });
-        this.$el.on('hide', function(e) {
-          var _ref2;
-
-          return (_ref2 = _this.model.cachedPopover) != null ? _ref2.detach() : void 0;
-        });
         return this.cellPreview = new intermine.bootstrap.DynamicPopover(this.el, options);
       };
 
@@ -8624,23 +8678,27 @@
       DashBoard.prototype.TABLE_CLASSES = "span9 im-query-results";
 
       DashBoard.prototype.loadQuery = function(q) {
-        var cb, evt, k, v, _ref1, _ref2, _ref3, _results;
+        var cb, currentPageSize, evt, k, v, _ref1, _ref2, _ref3, _ref4, _results;
 
-        if ((_ref1 = this.table) != null) {
-          _ref1.remove();
+        currentPageSize = (_ref1 = this.table) != null ? _ref1.getCurrentPageSize() : void 0;
+        if ((_ref2 = this.table) != null) {
+          _ref2.remove();
         }
         this.main.empty();
         this.table = new intermine.query.results.Table(q, this.main, this.columnHeaders);
-        _ref2 = this.tableProperties;
-        for (k in _ref2) {
-          v = _ref2[k];
+        _ref3 = this.tableProperties;
+        for (k in _ref3) {
+          v = _ref3[k];
           this.table[k] = v;
         }
+        if (currentPageSize != null) {
+          this.table.pageSize = currentPageSize;
+        }
         this.table.render();
-        _ref3 = this.queryEvents;
+        _ref4 = this.queryEvents;
         _results = [];
-        for (evt in _ref3) {
-          cb = _ref3[evt];
+        for (evt in _ref4) {
+          cb = _ref4[evt];
           _results.push(q.on(evt, cb));
         }
         return _results;
@@ -11425,7 +11483,7 @@
 
       OrderElement.prototype.tagName = 'li';
 
-      OrderElement.prototype.className = 'im-reorderable im-soe';
+      OrderElement.prototype.className = 'im-reorderable im-soe im-in-order';
 
       TEMPLATE = _.template("<div>\n  <span class=\"im-sort-direction <%= direction.toLowerCase() %>\"></span>\n  <i class=\"icon-minus im-remove-soe\" title=\"Remove this column from the sort order\"></i>\n  <span class=\"im-path\" title=\"<%- path %>\"><%- path %></span>\n  <i class=\"icon-reorder pull-right\"></i>\n</div>");
 
@@ -11435,7 +11493,8 @@
         this.model.on('change:direction', function() {
           return _this.$('.im-sort-direction').toggleClass('asc desc');
         });
-        return this.model.on('destroy', this.remove, this);
+        this.model.on('destroy', this.remove, this);
+        return this.model.el = this.el;
       };
 
       OrderElement.prototype.events = {
