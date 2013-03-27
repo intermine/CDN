@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Mar 27 2013 10:49:19 GMT+0000 (GMT)
+ * Built at Wed Mar 27 2013 12:23:07 GMT+0000 (GMT)
 */
 
 
@@ -649,7 +649,7 @@
             }
           ]
         },
-        'http://beta.flymine.org/beta/service/': {
+        'http://preview.flymine.org/preview/service/': {
           Organism: [
             {
               label: 'Genes',
@@ -763,6 +763,10 @@
     csv: 'icon-table',
     xml: 'icon-xml',
     json: 'icon-json'
+  });
+
+  scope('intermine.messages.cell', {
+    RelatedItems: "Related item counts:"
   });
 
   scope('intermine.messages.columns', {
@@ -7106,10 +7110,12 @@
       };
 
       Table.prototype.getMaxPage = function() {
-        var total;
+        var correction, pageSize, total;
 
         total = this.cache.lastResult.iTotalRecords;
-        return Math.floor(total / this.table.pageSize);
+        pageSize = this.table.pageSize;
+        correction = total % pageSize === 0 ? -1 : 0;
+        return Math.floor(total / pageSize) + correction;
       };
 
       Table.prototype.goBack = function(pages) {
@@ -7143,7 +7149,7 @@
       };
 
       Table.prototype.updatePageDisplay = function(start, size) {
-        var buttons, centre, cg, handle, maxPage, overhang, p, pageForm, pageSelector, proportion, scaled, scrollbar, tbl, total, totalWidth, unit, _i, _results;
+        var buttons, centre, cg, handle, maxPage, overhang, p, pageForm, pageSelector, proportion, scaled, scrollbar, tbl, total, totalWidth, unit, _i, _ref3, _results;
 
         total = this.cache.lastResult.iTotalRecords;
         if (size === 0) {
@@ -7207,7 +7213,7 @@
             return pageForm.hide();
           });
           _results = [];
-          for (p = _i = 1; 1 <= maxPage ? _i <= maxPage : _i >= maxPage; p = 1 <= maxPage ? ++_i : --_i) {
+          for (p = _i = 1, _ref3 = maxPage + 1; 1 <= _ref3 ? _i <= _ref3 : _i >= _ref3; p = 1 <= _ref3 ? ++_i : --_i) {
             _results.push(pageSelector.append("<option value=\"" + (p - 1) + "\">p. " + p + "</option>"));
           }
           return _results;
@@ -7237,7 +7243,7 @@
           pageForm.find('.control-group').addClass('error');
           inp.val('');
           return inp.attr({
-            placeholder: "1 .. " + (this.getMaxPage())
+            placeholder: "1 .. " + (this.getMaxPage() + 1)
           });
         }
       };
@@ -7856,9 +7862,9 @@
 
       ITEMS = "<table class=\"im-item-details table table-condensed table-bordered\">\n<colgroup>\n    <col class=\"im-item-field\"/>\n    <col class=\"im-item-value\"/>\n</colgroup>\n</table>";
 
-      RELATIONS = "<table class=\"table im-related-counts table-condensed\"></table>";
+      RELATIONS = "<ul class=\"im-related-counts\"></ul>";
 
-      RELATION = _.template("<tr>\n  <td><%- label %></td> <td class=\"im-count\"><%= count %></td>\n</tr>");
+      RELATION = _.template("<li class=\"im-relation\">\n  <span class=\"pull-left\"><%- label %></span>\n  <span class=\"pull-right im-count\"><%= count %></span>\n</li>");
 
       REFERENCE = _.template("<tr>\n  <td class=\"im-field-name\"><%= field %></td>\n  <td class=\"im-field-value <%= field.toLowerCase() %>\">\n     <%- values.join(', ') %>\n  </td>\n</tr>");
 
@@ -8012,21 +8018,25 @@
       };
 
       Preview.prototype.insertRows = function() {
-        var promise, ready, _i, _len, _ref2,
+        var promise, ready, relations, _i, _len,
           _this = this;
 
         this.itemDetails = $(ITEMS);
         this.relatedCounts = $(RELATIONS);
         ready = this.fillItemTable();
-        _ref2 = this.fillRelationsTable();
-        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-          promise = _ref2[_i];
+        relations = this.fillRelationsTable();
+        for (_i = 0, _len = relations.length; _i < _len; _i++) {
+          promise = relations[_i];
           ready = ready.then(function() {
             return promise;
           });
         }
         ready.done(function() {
-          _this.$el.empty().append(_this.itemDetails).append(_this.relatedCounts);
+          _this.$el.empty().append(_this.itemDetails);
+          if (relations.length) {
+            _this.$el.append("<h4>" + intermine.messages.cell.RelatedItems + "</h4>");
+            _this.$el.append(_this.relatedCounts);
+          }
           return _this.trigger('ready');
         });
         return ready.fail(function(err) {
