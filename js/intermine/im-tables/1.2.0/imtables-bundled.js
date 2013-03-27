@@ -25113,12 +25113,12 @@ Thu Jun 14 13:18:14 BST 2012
         return this.$el.modal().modal('show');
       };
 
-      NewFilterDialogue.prototype.addConstraint = function() {
-        if (this.conAdder.isValid()) {
-          this.conAdder.newCon.editConstraint();
+      NewFilterDialogue.prototype.addConstraint = function(e) {
+        var edited;
+
+        edited = this.conAdder.newCon.editConstraint(e);
+        if (edited) {
           return this.$el.modal('hide');
-        } else {
-          return this.$('.im-constraint.new').addClass('error');
         }
       };
 
@@ -34778,12 +34778,13 @@ Thu Jun 14 13:18:14 BST 2012
     ExtraPlaceholder: 'Wernham-Hogg',
     ExtraLabel: 'within',
     IsA: 'is a',
-    CantEditConstraint: 'No value selected. Please enter a value.',
+    NoValue: 'No value selected. Please enter a value.',
+    Duplicate: 'This constraint is already on the query',
     TooManySuggestions: 'We cannot show you all the possible values'
   });
 
   (function() {
-    var ActiveConstraint, HIGHLIGHTER, MATCHER, NewConstraint, PATH_SEGMENT_DIVIDER, TOO_MANY_SUGGESTIONS, UPDATER, _ref, _ref1;
+    var ActiveConstraint, HIGHLIGHTER, MATCHER, NewConstraint, PATH_SEGMENT_DIVIDER, TOO_MANY_SUGGESTIONS, UPDATER, aeql, basicEql, _ref, _ref1;
 
     PATH_SEGMENT_DIVIDER = "&rarr;";
     MATCHER = function(tooMany) {
@@ -34819,6 +34820,38 @@ Thu Jun 14 13:18:14 BST 2012
       };
     };
     TOO_MANY_SUGGESTIONS = _.template("<span class=\"alert alert-info\">\n  <i class=\"icon-info-sign\"></i>\n  " + intermine.conbuilder.messages.TooManySuggestions + "\n  There are <%= extra %> values we could not include.\n</span>");
+    aeql = function(xs, ys) {
+      return (!xs && !ys) || (xs && ys && _.all(xs, function(x) {
+        return __indexOf.call(ys, x) >= 0;
+      }));
+    };
+    basicEql = function(a, b) {
+      var k, keys, same, va, vb, _i, _len, _ref;
+
+      if (!(a && b)) {
+        return a === b;
+      }
+      keys = _.union.apply(_, [a, b].map(_.keys));
+      console.log(keys);
+      same = true;
+      for (_i = 0, _len = keys.length; _i < _len; _i++) {
+        k = keys[_i];
+        _ref = (function() {
+          var _j, _len1, _ref, _results;
+
+          _ref = [a, b];
+          _results = [];
+          for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
+            x = _ref[_j];
+            _results.push(x[k]);
+          }
+          return _results;
+        })(), va = _ref[0], vb = _ref[1];
+        console.log(va, vb);
+        same && (same = (_.isArray(va) ? aeql(va, vb) : va === vb));
+      }
+      return same;
+    };
     ActiveConstraint = (function(_super) {
       var BASIC_OPS, CON_OPTS, IS_BLANK, toLabel;
 
@@ -34836,17 +34869,22 @@ Thu Jun 14 13:18:14 BST 2012
       BASIC_OPS = intermine.Query.ATTRIBUTE_VALUE_OPS.concat(intermine.Query.NULL_OPS);
 
       ActiveConstraint.prototype.initialize = function(query, orig) {
-        var _ref1;
+        var _ref1, _ref2;
 
         this.query = query;
         this.orig = orig;
         this.typeaheads = [];
         this.path = this.query.getPathInfo(this.orig.path);
-        this.type = this.path.getEndClass();
+        this.type = this.path.getType();
+        this.cast = (_ref1 = this.type, __indexOf.call(intermine.Model.NUMERIC_TYPES, _ref1) >= 0) ? (function(x) {
+          return 1 * x;
+        }) : (function(x) {
+          return '' + x;
+        });
         this.con = new Backbone.Model(_.extend({}, this.orig));
         if (this.path.isReference() || this.path.isRoot()) {
           this.ops = intermine.Query.REFERENCE_OPS;
-        } else if (_ref1 = this.path.getType(), __indexOf.call(intermine.Model.BOOLEAN_TYPES, _ref1) >= 0) {
+        } else if (_ref2 = this.path.getType(), __indexOf.call(intermine.Model.BOOLEAN_TYPES, _ref2) >= 0) {
           this.ops = ["=", "!="].concat(intermine.Query.NULL_OPS);
         } else if (this.con.has('values')) {
           this.ops = intermine.Query.ATTRIBUTE_OPS;
@@ -34910,7 +34948,7 @@ Thu Jun 14 13:18:14 BST 2012
       IS_BLANK = /^\s*$/;
 
       ActiveConstraint.prototype.valid = function() {
-        var e, ok, op;
+        var e, ok, op, val;
 
         if (this.con.has('type')) {
           return true;
@@ -34932,7 +34970,8 @@ Thu Jun 14 13:18:14 BST 2012
           return ok;
         }
         if (__indexOf.call(intermine.Query.ATTRIBUTE_VALUE_OPS.concat(intermine.Query.REFERENCE_OPS), op) >= 0) {
-          return this.con.has('value') && !IS_BLANK.test(this.con.get('value'));
+          val = this.con.get('value');
+          return (val != null) && (!IS_BLANK.test(val)) && (!_.isNaN(val));
         }
         if (__indexOf.call(intermine.Query.MULTIVALUE_OPS, op) >= 0) {
           return this.con.has('values') && this.con.get('values').length > 0;
@@ -34940,8 +34979,18 @@ Thu Jun 14 13:18:14 BST 2012
         return true;
       };
 
+      ActiveConstraint.prototype.isDuplicate = function() {
+        return _.any(this.query.constraints, _.partial(basicEql, this.con.toJSON()));
+      };
+
+      ActiveConstraint.prototype.setError = function(key) {
+        this.$el.addClass('error');
+        this.$('.im-conbuilder-error').text(intermine.conbuilder.messages[key]);
+        return false;
+      };
+
       ActiveConstraint.prototype.editConstraint = function(e) {
-        var silently, ta, _ref1, _ref2, _ref3, _results;
+        var silently, ta, _ref1, _ref2, _ref3;
 
         if (e != null) {
           e.stopPropagation();
@@ -34950,8 +34999,10 @@ Thu Jun 14 13:18:14 BST 2012
           e.preventDefault();
         }
         if (!this.valid()) {
-          this.$el.addClass('error');
-          return false;
+          return this.setError('NoValue');
+        }
+        if (this.isDuplicate()) {
+          return this.setError('Duplicate');
         }
         this.removeConstraint(e, silently = true);
         if (_ref1 = this.con.get('op'), __indexOf.call(intermine.Query.MULTIVALUE_OPS.concat(intermine.Query.NULL_OPS), _ref1) >= 0) {
@@ -34965,11 +35016,10 @@ Thu Jun 14 13:18:14 BST 2012
         } else {
           this.query.addConstraint(this.con.toJSON());
         }
-        _results = [];
         while ((ta = this.typeaheads.shift())) {
-          _results.push(ta.remove());
+          ta.remove();
         }
-        return _results;
+        return true;
       };
 
       ActiveConstraint.prototype.removeConstraint = function(e, silently) {
@@ -35077,7 +35127,7 @@ Thu Jun 14 13:18:14 BST 2012
           this.drawOperatorSelector(fs);
         }
         this.drawValueOptions();
-        this.$el.append("<div class=\"alert alert-error span10 im-hidden\">\n  <i class=\"icon-warning-sign\"></i>\n  " + intermine.conbuilder.messages.CantEditConstraint + "\n</div>");
+        this.$el.append("<div class=\"alert alert-error span10 im-hidden\">\n  <i class=\"icon-warning-sign\"></i>\n  <span class=\"im-conbuilder-error\">\n  </span>\n</div>");
         this.addButtons();
         return this;
       };
@@ -35346,21 +35396,20 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       ActiveConstraint.prototype.drawAttributeOpts = function(fs) {
-        var input,
+        var input, setValue,
           _this = this;
 
         input = $("<input class=\"span7 im-constraint-value im-value-options im-con-value\" type=\"text\"\n    placeholder=\"" + intermine.conbuilder.messages.ValuePlaceholder + "\"\n    value=\"" + (this.con.get('value') || '') + "\"\n>");
         fs.append(input);
-        input.keyup(function() {
+        setValue = function() {
+          var _ref1;
+
           return _this.con.set({
-            value: input.val()
+            value: _this.cast((_ref1 = input.val()) != null ? _ref1.trim() : void 0)
           });
-        });
-        input.change(function() {
-          return _this.con.set({
-            value: input.val()
-          });
-        });
+        };
+        input.keyup(setValue);
+        input.change(setValue);
         if (this.path.isAttribute()) {
           return this.provideSuggestions(input);
         }
