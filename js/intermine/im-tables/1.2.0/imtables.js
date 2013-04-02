@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Mar 27 2013 17:50:03 GMT+0000 (GMT)
+ * Built at Tue Apr 02 2013 16:00:52 GMT+0100 (BST)
 */
 
 
@@ -7390,7 +7390,7 @@
         this.column = this.query.getPathInfo(subtable.column);
         this.query.on('expand:subtables', function(path) {
           if (path.toString() === _this.column.toString()) {
-            return _this.$('.im-subtable').slideDown();
+            return _this.renderTable().slideDown();
           }
         });
         return this.query.on('collapse:subtables', function(path) {
@@ -7488,11 +7488,11 @@
       SubTable.prototype.renderTable = function($table) {
         var colRoot, colStr, row, tbody, _i, _len, _ref1;
 
-        if (this.tableRendered) {
-          return;
-        }
         if ($table == null) {
           $table = this.$('.im-subtable');
+        }
+        if (this.tableRendered) {
+          return $table;
         }
         colRoot = this.column.getType().name;
         colStr = this.column.toString();
@@ -7509,7 +7509,8 @@
             this.appendRow(this.rows[0], tbody);
           }
         }
-        return this.tableRendered = true;
+        this.tableRendered = true;
+        return $table;
       };
 
       SubTable.prototype.events = {
@@ -8456,7 +8457,7 @@
 
         ignore(e);
         cmd = this.model.get('expanded') ? 'collapse' : 'expand';
-        this.query.trigger(cmd + ':subtables', this.path);
+        this.query.trigger(cmd + ':subtables', this.model.get('path'));
         return this.model.set({
           expanded: !this.model.get('expanded')
         });
@@ -8782,7 +8783,7 @@
   });
 
   (function() {
-    var BooleanFacet, ColumnSummary, FACET_TEMPLATE, FACET_TITLE, FacetRow, FacetView, FrequencyFacet, HistoFacet, Int, MORE_FACETS_HTML, NormalCurve, NumericFacet, NumericRange, PieFacet, SUMMARY_FORMATS, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8;
+    var BooleanFacet, ColumnSummary, FACET_TEMPLATE, FACET_TITLE, FacetRow, FacetView, FrequencyFacet, HistoFacet, Int, MORE_FACETS_HTML, NormalCurve, NumericFacet, NumericRange, PieFacet, SUMMARY_FORMATS, numeric, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8;
 
     NormalCurve = function(mean, stdev) {
       return function(x) {
@@ -8794,6 +8795,9 @@
     };
     Int = function(x) {
       return parseInt(x, 10);
+    };
+    numeric = function(x) {
+      return +x;
     };
     MORE_FACETS_HTML = "<i class=\"icon-plus-sign pull-right\" title=\"Showing top ten. Click to see all values\"></i>";
     FACET_TITLE = _.template("<dt><i class=\"icon-chevron-right\"></i><%= title %></dt>");
@@ -9125,6 +9129,7 @@
           return e.stopPropagation();
         },
         'keyup input.im-range-val': 'incRangeVal',
+        'change input.im-range-val': 'setRangeVal',
         'click .btn-primary': 'changeConstraints',
         'click .btn-cancel': 'clearRange'
       };
@@ -9139,13 +9144,13 @@
       };
 
       NumericFacet.prototype.changeConstraints = function(e) {
-        var newConstraints,
-          _this = this;
+        var fpath, newConstraints;
 
         e.preventDefault();
         e.stopPropagation();
+        fpath = this.facet.path.toString();
         this.query.constraints = _(this.query.constraints).filter(function(c) {
-          return c.path !== _this.facet.path.toString();
+          return c.path !== fpath;
         });
         newConstraints = [
           {
@@ -9276,21 +9281,33 @@
         return $(this.container).append("<table class=\"table table-condensed\">\n    <thead>\n        <tr>\n            <th>Min</th>\n            <th>Max</th>\n            <th>Mean</th>\n            <th>Standard Deviation</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td>" + this.min + "</td>\n            <td>" + this.max + "</td>\n            <td>" + (this.mean.toFixed(5)) + "</td>\n            <td>" + (this.dev.toFixed(5)) + "</td>\n        </tr>\n    </tbody>\n</table>");
       };
 
-      NumericFacet.prototype.incRangeVal = function(e) {
-        var $input, current, now, prop, _ref5;
+      NumericFacet.prototype.setRangeVal = function(e) {
+        var $input, current, next, prop, _ref5;
 
         $input = $(e.target);
         prop = $input.data('var');
-        current = now = (_ref5 = this.range.get(prop)) != null ? _ref5 : this[prop];
+        current = (_ref5 = this.range.get(prop)) != null ? _ref5 : this[prop];
+        next = numeric($input.val());
+        if (current !== next) {
+          return this.range.set(prop, next);
+        }
+      };
+
+      NumericFacet.prototype.incRangeVal = function(e) {
+        var $input, current, next, prop, _ref5;
+
+        $input = $(e.target);
+        prop = $input.data('var');
+        current = next = (_ref5 = this.range.get(prop)) != null ? _ref5 : this[prop];
         switch (e.keyCode) {
           case 40:
-            now--;
+            next--;
             break;
           case 38:
-            now++;
+            next++;
         }
-        if (now !== current) {
-          return this.range.set(prop, now);
+        if (next !== current) {
+          return this.range.set(prop, next);
         }
       };
 
@@ -10926,8 +10943,7 @@
         if (isClosing) {
           indentLevel--;
         }
-        indent = new Array(indentLevel).join('  ');
-        buffer.push(indent + line);
+        buffer.push(new Array(indentLevel).join('  ') + line);
         if (isOpening) {
           indentLevel++;
         }
