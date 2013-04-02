@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Apr 02 2013 16:00:52 GMT+0100 (BST)
+ * Built at Tue Apr 02 2013 16:01:05 GMT+0100 (BST)
 */
 
 
@@ -11770,7 +11770,6 @@
         return a === b;
       }
       keys = _.union.apply(_, [a, b].map(_.keys));
-      console.log(keys);
       same = true;
       for (_i = 0, _len = keys.length; _i < _len; _i++) {
         k = keys[_i];
@@ -11785,7 +11784,6 @@
           }
           return _results;
         })(), va = _ref[0], vb = _ref[1];
-        console.log(va, vb);
         same && (same = (_.isArray(va) ? aeql(va, vb) : va === vb));
       }
       return same;
@@ -11871,9 +11869,10 @@
         if (e != null) {
           e.stopPropagation();
         }
+        this.$el.removeClass('error');
         this.$el.siblings('.im-constraint').slideDown();
         this.$el.closest('.well').removeClass('im-editing');
-        this.$('.im-con-overview').siblings().slideUp(200);
+        this.$('.im-con-overview').siblings('[class*="im-con"]').slideUp(200);
         this.$('.im-multi-value-table input').prop('checked', true);
         this.con.set(_.extend({}, this.orig));
         _results = [];
@@ -12008,8 +12007,10 @@
       ActiveConstraint.prototype.getTitleVal = function() {
         if (this.con.get('values')) {
           return this.con.get('values').length + " values";
+        } else if (this.con.has('value')) {
+          return this.con.get('value');
         } else {
-          return this.con.get('value') || this.con.get('type');
+          return this.con.get('type');
         }
       };
 
@@ -12042,7 +12043,8 @@
           ul.append(toLabel(op, 'op'));
         }
         if (_ref1 = this.con.get('op'), __indexOf.call(intermine.Query.NULL_OPS, _ref1) < 0) {
-          if ((val = this.getTitleVal())) {
+          val = this.getTitleVal();
+          if (val != null) {
             ul.append(toLabel(val, 'value'));
           }
           if (this.con.has('extraValue')) {
@@ -12065,7 +12067,7 @@
           this.drawOperatorSelector(fs);
         }
         this.drawValueOptions();
-        this.$el.append("<div class=\"alert alert-error span10 im-hidden\">\n  <i class=\"icon-warning-sign\"></i>\n  <span class=\"im-conbuilder-error\">\n  </span>\n</div>");
+        this.$el.append("<div class=\"alert alert-error im-hidden\">\n  <i class=\"icon-warning-sign\"></i>\n  <span class=\"im-conbuilder-error\">\n  </span>\n</div>");
         this.addButtons();
         return this;
       };
@@ -12306,30 +12308,31 @@
         });
       };
 
-      ActiveConstraint.prototype.handleNumericSummary = function(input, summary) {
-        var $slider, caster, fs, isInt, step, _ref1;
+      ActiveConstraint.prototype.handleNumericSummary = function(input, _arg) {
+        var $slider, average, caster, fs, isInt, max, min, step, _ref1;
 
-        isInt = (_ref1 = this.path.getType()) === 'int' || _ref1 === 'Integer';
-        step = isInt ? 1 : 0.1;
+        min = _arg.min, max = _arg.max, average = _arg.average;
+        isInt = (_ref1 = this.path.getType(), __indexOf.call(intermine.Model.INTEGRAL_TYPES, _ref1) >= 0);
+        step = isInt ? 1 : max - min / 100;
         caster = isInt ? parseInt : parseFloat;
         fs = input.closest('fieldset');
         fs.append(this.clearer);
         $slider = $('<div class="im-value-options">');
         $slider.appendTo(fs).slider({
-          min: summary.min,
-          max: summary.max,
-          value: this.con.get('value') || summary.average,
+          min: min,
+          max: max,
+          value: (this.con.has('value') ? this.con.get('value') : caster(average)),
           step: step,
           slide: function(e, ui) {
             return input.val(ui.value).change();
           }
         });
         input.attr({
-          placeholder: caster(summary.average)
+          placeholder: caster(average)
         });
         fs.append(this.clearer);
         return input.change(function(e) {
-          return $slider.slider('value', input.val());
+          return $slider.slider('value', caster(input.val()));
         });
       };
 
@@ -12348,6 +12351,14 @@
         };
         input.keyup(setValue);
         input.change(setValue);
+        this.con.on('change:value', function() {
+          var current;
+
+          current = _this.con.get('value');
+          if (current !== _this.cast(input.val())) {
+            return input.val(current).change();
+          }
+        });
         if (this.path.isAttribute()) {
           return this.provideSuggestions(input);
         }
@@ -12445,7 +12456,7 @@
 
       NewConstraint.prototype.valueChanged = function(value) {
         return this.fillConSummaryLabel(_.extend({}, this.con, {
-          value: value
+          value: "" + value
         }));
       };
 
