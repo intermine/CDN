@@ -10284,9 +10284,18 @@
   }])));
 
   define('actions/new-list-dialogue', using('actions/list-dialogue', 'models/uniq-items', 'html/new-list', function(ListDialogue, UniqItems, HTML) {
-    var ILLEGAL_LIST_NAME_CHARS, ListCreator, _ref;
+    var CATEGORY_FROM_ROWS, CATEGORY_FROM_SUMMARY, ILLEGAL_LIST_NAME_CHARS, ListCreator, _ref;
 
     ILLEGAL_LIST_NAME_CHARS = /[^\w\s\(\):+\.-]/g;
+    CATEGORY_FROM_SUMMARY = function(items, _arg) {
+      var uniqueValues;
+
+      uniqueValues = _arg.uniqueValues;
+      return [uniqueValues, items, 'item'];
+    };
+    CATEGORY_FROM_ROWS = function(rows) {
+      return [rows.length, rows, 0];
+    };
     ListCreator = (function(_super) {
       var TAG_ILLEGALS;
 
@@ -10325,7 +10334,7 @@
       };
 
       ListCreator.prototype.newCommonType = function() {
-        var categoriser, cd, dateStr, first, ids, model, now, oq, querying, rest, service, text, type, _i, _len, _ref1, _ref2, _ref3,
+        var categoriser, cd, dateStr, first, ids, model, now, oq, querying, rest, service, summPath, text, type, viewNode, _i, _len, _ref1, _ref2, _ref3,
           _this = this;
 
         ListCreator.__super__.newCommonType.call(this);
@@ -10347,7 +10356,7 @@
         for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
           categoriser = _ref2[_i];
           _ref3 = categoriser.split(/\./), first = _ref3[0], rest = 2 <= _ref3.length ? __slice.call(_ref3, 1) : [];
-          if (cd.fields[first] != null) {
+          if (first in cd.fields) {
             if (ids != null ? ids.length : void 0) {
               oq = {
                 select: categoriser,
@@ -10356,28 +10365,28 @@
                   id: ids
                 }
               };
-              querying = service.rows(oq).then(function(rows) {
-                if (rows.length === 1) {
-                  return _this.listOptions.set({
-                    name: "" + type + " list for " + rows[0][0] + " - " + dateStr,
-                    customName: false
-                  });
-                }
-              });
+              querying = service.rows(oq).then(CATEGORY_FROM_ROWS);
             } else {
               oq = (this.listOptions.get('query') || this.query).clone();
-              querying = oq.summarise(categoriser, 1).then(function(items, _arg) {
-                var uniqueValues;
-
-                uniqueValues = _arg.uniqueValues;
-                if (uniqueValues === 1) {
-                  return _this.listOptions.set({
-                    name: "" + type + " list for " + items[0].item + " - " + dateStr,
-                    customName: false
-                  });
-                }
-              });
+              viewNode = oq.getViewNodes()[0];
+              summPath = "" + viewNode + "." + categoriser;
+              if (first in viewNode.getType().fields) {
+                querying = oq.summarise(summPath, 1).then(CATEGORY_FROM_SUMMARY);
+              }
             }
+            querying.done(function(_arg) {
+              var category, key, n, name, xs;
+
+              n = _arg[0], xs = _arg[1], key = _arg[2];
+              if (n === 1) {
+                category = xs[0][key];
+                name = "" + type + " list for " + category + " - " + dateStr;
+                return _this.listOptions.set({
+                  name: name,
+                  customName: false
+                });
+              }
+            });
             querying.always(function() {
               return _this.avoidNameDuplication();
             });
