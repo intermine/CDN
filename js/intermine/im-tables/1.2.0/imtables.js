@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Apr 02 2013 16:01:05 GMT+0100 (BST)
+ * Built at Wed Apr 03 2013 21:21:07 GMT+0100 (BST)
 */
 
 
@@ -9246,7 +9246,6 @@
         if (summary.item != null) {
           if (items.length > 1) {
             hasMore = items.length < this.limit ? false : stats.uniqueValues > this.limit;
-            this.paper.remove();
             hf = new HistoFacet(this.query, this.facet, items, hasMore, "");
             this.$el.append(hf.el);
             return hf.render();
@@ -10655,6 +10654,9 @@
       return ListCreator;
 
     })(ListDialogue);
+    scope('intermine.query.actions', {
+      ListCreator: ListCreator
+    });
     scope('intermine.actions.lists', {
       ListCreator: ListCreator
     });

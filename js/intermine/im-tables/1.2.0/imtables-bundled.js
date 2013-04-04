@@ -19565,7 +19565,7 @@ $.widget("ui.sortable", $.ui.mouse, {
   }).call(context, context);
 
   (function() {
-    /*! imjs - v2.3.0 - 2013-03-29 */
+    /*! imjs - v2.5.0 - 2013-04-03 */
 
 /**
 This library is open source software according to the definition of the
@@ -19601,7 +19601,7 @@ Thu Jun 14 13:18:14 BST 2012
       imjs.VERSION = pkg.version;
     }
   } else {
-    imjs.VERSION = "2.3.0";
+    imjs.VERSION = "2.5.0";
   }
 
 }).call(this);
@@ -19870,7 +19870,7 @@ Thu Jun 14 13:18:14 BST 2012
 }).call(this);
 
 (function() {
-  var Deferred, IS_NODE, REQUIRES, fold, id, root, success, _, _base, _ref, _ref1,
+  var Deferred, IS_NODE, REQUIRES, curry, fold, id, pairFold, root, success, thenFold, _, _base, _ref, _ref1,
     __slice = [].slice,
     __hasProp = {}.hasOwnProperty;
 
@@ -19893,7 +19893,7 @@ Thu Jun 14 13:18:14 BST 2012
     root = root.intermine.funcutils;
   }
 
-  root.curry = function() {
+  root.curry = curry = function() {
     var args, f;
     f = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
     return function() {
@@ -19917,8 +19917,8 @@ Thu Jun 14 13:18:14 BST 2012
     }).promise();
   };
 
-  root.fold = fold = function(init, f) {
-    return function(xs) {
+  root.fold = fold = function(f) {
+    return function(init, xs) {
       var k, ret, v;
       if (xs.reduce != null) {
         return xs.reduce(f, init);
@@ -19945,16 +19945,30 @@ Thu Jun 14 13:18:14 BST 2012
     };
   };
 
-  root.omap = function(f) {
+  root.filter = function(f) {
     return function(xs) {
-      var merger;
-      merger = function(a, oldk, oldv) {
-        var newk, newv, _ref2;
-        _ref2 = f(oldk, oldv), newk = _ref2[0], newv = _ref2[1];
-        a[newk] = newv;
-        return a;
-      };
-      return (root.fold({}, merger))(xs);
+      var x, _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = xs.length; _i < _len; _i++) {
+        x = xs[_i];
+        if (f(x)) {
+          _results.push(x);
+        }
+      }
+      return _results;
+    };
+  };
+
+  root.omap = function(f) {
+    var merger;
+    merger = fold(function(a, oldk, oldv) {
+      var newk, newv, _ref2;
+      _ref2 = f(oldk, oldv), newk = _ref2[0], newv = _ref2[1];
+      a[newk] = newv;
+      return a;
+    });
+    return function(xs) {
+      return merger({}, xs);
     };
   };
 
@@ -19977,6 +19991,10 @@ Thu Jun 14 13:18:14 BST 2012
       }
       return [trues, falses];
     };
+  };
+
+  root.id = id = function(x) {
+    return x;
   };
 
   root.concatMap = function(f) {
@@ -20009,7 +20027,7 @@ Thu Jun 14 13:18:14 BST 2012
 
   root.flatMap = root.concatMap;
 
-  root.sum = root.concatMap(function() {});
+  root.sum = root.concatMap(id);
 
   root.AND = function(a, b) {
     return a && b;
@@ -20021,10 +20039,6 @@ Thu Jun 14 13:18:14 BST 2012
 
   root.NOT = function(x) {
     return !x;
-  };
-
-  root.id = id = function(x) {
-    return x;
   };
 
   root.any = function(xs, f) {
@@ -20123,13 +20137,28 @@ Thu Jun 14 13:18:14 BST 2012
     return q;
   };
 
+  thenFold = fold(function(p, f) {
+    return p.then(f);
+  });
+
   root.sequence = function() {
-    var fld, fns;
+    var fns;
     fns = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    fld = fold(success(), function(p, f) {
-      return p.then(f);
-    });
-    return fld(_.flatten(fns));
+    return thenFold(success(), _.flatten(fns));
+  };
+
+  pairFold = fold(function(o, _arg) {
+    var k, v;
+    k = _arg[0], v = _arg[1];
+    if (o[k] != null) {
+      throw new Error("Duplicate key: " + k);
+    }
+    o[k] = v;
+    return o;
+  });
+
+  root.pairsToObj = function(pairs) {
+    return pairFold({}, pairs);
   };
 
 }).call(this);
@@ -20342,6 +20371,42 @@ Thu Jun 14 13:18:14 BST 2012
     opts.error = _.compose(errBack, ERROR_PIPE);
     return jQuery.ajax(opts).pipe(CHECKING_PIPE).fail(errBack);
   };
+
+}).call(this);
+
+(function() {
+  var DOMParser, IS_NODE, domParser, intermine, jQuery, parse, __root__, _ref;
+
+  IS_NODE = typeof exports !== 'undefined';
+
+  if (IS_NODE) {
+    DOMParser = require('xmldom').DOMParser;
+    __root__ = exports;
+    domParser = new DOMParser;
+    parse = function(xml) {
+      var ret;
+      if (!(xml != null ? xml.match('<.*>') : void 0)) {
+        xml = xml + '>';
+      }
+      try {
+        if (xml) {
+          ret = domParser.parseFromString(xml, 'text/xml');
+        }
+      } catch (e) {
+        ret = void 0;
+      }
+      if ((!ret) || (!ret.documentElement) || (ret.getElementsByTagName('parsererror').length)) {
+        throw new Error('Invalid xml: ' + xml);
+      }
+      return ret;
+    };
+  } else {
+    jQuery = this.jQuery, intermine = this.intermine;
+    __root__ = ((_ref = intermine.xml) != null ? _ref : intermine.xml = {});
+    parse = jQuery.parseXML;
+  }
+
+  __root__.parse = parse;
 
 }).call(this);
 
@@ -21159,7 +21224,7 @@ Thu Jun 14 13:18:14 BST 2012
 }).call(this);
 
 (function() {
-  var $, BASIC_ATTRS, CODES, Deferred, IS_NODE, LIST_PIPE, Query, RESULTS_METHODS, SIMPLE_ATTRS, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, jQuery, mth, multiConStr, noUndefVals, noValueConStr, partition, simpleConStr, take, toQueryString, typeConStr, _, __root__, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref, _ref1, _ref2,
+  var $, BASIC_ATTRS, CODES, Deferred, IS_NODE, LIST_PIPE, Query, RESULTS_METHODS, SIMPLE_ATTRS, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, jQuery, mth, multiConStr, noUndefVals, noValueConStr, pairsToObj, partition, simpleConStr, stringToSortOrder, take, toQueryString, typeConStr, _, __root__, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref, _ref1, _ref2,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __slice = [].slice;
@@ -21173,10 +21238,11 @@ Thu Jun 14 13:18:14 BST 2012
     _ = require('underscore')._;
     Deferred = ($ = require('underscore.deferred')).Deferred;
     toQueryString = require('querystring').stringify;
-    _ref = require('./util'), partition = _ref.partition, fold = _ref.fold, take = _ref.take, concatMap = _ref.concatMap, id = _ref.id, get = _ref.get;
+    intermine.xml = require('./xml');
+    _ref = require('./util'), pairsToObj = _ref.pairsToObj, filter = _ref.filter, partition = _ref.partition, fold = _ref.fold, take = _ref.take, concatMap = _ref.concatMap, id = _ref.id, get = _ref.get, invoke = _ref.invoke;
   } else {
     _ = __root__._, jQuery = __root__.jQuery, intermine = __root__.intermine;
-    _ref1 = intermine.funcutils, partition = _ref1.partition, fold = _ref1.fold, take = _ref1.take, concatMap = _ref1.concatMap, id = _ref1.id, get = _ref1.get;
+    _ref1 = intermine.funcutils, pairsToObj = _ref1.pairsToObj, filter = _ref1.filter, partition = _ref1.partition, fold = _ref1.fold, take = _ref1.take, concatMap = _ref1.concatMap, id = _ref1.id, get = _ref1.get, invoke = _ref1.invoke;
     Deferred = ($ = jQuery).Deferred;
     toQueryString = function(obj) {
       return jQuery.param(obj, true);
@@ -21209,7 +21275,11 @@ Thu Jun 14 13:18:14 BST 2012
   };
 
   conValStr = function(v) {
-    return "<value>" + (_.escape(v)) + "</value>";
+    if (v != null) {
+      return "<value>" + (_.escape(v)) + "</value>";
+    } else {
+      return "<nullValue/>";
+    }
   };
 
   conAttrs = function(c, names) {
@@ -21387,8 +21457,30 @@ Thu Jun 14 13:18:14 BST 2012
     return constraint;
   };
 
+  stringToSortOrder = function(str) {
+    var i, parts, pathIndices, x, _i, _len, _results;
+    if (str == null) {
+      return [];
+    }
+    parts = str.split(/\s+/);
+    pathIndices = (function() {
+      var _i, _ref2, _results;
+      _results = [];
+      for (x = _i = 0, _ref2 = parts.length / 2; 0 <= _ref2 ? _i < _ref2 : _i > _ref2; x = 0 <= _ref2 ? ++_i : --_i) {
+        _results.push(x * 2);
+      }
+      return _results;
+    })();
+    _results = [];
+    for (_i = 0, _len = pathIndices.length; _i < _len; _i++) {
+      i = pathIndices[_i];
+      _results.push([parts[i], parts[i + 1]]);
+    }
+    return _results;
+  };
+
   Query = (function() {
-    var addPI, getPaths;
+    var addPI, cAttrs, getPaths, kids, qAttrs, scFold, toAttrPairs, xmlAttr;
 
     Query.JOIN_STYLES = ['INNER', 'OUTER'];
 
@@ -21502,6 +21594,113 @@ Thu Jun 14 13:18:14 BST 2012
         }
       }
       return this;
+    };
+
+    qAttrs = ['name', 'view', 'sortOrder', 'constraintLogic', 'title', 'description', 'comment'];
+
+    cAttrs = ['path', 'type', 'op', 'code', 'value', 'ids'];
+
+    toAttrPairs = function(el, attrs) {
+      var x, _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = attrs.length; _i < _len; _i++) {
+        x = attrs[_i];
+        if (el.hasAttribute(x)) {
+          _results.push([x, el.getAttribute(x)]);
+        }
+      }
+      return _results;
+    };
+
+    kids = function(el, name) {
+      var kid, _i, _len, _ref2, _results;
+      _ref2 = el.getElementsByTagName(name);
+      _results = [];
+      for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+        kid = _ref2[_i];
+        _results.push(kid);
+      }
+      return _results;
+    };
+
+    xmlAttr = function(name) {
+      return function(el) {
+        return el.getAttribute(name);
+      };
+    };
+
+    Query.fromXML = function(xml) {
+      var con, dom, j, pathOf, q, query, styleOf;
+      dom = intermine.xml.parse(xml);
+      query = kids(dom, 'query')[0] || kids(dom, 'template')[0];
+      if (!query) {
+        throw new Error("no query in xml");
+      }
+      pathOf = xmlAttr('path');
+      styleOf = xmlAttr('style');
+      q = pairsToObj(toAttrPairs(query, qAttrs));
+      q.view = q.view.split(/\s+/);
+      q.sortOrder = stringToSortOrder(q.sortOrder);
+      q.joins = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = kids(query, 'join');
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          j = _ref2[_i];
+          if (styleOf(j) === 'OUTER') {
+            _results.push(pathOf(j));
+          }
+        }
+        return _results;
+      })();
+      q.constraints = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = kids(query, 'constraint');
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          con = _ref2[_i];
+          _results.push((function(con) {
+            var c, tn, v, values, x;
+            c = pairsToObj(toAttrPairs(con, cAttrs));
+            if (c.ids != null) {
+              c.ids = (function() {
+                var _j, _len1, _ref3, _results1;
+                _ref3 = c.ids.split(',');
+                _results1 = [];
+                for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
+                  x = _ref3[_j];
+                  _results1.push(parseInt(x, 10));
+                }
+                return _results1;
+              })();
+            }
+            values = kids(con, 'value');
+            if (values.length) {
+              c.values = (function() {
+                var _j, _len1, _results1;
+                _results1 = [];
+                for (_j = 0, _len1 = values.length; _j < _len1; _j++) {
+                  v = values[_j];
+                  _results1.push(((function() {
+                    var _k, _len2, _ref3, _results2;
+                    _ref3 = v.childNodes;
+                    _results2 = [];
+                    for (_k = 0, _len2 = _ref3.length; _k < _len2; _k++) {
+                      tn = _ref3[_k];
+                      _results2.push(tn.data);
+                    }
+                    return _results2;
+                  })()).join(''));
+                }
+                return _results1;
+              })();
+            }
+            return c;
+          })(con));
+        }
+        return _results;
+      })();
+      return q;
     };
 
     function Query(properties, service) {
@@ -21697,13 +21896,12 @@ Thu Jun 14 13:18:14 BST 2012
 
     Query.prototype.makePath = Query.prototype.getPathInfo;
 
+    scFold = _.compose(pairsToObj, filter(get(1)), invoke('map', function(c) {
+      return [c.path, c.type];
+    }));
+
     Query.prototype.getSubclasses = function() {
-      return fold({}, (function(a, c) {
-        if (c.type != null) {
-          a[c.path] = c.type;
-        }
-        return a;
-      }))(this.constraints);
+      return scFold(this.constraints);
     };
 
     Query.prototype.getType = function(path) {
@@ -22016,19 +22214,25 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype._parse_sort_order = function(input) {
-      var k, so, v;
+      var direction, path, so;
       so = input;
       if (_.isString(input)) {
         so = {
           path: input,
           direction: 'ASC'
         };
-      } else if (!(input.path != null)) {
-        k = _.keys(input)[0];
-        v = _.values(input)[0];
+      } else if (_.isArray(input)) {
+        path = input[0], direction = input[1];
         so = {
-          path: k,
-          direction: v
+          path: path,
+          direction: direction
+        };
+      } else if (!(input.path != null)) {
+        path = _.keys(input)[0];
+        direction = _.values(input)[0];
+        so = {
+          path: path,
+          direction: direction
         };
       }
       so.path = this.adjustPath(so.path);
@@ -22065,7 +22269,7 @@ Thu Jun 14 13:18:14 BST 2012
       this.sortOrder = [];
       for (_i = 0, _len = oes.length; _i < _len; _i++) {
         oe = oes[_i];
-        this.addSortOrder(oe);
+        this.addSortOrder(this._parse_sort_order(oe));
       }
       return this.trigger('set:sortorder', this.sortOrder);
     };
@@ -22514,7 +22718,7 @@ Thu Jun 14 13:18:14 BST 2012
 }).call(this);
 
 (function() {
-  var $, DEFAULT_ERROR_HANDLER, DEFAULT_PROTOCOL, Deferred, ENRICHMENT_PATH, HAS_PROTOCOL, HAS_SUFFIX, IDENTITY, IDResolutionJob, IS_NODE, LISTS_PATH, LIST_OPERATION_PATHS, LIST_PIPE, List, MODELS, MODEL_PATH, Model, PATH_VALUES_PATH, PREF_PATH, QUERY_RESULTS_PATH, QUICKSEARCH_PATH, Query, REQUIRES_VERSION, SUBTRACT_PATH, SUFFIX, SUMMARYFIELDS_PATH, SUMMARY_FIELDS, Service, TABLE_ROW_PATH, TEMPLATES_PATH, TO_NAMES, User, VERSIONS, VERSION_PATH, WHOAMI_PATH, WIDGETS, WIDGETS_PATH, WITH_OBJ_PATH, curry, dejoin, error, fold, funcutils, get, getListFinder, http, intermine, invoke, jQuery, set, success, to_query_string, _, __root__, _get_or_fetch,
+  var $, DEFAULT_ERROR_HANDLER, DEFAULT_PROTOCOL, Deferred, ENRICHMENT_PATH, HAS_PROTOCOL, HAS_SUFFIX, IDENTITY, IDResolutionJob, IS_NODE, LISTS_PATH, LIST_OPERATION_PATHS, LIST_PIPE, List, MODELS, MODEL_PATH, Model, PATH_VALUES_PATH, PREF_PATH, QUERY_RESULTS_PATH, QUICKSEARCH_PATH, Query, REQUIRES_VERSION, SUBTRACT_PATH, SUFFIX, SUMMARYFIELDS_PATH, SUMMARY_FIELDS, Service, TABLE_ROW_PATH, TEMPLATES_PATH, TO_NAMES, User, VERSIONS, VERSION_PATH, WHOAMI_PATH, WIDGETS, WIDGETS_PATH, WITH_OBJ_PATH, dejoin, error, funcutils, get, getListFinder, http, intermine, invoke, jQuery, omap, pairsToObj, set, success, to_query_string, _, __root__, _get_or_fetch,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __slice = [].slice;
 
@@ -22543,7 +22747,7 @@ Thu Jun 14 13:18:14 BST 2012
     Model = intermine.Model, Query = intermine.Query, List = intermine.List, User = intermine.User, IDResolutionJob = intermine.IDResolutionJob, funcutils = intermine.funcutils, http = intermine.http;
   }
 
-  curry = funcutils.curry, fold = funcutils.fold, get = funcutils.get, set = funcutils.set, invoke = funcutils.invoke, success = funcutils.success, error = funcutils.error, REQUIRES_VERSION = funcutils.REQUIRES_VERSION, dejoin = funcutils.dejoin;
+  pairsToObj = funcutils.pairsToObj, omap = funcutils.omap, get = funcutils.get, set = funcutils.set, invoke = funcutils.invoke, success = funcutils.success, error = funcutils.error, REQUIRES_VERSION = funcutils.REQUIRES_VERSION, dejoin = funcutils.dejoin;
 
   VERSIONS = {};
 
@@ -22659,6 +22863,7 @@ Thu Jun 14 13:18:14 BST 2012
   };
 
   Service = (function() {
+    var toMapByName;
 
     function Service(_arg) {
       var loc, noCache, _ref, _ref1,
@@ -22773,12 +22978,7 @@ Thu Jun 14 13:18:14 BST 2012
         _ref = cb, cb = _ref[0], errBack = _ref[1];
       }
       if (_.isArray(data)) {
-        data = _.foldl(data, (function(m, _arg) {
-          var k, v;
-          k = _arg[0], v = _arg[1];
-          m[k] = v;
-          return m;
-        }), {});
+        data = pairsToObj(data);
       }
       url = this.root + path;
       if (errBack == null) {
@@ -23107,15 +23307,15 @@ Thu Jun 14 13:18:14 BST 2012
       });
     };
 
+    toMapByName = omap(function(w) {
+      return [w.name, w];
+    });
+
     Service.prototype.fetchWidgetMap = function(cb) {
       var _this = this;
       return REQUIRES_VERSION(this, 8, function() {
-        var toMap, _ref;
-        toMap = fold({}, function(m, w) {
-          m[w.name] = w;
-          return m;
-        });
-        return ((_ref = _this.__wmap__) != null ? _ref : _this.__wmap__ = _this.fetchWidgets().then(toMap)).done(cb);
+        var _ref;
+        return ((_ref = _this.__wmap__) != null ? _ref : _this.__wmap__ = _this.fetchWidgets().then(toMapByName)).done(cb);
       });
     };
 
@@ -23177,7 +23377,8 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Service.prototype.createList = function(opts, ids, cb) {
-      var adjust, req;
+      var adjust, req,
+        _this = this;
       if (opts == null) {
         opts = {};
       }
@@ -23187,10 +23388,12 @@ Thu Jun 14 13:18:14 BST 2012
       if (cb == null) {
         cb = function() {};
       }
-      adjust = curry(_.defaults, {
-        token: this.token,
-        tags: opts.tags || []
-      });
+      adjust = function(x) {
+        return _.defaults({
+          token: _this.token,
+          tags: opts.tags || []
+        }, x);
+      };
       req = {
         data: _.isArray(ids) ? ids.map(function(x) {
           return "\"" + x + "\"";
@@ -23261,7 +23464,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Apr 02 2013 16:01:05 GMT+0100 (BST)
+ * Built at Wed Apr 03 2013 21:21:07 GMT+0100 (BST)
 */
 
 
@@ -32500,7 +32703,6 @@ Thu Jun 14 13:18:14 BST 2012
         if (summary.item != null) {
           if (items.length > 1) {
             hasMore = items.length < this.limit ? false : stats.uniqueValues > this.limit;
-            this.paper.remove();
             hf = new HistoFacet(this.query, this.facet, items, hasMore, "");
             this.$el.append(hf.el);
             return hf.render();
@@ -33909,6 +34111,9 @@ Thu Jun 14 13:18:14 BST 2012
       return ListCreator;
 
     })(ListDialogue);
+    scope('intermine.query.actions', {
+      ListCreator: ListCreator
+    });
     scope('intermine.actions.lists', {
       ListCreator: ListCreator
     });
