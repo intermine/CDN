@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Apr 03 2013 21:21:07 GMT+0100 (BST)
+ * Built at Thu Apr 04 2013 13:57:11 GMT+0100 (BST)
 */
 
 
@@ -1910,7 +1910,7 @@
         while (step = this.subViews.pop()) {
           step.remove();
         }
-        this.$el.html("<div class=\"btn-group\">\n  <a class=\"btn im-undo\" href=\"#\">\n    <i class=\"" + intermine.icons.Undo + "\"></i>\n    Undo\n  </a>\n  <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\n    <span class=\"caret\"></span>\n  </a>\n  <ul class=\"dropdown-menu im-state-list\">\n  </ul>\n</div>\n<div style=\"clear:both\"></div>");
+        this.$el.html("<div class=\"btn-group\">\n  <a class=\"btn im-undo\" href=\"#\">\n    <i class=\"" + intermine.icons.Undo + "\"></i>\n    <span class=\"visible-desktop\">Undo</span>\n  </a>\n  <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\n    <span class=\"caret\"></span>\n  </a>\n  <ul class=\"dropdown-menu im-state-list\">\n  </ul>\n</div>\n<div style=\"clear:both\"></div>");
         this.states.each(function(s) {
           return _this.appendState(s);
         });
@@ -2470,6 +2470,9 @@
         if (!cls) {
           console.error("" + type + " widgets are not supported");
           return false;
+        }
+        if (this.width() < jQuery('body').width() * 0.6) {
+          this.addClass('im-half');
         }
         view = new cls(service, query, events, properties);
         this.empty().append(view.el);
@@ -5656,7 +5659,7 @@
   })();
 
   define('html/code-gen', function() {
-    return _.template("<div class=\"btn-group\">\n    <a class=\"btn btn-action\" href=\"#\">\n        <i class=\"" + intermine.icons.Script + "\"></i>\n        <span class=\"im-only-widescreen\">Get</span>\n        <span class=\"im-code-lang\"></span>\n        Code\n    </a>\n    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\n        <span class=\"caret\"></span>\n    </a>\n    <ul class=\"dropdown-menu\">\n        <% _(langs).each(function(lang) { %>\n          <li>\n            <a href=\"#\" data-lang=\"<%= lang.extension %>\">\n                <i class=\"icon-<%= lang.extension %>\"></i>\n                <%= lang.name %>\n            </a>\n          </li>\n        <% }); %>\n    </ul>\n</div>\n<div class=\"modal\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Generated <span class=\"im-code-lang\"></span> Code</h3>\n    </div>\n    <div class=\"modal-body\">\n        <pre class=\"im-generated-code prettyprint linenums\">\n        </pre>\n    </div>\n    <div class=\"modal-footer\">\n        <a href=\"#\" class=\"btn btn-save\"><i class=\"icon-file\"></i>Save</a>\n        <a href=\"#\" data-dismiss=\"modal\" class=\"btn\">Close</a>\n    </div>\n</div>");
+    return _.template("<div class=\"btn-group\">\n    <a class=\"btn btn-action\" href=\"#\">\n        <i class=\"" + intermine.icons.Script + "\"></i>\n        <span class=\"im-only-widescreen\">Get</span>\n        <span class=\"im-code-lang hidden-tablet\"></span>\n        <span class=\"hidden-tablet\">Code</span>\n    </a>\n    <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\n        <span class=\"caret\"></span>\n    </a>\n    <ul class=\"dropdown-menu\">\n        <% _(langs).each(function(lang) { %>\n          <li>\n            <a href=\"#\" data-lang=\"<%= lang.extension %>\">\n                <i class=\"icon-<%= lang.extension %>\"></i>\n                <%= lang.name %>\n            </a>\n          </li>\n        <% }); %>\n    </ul>\n</div>\n<div class=\"modal\">\n    <div class=\"modal-header\">\n        <a class=\"close\" data-dismiss=\"modal\">close</a>\n        <h3>Generated <span class=\"im-code-lang\"></span> Code</h3>\n    </div>\n    <div class=\"modal-body\">\n        <pre class=\"im-generated-code prettyprint linenums\">\n        </pre>\n    </div>\n    <div class=\"modal-footer\">\n        <a href=\"#\" class=\"btn btn-save\"><i class=\"icon-file\"></i>Save</a>\n        <a href=\"#\" data-dismiss=\"modal\" class=\"btn\">Close</a>\n    </div>\n</div>");
   });
 
   define('html/append-list', function() {
@@ -10886,7 +10889,7 @@
         return ExportManager.__super__.initialize.call(this);
       };
 
-      ExportManager.prototype.template = _.template("<a class=\"btn im-open-dialogue\" href=\"#\">\n  <i class=\"" + intermine.icons.Export + "\"></i>\n  " + intermine.messages.actions.ExportButton + "\n</a>");
+      ExportManager.prototype.template = _.template("<a class=\"btn im-open-dialogue\" href=\"#\">\n  <i class=\"" + intermine.icons.Export + "\"></i>\n  <span class=\"visible-desktop\">" + intermine.messages.actions.ExportButton + "</span>\n</a>");
 
       ExportManager.prototype.events = function() {
         return {
