@@ -2657,7 +2657,7 @@
   })();
 
   (function() {
-    var BIO_FORMATS, DELENDA, ENTER, EXPORT_FORMATS, ExportDialogue, SPACE, featuresToPaths, formatByExtension, idAttr, isImplicitlyConstrained, isIncluded, isntExcluded, toPath, _ref;
+    var BIO_FORMATS, DELENDA, ENTER, EXPORT_FORMATS, ExportDialogue, SPACE, Tab, featuresToPaths, formatByExtension, idAttr, isImplicitlyConstrained, isIncluded, isntExcluded, toPath, _ref;
 
     EXPORT_FORMATS = [
       {
@@ -2733,6 +2733,7 @@
       }
       return false;
     };
+    Tab = jQuery.fn.tab.noConflict();
     ExportDialogue = (function(_super) {
       var formatToEl, ignore, switchActive;
 
@@ -3016,7 +3017,7 @@
             $a.data({
               target: _this.$(".tab-pane.im-export-" + x)
             });
-            return $a.tab('show');
+            return Tab.call($a, 'show');
           };
           return events[key] = cb;
         };
@@ -3085,7 +3086,7 @@
         var $this, destination;
 
         $this = $(e.currentTarget);
-        $this.tab('show');
+        Tab.call($this, 'show');
         destination = $this.data('destination');
         return this.state.set({
           destination: destination
