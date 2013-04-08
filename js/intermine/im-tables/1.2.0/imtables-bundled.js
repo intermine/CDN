@@ -23464,7 +23464,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Mon Apr 08 2013 12:57:13 GMT+0100 (BST)
+ * Built at Mon Apr 08 2013 13:17:46 GMT+0100 (BST)
 */
 
 
@@ -28306,7 +28306,7 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       ColumnsDialogue.prototype.changeTab = function(e) {
-        return Tab.call($(e.target), "show");
+        return Tab.call($(e.currentTarget), "show");
       };
 
       ColumnsDialogue.prototype.initOrdering = function() {
