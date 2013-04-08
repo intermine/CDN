@@ -24795,11 +24795,14 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       PathChooser.prototype.reset = function() {
-        var leaf, _i, _len, _ref5;
+        var leaf, _i, _len, _ref5, _ref6;
 
-        _ref5 = this.leaves;
-        for (_i = 0, _len = _ref5.length; _i < _len; _i++) {
-          leaf = _ref5[_i];
+        if ((_ref5 = this.$root) != null) {
+          _ref5.remove();
+        }
+        _ref6 = this.leaves;
+        for (_i = 0, _len = _ref6.length; _i < _len; _i++) {
+          leaf = _ref6[_i];
           leaf.remove();
         }
         return this.leaves = [];
@@ -24810,7 +24813,8 @@ Thu Jun 14 13:18:14 BST 2012
 
         cd = this.path.getEndClass();
         if (this.depth === 0 && this.canSelectRefs) {
-          this.$el.append(new RootClass(this.query, cd, this.evts, this.multiSelect).render().el);
+          this.$root = new RootClass(this.query, cd, this.evts, this.multiSelect);
+          this.$el.append(this.$root.render().el);
         }
         _ref5 = this.attributes;
         for (_i = 0, _len = _ref5.length; _i < _len; _i++) {
