@@ -7,21 +7,22 @@
   JST["error.eco"]=function(e){e||(e={});var n,s=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){s.push('<div class="alert alert-block">\n    <h4 class="alert-heading">'),s.push(t(this.title)),s.push(" for "),s.push(t(this.name)),s.push("</h4>\n    <p>"),s.push(this.text),s.push("</p>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,s.join("")};
   JST["actions.eco"]=function(e){e||(e={});var n,s=[],a=e.safe,t=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},t||(t=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){s.push('<a class="btn btn-small '),this.disabled&&s.push("disabled"),s.push(' view">View</a>\n<a class="btn btn-small '),this.disabled&&s.push("disabled"),s.push(' export">Download</a>')}).call(this)}.call(e),e.safe=a,e.escape=t,s.join("")};
   JST["loading.eco"]=function(e){e||(e={});var n,a=[],t=e.safe,s=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},s||(s=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){a.push('<div class="loading" style="background:rgba(255,255,255,0.9);position:absolute;top:0;left:0;height:100%;width:100%;text-align:center;">\n    <p style="padding-top:50%;font-weight:bold;">Loading &hellip;</p>\n</div>')}).call(this)}.call(e),e.safe=t,e.escape=s,a.join("")};
-  JST["popover.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display:block">\n    <div class="popover-inner" style="'),t.push(s(this.style)),t.push('">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">\n            '),t.push(s(this.description.slice(0,+(this.descriptionLimit-1)+1||9e9))),t.push("\n            "),this.description.length>this.descriptionLimit&&t.push("&hellip;"),t.push('\n        </h3>\n        <div class="popover-content">\n            <div class="values">\n                <!-- popover.values.eco -->\n            </div>\n            <div style="margin-top:10px">\n                <a class="btn btn-small btn-primary results">View results</a>\n                <a class="btn btn-small list">Create list</a>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["popover.values.eco"]=function(e){e||(e={});var n,s=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l;for(s.push("<h4>"),s.push(t(this.size)),s.push(" "),s.push(t(this.type)),1!==parseInt(this.size)&&s.push(t("s")),s.push(":</h4>\n\n"),l=this.values.slice(0,+(this.valuesLimit-1)+1||9e9),n=0,a=l.length;a>n;n++)e=l[n],s.push('\n    <a href="#" class="match">'),s.push(t(e)),s.push("</a>\n");s.push("\n"),this.values.length>this.valuesLimit&&s.push("&hellip;"),s.push("\n")}).call(this)}.call(e),e.safe=a,e.escape=l,s.join("")};
-  JST["enrichment.form.eco"]=function(e){e||(e={});var n,s=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,c,r,p;for(s.push('<form style="margin:0">\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Test Correction</label>\n        <select name="errorCorrection" class="span2">\n            '),r=this.errorCorrections,a=0,i=r.length;i>a;a++)e=r[a],s.push('\n                <option value="'),s.push(t(e)),s.push('" '),this.options.errorCorrection===e&&s.push(t('selected="selected"')),s.push(">\n                    "),s.push(t(e)),s.push("\n            </option>\n            ");for(s.push('\n        </select>\n    </div>\n\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Max p-value</label>\n        <select name="pValue" class="span2">\n            '),p=this.pValues,l=0,c=p.length;c>l;l++)n=p[l],s.push('\n                <option value="'),s.push(t(n)),s.push('" '),this.options.pValue===n&&s.push(t('selected="selected"')),s.push(">\n                    "),s.push(t(n)),s.push("\n                </option>\n            ");s.push('\n        </select>\n    </div>\n</form>\n<div style="clear:both"></div>')}).call(this)}.call(e),e.safe=a,e.escape=l,s.join("")};
-  JST["enrichment.table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">'),t.push(s(this.label)),t.push('</div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;white-space:nowrap">p-Value <a href="http://intermine.readthedocs.org/en/latest/embedding/list-widgets/enrichment-widgets/" target="_blank" class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px;font-style:italic">i</a></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">Matches</div>\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                <th>'),t.push(s(this.label)),t.push("</th>\n                <th>p-Value</th>\n                <th>Matches</th>\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop enrichment.row.eco -->\n        </tbody>\n    </table>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.correction.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group correction" style="display:inline-block;margin-right:5px;margin-left:7px;float:left;height:60px">\n    <label>Normalise by length <em class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px">i</em></label>\n    <p style="width:300px">\n    <input type="checkbox" class="correction" '),this.gene_length_correction&&t.push('checked="checked"'),t.push(" >\n    "),this.percentage_gene_length_not_null&&(t.push("\n    	"),t.push(s(this.percentage_gene_length_not_null)),t.push(' of genes in your list do not have a length and will be discarded, <a class="which" style="cursor:pointer">see which</a>.\n    ')),t.push("\n    </p>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.populationlist.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,r,c,p;for(t.push('<table class="table table-striped">\n    <tbody>\n        <tr><td>\n            '),null==this.current?t.push('\n                <strong><a href="#">Default</a></strong>\n            '):t.push('\n                <a href="#">Default</a>\n            '),t.push("\n        </td></tr>\n        "),c=this.lists,a=0,i=c.length;i>a;a++){for(e=c[a],t.push("\n            <tr><td>\n                "),e.name===this.current?(t.push("\n                    <strong>\n                        <a "),e.description&&(t.push('title="'),t.push(s(e.description)),t.push('"')),t.push(' href="#">'),t.push(s(e.name)),t.push("</a> ("),t.push(s(e.size)),t.push(")\n                    </strong>\n                ")):(t.push("\n                    <a "),e.description&&(t.push('title="'),t.push(s(e.description)),t.push('"')),t.push(' href="#">'),t.push(s(e.name)),t.push("</a> ("),t.push(s(e.size)),t.push(")\n                ")),t.push("\n                \n                "),p=e.tags,l=0,r=p.length;r>l;l++)n=p[l],t.push('\n                    <span class="label" style="vertical-align:text-bottom">'),t.push(s(n)),t.push("</span>\n                ");t.push("\n            </td></tr>\n        ")}t.push("\n    </tbody>\n</table>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.population.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group background" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Background population</label>\n    '),t.push(s(this.current)),t.push(' <a class="btn btn-small change">Change</a>\n\n    <div class="popover" style="position:absolute;top:0;right:0;z-index:1;display:none">\n        <div class="popover-inner">\n            <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n            <h4 class="popover-title">Change background population</h4>\n            <div class="popover-content">\n                <p style="margin-bottom:5px">\n                    '),this.loggedIn?t.push('\n                        <input type="checkbox" class="save" style="vertical-align:top" /> Save your preference for next time\n                    '):t.push("\n                        Login to save your preference for next time\n                    "),t.push('\n                </p>\n\n                <input type="text" class="filter" style="width:96%" placeholder="Filter..." />\n                \n                <div class="values" style="max-height:300px;overflow-y:auto">\n                    <!-- enrichment.populationlist.eco -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.row.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<td class="check"><input type="checkbox" '),this.row.selected&&t.push('checked="checked"'),t.push(' /></td>\n<td class="description">\n    '),t.push(s(this.row.description)),t.push("\n    "),this.row.externalLink&&(t.push('\n        [<a href="'),t.push(this.row.externalLink),t.push('" target="_blank">'),t.push(s(this.row.identifier)),t.push("</a>]\n    ")),t.push('\n</td>\n<td class="pValue" style="white-space:nowrap">'),t.push(s(this.row["p-value"])),t.push('</td>\n<td class="matches">\n    <a class="count" style="cursor:pointer">'),t.push(s(this.row.matches)),t.push("</a>\n</td>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="form">\n        <!-- enrichment.form.eco -->\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- enrichment.table.eco -->\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
-  JST["chart.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="form">\n        <form style="margin:0">\n            <!-- extra.eco -->\n        </form>\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- chart.actions.eco -->\n    </div>\n</div>\n<div class="content"></div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  JST["popover.values.eco"]=function(e){e||(e={});var n,a=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},s=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,s,l;for(a.push("<h4>"),a.push(t(this.size)),a.push(" "),a.push(t(this.type)),1!==parseInt(this.size)&&a.push(t("s")),a.push(":</h4>\n\n"),l=this.values.slice(0,+(this.valuesLimit-1)+1||9e9),n=0,s=l.length;s>n;n++)e=l[n],a.push('\n    <a href="#" class="match">'),a.push(t(e)),a.push("</a>\n");a.push("\n"),this.values.length>this.valuesLimit&&a.push("&hellip;"),a.push("\n")}).call(this)}.call(e),e.safe=s,e.escape=l,a.join("")};
+  JST["popover.help.eco"]=function(e){e||(e={});var n,t=[],a=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},s=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display: block;">\n    <div class="popover-inner">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">'),t.push(a(this.title)),t.push('</h3>\n        <div class="popover-content">\n            <p>'),t.push(a(this.text)),t.push("</p>\n        </div>\n    </div>\n</div>")}).call(this)}.call(e),e.safe=s,e.escape=l,t.join("")};
+  JST["popover.eco"]=function(e){e||(e={});var n,s=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){s.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display:block">\n    <div class="popover-inner" style="'),s.push(t(this.style)),s.push('">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">\n            '),s.push(t(this.description.slice(0,+(this.descriptionLimit-1)+1||9e9))),s.push("\n            "),this.description.length>this.descriptionLimit&&s.push("&hellip;"),s.push('\n        </h3>\n        <div class="popover-content">\n            <div class="values">\n                <!-- popover.values.eco -->\n            </div>\n            <div style="margin-top:10px">\n                <a class="btn btn-small btn-primary results">View results</a>\n                <a class="btn btn-small list">Create list</a>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,s.join("")};
+  JST["chart.eco"]=function(e){e||(e={});var n,s=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){s.push('<div class="header">\n    <h3>'),this.title&&s.push(t(this.title)),s.push("</h3>\n    <p>"),this.description&&s.push(this.description),s.push("</p>\n    "),this.notAnalysed?(s.push("\n        <p>Number of "),s.push(t(this.type)),s.push("s in this list not analysed in this widget: <a>"),s.push(t(this.notAnalysed)),s.push("</a></p>\n    ")):s.push("\n        <p>All items in your list have been analysed.</p>\n    "),s.push('\n\n    <div class="form">\n        <form style="margin:0">\n            <!-- extra.eco -->\n        </form>\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- chart.actions.eco -->\n    </div>\n</div>\n<div class="content"></div>')}).call(this)}.call(e),e.safe=a,e.escape=i,s.join("")};
   JST["chart.actions.eco"]=function(e){e||(e={});var n,t=[],s=e.safe,a=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},a||(a=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<a class="btn btn-small view-all">View all</a>')}).call(this)}.call(e),e.safe=s,e.escape=a,t.join("")};
-  JST["table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- table.table.eco -->\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
-  JST["table.table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,i,l,c,r;for(t.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    '),c=this.columns,n=0,i=c.length;i>n;n++)e=c[n],t.push('\n        <div style="font-weight:bold;display:table-cell;padding:0 8px;">'),t.push(s(e)),t.push("</div>\n    ");for(t.push('\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                '),r=this.columns,a=0,l=r.length;l>a;a++)e=r[a],t.push("\n                    <th>"),t.push(s(e)),t.push("</th>\n                ");t.push("\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop table.row.eco -->\n        </tbody>\n    </table>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
   JST["table.row.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,i;for(t.push('<td class="check"><input type="checkbox" '),this.row.selected&&t.push('checked="checked"'),t.push(" /></td>\n"),i=this.row.descriptions,n=0,a=i.length;a>n;n++)e=i[n],t.push("\n    <td>"),t.push(s(e)),t.push("</td>\n");t.push('\n<td class="matches">\n    <a class="count" style="cursor:pointer">'),t.push(s(this.row.matches)),t.push("</a>\n</td>")}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
-  /* Types in JS.
+  JST["table.table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,c,r;for(t.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    '),c=this.columns,n=0,l=c.length;l>n;n++)e=c[n],t.push('\n        <div style="font-weight:bold;display:table-cell;padding:0 8px;">'),t.push(s(e)),t.push("</div>\n    ");for(t.push('\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                '),r=this.columns,a=0,i=r.length;i>a;a++)e=r[a],t.push("\n                    <th>"),t.push(s(e)),t.push("</th>\n                ");t.push("\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop table.row.eco -->\n        </tbody>\n    </table>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- table.table.eco -->\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  JST["enrichment.correction.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group correction" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Normalise by length <em class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px">i</em><div class="help"></div></label>\n    <p style="width:300px">\n    <input type="checkbox" class="correction" '),this.gene_length_correction&&t.push('checked="checked"'),t.push(" >\n    "),this.percentage_gene_length_not_null&&(t.push("\n    	"),t.push(s(this.percentage_gene_length_not_null)),t.push(' of genes in your list do not have a length and will be discarded, <a class="which" style="cursor:pointer">see which</a>.\n    ')),t.push("\n    </p>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  JST["enrichment.populationlist.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,i,l,c,r,p;for(t.push('<table class="table table-striped">\n    <tbody>\n        <tr><td>\n            '),null==this.current?t.push('\n                <strong><a href="#">Default</a></strong>\n            '):t.push('\n                <a href="#">Default</a>\n            '),t.push("\n        </td></tr>\n        "),r=this.lists,a=0,l=r.length;l>a;a++){for(e=r[a],t.push("\n            <tr><td>\n                "),e.name===this.current?(t.push("\n                    <strong>\n                        <a "),e.description&&(t.push('title="'),t.push(s(e.description)),t.push('"')),t.push(' href="#">'),t.push(s(e.name)),t.push("</a> ("),t.push(s(e.size)),t.push(")\n                    </strong>\n                ")):(t.push("\n                    <a "),e.description&&(t.push('title="'),t.push(s(e.description)),t.push('"')),t.push(' href="#">'),t.push(s(e.name)),t.push("</a> ("),t.push(s(e.size)),t.push(")\n                ")),t.push("\n                \n                "),p=e.tags,i=0,c=p.length;c>i;i++)n=p[i],t.push('\n                    <span class="label" style="vertical-align:text-bottom">'),t.push(s(n)),t.push("</span>\n                ");t.push("\n            </td></tr>\n        ")}t.push("\n    </tbody>\n</table>")}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  JST["enrichment.table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">'),t.push(s(this.label)),t.push('</div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;white-space:nowrap">p-Value <a href="http://intermine.readthedocs.org/en/latest/embedding/list-widgets/enrichment-widgets/" target="_blank" class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px;font-style:italic;color:#FFF!important">i</a></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">Matches</div>\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                <th>'),t.push(s(this.label)),t.push("</th>\n                <th>p-Value</th>\n                <th>Matches</th>\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop enrichment.row.eco -->\n        </tbody>\n    </table>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  JST["enrichment.form.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,c,r,p;for(t.push('<form style="margin:0">\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Test Correction</label>\n        <select name="errorCorrection" class="span2">\n            '),r=this.errorCorrections,a=0,i=r.length;i>a;a++)e=r[a],t.push('\n                <option value="'),t.push(s(e)),t.push('" '),this.options.errorCorrection===e&&t.push(s('selected="selected"')),t.push(">\n                    "),t.push(s(e)),t.push("\n            </option>\n            ");for(t.push('\n        </select>\n    </div>\n\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Max p-value</label>\n        <select name="pValue" class="span2">\n            '),p=this.pValues,l=0,c=p.length;c>l;l++)n=p[l],t.push('\n                <option value="'),t.push(s(n)),t.push('" '),this.options.pValue===n&&t.push(s('selected="selected"')),t.push(">\n                    "),t.push(s(n)),t.push("\n                </option>\n            ");t.push('\n        </select>\n    </div>\n</form>\n<div style="clear:both"></div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["enrichment.population.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group background" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Background population</label>\n    '),t.push(s(this.current)),t.push(' <a class="btn btn-small change">Change</a>\n\n    <div class="popover" style="position:absolute;top:0;right:0;z-index:1;display:none">\n        <div class="popover-inner">\n            <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n            <h4 class="popover-title">Change background population</h4>\n            <div class="popover-content">\n                <p style="margin-bottom:5px">\n                    '),this.loggedIn?t.push('\n                        <input type="checkbox" class="save" style="vertical-align:top" /> Save your preference for next time\n                    '):t.push("\n                        Login to save your preference for next time\n                    "),t.push('\n                </p>\n\n                <input type="text" class="filter" style="width:96%" placeholder="Filter..." />\n                \n                <div class="values" style="max-height:300px;overflow-y:auto">\n                    <!-- enrichment.populationlist.eco -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["enrichment.row.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<td class="check"><input type="checkbox" '),this.row.selected&&t.push('checked="checked"'),t.push(' /></td>\n<td class="description">\n    '),t.push(s(this.row.description)),t.push("\n    "),this.row.externalLink&&(t.push('\n        [<a href="'),t.push(this.row.externalLink),t.push('" target="_blank">'),t.push(s(this.row.identifier)),t.push("</a>]\n    ")),t.push('\n</td>\n<td class="pValue" style="white-space:nowrap">'),t.push(s(this.row["p-value"])),t.push('</td>\n<td class="matches">\n    <a class="count" style="cursor:pointer">'),t.push(s(this.row.matches)),t.push("</a>\n</td>")}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  JST["enrichment.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="form">\n        <!-- enrichment.form.eco -->\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- enrichment.table.eco -->\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
+  /* Create file download with custom content.
   */
   
   var $, Exporter, PlainExporter, Widgets, factory, merge, type,
@@ -30,6 +31,95 @@
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __slice = [].slice;
+  
+  Exporter = (function() {
+  
+    Exporter.prototype.mime = 'text/plain';
+  
+    Exporter.prototype.charset = 'utf-8';
+  
+    /*
+        Use `BlobBuilder` and `URL` to force download dynamic string as a file.
+        @param {object} a jQuery element
+        @param {string} data string to download
+        @param {string} filename to save under
+    */
+  
+  
+    function Exporter(data, filename) {
+      var blob;
+      if (filename == null) {
+        filename = 'widget.tsv';
+      }
+      blob = new Blob([data], {
+        'type': "" + this.mime + ";charset=" + this.charset
+      });
+      saveAs(blob, filename);
+    }
+  
+    return Exporter;
+  
+  })();
+  
+  PlainExporter = (function() {
+    /*
+        Create a new window with a formatted content.
+        @param {object} a jQuery element
+        @param {string} data string to download
+    */
+  
+    function PlainExporter(a, data) {
+      var destroy, w,
+        _this = this;
+      w = window.open();
+      if (!(w != null) || typeof w === "undefined") {
+        a.after(this.msg = $('<span/>', {
+          'style': 'margin-left:5px',
+          'class': 'label label-inverse',
+          'text': 'Please enable popups'
+        }));
+      } else {
+        w.document.open();
+        w.document.write("<pre>" + data + "</pre>");
+        w.document.close();
+      }
+      destroy = function() {
+        var _ref;
+        return (_ref = _this.msg) != null ? _ref.fadeOut() : void 0;
+      };
+      setTimeout(destroy, 5000);
+    }
+  
+    return PlainExporter;
+  
+  })();
+  
+  /* <IE9 does not have Array::indexOf, use MDC implementation.
+  */
+  
+  
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function(elt) {
+      var from, len;
+      len = this.length >>> 0;
+      from = Number(arguments[1]) || 0;
+      from = (from < 0 ? Math.ceil(from) : Math.floor(from));
+      if (from < 0) {
+        from += len;
+      }
+      while (from < len) {
+        if (from in this && this[from] === elt) {
+          return from;
+        }
+        from++;
+      }
+      return -1;
+    };
+  }
+  
+  /* Types in JS.
+  */
+  
   
   type = {};
   
@@ -204,95 +294,6 @@
     return isUndefined;
   
   })(type.Root);
-  
-  /* Create file download with custom content.
-  */
-  
-  
-  Exporter = (function() {
-  
-    Exporter.prototype.mime = 'text/plain';
-  
-    Exporter.prototype.charset = 'utf-8';
-  
-    /*
-        Use `BlobBuilder` and `URL` to force download dynamic string as a file.
-        @param {object} a jQuery element
-        @param {string} data string to download
-        @param {string} filename to save under
-    */
-  
-  
-    function Exporter(data, filename) {
-      var blob;
-      if (filename == null) {
-        filename = 'widget.tsv';
-      }
-      blob = new Blob([data], {
-        'type': "" + this.mime + ";charset=" + this.charset
-      });
-      saveAs(blob, filename);
-    }
-  
-    return Exporter;
-  
-  })();
-  
-  PlainExporter = (function() {
-    /*
-        Create a new window with a formatted content.
-        @param {object} a jQuery element
-        @param {string} data string to download
-    */
-  
-    function PlainExporter(a, data) {
-      var destroy, w,
-        _this = this;
-      w = window.open();
-      if (!(w != null) || typeof w === "undefined") {
-        a.after(this.msg = $('<span/>', {
-          'style': 'margin-left:5px',
-          'class': 'label label-inverse',
-          'text': 'Please enable popups'
-        }));
-      } else {
-        w.document.open();
-        w.document.write("<pre>" + data + "</pre>");
-        w.document.close();
-      }
-      destroy = function() {
-        var _ref;
-        return (_ref = _this.msg) != null ? _ref.fadeOut() : void 0;
-      };
-      setTimeout(destroy, 5000);
-    }
-  
-    return PlainExporter;
-  
-  })();
-  
-  /* <IE9 does not have Array::indexOf, use MDC implementation.
-  */
-  
-  
-  if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function(elt) {
-      var from, len;
-      len = this.length >>> 0;
-      from = Number(arguments[1]) || 0;
-      from = (from < 0 ? Math.ceil(from) : Math.floor(from));
-      if (from < 0) {
-        from += len;
-      }
-      while (from < len) {
-        if (from in this && this[from] === elt) {
-          return from;
-        }
-        from++;
-      }
-      return -1;
-    };
-  }
   
   /* Merge properties of 2 dictionaries.
   */
@@ -968,6 +969,10 @@
   
         this.toggleCull = __bind(this.toggleCull, this);
   
+        this.hideHelp = __bind(this.hideHelp, this);
+  
+        this.showHelp = __bind(this.showHelp, this);
+  
         this.render = __bind(this.render, this);
         return EnrichmentLengthCorrectionView.__super__.constructor.apply(this, arguments);
       }
@@ -975,8 +980,10 @@
       EnrichmentLengthCorrectionView.prototype.help = "Depending on the type of experiment your data comes from, it is sometimes \nnecessary to normalize by gene length in order to get the correct p-values. \nIf your data comes from a genome-wide binding experiment such as ChIP-seq \nor DamID, binding intervals are more likely to be associated with longer \ngenes than shorter ones, and you should therefore normalize by gene length. \nThis is not the case for experiments such as gene expression studies, where \ngene length does not play a role in the likelihood that a particular set of \ngenes will be overrepresented in the list.";
   
       EnrichmentLengthCorrectionView.prototype.events = {
-        'click input.correction': 'toggleCull',
-        'click a.which': 'seeWhich'
+        'click .correction input.correction': 'toggleCull',
+        'click .correction a.which': 'seeWhich',
+        'hover .correction label .badge': 'showHelp',
+        'click .correction a.close': 'hideHelp'
       };
   
       EnrichmentLengthCorrectionView.prototype.initialize = function(o) {
@@ -992,12 +999,18 @@
   
       EnrichmentLengthCorrectionView.prototype.render = function() {
         $(this.el).append(this.widget.template("enrichment.correction", this));
-        $(this.el).find('label .badge').popover({
-          'placement': 'bottom',
-          'title': 'What does "Normalise by length" mean?',
-          'content': this.help
-        });
         return this;
+      };
+  
+      EnrichmentLengthCorrectionView.prototype.showHelp = function() {
+        return $(this.el).find('.help').html(this.widget.template("popover.help", {
+          "title": 'What does "Normalise by length" mean?',
+          "text": this.help
+        }));
+      };
+  
+      EnrichmentLengthCorrectionView.prototype.hideHelp = function() {
+        return $(this.el).find('.help').empty();
       };
   
       EnrichmentLengthCorrectionView.prototype.toggleCull = function(e) {
@@ -1143,7 +1156,7 @@
           _fn(i);
         }
         this.renderTableBody(table);
-        height = $(this.el).height() - $(this.el).find('div.header').height() - $(this.el).find('div.content div.head').height();
+        height = $(this.el).height() - $(this.el).find('div.header').height() - $(this.el).find('div.content table thead').height();
         $(this.el).find("div.content div.wrapper").css('height', "" + height + "px");
         $(this.el).find("div.content div.head").css("width", $(this.el).find("div.content table").width() + "px");
         table.find('thead th').each(function(i, th) {
@@ -1724,7 +1737,7 @@
           widget = parent.closest('div.inner');
           header = widget.find('div.header');
           head = widget.find('div.content div.head');
-          diff = ((parent.position().top - header.height() + head.height()) + 30 + popover.outerHeight()) - table.height();
+          diff = ((parent.position().top - header.height() + head.height()) + popover.outerHeight()) - table.height();
           if (diff > 0) {
             return popover.css('top', -diff);
           }
@@ -2060,7 +2073,7 @@
           widget = parent.closest('div.inner');
           header = widget.find('div.header');
           head = widget.find('div.content div.head');
-          diff = ((parent.position().top - header.height() + head.height()) + 30 + popover.outerHeight()) - table.height();
+          diff = ((parent.position().top - header.height() + head.height()) + popover.outerHeight()) - table.height();
           if (diff > 0) {
             return popover.css('top', -diff);
           }
@@ -2268,10 +2281,10 @@
       }
   
       EnrichmentPopulationView.prototype.events = {
-        "click a.change": "toggleAction",
-        "click a.close": "toggleAction",
-        "keyup input.filter": "filterAction",
-        "click table a": "selectListAction"
+        "click .background a.change": "toggleAction",
+        "click .background a.close": "toggleAction",
+        "keyup .background input.filter": "filterAction",
+        "click .background table a": "selectListAction"
       };
   
       EnrichmentPopulationView.prototype.initialize = function(o) {
@@ -2471,9 +2484,6 @@
         type: "js"
       }, {
         path: "http://cdn.intermine.org/js/intermine/imjs/latest/imjs.js",
-        type: "js"
-      }, {
-        path: "http://cdn.intermine.org/css/bootstrap/2.0.4/js/bootstrap.min.js",
         type: "js"
       }, {
         path: "http://cdn.intermine.org/js/filesaver.js/FileSaver.min.js",
