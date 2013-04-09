@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Apr 04 2013 13:57:11 GMT+0100 (BST)
+ * Built at Mon Apr 08 2013 13:17:46 GMT+0100 (BST)
 */
 
 
@@ -286,7 +286,7 @@
   }, true);
 
   (function($) {
-    var ClosableCollection, ERROR, ItemView, addStylePrefix, copy, getContainer, getOrganisms, getParameter, modelIsBio, numToString, openWindowWithPost, pluralise, renderError, requiresAuthentication, walk, _ref, _ref1;
+    var ClosableCollection, ERROR, ItemView, Tab, addStylePrefix, copy, getContainer, getOrganisms, getParameter, modelIsBio, numToString, openWindowWithPost, pluralise, renderError, requiresAuthentication, walk, _ref, _ref1;
 
     walk = function(obj, f) {
       var k, v, _results;
@@ -572,6 +572,10 @@
       return ClosableCollection;
 
     })(Backbone.Collection);
+    Tab = jQuery.fn.tab.noConflict();
+    scope('intermine.bootstrap', {
+      Tab: Tab
+    });
     scope('intermine.views', {
       ItemView: ItemView
     });
@@ -1338,11 +1342,14 @@
       };
 
       PathChooser.prototype.reset = function() {
-        var leaf, _i, _len, _ref5;
+        var leaf, _i, _len, _ref5, _ref6;
 
-        _ref5 = this.leaves;
-        for (_i = 0, _len = _ref5.length; _i < _len; _i++) {
-          leaf = _ref5[_i];
+        if ((_ref5 = this.$root) != null) {
+          _ref5.remove();
+        }
+        _ref6 = this.leaves;
+        for (_i = 0, _len = _ref6.length; _i < _len; _i++) {
+          leaf = _ref6[_i];
           leaf.remove();
         }
         return this.leaves = [];
@@ -1353,7 +1360,8 @@
 
         cd = this.path.getEndClass();
         if (this.depth === 0 && this.canSelectRefs) {
-          this.$el.append(new RootClass(this.query, cd, this.evts, this.multiSelect).render().el);
+          this.$root = new RootClass(this.query, cd, this.evts, this.multiSelect);
+          this.$el.append(this.$root.render().el);
         }
         _ref5 = this.attributes;
         for (_i = 0, _len = _ref5.length; _i < _len; _i++) {
@@ -2733,7 +2741,7 @@
       }
       return false;
     };
-    Tab = jQuery.fn.tab.noConflict();
+    Tab = intermine.bootstrap.Tab;
     ExportDialogue = (function(_super) {
       var formatToEl, ignore, switchActive;
 
@@ -4426,7 +4434,7 @@
   })();
 
   scope('intermine.columns.snippets', {
-    ColumnsDialogue: "<div class=\"modal-header\">\n  <a class=\"close\" data-dismiss=\"modal\">close</a>\n  <h3>Manage Columns</h3>\n</div>\n<div class=\"modal-body\">\n  <ul class=\"nav nav-tabs\">\n    <li class=\"active\">\n      <a data-target=\".im-reordering\" data-toggle=\"tab\">\n        <span class=\"hidden-tablet\">\n          " + intermine.messages.columns.OrderVerb + "\n        </span>\n        " + intermine.messages.columns.OrderTitle + "\n      </a>\n    </li>\n    <li>\n      <a data-target=\".im-sorting\" data-toggle=\"tab\">\n        <span class=\"hidden-tablet\">\n          " + intermine.messages.columns.SortVerb + "\n        </span>\n        " + intermine.messages.columns.SortTitle + "\n      </a>\n    </li>\n  </ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane fade im-reordering active in\">\n      <div class=\"node-adder\"></div>\n      <div class=\"well\">\n      <ul class=\"im-reordering-container nav nav-tabs nav-stacked\"></ul>\n      </div>\n    </div>\n    <div class=\"tab-pane fade im-sorting\">\n      <div class=\"well\">\n      <ul class=\"im-sorting-container nav nav-tabs nav-stacked\"></ul>\n      </div>\n      <form class=\"form-search\">\n      <i class=\"" + intermine.icons.Help + " pull-right im-sorting-help\"></i>\n      <div class=\"input-prepend\">\n        <span class=\"add-on\">filter</span>\n        <input type=\"text\" class=\"search-query im-sortables-filter\">\n      </div>\n      <label class=\"im-only-in-view\">\n        " + intermine.messages.columns.OnlyColsInView + "\n        <input class=\"im-only-in-view\" type=\"checkbox\" checked>\n      </label>\n      </form>\n      <div class=\"well\">\n      <ul class=\"im-sorting-container-possibilities nav nav-tabs nav-stacked\"></ul>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"modal-footer\">\n  <a class=\"btn btn-cancel\">\n    Cancel\n  </a>\n  <a class=\"btn pull-right btn-primary\">\n    Apply\n  </a>\n</div>"
+    ColumnsDialogue: "<div class=\"modal-header\">\n  <a class=\"close\" data-dismiss=\"modal\">close</a>\n  <h3>Manage Columns</h3>\n</div>\n<div class=\"modal-body\">\n  <ul class=\"nav nav-tabs\">\n    <li class=\"active\">\n      <a data-target=\".im-reordering\">\n        <span class=\"hidden-tablet\">\n          " + intermine.messages.columns.OrderVerb + "\n        </span>\n        " + intermine.messages.columns.OrderTitle + "\n      </a>\n    </li>\n    <li>\n      <a data-target=\".im-sorting\" >\n        <span class=\"hidden-tablet\">\n          " + intermine.messages.columns.SortVerb + "\n        </span>\n        " + intermine.messages.columns.SortTitle + "\n      </a>\n    </li>\n  </ul>\n  <div class=\"tab-content\">\n    <div class=\"tab-pane fade im-reordering active in\">\n      <div class=\"node-adder\"></div>\n      <div class=\"well\">\n      <ul class=\"im-reordering-container nav nav-tabs nav-stacked\"></ul>\n      </div>\n    </div>\n    <div class=\"tab-pane fade im-sorting\">\n      <div class=\"well\">\n      <ul class=\"im-sorting-container nav nav-tabs nav-stacked\"></ul>\n      </div>\n      <form class=\"form-search\">\n      <i class=\"" + intermine.icons.Help + " pull-right im-sorting-help\"></i>\n      <div class=\"input-prepend\">\n        <span class=\"add-on\">filter</span>\n        <input type=\"text\" class=\"search-query im-sortables-filter\">\n      </div>\n      <label class=\"im-only-in-view\">\n        " + intermine.messages.columns.OnlyColsInView + "\n        <input class=\"im-only-in-view\" type=\"checkbox\" checked>\n      </label>\n      </form>\n      <div class=\"well\">\n      <ul class=\"im-sorting-container-possibilities nav nav-tabs nav-stacked\"></ul>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"modal-footer\">\n  <a class=\"btn btn-cancel\">\n    Cancel\n  </a>\n  <a class=\"btn pull-right btn-primary\">\n    Apply\n  </a>\n</div>"
   });
 
   (function() {
@@ -4469,13 +4477,14 @@
   });
 
   (function() {
-    var ColumnAdder, ColumnsDialogue, NewViewNodes, ViewNode, byEl, _ref, _ref1, _ref2, _ref3;
+    var ColumnAdder, ColumnsDialogue, NewViewNodes, Tab, ViewNode, byEl, _ref, _ref1, _ref2, _ref3;
 
     byEl = function(el) {
       return function(nv) {
         return nv.el === el;
       };
     };
+    Tab = intermine.bootstrap.Tab;
     ColumnAdder = (function(_super) {
       __extends(ColumnAdder, _super);
 
@@ -4840,7 +4849,7 @@
       };
 
       ColumnsDialogue.prototype.changeTab = function(e) {
-        return $(e.target).tab("show");
+        return Tab.call($(e.currentTarget), "show");
       };
 
       ColumnsDialogue.prototype.initOrdering = function() {
