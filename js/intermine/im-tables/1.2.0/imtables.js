@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Mon Apr 08 2013 13:17:46 GMT+0100 (BST)
+ * Built at Tue Apr 23 2013 15:28:43 GMT+0100 (BST)
 */
 
 
@@ -286,7 +286,7 @@
   }, true);
 
   (function($) {
-    var ClosableCollection, ERROR, ItemView, Tab, addStylePrefix, copy, getContainer, getOrganisms, getParameter, modelIsBio, numToString, openWindowWithPost, pluralise, renderError, requiresAuthentication, walk, _ref, _ref1;
+    var ClosableCollection, ERROR, ItemView, Tab, addStylePrefix, copy, getContainer, getOrganisms, getParameter, modelIsBio, numToString, openWindowWithPost, organisable, pluralise, renderError, requiresAuthentication, uniquelyFlat, walk, _ref, _ref1;
 
     walk = function(obj, f) {
       var k, v, _results;
@@ -379,93 +379,59 @@
         return (_ref = c.op) === 'NOT IN' || _ref === 'IN';
       });
     };
+    organisable = function(path) {
+      return path.getEndClass().name === 'Organism' || (path.getType().fields['organism'] != null);
+    };
+    uniquelyFlat = _.compose(_.uniq, _.flatten);
     getOrganisms = function(query, cb) {
-      var c, n, newView, nodes, onodes, onodes2, orgs, promise, restrictedOrganisms, toRun, v;
+      var c, def, done, mustBe, n, newView, opath, toRun;
 
-      restrictedOrganisms = (function() {
-        var _i, _len, _ref, _results;
+      def = $.Deferred();
+      if (cb != null) {
+        def.done(cb);
+      }
+      done = _.compose(def.resolve, uniquelyFlat);
+      mustBe = (function() {
+        var _i, _len, _ref, _ref1, _results;
 
         _ref = query.constraints;
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           c = _ref[_i];
-          if (c.path.match(/(o|O)rganism/)) {
-            _results.push(c.value);
+          if (((_ref1 = c.op) === '=' || _ref1 === 'ONE OF' || _ref1 === 'LOOKUP') && c.path.match(/(o|O)rganism(\.\w+)?$/)) {
+            _results.push(c.value || c.values);
           }
         }
         return _results;
       })();
-      if (restrictedOrganisms.length) {
-        return cb(restrictedOrganisms);
+      if (mustBe.length) {
+        done(mustBe);
       } else {
         toRun = query.clone();
-        orgs = [];
-        nodes = (function() {
+        newView = (function() {
           var _i, _len, _ref, _results;
 
-          _ref = toRun.views;
+          _ref = toRun.getViewNodes();
           _results = [];
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            v = _ref[_i];
-            _results.push(toRun.getPathInfo(v).getParent());
+            n = _ref[_i];
+            if (!(organisable(n))) {
+              continue;
+            }
+            opath = n.getEndClass().name === 'Organism' ? n : n.append('organism');
+            _results.push(opath.append('shortName'));
           }
           return _results;
         })();
-        onodes = (function() {
-          var _i, _len, _results;
-
-          _results = [];
-          for (_i = 0, _len = nodes.length; _i < _len; _i++) {
-            n = nodes[_i];
-            if (n.toPathString() === "Organism" || (n.getType().fields["organism"] != null)) {
-              _results.push(n);
-            }
-          }
-          return _results;
-        })();
-        onodes2 = ((function() {
-          var _i, _len, _results;
-
-          if (n.toPathString() === "Organism") {
-            return n;
-          } else {
-            _results = [];
-            for (_i = 0, _len = onodes.length; _i < _len; _i++) {
-              n = onodes[_i];
-              _results.push(n.append("organism"));
-            }
-            return _results;
-          }
-        })());
-        newView = (function() {
-          var _i, _len, _results;
-
-          _results = [];
-          for (_i = 0, _len = onodes2.length; _i < _len; _i++) {
-            n = onodes2[_i];
-            _results.push("" + (n.toPathString()) + ".shortName");
-          }
-          return _results;
-        })();
-        toRun.views = _.uniq(newView);
-        if (toRun.views.length) {
-          toRun.sortOrder = [];
-          promise = toRun.rows(function(rows) {
-            var row, _i, _len;
-
-            for (_i = 0, _len = rows.length; _i < _len; _i++) {
-              row = rows[_i];
-              orgs = orgs.concat(row);
-            }
-            return cb(_.uniq(orgs));
-          });
-          return promise.fail(function() {
-            return cb(orgs);
+        if (newView.length) {
+          toRun.select(_.uniq(newView, String)).orderBy([]).rows().then(done, function() {
+            return done([]);
           });
         } else {
-          return cb(orgs);
+          done([]);
         }
       }
+      return def.promise();
     };
     openWindowWithPost = function(uri, name, params) {
       var addInput, form, k, v, w, _fn;
@@ -614,7 +580,9 @@
     },
     StylePrefix: 'intermine',
     GalaxyMain: "http://main.g2.bx.psu.edu",
-    GenomeSpaceUpload: "https://gsui.genomespace.org/jsui/upload/loadUrlToGenomespace.html",
+    GalaxyCurrent: null,
+    GalaxyTool: 'flymine',
+    GenomeSpaceUpload: "https://identitytest.genomespace.org/jsui/upload/loadUrlToGenomespace.html",
     ExternalExportDestinations: {
       Galaxy: true,
       Genomespace: false
@@ -635,6 +603,11 @@
         Easing: 'elastic',
         Duration: 750
       }
+    },
+    brand: {
+      "http://www.flymine.org": "FlyMine",
+      "http://preview.flymine.org": "FlyMine-Preview",
+      "http://www.mousemine.org": "MouseMine (MGI)"
     },
     preview: {
       count: {
@@ -800,6 +773,9 @@
     'download-file': 'Download File',
     Galaxy: 'Send to Galaxy',
     Genomespace: 'Upload to Genomespace',
+    'Destdownload-file': 'File',
+    DestGalaxy: 'Galaxy',
+    DestGenomespace: 'Genomespace',
     ExportAlt: "Send Data Somewhere Else",
     ExportLong: "<span class=\"hidden-tablet\">Download</span>\nFile\n<span class=\"im-only-widescreen\">to your Computer</span>",
     SendToGalaxy: "<span class=\"hidden-tablet\">Send to</span>\nGalaxy\n<span class=\"im-only-widescreen\">for analysis</span>",
@@ -852,7 +828,8 @@
     NoSuitableColumns: "There are no columns of a suitable type for this format.",
     BEDOptions: "BED Specific Options",
     Gff3Options: 'GFF3 Specific Options',
-    ChrPrefix: "Prefix \"chr\" to the chromosome identifier as per UCSC convention (eg: chr2)"
+    ChrPrefix: "Prefix \"chr\" to the chromosome identifier as per UCSC convention (eg: chr2)",
+    ConfigureExportHelp: 'Configure the export options in these categories'
   });
 
   scope('intermine.messages.facets', {
@@ -965,10 +942,10 @@
         this.evts = evts;
         this.getDisabled = getDisabled;
         this.multiSelect = multiSelect;
-        this.evts.on('remove', function() {
+        this.listenTo(this.evts, 'remove', function() {
           return _this.remove();
         });
-        this.evts.on('chosen', function(p, isNewChoice) {
+        this.listenTo(this.evts, 'chosen', function(p, isNewChoice) {
           if (p.toString() === _this.path.toString()) {
             return _this.$el.toggleClass('active', isNewChoice);
           } else {
@@ -977,7 +954,7 @@
             }
           }
         });
-        return this.evts.on('filter:paths', function(terms) {
+        return this.listenTo(this.evts, 'filter:paths', function(terms) {
           var lastMatch, matches, t, _i, _len;
 
           terms = (function() {
@@ -1009,6 +986,17 @@
         });
       };
 
+      Attribute.prototype.remove = function() {
+        var prop, _i, _len, _ref1;
+
+        _ref1 = ['query', 'path', 'depth', 'evts', 'getDisabled', 'multiSelect'];
+        for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+          prop = _ref1[_i];
+          delete this[prop];
+        }
+        return Attribute.__super__.remove.apply(this, arguments);
+      };
+
       Attribute.prototype.template = _.template("<a href=\"#\" title=\"<%- path %> (<%- type %>)\"><span><%- name %></span></a>");
 
       Attribute.prototype.matches = function(matches, terms) {
@@ -1035,6 +1023,8 @@
         return this.$el.toggle(!!(matches === terms.length));
       };
 
+      Attribute.prototype.rendered = false;
+
       Attribute.prototype.render = function() {
         var disabled,
           _this = this;
@@ -1043,7 +1033,8 @@
         if (disabled) {
           this.$el.addClass('disabled');
         }
-        this.path.getDisplayName(function(name) {
+        this.rendered = true;
+        this.path.getDisplayName().then(function(name) {
           var a;
 
           _this.displayName = name;
@@ -1318,12 +1309,12 @@
           this.evts.on('chosen', events);
         }
         this.on('collapse:tree-branches', function() {
-          console.log("Bringing the tree down");
           return _this.evts.trigger('collapse:tree-branches');
         });
         return this.state.on('change:allowRevRefs', function() {
-          _this.reset();
-          return _this.render();
+          if (_this.rendered) {
+            return _this.render();
+          }
         });
       };
 
@@ -1342,22 +1333,23 @@
       };
 
       PathChooser.prototype.reset = function() {
-        var leaf, _i, _len, _ref5, _ref6;
+        var leaf, _ref5, _results;
 
         if ((_ref5 = this.$root) != null) {
           _ref5.remove();
         }
-        _ref6 = this.leaves;
-        for (_i = 0, _len = _ref6.length; _i < _len; _i++) {
-          leaf = _ref6[_i];
-          leaf.remove();
+        _results = [];
+        while (leaf = this.leaves.pop()) {
+          _results.push(leaf.remove());
         }
-        return this.leaves = [];
+        return _results;
       };
 
       PathChooser.prototype.render = function() {
-        var apath, attr, cd, isLoop, ref, rpath, _i, _j, _len, _len1, _ref5, _ref6;
+        var allowingRevRefs, apath, attr, cd, isLoop, leaf, ref, rpath, _i, _j, _k, _len, _len1, _len2, _ref5, _ref6, _ref7;
 
+        this.reset();
+        this.rendered = true;
         cd = this.path.getEndClass();
         if (this.depth === 0 && this.canSelectRefs) {
           this.$root = new RootClass(this.query, cd, this.evts, this.multiSelect);
@@ -1369,7 +1361,6 @@
           if (intermine.options.ShowId || apath.end.name !== 'id') {
             attr = new Attribute(this.query, apath, this.depth, this.evts, this.getDisabled, this.multiSelect);
             this.leaves.push(attr);
-            this.$el.append(attr.render().el);
           }
         }
         _ref6 = this.references.concat(this.collections);
@@ -1383,17 +1374,18 @@
               }
             }
           }
-          if (isLoop && !this.state.get('allowRevRefs')) {
-            ref = new ReverseReference(this.query, rpath, this.depth, this.evts, (function() {
-              return true;
-            }), this.multiSelect, this.canSelectRefs);
-          } else {
-            ref = new Reference(this.query, rpath, this.depth, this.evts, this.getDisabled, this.multiSelect, this.canSelectRefs);
-          }
-          ref.allowRevRefs = this.state.get('allowRevRefs');
+          allowingRevRefs = this.state.get('allowRevRefs');
+          ref = isLoop && !allowingRevRefs ? new ReverseReference(this.query, rpath, this.depth, this.evts, (function() {
+            return true;
+          }), this.multiSelect, this.canSelectRefs) : new Reference(this.query, rpath, this.depth, this.evts, this.getDisabled, this.multiSelect, this.canSelectRefs);
+          ref.allowRevRefs = allowingRevRefs;
           ref.isLoop = isLoop;
           this.leaves.push(ref);
-          this.$el.append(ref.render().el);
+        }
+        _ref7 = this.leaves;
+        for (_k = 0, _len2 = _ref7.length; _k < _len2; _k++) {
+          leaf = _ref7[_k];
+          this.$el.append(leaf.render().el);
         }
         if (this.depth === 0) {
           this.$el.addClass(this.dropDownClasses);
@@ -2423,7 +2415,7 @@
       });
     })(jQuery);
     return jQuery.fn.imWidget = function(arg0, arg1) {
-      var cls, error, events, hasStyle, properties, query, service, token, type, url, view;
+      var cls, error, events, hasStyle, options, properties, query, service, token, type, url, view;
 
       hasStyle = function(pattern) {
         var found, links;
@@ -2458,7 +2450,7 @@
           throw new Error("Unknown method " + arg0);
         }
       } else {
-        type = arg0.type, service = arg0.service, url = arg0.url, token = arg0.token, query = arg0.query, events = arg0.events, properties = arg0.properties, error = arg0.error;
+        type = arg0.type, service = arg0.service, url = arg0.url, token = arg0.token, query = arg0.query, events = arg0.events, properties = arg0.properties, error = arg0.error, options = arg0.options;
         if (supportsSVG() && (typeof d3 === "undefined" || d3 === null)) {
           intermine.cdn.load('d3');
         }
@@ -2481,6 +2473,9 @@
         }
         if (this.width() < jQuery('body').width() * 0.6) {
           this.addClass('im-half');
+        }
+        if (options != null) {
+          intermine.setOptions(options);
         }
         view = new cls(service, query, events, properties);
         this.empty().append(view.el);
@@ -3178,12 +3173,22 @@
       };
 
       ExportDialogue.prototype.onChangeDest = function() {
-        var destination, name;
+        var action, dest, destination, x, _ref1;
 
         destination = this.state.get('destination');
-        name = intermine.messages.actions[destination];
-        this.$('.nav-tabs .im-export-destination').text(name);
-        this.$('.btn-primary.im-download').text(name);
+        _ref1 = (function() {
+          var _i, _len, _ref1, _results;
+
+          _ref1 = ['Dest', ''];
+          _results = [];
+          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+            x = _ref1[_i];
+            _results.push(intermine.messages.actions[x + destination]);
+          }
+          return _results;
+        })(), dest = _ref1[0], action = _ref1[1];
+        this.$('.nav-tabs .im-export-destination .im-current').text(dest);
+        this.$('.btn-primary.im-download').text(action);
         this.$('.im-export-destination-options > div').removeClass('active');
         return this.$(".im-" + (destination.toLowerCase())).addClass('active');
       };
@@ -3696,7 +3701,6 @@
 
       ExportDialogue.prototype.render = function() {
         this.$el.append(intermine.snippets.actions.DownloadDialogue());
-        this.$('.modal-footer .btn').tooltip();
         this.initFormats();
         this.initCols();
         this.makeSlider();
@@ -3723,7 +3727,7 @@
           }
           action = "SendTo" + name;
           $navs.append("<li>\n  <a href=\"#\" data-destination=\"" + name + "\">\n    " + intermine.messages.actions[action] + "\n  </a>\n</li>");
-          _results.push($options.append(typeof (_base = intermine["export"].snippets)[name] === "function" ? _base[name]() : void 0));
+          _results.push($options.append(typeof (_base = intermine["export"].snippets)[name] === "function" ? _base[name](this.requestInfo.toJSON()) : void 0));
         }
         return _results;
       };
@@ -3766,11 +3770,9 @@
   })();
 
   scope('intermine.export.snippets', {
-    Galaxy: function() {
-      return "<div class=\"im-galaxy\">\n  <form class=\"im-galaxy form form-compact well\">\n    <label>\n      " + intermine.messages.actions.GalaxyURILabel + "\n      <input class=\"im-galaxy-uri\" \n            type=\"text\" value=\"" + intermine.options.GalaxyMain + "\">\n    </label>\n    <label>\n      " + intermine.messages.actions.SaveGalaxyURL + "\n      <input type=\"checkbox\" disabled checked class=\"im-galaxy-save-url\">\n    </label>\n  </form>\n</div>";
-    },
+    Galaxy: _.template("<div class=\"im-galaxy\">\n  <form class=\"im-galaxy form form-compact well\">\n    <label>\n      " + intermine.messages.actions.GalaxyURILabel + "\n      <input class=\"im-galaxy-uri\" \n            type=\"text\"\n            value=\"<%- galaxy %>\"\n    </label>\n    <label>\n      " + intermine.messages.actions.SaveGalaxyURL + "\n      <input type=\"checkbox\" disabled checked class=\"im-galaxy-save-url\">\n    </label>\n  </form>\n</div>"),
     Genomespace: function() {
-      return "<div class=\"im-genomespace\">\n  <div class=\"well\">\n    <button class=\"btn btn-primary btn-block im-send-to-genomespace\">\n      " + intermine.messages.actions.SendToGenomespace + "\n    </button>\n  </div>\n</div>";
+      return "<div class=\"im-genomespace\">\n  <div class=\"well\">\n    <label>File Name</label>\n    <div class=\"input-append\">\n      <input class=\"im-genomespace-filename input\" style=\"width: 40em\" type=\"text\">\n      <span class=\"add-on im-format\"></span>\n    </div>\n  </div>\n</div>";
     }
   });
 
@@ -3897,40 +3899,48 @@
     var sendToGenomeSpace;
 
     sendToGenomeSpace = function() {
-      var fileName, genomeSpaceURL, gsFrame, h, qs, uploadUrl, w,
+      var fileName, format, genomeSpaceURL, gsFileName, qs, uploadUrl, url, win, _ref,
         _this = this;
 
       genomeSpaceURL = intermine.options.GenomeSpaceUpload;
       uploadUrl = this.state.get('url');
-      fileName = "Results." + (this.requestInfo.get('format'));
+      _ref = this.requestInfo.toJSON(), format = _ref.format, gsFileName = _ref.gsFileName;
+      fileName = "" + gsFileName + "." + format.extension;
       qs = $.param({
         uploadUrl: uploadUrl,
         fileName: fileName
       });
-      w = this.$('.modal-body').width();
-      h = Math.max(400, this.$('.modal-body').height());
-      console.log(w, h);
-      console.log(uploadUrl);
-      console.log(fileName);
-      console.log(qs);
-      gsFrame = this.$('.gs-frame').attr({
-        src: genomeSpaceURL + '?' + qs,
-        width: w,
-        height: h
-      });
-      this.$('.btn-primary').addClass('disabled');
-      this.$('.carousel').carousel({
-        interval: false
-      });
-      this.$('.carousel').carousel(1);
-      return window.setCallbackOnGSUploadComplete = function(savePath) {
-        _this.$('.carousel').carousel(0);
-        _this.$('.carousel').carousel('pause');
-        _this.$('.btn-primary').removeClass('disabled');
+      url = "" + genomeSpaceURL + "?" + qs;
+      win = window.open(url);
+      win.setCallbackOnGSUploadComplete = function(savePath) {
         return _this.stop();
       };
+      win.setCallbackOnGSUploadError = function(savePath) {
+        _this.trigger('export:error', 'genomespace');
+        return _this.stop();
+      };
+      return win.focus();
     };
     return scope('intermine.export.external.Genomespace', {
+      init: function() {
+        var gsFileName, onChange, s, view;
+
+        view = this;
+        onChange = function() {
+          var format, gsFileName, _ref;
+
+          _ref = view.requestInfo.toJSON(), format = _ref.format, gsFileName = _ref.gsFileName;
+          view.$('.im-genomespace .im-format').text('.' + format.extension);
+          return view.$('.im-genomespace-filename').val(gsFileName);
+        };
+        this.dummyParams.push('gsFileName');
+        this.requestInfo.on('change', onChange);
+        s = this.service.name || this.service.root.replace(/^https?:\/\//, '').replace(/\/.*/, '');
+        gsFileName = "" + this.query.root + " results from " + s + " " + (new Date());
+        return this.requestInfo.set({
+          gsFileName: gsFileName
+        });
+      },
       "export": sendToGenomeSpace,
       events: function() {
         var _this = this;
@@ -3938,6 +3948,11 @@
         return {
           'click .im-send-to-genomespace': function(e) {
             return sendToGenomeSpace.call(_this, e);
+          },
+          'change .im-genomespace-filename': function(e) {
+            return _this.requestInfo.set({
+              gsFileName: $(e.target).val()
+            });
           }
         };
       }
@@ -3945,8 +3960,37 @@
   })();
 
   (function() {
-    var changeGalaxyURI, doGalaxy, forgetGalaxy, saveGalaxyPreference, sendToGalaxy;
+    var changeGalaxyURI, defaultGalaxy, doGalaxy, forgetGalaxy, getResultClass, saveGalaxyPreference, sendToGalaxy, yielding;
 
+    yielding = function(x) {
+      return $.Deferred(function() {
+        return this.resolve(x);
+      }).promise();
+    };
+    getResultClass = function(query) {
+      var commonType, model, node, viewNodes;
+
+      viewNodes = query.getViewNodes();
+      model = query.model;
+      if (viewNodes.length === 1) {
+        return model.getPathInfo(viewNodes[0].getType().name).getDisplayName();
+      } else if (commonType = model.findCommonType((function() {
+        var _i, _len, _results;
+
+        _results = [];
+        for (_i = 0, _len = viewNodes.length; _i < _len; _i++) {
+          node = viewNodes[_i];
+          _results.push(node.getType());
+        }
+        return _results;
+      })())) {
+        return model.getPathInfo(commonType).getDisplayName();
+      } else if (model.name) {
+        return yielding(model.name);
+      } else {
+        return yielding('');
+      }
+    };
     saveGalaxyPreference = function(uri) {
       return this.query.service.whoami(function(user) {
         if (user.hasPreferences && user.preferences['galaxy-url'] !== uri) {
@@ -3958,8 +4002,7 @@
       var c, endpoint, format, qLists, query,
         _this = this;
 
-      query = this.query;
-      console.log("Sending to " + galaxy);
+      query = this.getExportQuery();
       endpoint = this.getExportEndPoint();
       format = this.requestInfo.get('format');
       qLists = (function() {
@@ -3975,15 +4018,19 @@
         }
         return _results;
       }).call(this);
-      return intermine.utils.getOrganisms(query, function(orgs) {
-        var k, params, v, _ref;
+      return $.when(intermine.utils.getOrganisms(query), getResultClass(query)).then(function(orgs, type) {
+        var brand, k, name, params, prefix, suffix, v, _ref;
 
+        prefix = orgs.length === 1 ? orgs[0] + ' ' : '';
+        brand = intermine.options.brand[_this.service.root.replace(/\/[^\.]+$/, '')];
+        suffix = brand != null ? " from " + brand : '';
+        name = prefix + ("" + type + " data") + suffix;
         params = {
-          tool_id: 'flymine',
+          tool_id: intermine.options.GalaxyTool,
           organism: orgs.join(', '),
           URL: endpoint,
           URL_method: "post",
-          name: "" + (orgs.length === 1 ? orgs[0] + ' ' : '') + query.root + " data",
+          name: name,
           data_type: format.extension === 'tsv' ? 'tabular' : format.extension,
           info: "" + query.root + " data from " + _this.service.root + ".\nUploaded from " + (window.location.toString().replace(/\?.*/, '')) + ".\n" + (qLists.length ? ' source: ' + lists.join(', ') : '') + "\n" + (orgs.length ? ' organisms: ' + orgs.join(', ') : '')
         };
@@ -4000,15 +4047,19 @@
         galaxy: this.$('.im-galaxy-uri').val()
       });
     };
+    defaultGalaxy = function() {
+      var _ref;
+
+      return (_ref = intermine.options.GalaxyCurrent) != null ? _ref : intermine.options.GalaxyMain;
+    };
     forgetGalaxy = function(e) {
       var _this = this;
 
-      this.service.whoami().pipe(function(user) {
-        console.log(user);
+      this.service.whoami().then(function(user) {
         return user.clearPreference('galaxy-url');
       }).done(function() {
         return _this.requestInfo.set({
-          galaxy: intermine.options.GalaxyMain
+          galaxy: defaultGalaxy()
         });
       });
       return false;
@@ -4028,7 +4079,7 @@
         var _this = this;
 
         this.requestInfo.set({
-          galaxy: intermine.options.GalaxyMain
+          galaxy: defaultGalaxy()
         });
         this.dummyParams.push('galaxy');
         this.service.whoami(function(user) {
@@ -5661,7 +5712,7 @@
     var DownloadDialogue;
 
     DownloadDialogue = function() {
-      return "<div class=\"modal-header\">\n  <a href=\"#\" class=\"close\" data-dismiss=\"modal\">close</a>\n  <h2>\n    " + intermine.messages.actions.ExportTitle + "\n  </h2>\n</div>\n\n<div class=\"modal-body tab-content\">\n <div class=\"carousel slide\">\n  <div class=\"carousel-inner\">\n  <div class=\"active item\">\n\n   <div class=\"tabbable tabs-left\">\n     <ul class=\"nav nav-tabs\">\n       <li class=\"active\">\n         <a href=\"#\" class=\"im-export-format\">format</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-columns\">columns</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-rows\">Rows</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-output\">Output</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-destination\">Destination</a>\n       </li>\n     </ul>\n     <div class=\"tab-content\">\n       <div class=\"tab-pane active im-export-format\">\n          <h2>\n            " + intermine.messages.actions.ExportFormat + "\n          </h2>\n         <div class=\"im-export-formats\" data-toggle=\"buttons-radio\">\n         </div>\n       </div>\n       <div class=\"tab-pane im-export-columns\">\n           <button class=\"im-reset-cols btn disabled pull-right\">\n             <i class=\"" + intermine.icons.Undo + "\"></i>\n             " + intermine.messages.actions.ResetColumns + "\n           </button>\n          <h2>\n            " + intermine.messages.actions.WhichColumns + "\n          </h2>\n          <div class=\"im-col-options\">\n            <div class=\"well\">\n              <ul class=\"im-cols im-exported-cols nav nav-tabs nav-stacked\"></ul>\n            </div>\n            <h4>" + intermine.messages.actions.PossibleColumns + "</h4>\n            <div class=\"im-can-be-exported-cols\">\n            </div>\n            <div style=\"clear:both;\"></div>\n          </div>\n          <div class=\"im-col-options-bio\">\n          </div>\n       </div>\n       <div class=\"tab-pane im-export-rows\">\n         <h2>\n          " + intermine.messages.actions.WhichRows + "\n         </h2>\n          <div class=\"form-horizontal\">\n            <fieldset class=\"im-row-selection control-group\">\n              <label class=\"control-label\">\n                " + intermine.messages.actions.FirstRow + "\n                <input type=\"text\" value=\"1\"\n                        class=\"disabled input-mini im-first-row im-range-limit\">\n              </label>\n              <label class=\"control-label\">\n                " + intermine.messages.actions.LastRow + "\n                <input type=\"text\"\n                        class=\"disabled input-mini im-last-row im-range-limit\">\n              </label>\n              <div style=\"clear:both\"></div>\n              <div class=\"slider im-row-range-slider\"></div>\n            </fieldset>\n          </div>\n       </div>\n       <div class=\"tab-pane im-export-output\">\n          <label>\n            " + intermine.messages.actions.CompressResults + "\n          </label>\n          <div class=\"span11 im-compression-opts radio btn-group pull-right\"\n                data-toggle=\"buttons-radio\">\n            <button class=\"btn active im-no-compression span7\">\n              " + intermine.messages.actions.NoCompression + "\n            </button>\n            <button class=\"btn im-gzip-compression span2\">\n              " + intermine.messages.actions.GZIPCompression + "\n            </button>\n            <button class=\"btn im-zip-compression span2\">\n              " + intermine.messages.actions.ZIPCompression + "\n            </button>\n          </div>\n          <div style=\"clear:both\"></div>\n          <div class=\"im-output-options\">\n          </div>\n       </div>\n       <div class=\"tab-pane im-export-destination\">\n      <ul class=\"im-export-destinations nav nav-pills\">\n        <li class=\"active\">\n          <a href=\"#\" data-destination=\"download-file\">\n            <i class=\"" + intermine.icons.Download + "\"></i>\n            " + intermine.messages.actions.ExportLong + "\n          </a>\n        </li>\n      </ul>\n        <div class=\"row-fluid im-export-destination-options\">\n\n          <div class=\"im-download-file active\">\n            <div class=\"btn-group im-what-to-show\">\n              <button class=\"im-results-uri btn active\">\n                " + intermine.messages.actions.ResultsPermaLinkText + ":\n              </button>\n              <button class=\"im-query-xml btn\">\n                " + intermine.messages.actions.QueryXML + "\n              </button>\n            </div>\n            <span class=\"im-copy\">\n              <i class=\"icon " + intermine.icons.ClipBoard + "\"></i>\n              " + intermine.messages.actions.Copy + "\n            </span>\n\n            <div class=\"well im-perma-link-content active\"></div>\n            <div class=\"well im-query-xml\"></div>\n\n            <div class=\"alert alert-block im-private-query\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n              <h4>nb:</h4>\n              " + intermine.messages.actions.IsPrivateData + "\n            </div>\n\n            <div class=\"alert alert-block alert-info im-long-uri\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n              <h4>nb:</h4>\n              " + intermine.messages.actions.LongURI + "\n            </div>\n\n\n          </div>\n\n        </div>\n       </div>\n     </div>\n   </div>\n  \n  </div> <!-- End item -->\n  \n  <div class=\"item\">\n    <iframe class=\"gs-frame\" width=\"0\" height=\"0\" frameborder=\"0\"\n      id=\"im-to-gs-" + (new Date().getTime()) + "\">\n    </iframe>\n  </div>\n\n  </div> <!-- end inner -->\n  </div> <!-- end carousel -->\n\n</div>\n\n<!--\n-->\n\n<div class=\"modal-footer\">\n  <a href=\"#\" class=\"btn btn-primary im-download pull-right\"\n          title=\"" + intermine.messages.actions.ExportHelp + "\">\n    <i class=\"icon " + intermine.icons.Export + "\"></i>\n    " + intermine.messages.actions.Export + "\n  </a>\n  <button class=\"btn btn-cancel pull-left im-cancel\">\n    " + intermine.messages.actions.Cancel + "\n  </button>\n</div>";
+      return "<div class=\"modal-header\">\n  <a href=\"#\" class=\"close\" data-dismiss=\"modal\">close</a>\n  <h2>\n    " + intermine.messages.actions.ExportTitle + "\n  </h2>\n</div>\n\n<div class=\"modal-body tab-content\">\n <div class=\"carousel slide\">\n  <div class=\"carousel-inner\">\n  <div class=\"active item\">\n\n   <div class=\"tabbable tabs-left\">\n     <ul class=\"nav nav-tabs\">\n       <li class=\"active\">\n         <a href=\"#\" class=\"im-export-format\">format</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-columns\">columns</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-rows\">Rows</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-output\">Output</a>\n       </li>\n       <li>\n         <a href=\"#\" class=\"im-export-destination\">\n          Destination: <span class=\"im-current\"></span>\n         </a>\n       </li>\n       <div class=\"alert alert-info\">\n         <p>\n          <i class=\"icon-info-sign\"></i>\n          " + intermine.messages.actions.ConfigureExportHelp + "\n         </p>\n       </div>\n     </ul>\n     <div class=\"tab-content\">\n       <div class=\"tab-pane active im-export-format\">\n          <h2>\n            " + intermine.messages.actions.ExportFormat + "\n          </h2>\n         <div class=\"im-export-formats\" data-toggle=\"buttons-radio\">\n         </div>\n       </div>\n       <div class=\"tab-pane im-export-columns\">\n           <button class=\"im-reset-cols btn disabled pull-right\">\n             <i class=\"" + intermine.icons.Undo + "\"></i>\n             " + intermine.messages.actions.ResetColumns + "\n           </button>\n          <h2>\n            " + intermine.messages.actions.WhichColumns + "\n          </h2>\n          <div class=\"im-col-options\">\n            <div class=\"well\">\n              <ul class=\"im-cols im-exported-cols nav nav-tabs nav-stacked\"></ul>\n            </div>\n            <h4>" + intermine.messages.actions.PossibleColumns + "</h4>\n            <div class=\"im-can-be-exported-cols\">\n            </div>\n            <div style=\"clear:both;\"></div>\n          </div>\n          <div class=\"im-col-options-bio\">\n          </div>\n       </div>\n       <div class=\"tab-pane im-export-rows\">\n         <h2>\n          " + intermine.messages.actions.WhichRows + "\n         </h2>\n          <div class=\"form-horizontal\">\n            <fieldset class=\"im-row-selection control-group\">\n              <label class=\"control-label\">\n                " + intermine.messages.actions.FirstRow + "\n                <input type=\"text\" value=\"1\"\n                        class=\"disabled input-mini im-first-row im-range-limit\">\n              </label>\n              <label class=\"control-label\">\n                " + intermine.messages.actions.LastRow + "\n                <input type=\"text\"\n                        class=\"disabled input-mini im-last-row im-range-limit\">\n              </label>\n              <div style=\"clear:both\"></div>\n              <div class=\"slider im-row-range-slider\"></div>\n            </fieldset>\n          </div>\n       </div>\n       <div class=\"tab-pane im-export-output\">\n          <label>\n            " + intermine.messages.actions.CompressResults + "\n          </label>\n          <div class=\"span11 im-compression-opts radio btn-group pull-right\"\n                data-toggle=\"buttons-radio\">\n            <button class=\"btn active im-no-compression span7\">\n              " + intermine.messages.actions.NoCompression + "\n            </button>\n            <button class=\"btn im-gzip-compression span2\">\n              " + intermine.messages.actions.GZIPCompression + "\n            </button>\n            <button class=\"btn im-zip-compression span2\">\n              " + intermine.messages.actions.ZIPCompression + "\n            </button>\n          </div>\n          <div style=\"clear:both\"></div>\n          <div class=\"im-output-options\">\n          </div>\n       </div>\n       <div class=\"tab-pane im-export-destination\">\n      <ul class=\"im-export-destinations nav nav-pills\">\n        <li class=\"active\">\n          <a href=\"#\" data-destination=\"download-file\">\n            <i class=\"" + intermine.icons.Download + "\"></i>\n            " + intermine.messages.actions.ExportLong + "\n          </a>\n        </li>\n      </ul>\n        <div class=\"row-fluid im-export-destination-options\">\n\n          <div class=\"im-download-file active\">\n            <div class=\"btn-group im-what-to-show\">\n              <button class=\"im-results-uri btn active\">\n                " + intermine.messages.actions.ResultsPermaLinkText + ":\n              </button>\n              <button class=\"im-query-xml btn\">\n                " + intermine.messages.actions.QueryXML + "\n              </button>\n            </div>\n            <span class=\"im-copy\">\n              <i class=\"icon " + intermine.icons.ClipBoard + "\"></i>\n              " + intermine.messages.actions.Copy + "\n            </span>\n\n            <div class=\"well im-perma-link-content active\"></div>\n            <div class=\"well im-query-xml\"></div>\n\n            <div class=\"alert alert-block im-private-query\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n              <h4>nb:</h4>\n              " + intermine.messages.actions.IsPrivateData + "\n            </div>\n\n            <div class=\"alert alert-block alert-info im-long-uri\">\n              <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>\n              <h4>nb:</h4>\n              " + intermine.messages.actions.LongURI + "\n            </div>\n\n\n          </div>\n\n        </div>\n       </div>\n     </div>\n   </div>\n  \n  </div> <!-- End item -->\n  \n  <div class=\"item\">\n    <iframe class=\"gs-frame\" width=\"0\" height=\"0\" frameborder=\"0\"\n      id=\"im-to-gs-" + (new Date().getTime()) + "\">\n    </iframe>\n  </div>\n\n  </div> <!-- end inner -->\n  </div> <!-- end carousel -->\n\n</div>\n\n<!--\n-->\n\n<div class=\"modal-footer\">\n  <a href=\"#\" class=\"btn btn-primary im-download pull-right\">\n    <i class=\"icon " + intermine.icons.Export + "\"></i>\n    " + intermine.messages.actions.Export + "\n  </a>\n  <button class=\"btn btn-cancel pull-left im-cancel\">\n    " + intermine.messages.actions.Cancel + "\n  </button>\n</div>";
     };
     return scope('intermine.snippets.actions', {
       DownloadDialogue: DownloadDialogue
