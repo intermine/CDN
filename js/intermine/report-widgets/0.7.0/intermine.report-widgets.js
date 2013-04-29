@@ -6,12 +6,12 @@
   root = this;
 
   ReportWidgets = (function() {
-
     ReportWidgets.prototype.selectorPrefix = 'w';
 
     function ReportWidgets(server) {
       var _this = this;
-      this.server = server;
+
+      this.server = server.replace(/\/+$/, '');
       console.log("Initialize ReportWidgets for " + this.server);
       $.ajax({
         'url': "" + this.server + "/widget/report",
@@ -26,18 +26,21 @@
     ReportWidgets.prototype.load = function(widgetId, target, options) {
       var deps, run,
         _this = this;
+
       if (options == null) {
         options = {};
       }
-      if (!(this.config != null)) {
+      if (this.config == null) {
         return window.setTimeout((function() {
           return _this.load(widgetId, target, options);
         }), 0);
       } else {
         run = function() {
           var uid;
+
           uid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
             var r;
+
             r = Math.random() * 16 | 0;
             return (c === "x" ? r : r & 0x3 | 0x8).toString(16);
           });
@@ -47,6 +50,7 @@
             'dataType': 'script',
             success: function() {
               var merge, widget;
+
               $(target).html($("<div/>", {
                 'id': "w" + uid,
                 'html': $('<article/>', {
@@ -56,8 +60,9 @@
               widget = root.intermine.temp.widgets[uid];
               merge = function(child, parent) {
                 var key;
+
                 for (key in parent) {
-                  if (!(child[key] != null)) {
+                  if (child[key] == null) {
                     if (Object.prototype.hasOwnProperty.call(parent, key)) {
                       child[key] = parent[key];
                     }
