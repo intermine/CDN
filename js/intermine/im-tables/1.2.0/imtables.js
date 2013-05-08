@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Apr 23 2013 15:28:43 GMT+0100 (BST)
+ * Built at Wed May 08 2013 15:21:26 GMT+0100 (BST)
 */
 
 
@@ -2466,7 +2466,7 @@
         if (error != null) {
           service.errorHandler = error;
         }
-        cls = type === 'table' ? intermine.query.results.CompactView : type === 'dashboard' ? intermine.query.results.DashBoard : void 0;
+        cls = type === 'table' ? intermine.query.results.CompactView : type === 'dashboard' ? intermine.query.results.DashBoard : type === 'minimal' ? intermine.query.results.Toolless : void 0;
         if (!cls) {
           console.error("" + type + " widgets are not supported");
           return false;
@@ -8700,7 +8700,7 @@
   })();
 
   (function() {
-    var CompactView, DashBoard, _ref, _ref1;
+    var CompactView, DashBoard, Toolless, _ref, _ref1, _ref2;
 
     DashBoard = (function(_super) {
       __extends(DashBoard, _super);
@@ -8836,9 +8836,35 @@
       return CompactView;
 
     })(DashBoard);
+    Toolless = (function(_super) {
+      __extends(Toolless, _super);
+
+      function Toolless() {
+        _ref2 = Toolless.__super__.constructor.apply(this, arguments);
+        return _ref2;
+      }
+
+      Toolless.prototype.className = 'im-query-display im-toolless';
+
+      Toolless.prototype.TABLE_CLASSES = 'im-query-results';
+
+      Toolless.prototype.renderTools = function(q) {};
+
+      Toolless.prototype.renderQueryManagement = function(q) {
+        var Trail, trail;
+
+        Trail = intermine.query.tools.Trail;
+        trail = new Trail(this.states);
+        return this.$el.prepend(trail.render().el);
+      };
+
+      return Toolless;
+
+    })(DashBoard);
     return scope("intermine.query.results", {
       DashBoard: DashBoard,
-      CompactView: CompactView
+      CompactView: CompactView,
+      Toolless: Toolless
     });
   })();
 
