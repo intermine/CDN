@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 08 2013 15:21:14 GMT+0100 (BST)
+ * Built at Wed May 08 2013 16:17:27 GMT+0100 (BST)
 */
 
 
@@ -36053,6 +36053,6 @@ Thu Jun 14 13:18:14 BST 2012
 
   }).call(context);
 
-  window.intermine = context.intermine;
+  window.intermine = context._.extend((window.intermine || {}), context.intermine);
 
 }).call(window);
