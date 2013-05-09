@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 08 2013 15:21:26 GMT+0100 (BST)
+ * Built at Thu May 09 2013 11:30:37 GMT+0100 (BST)
 */
 
 
@@ -10634,7 +10634,7 @@ $.widget("ui.sortable", $.ui.mouse, {
       };
 
       ExportDialogue.prototype.getExportQuery = function() {
-        var columns, f, node, path, q, _i, _len, _ref1;
+        var columns, f, newOrder, node, path, q, viewNodes, _i, _len, _ref1;
 
         q = this.query.clone();
         f = this.requestInfo.get('format');
@@ -10666,10 +10666,16 @@ $.widget("ui.sortable", $.ui.mouse, {
             });
           }
         }
-        if (__indexOf.call(BIO_FORMATS, f) >= 0) {
-          q.orderBy([]);
-        }
-        return q;
+        newOrder = __indexOf.call(BIO_FORMATS, f) >= 0 ? [] : (viewNodes = q.getViewNodes(), _.filter(q.sortOrder, function(_arg) {
+          var parent, path;
+
+          path = _arg.path;
+          parent = q.getPathInfo(path).getParent();
+          return _.any(viewNodes, function(node) {
+            return parent.equals(node);
+          });
+        }));
+        return q.orderBy(newOrder);
       };
 
       ExportDialogue.prototype.getExportParams = function() {
