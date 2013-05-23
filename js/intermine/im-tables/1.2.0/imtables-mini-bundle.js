@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 09 2013 11:30:37 GMT+0100 (BST)
+ * Built at Thu May 23 2013 12:03:27 GMT+0100 (BST)
 */
 
 
@@ -13260,7 +13260,7 @@ $.widget("ui.sortable", $.ui.mouse, {
     return scope('intermine.results.formatsets.genomic', {
       'Location.*': true,
       'Organism.name': true,
-      'Publication.title': true,
+      'Publication.title': false,
       'Sequence.residues': true
     });
   }])));
