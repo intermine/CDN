@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 23 2013 12:03:14 GMT+0100 (BST)
+ * Built at Tue May 28 2013 12:10:21 GMT+0100 (BST)
 */
 
 
@@ -29229,8 +29229,17 @@ Thu Jun 14 13:18:14 BST 2012
   });
 
   define('formatters/bio/core/chromosome-location', function() {
-    var ChrLocFormatter;
+    var ChrLocFormatter, fetch;
 
+    fetch = function(service, id) {
+      return service.rows({
+        from: 'Location',
+        select: ChrLocFormatter.replaces,
+        where: {
+          id: id
+        }
+      });
+    };
     return ChrLocFormatter = (function() {
       ChrLocFormatter.replaces = ['locatedOn.primaryIdentifier', 'start', 'end', 'strand'];
 
@@ -29251,12 +29260,15 @@ Thu Jun 14 13:18:14 BST 2012
         if (!((model._fetching != null) || _.all(needs, function(n) {
           return model.has(n);
         }))) {
-          model._fetching = this.options.query.service.findById('Location', id);
-          model._fetching.done(function(loc) {
+          model._fetching = fetch(this.options.query.service, id);
+          model._fetching.done(function(_arg) {
+            var chr, end, start, _ref;
+
+            _ref = _arg[0], chr = _ref[0], start = _ref[1], end = _ref[2];
             return model.set({
-              start: loc.start,
-              end: loc.end,
-              chr: loc.locatedOn.primaryIdentifier
+              chr: chr,
+              start: start,
+              end: end
             });
           });
         }
