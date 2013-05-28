@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue May 28 2013 14:48:00 GMT+0100 (BST)
+ * Built at Tue May 28 2013 15:00:09 GMT+0100 (BST)
 */
 
 
@@ -29305,23 +29305,38 @@ Thu Jun 14 13:18:14 BST 2012
   });
 
   define('formatters/bio/core/organism', function() {
-    var Organism, templ;
+    var Organism, fetchMissing, getData, templ;
 
+    getData = function(model, prop, backupProp) {
+      var ret, val;
+
+      ret = {};
+      val = ret[prop] = model.get(prop);
+      if (val == null) {
+        ret[prop] = model.get(backupProp);
+      }
+      return ret;
+    };
+    fetchMissing = function(model, service) {
+      var p;
+
+      if (model._fetching != null) {
+        return;
+      }
+      model._fetching = p = service.findById('Organism', model.get('id'));
+      return p.done(function(org) {
+        return model.set(org);
+      });
+    };
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
-    return Organism = function(model, query, $cell) {
-      var data, defaults, p;
+    return Organism = function(model) {
+      var data;
 
       this.$el.addClass('organism');
-      if (!((model._fetching != null) || model.has('shortName'))) {
-        model._fetching = p = this.options.query.service.findById('Organism', model.get('id'));
-        p.done(function(org) {
-          return model.set(org);
-        });
+      if (!model.has('shortName')) {
+        fetchMissing(model, this.options.query.service);
       }
-      defaults = {
-        shortName: model.get('name') || ''
-      };
-      data = _.extend(defaults, model.toJSON());
+      data = getData(model, 'shortName', 'name');
       return templ(data);
     };
   });
