@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 09 2013 11:30:37 GMT+0100 (BST)
+ * Built at Tue May 28 2013 15:32:01 GMT+0100 (BST)
 */
 
 
@@ -5764,8 +5764,17 @@
   });
 
   define('formatters/bio/core/chromosome-location', function() {
-    var ChrLocFormatter;
+    var ChrLocFormatter, fetch;
 
+    fetch = function(service, id) {
+      return service.rows({
+        from: 'Location',
+        select: ChrLocFormatter.replaces,
+        where: {
+          id: id
+        }
+      });
+    };
     return ChrLocFormatter = (function() {
       ChrLocFormatter.replaces = ['locatedOn.primaryIdentifier', 'start', 'end', 'strand'];
 
@@ -5786,12 +5795,15 @@
         if (!((model._fetching != null) || _.all(needs, function(n) {
           return model.has(n);
         }))) {
-          model._fetching = this.options.query.service.findById('Location', id);
-          model._fetching.done(function(loc) {
+          model._fetching = fetch(this.options.query.service, id);
+          model._fetching.done(function(_arg) {
+            var chr, end, start, _ref;
+
+            _ref = _arg[0], chr = _ref[0], start = _ref[1], end = _ref[2];
             return model.set({
-              start: loc.start,
-              end: loc.end,
-              chr: loc.locatedOn.primaryIdentifier
+              chr: chr,
+              start: start,
+              end: end
             });
           });
         }
@@ -5828,22 +5840,38 @@
   });
 
   define('formatters/bio/core/organism', function() {
-    var Organism, templ;
+    var Organism, fetchMissing, getData, templ;
 
+    getData = function(model, prop, backupProp) {
+      var ret, val;
+
+      ret = {};
+      val = ret[prop] = model.get(prop);
+      if (val == null) {
+        ret[prop] = model.get(backupProp);
+      }
+      return ret;
+    };
+    fetchMissing = function(model, service) {
+      var p;
+
+      if (model._fetching != null) {
+        return;
+      }
+      model._fetching = p = service.findById('Organism', model.get('id'));
+      return p.done(function(org) {
+        return model.set(org);
+      });
+    };
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
-    return Organism = function(model, query, $cell) {
-      var data, p;
+    return Organism = function(model) {
+      var data;
 
       this.$el.addClass('organism');
-      if (!((model._fetching != null) || model.has('shortName'))) {
-        model._fetching = p = this.options.query.service.findById('Organism', model.get('id'));
-        p.done(function(org) {
-          return model.set(org);
-        });
+      if (!model.has('shortName')) {
+        fetchMissing(model, this.options.query.service);
       }
-      data = _.extend({
-        shortName: ''
-      }, model.toJSON());
+      data = getData(model, 'shortName', 'name');
       return templ(data);
     };
   });
@@ -5898,7 +5926,7 @@
     return scope('intermine.results.formatsets.genomic', {
       'Location.*': true,
       'Organism.name': true,
-      'Publication.title': true,
+      'Publication.title': false,
       'Sequence.residues': true
     });
   }])));
@@ -7432,9 +7460,17 @@
   })();
 
   (function() {
-    var CELL_HTML, Cell, NullCell, SubTable, _ref, _ref1, _ref2;
+    var CELL_HTML, Cell, NullCell, SubTable, _CELL_HTML, _ref, _ref1, _ref2;
 
-    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" href=\"<%= url %>\">\n  <% if (url != null && !url.match(host)) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (field == 'url' && value != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    _CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" target=\"<%= target %>\" href=\"<%= url %>\">\n  <% if (isForeign) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (field == 'url' && value != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    CELL_HTML = function(data) {
+      var host, url;
+
+      url = data.url, host = data.host;
+      data.isForeign = (url != null) && !url.match(host);
+      data.target = data.isForeign ? 'blank' : '';
+      return _CELL_HTML(data);
+    };
     SubTable = (function(_super) {
       __extends(SubTable, _super);
 
