@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue May 28 2013 15:00:46 GMT+0100 (BST)
+ * Built at Tue May 28 2013 15:32:01 GMT+0100 (BST)
 */
 
 
@@ -7460,9 +7460,17 @@
   })();
 
   (function() {
-    var CELL_HTML, Cell, NullCell, SubTable, _ref, _ref1, _ref2;
+    var CELL_HTML, Cell, NullCell, SubTable, _CELL_HTML, _ref, _ref1, _ref2;
 
-    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" href=\"<%= url %>\">\n  <% if (url != null && !url.match(host)) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (field == 'url' && value != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    _CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" target=\"<%= target %>\" href=\"<%= url %>\">\n  <% if (isForeign) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (field == 'url' && value != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    CELL_HTML = function(data) {
+      var host, url;
+
+      url = data.url, host = data.host;
+      data.isForeign = (url != null) && !url.match(host);
+      data.target = data.isForeign ? 'blank' : '';
+      return _CELL_HTML(data);
+    };
     SubTable = (function(_super) {
       __extends(SubTable, _super);
 
