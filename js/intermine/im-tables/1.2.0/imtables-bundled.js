@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue May 28 2013 12:10:21 GMT+0100 (BST)
+ * Built at Tue May 28 2013 14:48:00 GMT+0100 (BST)
 */
 
 
@@ -29309,7 +29309,7 @@ Thu Jun 14 13:18:14 BST 2012
 
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
     return Organism = function(model, query, $cell) {
-      var data, p;
+      var data, defaults, p;
 
       this.$el.addClass('organism');
       if (!((model._fetching != null) || model.has('shortName'))) {
@@ -29318,9 +29318,10 @@ Thu Jun 14 13:18:14 BST 2012
           return model.set(org);
         });
       }
-      data = _.extend({
-        shortName: ''
-      }, model.toJSON());
+      defaults = {
+        shortName: model.get('name') || ''
+      };
+      data = _.extend(defaults, model.toJSON());
       return templ(data);
     };
   });

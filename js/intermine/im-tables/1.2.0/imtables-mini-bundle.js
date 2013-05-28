@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue May 28 2013 12:10:35 GMT+0100 (BST)
+ * Built at Tue May 28 2013 14:48:30 GMT+0100 (BST)
 */
 
 
@@ -13206,7 +13206,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
     return Organism = function(model, query, $cell) {
-      var data, p;
+      var data, defaults, p;
 
       this.$el.addClass('organism');
       if (!((model._fetching != null) || model.has('shortName'))) {
@@ -13215,9 +13215,10 @@ $.widget("ui.sortable", $.ui.mouse, {
           return model.set(org);
         });
       }
-      data = _.extend({
-        shortName: ''
-      }, model.toJSON());
+      defaults = {
+        shortName: model.get('name') || ''
+      };
+      data = _.extend(defaults, model.toJSON());
       return templ(data);
     };
   });
