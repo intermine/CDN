@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 08 2013 17:00:45 GMT+0100 (BST)
+ * Built at Wed May 29 2013 13:22:47 GMT+0100 (BST)
 */
 
 
@@ -7957,7 +7957,8 @@ $.widget("ui.sortable", $.ui.mouse, {
       resources: {
         prettify: ['/js/google-code-prettify/latest/prettify.js', '/js/google-code-prettify/latest/prettify.css'],
         d3: '/js/d3/3.0.6/d3.v3.min.js',
-        'font-awesome': "/css/font-awesome/3.0.2/css/font-awesome.css"
+        'font-awesome': "/css/font-awesome/3.0.2/css/font-awesome.css",
+        'filesaver': '/js/filesaver.js/FileSaver.min.js'
       }
     },
     D3: {
@@ -10634,7 +10635,7 @@ $.widget("ui.sortable", $.ui.mouse, {
       };
 
       ExportDialogue.prototype.getExportQuery = function() {
-        var columns, f, node, path, q, _i, _len, _ref1;
+        var columns, f, newOrder, node, path, q, viewNodes, _i, _len, _ref1;
 
         q = this.query.clone();
         f = this.requestInfo.get('format');
@@ -10666,10 +10667,16 @@ $.widget("ui.sortable", $.ui.mouse, {
             });
           }
         }
-        if (__indexOf.call(BIO_FORMATS, f) >= 0) {
-          q.orderBy([]);
-        }
-        return q;
+        newOrder = __indexOf.call(BIO_FORMATS, f) >= 0 ? [] : (viewNodes = q.getViewNodes(), _.filter(q.sortOrder, function(_arg) {
+          var parent, path;
+
+          path = _arg.path;
+          parent = q.getPathInfo(path).getParent();
+          return _.any(viewNodes, function(node) {
+            return parent.equals(node);
+          });
+        }));
+        return q.orderBy(newOrder);
       };
 
       ExportDialogue.prototype.getExportParams = function() {
@@ -13120,8 +13127,17 @@ $.widget("ui.sortable", $.ui.mouse, {
   });
 
   define('formatters/bio/core/chromosome-location', function() {
-    var ChrLocFormatter;
+    var ChrLocFormatter, fetch;
 
+    fetch = function(service, id) {
+      return service.rows({
+        from: 'Location',
+        select: ChrLocFormatter.replaces,
+        where: {
+          id: id
+        }
+      });
+    };
     return ChrLocFormatter = (function() {
       ChrLocFormatter.replaces = ['locatedOn.primaryIdentifier', 'start', 'end', 'strand'];
 
@@ -13142,12 +13158,15 @@ $.widget("ui.sortable", $.ui.mouse, {
         if (!((model._fetching != null) || _.all(needs, function(n) {
           return model.has(n);
         }))) {
-          model._fetching = this.options.query.service.findById('Location', id);
-          model._fetching.done(function(loc) {
+          model._fetching = fetch(this.options.query.service, id);
+          model._fetching.done(function(_arg) {
+            var chr, end, start, _ref;
+
+            _ref = _arg[0], chr = _ref[0], start = _ref[1], end = _ref[2];
             return model.set({
-              start: loc.start,
-              end: loc.end,
-              chr: loc.locatedOn.primaryIdentifier
+              chr: chr,
+              start: start,
+              end: end
             });
           });
         }
@@ -13184,22 +13203,36 @@ $.widget("ui.sortable", $.ui.mouse, {
   });
 
   define('formatters/bio/core/organism', function() {
-    var Organism, templ;
+    var Organism, ensureData, getData, templ;
 
+    getData = function(model, prop, backupProp) {
+      var ret, val;
+
+      ret = {};
+      val = ret[prop] = model.get(prop);
+      if (val == null) {
+        ret[prop] = model.get(backupProp);
+      }
+      return ret;
+    };
+    ensureData = function(model, service) {
+      var p;
+
+      if ((model._fetching != null) || model.has('shortName')) {
+        return;
+      }
+      model._fetching = p = service.findById('Organism', model.get('id'));
+      return p.done(function(org) {
+        return model.set(org);
+      });
+    };
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
-    return Organism = function(model, query, $cell) {
-      var data, p;
+    return Organism = function(model) {
+      var data;
 
       this.$el.addClass('organism');
-      if (!((model._fetching != null) || model.has('shortName'))) {
-        model._fetching = p = this.options.query.service.findById('Organism', model.get('id'));
-        p.done(function(org) {
-          return model.set(org);
-        });
-      }
-      data = _.extend({
-        shortName: ''
-      }, model.toJSON());
+      ensureData(model, this.options.query.service);
+      data = getData(model, 'shortName', 'name');
       return templ(data);
     };
   });
@@ -13254,7 +13287,7 @@ $.widget("ui.sortable", $.ui.mouse, {
     return scope('intermine.results.formatsets.genomic', {
       'Location.*': true,
       'Organism.name': true,
-      'Publication.title': true,
+      'Publication.title': false,
       'Sequence.residues': true
     });
   }])));
@@ -14788,9 +14821,17 @@ $.widget("ui.sortable", $.ui.mouse, {
   })();
 
   (function() {
-    var CELL_HTML, Cell, NullCell, SubTable, _ref, _ref1, _ref2;
+    var CELL_HTML, Cell, NullCell, SubTable, _CELL_HTML, _ref, _ref1, _ref2;
 
-    CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" href=\"<%= url %>\">\n  <% if (url != null && !url.match(host)) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (field == 'url' && value != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    _CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" target=\"<%= target %>\" href=\"<%= url %>\">\n  <% if (isForeign) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (rawValue != null && field == 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <i class=\"icon-globe\"></i>\n      link\n    </a>\n<% } %>");
+    CELL_HTML = function(data) {
+      var host, url;
+
+      url = data.url, host = data.host;
+      data.isForeign = (url != null) && !url.match(host);
+      data.target = data.isForeign ? 'blank' : '';
+      return _CELL_HTML(data);
+    };
     SubTable = (function(_super) {
       __extends(SubTable, _super);
 
@@ -15198,6 +15239,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         field = this.options.field;
         data = {
           value: this.formatter(this.model),
+          rawValue: this.model.get(field),
           field: field,
           url: this.model.get('service:url'),
           host: IndicateOffHostLinks ? window.location.host : /.*/,
@@ -18371,7 +18413,7 @@ $.widget("ui.sortable", $.ui.mouse, {
   });
 
   define('actions/code-gen', using('html/code-gen', function(HTML) {
-    var CODE_GEN_LANGS, CodeGenerator, alreadyDone, indent, _ref;
+    var CODE_GEN_LANGS, CodeGenerator, alreadyDone, alreadyRejected, indent, _ref;
 
     CODE_GEN_LANGS = [
       {
@@ -18424,7 +18466,12 @@ $.widget("ui.sortable", $.ui.mouse, {
     alreadyDone = jQuery.Deferred(function() {
       return this.resolve(true);
     });
+    alreadyRejected = jQuery.Deferred(function() {
+      return this.reject('not available');
+    });
     return CodeGenerator = (function(_super) {
+      var canSaveFromMemory;
+
       __extends(CodeGenerator, _super);
 
       function CodeGenerator() {
@@ -18483,8 +18530,19 @@ $.widget("ui.sortable", $.ui.mouse, {
         return this.model.trigger('set:lang');
       };
 
+      canSaveFromMemory = function() {
+        if (typeof Blob === "undefined" || Blob === null) {
+          alreadyRejected;
+        }
+        if (typeof saveAs !== "undefined" && saveAs !== null) {
+          return alreadyDone;
+        } else {
+          return intermine.cdn.load('filesaver');
+        }
+      };
+
       CodeGenerator.prototype.displayLang = function() {
-        var $m, code, ext, href, lang, query, ready;
+        var $m, code, ext, href, lang, query, ready, saveBtn;
 
         $m = this.$('.modal');
         lang = this.model.get('lang');
@@ -18495,9 +18553,26 @@ $.widget("ui.sortable", $.ui.mouse, {
         ready = typeof prettyPrintOne !== "undefined" && prettyPrintOne !== null ? alreadyDone : intermine.cdn.load('prettify');
         this.$('a .im-code-lang').text(lang);
         this.$('.modal h3 .im-code-lang').text(lang);
-        this.$('.modal .btn-save').attr({
-          href: query.getCodeURI(lang)
+        saveBtn = this.$('.modal .btn-save').removeClass('disabled').unbind('click').attr({
+          href: null
         });
+        if (lang === 'xml') {
+          saveBtn.addClass('disabled');
+          canSaveFromMemory().done(function() {
+            return saveBtn.removeClass('disabled').click(function() {
+              var blob;
+
+              blob = new Blob([code], {
+                type: 'application/xml;charset=utf8'
+              });
+              return saveAs(blob, 'query.xml');
+            });
+          });
+        } else {
+          saveBtn.attr({
+            href: query.getCodeURI(lang)
+          });
+        }
         return jQuery.when(code, ready).then(function(code) {
           var formatted;
 
