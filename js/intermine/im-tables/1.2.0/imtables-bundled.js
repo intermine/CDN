@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 29 2013 13:14:03 GMT+0100 (BST)
+ * Built at Wed May 29 2013 14:50:06 GMT+0100 (BST)
 */
 
 
@@ -31382,6 +31382,7 @@ Thu Jun 14 13:18:14 BST 2012
       Cell.prototype.activateChooser = function() {
         var selectable, selected, selecting, _ref2;
 
+        this.reportClick();
         _ref2 = this.model.selectionState(), selected = _ref2.selected, selectable = _ref2.selectable, selecting = _ref2.selecting;
         if (selectable && selecting) {
           return this.model.set({
