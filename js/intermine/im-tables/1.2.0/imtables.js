@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 29 2013 12:57:47 GMT+0100 (BST)
+ * Built at Wed May 29 2013 13:14:15 GMT+0100 (BST)
 */
 
 
@@ -5841,7 +5841,7 @@
   });
 
   define('formatters/bio/core/organism', function() {
-    var Organism, fetchMissing, getData, templ;
+    var Organism, ensureData, getData, templ;
 
     getData = function(model, prop, backupProp) {
       var ret, val;
@@ -5853,10 +5853,10 @@
       }
       return ret;
     };
-    fetchMissing = function(model, service) {
+    ensureData = function(model, service) {
       var p;
 
-      if (model._fetching != null) {
+      if ((model._fetching != null) || model.has('shortName')) {
         return;
       }
       model._fetching = p = service.findById('Organism', model.get('id'));
@@ -5869,9 +5869,7 @@
       var data;
 
       this.$el.addClass('organism');
-      if (!model.has('shortName')) {
-        fetchMissing(model, this.options.query.service);
-      }
+      ensureData(model, this.options.query.service);
       data = getData(model, 'shortName', 'name');
       return templ(data);
     };
