@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 29 2013 14:51:08 GMT+0100 (BST)
+ * Built at Wed May 29 2013 15:23:07 GMT+0100 (BST)
 */
 
 
@@ -3639,15 +3639,10 @@
           placeholder: 'im-resorting-placeholder im-exported-col',
           forcePlaceholderSize: true,
           update: function(e, ui) {
-            var silent;
-
             _this.$('.im-reset-cols').removeClass('disabled');
-            silent = true;
             return _this.exportedCols.reset(cols.find('li').map(function() {
               return $(this).data('model');
-            }).get(), {
-              silent: silent
-            });
+            }).get());
           }
         });
         this.initColumnOptions();
