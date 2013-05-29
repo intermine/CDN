@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 29 2013 15:23:07 GMT+0100 (BST)
+ * Built at Wed May 29 2013 18:03:57 GMT+0100 (BST)
 */
 
 
@@ -9610,7 +9610,6 @@ $.widget("ui.sortable", $.ui.mouse, {
       DropDownColumnSummary.prototype.initialize = function(query, view) {
         this.query = query;
         this.view = view;
-        return this.$el.on('destroyed', this.close);
       };
 
       DropDownColumnSummary.prototype.remove = function() {
@@ -15669,6 +15668,13 @@ $.widget("ui.sortable", $.ui.mouse, {
             });
           }
         });
+        this.query.on('showing:column-summary', function(path) {
+          var _ref1;
+
+          if (!path.equals(_this.model.get('path'))) {
+            return (_ref1 = _this.summary) != null ? _ref1.remove() : void 0;
+          }
+        });
         this.model.on('change:conCount', this.displayConCount);
         return this.model.on('change:direction', this.displaySortDirection);
       };
@@ -15766,7 +15772,6 @@ $.widget("ui.sortable", $.ui.mouse, {
         'click .im-col-sort-indicator': 'setSortOrder',
         'click .im-col-minumaximiser': 'toggleColumnVisibility',
         'click .im-col-filters': 'showFilterSummary',
-        'click .im-summary': 'showColumnSummary',
         'click .im-subtable-expander': 'toggleSubTable',
         'click .im-col-remover': 'removeColumn',
         'toggle .im-th-button': 'summaryToggled'
@@ -15832,6 +15837,7 @@ $.widget("ui.sortable", $.ui.mouse, {
           ignore(e);
           _this.checkHowFarOver(e != null ? $(e.currentTarget) : _this.$el);
           if (!_this.$(selector).hasClass('open')) {
+            _this.query.trigger('showing:column-summary', _this.model.get('path'));
             summary = new View(_this.query, _this.model.get('path'));
             $menu = _this.$(selector + ' .dropdown-menu');
             $menu.html(summary.el);
@@ -16829,8 +16835,12 @@ $.widget("ui.sortable", $.ui.mouse, {
       };
 
       NumericFacet.prototype.drawChart = function(items) {
+        var _this = this;
+
         if (typeof d3 !== "undefined" && d3 !== null) {
-          return this._drawD3Chart(items);
+          return setTimeout((function() {
+            return _this._drawD3Chart(items);
+          }), 0);
         }
       };
 
@@ -17156,14 +17166,20 @@ $.widget("ui.sortable", $.ui.mouse, {
       };
 
       PieFacet.prototype.addChart = function() {
+        var _this = this;
+
+        this.chartElem = this.make("div");
+        this.$el.append(this.chartElem);
         if (typeof d3 !== "undefined" && d3 !== null) {
-          this._drawD3Chart();
+          setTimeout((function() {
+            return _this._drawD3Chart();
+          }), 0);
         }
         return this;
       };
 
       PieFacet.prototype._drawD3Chart = function() {
-        var PieColors, arc, arc_group, centre_group, chart, colour, donut, elem, getTween, h, ir, label_group, paint, paths, percent, r, total, w, whiteCircle,
+        var PieColors, arc, arc_group, centre_group, chart, colour, donut, getTween, h, ir, label_group, paint, paths, percent, r, total, w, whiteCircle,
           _this = this;
 
         h = this.chartHeight;
@@ -17182,9 +17198,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         colour = function(d, i) {
           return paint(i);
         };
-        elem = this.make("div");
-        this.$el.append(elem);
-        chart = d3.select(elem).append('svg').attr('class', 'chart').attr('height', h).attr('width', w);
+        chart = d3.select(this.chartElem).append('svg').attr('class', 'chart').attr('height', h).attr('width', w);
         arc = d3.svg.arc().startAngle(function(d) {
           return d.startAngle;
         }).endAngle(function(d) {
@@ -17312,10 +17326,8 @@ $.widget("ui.sortable", $.ui.mouse, {
           trigger: 'manual'
         });
         imd.click(function(e) {
-          console.log("popping over", e);
           return imd.popover('toggle');
         });
-        console.log(imd);
         this.initFilter();
         $grp.appendTo(this.el);
         return this;
@@ -17496,12 +17508,6 @@ $.widget("ui.sortable", $.ui.mouse, {
 
       HistoFacet.prototype.columnHeaders = [' ', 'Item', 'Count'];
 
-      HistoFacet.prototype.addChart = function() {
-        if (typeof d3 !== "undefined" && d3 !== null) {
-          return this._drawD3Chart();
-        }
-      };
-
       HistoFacet.prototype._drawD3Chart = function() {
         var chart, data, f, h, itemW, max, n, onSelection, rectClass, rects, w, y,
           _this = this;
@@ -17520,9 +17526,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         max = f.get("count");
         x = d3.scale.linear().domain([0, n]).range([this.leftMargin, w]);
         y = d3.scale.linear().domain([0, max]).rangeRound([0, h]);
-        chart = this.make("div");
-        this.$el.append(chart);
-        chart = d3.select(chart).append('svg').attr('class', 'chart').attr('width', w).attr('height', h);
+        chart = d3.select(this.chartElem).append('svg').attr('class', 'chart').attr('width', w).attr('height', h);
         rectClass = n > w / 4 ? 'squashed' : 'bar';
         rects = chart.selectAll('rect');
         rects.data(data).enter().append('rect').attr('class', rectClass).attr('width', itemW).attr('y', h).attr('height', 0).attr('x', function(d, i) {
