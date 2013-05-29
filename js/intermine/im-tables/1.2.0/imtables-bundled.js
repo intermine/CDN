@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue May 28 2013 15:31:18 GMT+0100 (BST)
+ * Built at Wed May 29 2013 13:14:03 GMT+0100 (BST)
 */
 
 
@@ -24060,7 +24060,8 @@ Thu Jun 14 13:18:14 BST 2012
       resources: {
         prettify: ['/js/google-code-prettify/latest/prettify.js', '/js/google-code-prettify/latest/prettify.css'],
         d3: '/js/d3/3.0.6/d3.v3.min.js',
-        'font-awesome': "/css/font-awesome/3.0.2/css/font-awesome.css"
+        'font-awesome': "/css/font-awesome/3.0.2/css/font-awesome.css",
+        'filesaver': '/js/filesaver.js/FileSaver.min.js'
       }
     },
     D3: {
@@ -29305,7 +29306,7 @@ Thu Jun 14 13:18:14 BST 2012
   });
 
   define('formatters/bio/core/organism', function() {
-    var Organism, fetchMissing, getData, templ;
+    var Organism, ensureData, getData, templ;
 
     getData = function(model, prop, backupProp) {
       var ret, val;
@@ -29317,10 +29318,10 @@ Thu Jun 14 13:18:14 BST 2012
       }
       return ret;
     };
-    fetchMissing = function(model, service) {
+    ensureData = function(model, service) {
       var p;
 
-      if (model._fetching != null) {
+      if ((model._fetching != null) || model.has('shortName')) {
         return;
       }
       model._fetching = p = service.findById('Organism', model.get('id'));
@@ -29333,9 +29334,7 @@ Thu Jun 14 13:18:14 BST 2012
       var data;
 
       this.$el.addClass('organism');
-      if (!model.has('shortName')) {
-        fetchMissing(model, this.options.query.service);
-      }
+      ensureData(model, this.options.query.service);
       data = getData(model, 'shortName', 'name');
       return templ(data);
     };
@@ -30927,7 +30926,7 @@ Thu Jun 14 13:18:14 BST 2012
   (function() {
     var CELL_HTML, Cell, NullCell, SubTable, _CELL_HTML, _ref, _ref1, _ref2;
 
-    _CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" target=\"<%= target %>\" href=\"<%= url %>\">\n  <% if (isForeign) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (field == 'url' && value != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= value %>\"><i class=\"icon-globe\"></i>link</a>\n<% } %>");
+    _CELL_HTML = _.template("<input class=\"list-chooser\" type=\"checkbox\"\n  <% if (checked) { %> checked <% } %>\n  <% if (disabled) { %> disabled <% } %>\n  style=\"display: <%= display %>\"\n>\n<a class=\"im-cell-link\" target=\"<%= target %>\" href=\"<%= url %>\">\n  <% if (isForeign) { %>\n    <% if (icon) { %>\n      <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n    <% } else { %>\n      <i class=\"icon-globe\"></i>\n    <% } %>\n  <% } %>\n  <% if (value == null) { %>\n    <span class=\"null-value\">&nbsp;</span>\n  <% } else { %>\n    <span class=\"im-displayed-value\">\n      <%= value %>\n    </span>\n  <% } %>\n</a>\n<% if (rawValue != null && field == 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <i class=\"icon-globe\"></i>\n      link\n    </a>\n<% } %>");
     CELL_HTML = function(data) {
       var host, url;
 
@@ -31338,6 +31337,7 @@ Thu Jun 14 13:18:14 BST 2012
         field = this.options.field;
         data = {
           value: this.formatter(this.model),
+          rawValue: this.model.get(field),
           field: field,
           url: this.model.get('service:url'),
           host: IndicateOffHostLinks ? window.location.host : /.*/,
@@ -34508,7 +34508,7 @@ Thu Jun 14 13:18:14 BST 2012
   });
 
   define('actions/code-gen', using('html/code-gen', function(HTML) {
-    var CODE_GEN_LANGS, CodeGenerator, alreadyDone, indent, _ref;
+    var CODE_GEN_LANGS, CodeGenerator, alreadyDone, alreadyRejected, indent, _ref;
 
     CODE_GEN_LANGS = [
       {
@@ -34561,7 +34561,12 @@ Thu Jun 14 13:18:14 BST 2012
     alreadyDone = jQuery.Deferred(function() {
       return this.resolve(true);
     });
+    alreadyRejected = jQuery.Deferred(function() {
+      return this.reject('not available');
+    });
     return CodeGenerator = (function(_super) {
+      var canSaveFromMemory;
+
       __extends(CodeGenerator, _super);
 
       function CodeGenerator() {
@@ -34620,8 +34625,19 @@ Thu Jun 14 13:18:14 BST 2012
         return this.model.trigger('set:lang');
       };
 
+      canSaveFromMemory = function() {
+        if (typeof Blob === "undefined" || Blob === null) {
+          alreadyRejected;
+        }
+        if (typeof saveAs !== "undefined" && saveAs !== null) {
+          return alreadyDone;
+        } else {
+          return intermine.cdn.load('filesaver');
+        }
+      };
+
       CodeGenerator.prototype.displayLang = function() {
-        var $m, code, ext, href, lang, query, ready;
+        var $m, code, ext, href, lang, query, ready, saveBtn;
 
         $m = this.$('.modal');
         lang = this.model.get('lang');
@@ -34632,9 +34648,26 @@ Thu Jun 14 13:18:14 BST 2012
         ready = typeof prettyPrintOne !== "undefined" && prettyPrintOne !== null ? alreadyDone : intermine.cdn.load('prettify');
         this.$('a .im-code-lang').text(lang);
         this.$('.modal h3 .im-code-lang').text(lang);
-        this.$('.modal .btn-save').attr({
-          href: query.getCodeURI(lang)
+        saveBtn = this.$('.modal .btn-save').removeClass('disabled').unbind('click').attr({
+          href: null
         });
+        if (lang === 'xml') {
+          saveBtn.addClass('disabled');
+          canSaveFromMemory().done(function() {
+            return saveBtn.removeClass('disabled').click(function() {
+              var blob;
+
+              blob = new Blob([code], {
+                type: 'application/xml;charset=utf8'
+              });
+              return saveAs(blob, 'query.xml');
+            });
+          });
+        } else {
+          saveBtn.attr({
+            href: query.getCodeURI(lang)
+          });
+        }
         return jQuery.when(code, ready).then(function(code) {
           var formatted;
 
