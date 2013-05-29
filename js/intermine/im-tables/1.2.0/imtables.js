@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue May 28 2013 18:31:53 GMT+0100 (BST)
+ * Built at Wed May 29 2013 12:57:47 GMT+0100 (BST)
 */
 
 
@@ -595,7 +595,8 @@
       resources: {
         prettify: ['/js/google-code-prettify/latest/prettify.js', '/js/google-code-prettify/latest/prettify.css'],
         d3: '/js/d3/3.0.6/d3.v3.min.js',
-        'font-awesome': "/css/font-awesome/3.0.2/css/font-awesome.css"
+        'font-awesome': "/css/font-awesome/3.0.2/css/font-awesome.css",
+        'filesaver': '/js/filesaver.js/FileSaver.min.js'
       }
     },
     D3: {
@@ -11044,7 +11045,7 @@
   });
 
   define('actions/code-gen', using('html/code-gen', function(HTML) {
-    var CODE_GEN_LANGS, CodeGenerator, alreadyDone, indent, _ref;
+    var CODE_GEN_LANGS, CodeGenerator, alreadyDone, alreadyRejected, indent, _ref;
 
     CODE_GEN_LANGS = [
       {
@@ -11097,7 +11098,12 @@
     alreadyDone = jQuery.Deferred(function() {
       return this.resolve(true);
     });
+    alreadyRejected = jQuery.Deferred(function() {
+      return this.reject('not available');
+    });
     return CodeGenerator = (function(_super) {
+      var canSaveFromMemory;
+
       __extends(CodeGenerator, _super);
 
       function CodeGenerator() {
@@ -11156,8 +11162,19 @@
         return this.model.trigger('set:lang');
       };
 
+      canSaveFromMemory = function() {
+        if (typeof Blob === "undefined" || Blob === null) {
+          alreadyRejected;
+        }
+        if (typeof saveAs !== "undefined" && saveAs !== null) {
+          return alreadyDone;
+        } else {
+          return intermine.cdn.load('filesaver');
+        }
+      };
+
       CodeGenerator.prototype.displayLang = function() {
-        var $m, code, ext, href, lang, query, ready;
+        var $m, code, ext, href, lang, query, ready, saveBtn;
 
         $m = this.$('.modal');
         lang = this.model.get('lang');
@@ -11168,9 +11185,26 @@
         ready = typeof prettyPrintOne !== "undefined" && prettyPrintOne !== null ? alreadyDone : intermine.cdn.load('prettify');
         this.$('a .im-code-lang').text(lang);
         this.$('.modal h3 .im-code-lang').text(lang);
-        this.$('.modal .btn-save').attr({
-          href: query.getCodeURI(lang)
+        saveBtn = this.$('.modal .btn-save').removeClass('disabled').unbind('click').attr({
+          href: null
         });
+        if (lang === 'xml') {
+          saveBtn.addClass('disabled');
+          canSaveFromMemory().done(function() {
+            return saveBtn.removeClass('disabled').click(function() {
+              var blob;
+
+              blob = new Blob([code], {
+                type: 'application/xml;charset=utf8'
+              });
+              return saveAs(blob, 'query.xml');
+            });
+          });
+        } else {
+          saveBtn.attr({
+            href: query.getCodeURI(lang)
+          });
+        }
         return jQuery.when(code, ready).then(function(code) {
           var formatted;
 
