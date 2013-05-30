@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 30 2013 12:30:01 GMT+0100 (BST)
+ * Built at Thu May 30 2013 17:36:20 GMT+0100 (BST)
 */
 
 
@@ -14403,7 +14403,7 @@ $.widget("ui.sortable", $.ui.mouse, {
           return _results;
         }).call(this);
         makeCell = function(obj) {
-          var args, field, model, node, _base, _name;
+          var args, field, model, node, type, _base, _name;
 
           if (_.has(obj, 'rows')) {
             node = _this.query.getPathInfo(obj.column);
@@ -14416,7 +14416,15 @@ $.widget("ui.sortable", $.ui.mouse, {
           } else {
             node = _this.query.getPathInfo(obj.column).getParent();
             field = obj.column.replace(/^.*\./, '');
-            model = obj.id != null ? (_base = _this.itemModels)[_name = obj.id] || (_base[_name] = new intermine.model.IMObject(_this.query, obj, field, base)) : obj["class"] == null ? new intermine.model.NullObject(_this.query, field) : new intermine.model.FPObject(_this.query, obj, field, node.getType().name);
+            model = obj.id != null ? (_base = _this.itemModels)[_name = obj.id] || (_base[_name] = new intermine.model.IMObject(_this.query, obj, field, base)) : obj["class"] == null ? (type = node.getParent().name, new intermine.model.NullObject({}, {
+              query: _this.query,
+              field: field,
+              type: type
+            })) : new intermine.model.FPObject({}, {
+              query: _this.query,
+              obj: obj,
+              field: field
+            });
             model.merge(obj, field);
             args = {
               model: model,
@@ -16067,7 +16075,10 @@ $.widget("ui.sortable", $.ui.mouse, {
         return _ref1;
       }
 
-      NullObject.prototype.initialize = function(query, field, type) {
+      NullObject.prototype.initialize = function(_, _arg) {
+        var field, query, type;
+
+        query = _arg.query, field = _arg.field, type = _arg.type;
         this.set({
           'id': null,
           'obj:type': type,
@@ -16095,7 +16106,11 @@ $.widget("ui.sortable", $.ui.mouse, {
         return _ref2;
       }
 
-      FPObject.prototype.initialize = function(query, obj, field) {
+      FPObject.prototype.initialize = function(_arg, _arg1) {
+        var field, obj, query;
+
+        _arg;
+        query = _arg1.query, obj = _arg1.obj, field = _arg1.field;
         this.set({
           'id': null,
           'obj:type': obj["class"],
