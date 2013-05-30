@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 30 2013 12:04:13 GMT+0100 (BST)
+ * Built at Thu May 30 2013 12:27:42 GMT+0100 (BST)
 */
 
 
@@ -29320,7 +29320,9 @@ Thu Jun 14 13:18:14 BST 2012
       }
       model._fetching = p = service.findById('Organism', model.get('id'));
       return p.done(function(org) {
-        return model.set(org);
+        return model.set({
+          shortName: org.shortName
+        });
       });
     };
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
@@ -29329,8 +29331,12 @@ Thu Jun 14 13:18:14 BST 2012
 
       this.$el.addClass('organism');
       ensureData(model, this.options.query.service);
-      data = getData(model, 'shortName', 'name');
-      return templ(data);
+      if (model.get('id')) {
+        data = getData(model, 'shortName', 'name');
+        return templ(data);
+      } else {
+        return "<span class=\"null-value\">&nbsp;</span>";
+      }
     };
   });
 
@@ -30925,7 +30931,7 @@ Thu Jun 14 13:18:14 BST 2012
       var host, url;
 
       url = data.url, host = data.host;
-      data.isForeign = (url != null) && !url.match(host);
+      data.isForeign = url && !url.match(host);
       data.target = data.isForeign ? 'blank' : '';
       return _CELL_HTML(data);
     };

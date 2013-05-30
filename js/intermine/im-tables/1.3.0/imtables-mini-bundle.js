@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 30 2013 12:04:25 GMT+0100 (BST)
+ * Built at Thu May 30 2013 12:30:01 GMT+0100 (BST)
 */
 
 
@@ -13217,7 +13217,9 @@ $.widget("ui.sortable", $.ui.mouse, {
       }
       model._fetching = p = service.findById('Organism', model.get('id'));
       return p.done(function(org) {
-        return model.set(org);
+        return model.set({
+          shortName: org.shortName
+        });
       });
     };
     templ = _.template("<span class=\"name\"><%- shortName %></span>");
@@ -13226,8 +13228,12 @@ $.widget("ui.sortable", $.ui.mouse, {
 
       this.$el.addClass('organism');
       ensureData(model, this.options.query.service);
-      data = getData(model, 'shortName', 'name');
-      return templ(data);
+      if (model.get('id')) {
+        data = getData(model, 'shortName', 'name');
+        return templ(data);
+      } else {
+        return "<span class=\"null-value\">&nbsp;</span>";
+      }
     };
   });
 
@@ -14822,7 +14828,7 @@ $.widget("ui.sortable", $.ui.mouse, {
       var host, url;
 
       url = data.url, host = data.host;
-      data.isForeign = (url != null) && !url.match(host);
+      data.isForeign = url && !url.match(host);
       data.target = data.isForeign ? 'blank' : '';
       return _CELL_HTML(data);
     };
