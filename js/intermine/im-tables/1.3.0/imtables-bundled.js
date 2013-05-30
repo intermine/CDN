@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 29 2013 18:03:46 GMT+0100 (BST)
+ * Built at Thu May 30 2013 12:04:13 GMT+0100 (BST)
 */
 
 
@@ -33021,7 +33021,7 @@ Thu Jun 14 13:18:14 BST 2012
 
     })(FacetView);
     PieFacet = (function(_super) {
-      var basicOps, negateOps;
+      var basicOps, getChartPalette, negateOps;
 
       __extends(PieFacet, _super);
 
@@ -33096,7 +33096,10 @@ Thu Jun 14 13:18:14 BST 2012
             return _this.addConstraint(e, negateOps(basicOps));
           },
           'keyup .im-filter-values': 'filterItems',
-          'click .im-clear-value-filter': 'clearValueFilter'
+          'click .im-clear-value-filter': 'clearValueFilter',
+          'click': function(e) {
+            return e.stopPropagation();
+          }
         };
       };
 
@@ -33281,8 +33284,22 @@ Thu Jun 14 13:18:14 BST 2012
         return this;
       };
 
+      getChartPalette = function() {
+        var PieColors, paint;
+
+        PieColors = intermine.options.PieColors;
+        if (_.isFunction(PieColors)) {
+          paint = PieColors;
+        } else {
+          paint = d3.scale[PieColors]();
+        }
+        return function(d, i) {
+          return paint(i);
+        };
+      };
+
       PieFacet.prototype._drawD3Chart = function() {
-        var PieColors, arc, arc_group, centre_group, chart, colour, donut, getTween, h, ir, label_group, paint, paths, percent, r, total, w, whiteCircle,
+        var arc, arc_group, centre_group, chart, colour, donut, getTween, h, ir, label_group, paths, percent, r, total, w, whiteCircle,
           _this = this;
 
         h = this.chartHeight;
@@ -33292,15 +33309,7 @@ Thu Jun 14 13:18:14 BST 2012
         donut = d3.layout.pie().value(function(d) {
           return d.get('count');
         });
-        PieColors = intermine.options.PieColors;
-        if (_.isFunction(PieColors)) {
-          paint = PieColors;
-        } else {
-          paint = d3.scale[PieColors]();
-        }
-        colour = function(d, i) {
-          return paint(i);
-        };
+        colour = getChartPalette();
         chart = d3.select(this.chartElem).append('svg').attr('class', 'chart').attr('height', h).attr('width', w);
         arc = d3.svg.arc().startAngle(function(d) {
           return d.startAngle;
@@ -33358,7 +33367,7 @@ Thu Jun 14 13:18:14 BST 2012
           return $(this).tooltip({
             title: title,
             placement: placement,
-            container: elem
+            container: this.chartElem
           });
         });
         paths.transition().duration(intermine.options.D3.Transition.Duration).ease(intermine.options.D3.Transition.Easing).attrTween("d", getTween);
