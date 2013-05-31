@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu May 30 2013 17:34:24 GMT+0100 (BST)
+ * Built at Fri May 31 2013 19:12:37 GMT+0100 (BST)
 */
 
 
@@ -25580,7 +25580,7 @@ Thu Jun 14 13:18:14 BST 2012
         return _ref;
       }
 
-      OuterJoinDropDown.prototype.className = "im-summary-selector";
+      OuterJoinDropDown.prototype.className = "im-summary-selector no-margins";
 
       OuterJoinDropDown.prototype.tagName = 'ul';
 
@@ -25660,7 +25660,7 @@ Thu Jun 14 13:18:14 BST 2012
           _fn = function(v) {
             var li;
 
-            li = $("<li class=\"im-outer-joined-path\"><a href=\"#\"></a></li>");
+            li = $("<li class=\"im-subpath im-outer-joined-path\"><a href=\"#\"></a></li>");
             _this.$el.append(li);
             $.when(node.getDisplayName(), _this.query.getPathInfo(v).getDisplayName()).done(function(parent, name) {
               return li.find('a').text(name.replace(parent, '').replace(/^\s*>\s*/, ''));
@@ -29236,7 +29236,7 @@ Thu Jun 14 13:18:14 BST 2012
       });
     };
     return ChrLocFormatter = (function() {
-      ChrLocFormatter.replaces = ['locatedOn.primaryIdentifier', 'start', 'end', 'strand'];
+      ChrLocFormatter.replaces = ['locatedOn.primaryIdentifier', 'start', 'end'];
 
       ChrLocFormatter.merge = function(location, chromosome) {
         if (chromosome.has('primaryIdentifier')) {
@@ -29388,12 +29388,154 @@ Thu Jun 14 13:18:14 BST 2012
       Organism: Org
     });
     return scope('intermine.results.formatsets.genomic', {
-      'Location.*': true,
+      'Location.start': true,
+      'Location.end': true,
       'Organism.name': true,
       'Publication.title': false,
       'Sequence.residues': true
     });
   }])));
+
+  (function() {
+    var FormattedSorting, ICONS, INIT_CARETS, NEXT_DIRECTION_OF, ROW, _ref;
+
+    ROW = "<li class=\"im-formatted-part im-subpath\"><a><i class=\"sort-icon\"></i></a></li>";
+    INIT_CARETS = /^\s*>\s*/;
+    ICONS = function() {
+      return {
+        ASC: intermine.css.sortedASC,
+        DESC: intermine.css.sortedDESC,
+        NONE: intermine.css.unsorted
+      };
+    };
+    NEXT_DIRECTION_OF = {
+      ASC: 'DESC',
+      DESC: 'ASC',
+      NONE: 'ASC'
+    };
+    FormattedSorting = (function(_super) {
+      __extends(FormattedSorting, _super);
+
+      function FormattedSorting() {
+        this.appendSortOption = __bind(this.appendSortOption, this);        _ref = FormattedSorting.__super__.constructor.apply(this, arguments);
+        return _ref;
+      }
+
+      FormattedSorting.prototype.className = 'im-col-sort-menu no-margins';
+
+      FormattedSorting.prototype.tagName = 'ul';
+
+      FormattedSorting.prototype.initialize = function(query, path, model) {
+        this.query = query;
+        this.path = path;
+        this.model = model;
+      };
+
+      FormattedSorting.prototype.toggleSort = function(paths) {
+        var currentDir, direction, path;
+
+        console.log("Ordering by " + paths);
+        currentDir = this.currentDir(paths);
+        direction = NEXT_DIRECTION_OF[currentDir];
+        this.query.orderBy((function() {
+          var _i, _len, _results;
+
+          _results = [];
+          for (_i = 0, _len = paths.length; _i < _len; _i++) {
+            path = paths[_i];
+            _results.push({
+              path: path,
+              direction: direction
+            });
+          }
+          return _results;
+        })());
+        this.model.set({
+          direction: direction
+        });
+        return this.remove();
+      };
+
+      FormattedSorting.prototype.currentDir = function(paths) {
+        var current, dirs, p;
+
+        dirs = (function() {
+          var _i, _len, _results;
+
+          _results = [];
+          for (_i = 0, _len = paths.length; _i < _len; _i++) {
+            p = paths[_i];
+            _results.push(this.query.getSortDirection(p));
+          }
+          return _results;
+        }).call(this);
+        if (_.unique(dirs).length === 1) {
+          current = dirs[0];
+        }
+        return current != null ? current : 'NONE';
+      };
+
+      FormattedSorting.prototype.render = function() {
+        var paths, replaces;
+
+        console.log("Rendering FormattedSorting for " + this.path);
+        paths = [];
+        replaces = this.model.get('replaces');
+        if (replaces.length > 1) {
+          paths = [replaces].concat(replaces.map(function(x) {
+            return [x];
+          }));
+        } else {
+          paths = [this.path];
+        }
+        if (paths.length === 1) {
+          this.toggleSort(paths[0]);
+        } else {
+          paths.forEach(this.appendSortOption);
+        }
+        return this;
+      };
+
+      FormattedSorting.prototype.appendSortOption = function(paths) {
+        var $a, currentDir, icons, li, p, _fn, _i, _len,
+          _this = this;
+
+        li = $(ROW);
+        $a = li.find('a');
+        icons = ICONS();
+        _fn = function(p) {
+          var $span, path;
+
+          console.log("Adding span for " + p);
+          $span = $("<span class=\"im-sort-path\">");
+          $a.append($span);
+          path = _this.query.getPathInfo(p);
+          return $.when(_this.path.getDisplayName(), path.getDisplayName()).done(function(pn, cn) {
+            return $span.text(cn.replace(pn, '').replace(INIT_CARETS, ''));
+          });
+        };
+        for (_i = 0, _len = paths.length; _i < _len; _i++) {
+          p = paths[_i];
+          _fn(p);
+        }
+        $a.click(function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          return _this.toggleSort(paths);
+        });
+        currentDir = paths === this.model.get('replaces') ? this.currentDir(paths) : this.currentDir(this.model.get('replaces')) !== 'NONE' ? 'NONE' : this.currentDir(paths);
+        li.find('i').addClass(icons[currentDir]);
+        this.$el.append(li);
+        return null;
+      };
+
+      return FormattedSorting;
+
+    })(Backbone.View);
+    return scope("intermine.query", {
+      FormattedSorting: FormattedSorting
+    });
+  })();
 
   (function() {
     var DynamicPopover;
@@ -31717,7 +31859,7 @@ Thu Jun 14 13:18:14 BST 2012
         css_summary: intermine.icons.Summary
       };
     };
-    TEMPLATE = _.template(" \n<div class=\"im-column-header\">\n  <div class=\"im-th-buttons\">\n    <% if (sortable) { %>\n      <a href=\"#\" class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n        <i class=\"icon-sorting <%- css_unsorted %> <%- css_header %>\"></i>\n      </a>\n    <% }; %>\n    <a href=\"#\" class=\"im-th-button im-col-remover\"\n       title=\"remove this column\">\n      <i class=\"<%- css_remove %> <%- css_header %>\"></i>\n    </a>\n    <a href=\"#\" class=\"im-th-button im-col-minumaximiser\"\n       title=\"Toggle column\">\n      <i class=\"<%- css_hide %> <%- css_header %>\"></i>\n    </a>\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button im-col-filters dropdown-toggle\"\n         title=\"\"\n         data-toggle=\"dropdown\" >\n        <i class=\"<%- css_filter %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the filter summary.</div>\n      </div>\n    </span>\n    <span class=\"dropdown im-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n        data-toggle=\"dropdown\" >\n        <i class=\"<%- css_summary %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the column summary.</div>\n      </div>\n    </span>\n  </div>\n  <div style=\"clear:both\"></div>\n  <div class=\"im-col-title\">\n    <%- path %>\n  </div>\n</div>");
+    TEMPLATE = _.template(" \n<div class=\"im-column-header\">\n  <div class=\"im-th-buttons\">\n    <% if (sortable) { %>\n      <span class=\"im-th-dropdown im-col-sort dropdown\">\n        <a href=\"#\" class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n          <i class=\"icon-sorting <%- css_unsorted %> <%- css_header %>\"></i>\n        </a>\n        <div class=\"dropdown-menu\">\n          <div>Could not intitialise the sorting menu.</div>\n        </div>\n      </span>\n    <% }; %>\n    <a href=\"#\" class=\"im-th-button im-col-remover\"\n       title=\"remove this column\">\n      <i class=\"<%- css_remove %> <%- css_header %>\"></i>\n    </a>\n    <a href=\"#\" class=\"im-th-button im-col-minumaximiser\"\n       title=\"Toggle column\">\n      <i class=\"<%- css_hide %> <%- css_header %>\"></i>\n    </a>\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button im-col-filters dropdown-toggle\"\n         title=\"\"\n         data-toggle=\"dropdown\" >\n        <i class=\"<%- css_filter %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the filter summary.</div>\n      </div>\n    </span>\n    <span class=\"dropdown im-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n        data-toggle=\"dropdown\" >\n        <i class=\"<%- css_summary %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the column summary.</div>\n      </div>\n    </span>\n  </div>\n  <div style=\"clear:both\"></div>\n  <div class=\"im-col-title\">\n    <%- path %>\n  </div>\n</div>");
     COL_FILTER_TITLE = function(count) {
       if (count > 0) {
         return "" + count + " active filters";
@@ -31731,6 +31873,8 @@ Thu Jun 14 13:18:14 BST 2012
       DESC: 'ASC'
     };
     ColumnHeader = (function(_super) {
+      var firstResult;
+
       __extends(ColumnHeader, _super);
 
       function ColumnHeader() {
@@ -31841,12 +31985,17 @@ Thu Jun 14 13:18:14 BST 2012
         return this;
       };
 
+      firstResult = _.compose(_.first, _.compact, _.map);
+
       ColumnHeader.prototype.updateModel = function() {
-        var _ref1,
+        var direction,
           _this = this;
 
+        direction = firstResult(this.model.get('replaces').concat(this.view), function(p) {
+          return _this.query.getSortDirection(p);
+        });
         return this.model.set({
-          direction: this.query.getSortDirection((_ref1 = this.model.get('replaces')[0]) != null ? _ref1 : this.view),
+          direction: direction,
           sortable: !this.query.isOuterJoined(this.view),
           conCount: _.size(_.filter(this.query.constraints, function(c) {
             return !!c.path.match(_this.view);
@@ -31886,7 +32035,7 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       ColumnHeader.prototype.events = {
-        'click .im-col-sort-indicator': 'setSortOrder',
+        'click .im-col-sort': 'setSortOrder',
         'click .im-col-minumaximiser': 'toggleColumnVisibility',
         'click .im-col-filters': 'showFilterSummary',
         'click .im-subtable-expander': 'toggleSubTable',
@@ -31955,8 +32104,11 @@ Thu Jun 14 13:18:14 BST 2012
           _this.checkHowFarOver(e != null ? $(e.currentTarget) : _this.$el);
           if (!_this.$(selector).hasClass('open')) {
             _this.query.trigger('showing:column-summary', _this.model.get('path'));
-            summary = new View(_this.query, _this.model.get('path'));
+            summary = new View(_this.query, _this.model.get('path'), _this.model);
             $menu = _this.$(selector + ' .dropdown-menu');
+            if (!$menu.length) {
+              console.log("" + selector + " not found");
+            }
             $menu.html(summary.el);
             summary.render();
             _this.summary = summary;
@@ -31968,7 +32120,7 @@ Thu Jun 14 13:18:14 BST 2012
       ColumnHeader.prototype.showColumnSummary = function(e) {
         var cls;
 
-        cls = this.model.get('path').isAttribute() ? intermine.query.results.DropDownColumnSummary : intermine.query.results.OuterJoinDropDown;
+        cls = this.path().isAttribute() ? intermine.query.results.DropDownColumnSummary : intermine.query.results.OuterJoinDropDown;
         return this.showSummary('.im-summary', cls)(e);
       };
 
@@ -31997,39 +32149,27 @@ Thu Jun 14 13:18:14 BST 2012
         return this.$('.im-col-title').toggle(!minimised);
       };
 
-      ColumnHeader.prototype.setSortOrder = function(e) {
-        var currentDirection, direction, path, _ref1;
+      ColumnHeader.prototype.path = function() {
+        return this.model.get('path');
+      };
 
-        if (e != null) {
-          e.preventDefault();
-        }
-        if (e != null) {
-          e.stopPropagation();
-        }
-        currentDirection = this.model.get('direction');
-        direction = (_ref1 = NEXT_DIRECTION_OF[currentDirection]) != null ? _ref1 : 'ASC';
-        if (this.model.get('replaces').length === 0) {
+      ColumnHeader.prototype.setSortOrder = function(e) {
+        var direction, formatter, replaces, _ref1, _ref2;
+
+        _ref1 = this.model.toJSON(), direction = _ref1.direction, replaces = _ref1.replaces;
+        direction = (_ref2 = NEXT_DIRECTION_OF[direction]) != null ? _ref2 : 'ASC';
+        formatter = intermine.results.getFormatter(this.path());
+        if (replaces.length) {
+          this.showSummary('.im-col-sort', intermine.query.FormattedSorting)(e);
+          return this.$('.im-col-sort').toggleClass('open');
+        } else {
+          this.$('.im-col-sort').removeClass('open');
           return this.query.orderBy([
             {
               path: this.view,
               direction: direction
             }
           ]);
-        } else {
-          return this.query.orderBy((function() {
-            var _i, _len, _ref2, _results;
-
-            _ref2 = this.model.get('replaces');
-            _results = [];
-            for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-              path = _ref2[_i];
-              _results.push({
-                path: path,
-                direction: direction
-              });
-            }
-            return _results;
-          }).call(this));
         }
       };
 
