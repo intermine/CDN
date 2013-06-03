@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Fri May 31 2013 19:12:37 GMT+0100 (BST)
+ * Built at Mon Jun 03 2013 17:01:52 GMT+0100 (BST)
 */
 
 
@@ -24202,6 +24202,7 @@ Thu Jun 14 13:18:14 BST 2012
     Edit: 'icon-cogs',
     Download: 'icon-file-alt',
     ClipBoard: 'icon-paper-clip',
+    Composed: 'icon-columns',
     tsv: 'icon-table',
     csv: 'icon-table',
     xml: 'icon-xml',
@@ -29925,15 +29926,20 @@ Thu Jun 14 13:18:14 BST 2012
         if ((_ref1 = this.columnHeaders) == null) {
           this.columnHeaders = new Backbone.Collection;
         }
+        this.blacklistedFormatters = [];
         this.minimisedCols = {};
         this.query.on("set:sortorder", function(oes) {
           _this.lastAction = 'resort';
           return _this.fill();
         });
-        return this.query.on('columnvis:toggle', function(view) {
+        this.query.on('columnvis:toggle', function(view) {
           _this.minimisedCols[view] = !_this.minimisedCols[view];
           _this.query.trigger('change:minimisedCols', _.extend({}, _this.minimisedCols));
           return _this.fill();
+        });
+        return this.query.on("formatter:blacklist", function(path, formatter) {
+          _this.blacklistedFormatters.push(formatter);
+          return _this.fill().then(_this.addColumnHeaders);
         });
       };
 
@@ -30174,21 +30180,23 @@ Thu Jun 14 13:18:14 BST 2012
             continue;
           }
           p = col.path;
-          col.isFormatted = true;
           if ((_ref1 = replacedBy[_name = p.getParent()]) == null) {
             replacedBy[_name] = col;
           }
           formatter = intermine.results.getFormatter(p);
-          col.formatter = formatter;
-          _ref3 = (_ref2 = formatter.replaces) != null ? _ref2 : [];
-          for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
-            r = _ref3[_j];
-            subPath = "" + (p.getParent()) + "." + r;
-            if ((_ref4 = replacedBy[subPath]) == null) {
-              replacedBy[subPath] = col;
-            }
-            if (__indexOf.call(q.views, subPath) >= 0) {
-              col.replaces.push(q.getPathInfo(subPath));
+          if (__indexOf.call(this.blacklistedFormatters, formatter) < 0) {
+            col.isFormatted = true;
+            col.formatter = formatter;
+            _ref3 = (_ref2 = formatter.replaces) != null ? _ref2 : [];
+            for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
+              r = _ref3[_j];
+              subPath = "" + (p.getParent()) + "." + r;
+              if ((_ref4 = replacedBy[subPath]) == null) {
+                replacedBy[subPath] = col;
+              }
+              if (__indexOf.call(q.views, subPath) >= 0) {
+                col.replaces.push(q.getPathInfo(subPath));
+              }
             }
           }
         }
@@ -30214,7 +30222,7 @@ Thu Jun 14 13:18:14 BST 2012
               replacer = replacedBy[p.getParent()];
             }
           }
-          return replacer && col !== replacer;
+          return replacer && (replacer.formatter != null) && col !== replacer;
         };
         _results = [];
         for (_m = 0, _len4 = cols.length; _m < _len4; _m++) {
@@ -30234,16 +30242,16 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       ResultsTable.prototype.addColumnHeaders = function() {
-        var get, invoke, thead, tr, _ref1,
+        var thead, tr,
           _this = this;
 
-        _ref1 = intermine.funcutils, get = _ref1.get, invoke = _ref1.invoke;
         thead = $("<thead>");
         tr = $("<tr>");
         thead.append(tr);
         this.columnHeaders.each(function(model) {
           return _this.buildColumnHeader(model, tr);
         });
+        this.$el.children('thead').remove();
         return thead.appendTo(this.el);
       };
 
@@ -31856,10 +31864,11 @@ Thu Jun 14 13:18:14 BST 2012
         css_hide: intermine.css.headerIconHide,
         css_reveal: intermine.css.headerIconReveal,
         css_filter: intermine.icons.Filter,
-        css_summary: intermine.icons.Summary
+        css_summary: intermine.icons.Summary,
+        css_composed: intermine.icons.Composed
       };
     };
-    TEMPLATE = _.template(" \n<div class=\"im-column-header\">\n  <div class=\"im-th-buttons\">\n    <% if (sortable) { %>\n      <span class=\"im-th-dropdown im-col-sort dropdown\">\n        <a href=\"#\" class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n          <i class=\"icon-sorting <%- css_unsorted %> <%- css_header %>\"></i>\n        </a>\n        <div class=\"dropdown-menu\">\n          <div>Could not intitialise the sorting menu.</div>\n        </div>\n      </span>\n    <% }; %>\n    <a href=\"#\" class=\"im-th-button im-col-remover\"\n       title=\"remove this column\">\n      <i class=\"<%- css_remove %> <%- css_header %>\"></i>\n    </a>\n    <a href=\"#\" class=\"im-th-button im-col-minumaximiser\"\n       title=\"Toggle column\">\n      <i class=\"<%- css_hide %> <%- css_header %>\"></i>\n    </a>\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button im-col-filters dropdown-toggle\"\n         title=\"\"\n         data-toggle=\"dropdown\" >\n        <i class=\"<%- css_filter %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the filter summary.</div>\n      </div>\n    </span>\n    <span class=\"dropdown im-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n        data-toggle=\"dropdown\" >\n        <i class=\"<%- css_summary %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the column summary.</div>\n      </div>\n    </span>\n  </div>\n  <div style=\"clear:both\"></div>\n  <div class=\"im-col-title\">\n    <%- path %>\n  </div>\n</div>");
+    TEMPLATE = _.template(" \n<div class=\"im-column-header\">\n  <div class=\"im-th-buttons\">\n    <% if (sortable) { %>\n      <span class=\"im-th-dropdown im-col-sort dropdown\">\n        <a href=\"#\" class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n          <i class=\"icon-sorting <%- css_unsorted %> <%- css_header %>\"></i>\n        </a>\n        <div class=\"dropdown-menu\">\n          <div>Could not intitialise the sorting menu.</div>\n        </div>\n      </span>\n    <% }; %>\n    <a href=\"#\" class=\"im-th-button im-col-remover\"\n       title=\"remove this column\">\n      <i class=\"<%- css_remove %> <%- css_header %>\"></i>\n    </a>\n    <a href=\"#\" class=\"im-th-button im-col-minumaximiser\"\n       title=\"Toggle column\">\n      <i class=\"<%- css_hide %> <%- css_header %>\"></i>\n    </a>\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button im-col-filters dropdown-toggle\"\n         title=\"\"\n         data-toggle=\"dropdown\" >\n        <i class=\"<%- css_filter %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the filter summary.</div>\n      </div>\n    </span>\n    <span class=\"dropdown im-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n        data-toggle=\"dropdown\" >\n        <i class=\"<%- css_summary %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the column summary.</div>\n      </div>\n    </span>\n    <a href=\"#\" class=\"im-th-button im-col-composed\"\n        title=\"Toggle formatting\">\n      <i class=\"<%- css_composed %> <%- css_header %>\"></i>\n    </a>\n  </div>\n  <div class=\"im-col-title\">\n    <%- path %>\n  </div>\n</div>");
     COL_FILTER_TITLE = function(count) {
       if (count > 0) {
         return "" + count + " active filters";
@@ -31873,7 +31882,7 @@ Thu Jun 14 13:18:14 BST 2012
       DESC: 'ASC'
     };
     ColumnHeader = (function(_super) {
-      var firstResult;
+      var firstResult, getCompositionTitle;
 
       __extends(ColumnHeader, _super);
 
@@ -31940,8 +31949,13 @@ Thu Jun 14 13:18:14 BST 2012
         return this.model.on('change:direction', this.displaySortDirection);
       };
 
+      getCompositionTitle = function(replaces) {
+        return "This column replaces " + replaces.length + " others. Click here\nto show the individual columns separately.";
+      };
+
       ColumnHeader.prototype.render = function() {
-        var _this = this;
+        var replaces,
+          _this = this;
 
         this.$el.empty();
         this.$el.append(this.html());
@@ -31972,12 +31986,19 @@ Thu Jun 14 13:18:14 BST 2012
             title: parts.join('')
           });
         });
+        this.$('.summary-img').click(this.showColumnSummary);
+        this.$('.im-col-filters').click(this.showFilterSummary);
+        replaces = this.model.get('replaces');
+        this.$('.im-col-composed').attr({
+          title: getCompositionTitle(replaces)
+        }).click(function() {
+          return _this.query.trigger('formatter:blacklist', _this.view, _this.model.get('formatter'));
+        });
+        this.$el.toggleClass('im-is-composed', (replaces != null ? replaces.length : void 0) > 1);
         this.$('.im-th-button').tooltip({
           placement: this.bestFit,
           container: this.el
         });
-        this.$('.summary-img').click(this.showColumnSummary);
-        this.$('.im-col-filters').click(this.showFilterSummary);
         this.$('.dropdown .dropdown-toggle').dropdown();
         if (!this.model.get('path').isAttribute() && this.query.isOuterJoined(this.view)) {
           this.addExpander();
