@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Mon Jun 03 2013 17:01:52 GMT+0100 (BST)
+ * Built at Tue Jun 04 2013 16:26:11 GMT+0100 (BST)
 */
 
 
@@ -26340,7 +26340,7 @@ Thu Jun 14 13:18:14 BST 2012
         });
         this.exportedCols.on('add remove reset', this.initCols);
         this.exportedCols.on('add remove change:excluded', this.updateColTabText, this);
-        this.exportedCols.on('add remove change:excluded', this.buildPermaLink);
+        this.exportedCols.on('add remove reset change:excluded', this.buildPermaLink);
         return this.requestInfo.on('change:start change:end', function() {
           var end, start, text, _ref4;
 
