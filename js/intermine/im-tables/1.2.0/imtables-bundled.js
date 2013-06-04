@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed May 29 2013 14:50:06 GMT+0100 (BST)
+ * Built at Tue Jun 04 2013 15:47:33 GMT+0100 (BST)
 */
 
 
@@ -31377,6 +31377,10 @@ Thu Jun 14 13:18:14 BST 2012
 
       Cell.prototype.setWidth = function(w) {
         return this;
+      };
+
+      Cell.prototype.reportClick = function() {
+        return this.model.trigger('click', this.model);
       };
 
       Cell.prototype.activateChooser = function() {
