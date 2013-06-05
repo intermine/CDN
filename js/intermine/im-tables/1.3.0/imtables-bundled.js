@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Jun 04 2013 16:26:11 GMT+0100 (BST)
+ * Built at Wed Jun 05 2013 13:27:50 GMT+0100 (BST)
 */
 
 
@@ -33267,6 +33267,10 @@ Thu Jun 14 13:18:14 BST 2012
         var _this = this;
 
         return {
+          'submit .im-facet form': function(e) {
+            e.preventDefault();
+            return e.stopPropagation();
+          },
           'click .im-filter .btn-cancel': 'resetOptions',
           'click .im-filter .btn-toggle-selection': 'toggleSelection',
           'click .im-export-summary': 'exportSummary',
