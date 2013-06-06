@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jun 06 2013 16:03:53 GMT+0100 (BST)
+ * Built at Thu Jun 06 2013 16:45:01 GMT+0100 (BST)
 */
 
 
@@ -24117,7 +24117,7 @@ Thu Jun 14 13:18:14 BST 2012
         if (ns == null) {
           ns = '';
         }
-        ns = 'intermine.options' + ns;
+        ns = ns === '' || /^\./.test(ns) ? 'intermine.options' + ns : ns;
         return scope(ns, opts, true);
       }
     });
