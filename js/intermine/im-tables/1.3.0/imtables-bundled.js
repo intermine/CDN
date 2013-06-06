@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Jun 05 2013 13:27:50 GMT+0100 (BST)
+ * Built at Thu Jun 06 2013 16:03:53 GMT+0100 (BST)
 */
 
 
@@ -29389,11 +29389,11 @@ Thu Jun 14 13:18:14 BST 2012
       Organism: Org
     });
     return scope('intermine.results.formatsets.genomic', {
-      'Location.start': true,
-      'Location.end': true,
-      'Organism.name': true,
+      'Location.start': false,
+      'Location.end': false,
+      'Organism.name': false,
       'Publication.title': false,
-      'Sequence.residues': true
+      'Sequence.residues': false
     });
   }])));
 
