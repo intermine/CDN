@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jun 06 2013 16:45:01 GMT+0100 (BST)
+ * Built at Fri Jun 07 2013 12:31:30 GMT+0100 (BST)
 */
 
 
@@ -9482,76 +9482,25 @@ $.widget("ui.sortable", $.ui.mouse, {
 
       OuterJoinDropDown.prototype.tagName = 'ul';
 
-      OuterJoinDropDown.prototype.initialize = function(query, path) {
+      OuterJoinDropDown.prototype.initialize = function(query, path, model) {
+        var _ref1;
+
         this.query = query;
         this.path = path;
+        return _ref1 = model.toJSON(), this.replaces = _ref1.replaces, this.isFormatted = _ref1.isFormatted, _ref1;
+      };
+
+      OuterJoinDropDown.prototype.getSubpaths = function() {
+        return this.replaces.slice();
       };
 
       OuterJoinDropDown.prototype.render = function() {
-        var a, as, f, formatter, name, node, parent, prefix, r, replaces, str, v, vs, _fn, _i, _len,
+        var node, v, vs, _fn, _i, _len,
           _this = this;
 
         vs = [];
         node = this.path;
-        if (!this.path.isAttribute()) {
-          str = this.path.toString();
-          vs = (function() {
-            var _i, _len, _ref1, _results;
-
-            _ref1 = this.query.views;
-            _results = [];
-            for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-              v = _ref1[_i];
-              if (v.match(str)) {
-                _results.push(v);
-              }
-            }
-            return _results;
-          }).call(this);
-        } else {
-          node = parent = this.path.getParent();
-          formatter = intermine.results.getFormatter(this.path);
-          if (replaces = formatter != null ? formatter.replaces : void 0) {
-            prefix = parent + '.';
-            vs = (function() {
-              var _i, _len, _results;
-
-              _results = [];
-              for (_i = 0, _len = replaces.length; _i < _len; _i++) {
-                r = replaces[_i];
-                _results.push(prefix + r);
-              }
-              return _results;
-            })();
-          } else {
-            f = function(a) {
-              return intermine.options.ShowId || a !== 'id';
-            };
-            as = (function() {
-              var _ref1, _results;
-
-              _ref1 = parent.getEndClass().attributes;
-              _results = [];
-              for (name in _ref1) {
-                a = _ref1[name];
-                if (f(name)) {
-                  _results.push(name);
-                }
-              }
-              return _results;
-            })();
-            vs = (function() {
-              var _i, _len, _results;
-
-              _results = [];
-              for (_i = 0, _len = as.length; _i < _len; _i++) {
-                a = as[_i];
-                _results.push(parent.append(a).toString());
-              }
-              return _results;
-            })();
-          }
-        }
+        vs = this.getSubpaths();
         if (vs.length === 1) {
           this.showPathSummary(vs[0]);
         } else {
@@ -13780,6 +13729,8 @@ $.widget("ui.sortable", $.ui.mouse, {
 
     })();
     ResultsTable = (function(_super) {
+      var longestCommonPrefix;
+
       __extends(ResultsTable, _super);
 
       function ResultsTable() {
@@ -14038,8 +13989,27 @@ $.widget("ui.sortable", $.ui.mouse, {
         return header.render().$el.appendTo(tr);
       };
 
+      longestCommonPrefix = function(paths) {
+        var nextPrefix, part, parts, prefix, prefixesAll, _i, _len;
+
+        parts = paths[0].split(/\./);
+        prefix = parts.shift();
+        prefixesAll = function(pf) {
+          return _.all(paths, function(path) {
+            return 0 === path.indexOf(pf);
+          });
+        };
+        for (_i = 0, _len = parts.length; _i < _len; _i++) {
+          part = parts[_i];
+          if (prefixesAll(nextPrefix = "" + prefix + "." + part)) {
+            prefix = nextPrefix;
+          }
+        }
+        return prefix;
+      };
+
       ResultsTable.prototype.getEffectiveView = function(row) {
-        var cell, col, cols, explicitReplacements, formatter, isReplaced, p, path, q, r, replacedBy, replaces, subPath, v, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _m, _name, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _results;
+        var cell, col, cols, commonPrefix, explicitReplacements, formatter, isReplaced, p, path, q, r, replacedBy, replaces, subPath, v, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _m, _name, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _results;
 
         q = this.query;
         replacedBy = {};
@@ -14051,19 +14021,17 @@ $.widget("ui.sortable", $.ui.mouse, {
           for (_i = 0, _len = row.length; _i < _len; _i++) {
             cell = row[_i];
             path = q.getPathInfo(cell.column);
-            replaces = cell.view != null ? (function() {
+            replaces = cell.view != null ? (commonPrefix = longestCommonPrefix(cell.view), path = q.getPathInfo(commonPrefix), replaces = (function() {
               var _j, _len1, _ref1, _results1;
 
-              _ref1 = q.views;
+              _ref1 = cell.view;
               _results1 = [];
               for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
                 v = _ref1[_j];
-                if (v.indexOf(cell.column) === 0) {
-                  _results1.push(q.getPathInfo(v));
-                }
+                _results1.push(q.getPathInfo(v));
               }
               return _results1;
-            })() : [];
+            })()) : [];
             _results.push({
               path: path,
               replaces: replaces
@@ -14121,6 +14089,7 @@ $.widget("ui.sortable", $.ui.mouse, {
           }
           return replacer && (replacer.formatter != null) && col !== replacer;
         };
+        console.log("header paths are:");
         _results = [];
         for (_m = 0, _len4 = cols.length; _m < _len4; _m++) {
           col = cols[_m];
@@ -14133,6 +14102,7 @@ $.widget("ui.sortable", $.ui.mouse, {
             }
             col.path = col.path.getParent();
           }
+          console.log(col.path);
           _results.push(this.columnHeaders.add(col));
         }
         return _results;
@@ -15794,7 +15764,8 @@ $.widget("ui.sortable", $.ui.mouse, {
         this.bestFit = __bind(this.bestFit, this);
         this.displaySortDirection = __bind(this.displaySortDirection, this);
         this.displayConCount = __bind(this.displayConCount, this);
-        this.updateModel = __bind(this.updateModel, this);        _ref = ColumnHeader.__super__.constructor.apply(this, arguments);
+        this.updateModel = __bind(this.updateModel, this);
+        this.renderName = __bind(this.renderName, this);        _ref = ColumnHeader.__super__.constructor.apply(this, arguments);
         return _ref;
       }
 
@@ -15850,6 +15821,34 @@ $.widget("ui.sortable", $.ui.mouse, {
         return "This column replaces " + replaces.length + " others. Click here\nto show the individual columns separately.";
       };
 
+      ColumnHeader.prototype.renderName = function() {
+        var ancestors, content, last, p, parentType, parts, penult, title, _i, _ref1;
+
+        _ref1 = parts = this.model.get('name').split(' > '), ancestors = 3 <= _ref1.length ? __slice.call(_ref1, 0, _i = _ref1.length - 2) : (_i = 0, []), penult = _ref1[_i++], last = _ref1[_i++];
+        parentType = ancestors.length ? 'non-root' : 'root';
+        parts = (function() {
+          var _j, _len, _results;
+
+          _results = [];
+          for (_j = 0, _len = parts.length; _j < _len; _j++) {
+            p = parts[_j];
+            _results.push("<span class=\"im-name-part\">" + p + "</span>");
+          }
+          return _results;
+        })();
+        content = RENDER_TITLE({
+          penult: penult,
+          last: last,
+          parentType: parentType
+        });
+        title = parts.join('');
+        return this.$('.im-col-title').html(content).popover({
+          title: title,
+          placement: 'bottom',
+          html: true
+        });
+      };
+
       ColumnHeader.prototype.render = function() {
         var replaces,
           _this = this;
@@ -15858,31 +15857,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         this.$el.append(this.html());
         this.displayConCount();
         this.displaySortDirection();
-        this.namePromise.done(function() {
-          var ancestors, last, p, parentType, parts, penult, _i, _ref1;
-
-          _ref1 = parts = _this.model.get('name').split(' > '), ancestors = 3 <= _ref1.length ? __slice.call(_ref1, 0, _i = _ref1.length - 2) : (_i = 0, []), penult = _ref1[_i++], last = _ref1[_i++];
-          parentType = ancestors.length ? 'non-root' : 'root';
-          parts = (function() {
-            var _j, _len, _results;
-
-            _results = [];
-            for (_j = 0, _len = parts.length; _j < _len; _j++) {
-              p = parts[_j];
-              _results.push("<span class=\"im-name-part\">" + p + "</span>");
-            }
-            return _results;
-          })();
-          return _this.$('.im-col-title').html(RENDER_TITLE({
-            penult: penult,
-            last: last,
-            parentType: parentType
-          })).popover({
-            placement: 'bottom',
-            html: true,
-            title: parts.join('')
-          });
-        });
+        this.namePromise.done(this.renderName);
         this.$('.summary-img').click(this.showColumnSummary);
         this.$('.im-col-filters').click(this.showFilterSummary);
         replaces = this.model.get('replaces');
