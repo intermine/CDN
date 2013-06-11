@@ -7,14 +7,14 @@
   JST["error.eco"]=function(e){e||(e={});var n,s=[],t=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){s.push('<div class="alert alert-block">\n    <h4 class="alert-heading">'),s.push(t(this.title)),s.push(" for "),s.push(t(this.name)),s.push("</h4>\n    <p>"),s.push(this.text),s.push("</p>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,s.join("")};
   JST["actions.eco"]=function(e){e||(e={});var n,a=[],t=e.safe,s=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},s||(s=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){a.push('<a class="btn btn-small view">View</a>\n<a class="btn btn-small export">Download</a>')}).call(this)}.call(e),e.safe=t,e.escape=s,a.join("")};
   JST["loading.eco"]=function(e){e||(e={});var n,t=[],a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="loading" style="background:rgba(255,255,255,0.9);position:absolute;top:0;left:0;height:100%;width:100%;text-align:center;">\n    <p style="padding-top:50%;font-weight:bold;">Loading &hellip;</p>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.correction.eco"]=function(e){e||(e={});var n,t=[],a=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?s(e):""},l=e.safe,s=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},s||(s=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group correction" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Normalise by length <em class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px">i</em><div class="help"></div></label>\n    <p style="width:300px">\n    <input type="checkbox" class="correction" '),this.gene_length_correction&&t.push('checked="checked"'),t.push(" >\n    "),this.percentage_gene_length_not_null&&(t.push("\n    	"),t.push(a(this.percentage_gene_length_not_null)),t.push(' of genes in your list do not have a length and will be discarded, <a class="which" style="cursor:pointer">see which</a>.\n    ')),t.push("\n    </p>\n</div>")}).call(this)}.call(e),e.safe=l,e.escape=s,t.join("")};
-  JST["popover.eco"]=function(e){e||(e={});var n,t=[],a=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},s=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display:block">\n    <div class="popover-inner" style="'),t.push(a(this.style)),t.push('">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">\n            '),t.push(a(this.description.slice(0,+(this.descriptionLimit-1)+1||9e9))),t.push("\n            "),this.description.length>this.descriptionLimit&&t.push("&hellip;"),t.push('\n        </h3>\n        <div class="popover-content">\n            <div class="values">\n                <!-- popover.values.eco -->\n            </div>\n            <div style="margin-top:10px">\n                <a class="btn btn-small btn-primary results">View results</a>\n                <a class="btn btn-small list">Create list</a>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=s,e.escape=l,t.join("")};
-  JST["popover.help.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display: block;">\n    <div class="popover-inner">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">'),t.push(s(this.title)),t.push('</h3>\n        <div class="popover-content">\n            <p>'),t.push(s(this.text)),t.push("</p>\n        </div>\n    </div>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["popover.values.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l;for(t.push("<h4>"),t.push(s(this.size)),t.push(" "),t.push(s(this.type)),1!==parseInt(this.size)&&t.push(s("s")),t.push(":</h4>\n\n"),l=this.values.slice(0,+(this.valuesLimit-1)+1||9e9),n=0,a=l.length;a>n;n++)e=l[n],t.push('\n    <a href="#" class="match">'),t.push(s(e)),t.push("</a>\n");t.push("\n"),this.values.length>this.valuesLimit&&t.push("&hellip;"),t.push("\n")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["popover.values.eco"]=function(e){e||(e={});var n,t=[],a=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},s=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,s,l;for(t.push("<h4>"),t.push(a(this.size)),t.push(" "),t.push(a(this.type)),1!==parseInt(this.size)&&t.push(a("s")),t.push(":</h4>\n\n"),l=this.values.slice(0,+(this.valuesLimit-1)+1||9e9),n=0,s=l.length;s>n;n++)e=l[n],t.push('\n    <a href="#" class="match">'),t.push(a(e)),t.push("</a>\n");t.push("\n"),this.values.length>this.valuesLimit&&t.push("&hellip;"),t.push("\n")}).call(this)}.call(e),e.safe=s,e.escape=l,t.join("")};
+  JST["popover.help.eco"]=function(e){e||(e={});var n,t=[],a=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},s=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display: block;">\n    <div class="popover-inner">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">'),t.push(a(this.title)),t.push('</h3>\n        <div class="popover-content">\n            <p>'),t.push(a(this.text)),t.push("</p>\n        </div>\n    </div>\n</div>")}).call(this)}.call(e),e.safe=s,e.escape=l,t.join("")};
+  JST["popover.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display:block">\n    <div class="popover-inner" style="'),t.push(s(this.style)),t.push('">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">\n            '),t.push(s(this.description.slice(0,+(this.descriptionLimit-1)+1||9e9))),t.push("\n            "),this.description.length>this.descriptionLimit&&t.push("&hellip;"),t.push('\n        </h3>\n        <div class="popover-content">\n            <div class="values">\n                <!-- popover.values.eco -->\n            </div>\n            <div style="margin-top:10px">\n                <a class="btn btn-small btn-primary results">View results</a>\n                <a class="btn btn-small list">Create list</a>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["enrichment.correction.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group correction" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Normalise by length <em class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px">i</em><div class="help"></div></label>\n    <p style="width:300px">\n    <input type="checkbox" class="correction" '),this.gene_length_correction&&t.push('checked="checked"'),t.push(" >\n    "),this.percentage_gene_length_not_null&&(t.push("\n    	"),t.push(s(this.percentage_gene_length_not_null)),t.push(' of genes in your list do not have a length and will be discarded, <a class="which" style="cursor:pointer">see which</a>.\n    ')),t.push("\n    </p>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
   JST["enrichment.populationlist.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,c,r,p;for(t.push('<table class="table table-striped">\n    <tbody>\n        <tr><td>\n            '),null==this.current?t.push('\n                <strong><a href="#">Default</a></strong>\n            '):t.push('\n                <a href="#">Default</a>\n            '),t.push("\n        </td></tr>\n        "),r=this.lists,a=0,i=r.length;i>a;a++){for(e=r[a],t.push("\n            <tr><td>\n                "),e.name===this.current?(t.push("\n                    <strong>\n                        <a "),e.description&&(t.push('title="'),t.push(s(e.description)),t.push('"')),t.push(' href="#">'),t.push(s(e.name)),t.push("</a> ("),t.push(s(e.size)),t.push(")\n                    </strong>\n                ")):(t.push("\n                    <a "),e.description&&(t.push('title="'),t.push(s(e.description)),t.push('"')),t.push(' href="#">'),t.push(s(e.name)),t.push("</a> ("),t.push(s(e.size)),t.push(")\n                ")),t.push("\n                \n                "),p=e.tags,l=0,c=p.length;c>l;l++)n=p[l],t.push('\n                    <span class="label" style="vertical-align:text-bottom">'),t.push(s(n)),t.push("</span>\n                ");t.push("\n            </td></tr>\n        ")}t.push("\n    </tbody>\n</table>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
   JST["enrichment.table.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">'),t.push(s(this.label)),t.push('</div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;white-space:nowrap">p-Value <a href="http://intermine.readthedocs.org/en/latest/embedding/list-widgets/enrichment-widgets/" target="_blank" class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px;font-style:italic;color:#FFF!important">i</a></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">Matches</div>\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                <th>'),t.push(s(this.label)),t.push("</th>\n                <th>p-Value</th>\n                <th>Matches</th>\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop enrichment.row.eco -->\n        </tbody>\n    </table>\n</div>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
-  JST["enrichment.population.eco"]=function(e){e||(e={});var n,t=[],a=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},s=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group background" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Background population</label>\n    '),t.push(a(this.current)),t.push(' <a class="btn btn-small change">Change</a>\n\n    <div class="popover" style="position:absolute;top:0;right:0;z-index:1;display:none">\n        <div class="popover-inner">\n            <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n            <h4 class="popover-title">Change background population</h4>\n            <div class="popover-content">\n                <p style="margin-bottom:5px">\n                    '),this.loggedIn?t.push('\n                        <input type="checkbox" class="save" style="vertical-align:top" /> Save your preference for next time\n                    '):t.push("\n                        Login to save your preference for next time\n                    "),t.push('\n                </p>\n\n                <input type="text" class="filter" style="width:96%" placeholder="Filter..." />\n                \n                <div class="values" style="max-height:300px;overflow-y:auto">\n                    <!-- enrichment.populationlist.eco -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=s,e.escape=l,t.join("")};
-  JST["enrichment.form.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,r,o,p;for(t.push('<form style="margin:0">\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Test Correction</label>\n        <select name="errorCorrection" class="span2">\n            '),o=this.errorCorrections,a=0,i=o.length;i>a;a++)e=o[a],t.push('\n                <option value="'),t.push(s(e)),t.push('" '),this.options.errorCorrection===e&&t.push(s('selected="selected"')),t.push(">\n                    "),t.push(s(e)),t.push("\n            </option>\n            ");for(t.push('\n        </select>\n    </div>\n\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Max p-value</label>\n        <select name="pValue" class="span2">\n            '),p=this.pValues,l=0,r=p.length;r>l;l++)n=p[l],t.push('\n                <option value="'),t.push(s(n)),t.push('" '),this.options.pValue===n&&t.push(s('selected="selected"')),t.push(">\n                    "),t.push(s(n)),t.push("\n                </option>\n            ");t.push('\n        </select>\n    </div>\n</form>\n<div style="clear:both"></div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["enrichment.form.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){var e,n,a,l,i,r,c,p;for(t.push('<form style="margin:0">\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Test Correction</label>\n        <select name="errorCorrection" class="span2">\n            '),c=this.errorCorrections,a=0,i=c.length;i>a;a++)e=c[a],t.push('\n                <option value="'),t.push(s(e)),t.push('" '),this.options.errorCorrection===e&&t.push(s('selected="selected"')),t.push(">\n                    "),t.push(s(e)),t.push("\n            </option>\n            ");for(t.push('\n        </select>\n    </div>\n\n    <div class="group" style="display:inline-block;margin-right:5px;float:left;height:60px">\n        <label>Max p-value</label>\n        <select name="pValue" class="span2">\n            '),p=this.pValues,l=0,r=p.length;r>l;l++)n=p[l],t.push('\n                <option value="'),t.push(s(n)),t.push('" '),this.options.pValue===n&&t.push(s('selected="selected"')),t.push(">\n                    "),t.push(s(n)),t.push("\n                </option>\n            ");t.push('\n        </select>\n    </div>\n</form>\n<div style="clear:both"></div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
+  JST["enrichment.population.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="group background" style="display:inline-block;margin-right:5px;float:left;height:60px">\n    <label>Background population</label>\n    '),t.push(s(this.current)),t.push(' <a class="btn btn-small change">Change</a>\n\n    <div class="popover" style="position:absolute;top:0;right:0;z-index:1;display:none">\n        <div class="popover-inner">\n            <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n            <h4 class="popover-title">Change background population</h4>\n            <div class="popover-content">\n                <p style="margin-bottom:5px">\n                    '),this.loggedIn?t.push('\n                        <input type="checkbox" class="save" style="vertical-align:top" /> Save your preference for next time\n                    '):t.push("\n                        Login to save your preference for next time\n                    "),t.push('\n                </p>\n\n                <input type="text" class="filter" style="width:96%" placeholder="Filter..." />\n                \n                <div class="values" style="max-height:300px;overflow-y:auto">\n                    <!-- enrichment.populationlist.eco -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
   JST["enrichment.row.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?l(e):""},a=e.safe,l=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},l||(l=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<td class="check"><input type="checkbox" '),this.row.selected&&t.push('checked="checked"'),t.push(' /></td>\n<td class="description">\n    '),t.push(s(this.row.description)),t.push("\n    "),this.row.externalLink&&(t.push('\n        [<a href="'),t.push(this.row.externalLink),t.push('" target="_blank">'),t.push(s(this.row.identifier)),t.push("</a>]\n    ")),t.push('\n</td>\n<td class="pValue" style="white-space:nowrap">'),t.push(s(this.row["p-value"])),t.push('</td>\n<td class="matches">\n    <a class="count" style="cursor:pointer">'),t.push(s(this.row.matches)),t.push("</a>\n</td>")}).call(this)}.call(e),e.safe=a,e.escape=l,t.join("")};
   JST["enrichment.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="form">\n        <!-- enrichment.form.eco -->\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- enrichment.table.eco -->\n</div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
   JST["chart.eco"]=function(e){e||(e={});var n,t=[],s=function(e){return e&&e.ecoSafe?e:e!==void 0&&null!=e?i(e):""},a=e.safe,i=e.escape;return n=e.safe=function(e){if(e&&e.ecoSafe)return e;(void 0===e||null==e)&&(e="");var n=new String(e);return n.ecoSafe=!0,n},i||(i=e.escape=function(e){return(""+e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}),function(){(function(){t.push('<div class="header">\n    <h3>'),this.title&&t.push(s(this.title)),t.push("</h3>\n    <p>"),this.description&&t.push(this.description),t.push("</p>\n    "),this.notAnalysed?(t.push("\n        <p>Number of "),t.push(s(this.type)),t.push("s in this list not analysed in this widget: <a>"),t.push(s(this.notAnalysed)),t.push("</a></p>\n    ")):t.push("\n        <p>All items in your list have been analysed.</p>\n    "),t.push('\n\n    <div class="form">\n        <form style="margin:0">\n            <!-- extra.eco -->\n        </form>\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- chart.actions.eco -->\n    </div>\n</div>\n<div class="content"></div>')}).call(this)}.call(e),e.safe=a,e.escape=i,t.join("")};
@@ -868,175 +868,6 @@
   
     })(InterMineWidget);
     /*
-    models/CoreModel.coffee
-    */
-  
-    /* Core Model for Enrichment and Table Models.
-    */
-  
-    CoreModel = (function(_super) {
-      __extends(CoreModel, _super);
-  
-      function CoreModel() {
-        this.toggleSelected = __bind(this.toggleSelected, this);
-        this.validate = __bind(this.validate, this);      _ref1 = CoreModel.__super__.constructor.apply(this, arguments);
-        return _ref1;
-      }
-  
-      CoreModel.prototype.defaults = {
-        "selected": false
-      };
-  
-      CoreModel.prototype.initialize = function(row, widget) {
-        this.widget = widget;
-        return this.validate(row);
-      };
-  
-      CoreModel.prototype.validate = function(row) {
-        return this.widget.validateType(row, this.spec);
-      };
-  
-      CoreModel.prototype.toggleSelected = function() {
-        return this.set({
-          selected: !this.get("selected")
-        });
-      };
-  
-      return CoreModel;
-  
-    })(Backbone.Model);
-    CoreCollection = (function(_super) {
-      __extends(CoreCollection, _super);
-  
-      function CoreCollection() {
-        _ref2 = CoreCollection.__super__.constructor.apply(this, arguments);
-        return _ref2;
-      }
-  
-      CoreCollection.prototype.model = CoreModel;
-  
-      CoreCollection.prototype.selected = function() {
-        return this.filter(function(row) {
-          return row.get("selected");
-        });
-      };
-  
-      CoreCollection.prototype.toggleSelected = function() {
-        var model, _i, _j, _len, _len1, _ref3, _ref4, _results, _results1;
-  
-        if (this.models.length - this.selected().length) {
-          _ref3 = this.models;
-          _results = [];
-          for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-            model = _ref3[_i];
-            _results.push(model.set({
-              "selected": true
-            }, {
-              'silent': true
-            }));
-          }
-          return _results;
-        } else {
-          _ref4 = this.models;
-          _results1 = [];
-          for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
-            model = _ref4[_j];
-            _results1.push(model.set({
-              "selected": false
-            }, {
-              'silent': true
-            }));
-          }
-          return _results1;
-        }
-      };
-  
-      return CoreCollection;
-  
-    })(Backbone.Collection);
-    /* Models underpinning Enrichment Widget results.
-    */
-  
-    EnrichmentRow = (function(_super) {
-      __extends(EnrichmentRow, _super);
-  
-      function EnrichmentRow() {
-        _ref3 = EnrichmentRow.__super__.constructor.apply(this, arguments);
-        return _ref3;
-      }
-  
-      EnrichmentRow.prototype.spec = {
-        "description": type.isString,
-        "identifier": type.isString,
-        "matches": type.isInteger,
-        "p-value": type.isInteger,
-        "selected": type.isBoolean,
-        "externalLink": type.isString
-      };
-  
-      EnrichmentRow.prototype.toJSON = function() {
-        var attributes;
-  
-        attributes = _.clone(this.attributes);
-        if (attributes['p-value'] < 0.001) {
-          attributes['p-value'] = attributes['p-value'].toExponential(6);
-        } else {
-          attributes['p-value'] = attributes['p-value'].toFixed(6);
-        }
-        return attributes;
-      };
-  
-      return EnrichmentRow;
-  
-    })(CoreModel);
-    EnrichmentResults = (function(_super) {
-      __extends(EnrichmentResults, _super);
-  
-      function EnrichmentResults() {
-        _ref4 = EnrichmentResults.__super__.constructor.apply(this, arguments);
-        return _ref4;
-      }
-  
-      EnrichmentResults.prototype.model = EnrichmentRow;
-  
-      return EnrichmentResults;
-  
-    })(CoreCollection);
-    /* Models underpinning Table Widget results.
-    */
-  
-    TableRow = (function(_super) {
-      __extends(TableRow, _super);
-  
-      function TableRow() {
-        _ref5 = TableRow.__super__.constructor.apply(this, arguments);
-        return _ref5;
-      }
-  
-      TableRow.prototype.spec = {
-        "matches": type.isInteger,
-        "identifier": type.isInteger,
-        "descriptions": type.isArray,
-        "selected": type.isBoolean
-      };
-  
-      return TableRow;
-  
-    })(CoreModel);
-    TableResults = (function(_super) {
-      __extends(TableResults, _super);
-  
-      function TableResults() {
-        _ref6 = TableResults.__super__.constructor.apply(this, arguments);
-        return _ref6;
-      }
-  
-      TableResults.prototype.model = TableRow;
-  
-      return TableResults;
-  
-    })(CoreCollection);
-    /*
     views/EnrichmentLengthCorrectionView.coffee
     */
   
@@ -1051,8 +882,8 @@
         this.toggleCull = __bind(this.toggleCull, this);
         this.hideHelp = __bind(this.hideHelp, this);
         this.showHelp = __bind(this.showHelp, this);
-        this.render = __bind(this.render, this);      _ref7 = EnrichmentLengthCorrectionView.__super__.constructor.apply(this, arguments);
-        return _ref7;
+        this.render = __bind(this.render, this);      _ref1 = EnrichmentLengthCorrectionView.__super__.constructor.apply(this, arguments);
+        return _ref1;
       }
   
       EnrichmentLengthCorrectionView.prototype.help = "Depending on the type of experiment your data comes from, it is sometimes \nnecessary to normalize by gene length in order to get the correct p-values. \nIf your data comes from a genome-wide binding experiment such as ChIP-seq \nor DamID, binding intervals are more likely to be associated with longer \ngenes than shorter ones, and you should therefore normalize by gene length. \nThis is not the case for experiments such as gene expression studies, where \ngene length does not play a role in the likelihood that a particular set of \ngenes will be overrepresented in the list.";
@@ -1126,8 +957,8 @@
         this.formAction = __bind(this.formAction, this);
         this.renderTableBody = __bind(this.renderTableBody, this);
         this.renderTable = __bind(this.renderTable, this);
-        this.renderToolbar = __bind(this.renderToolbar, this);      _ref8 = EnrichmentView.__super__.constructor.apply(this, arguments);
-        return _ref8;
+        this.renderToolbar = __bind(this.renderToolbar, this);      _ref2 = EnrichmentView.__super__.constructor.apply(this, arguments);
+        return _ref2;
       }
   
       EnrichmentView.prototype.events = {
@@ -1213,7 +1044,7 @@
       };
   
       EnrichmentView.prototype.renderTable = function() {
-        var height, i, table, _fn, _i, _ref9,
+        var height, i, table, _fn, _i, _ref3,
           _this = this;
   
         $(this.el).find("div.content").html($(this.template("enrichment.table", {
@@ -1230,7 +1061,7 @@
           row = new EnrichmentRow(data, _this.widget);
           return _this.collection.add(row);
         };
-        for (i = _i = 0, _ref9 = this.response.results.length; 0 <= _ref9 ? _i < _ref9 : _i > _ref9; i = 0 <= _ref9 ? ++_i : --_i) {
+        for (i = _i = 0, _ref3 = this.response.results.length; 0 <= _ref3 ? _i < _ref3 : _i > _ref3; i = 0 <= _ref3 ? ++_i : --_i) {
           _fn(i);
         }
         this.renderTableBody(table);
@@ -1246,12 +1077,12 @@
       };
   
       EnrichmentView.prototype.renderTableBody = function(table) {
-        var fragment, row, _i, _len, _ref9;
+        var fragment, row, _i, _len, _ref3;
   
         fragment = document.createDocumentFragment();
-        _ref9 = this.collection.models;
-        for (_i = 0, _len = _ref9.length; _i < _len; _i++) {
-          row = _ref9[_i];
+        _ref3 = this.collection.models;
+        for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
+          row = _ref3[_i];
           fragment.appendChild(new EnrichmentRowView({
             "model": row,
             "template": this.template,
@@ -1326,7 +1157,7 @@
       };
   
       EnrichmentView.prototype.viewAction = function() {
-        var descriptions, model, rowIdentifiers, selected, _i, _len, _ref9;
+        var descriptions, model, rowIdentifiers, selected, _i, _len, _ref3;
   
         selected = this.collection.selected();
         if (!selected.length) {
@@ -1340,8 +1171,8 @@
           rowIdentifiers.push(model.get('identifier'));
         }
         if (rowIdentifiers.length) {
-          if ((_ref9 = this.popoverView) != null) {
-            _ref9.remove();
+          if ((_ref3 = this.popoverView) != null) {
+            _ref3.remove();
           }
           return $(this.el).find('div.actions').after((this.popoverView = new EnrichmentPopoverView({
             "identifiers": rowIdentifiers,
@@ -1389,8 +1220,8 @@
         this.viewBarsAction = __bind(this.viewBarsAction, this);
         this.viewBarAction = __bind(this.viewBarAction, this);
         this.keypressAction = __bind(this.keypressAction, this);
-        this.renderToolbar = __bind(this.renderToolbar, this);      _ref9 = ChartView.__super__.constructor.apply(this, arguments);
-        return _ref9;
+        this.renderToolbar = __bind(this.renderToolbar, this);      _ref3 = ChartView.__super__.constructor.apply(this, arguments);
+        return _ref3;
       }
   
       ChartView.prototype.chartOptions = {
@@ -1547,14 +1378,14 @@
       };
   
       ChartView.prototype.viewBarAction = function(chart) {
-        var column, description, quickPq, resultsPq, row, selection, _ref10;
+        var column, description, quickPq, resultsPq, row, selection, _ref4;
   
         if (this.barView != null) {
           this.barView.close();
         }
         selection = chart.getSelection()[0];
         if (this.multiselect) {
-          if ((_ref10 = this.selection) == null) {
+          if ((_ref4 = this.selection) == null) {
             this.selection = [];
           }
           return this.selection.push(selection);
@@ -1602,12 +1433,12 @@
       };
   
       ChartView.prototype.viewBarsAction = function(selections) {
-        var a, b, bag, category, code, constraint, constraints, field, getConstraint, i, orLogic, pq, selection, series, _i, _len, _ref10;
+        var a, b, bag, category, code, constraint, constraints, field, getConstraint, i, orLogic, pq, selection, series, _i, _len, _ref4;
   
         pq = JSON.parse(this.response.pathQuery);
-        _ref10 = pq.where;
-        for (i in _ref10) {
-          field = _ref10[i];
+        _ref4 = pq.where;
+        for (i in _ref4) {
+          field = _ref4[i];
           switch (field.value) {
             case '%category':
               category = field;
@@ -1672,15 +1503,15 @@
       };
   
       ChartView.prototype.viewAllAction = function() {
-        var field, i, pq, rem, _i, _len, _ref10, _ref11;
+        var field, i, pq, rem, _i, _len, _ref4, _ref5;
   
         pq = JSON.parse(this.response.pathQuery);
-        _ref10 = ['%category', '%series'];
-        for (_i = 0, _len = _ref10.length; _i < _len; _i++) {
-          rem = _ref10[_i];
-          _ref11 = pq.where;
-          for (i in _ref11) {
-            field = _ref11[i];
+        _ref4 = ['%category', '%series'];
+        for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+          rem = _ref4[_i];
+          _ref5 = pq.where;
+          for (i in _ref5) {
+            field = _ref5[i];
             if ((field != null ? field.value : void 0) === rem) {
               pq.where.splice(i, 1);
               break;
@@ -1691,12 +1522,12 @@
       };
   
       ChartView.prototype.viewSeriesAction = function(pathQuery) {
-        var field, i, pq, _ref10;
+        var field, i, pq, _ref4;
   
         pq = JSON.parse(pathQuery);
-        _ref10 = pq.where;
-        for (i in _ref10) {
-          field = _ref10[i];
+        _ref4 = pq.where;
+        for (i in _ref4) {
+          field = _ref4[i];
           if ((field != null ? field.value : void 0) === '%category') {
             pq.where.splice(i, 1);
             break;
@@ -1731,8 +1562,8 @@
         this.toggle = __bind(this.toggle, this);
         this.adjustPopover = __bind(this.adjustPopover, this);
         this.renderValues = __bind(this.renderValues, this);
-        this.render = __bind(this.render, this);      _ref10 = EnrichmentPopoverView.__super__.constructor.apply(this, arguments);
-        return _ref10;
+        this.render = __bind(this.render, this);      _ref4 = EnrichmentPopoverView.__super__.constructor.apply(this, arguments);
+        return _ref4;
       }
   
       EnrichmentPopoverView.prototype.descriptionLimit = 50;
@@ -1784,11 +1615,11 @@
         for (_i = 0, _len = response.length; _i < _len; _i++) {
           object = response[_i];
           value = (function(object) {
-            var column, _j, _len1, _ref11;
+            var column, _j, _len1, _ref5;
   
-            _ref11 = object.reverse();
-            for (_j = 0, _len1 = _ref11.length; _j < _len1; _j++) {
-              column = _ref11[_j];
+            _ref5 = object.reverse();
+            for (_j = 0, _len1 = _ref5.length; _j < _len1; _j++) {
+              column = _ref5[_j];
               if (column && column.length > 0) {
                 return column;
               }
@@ -1884,8 +1715,8 @@
         this.selectAllAction = __bind(this.selectAllAction, this);
         this.renderTableBody = __bind(this.renderTableBody, this);
         this.renderTable = __bind(this.renderTable, this);
-        this.renderToolbar = __bind(this.renderToolbar, this);      _ref11 = TableView.__super__.constructor.apply(this, arguments);
-        return _ref11;
+        this.renderToolbar = __bind(this.renderToolbar, this);      _ref5 = TableView.__super__.constructor.apply(this, arguments);
+        return _ref5;
       }
   
       TableView.prototype.events = {
@@ -1933,7 +1764,7 @@
       };
   
       TableView.prototype.renderTable = function() {
-        var height, i, table, _fn, _i, _ref12,
+        var height, i, table, _fn, _i, _ref6,
           _this = this;
   
         $(this.el).find("div.content").html($(this.template("table.table", {
@@ -1946,7 +1777,7 @@
           row = new TableRow(_this.response.results[i], _this.widget);
           return _this.collection.add(row);
         };
-        for (i = _i = 0, _ref12 = this.response.results.length; 0 <= _ref12 ? _i < _ref12 : _i > _ref12; i = 0 <= _ref12 ? ++_i : --_i) {
+        for (i = _i = 0, _ref6 = this.response.results.length; 0 <= _ref6 ? _i < _ref6 : _i > _ref6; i = 0 <= _ref6 ? ++_i : --_i) {
           _fn(i);
         }
         this.renderTableBody(table);
@@ -1962,12 +1793,12 @@
       };
   
       TableView.prototype.renderTableBody = function(table) {
-        var fragment, row, _i, _len, _ref12;
+        var fragment, row, _i, _len, _ref6;
   
         fragment = document.createDocumentFragment();
-        _ref12 = this.collection.models;
-        for (_i = 0, _len = _ref12.length; _i < _len; _i++) {
-          row = _ref12[_i];
+        _ref6 = this.collection.models;
+        for (_i = 0, _len = _ref6.length; _i < _len; _i++) {
+          row = _ref6[_i];
           fragment.appendChild(new TableRowView({
             "model": row,
             "template": this.template,
@@ -2010,7 +1841,7 @@
       };
   
       TableView.prototype.viewAction = function() {
-        var descriptions, model, rowIdentifiers, selected, _i, _len, _ref12;
+        var descriptions, model, rowIdentifiers, selected, _i, _len, _ref6;
   
         selected = this.collection.selected();
         if (!selected.length) {
@@ -2024,8 +1855,8 @@
           rowIdentifiers.push(model.get('identifier'));
         }
         if (rowIdentifiers.length) {
-          if ((_ref12 = this.popoverView) != null) {
-            _ref12.remove();
+          if ((_ref6 = this.popoverView) != null) {
+            _ref6.remove();
           }
           return $(this.el).find('div.actions').after((this.popoverView = new TablePopoverView({
             "identifiers": rowIdentifiers,
@@ -2063,8 +1894,8 @@
         this.resultsAction = __bind(this.resultsAction, this);
         this.matchAction = __bind(this.matchAction, this);
         this.renderValues = __bind(this.renderValues, this);
-        this.render = __bind(this.render, this);      _ref12 = TablePopoverView.__super__.constructor.apply(this, arguments);
-        return _ref12;
+        this.render = __bind(this.render, this);      _ref6 = TablePopoverView.__super__.constructor.apply(this, arguments);
+        return _ref6;
       }
   
       TablePopoverView.prototype.descriptionLimit = 50;
@@ -2192,8 +2023,8 @@
         this.resultsAction = __bind(this.resultsAction, this);
         this.matchAction = __bind(this.matchAction, this);
         this.renderValues = __bind(this.renderValues, this);
-        this.render = __bind(this.render, this);      _ref13 = ChartPopoverView.__super__.constructor.apply(this, arguments);
-        return _ref13;
+        this.render = __bind(this.render, this);      _ref7 = ChartPopoverView.__super__.constructor.apply(this, arguments);
+        return _ref7;
       }
   
       ChartPopoverView.prototype.descriptionLimit = 50;
@@ -2285,8 +2116,8 @@
       function TableRowView() {
         this.toggleMatchesAction = __bind(this.toggleMatchesAction, this);
         this.selectAction = __bind(this.selectAction, this);
-        this.render = __bind(this.render, this);      _ref14 = TableRowView.__super__.constructor.apply(this, arguments);
-        return _ref14;
+        this.render = __bind(this.render, this);      _ref8 = TableRowView.__super__.constructor.apply(this, arguments);
+        return _ref8;
       }
   
       TableRowView.prototype.tagName = "tr";
@@ -2360,8 +2191,8 @@
         this.filterAction = __bind(this.filterAction, this);
         this.toggleAction = __bind(this.toggleAction, this);
         this.renderLists = __bind(this.renderLists, this);
-        this.render = __bind(this.render, this);      _ref15 = EnrichmentPopulationView.__super__.constructor.apply(this, arguments);
-        return _ref15;
+        this.render = __bind(this.render, this);      _ref9 = EnrichmentPopulationView.__super__.constructor.apply(this, arguments);
+        return _ref9;
       }
   
       EnrichmentPopulationView.prototype.events = {
@@ -2415,12 +2246,12 @@
             _this.query = query;
             re = new RegExp("" + query + ".*", 'i');
             return _this.renderLists((function() {
-              var _i, _len, _ref16, _results;
+              var _i, _len, _ref10, _results;
   
-              _ref16 = this.lists;
+              _ref10 = this.lists;
               _results = [];
-              for (_i = 0, _len = _ref16.length; _i < _len; _i++) {
-                l = _ref16[_i];
+              for (_i = 0, _len = _ref10.length; _i < _len; _i++) {
+                l = _ref10[_i];
                 if (l.name.match(re)) {
                   _results.push(l);
                 }
@@ -2456,8 +2287,8 @@
       function EnrichmentRowView() {
         this.toggleMatchesAction = __bind(this.toggleMatchesAction, this);
         this.selectAction = __bind(this.selectAction, this);
-        this.render = __bind(this.render, this);      _ref16 = EnrichmentRowView.__super__.constructor.apply(this, arguments);
-        return _ref16;
+        this.render = __bind(this.render, this);      _ref10 = EnrichmentRowView.__super__.constructor.apply(this, arguments);
+        return _ref10;
       }
   
       EnrichmentRowView.prototype.tagName = "tr";
@@ -2515,12 +2346,180 @@
       return EnrichmentRowView;
   
     })(Backbone.View);
+    /*
+    models/CoreModel.coffee
+    */
+  
+    /* Core Model for Enrichment and Table Models.
+    */
+  
+    CoreModel = (function(_super) {
+      __extends(CoreModel, _super);
+  
+      function CoreModel() {
+        this.toggleSelected = __bind(this.toggleSelected, this);
+        this.validate = __bind(this.validate, this);      _ref11 = CoreModel.__super__.constructor.apply(this, arguments);
+        return _ref11;
+      }
+  
+      CoreModel.prototype.defaults = {
+        "selected": false
+      };
+  
+      CoreModel.prototype.initialize = function(row, widget) {
+        this.widget = widget;
+        return this.validate(row);
+      };
+  
+      CoreModel.prototype.validate = function(row) {
+        return this.widget.validateType(row, this.spec);
+      };
+  
+      CoreModel.prototype.toggleSelected = function() {
+        return this.set({
+          selected: !this.get("selected")
+        });
+      };
+  
+      return CoreModel;
+  
+    })(Backbone.Model);
+    CoreCollection = (function(_super) {
+      __extends(CoreCollection, _super);
+  
+      function CoreCollection() {
+        _ref12 = CoreCollection.__super__.constructor.apply(this, arguments);
+        return _ref12;
+      }
+  
+      CoreCollection.prototype.model = CoreModel;
+  
+      CoreCollection.prototype.selected = function() {
+        return this.filter(function(row) {
+          return row.get("selected");
+        });
+      };
+  
+      CoreCollection.prototype.toggleSelected = function() {
+        var model, _i, _j, _len, _len1, _ref13, _ref14, _results, _results1;
+  
+        if (this.models.length - this.selected().length) {
+          _ref13 = this.models;
+          _results = [];
+          for (_i = 0, _len = _ref13.length; _i < _len; _i++) {
+            model = _ref13[_i];
+            _results.push(model.set({
+              "selected": true
+            }, {
+              'silent': true
+            }));
+          }
+          return _results;
+        } else {
+          _ref14 = this.models;
+          _results1 = [];
+          for (_j = 0, _len1 = _ref14.length; _j < _len1; _j++) {
+            model = _ref14[_j];
+            _results1.push(model.set({
+              "selected": false
+            }, {
+              'silent': true
+            }));
+          }
+          return _results1;
+        }
+      };
+  
+      return CoreCollection;
+  
+    })(Backbone.Collection);
+    /* Models underpinning Enrichment Widget results.
+    */
+  
+    EnrichmentRow = (function(_super) {
+      __extends(EnrichmentRow, _super);
+  
+      function EnrichmentRow() {
+        _ref13 = EnrichmentRow.__super__.constructor.apply(this, arguments);
+        return _ref13;
+      }
+  
+      EnrichmentRow.prototype.spec = {
+        "description": type.isString,
+        "identifier": type.isString,
+        "matches": type.isInteger,
+        "p-value": type.isInteger,
+        "selected": type.isBoolean,
+        "externalLink": type.isString
+      };
+  
+      EnrichmentRow.prototype.toJSON = function() {
+        var attributes;
+  
+        attributes = _.clone(this.attributes);
+        if (attributes['p-value'] < 0.001) {
+          attributes['p-value'] = attributes['p-value'].toExponential(6);
+        } else {
+          attributes['p-value'] = attributes['p-value'].toFixed(6);
+        }
+        return attributes;
+      };
+  
+      return EnrichmentRow;
+  
+    })(CoreModel);
+    EnrichmentResults = (function(_super) {
+      __extends(EnrichmentResults, _super);
+  
+      function EnrichmentResults() {
+        _ref14 = EnrichmentResults.__super__.constructor.apply(this, arguments);
+        return _ref14;
+      }
+  
+      EnrichmentResults.prototype.model = EnrichmentRow;
+  
+      return EnrichmentResults;
+  
+    })(CoreCollection);
+    /* Models underpinning Table Widget results.
+    */
+  
+    TableRow = (function(_super) {
+      __extends(TableRow, _super);
+  
+      function TableRow() {
+        _ref15 = TableRow.__super__.constructor.apply(this, arguments);
+        return _ref15;
+      }
+  
+      TableRow.prototype.spec = {
+        "matches": type.isInteger,
+        "identifier": type.isInteger,
+        "descriptions": type.isArray,
+        "selected": type.isBoolean
+      };
+  
+      return TableRow;
+  
+    })(CoreModel);
+    TableResults = (function(_super) {
+      __extends(TableResults, _super);
+  
+      function TableResults() {
+        _ref16 = TableResults.__super__.constructor.apply(this, arguments);
+        return _ref16;
+      }
+  
+      TableResults.prototype.model = TableRow;
+  
+      return TableResults;
+  
+    })(CoreCollection);
     return {
       'TableWidget': TableWidget,
       'EnrichmentWidget': EnrichmentWidget,
       'ChartWidget': ChartWidget,
       'InterMineWidget': InterMineWidget,
-      'CoreModel': CoreModel,
       'EnrichmentLengthCorrectionView': EnrichmentLengthCorrectionView,
       'EnrichmentView': EnrichmentView,
       'ChartView': ChartView,
@@ -2530,7 +2529,8 @@
       'ChartPopoverView': ChartPopoverView,
       'TableRowView': TableRowView,
       'EnrichmentPopulationView': EnrichmentPopulationView,
-      'EnrichmentRowView': EnrichmentRowView
+      'EnrichmentRowView': EnrichmentRowView,
+      'CoreModel': CoreModel
     };
   };
   
@@ -2683,7 +2683,7 @@
         } else {
           _this.wait = true;
           return $.ajax({
-            'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
+            'url': "" + _this.service + "lists?token=" + _this.token,
             'dataType': 'jsonp',
             success: function(data) {
               if (data.statusCode !== 200 && (data.lists == null)) {
@@ -2759,7 +2759,7 @@
           return setTimeout(wait, 20);
         }
         return $.ajax({
-          'url': "" + _this.service + "widgets?format=json",
+          'url': "" + _this.service + "widgets",
           'dataType': 'jsonp',
           success: function(response) {
             var widget, widgetEl, _i, _len, _ref1, _results;
