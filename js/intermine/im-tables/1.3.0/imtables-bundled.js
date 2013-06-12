@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Fri Jun 07 2013 12:31:30 GMT+0100 (BST)
+ * Built at Tue Jun 11 2013 16:21:36 GMT+0100 (BST)
 */
 
 
@@ -31060,7 +31060,7 @@ Thu Jun 14 13:18:14 BST 2012
 
       url = data.url, host = data.host;
       data.isForeign = url && !url.match(host);
-      data.target = data.isForeign ? 'blank' : '';
+      data.target = data.isForeign ? '_blank' : '';
       return _CELL_HTML(data);
     };
     SubTable = (function(_super) {
@@ -31099,20 +31099,30 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       SubTable.prototype.getSummaryText = function() {
-        var level;
+        var def, level;
 
+        def = jQuery.Deferred();
         if (this.column.isCollection()) {
-          return "" + this.rows.length + " " + (this.column.getType().name) + "s";
+          def.resolve("" + this.rows.length + " " + (this.column.getType().name) + "s");
         } else {
           if (this.rows.length === 0) {
             level = this.query.isOuterJoined(this.view[0]) ? this.query.getPathInfo(this.query.getOuterJoin(this.view[0])) : this.column;
-            return "No " + (level.getType().name);
+            def.resolve("<span class=\"im-no-value\">No " + (level.getType().name) + "</span>");
           } else {
-            return "" + this.rows[0][0].value + " (" + (this.rows[0].slice(1).map(function(c) {
+            def.resolve("" + this.rows[0][0].value + " (" + (this.rows[0].slice(1).map(function(c) {
               return c.value;
-            }).join(', ')) + ")";
+            }).join(', ')) + ")");
           }
         }
+        return def.promise();
+      };
+
+      SubTable.prototype.getEffectiveView = function() {
+        var columns;
+
+        return columns = this.rows[0].map(function(cell) {
+          return cell.column;
+        });
       };
 
       SubTable.prototype.renderHead = function(headers) {
@@ -31229,8 +31239,11 @@ Thu Jun 14 13:18:14 BST 2012
         var icon, summary;
 
         icon = this.rows.length > 0 ? '<i class=icon-table></i>' : '<i class=icon-non-existent></i>';
-        summary = $("<span class=\"im-subtable-summary\">\n  " + icon + "&nbsp;" + (this.getSummaryText()) + "\n</span>");
+        summary = $("<span class=\"im-subtable-summary\">\n  " + icon + "&nbsp;\n</span>");
         summary.appendTo(this.$el);
+        this.getSummaryText().done(function(content) {
+          return summary.append(content);
+        });
         this.$el.append("<table class=\"im-subtable table table-condensed table-striped\">\n  <thead><tr></tr></thead>\n  <tbody></tbody>\n</table>");
         return this;
       };
@@ -33178,7 +33191,7 @@ Thu Jun 14 13:18:14 BST 2012
 
     })(FacetView);
     PieFacet = (function(_super) {
-      var basicOps, getChartPalette, negateOps;
+      var IGNORE_E, basicOps, getChartPalette, negateOps;
 
       __extends(PieFacet, _super);
 
@@ -33238,14 +33251,17 @@ Thu Jun 14 13:18:14 BST 2012
         return ret;
       };
 
+      IGNORE_E = function(e) {
+        console.log("Ignoring an event");
+        e.preventDefault();
+        return e.stopPropagation();
+      };
+
       PieFacet.prototype.events = function() {
         var _this = this;
 
         return {
-          'submit .im-facet form': function(e) {
-            e.preventDefault();
-            return e.stopPropagation();
-          },
+          'submit .im-facet form': IGNORE_E,
           'click .im-filter .btn-cancel': 'resetOptions',
           'click .im-filter .btn-toggle-selection': 'toggleSelection',
           'click .im-export-summary': 'exportSummary',
@@ -33258,9 +33274,7 @@ Thu Jun 14 13:18:14 BST 2012
           },
           'keyup .im-filter-values': 'filterItems',
           'click .im-clear-value-filter': 'clearValueFilter',
-          'click': function(e) {
-            return e.stopPropagation();
-          }
+          'click': IGNORE_E
         };
       };
 
@@ -33717,16 +33731,20 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       FacetRow.prototype.onChangeSelected = function() {
-        var isSelected;
+        var f, isSelected,
+          _this = this;
 
         isSelected = !!this.item.get("selected");
         if (this.item.has("path")) {
           item.get("path").node.setAttribute("class", isSelected ? "selected" : "");
         }
-        this.$el.toggleClass("active", isSelected);
-        if (isSelected !== this.$('input').prop("checked")) {
-          return this.$('input').prop("checked", isSelected);
-        }
+        f = function() {
+          _this.$el.toggleClass("active", isSelected);
+          if (isSelected !== _this.$('input').prop("checked")) {
+            return _this.$('input').prop("checked", isSelected);
+          }
+        };
+        return setTimeout(f, 0);
       };
 
       FacetRow.prototype.events = {
@@ -33756,8 +33774,12 @@ Thu Jun 14 13:18:14 BST 2012
       };
 
       FacetRow.prototype.handleChange = function(e) {
+        var _this = this;
+
         e.stopPropagation();
-        return this.item.set("selected", this.$('input').is(':checked'));
+        return setTimeout((function() {
+          return _this.item.set("selected", _this.$('input').is(':checked'));
+        }), 0);
       };
 
       return FacetRow;
@@ -33967,6 +33989,22 @@ Thu Jun 14 13:18:14 BST 2012
             err = _error;
             console.error(err);
             return;
+          }
+          if (query.isOuterJoined(countQuery.views[0])) {
+            (function(path) {
+              var style, _results;
+
+              style = 'INNER';
+              _results = [];
+              while (!path.isRoot()) {
+                countQuery.addJoin({
+                  path: path,
+                  style: style
+                });
+                _results.push(path = path.getParent());
+              }
+              return _results;
+            })(node);
           }
           unselected = viewNodes.filter(function(n) {
             return n !== node;
