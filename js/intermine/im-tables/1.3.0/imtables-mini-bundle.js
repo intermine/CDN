@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Fri Jun 14 2013 16:34:22 GMT+0100 (BST)
+ * Built at Fri Jun 14 2013 16:36:51 GMT+0100 (BST)
 */
 
 
@@ -18213,9 +18213,7 @@ $.widget("ui.sortable", $.ui.mouse, {
           li.mouseout(function() {
             return query.trigger("stop:highlight");
           });
-          return countQuery.count().fail(function(err) {
-            return console.error("" + (countQuery.toXML()) + " failed", err);
-          }).then(function(n) {
+          return countQuery.count().then(function(n) {
             var quantifier, typeName;
 
             if (n < 1) {
