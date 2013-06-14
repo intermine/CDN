@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jun 13 2013 17:31:39 GMT+0100 (BST)
+ * Built at Fri Jun 14 2013 16:34:22 GMT+0100 (BST)
 */
 
 
@@ -10718,6 +10718,8 @@
     var ListManager, _ref;
 
     return ListManager = (function(_super) {
+      var descendedFrom, pathOf;
+
       __extends(ListManager, _super);
 
       function ListManager() {
@@ -10774,6 +10776,23 @@
         return dialog.startPicking();
       };
 
+      descendedFrom = function(putativeParent) {
+        var prefix;
+
+        if (putativeParent.isAttribute()) {
+          return function() {
+            return false;
+          };
+        } else {
+          prefix = putativeParent + '.';
+          return function(suspectedChild) {
+            return suspectedChild.substring(0, prefix.length) === prefix;
+          };
+        }
+      };
+
+      pathOf = intermine.funcutils.get('path');
+
       ListManager.prototype.updateTypeOptions = function() {
         var node, query, ul, viewNodes, _fn, _i, _len,
           _this = this;
@@ -10783,7 +10802,7 @@
         query = this.states.currentQuery;
         viewNodes = query.getViewNodes();
         _fn = function(node) {
-          var countQuery, err, inCons, li, missingNode, ns, unselected, _j, _len1;
+          var countQuery, err, inCons, li, missingNode, needsAsserting, unselected, _j, _len1;
 
           li = $("<li></li>");
           ul.append(li);
@@ -10816,11 +10835,9 @@
           });
           for (_j = 0, _len1 = unselected.length; _j < _len1; _j++) {
             missingNode = unselected[_j];
-            ns = missingNode.toPathString();
-            inCons = _.any(query.constraints, function(c) {
-              return c.path.substring(0, ns.length) === ns;
-            });
-            if (!(inCons || query.isOuterJoined(missingNode))) {
+            inCons = _.any(countQuery.constraints, _.compose(descendedFrom(missingNode), pathOf));
+            needsAsserting = (!inCons) || (query.isOuterJoined(missingNode));
+            if (needsAsserting) {
               countQuery.addConstraint([missingNode.append("id"), "IS NOT NULL"]);
             }
           }
@@ -10834,7 +10851,9 @@
           li.mouseout(function() {
             return query.trigger("stop:highlight");
           });
-          return countQuery.count(function(n) {
+          return countQuery.count().fail(function(err) {
+            return console.error("" + (countQuery.toXML()) + " failed", err);
+          }).then(function(n) {
             var quantifier, typeName;
 
             if (n < 1) {
