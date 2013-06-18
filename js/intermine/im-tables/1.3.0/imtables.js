@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Fri Jun 14 2013 16:36:51 GMT+0100 (BST)
+ * Built at Tue Jun 18 2013 16:57:14 GMT+0100 (BST)
 */
 
 
@@ -5717,32 +5717,6 @@
 
   define('html/new-list', function() {
     return "<div class=\"modal im-list-creation-dialogue\">\n    <div class=\"modal-header\">\n        <a class=\"close btn-cancel\">close</a>\n        <a class=\"im-minimise\">&nbsp;</a>\n        <h2>List Details</h2>\n    </div>\n    <div class=\"modal-body\">\n        <form class=\"form form-horizontal\">\n            <p class=\"im-list-summary\"></p>\n            <fieldset class=\"control-group\">\n                <label>Name</label>\n                <input class=\"im-list-name span10\" type=\"text\" placeholder=\"required identifier\">\n                <span class=\"help-inline\"></span>\n            </fieldset>\n            <fieldset class=\"control-group\">\n                <label>Description</label>\n                <input class=\"im-list-desc span10\" type=\"text\" placeholder=\"an optional description\" >\n            </fieldset>\n            <fieldset class=\"control-group im-tag-options\">\n                <label>Add Tags</label>\n                <input type=\"text\" class=\"im-available-tags input-medium\" placeholder=\"categorize your list\">\n                <button class=\"btn im-confirm-tag\" disabled>Add</button>\n                <ul class=\"im-list-tags choices well\">\n                    <div style=\"clear:both\"></div>\n                </ul>\n                <h5><i class=\"icon-chevron-down\"></i>Suggested Tags</h5>\n                <ul class=\"im-list-tags suggestions well\">\n                    <div style=\"clear:both\"></div>\n                </ul>\n            </fieldset>\n            <input type=\"hidden\" class=\"im-list-type\">\n        </form>\n        <div class=\"alert alert-info im-selection-instruction\">\n            <b>Get started!</b> Choose items from the table below.\n            You can move this dialogue around by dragging it, if you \n            need access to a column it is covering up.\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <div class=\"btn-group\">\n            <button class=\"btn btn-primary\">Create</button>\n            <button class=\"btn btn-cancel\">Cancel</button>\n            <button class=\"btn btn-reset\">Reset</button>\n        </div>\n    </div>\n</div>";
-  });
-
-  scope("intermine.results.formatters", {
-    Manager: function(model) {
-      var data, id, needs, p;
-
-      id = model.get('id');
-      needs = ['title', 'name'];
-      if (!((model._fetching != null) || _.all(needs, function(n) {
-        return model.has(n);
-      }))) {
-        model._fetching = p = this.options.query.service.findById('Manager', id);
-        p.done(function(manager) {
-          return model.set(manager);
-        });
-      }
-      data = _.defaults(model.toJSON(), {
-        title: '',
-        name: ''
-      });
-      return _.template("<%- title %> <%- name %>", data);
-    }
-  });
-
-  scope('intermine.results.formatsets.testmodel', {
-    'Manager.name': true
   });
 
   define('formatters/bio/core/chromosome-location', function() {
