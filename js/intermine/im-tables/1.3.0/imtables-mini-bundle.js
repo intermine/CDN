@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Jun 18 2013 16:57:14 GMT+0100 (BST)
+ * Built at Wed Jun 19 2013 16:26:53 GMT+0100 (BST)
 */
 
 
@@ -19332,20 +19332,27 @@ $.widget("ui.sortable", $.ui.mouse, {
   });
 
   scope("intermine.results", {
-    getFormatter: function(model, type) {
-      var formatter, t, types, _i, _len, _ref, _ref1;
+    getFormatter: function(path) {
+      var a, ancestors, cd, fieldName, formats, formatter, _i, _len, _ref;
 
-      formatter = null;
-      if (type == null) {
-        _ref1 = [model.model, (_ref = model.getParent()) != null ? _ref.getType() : void 0], model = _ref1[0], type = _ref1[1];
+      if (path == null) {
+        return null;
       }
-      type = type.name || type;
-      types = [type].concat(model.getAncestorsOf(type));
-      for (_i = 0, _len = types.length; _i < _len; _i++) {
-        t = types[_i];
-        formatter || (formatter = intermine.results.formatters[t]);
+      cd = path.isAttribute() ? path.getParent().getType() : path.getType();
+      ancestors = [cd.name].concat(path.model.getAncestorsOf(cd.name));
+      formats = (_ref = intermine.results.formatsets[path.model.name]) != null ? _ref : {};
+      fieldName = path.end.name;
+      for (_i = 0, _len = ancestors.length; _i < _len; _i++) {
+        a = ancestors[_i];
+        formatter = formats["" + a + ".*"] || formats["" + a + "." + fieldName];
+        if (formatter === true) {
+          formatter = intermine.results.formatters[a];
+        }
+        if (formatter != null) {
+          return formatter;
+        }
       }
-      return formatter;
+      return null;
     },
     shouldFormat: function(path, formatSet) {
       var a, ancestors, cd, fieldName, formats, formatterAvailable, model, _i, _len, _ref;
@@ -19359,7 +19366,7 @@ $.widget("ui.sortable", $.ui.mouse, {
       }
       cd = path.isAttribute() ? path.getParent().getType() : path.getType();
       fieldName = path.end.name;
-      formatterAvailable = intermine.results.getFormatter(path.model, cd) != null;
+      formatterAvailable = intermine.results.getFormatter(path) != null;
       if (!formatterAvailable) {
         return false;
       }
