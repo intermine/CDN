@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Jun 19 2013 16:26:53 GMT+0100 (BST)
+ * Built at Wed Jun 19 2013 17:07:59 GMT+0100 (BST)
 */
 
 
@@ -26138,7 +26138,7 @@ Thu Jun 14 13:18:14 BST 2012
         name: "UCSC-BED (Browser Extensible Display Format)",
         extension: "bed"
       }, {
-        name: "NCBI compatible FASTA sequence",
+        name: "FASTA sequence",
         extension: "fasta"
       }
     ];
@@ -26360,7 +26360,7 @@ Thu Jun 14 13:18:14 BST 2012
 
         format = this.requestInfo.get('format');
         tab = this.$('.nav-tabs .im-export-format');
-        tab.text("" + format.extension + " format");
+        tab.text("Format: " + format.extension);
         this.$('.im-export-formats input').val([format.extension]);
         return this.$('.im-format-choice').each(function() {
           var inp;
