@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jun 20 2013 10:43:42 GMT+0100 (BST)
+ * Built at Thu Jun 20 2013 14:46:15 GMT+0100 (BST)
 */
 
 
@@ -14506,6 +14506,7 @@ $.widget("ui.sortable", $.ui.mouse, {
               query: _this.query,
               cellify: makeCell,
               blacklistedFormatters: (_ref3 = (_ref4 = _this.table) != null ? _ref4.blacklistedFormatters : void 0) != null ? _ref3 : [],
+              mainTable: _this,
               subtable: obj,
               node: node
             });
@@ -15211,7 +15212,7 @@ $.widget("ui.sortable", $.ui.mouse, {
           return summary.append(content);
         });
         this.$el.append("<table class=\"im-subtable table table-condensed table-striped\">\n  <thead><tr></tr></thead>\n  <tbody></tbody>\n</table>");
-        if (intermine.options.SubtableInitialState === 'open') {
+        if (intermine.options.SubtableInitialState === 'open' || this.options.mainTable.SubtableInitialState === 'open') {
           this.toggleTable();
         }
         return this;
