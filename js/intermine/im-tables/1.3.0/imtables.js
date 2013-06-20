@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Jun 19 2013 17:07:59 GMT+0100 (BST)
+ * Built at Thu Jun 20 2013 10:43:42 GMT+0100 (BST)
 */
 
 
@@ -7830,7 +7830,9 @@
       SubTable.prototype.toggleTable = function(e) {
         var $table, evt;
 
-        e.stopPropagation();
+        if (e != null) {
+          e.stopPropagation();
+        }
         $table = this.$('.im-subtable');
         evt = $table.is(':visible') ? 'subtable:collapsed' : (this.renderTable($table), 'subtable:expanded');
         $table.slideToggle();
@@ -7847,6 +7849,9 @@
           return summary.append(content);
         });
         this.$el.append("<table class=\"im-subtable table table-condensed table-striped\">\n  <thead><tr></tr></thead>\n  <tbody></tbody>\n</table>");
+        if (intermine.options.SubtableInitialState === 'open') {
+          this.toggleTable();
+        }
         return this;
       };
 
