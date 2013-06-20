@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Jun 11 2013 16:21:36 GMT+0100 (BST)
+ * Built at Thu Jun 20 2013 14:46:15 GMT+0100 (BST)
 */
 
 
@@ -286,7 +286,7 @@
   }, true);
 
   (function($) {
-    var ClosableCollection, ERROR, ItemView, Tab, addStylePrefix, copy, getContainer, getOrganisms, getParameter, modelIsBio, numToString, openWindowWithPost, organisable, pluralise, renderError, requiresAuthentication, uniquelyFlat, walk, _ref, _ref1;
+    var ClosableCollection, ERROR, ItemView, Tab, addStylePrefix, copy, getContainer, getOrganisms, getParameter, getReplacedTest, longestCommonPrefix, modelIsBio, numToString, openWindowWithPost, organisable, pluralise, renderError, requiresAuthentication, uniquelyFlat, walk, _ref, _ref1;
 
     walk = function(obj, f) {
       var k, v, _results;
@@ -383,6 +383,41 @@
       return path.getEndClass().name === 'Organism' || (path.getType().fields['organism'] != null);
     };
     uniquelyFlat = _.compose(_.uniq, _.flatten);
+    longestCommonPrefix = function(paths) {
+      var nextPrefix, part, parts, prefix, prefixesAll, _i, _len;
+
+      parts = paths[0].split(/\./);
+      prefix = parts.shift();
+      prefixesAll = function(pf) {
+        return _.all(paths, function(path) {
+          return 0 === path.indexOf(pf);
+        });
+      };
+      for (_i = 0, _len = parts.length; _i < _len; _i++) {
+        part = parts[_i];
+        if (prefixesAll(nextPrefix = "" + prefix + "." + part)) {
+          prefix = nextPrefix;
+        }
+      }
+      return prefix;
+    };
+    getReplacedTest = function(replacedBy, explicitReplacements) {
+      return function(col) {
+        var p, replacer;
+
+        p = col.path;
+        if (!(intermine.results.shouldFormat(p) || explicitReplacements[p])) {
+          return false;
+        }
+        replacer = replacedBy[p];
+        if (p.isAttribute() && p.end.name === 'id') {
+          if (replacer == null) {
+            replacer = replacedBy[p.getParent()];
+          }
+        }
+        return replacer && (replacer.formatter != null) && col !== replacer;
+      };
+    };
     getOrganisms = function(query, cb) {
       var c, def, done, mustBe, n, newView, opath, toRun;
 
@@ -560,7 +595,9 @@
       pluralise: pluralise,
       addStylePrefix: addStylePrefix,
       getContainer: getContainer,
-      openWindowWithPost: openWindowWithPost
+      openWindowWithPost: openWindowWithPost,
+      longestCommonPrefix: longestCommonPrefix,
+      getReplacedTest: getReplacedTest
     });
   })(jQuery);
 
@@ -2636,7 +2673,7 @@
         name: "UCSC-BED (Browser Extensible Display Format)",
         extension: "bed"
       }, {
-        name: "NCBI compatible FASTA sequence",
+        name: "FASTA sequence",
         extension: "fasta"
       }
     ];
@@ -2858,7 +2895,7 @@
 
         format = this.requestInfo.get('format');
         tab = this.$('.nav-tabs .im-export-format');
-        tab.text("" + format.extension + " format");
+        tab.text("Format: " + format.extension);
         this.$('.im-export-formats input').val([format.extension]);
         return this.$('.im-format-choice').each(function() {
           var inp;
@@ -5682,32 +5719,6 @@
     return "<div class=\"modal im-list-creation-dialogue\">\n    <div class=\"modal-header\">\n        <a class=\"close btn-cancel\">close</a>\n        <a class=\"im-minimise\">&nbsp;</a>\n        <h2>List Details</h2>\n    </div>\n    <div class=\"modal-body\">\n        <form class=\"form form-horizontal\">\n            <p class=\"im-list-summary\"></p>\n            <fieldset class=\"control-group\">\n                <label>Name</label>\n                <input class=\"im-list-name span10\" type=\"text\" placeholder=\"required identifier\">\n                <span class=\"help-inline\"></span>\n            </fieldset>\n            <fieldset class=\"control-group\">\n                <label>Description</label>\n                <input class=\"im-list-desc span10\" type=\"text\" placeholder=\"an optional description\" >\n            </fieldset>\n            <fieldset class=\"control-group im-tag-options\">\n                <label>Add Tags</label>\n                <input type=\"text\" class=\"im-available-tags input-medium\" placeholder=\"categorize your list\">\n                <button class=\"btn im-confirm-tag\" disabled>Add</button>\n                <ul class=\"im-list-tags choices well\">\n                    <div style=\"clear:both\"></div>\n                </ul>\n                <h5><i class=\"icon-chevron-down\"></i>Suggested Tags</h5>\n                <ul class=\"im-list-tags suggestions well\">\n                    <div style=\"clear:both\"></div>\n                </ul>\n            </fieldset>\n            <input type=\"hidden\" class=\"im-list-type\">\n        </form>\n        <div class=\"alert alert-info im-selection-instruction\">\n            <b>Get started!</b> Choose items from the table below.\n            You can move this dialogue around by dragging it, if you \n            need access to a column it is covering up.\n        </div>\n    </div>\n    <div class=\"modal-footer\">\n        <div class=\"btn-group\">\n            <button class=\"btn btn-primary\">Create</button>\n            <button class=\"btn btn-cancel\">Cancel</button>\n            <button class=\"btn btn-reset\">Reset</button>\n        </div>\n    </div>\n</div>";
   });
 
-  scope("intermine.results.formatters", {
-    Manager: function(model) {
-      var data, id, needs, p;
-
-      id = model.get('id');
-      needs = ['title', 'name'];
-      if (!((model._fetching != null) || _.all(needs, function(n) {
-        return model.has(n);
-      }))) {
-        model._fetching = p = this.options.query.service.findById('Manager', id);
-        p.done(function(manager) {
-          return model.set(manager);
-        });
-      }
-      data = _.defaults(model.toJSON(), {
-        title: '',
-        name: ''
-      });
-      return _.template("<%- title %> <%- name %>", data);
-    }
-  });
-
-  scope('intermine.results.formatsets.testmodel', {
-    'Manager.name': true
-  });
-
   define('formatters/bio/core/chromosome-location', function() {
     var ChrLocFormatter, fetch;
 
@@ -6367,8 +6378,6 @@
 
     })();
     ResultsTable = (function(_super) {
-      var longestCommonPrefix;
-
       __extends(ResultsTable, _super);
 
       function ResultsTable() {
@@ -6627,31 +6636,13 @@
         return header.render().$el.appendTo(tr);
       };
 
-      longestCommonPrefix = function(paths) {
-        var nextPrefix, part, parts, prefix, prefixesAll, _i, _len;
-
-        parts = paths[0].split(/\./);
-        prefix = parts.shift();
-        prefixesAll = function(pf) {
-          return _.all(paths, function(path) {
-            return 0 === path.indexOf(pf);
-          });
-        };
-        for (_i = 0, _len = parts.length; _i < _len; _i++) {
-          part = parts[_i];
-          if (prefixesAll(nextPrefix = "" + prefix + "." + part)) {
-            prefix = nextPrefix;
-          }
-        }
-        return prefix;
-      };
-
       ResultsTable.prototype.getEffectiveView = function(row) {
-        var cell, col, cols, commonPrefix, explicitReplacements, formatter, isReplaced, p, path, q, r, replacedBy, replaces, subPath, v, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _m, _name, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _results;
+        var cell, col, cols, commonPrefix, explicitReplacements, formatter, getReplacedTest, isReplaced, longestCommonPrefix, p, path, q, r, replacedBy, replaces, subPath, v, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _m, _name, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _results;
 
         q = this.query;
         replacedBy = {};
         this.columnHeaders.reset();
+        _ref1 = intermine.utils, longestCommonPrefix = _ref1.longestCommonPrefix, getReplacedTest = _ref1.getReplacedTest;
         cols = (function() {
           var _i, _len, _results;
 
@@ -6660,12 +6651,12 @@
             cell = row[_i];
             path = q.getPathInfo(cell.column);
             replaces = cell.view != null ? (commonPrefix = longestCommonPrefix(cell.view), path = q.getPathInfo(commonPrefix), replaces = (function() {
-              var _j, _len1, _ref1, _results1;
+              var _j, _len1, _ref2, _results1;
 
-              _ref1 = cell.view;
+              _ref2 = cell.view;
               _results1 = [];
-              for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-                v = _ref1[_j];
+              for (_j = 0, _len1 = _ref2.length; _j < _len1; _j++) {
+                v = _ref2[_j];
                 _results1.push(q.getPathInfo(v));
               }
               return _results1;
@@ -6683,18 +6674,18 @@
             continue;
           }
           p = col.path;
-          if ((_ref1 = replacedBy[_name = p.getParent()]) == null) {
+          if ((_ref2 = replacedBy[_name = p.getParent()]) == null) {
             replacedBy[_name] = col;
           }
           formatter = intermine.results.getFormatter(p);
           if (__indexOf.call(this.blacklistedFormatters, formatter) < 0) {
             col.isFormatted = true;
             col.formatter = formatter;
-            _ref3 = (_ref2 = formatter.replaces) != null ? _ref2 : [];
-            for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
-              r = _ref3[_j];
+            _ref4 = (_ref3 = formatter.replaces) != null ? _ref3 : [];
+            for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
+              r = _ref4[_j];
               subPath = "" + (p.getParent()) + "." + r;
-              if ((_ref4 = replacedBy[subPath]) == null) {
+              if ((_ref5 = replacedBy[subPath]) == null) {
                 replacedBy[subPath] = col;
               }
               if (__indexOf.call(q.views, subPath) >= 0) {
@@ -6706,28 +6697,13 @@
         explicitReplacements = {};
         for (_k = 0, _len2 = cols.length; _k < _len2; _k++) {
           col = cols[_k];
-          _ref5 = col.replaces;
-          for (_l = 0, _len3 = _ref5.length; _l < _len3; _l++) {
-            r = _ref5[_l];
+          _ref6 = col.replaces;
+          for (_l = 0, _len3 = _ref6.length; _l < _len3; _l++) {
+            r = _ref6[_l];
             explicitReplacements[r] = col;
           }
         }
-        isReplaced = function(col) {
-          var replacer;
-
-          p = col.path;
-          if (!(intermine.results.shouldFormat(p) || explicitReplacements[p])) {
-            return false;
-          }
-          replacer = replacedBy[p];
-          if (p.isAttribute() && p.end.name === 'id') {
-            if (replacer == null) {
-              replacer = replacedBy[p.getParent()];
-            }
-          }
-          return replacer && (replacer.formatter != null) && col !== replacer;
-        };
-        console.log("header paths are:");
+        isReplaced = getReplacedTest(replacedBy, explicitReplacements);
         _results = [];
         for (_m = 0, _len4 = cols.length; _m < _len4; _m++) {
           col = cols[_m];
@@ -6735,12 +6711,11 @@
             continue;
           }
           if (col.isFormatted) {
-            if (_ref6 = col.path, __indexOf.call(col.replaces, _ref6) < 0) {
+            if (_ref7 = col.path, __indexOf.call(col.replaces, _ref7) < 0) {
               col.replaces.push(col.path);
             }
             col.path = col.path.getParent();
           }
-          console.log(col.path);
           _results.push(this.columnHeaders.add(col));
         }
         return _results;
@@ -7161,13 +7136,15 @@
           return _results;
         }).call(this);
         makeCell = function(obj) {
-          var args, field, model, node, type, _base, _name;
+          var args, field, model, node, type, _base, _name, _ref3, _ref4;
 
           if (_.has(obj, 'rows')) {
             node = _this.query.getPathInfo(obj.column);
             return new intermine.results.table.SubTable({
               query: _this.query,
               cellify: makeCell,
+              blacklistedFormatters: (_ref3 = (_ref4 = _this.table) != null ? _ref4.blacklistedFormatters : void 0) != null ? _ref3 : [],
+              mainTable: _this,
               subtable: obj,
               node: node
             });
@@ -7653,54 +7630,112 @@
       };
 
       SubTable.prototype.getEffectiveView = function() {
-        var columns;
+        var c, cell, col, columns, commonPrefix, explicitReplacements, fieldExpr, formatter, getFormatter, getReplacedTest, isReplaced, longestCommonPrefix, parent, path, r, replacedBy, replaces, row, shouldFormat, subPath, sv, view, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7;
 
-        return columns = this.rows[0].map(function(cell) {
-          return cell.column;
-        });
+        _ref1 = intermine.utils, getReplacedTest = _ref1.getReplacedTest, longestCommonPrefix = _ref1.longestCommonPrefix;
+        _ref2 = intermine.results, shouldFormat = _ref2.shouldFormat, getFormatter = _ref2.getFormatter;
+        row = this.rows[0];
+        replacedBy = {};
+        explicitReplacements = {};
+        columns = (function() {
+          var _i, _len, _ref3, _results;
+
+          _results = [];
+          for (_i = 0, _len = row.length; _i < _len; _i++) {
+            cell = row[_i];
+            _ref3 = cell.view != null ? (commonPrefix = longestCommonPrefix(cell.view), path = this.query.getPathInfo(commonPrefix), [
+              path, (function() {
+                var _j, _len1, _ref3, _results1;
+
+                _ref3 = cell.view;
+                _results1 = [];
+                for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
+                  sv = _ref3[_j];
+                  _results1.push(this.query.getPathInfo(sv));
+                }
+                return _results1;
+              }).call(this)
+            ]) : (path = this.query.getPathInfo(cell.column), [path, [path]]), path = _ref3[0], replaces = _ref3[1];
+            _results.push({
+              path: path,
+              replaces: replaces
+            });
+          }
+          return _results;
+        }).call(this);
+        for (_i = 0, _len = columns.length; _i < _len; _i++) {
+          c = columns[_i];
+          if (!(c.path.isAttribute() && shouldFormat(c.path))) {
+            continue;
+          }
+          parent = c.path.getParent();
+          if ((_ref3 = replacedBy[parent]) == null) {
+            replacedBy[parent] = c;
+          }
+          formatter = getFormatter(c.path);
+          if (__indexOf.call(this.options.blacklistedFormatters, formatter) < 0) {
+            c.isFormatted = true;
+            c.formatter = formatter;
+            _ref5 = (_ref4 = formatter.replaces) != null ? _ref4 : [];
+            for (_j = 0, _len1 = _ref5.length; _j < _len1; _j++) {
+              fieldExpr = _ref5[_j];
+              subPath = this.query.getPathInfo("" + parent + "." + fieldExpr);
+              if ((_ref6 = replacedBy[subPath]) == null) {
+                replacedBy[subPath] = c;
+              }
+              c.replaces.push(subPath);
+            }
+          }
+          _ref7 = c.replaces;
+          for (_k = 0, _len2 = _ref7.length; _k < _len2; _k++) {
+            r = _ref7[_k];
+            explicitReplacements[r] = c;
+          }
+        }
+        isReplaced = getReplacedTest(replacedBy, explicitReplacements);
+        view = [];
+        for (_l = 0, _len3 = columns.length; _l < _len3; _l++) {
+          col = columns[_l];
+          if (!(!isReplaced(col))) {
+            continue;
+          }
+          if (col.isFormatted) {
+            col.path = col.path.getParent();
+          }
+          view.push(col);
+        }
+        return view;
       };
 
-      SubTable.prototype.renderHead = function(headers) {
-        var columns, v, _i, _len, _results,
+      SubTable.prototype.renderHead = function(headers, columns) {
+        var c, tableNamePromise, _i, _len, _results,
           _this = this;
 
-        columns = this.rows[0].map(function(cell) {
-          return cell.column;
-        });
+        tableNamePromise = this.column.getDisplayName();
         _results = [];
         for (_i = 0, _len = columns.length; _i < _len; _i++) {
-          v = columns[_i];
-          _results.push((function(v) {
-            var path, th;
+          c = columns[_i];
+          _results.push((function(c) {
+            var th;
 
             th = $("<th>\n    <i class=\"" + intermine.css.headerIconRemove + "\"></i>\n    <span></span>\n</th>");
             th.find('i').click(function(e) {
-              return _this.query.removeFromSelect(v);
+              return _this.query.removeFromSelect(c.replaces);
             });
-            path = _this.query.getPathInfo(v);
-            _this.column.getDisplayName(function(colName) {
-              var span;
+            $.when(tableNamePromise, c.path.getDisplayName()).then(function(tableName, colName) {
+              var span, text;
 
-              span = th.find('span');
-              if (intermine.results.shouldFormat(path)) {
-                path = path.getParent();
-              }
-              return path.getDisplayName(function(pathName) {
-                if (pathName.match(colName)) {
-                  return span.text(pathName.replace(colName, '').replace(/^\s*>?\s*/, ''));
-                } else {
-                  return span.text(pathName.replace(/^[^>]*\s*>\s*/, ''));
-                }
-              });
+              text = colName.match(tableName) ? colName.replace(tableName, '').replace(/^\s*>?\s*/, '') : colName.replace(/^[^>]*\s*>\s*/, '');
+              return span = th.find('span').text(text);
             });
             return headers.append(th);
-          })(v));
+          })(c));
         }
         return _results;
       };
 
-      SubTable.prototype.appendRow = function(row, tbody) {
-        var cell, tr, w, _fn, _i, _len,
+      SubTable.prototype.appendRow = function(columns, row, tbody) {
+        var c, cell, cells, processed, r, replacedBy, tr, w, _fn, _i, _j, _k, _len, _len1, _len2, _ref1,
           _this = this;
 
         if (tbody == null) {
@@ -7708,20 +7743,52 @@
         }
         tr = $('<tr>');
         w = this.$el.width() / this.view.length;
-        _fn = function(tr, cell) {
-          var view;
-
-          view = _this.cellify(cell);
-          if (intermine.results.shouldFormat(view.path)) {
-            view.formatter = intermine.results.getFormatter(view.path);
-          } else {
-
+        processed = {};
+        replacedBy = {};
+        for (_i = 0, _len = columns.length; _i < _len; _i++) {
+          c = columns[_i];
+          _ref1 = c.replaces;
+          for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+            r = _ref1[_j];
+            replacedBy[r] = c;
           }
-          tr.append(view.el);
-          return view.render().setWidth(w);
+        }
+        cells = row.map(this.cellify);
+        _fn = function(tr, cell) {
+          var formatter, otherC, path, replaces, _l, _len3, _len4, _m, _ref2, _ref3;
+
+          if (processed[cell.path]) {
+            return;
+          }
+          processed[cell.path] = true;
+          _ref3 = (_ref2 = replacedBy[cell.path]) != null ? _ref2 : {}, replaces = _ref3.replaces, formatter = _ref3.formatter, path = _ref3.path;
+          if (replaces.length > 1) {
+            if (!path.equals(cell.path.getParent())) {
+              return;
+            }
+            if ((formatter != null ? formatter.merge : void 0) != null) {
+              for (_l = 0, _len3 = row.length; _l < _len3; _l++) {
+                otherC = row[_l];
+                if (_.any(replaces, function(repl) {
+                  return repl.equals(otherC.path);
+                })) {
+                  formatter.merge(cell.model, otherC.model);
+                }
+              }
+            }
+          }
+          for (_m = 0, _len4 = replaces.length; _m < _len4; _m++) {
+            r = replaces[_m];
+            processed[r] = true;
+          }
+          if (formatter != null) {
+            cell.formatter = formatter;
+          }
+          tr.append(cell.el);
+          return cell.render().setWidth(w);
         };
-        for (_i = 0, _len = row.length; _i < _len; _i++) {
-          cell = row[_i];
+        for (_k = 0, _len2 = cells.length; _k < _len2; _k++) {
+          cell = cells[_k];
           _fn(tr, cell);
         }
         tbody.append(tr);
@@ -7729,7 +7796,7 @@
       };
 
       SubTable.prototype.renderTable = function($table) {
-        var colRoot, colStr, row, tbody, _i, _len, _ref1;
+        var colRoot, colStr, columns, row, tbody, _i, _len, _ref1;
 
         if ($table == null) {
           $table = this.$('.im-subtable');
@@ -7740,16 +7807,17 @@
         colRoot = this.column.getType().name;
         colStr = this.column.toString();
         if (this.rows.length > 0) {
-          this.renderHead($table.find('thead tr'));
+          columns = this.getEffectiveView();
+          this.renderHead($table.find('thead tr'), columns);
           tbody = $table.find('tbody');
           if (this.column.isCollection()) {
             _ref1 = this.rows;
             for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
               row = _ref1[_i];
-              _.defer(this.appendRow, row, tbody);
+              _.defer(this.appendRow, columns, row, tbody);
             }
           } else {
-            this.appendRow(this.rows[0], tbody);
+            this.appendRow(columns, this.rows[0], tbody);
           }
         }
         this.tableRendered = true;
@@ -7763,7 +7831,9 @@
       SubTable.prototype.toggleTable = function(e) {
         var $table, evt;
 
-        e.stopPropagation();
+        if (e != null) {
+          e.stopPropagation();
+        }
         $table = this.$('.im-subtable');
         evt = $table.is(':visible') ? 'subtable:collapsed' : (this.renderTable($table), 'subtable:expanded');
         $table.slideToggle();
@@ -7780,6 +7850,9 @@
           return summary.append(content);
         });
         this.$el.append("<table class=\"im-subtable table table-condensed table-striped\">\n  <thead><tr></tr></thead>\n  <tbody></tbody>\n</table>");
+        if (intermine.options.SubtableInitialState === 'open' || this.options.mainTable.SubtableInitialState === 'open') {
+          this.toggleTable();
+        }
         return this;
       };
 
@@ -8386,7 +8459,7 @@
         css_composed: intermine.icons.Composed
       };
     };
-    TEMPLATE = _.template(" \n<div class=\"im-column-header\">\n  <div class=\"im-th-buttons\">\n    <% if (sortable) { %>\n      <span class=\"im-th-dropdown im-col-sort dropdown\">\n        <a href=\"#\" class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n          <i class=\"icon-sorting <%- css_unsorted %> <%- css_header %>\"></i>\n        </a>\n        <div class=\"dropdown-menu\">\n          <div>Could not intitialise the sorting menu.</div>\n        </div>\n      </span>\n    <% }; %>\n    <a href=\"#\" class=\"im-th-button im-col-remover\"\n       title=\"remove this column\">\n      <i class=\"<%- css_remove %> <%- css_header %>\"></i>\n    </a>\n    <a href=\"#\" class=\"im-th-button im-col-minumaximiser\"\n       title=\"Toggle column\">\n      <i class=\"<%- css_hide %> <%- css_header %>\"></i>\n    </a>\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button im-col-filters dropdown-toggle\"\n         title=\"\"\n         data-toggle=\"dropdown\" >\n        <i class=\"<%- css_filter %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the filter summary.</div>\n      </div>\n    </span>\n    <span class=\"dropdown im-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n        data-toggle=\"dropdown\" >\n        <i class=\"<%- css_summary %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the column summary.</div>\n      </div>\n    </span>\n    <a href=\"#\" class=\"im-th-button im-col-composed\"\n        title=\"Toggle formatting\">\n      <i class=\"<%- css_composed %> <%- css_header %>\"></i>\n    </a>\n  </div>\n  <div class=\"im-col-title\">\n    <%- path %>\n  </div>\n</div>");
+    TEMPLATE = _.template(" \n<div class=\"im-column-header\">\n  <div class=\"im-th-buttons\">\n    <% if (sortable) { %>\n      <span class=\"im-th-dropdown im-col-sort dropdown\">\n        <a href=\"#\" class=\"im-th-button im-col-sort-indicator\" title=\"sort this column\">\n          <i class=\"icon-sorting <%- css_unsorted %> <%- css_header %>\"></i>\n        </a>\n        <div class=\"dropdown-menu\">\n          <div>Could not intitialise the sorting menu.</div>\n        </div>\n      </span>\n    <% }; %>\n    <a href=\"#\" class=\"im-th-button im-col-remover\"\n       title=\"remove this column\">\n      <i class=\"<%- css_remove %> <%- css_header %>\"></i>\n    </a>\n    <a href=\"#\" class=\"im-th-button im-col-minumaximiser\"\n       title=\"Toggle column visibility\">\n      <i class=\"<%- css_hide %> <%- css_header %>\"></i>\n    </a>\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button im-col-filters dropdown-toggle\"\n         title=\"\"\n         data-toggle=\"dropdown\" >\n        <i class=\"<%- css_filter %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the filter summary.</div>\n      </div>\n    </span>\n    <span class=\"dropdown im-summary im-th-dropdown\">\n      <a href=\"#\" class=\"im-th-button summary-img dropdown-toggle\" title=\"column summary\"\n        data-toggle=\"dropdown\" >\n        <i class=\"<%- css_summary %> <%- css_header %>\"></i>\n      </a>\n      <div class=\"dropdown-menu\">\n        <div>Could not ititialise the column summary.</div>\n      </div>\n    </span>\n    <a href=\"#\" class=\"im-th-button im-col-composed\"\n        title=\"Toggle formatting\">\n      <i class=\"<%- css_composed %> <%- css_header %>\"></i>\n    </a>\n  </div>\n  <div class=\"im-col-title\">\n    <%- path %>\n  </div>\n</div>");
     COL_FILTER_TITLE = function(count) {
       if (count > 0) {
         return "" + count + " active filters";
@@ -8500,6 +8573,13 @@
         });
       };
 
+      ColumnHeader.prototype.isComposed = function() {
+        if (this.query.isOuterJoined(this.view)) {
+          return false;
+        }
+        return (this.model.get('replaces') || []).length > 1;
+      };
+
       ColumnHeader.prototype.render = function() {
         var replaces,
           _this = this;
@@ -8517,7 +8597,7 @@
         }).click(function() {
           return _this.query.trigger('formatter:blacklist', _this.view, _this.model.get('formatter'));
         });
-        this.$el.toggleClass('im-is-composed', (replaces != null ? replaces.length : void 0) > 1);
+        this.$el.toggleClass('im-is-composed', this.isComposed());
         this.$('.im-th-button').tooltip({
           placement: this.bestFit,
           container: this.el
@@ -9207,12 +9287,34 @@
       __extends(FrequencyFacet, _super);
 
       function FrequencyFacet() {
-        this.addItem = __bind(this.addItem, this);        _ref2 = FrequencyFacet.__super__.constructor.apply(this, arguments);
+        this.addItem = __bind(this.addItem, this);
+        this.showMore = __bind(this.showMore, this);        _ref2 = FrequencyFacet.__super__.constructor.apply(this, arguments);
         return _ref2;
       }
 
+      FrequencyFacet.prototype.showMore = function(e) {
+        var areVisible, got, more,
+          _this = this;
+
+        more = $(e.target);
+        got = this.$('dd').length();
+        areVisible = this.$('dd').first().is(':visible');
+        e.stopPropagation();
+        e.preventDefault();
+        return this.query.summarise(this.facet.path, function(items) {
+          var item, _i, _len, _ref3;
+
+          _ref3 = items.slice(got);
+          for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
+            item = _ref3[_i];
+            _this.addItem(item).toggle(areVisible);
+          }
+          return more.tooltip('hide').remove();
+        });
+      };
+
       FrequencyFacet.prototype.render = function(filterTerm) {
-        var $progress, getSummary, limit,
+        var $progress, getSummary, limit, placement,
           _this = this;
 
         if (filterTerm == null) {
@@ -9229,8 +9331,9 @@
         getSummary = this.query.filterSummary(this.facet.path, filterTerm, this.limit);
         getSummary.fail(this.remove);
         limit = this.limit;
+        placement = 'left';
         return getSummary.done(function(results, stats, count) {
-          var Vizualization, hasMore, more, summaryView, _ref3;
+          var Vizualization, hasMore, summaryView, _ref3;
 
           _this.query.trigger('got:summary:total', _this.facet.path, stats.uniqueValues, results.length, count);
           $progress.remove();
@@ -9239,26 +9342,9 @@
           }
           hasMore = results.length < limit ? false : stats.uniqueValues > limit;
           if (hasMore) {
-            more = $(MORE_FACETS_HTML).appendTo(_this.$dt).tooltip({
-              placement: 'left'
-            }).click(function(e) {
-              var areVisible, got;
-
-              e.stopPropagation();
-              e.preventDefault();
-              got = _this.$('dd').length();
-              areVisible = _this.$('dd').first().is(':visible');
-              return _this.query.summarise(_this.facet.path, function(items) {
-                var item, _i, _len, _ref4;
-
-                _ref4 = items.slice(got);
-                for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
-                  item = _ref4[_i];
-                  _this.addItem(item).toggle(areVisible);
-                }
-                return more.tooltip('hide').remove();
-              });
-            });
+            $(MORE_FACETS_HTML).appendTo(_this.$dt).tooltip({
+              placement: placement
+            }).click(_this.showMore);
           }
           summaryView = stats.uniqueValues <= 1 ? (_this.$el.empty(), stats.uniqueValues ? intermine.snippets.facets.OnlyOne(results[0]) : "No results") : (Vizualization = _this.getVizualization(stats), new Vizualization(_this.query, _this.facet, results, hasMore, filterTerm));
           _this.$el.append(summaryView.el ? summaryView.el : summaryView);
@@ -9332,9 +9418,27 @@
         return _.extend({}, this._defaults, this.attributes);
       };
 
+      NumericRange.prototype.nullify = function() {
+        var evt, _i, _len, _ref4, _results;
+
+        this.set({
+          min: null,
+          max: null
+        });
+        this.nulled = true;
+        _ref4 = ['change:min', 'change:max', 'change'];
+        _results = [];
+        for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+          evt = _ref4[_i];
+          _results.push(this.trigger(evt, this));
+        }
+        return _results;
+      };
+
       NumericRange.prototype.set = function(name, value) {
         var meth;
 
+        this.nulled = false;
         if (_.isString(name) && (name in this._defaults)) {
           meth = name === 'min' ? 'max' : 'min';
           return NumericRange.__super__.set.call(this, name, Math[meth](this._defaults[name], value));
@@ -9346,6 +9450,9 @@
       NumericRange.prototype.isNotAll = function() {
         var max, min, _ref4;
 
+        if (this.nulled) {
+          return true;
+        }
         _ref4 = this.toJSON(), min = _ref4.min, max = _ref4.max;
         return ((min != null) && min !== this._defaults.min) || ((max != null) && max !== this._defaults.max);
       };
@@ -9354,6 +9461,8 @@
 
     })(Backbone.Model);
     NumericFacet = (function(_super) {
+      var fracWithinRange, getPartialCount, sumCounts;
+
       __extends(NumericFacet, _super);
 
       function NumericFacet() {
@@ -9377,14 +9486,30 @@
           var width, _ref5;
 
           if (_this.shouldDrawBox()) {
-            x = _this.xForVal(_this.range.get('min'));
-            width = _this.xForVal(_this.range.get('max')) - x;
-            return _this.drawSelection(x, width);
+            if (_this.range.nulled) {
+              return _this.drawSelection(0, 25);
+            } else {
+              x = _this.xForVal(_this.range.get('min'));
+              width = _this.xForVal(_this.range.get('max')) - x;
+              return _this.drawSelection(x, width);
+            }
           } else {
             if ((_ref5 = _this.selection) != null) {
               _ref5.remove();
             }
             return _this.selection = null;
+          }
+        });
+        this.range.on('change', function() {
+          var _ref5;
+
+          if (_this.range.isNotAll()) {
+            return _this.drawEstCount();
+          } else {
+            if ((_ref5 = _this.estCount) != null) {
+              _ref5.remove();
+            }
+            return _this.estCount = null;
           }
         });
         this.range.on('reset', function() {
@@ -9413,6 +9538,9 @@
           return _this.range.on("change:" + prop, function(m, val) {
             var _ref6, _ref7;
 
+            if (m.nulled) {
+              _this.$("input.im-range-" + prop).val("null");
+            }
             if (val == null) {
               return;
             }
@@ -9430,7 +9558,7 @@
         return this.range.on('change', function() {
           var changed;
 
-          changed = _this.range.get('min') > _this.min || _this.range.get('max') < _this.max;
+          changed = _this.range.isNotAll();
           return _this.$('.btn').toggleClass("disabled", !changed);
         });
       };
@@ -9463,17 +9591,26 @@
         this.query.constraints = _(this.query.constraints).filter(function(c) {
           return c.path !== fpath;
         });
-        newConstraints = [
-          {
-            path: this.facet.path,
-            op: ">=",
-            value: this.range.get('min')
-          }, {
-            path: this.facet.path,
-            op: "<=",
-            value: this.range.get('max')
-          }
-        ];
+        if (this.range.nulled) {
+          newConstraints = [
+            {
+              path: this.facet.path,
+              op: 'IS NULL'
+            }
+          ];
+        } else {
+          newConstraints = [
+            {
+              path: this.facet.path,
+              op: ">=",
+              value: this.range.get('min')
+            }, {
+              path: this.facet.path,
+              op: "<=",
+              value: this.range.get('max')
+            }
+          ];
+        }
         return this.query.addConstraints(newConstraints);
       };
 
@@ -9653,9 +9790,10 @@
       };
 
       NumericFacet.prototype._drawD3Chart = function(items) {
-        var axis, bottomMargin, chart, container, h, most, n, rects, rightMargin, val, xToVal, y,
+        var axis, barClickHandler, bottomMargin, bucketRange, bucketVal, chart, container, getTitle, h, item, most, n, rects, rightMargin, val, xToVal, y, _i, _len,
           _this = this;
 
+        this.items = items;
         bottomMargin = 18;
         rightMargin = 14;
         n = items[0].buckets + 1;
@@ -9671,23 +9809,73 @@
         val = function(x) {
           return _this.round(xToVal(x));
         };
+        bucketVal = function(x) {
+          var raw;
+
+          raw = val(x);
+          if (raw < _this.min) {
+            return _this.min;
+          } else if (raw > _this.max) {
+            return _this.max;
+          } else {
+            return raw;
+          }
+        };
+        bucketRange = function(bucket) {
+          var delta, max, min, _ref5, _ref6;
+
+          if (bucket != null) {
+            _ref5 = (function() {
+              var _i, _len, _ref5, _results;
+
+              _ref5 = [0, 1];
+              _results = [];
+              for (_i = 0, _len = _ref5.length; _i < _len; _i++) {
+                delta = _ref5[_i];
+                _results.push(bucketVal(bucket + delta));
+              }
+              return _results;
+            })(), min = _ref5[0], max = _ref5[1];
+          } else {
+            _ref6 = [0 - bucketVal(2), bucketVal(1)], min = _ref6[0], max = _ref6[1];
+          }
+          return {
+            min: min,
+            max: max
+          };
+        };
+        getTitle = function(item) {
+          var brange, title;
+
+          return title = item.bucket != null ? (brange = bucketRange(item.bucket), "" + brange.min + " >= x < " + brange.max + ": " + item.count + " items") : "x is null: " + item.count + " items";
+        };
         this.paper = chart = d3.select(this.canvas).append('svg').attr('class', 'chart').attr('width', this.w).attr('height', h);
         container = this.canvas;
+        barClickHandler = function(d, i) {
+          var _ref5, _ref6;
+
+          if (d.bucket != null) {
+            return (_ref5 = _this.range) != null ? _ref5.set(bucketRange(d.bucket)) : void 0;
+          } else {
+            return (_ref6 = _this.range) != null ? _ref6.nullify() : void 0;
+          }
+        };
+        for (_i = 0, _len = items.length; _i < _len; _i++) {
+          item = items[_i];
+          if (item.bucket != null) {
+            item.brange = bucketRange(item.bucket);
+          }
+        }
         chart.selectAll('rect').data(items).enter().append('rect').attr('x', function(d, i) {
           return x(d.bucket) - 0.5;
         }).attr('y', h - bottomMargin).attr('width', function(d) {
           return x(d.bucket + 1) - x(d.bucket);
-        }).attr('height', 0).on('click', function(d, i) {
-          var _ref5;
-
-          return (_ref5 = _this.range) != null ? _ref5.set({
-            min: val(d.bucket),
-            max: val(d.bucket + 1)
-          }) : void 0;
-        }).each(function(d, i) {
+        }).attr('height', 0).classed('im-null-bucket', function(d) {
+          return d.bucket === null;
+        }).on('click', barClickHandler).each(function(d, i) {
           var title;
 
-          title = "" + (val(d.bucket)) + " >= x < " + (val(d.bucket + 1)) + ": " + d.count + " items";
+          title = getTitle(d);
           return $(this).tooltip({
             title: title,
             container: container
@@ -9704,6 +9892,68 @@
         return this;
       };
 
+      NumericFacet.prototype.drawEstCount = function() {
+        var _ref5;
+
+        if ((_ref5 = this.estCount) != null) {
+          _ref5.remove();
+        }
+        if (typeof d3 === "undefined" || d3 === null) {
+          return false;
+        }
+        return this.estCount = this.paper.append('text').classed('im-est-count', true).attr('x', this.w * 0.75).attr('y', 22).text("~" + (this.estimateCount()));
+      };
+
+      sumCounts = function(xs) {
+        return _.reduce(xs, (function(total, x) {
+          return total + x.count;
+        }), 0);
+      };
+
+      fracWithinRange = function(range, min, max) {
+        var overlap, rangeSize;
+
+        if (!range) {
+          return 0;
+        }
+        rangeSize = range.max - range.min;
+        overlap = range.min < min ? Math.min(range.max, max) - min : max - Math.max(range.min, min);
+        return overlap / rangeSize;
+      };
+
+      getPartialCount = function(min, max) {
+        return function(item) {
+          if (item != null) {
+            return item.count * fracWithinRange(item.brange, min, max);
+          } else {
+            return 0;
+          }
+        };
+      };
+
+      NumericFacet.prototype.estimateCount = function() {
+        var fullBuckets, left, max, min, partialLeft, partialRight, right, _ref5, _ref6;
+
+        if (this.range.nulled) {
+          return sumCounts(this.items.filter(function(i) {
+            return i.bucket === null;
+          }));
+        } else {
+          _ref5 = this.range.toJSON(), min = _ref5.min, max = _ref5.max;
+          fullBuckets = sumCounts(this.items.filter(function(i) {
+            return (i.brange != null) && i.brange.min >= min && i.brange.max <= max;
+          }));
+          partialLeft = this.items.filter(function(i) {
+            return (i.brange != null) && i.brange.min < min && i.brange.max > min;
+          })[0];
+          partialRight = this.items.filter(function(i) {
+            return (i.brange != null) && i.brange.max > max && i.brange.min < max;
+          })[0];
+          _ref6 = [partialLeft, partialRight].map(getPartialCount(min, max)), left = _ref6[0], right = _ref6[1];
+          return this.round(fullBuckets + left + right);
+        }
+      };
+
       NumericFacet.prototype.drawSelection = function(x, width) {
         var _ref5;
 
@@ -9714,7 +9964,7 @@
           return;
         }
         if (typeof d3 !== "undefined" && d3 !== null) {
-          return this.selection = this.paper.append('svg:rect').attr('x', x).attr('y', 0).attr('width', width).attr('height', this.chartHeight).attr('class', 'rubberband-selection');
+          return this.selection = this.paper.append('svg:rect').attr('x', x).attr('y', 0).attr('width', width).attr('height', this.chartHeight * 0.9).classed('rubberband-selection', true);
         } else {
           return console.error("Cannot draw selection without SVG lib");
         }
@@ -10448,6 +10698,8 @@
     var ListManager, _ref;
 
     return ListManager = (function(_super) {
+      var descendedFrom, pathOf;
+
       __extends(ListManager, _super);
 
       function ListManager() {
@@ -10504,6 +10756,23 @@
         return dialog.startPicking();
       };
 
+      descendedFrom = function(putativeParent) {
+        var prefix;
+
+        if (putativeParent.isAttribute()) {
+          return function() {
+            return false;
+          };
+        } else {
+          prefix = putativeParent + '.';
+          return function(suspectedChild) {
+            return suspectedChild.substring(0, prefix.length) === prefix;
+          };
+        }
+      };
+
+      pathOf = intermine.funcutils.get('path');
+
       ListManager.prototype.updateTypeOptions = function() {
         var node, query, ul, viewNodes, _fn, _i, _len,
           _this = this;
@@ -10513,7 +10782,7 @@
         query = this.states.currentQuery;
         viewNodes = query.getViewNodes();
         _fn = function(node) {
-          var countQuery, err, inCons, li, missingNode, ns, unselected, _j, _len1;
+          var countQuery, err, inCons, li, missingNode, needsAsserting, unselected, _j, _len1;
 
           li = $("<li></li>");
           ul.append(li);
@@ -10546,11 +10815,9 @@
           });
           for (_j = 0, _len1 = unselected.length; _j < _len1; _j++) {
             missingNode = unselected[_j];
-            ns = missingNode.toPathString();
-            inCons = _.any(query.constraints, function(c) {
-              return c.path.substring(0, ns.length) === ns;
-            });
-            if (!(inCons || query.isOuterJoined(missingNode))) {
+            inCons = _.any(countQuery.constraints, _.compose(descendedFrom(missingNode), pathOf));
+            needsAsserting = (!inCons) || (query.isOuterJoined(missingNode));
+            if (needsAsserting) {
               countQuery.addConstraint([missingNode.append("id"), "IS NOT NULL"]);
             }
           }
@@ -10564,7 +10831,7 @@
           li.mouseout(function() {
             return query.trigger("stop:highlight");
           });
-          return countQuery.count(function(n) {
+          return countQuery.count().then(function(n) {
             var quantifier, typeName;
 
             if (n < 1) {
@@ -11709,20 +11976,27 @@
   });
 
   scope("intermine.results", {
-    getFormatter: function(model, type) {
-      var formatter, t, types, _i, _len, _ref, _ref1;
+    getFormatter: function(path) {
+      var a, ancestors, cd, fieldName, formats, formatter, _i, _len, _ref;
 
-      formatter = null;
-      if (type == null) {
-        _ref1 = [model.model, (_ref = model.getParent()) != null ? _ref.getType() : void 0], model = _ref1[0], type = _ref1[1];
+      if (path == null) {
+        return null;
       }
-      type = type.name || type;
-      types = [type].concat(model.getAncestorsOf(type));
-      for (_i = 0, _len = types.length; _i < _len; _i++) {
-        t = types[_i];
-        formatter || (formatter = intermine.results.formatters[t]);
+      cd = path.isAttribute() ? path.getParent().getType() : path.getType();
+      ancestors = [cd.name].concat(path.model.getAncestorsOf(cd.name));
+      formats = (_ref = intermine.results.formatsets[path.model.name]) != null ? _ref : {};
+      fieldName = path.end.name;
+      for (_i = 0, _len = ancestors.length; _i < _len; _i++) {
+        a = ancestors[_i];
+        formatter = formats["" + a + ".*"] || formats["" + a + "." + fieldName];
+        if (formatter === true) {
+          formatter = intermine.results.formatters[a];
+        }
+        if (formatter != null) {
+          return formatter;
+        }
       }
-      return formatter;
+      return null;
     },
     shouldFormat: function(path, formatSet) {
       var a, ancestors, cd, fieldName, formats, formatterAvailable, model, _i, _len, _ref;
@@ -11736,7 +12010,7 @@
       }
       cd = path.isAttribute() ? path.getParent().getType() : path.getType();
       fieldName = path.end.name;
-      formatterAvailable = intermine.results.getFormatter(path.model, cd) != null;
+      formatterAvailable = intermine.results.getFormatter(path) != null;
       if (!formatterAvailable) {
         return false;
       }
