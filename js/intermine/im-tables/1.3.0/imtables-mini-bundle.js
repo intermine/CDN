@@ -7369,7 +7369,7 @@ $.widget("ui.sortable", $.ui.mouse, {
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jun 20 2013 14:46:15 GMT+0100 (BST)
+ * Built at Wed Jul 03 2013 13:35:30 GMT+0100 (BST)
 */
 
 
@@ -16823,7 +16823,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
     })(Backbone.Model);
     NumericFacet = (function(_super) {
-      var fracWithinRange, getPartialCount, sumCounts;
+      var fracWithinRange, getPartialCount, inty, sumCounts;
 
       __extends(NumericFacet, _super);
 
@@ -17047,8 +17047,12 @@ $.widget("ui.sortable", $.ui.mouse, {
         return NumericFacet.__super__.remove.call(this);
       };
 
+      inty = function(type) {
+        return type === "int" || type === "Integer" || type === "long" || type === "Long";
+      };
+
       NumericFacet.prototype.handleSummary = function(items, stats) {
-        var hasMore, hf, step, summary, _ref5;
+        var hasMore, hf, step, summary;
 
         this.throbber.remove();
         summary = items[0];
@@ -17068,7 +17072,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         this.range.setLimits(summary);
         this.max = summary.max;
         this.min = summary.min;
-        this.step = step = (_ref5 = this.query.getType(this.facet.path)) === "int" || _ref5 === "Integer" ? 1 : 0.1;
+        this.step = step = inty(this.query.getType(this.facet.path)) ? 1 : Math.abs((this.max - this.min) / 100);
         this.round = function(x) {
           if (step === 1) {
             return Math.round(x);
@@ -17110,10 +17114,10 @@ $.widget("ui.sortable", $.ui.mouse, {
         current = next = (_ref5 = this.range.get(prop)) != null ? _ref5 : this[prop];
         switch (e.keyCode) {
           case 40:
-            next--;
+            next -= this.step;
             break;
           case 38:
-            next++;
+            next += this.step;
         }
         if (next !== current) {
           return this.range.set(prop, next);
@@ -17121,10 +17125,11 @@ $.widget("ui.sortable", $.ui.mouse, {
       };
 
       NumericFacet.prototype.drawSlider = function() {
-        var _this = this;
+        var opts,
+          _this = this;
 
         $(this.container).append("<div class=\"btn-group pull-right\">\n  <button class=\"btn btn-primary disabled\">Apply</button>\n  <button class=\"btn btn-cancel disabled\">Reset</button>\n</div>\n<input type=\"text\" data-var=\"min\" class=\"im-range-min input im-range-val\" value=\"" + this.min + "\">\n<span>...</span>\n<input type=\"text\" data-var=\"max\" class=\"im-range-max input im-range-val\" value=\"" + this.max + "\">\n<div class=\"slider\"></div>");
-        return this.$slider = this.$('.slider').slider({
+        opts = {
           range: true,
           min: this.min,
           max: this.max,
@@ -17138,7 +17143,8 @@ $.widget("ui.sortable", $.ui.mouse, {
               max: ui.values[1]
             }) : void 0;
           }
-        });
+        };
+        return this.$slider = this.$('.slider').slider(opts);
       };
 
       NumericFacet.prototype.drawChart = function(items) {
@@ -17159,7 +17165,6 @@ $.widget("ui.sortable", $.ui.mouse, {
         bottomMargin = 18;
         rightMargin = 14;
         n = items[0].buckets + 1;
-        console.log(items);
         h = this.chartHeight;
         most = d3.max(items, function(d) {
           return d.count;
@@ -17231,7 +17236,7 @@ $.widget("ui.sortable", $.ui.mouse, {
         chart.selectAll('rect').data(items).enter().append('rect').attr('x', function(d, i) {
           return x(d.bucket) - 0.5;
         }).attr('y', h - bottomMargin).attr('width', function(d) {
-          return x(d.bucket + 1) - x(d.bucket);
+          return Math.abs(x(d.bucket + 1) - x(d.bucket));
         }).attr('height', 0).classed('im-null-bucket', function(d) {
           return d.bucket === null;
         }).on('click', barClickHandler).each(function(d, i) {
@@ -17478,7 +17483,6 @@ $.widget("ui.sortable", $.ui.mouse, {
 
           _this.hasMore = stats.uniqueValues > _this.limit;
           newItems = items.slice(_this.items.length);
-          console.log("Adding " + newItems.length);
           for (_i = 0, _len = newItems.length; _i < _len; _i++) {
             newItem = newItems[_i];
             _this.items.add(_.extend(newItem, {
