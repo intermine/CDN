@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jul 25 2013 16:51:37 GMT+0100 (BST)
+ * Built at Thu Jul 25 2013 17:12:16 GMT+0100 (BST)
 */
 
 
@@ -32662,7 +32662,7 @@ Thu Jun 14 13:18:14 BST 2012
       return +x;
     };
     MORE_FACETS_HTML = "<i class=\"icon-plus-sign pull-right\" title=\"Showing top ten. Click to see all values\"></i>";
-    FACET_TITLE = _.template("<dt><i class=\"icon-chevron-right\"></i><%= title %></dt>");
+    FACET_TITLE = _.template("<dt>\n  <i class=\"icon-chevron-right\"></i>\n  <%= title %>\n  &nbsp;<span class=\"im-facet-count\"></span>\n</dt>");
     FACET_TEMPLATE = _.template("<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%= count %>)\n        </b>\n        <%= item %>\n    </a>\n</dd>");
     SUMMARY_FORMATS = {
       tab: 'tsv',
@@ -32691,14 +32691,13 @@ Thu Jun 14 13:18:14 BST 2012
           return this.facet = facet;
         } else {
           fp = this.query.getPathInfo(facet);
-          this.facet = {
+          return this.facet = {
             path: fp,
-            title: facet.toString().replace(/^[^\.]+\./, "").replace(/\./g, " > "),
+            title: fp.getDisplayName().then(function(name) {
+              return name.replace(/^[^>]+>\s*/, '');
+            }),
             ignoreTitle: true
           };
-          return fp.getDisplayName().then(function(name) {
-            return _this.facet.title = name.replace(/^[^>]+>\s*/, '');
-          });
         }
       };
 
@@ -32749,10 +32748,15 @@ Thu Jun 14 13:18:14 BST 2012
         var _this = this;
 
         if (!this.noTitle) {
-          this.$dt = $(FACET_TITLE(this.facet)).appendTo(this.el);
-          this.$dt.click(function() {
-            _this.$dt.siblings().slideToggle();
-            return _this.$dt.find('i').first().toggleClass('icon-chevron-right icon-chevron-down');
+          $.when(this.facet.title).then(function(title) {
+            _this.$dt = $(FACET_TITLE({
+              title: title
+            })).prependTo(_this.el);
+            return _this.$dt.click(function() {
+              _this.$dt.siblings().slideToggle();
+              _this.$dt.find('i').first().toggleClass('icon-chevron-right icon-chevron-down');
+              return _this.trigger('toggle', _this);
+            });
           });
         }
         return this;
@@ -32811,13 +32815,11 @@ Thu Jun 14 13:18:14 BST 2012
         limit = this.limit;
         placement = 'left';
         return getSummary.done(function(results, stats, count) {
-          var Vizualization, hasMore, summaryView, _ref3;
+          var Vizualization, hasMore, summaryView;
 
           _this.query.trigger('got:summary:total', _this.facet.path, stats.uniqueValues, results.length, count);
           $progress.remove();
-          if ((_ref3 = _this.$dt) != null) {
-            _ref3.append(" (" + stats.uniqueValues + ")");
-          }
+          _this.$('.im-facet-count').text("(" + stats.uniqueValues + ")");
           hasMore = results.length < limit ? false : stats.uniqueValues > limit;
           if (hasMore) {
             $(MORE_FACETS_HTML).appendTo(_this.$dt).tooltip({
