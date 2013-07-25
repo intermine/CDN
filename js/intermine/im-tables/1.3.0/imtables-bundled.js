@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Jul 03 2013 13:35:30 GMT+0100 (BST)
+ * Built at Thu Jul 25 2013 16:51:37 GMT+0100 (BST)
 */
 
 
@@ -29644,7 +29644,13 @@ Thu Jun 14 13:18:14 BST 2012
         return this.on('revert', this.revert, this);
       };
 
-      History.prototype.unwatch = function() {};
+      History.prototype.unwatch = function() {
+        var _ref1;
+
+        if (((_ref1 = this.currentQuery) != null ? _ref1.off : void 0) != null) {
+          return this.stopListening(this.currentQuery);
+        }
+      };
 
       History.prototype.watch = function() {
         var q,
@@ -32677,15 +32683,22 @@ Thu Jun 14 13:18:14 BST 2012
       ColumnSummary.prototype.className = "im-column-summary";
 
       ColumnSummary.prototype.initialize = function(query, facet) {
+        var fp,
+          _this = this;
+
         this.query = query;
         if (facet.path) {
           return this.facet = facet;
         } else {
-          return this.facet = {
-            path: this.query.getPathInfo(facet),
+          fp = this.query.getPathInfo(facet);
+          this.facet = {
+            path: fp,
             title: facet.toString().replace(/^[^\.]+\./, "").replace(/\./g, " > "),
             ignoreTitle: true
           };
+          return fp.getDisplayName().then(function(name) {
+            return _this.facet.title = name.replace(/^[^>]+>\s*/, '');
+          });
         }
       };
 
