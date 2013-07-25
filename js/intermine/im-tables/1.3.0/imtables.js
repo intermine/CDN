@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jul 25 2013 17:12:16 GMT+0100 (BST)
+ * Built at Thu Jul 25 2013 18:02:16 GMT+0100 (BST)
 */
 
 
@@ -9197,7 +9197,7 @@
       return +x;
     };
     MORE_FACETS_HTML = "<i class=\"icon-plus-sign pull-right\" title=\"Showing top ten. Click to see all values\"></i>";
-    FACET_TITLE = _.template("<dt>\n  <i class=\"icon-chevron-right\"></i>\n  <%= title %>\n  &nbsp;<span class=\"im-facet-count\"></span>\n</dt>");
+    FACET_TITLE = "<dt>\n  <i class=\"icon-chevron-right\"></i>\n  <span class=\"im-facet-title\"></span>\n  &nbsp;<span class=\"im-facet-count\"></span>\n</dt>";
     FACET_TEMPLATE = _.template("<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%= count %>)\n        </b>\n        <%= item %>\n    </a>\n</dd>");
     SUMMARY_FORMATS = {
       tab: 'tsv',
@@ -9237,7 +9237,8 @@
       };
 
       ColumnSummary.prototype.render = function() {
-        var attrType, clazz, initialLimit;
+        var attrType, clazz, initialLimit,
+          _this = this;
 
         attrType = this.facet.path.getType();
         clazz = __indexOf.call(intermine.Model.NUMERIC_TYPES, attrType) >= 0 ? NumericFacet : FrequencyFacet;
@@ -9245,7 +9246,17 @@
         this.fac = new clazz(this.query, this.facet, initialLimit, this.noTitle);
         this.$el.append(this.fac.el);
         this.fac.render();
+        this.fac.on('ready', function() {
+          return _this.trigger('ready', _this);
+        });
+        this.trigger('rendered', this);
         return this;
+      };
+
+      ColumnSummary.prototype.toggle = function() {
+        var _ref1;
+
+        return (_ref1 = this.fac) != null ? _ref1.toggle() : void 0;
       };
 
       ColumnSummary.prototype.remove = function() {
@@ -9279,19 +9290,25 @@
         return this.query.on("filter:summary", this.render);
       };
 
+      FacetView.prototype.events = function() {
+        return {
+          "click dt": "toggle"
+        };
+      };
+
+      FacetView.prototype.toggle = function() {
+        this.$('.im-facet').slideToggle();
+        this.$('dt i').first().toggleClass('icon-chevron-right icon-chevron-down');
+        return this.trigger('toggled', this);
+      };
+
       FacetView.prototype.render = function() {
         var _this = this;
 
         if (!this.noTitle) {
+          this.$el.prepend(FACET_TITLE);
           $.when(this.facet.title).then(function(title) {
-            _this.$dt = $(FACET_TITLE({
-              title: title
-            })).prependTo(_this.el);
-            return _this.$dt.click(function() {
-              _this.$dt.siblings().slideToggle();
-              _this.$dt.find('i').first().toggleClass('icon-chevron-right icon-chevron-down');
-              return _this.trigger('toggle', _this);
-            });
+            return _this.$('.im-facet-title').text(title);
           });
         }
         return this;
@@ -9366,7 +9383,8 @@
           if (typeof summaryView.render === "function") {
             summaryView.render();
           }
-          return _this.rendering = false;
+          _this.rendering = false;
+          return _this.trigger('ready', _this);
         });
       };
 
@@ -9578,14 +9596,16 @@
         });
       };
 
-      NumericFacet.prototype.events = {
-        'click': function(e) {
-          return e.stopPropagation();
-        },
-        'keyup input.im-range-val': 'incRangeVal',
-        'change input.im-range-val': 'setRangeVal',
-        'click .btn-primary': 'changeConstraints',
-        'click .btn-cancel': 'clearRange'
+      NumericFacet.prototype.events = function() {
+        return _.extend(NumericFacet.__super__.events.apply(this, arguments), {
+          'click': function(e) {
+            return e.stopPropagation();
+          },
+          'keyup input.im-range-val': 'incRangeVal',
+          'change input.im-range-val': 'setRangeVal',
+          'click .btn-primary': 'changeConstraints',
+          'click .btn-cancel': 'clearRange'
+        });
       };
 
       NumericFacet.prototype.clearRange = function() {
@@ -9683,6 +9703,9 @@
         this.throbber.appendTo(this.el);
         promise = this.query.summarise(this.facet.path, this.handleSummary);
         promise.fail(this.remove);
+        promise.done(function() {
+          return _this.trigger('ready', _this);
+        });
         return this;
       };
 
