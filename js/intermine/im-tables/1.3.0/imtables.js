@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jul 25 2013 18:02:16 GMT+0100 (BST)
+ * Built at Thu Jul 25 2013 18:32:35 GMT+0100 (BST)
 */
 
 
@@ -9222,6 +9222,9 @@
           _this = this;
 
         this.query = query;
+        this.state = new Backbone.Model({
+          open: false
+        });
         if (facet.path) {
           return this.facet = facet;
         } else {
@@ -9249,6 +9252,16 @@
         this.fac.on('ready', function() {
           return _this.trigger('ready', _this);
         });
+        this.fac.on('toggled', function() {
+          return _this.state.set({
+            open: !_this.state.get('open')
+          });
+        });
+        this.fac.on('closed', function() {
+          return _this.state.set({
+            open: false
+          });
+        });
         this.trigger('rendered', this);
         return this;
       };
@@ -9257,6 +9270,12 @@
         var _ref1;
 
         return (_ref1 = this.fac) != null ? _ref1.toggle() : void 0;
+      };
+
+      ColumnSummary.prototype.close = function() {
+        var _ref1;
+
+        return (_ref1 = this.fac) != null ? _ref1.close() : void 0;
       };
 
       ColumnSummary.prototype.remove = function() {
@@ -9300,6 +9319,12 @@
         this.$('.im-facet').slideToggle();
         this.$('dt i').first().toggleClass('icon-chevron-right icon-chevron-down');
         return this.trigger('toggled', this);
+      };
+
+      FacetView.prototype.close = function() {
+        this.$('.im-facet').slideUp();
+        this.$('dt i').removeClass('icon-chevron-down').addClass('icon-chevron-right');
+        return this.trigger('close', this);
       };
 
       FacetView.prototype.render = function() {
