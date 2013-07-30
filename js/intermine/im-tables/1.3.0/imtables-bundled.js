@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Wed Jul 03 2013 13:35:30 GMT+0100 (BST)
+ * Built at Thu Jul 25 2013 18:32:35 GMT+0100 (BST)
 */
 
 
@@ -29644,7 +29644,13 @@ Thu Jun 14 13:18:14 BST 2012
         return this.on('revert', this.revert, this);
       };
 
-      History.prototype.unwatch = function() {};
+      History.prototype.unwatch = function() {
+        var _ref1;
+
+        if (((_ref1 = this.currentQuery) != null ? _ref1.off : void 0) != null) {
+          return this.stopListening(this.currentQuery);
+        }
+      };
 
       History.prototype.watch = function() {
         var q,
@@ -32656,7 +32662,7 @@ Thu Jun 14 13:18:14 BST 2012
       return +x;
     };
     MORE_FACETS_HTML = "<i class=\"icon-plus-sign pull-right\" title=\"Showing top ten. Click to see all values\"></i>";
-    FACET_TITLE = _.template("<dt><i class=\"icon-chevron-right\"></i><%= title %></dt>");
+    FACET_TITLE = "<dt>\n  <i class=\"icon-chevron-right\"></i>\n  <span class=\"im-facet-title\"></span>\n  &nbsp;<span class=\"im-facet-count\"></span>\n</dt>";
     FACET_TEMPLATE = _.template("<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%= count %>)\n        </b>\n        <%= item %>\n    </a>\n</dd>");
     SUMMARY_FORMATS = {
       tab: 'tsv',
@@ -32677,20 +32683,30 @@ Thu Jun 14 13:18:14 BST 2012
       ColumnSummary.prototype.className = "im-column-summary";
 
       ColumnSummary.prototype.initialize = function(query, facet) {
+        var fp,
+          _this = this;
+
         this.query = query;
+        this.state = new Backbone.Model({
+          open: false
+        });
         if (facet.path) {
           return this.facet = facet;
         } else {
+          fp = this.query.getPathInfo(facet);
           return this.facet = {
-            path: this.query.getPathInfo(facet),
-            title: facet.toString().replace(/^[^\.]+\./, "").replace(/\./g, " > "),
+            path: fp,
+            title: fp.getDisplayName().then(function(name) {
+              return name.replace(/^[^>]+>\s*/, '');
+            }),
             ignoreTitle: true
           };
         }
       };
 
       ColumnSummary.prototype.render = function() {
-        var attrType, clazz, initialLimit;
+        var attrType, clazz, initialLimit,
+          _this = this;
 
         attrType = this.facet.path.getType();
         clazz = __indexOf.call(intermine.Model.NUMERIC_TYPES, attrType) >= 0 ? NumericFacet : FrequencyFacet;
@@ -32698,7 +32714,33 @@ Thu Jun 14 13:18:14 BST 2012
         this.fac = new clazz(this.query, this.facet, initialLimit, this.noTitle);
         this.$el.append(this.fac.el);
         this.fac.render();
+        this.fac.on('ready', function() {
+          return _this.trigger('ready', _this);
+        });
+        this.fac.on('toggled', function() {
+          return _this.state.set({
+            open: !_this.state.get('open')
+          });
+        });
+        this.fac.on('closed', function() {
+          return _this.state.set({
+            open: false
+          });
+        });
+        this.trigger('rendered', this);
         return this;
+      };
+
+      ColumnSummary.prototype.toggle = function() {
+        var _ref1;
+
+        return (_ref1 = this.fac) != null ? _ref1.toggle() : void 0;
+      };
+
+      ColumnSummary.prototype.close = function() {
+        var _ref1;
+
+        return (_ref1 = this.fac) != null ? _ref1.close() : void 0;
       };
 
       ColumnSummary.prototype.remove = function() {
@@ -32732,14 +32774,31 @@ Thu Jun 14 13:18:14 BST 2012
         return this.query.on("filter:summary", this.render);
       };
 
+      FacetView.prototype.events = function() {
+        return {
+          "click dt": "toggle"
+        };
+      };
+
+      FacetView.prototype.toggle = function() {
+        this.$('.im-facet').slideToggle();
+        this.$('dt i').first().toggleClass('icon-chevron-right icon-chevron-down');
+        return this.trigger('toggled', this);
+      };
+
+      FacetView.prototype.close = function() {
+        this.$('.im-facet').slideUp();
+        this.$('dt i').removeClass('icon-chevron-down').addClass('icon-chevron-right');
+        return this.trigger('close', this);
+      };
+
       FacetView.prototype.render = function() {
         var _this = this;
 
         if (!this.noTitle) {
-          this.$dt = $(FACET_TITLE(this.facet)).appendTo(this.el);
-          this.$dt.click(function() {
-            _this.$dt.siblings().slideToggle();
-            return _this.$dt.find('i').first().toggleClass('icon-chevron-right icon-chevron-down');
+          this.$el.prepend(FACET_TITLE);
+          $.when(this.facet.title).then(function(title) {
+            return _this.$('.im-facet-title').text(title);
           });
         }
         return this;
@@ -32798,13 +32857,11 @@ Thu Jun 14 13:18:14 BST 2012
         limit = this.limit;
         placement = 'left';
         return getSummary.done(function(results, stats, count) {
-          var Vizualization, hasMore, summaryView, _ref3;
+          var Vizualization, hasMore, summaryView;
 
           _this.query.trigger('got:summary:total', _this.facet.path, stats.uniqueValues, results.length, count);
           $progress.remove();
-          if ((_ref3 = _this.$dt) != null) {
-            _ref3.append(" (" + stats.uniqueValues + ")");
-          }
+          _this.$('.im-facet-count').text("(" + stats.uniqueValues + ")");
           hasMore = results.length < limit ? false : stats.uniqueValues > limit;
           if (hasMore) {
             $(MORE_FACETS_HTML).appendTo(_this.$dt).tooltip({
@@ -32816,7 +32873,8 @@ Thu Jun 14 13:18:14 BST 2012
           if (typeof summaryView.render === "function") {
             summaryView.render();
           }
-          return _this.rendering = false;
+          _this.rendering = false;
+          return _this.trigger('ready', _this);
         });
       };
 
@@ -33028,14 +33086,16 @@ Thu Jun 14 13:18:14 BST 2012
         });
       };
 
-      NumericFacet.prototype.events = {
-        'click': function(e) {
-          return e.stopPropagation();
-        },
-        'keyup input.im-range-val': 'incRangeVal',
-        'change input.im-range-val': 'setRangeVal',
-        'click .btn-primary': 'changeConstraints',
-        'click .btn-cancel': 'clearRange'
+      NumericFacet.prototype.events = function() {
+        return _.extend(NumericFacet.__super__.events.apply(this, arguments), {
+          'click': function(e) {
+            return e.stopPropagation();
+          },
+          'keyup input.im-range-val': 'incRangeVal',
+          'change input.im-range-val': 'setRangeVal',
+          'click .btn-primary': 'changeConstraints',
+          'click .btn-cancel': 'clearRange'
+        });
       };
 
       NumericFacet.prototype.clearRange = function() {
@@ -33133,6 +33193,9 @@ Thu Jun 14 13:18:14 BST 2012
         this.throbber.appendTo(this.el);
         promise = this.query.summarise(this.facet.path, this.handleSummary);
         promise.fail(this.remove);
+        promise.done(function() {
+          return _this.trigger('ready', _this);
+        });
         return this;
       };
 

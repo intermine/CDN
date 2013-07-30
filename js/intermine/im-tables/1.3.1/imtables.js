@@ -7,7 +7,7 @@
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Thu Jul 25 2013 18:32:35 GMT+0100 (BST)
+ * Built at Tue Jul 30 2013 14:37:30 GMT+0100 (BST)
 */
 
 
@@ -9382,6 +9382,7 @@
         if (this.rendering) {
           return;
         }
+        this.filterTerm = filterTerm;
         this.rendering = true;
         this.$el.empty();
         FrequencyFacet.__super__.render.call(this);
@@ -10049,7 +10050,7 @@
       __extends(PieFacet, _super);
 
       function PieFacet() {
-        _ref5 = PieFacet.__super__.constructor.apply(this, arguments);
+        this.filterItems = __bind(this.filterItems, this);        _ref5 = PieFacet.__super__.constructor.apply(this, arguments);
         return _ref5;
       }
 
@@ -10125,20 +10126,27 @@
           'click .im-filter .im-filter-out': function(e) {
             return _this.addConstraint(e, negateOps(basicOps));
           },
-          'keyup .im-filter-values': 'filterItems',
+          'keyup .im-filter-values': _.throttle(this.filterItems, 750, {
+            leading: false
+          }),
           'click .im-clear-value-filter': 'clearValueFilter',
           'click': IGNORE_E
         };
       };
 
       PieFacet.prototype.filterItems = function(e) {
-        var $input, current, parts, test;
+        var $input, current, parts, test,
+          _this = this;
 
         $input = this.$('.im-filter-values');
         current = $input.val();
-        if (this.hasMore || (this.filterTerm && current < this.filterTerm.length)) {
+        if (this.hasMore || (this.filterTerm && current.length < this.filterTerm.length)) {
+          if (this._filter_queued) {
+            return;
+          }
+          this._filter_queued = true;
           return _.delay((function() {
-            return this.query.trigger('filter:summary', current);
+            return _this.query.trigger('filter:summary', $input.val());
           }), 750);
         } else {
           parts = (current != null ? current : '').toLowerCase().split(/\s+/);
@@ -10159,6 +10167,7 @@
         var $input;
 
         $input = this.$('.im-filter-values');
+        console.log("Resetting filter term");
         $input.val(this.filterTerm);
         return this.items.each(function(x) {
           return x.set({
@@ -10467,7 +10476,7 @@
         imd.click(function(e) {
           return imd.popover('toggle');
         });
-        this.initFilter();
+        this.initFilter($grp);
         $grp.appendTo(this.el);
         return this;
       };
@@ -10483,14 +10492,15 @@
         return "<div class=\"btn-group\">\n  <button type=\"submit\" class=\"btn btn-primary im-filter-in\" disabled\n          title=\"" + intermine.messages.facets.Include + "\">\n    Filter\n  </button>\n  <button class=\"btn btn-primary dropdown-toggle\" \n          title=\"Select filter type\"  disabled>\n    <span class=\"caret\"></span>\n  </button>\n  <ul class=\"dropdown-menu\">\n    <li>\n      <a href=\"#\" class=\"im-filter-in\">\n        " + intermine.messages.facets.Include + "\n      </a>\n    </li>\n    <li>\n      <a href=\"#\" class=\"im-filter-out\">\n        " + intermine.messages.facets.Exclude + "\n      </a>\n    </li>\n  </ul>\n</div>\n\n<div class=\"btn-group\">\n  <button class=\"btn btn-cancel\" disabled\n            title=\"" + intermine.messages.facets.Reset + "\">\n    <i class=\"" + intermine.icons.Undo + "\"></i>\n  </button>\n  <button class=\"btn btn-toggle-selection\"\n          title=\"" + intermine.messages.facets.ToggleSelection + "\">\n    <i class=\"" + intermine.icons.Toggle + "\"></i>\n  </button>\n</div>";
       };
 
-      PieFacet.prototype.initFilter = function() {
-        var $valFilter, xs;
+      PieFacet.prototype.initFilter = function($grp) {
+        var $valFilter, sel;
 
-        xs = this.items;
-        $valFilter = this.$('.im-filter-values');
-        if (this.filterTerm) {
-          return $valFilter.val(this.filterTerm);
+        if (this.filterTerm == null) {
+          return;
         }
+        sel = '.im-filter-values';
+        $valFilter = $grp != null ? $grp.find(sel) : this.$(sel);
+        return $valFilter.val(this.filterTerm);
       };
 
       PieFacet.prototype.colClasses = ["im-item-selector", "im-item-value", "im-item-count"];
