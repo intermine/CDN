@@ -23472,7 +23472,7 @@ Thu Jun 14 13:18:14 BST 2012
  * Copyright 2012, 2013, Alex Kalderimis and InterMine
  * Released under the LGPL license.
  * 
- * Built at Tue Oct 22 2013 12:28:39 GMT+0100 (BST)
+ * Built at Thu Oct 24 2013 17:44:30 GMT+0100 (BST)
 */
 
 
@@ -24078,7 +24078,7 @@ Thu Jun 14 13:18:14 BST 2012
     CellPreviewTrigger: 'click',
     IndicateOffHostLinks: true,
     ExternalLinkIcons: {
-      "http://www.yeastgenome.org": "http://www.yeastgenome.org/favicon.ico"
+      "http://some.host.somewhere": "http://some.host.somewhere/logo.png"
     },
     StylePrefix: 'intermine',
     GalaxyMain: "http://main.g2.bx.psu.edu",
