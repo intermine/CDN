@@ -2378,6 +2378,24 @@ Thu Jun 14 13:18:14 BST 2012
         }));
         return _.flatten(ret.concat(others));
       };
+      this.on('change:views', function() {
+        var oe, oldOrder;
+        oldOrder = _this.sortOrder;
+        _this.sortOrder = (function() {
+          var _j, _len1, _results;
+          _results = [];
+          for (_j = 0, _len1 = oldOrder.length; _j < _len1; _j++) {
+            oe = oldOrder[_j];
+            if (this.isRelevant(oe.path)) {
+              _results.push(oe);
+            }
+          }
+          return _results;
+        }).call(_this);
+        if (oldOrder.length !== _this.sortOrder.length) {
+          return _this.trigger('change:sortOrder change:orderBy', _this.sortOrder.slice());
+        }
+      });
     }
 
     Query.prototype.removeFromSelect = function(unwanted) {
@@ -2585,21 +2603,27 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.getQueryNodes = function() {
-      var constrainedNodes, viewNodes,
-        _this = this;
+      var c, constrainedNodes, pi, viewNodes;
       viewNodes = this.getViewNodes();
-      constrainedNodes = _.map(this.constraints, function(c) {
-        var pi;
-        pi = _this.getPathInfo(c.path);
-        if (pi.isAttribute()) {
-          return pi.getParent();
-        } else {
-          return pi;
+      constrainedNodes = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = this.constraints;
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          if (!(!(c.type != null))) {
+            continue;
+          }
+          pi = this.getPathInfo(c.path);
+          if (pi.isAttribute()) {
+            _results.push(pi.getParent());
+          } else {
+            _results.push(pi);
+          }
         }
-      });
-      return _.uniq(viewNodes.concat(constrainedNodes), false, function(n) {
-        return n.toPathString();
-      });
+        return _results;
+      }).call(this);
+      return _.uniq(viewNodes.concat(constrainedNodes), false, String);
     };
 
     Query.prototype.isInQuery = function(p) {
@@ -3016,10 +3040,23 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.getConstraintXML = function() {
-      if (this.constraints.length) {
+      var c, toSerialise;
+      toSerialise = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = this.constraints;
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          if (!(c.type != null) || this.isRelevant(c.path)) {
+            _results.push(c);
+          }
+        }
+        return _results;
+      }).call(this);
+      if (toSerialise.length) {
         return concatMap(conStr)(concatMap(id)(partition(function(c) {
           return c.type != null;
-        })(this.constraints)));
+        })(toSerialise)));
       } else {
         return '';
       }
