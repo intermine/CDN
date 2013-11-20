@@ -1,13 +1,38 @@
-/**
-This library is open source software according to the definition of the
-GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
-included with this software. All use of this software is covered according to
-the terms of the LGPLv3.
+/*! imjs - v2.10.0 - 2013-11-20 */
 
-The copyright is held by InterMine (www.intermine.org) and Alex Kalderimis (alex@intermine.org).
+// This library is open source software according to the definition of the
+// GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
+// included with this software. All use of this software is covered according to
+// the terms of the LGPLv3.
+// 
+// The copyright is held by InterMine (www.intermine.org) and Alex Kalderimis (alex@intermine.org).
+(function() {
+  var IS_NODE, data, fs, imjs, intermine, path, pkg, _ref, _ref1;
 
-Thu Jun 14 13:18:14 BST 2012
-**/
+  IS_NODE = typeof exports !== 'undefined';
+
+  if (IS_NODE) {
+    imjs = exports;
+  } else {
+    intermine = ((_ref = this.intermine) != null ? _ref : this.intermine = {});
+    imjs = ((_ref1 = intermine.imjs) != null ? _ref1 : intermine.imjs = {});
+  }
+
+  imjs.VERSION = "unknown";
+
+  if (IS_NODE) {
+    fs = require('fs');
+    path = require('path');
+    if (process.mainModule != null) {
+      data = fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8');
+      pkg = JSON.parse(data);
+      imjs.VERSION = pkg.version;
+    }
+  } else {
+    imjs.VERSION = "2.10.0";
+  }
+
+}).call(this);
 
 (function() {
   var HAS_CONSOLE, HAS_JSON, IS_NODE, NOT_ENUM, hasDontEnumBug, hasOwnProperty, m, _fn, _i, _len, _ref, _ref1, _ref2, _ref3;
