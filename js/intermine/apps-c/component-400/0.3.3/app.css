@@ -1,0 +1,31 @@
+h2{font-size:20px;display:inline-block;margin:0}
+table{width:100%}
+a{cursor:pointer}
+.help,.help-flyout{cursor:pointer;position:relative;}
+.help:before,.help-flyout:before{content:"?";width:14px;height:14px;font-size:12px;font-weight:bold;line-height:14px;text-align:center;color:#fff;background:#2ba6cb;display:inline-block}
+.help .tooltip,.help-flyout .tooltip{display:block;font-size:12px !important;white-space:nowrap;top:-30px;left:-2px}
+.help .flyout,.help-flyout .flyout{color:#333;font-weight:normal;top:-20px;left:20px;}
+.help .flyout tr td:first-child,.help-flyout .flyout tr td:first-child{text-transform:capitalize}
+.section{padding:10px;}
+.section:nth-child(even){border:1px solid #e6e6e6;border-width:1px 0}
+.section header{margin-bottom:10px;vertical-align:middle;line-height:37px;}
+.section header .button{margin-left:10px;float:right}
+.header header table{width:auto;border:0;}
+.header header table tr{background:#fff;}
+.header header table tr:nth-child(1){font-weight:bold}
+.header header table tr td{padding:0;font-size:20px;}
+.header header table tr td:nth-child(1){text-align:right}
+.header header table tr td:nth-child(2){padding-left:5px;text-align:left}
+.duplicates .border{border:1px solid #ddd;border-radius:3px;margin-bottom:10px}
+.duplicates .thead table thead{visibility:visible}
+.duplicates .wrapper{overflow:auto;overflow-x:hidden;max-height:300px}
+.duplicates table{margin:0;border:0;}
+.duplicates table thead{visibility:hidden}
+.duplicates table tbody td.odd{background:#f9f9f9}
+.duplicates table tbody td.even{background:#fff}
+.summary dl.tabs dd a{text-transform:capitalize}
+.summary ul.pagination{text-align:center;}
+.summary ul.pagination li{display:inline-block;float:none}
+ul.inline{list-style:none;padding:0;}
+ul.inline li{display:inline-block;}
+ul.inline li:not(:last-child):after{content:", "}
