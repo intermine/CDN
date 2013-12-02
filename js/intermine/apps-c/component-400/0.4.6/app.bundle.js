@@ -17261,7 +17261,9 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
           (function() {
             var n, page, _i, _j, _len, _len1, _ref, _ref1;
           
-            if (this.pages > 1) {
+            __out.push('<!-- does it make sense to show a perPage switcher? -->\n');
+          
+            if (this.total > 5) {
               __out.push('\n    <div class="small button dropdown right">\n        ');
               __out.push(__sanitize(this.perPage));
               __out.push(' rows per page\n        <ul class="no-hover">\n            ');
@@ -17278,11 +17280,13 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
                 }
                 __out.push('\n            ');
               }
-              __out.push('\n            <!--\n            <li class="divider"></li>\n            <li><a data-action="resize" data-n="');
-              __out.push(__sanitize(this.total));
-              __out.push('">Show all ');
-              __out.push(__sanitize(this.total));
-              __out.push(' rows</a></li>\n            -->\n        </ul>\n    </div>\n\n    <ul class="pagination">\n        <li class="unavailable"><a>Page ');
+              __out.push('\n        </ul>\n    </div>\n');
+            }
+          
+            __out.push('\n\n<!-- do we need to show a paginator? -->\n');
+          
+            if (this.pages > 1) {
+              __out.push('\n    <ul class="pagination">\n        <li class="unavailable"><a>Page ');
               __out.push(__sanitize(this.current));
               __out.push(' of ');
               __out.push(__sanitize(this.pages));
