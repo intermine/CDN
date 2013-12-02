@@ -17270,6 +17270,9 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
               _ref = [5, 10, 20, 50, 100];
               for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                 n = _ref[_i];
+                if (!(n <= this.total)) {
+                  continue;
+                }
                 __out.push('\n                ');
                 if (n !== this.perPage) {
                   __out.push('\n                    <li data-action="resize" data-n="');

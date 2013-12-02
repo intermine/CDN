@@ -990,6 +990,9 @@
               _ref = [5, 10, 20, 50, 100];
               for (_i = 0, _len = _ref.length; _i < _len; _i++) {
                 n = _ref[_i];
+                if (!(n <= this.total)) {
+                  continue;
+                }
                 __out.push('\n                ');
                 if (n !== this.perPage) {
                   __out.push('\n                    <li data-action="resize" data-n="');
