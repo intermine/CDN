@@ -1097,6 +1097,7 @@ table.striped tbody td.even{background:#fff}
 ul.inline{list-style:none;padding:0;margin:0;display:inline-block;}
 ul.inline li{display:inline-block;}
 ul.inline li:not(:last-child):after{content:", "}
+div.paginator .dropdown.secondary::after{border-color:#1d1d1d transparent transparent transparent}
 div.paginator .dropdown ul{top:27px;width:0}
 div.paginator ul.pagination{text-align:left;margin-bottom:20px;}
 div.paginator ul.pagination li{display:inline-block;margin-left:0;float:left;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}

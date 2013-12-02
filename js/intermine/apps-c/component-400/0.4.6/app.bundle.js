@@ -17264,7 +17264,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
             __out.push('<!-- does it make sense to show a perPage switcher? -->\n');
           
             if (this.total > 5) {
-              __out.push('\n    <div class="small button dropdown right">\n        ');
+              __out.push('\n    <div class="small button dropdown secondary right">\n        ');
               __out.push(__sanitize(this.perPage));
               __out.push(' rows per page\n        <ul class="no-hover">\n            ');
               _ref = [5, 10, 20, 50, 100];
@@ -17282,6 +17282,12 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
                   __out.push(' rows</a>\n                    </li>\n                ');
                 }
                 __out.push('\n            ');
+              }
+              __out.push('\n            <!-- show all rows? -->\n            ');
+              if (this.total <= 50 && this.total !== this.perPage) {
+                __out.push('\n                <li class="divider"></li>\n                <li data-action="resize" data-n="');
+                __out.push(__sanitize(this.total));
+                __out.push('">\n                    <a>Show all rows</a>\n                </li>\n            ');
               }
               __out.push('\n        </ul>\n    </div>\n');
             }
