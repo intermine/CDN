@@ -17283,10 +17283,10 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
               __out.push('\n        </ul>\n    </div>\n');
             }
           
-            __out.push('\n\n<!-- do we need to show a paginator? -->\n');
+            __out.push('\n\n<!-- do we need to show a paginator? -->\n<ul class="pagination">\n    ');
           
             if (this.pages > 1) {
-              __out.push('\n    <ul class="pagination">\n        <li class="unavailable"><a>Page ');
+              __out.push('\n        <li class="unavailable"><a>Page ');
               __out.push(__sanitize(this.current));
               __out.push(' of ');
               __out.push(__sanitize(this.pages));
@@ -17322,8 +17322,10 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
               } else {
                 __out.push('\n            <li class="arrow" data-action="next" title="Next"><a>&rsaquo;</a></li>\n        ');
               }
-              __out.push('\n    </ul>\n');
+              __out.push('\n    ');
             }
+          
+            __out.push('\n</ul>');
           
           }).call(this);
           
