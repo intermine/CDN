@@ -631,7 +631,7 @@
         }
         (function() {
           (function() {
-            __out.push('<div class="header section"></div>\n<div class="duplicates section"></div>\n<div class="summary section"></div>\n<div class="unresolved section"></div>');
+          
           
           }).call(this);
           
@@ -1541,28 +1541,23 @@
         };
       
         AppView.prototype.render = function() {
-          var collection, view;
+          var collection;
           AppView.__super__.render.apply(this, arguments);
-          new HeaderView({
-            'db': this.options.db,
-            'el': this.el.find('div.header.section')
-          });
+          this.el.append((new HeaderView({
+            'db': this.options.db
+          })).render().el);
           if ((collection = this.options.db.duplicates).length) {
-            view = new DuplicatesTableView({
-              'el': this.el.find('div.duplicates.section'),
+            this.el.append((new DuplicatesTableView({
               collection: collection
-            });
-            view.render();
+            })).render().el);
           }
-          new SummaryView({
-            'matches': this.options.db.matches,
-            'el': this.el.find('div.summary.section')
-          });
+          this.el.append((new SummaryView({
+            'matches': this.options.db.matches
+          })).render().el);
           if ((collection = this.options.db.data.unresolved).length) {
-            new UnresolvedView({
-              'el': this.el.find('div.unresolved.section'),
+            this.el.append((new UnresolvedView({
               collection: collection
-            });
+            })).render().el);
           }
           return this;
         };
@@ -1663,6 +1658,11 @@
           'click .button.remove-all': 'removeAll'
         };
       
+        DuplicatesTableView.prototype.render = function() {
+          this.el.addClass('duplicates section');
+          return DuplicatesTableView.__super__.render.apply(this, arguments);
+        };
+      
         DuplicatesTableView.prototype.addAll = function() {
           return this.doAll(true);
         };
@@ -1745,8 +1745,6 @@
       HeaderView = (function(_super) {
         __extends(HeaderView, _super);
       
-        HeaderView.prototype.autoRender = true;
-      
         HeaderView.prototype.template = require('../templates/header');
       
         HeaderView.prototype.events = {
@@ -1760,6 +1758,7 @@
         }
       
         HeaderView.prototype.render = function() {
+          this.el.addClass('header section');
           this.el.html(this.template({
             'selected': mori.count(this.options.db.selected),
             'type': this.options.db.type,
@@ -1894,11 +1893,11 @@
         };
       
         Paginator.prototype.prev = function() {
-          return this.select(Math.max(0, this.options.current - 1));
+          return this.select(Math.max(1, this.options.current - 1));
         };
       
         Paginator.prototype.next = function() {
-          return this.select(Math.min(this.options.pages - 1, this.options.current + 1));
+          return this.select(Math.min(this.options.pages, this.options.current + 1));
         };
       
         Paginator.prototype.last = function() {
@@ -1954,8 +1953,6 @@
           return _ref1;
         }
       
-        SummaryView.prototype.autoRender = true;
-      
         SummaryView.prototype.template = require('../templates/summary/tabs');
       
         SummaryView.prototype.events = {
@@ -1964,6 +1961,7 @@
       
         SummaryView.prototype.render = function() {
           var Clazz, collection, content, name, reason, showFirstTab, tabs, view, _i, _len, _ref2, _ref3;
+          this.el.addClass('summary section');
           this.el.html(this.template());
           tabs = this.el.find('.tabs');
           content = this.el.find('.tabs-content');
@@ -2387,9 +2385,12 @@
           return _ref;
         }
       
-        UnresolvedView.prototype.autoRender = true;
-      
         UnresolvedView.prototype.template = require('../templates/unresolved');
+      
+        UnresolvedView.prototype.render = function() {
+          this.el.addClass('unresolved section');
+          return UnresolvedView.__super__.render.apply(this, arguments);
+        };
       
         return UnresolvedView;
       
