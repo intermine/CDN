@@ -459,7 +459,7 @@
           this.widgetOptions = _.extend({}, this.widgetOptions, widgetOptions);
           this.formOptions = _.extend({}, this.formOptions, formOptions);
           this.log = [];
-          EnrichmentWidget.__super__.constructor.call(this);
+          EnrichmentWidget.__super__.constructor.apply(this, arguments);
           this.render();
         }
       
@@ -568,7 +568,7 @@
             'class': "inner",
             'style': "height:572px;overflow:hidden;position:relative"
           }));
-          this.el = "" + this.el + " div.inner";
+          this.el = $(this.el).find('div.inner');
           this.log.push('Initializing InterMine Service');
           this._service = new intermine.Service({
             'root': this.service,
@@ -4397,7 +4397,7 @@
             return google.load('visualization', '1.0', {
               packages: ['corechart'],
               callback: function() {
-                wait = false;
+                _this.wait = false;
                 return (function(func, args, ctor) {
                   ctor.prototype = func.prototype;
                   var child = new ctor, result = func.apply(child, args);
@@ -4431,35 +4431,34 @@
                 var child = new ctor, result = func.apply(child, args);
                 return Object(result) === result ? result : child;
               })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-            } else {
-              _this.wait = true;
-              return $.ajax({
-                'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
-                'dataType': 'jsonp',
-                success: function(data) {
-                  if (data.statusCode !== 200 && (data.lists == null)) {
-                    return $(opts[2]).html($('<div/>', {
-                      'class': "alert alert-error",
-                      'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
-                    }));
-                  } else {
-                    _this.lists = data.lists;
-                    _this.wait = false;
-                    return (function(func, args, ctor) {
-                      ctor.prototype = func.prototype;
-                      var child = new ctor, result = func.apply(child, args);
-                      return Object(result) === result ? result : child;
-                    })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-                  }
-                },
-                error: function(xhr, opts, err) {
+            }
+            _this.wait = true;
+            return $.ajax({
+              'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
+              'dataType': 'jsonp',
+              success: function(data) {
+                if (data.statusCode !== 200 && (data.lists == null)) {
                   return $(opts[2]).html($('<div/>', {
                     'class': "alert alert-error",
-                    'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
+                    'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
                   }));
+                } else {
+                  _this.lists = data.lists;
+                  _this.wait = false;
+                  return (function(func, args, ctor) {
+                    ctor.prototype = func.prototype;
+                    var child = new ctor, result = func.apply(child, args);
+                    return Object(result) === result ? result : child;
+                  })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
                 }
-              });
-            }
+              },
+              error: function(xhr, opts, err) {
+                return $(opts[2]).html($('<div/>', {
+                  'class': "alert alert-error",
+                  'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
+                }));
+              }
+            });
           })();
         };
       
@@ -4500,7 +4499,7 @@
             'url': "" + this.service + "widgets",
             'dataType': 'jsonp',
             success: function(response) {
-              var widget, widgetEl, _i, _len, _ref1, _results;
+              var target, widget, widgetEl, _i, _len, _ref1, _results;
               if (response.widgets) {
                 _ref1 = response.widgets;
                 _results = [];
@@ -4510,23 +4509,11 @@
                     continue;
                   }
                   widgetEl = widget.name.replace(/[^-a-zA-Z0-9,&\s]+/ig, '').replace(/-/gi, "_").replace(/\s/gi, "-").toLowerCase();
-                  $(el).append($('<div/>', {
+                  $(el).append(target = $('<div/>', {
                     'id': widgetEl,
                     'class': "widget span6"
                   }));
-                  switch (widget.widgetType) {
-                    case "chart":
-                      _results.push(_this.chart(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    case "enrichment":
-                      _results.push(_this.enrichment(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    case "table":
-                      _results.push(_this.table(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    default:
-                      _results.push(void 0);
-                  }
+                  _results.push(_this[widget.widgetType](widget.name, bagName, target, widgetOptions));
                 }
                 return _results;
               }

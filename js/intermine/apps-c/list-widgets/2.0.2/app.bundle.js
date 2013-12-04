@@ -11720,22 +11720,17 @@ T[x].s=function(){return!1};var ca=!1,Z=[],da=(new Date)[v](),fa=function(){ca||
 google[z][t];0==a[r]("http:")&&(a=a[n](/^http:/,"https:"));$(a+"/stats?"+Z[B]("&")+"&nc="+(new Date)[v]()+"_"+((new Date)[v]()-da));Z.length=0}},$=function(a){var b=new Image,c=$.H++;$.A[c]=b;b.onload=b.onerror=function(){delete $.A[c]};b.src=a;b=null};$.A={};$.H=0;I("google.loader.recordCsiStat",ga);I("google.loader.recordStat",X);I("google.loader.createImageForLogging",$);
 
 }) ();google.loader.rm({"specs":["feeds","spreadsheets","gdata","visualization",{"name":"sharing","baseSpec":{"uri":"http://www.google.com/s2/sharing/js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":false,"params":{"language":{"string":"hl"}}}},"search","orkut","ads","elements",{"name":"books","baseSpec":{"uri":"http://books.google.com/books/api.js","ssl":"https://encrypted.google.com/books/api.js","key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"}}}},{"name":"friendconnect","baseSpec":{"uri":"http://www.google.com/friendconnect/script/friendconnect.js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":false,"params":{}}},"identitytoolkit","ima",{"name":"maps","baseSpec":{"uri":"http://maps.google.com/maps?file\u003dgoogleapi","ssl":"https://maps-api-ssl.google.com/maps?file\u003dgoogleapi","key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"regex":"callback\u003d$1\u0026async\u003d2"},"language":{"string":"hl"}}},"customSpecs":[{"uri":"http://maps.googleapis.com/maps/api/js","ssl":"https://maps.googleapis.com/maps/api/js","version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"}},"pattern":"^(3|3..*)$"}]},"payments","wave","annotations_v2","earth","language",{"name":"annotations","baseSpec":{"uri":"http://www.google.com/reviews/scripts/annotations_bootstrap.js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"},"country":{"string":"gl"}}}},"picker"]});
-google.loader.rfm({":search":{"versions":{":1":"1",":1.0":"1"},"path":"/api/search/1.0/a075bd7791aa5f99550ea5c9db01a0d5/","js":"default+en.I.js","css":"default+en.css","properties":{":JSHash":"a075bd7791aa5f99550ea5c9db01a0d5",":NoOldNames":false,":Version":"1.0"}},":language":{"versions":{":1":"1",":1.0":"1"},"path":"/api/language/1.0/f66252f80431973fa38526a329b0a47b/","js":"default+en.I.js","properties":{":JSHash":"f66252f80431973fa38526a329b0a47b",":Version":"1.0"}},":feeds":{"versions":{":1":"1",":1.0":"1"},"path":"/api/feeds/1.0/c95430d91553a3f34679e480fd8c0961/","js":"default+en.I.js","css":"default+en.css","properties":{":JSHash":"c95430d91553a3f34679e480fd8c0961",":Version":"1.0"}},":spreadsheets":{"versions":{":0":"1",":0.4":"1"},"path":"/api/spreadsheets/0.4/87ff7219e9f8a8164006cbf28d5e911a/","js":"default.I.js","properties":{":JSHash":"87ff7219e9f8a8164006cbf28d5e911a",":Version":"0.4"}},":ima":{"versions":{":3":"1",":3.0":"1"},"path":"/api/ima/3.0/28a914332232c9a8ac0ae8da68b1006e/","js":"default.I.js","properties":{":JSHash":"28a914332232c9a8ac0ae8da68b1006e",":Version":"3.0"}},":wave":{"versions":{":1":"1",":1.0":"1"},"path":"/api/wave/1.0/3b6f7573ff78da6602dda5e09c9025bf/","js":"default.I.js","properties":{":JSHash":"3b6f7573ff78da6602dda5e09c9025bf",":Version":"1.0"}},":annotations":{"versions":{":1":"1",":1.0":"1"},"path":"/api/annotations/1.0/bacce7b6155a1bbadda3c05d65391b22/","js":"default+en.I.js","properties":{":JSHash":"bacce7b6155a1bbadda3c05d65391b22",":Version":"1.0"}},":earth":{"versions":{":1":"1",":1.0":"1"},"path":"/api/earth/1.0/109c7b2bae7fe6cc34ea875176165d81/","js":"default.I.js","properties":{":JSHash":"109c7b2bae7fe6cc34ea875176165d81",":Version":"1.0"}},":picker":{"versions":{":1":"1",":1.0":"1"},"path":"/api/picker/1.0/1c635e91b9d0c082c660a42091913907/","js":"default.I.js","css":"default.css","properties":{":JSHash":"1c635e91b9d0c082c660a42091913907",":Version":"1.0"}}});
-google.loader.rpl({":scriptaculous":{"versions":{":1.8.3":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.9.0":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.2":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.1":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"}},"aliases":{":1.8":"1.8.3",":1":"1.9.0",":1.9":"1.9.0"}},":yui":{"versions":{":2.6.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.9.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.7.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.0r4":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.2r1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":3.3.0":{"uncompressed":"build/yui/yui.js","compressed":"build/yui/yui-min.js"}},"aliases":{":3":"3.3.0",":2":"2.9.0",":2.7":"2.7.0",":2.8.2":"2.8.2r1",":2.6":"2.6.0",":2.9":"2.9.0",":2.8":"2.8.2r1",":2.8.0":"2.8.0r4",":3.3":"3.3.0"}},":swfobject":{"versions":{":2.1":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"},":2.2":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"}},"aliases":{":2":"2.2"}},":webfont":{"versions":{":1.0.28":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.27":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.29":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.12":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.13":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.14":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.15":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.10":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.11":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.2":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.1":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.0":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.6":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.19":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.5":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.18":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.4":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.17":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.3":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.16":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.9":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.21":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.22":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.25":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.26":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.23":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.24":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"}},"aliases":{":1":"1.0.29",":1.0":"1.0.29"}},":ext-core":{"versions":{":3.1.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"},":3.0.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"}},"aliases":{":3":"3.1.0",":3.0":"3.0.0",":3.1":"3.1.0"}},":mootools":{"versions":{":1.3.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.3":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.4":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.5":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"}},"aliases":{":1":"1.1.2",":1.11":"1.1.1",":1.4":"1.4.2",":1.3":"1.3.2",":1.2":"1.2.5",":1.1":"1.1.2"}},":jqueryui":{"versions":{":1.8.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.15":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.14":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.13":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.12":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.11":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.10":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.17":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.16":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.6.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.9":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.7":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.8":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.5":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.6":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.4":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"}},"aliases":{":1.8":"1.8.17",":1.7":"1.7.3",":1.6":"1.6.0",":1":"1.8.17",":1.5":"1.5.3",":1.8.3":"1.8.4"}},":chrome-frame":{"versions":{":1.0.2":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.1":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.0":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"}},"aliases":{":1":"1.0.2",":1.0":"1.0.2"}},":jquery":{"versions":{":1.6.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.6":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"}},"aliases":{":1.7":"1.7.1",":1.6":"1.6.4",":1":"1.7.1",":1.5":"1.5.2",":1.4":"1.4.4",":1.3":"1.3.2",":1.2":"1.2.6"}},":dojo":{"versions":{":1.3.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.1.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.2":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.7.2":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.0":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.1":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.4.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"}},"aliases":{":1.7":"1.7.2",":1":"1.6.1",":1.6":"1.6.1",":1.5":"1.5.1",":1.4":"1.4.3",":1.3":"1.3.2",":1.2":"1.2.3",":1.1":"1.1.1"}},":prototype":{"versions":{":1.7.0.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.2":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.1.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.3":{"uncompressed":"prototype.js","compressed":"prototype.js"}},"aliases":{":1.7":"1.7.0.0",":1.6.1":"1.6.1.0",":1":"1.7.0.0",":1.6":"1.6.1.0",":1.7.0":"1.7.0.0",":1.6.0":"1.6.0.3"}}});
+google.loader.rfm({":search":{"versions":{":1":"1",":1.0":"1"},"path":"/api/search/1.0/65b21018ad4df09e3eb5a21326b72d0b/","js":"default+en.I.js","css":"default+en.css","properties":{":JSHash":"65b21018ad4df09e3eb5a21326b72d0b",":NoOldNames":false,":Version":"1.0"}},":language":{"versions":{":1":"1",":1.0":"1"},"path":"/api/language/1.0/f66252f80431973fa38526a329b0a47b/","js":"default+en.I.js","properties":{":JSHash":"f66252f80431973fa38526a329b0a47b",":Version":"1.0"}},":feeds":{"versions":{":1":"1",":1.0":"1"},"path":"/api/feeds/1.0/975cfa817ddcf5992ebfc12a1f34c97b/","js":"default+en.I.js","css":"default+en.css","properties":{":JSHash":"975cfa817ddcf5992ebfc12a1f34c97b",":Version":"1.0"}},":spreadsheets":{"versions":{":0":"1",":0.4":"1"},"path":"/api/spreadsheets/0.4/87ff7219e9f8a8164006cbf28d5e911a/","js":"default.I.js","properties":{":JSHash":"87ff7219e9f8a8164006cbf28d5e911a",":Version":"0.4"}},":ima":{"versions":{":3":"1",":3.0":"1"},"path":"/api/ima/3.0/28a914332232c9a8ac0ae8da68b1006e/","js":"default.I.js","properties":{":JSHash":"28a914332232c9a8ac0ae8da68b1006e",":Version":"3.0"}},":wave":{"versions":{":1":"1",":1.0":"1"},"path":"/api/wave/1.0/3b6f7573ff78da6602dda5e09c9025bf/","js":"default.I.js","properties":{":JSHash":"3b6f7573ff78da6602dda5e09c9025bf",":Version":"1.0"}},":annotations":{"versions":{":1":"1",":1.0":"1"},"path":"/api/annotations/1.0/bacce7b6155a1bbadda3c05d65391b22/","js":"default+en.I.js","properties":{":JSHash":"bacce7b6155a1bbadda3c05d65391b22",":Version":"1.0"}},":earth":{"versions":{":1":"1",":1.0":"1"},"path":"/api/earth/1.0/109c7b2bae7fe6cc34ea875176165d81/","js":"default.I.js","properties":{":JSHash":"109c7b2bae7fe6cc34ea875176165d81",":Version":"1.0"}},":picker":{"versions":{":1":"1",":1.0":"1"},"path":"/api/picker/1.0/1c635e91b9d0c082c660a42091913907/","js":"default.I.js","css":"default.css","properties":{":JSHash":"1c635e91b9d0c082c660a42091913907",":Version":"1.0"}}});
+google.loader.rpl({":scriptaculous":{"versions":{":1.8.3":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.9.0":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.2":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.1":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"}},"aliases":{":1.8":"1.8.3",":1":"1.9.0",":1.9":"1.9.0"}},":yui":{"versions":{":2.6.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.9.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.7.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.0r4":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.2r1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":3.3.0":{"uncompressed":"build/yui/yui.js","compressed":"build/yui/yui-min.js"}},"aliases":{":3":"3.3.0",":2":"2.9.0",":2.7":"2.7.0",":2.8.2":"2.8.2r1",":2.6":"2.6.0",":2.9":"2.9.0",":2.8":"2.8.2r1",":2.8.0":"2.8.0r4",":3.3":"3.3.0"}},":swfobject":{"versions":{":2.1":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"},":2.2":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"}},"aliases":{":2":"2.2"}},":ext-core":{"versions":{":3.1.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"},":3.0.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"}},"aliases":{":3":"3.1.0",":3.0":"3.0.0",":3.1":"3.1.0"}},":webfont":{"versions":{":1.0.28":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.27":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.29":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.12":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.13":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.14":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.15":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.10":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.11":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.2":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.1":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.0":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.6":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.19":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.5":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.18":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.4":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.17":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.3":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.16":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.9":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.21":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.22":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.25":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.26":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.23":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.24":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"}},"aliases":{":1":"1.0.29",":1.0":"1.0.29"}},":mootools":{"versions":{":1.3.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.3":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.4":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.5":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"}},"aliases":{":1":"1.1.2",":1.11":"1.1.1",":1.4":"1.4.2",":1.3":"1.3.2",":1.2":"1.2.5",":1.1":"1.1.2"}},":jqueryui":{"versions":{":1.8.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.15":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.14":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.13":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.12":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.11":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.10":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.17":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.16":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.6.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.9":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.7":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.8":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.5":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.6":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.4":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"}},"aliases":{":1.8":"1.8.17",":1.7":"1.7.3",":1.6":"1.6.0",":1":"1.8.17",":1.5":"1.5.3",":1.8.3":"1.8.4"}},":chrome-frame":{"versions":{":1.0.2":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.1":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.0":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"}},"aliases":{":1":"1.0.2",":1.0":"1.0.2"}},":jquery":{"versions":{":1.6.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.6":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"}},"aliases":{":1.7":"1.7.1",":1.6":"1.6.4",":1":"1.7.1",":1.5":"1.5.2",":1.4":"1.4.4",":1.3":"1.3.2",":1.2":"1.2.6"}},":prototype":{"versions":{":1.7.0.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.2":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.1.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.3":{"uncompressed":"prototype.js","compressed":"prototype.js"}},"aliases":{":1.7":"1.7.0.0",":1.6.1":"1.6.1.0",":1":"1.7.0.0",":1.6":"1.6.1.0",":1.7.0":"1.7.0.0",":1.6.0":"1.6.0.3"}},":dojo":{"versions":{":1.3.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.1.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.2":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.7.2":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.0":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.1":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.4.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"}},"aliases":{":1.7":"1.7.2",":1":"1.6.1",":1.6":"1.6.1",":1.5":"1.5.1",":1.4":"1.4.3",":1.3":"1.3.2",":1.2":"1.2.3",":1.1":"1.1.1"}}});
 }
-;/*! imjs - v2.8.1 - 2013-11-07 */
+;/*! imjs - v2.10.6 - 2013-11-22 */
 
-/**
-This library is open source software according to the definition of the
-GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
-included with this software. All use of this software is covered according to
-the terms of the LGPLv3.
-
-The copyright is held by InterMine (www.intermine.org) and Alex Kalderimis (alex@intermine.org).
-
-Thu Jun 14 13:18:14 BST 2012
-**/
-
+// This library is open source software according to the definition of the
+// GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
+// included with this software. All use of this software is covered according to
+// the terms of the LGPLv3.
+// 
+// The copyright is held by InterMine (www.intermine.org) and Alex Kalderimis (alex@intermine.org).
 (function() {
   var IS_NODE, data, fs, imjs, intermine, path, pkg, _ref, _ref1;
 
@@ -11759,7 +11754,7 @@ Thu Jun 14 13:18:14 BST 2012
       imjs.VERSION = pkg.version;
     }
   } else {
-    imjs.VERSION = "2.8.1";
+    imjs.VERSION = "2.10.6";
   }
 
 }).call(this);
@@ -12078,6 +12073,13 @@ Thu Jun 14 13:18:14 BST 2012
   root.fold = fold = function(f) {
     return function(init, xs) {
       var k, ret, v;
+      if (arguments.length === 1) {
+        xs = (init != null ? init.slice() : void 0) || init;
+        init = (xs != null ? xs.shift() : void 0) || {};
+      }
+      if (xs == null) {
+        throw new Error("xs is null");
+      }
       if (xs.reduce != null) {
         return xs.reduce(f, init);
       } else {
@@ -12450,12 +12452,20 @@ Thu Jun 14 13:18:14 BST 2012
     });
   };
 
-  ERROR_PIPE = function(xhr, textStatus, e) {
-    try {
-      return JSON.parse(xhr.responseText).error;
-    } catch (e) {
-      return textStatus;
+  ERROR_PIPE = function(f) {
+    if (f == null) {
+      f = (function() {});
     }
+    return function(xhr, textStatus, e) {
+      if ((xhr != null ? xhr.status : void 0) === 0) {
+        return;
+      }
+      try {
+        return f(JSON.parse(xhr.responseText).error);
+      } catch (e) {
+        return f(textStatus);
+      }
+    };
   };
 
   inIE9 = XDomainRequest != null;
@@ -12532,10 +12542,21 @@ Thu Jun 14 13:18:14 BST 2012
   };
 
   http.doReq = function(opts) {
-    var errBack;
+    var def, errBack;
     errBack = opts.error || this.errorHandler;
-    opts.error = _.compose(errBack, ERROR_PIPE);
-    return jQuery.ajax(opts).pipe(CHECKING_PIPE).fail(errBack);
+    opts.error = ERROR_PIPE(errBack);
+    def = jQuery.Deferred(function() {
+      var resp,
+        _this = this;
+      resp = jQuery.ajax(opts);
+      resp.then(function() {
+        return _this.resolve.apply(_this, arguments);
+      });
+      return resp.fail(ERROR_PIPE(function(err) {
+        return _this.reject(err);
+      }));
+    });
+    return def.promise();
   };
 
 }).call(this);
@@ -13305,7 +13326,9 @@ Thu Jun 14 13:18:14 BST 2012
 }).call(this);
 
 (function() {
-  var Deferred, IDResolutionJob, IS_NODE, funcutils, get, intermine, __root__,
+  var CategoryResults, Deferred, IDResolutionJob, IS_NODE, IdResults, ONE_MINUTE, concatMap, fold, funcutils, get, id, intermine, __root__,
+    __hasProp = {}.hasOwnProperty,
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   IS_NODE = typeof exports !== 'undefined';
@@ -13322,7 +13345,127 @@ Thu Jun 14 13:18:14 BST 2012
     funcutils = intermine.funcutils;
   }
 
-  get = funcutils.get;
+  id = funcutils.id, get = funcutils.get, fold = funcutils.fold, concatMap = funcutils.concatMap;
+
+  ONE_MINUTE = 60 * 1000;
+
+  CategoryResults = (function() {
+    var getIssueMatches;
+
+    function CategoryResults(results) {
+      var k, v;
+      for (k in results) {
+        if (!__hasProp.call(results, k)) continue;
+        v = results[k];
+        this[k] = v;
+      }
+    }
+
+    getIssueMatches = concatMap(get('matches'));
+
+    CategoryResults.prototype.getMatches = function(k) {
+      var _ref;
+      if (k === 'MATCH') {
+        return this.matches[k];
+      } else {
+        return (_ref = getIssueMatches(this.matches[k])) != null ? _ref : [];
+      }
+    };
+
+    CategoryResults.prototype.getMatchIds = function(k) {
+      if (k != null) {
+        return this.getMatches(k).map(get('id'));
+      } else {
+        return this.allMatchIds();
+      }
+    };
+
+    CategoryResults.prototype.goodMatchIds = function() {
+      return this.getMatchIds('MATCH');
+    };
+
+    CategoryResults.prototype.allMatchIds = function() {
+      var combineIds,
+        _this = this;
+      combineIds = fold(function(res, issueSet) {
+        return res.concat(_this.getMatchIds(issueSet));
+      });
+      return combineIds(this.goodMatchIds(), ['DUPLICATE', 'WILDCARD', 'TYPE_CONVERTED', 'OTHER']);
+    };
+
+    return CategoryResults;
+
+  })();
+
+  IdResults = (function() {
+    var flatten, getReasons, isGood;
+
+    function IdResults(results) {
+      var k, v;
+      for (k in results) {
+        if (!__hasProp.call(results, k)) continue;
+        v = results[k];
+        this[k] = v;
+      }
+    }
+
+    flatten = concatMap(id);
+
+    getReasons = function(match) {
+      var k, vals;
+      return flatten((function() {
+        var _ref, _results;
+        _ref = match.identifiers;
+        _results = [];
+        for (k in _ref) {
+          vals = _ref[k];
+          _results.push(vals);
+        }
+        return _results;
+      })());
+    };
+
+    isGood = function(match, k) {
+      return !(k != null) || __indexOf.call(getReasons(match), k) >= 0;
+    };
+
+    IdResults.prototype.getMatches = function(k) {
+      var match, _results;
+      _results = [];
+      for (id in this) {
+        if (!__hasProp.call(this, id)) continue;
+        match = this[id];
+        if (isGood(match, k)) {
+          _results.push(match);
+        }
+      }
+      return _results;
+    };
+
+    IdResults.prototype.getMatchIds = function(k) {
+      var match, _results;
+      _results = [];
+      for (id in this) {
+        if (!__hasProp.call(this, id)) continue;
+        match = this[id];
+        if (isGood(match, k)) {
+          _results.push(id);
+        }
+      }
+      return _results;
+    };
+
+    IdResults.prototype.goodMatchIds = function() {
+      return this.getMatchIds('MATCH');
+    };
+
+    IdResults.prototype.allMatchIds = function() {
+      return this.getMatchIds();
+    };
+
+    return IdResults;
+
+  })();
 
   IDResolutionJob = (function() {
 
@@ -13348,19 +13491,34 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     IDResolutionJob.prototype.fetchResults = function(cb) {
-      return this.service.get("ids/" + this.uid + "/result").pipe(get('results')).done(cb);
+      var gettingRes, gettingVer;
+      gettingRes = this.service.get("ids/" + this.uid + "/result").pipe(get('results'));
+      gettingVer = this.service.fetchVersion();
+      return gettingVer.then(function(v) {
+        return gettingRes.then(function(results) {
+          if (v >= 16) {
+            return new CategoryResults(results);
+          } else {
+            return new IdResults(results);
+          }
+        });
+      });
     };
 
     IDResolutionJob.prototype.del = function(cb) {
       return this.service.makeRequest('DELETE', "ids/" + this.uid, {}, cb);
     };
 
+    IDResolutionJob.prototype.decay = 50;
+
     IDResolutionJob.prototype.poll = function(onSuccess, onError, onProgress) {
-      var resp, ret,
+      var backOff, resp, ret,
         _this = this;
       ret = Deferred().done(onSuccess).fail(onError).progress(onProgress);
       resp = this.fetchStatus();
       resp.fail(ret.reject);
+      backOff = this.decay;
+      this.decay = Math.min(ONE_MINUTE, backOff * 2);
       resp.done(function(status) {
         ret.notify(status);
         switch (status) {
@@ -13369,7 +13527,9 @@ Thu Jun 14 13:18:14 BST 2012
           case 'ERROR':
             return _this.fetchErrorMessage().then(ret.reject, ret.reject);
           default:
-            return _this.poll(ret.resolve, ret.reject, ret.notify);
+            return setTimeout((function() {
+              return _this.poll(ret.resolve, ret.reject, ret.notify);
+            }), backOff);
         }
       });
       return ret.promise();
@@ -13379,6 +13539,8 @@ Thu Jun 14 13:18:14 BST 2012
 
   })();
 
+  IDResolutionJob.prototype.wait = IDResolutionJob.prototype.poll;
+
   IDResolutionJob.create = function(service) {
     return function(uid) {
       return new IDResolutionJob(uid, service);
@@ -13387,13 +13549,18 @@ Thu Jun 14 13:18:14 BST 2012
 
   intermine.IDResolutionJob = IDResolutionJob;
 
+  intermine.CategoryResults = CategoryResults;
+
+  intermine.IdResults = IdResults;
+
 }).call(this);
 
 (function() {
-  var $, BASIC_ATTRS, CODES, Deferred, IS_NODE, LIST_PIPE, Query, RESULTS_METHODS, SIMPLE_ATTRS, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, jQuery, mth, multiConStr, noUndefVals, noValueConStr, pairsToObj, partition, simpleConStr, stringToSortOrder, take, toQueryString, typeConStr, _, __root__, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref, _ref1, _ref2,
+  var $, BASIC_ATTRS, CODES, Deferred, IS_NODE, LIST_PIPE, Query, RESULTS_METHODS, SIMPLE_ATTRS, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, jQuery, mth, multiConStr, noUndefVals, noValueConStr, pairsToObj, partition, removeIrrelevantSortOrders, simpleConStr, stringToSortOrder, take, toQueryString, typeConStr, _, __root__, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref, _ref1, _ref2,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __slice = [].slice;
+    __slice = [].slice,
+    __hasProp = {}.hasOwnProperty;
 
   IS_NODE = typeof exports !== 'undefined';
 
@@ -13647,6 +13814,25 @@ Thu Jun 14 13:18:14 BST 2012
       _results.push([parts[i], parts[i + 1]]);
     }
     return _results;
+  };
+
+  removeIrrelevantSortOrders = function() {
+    var oe, oldOrder;
+    oldOrder = this.sortOrder;
+    this.sortOrder = (function() {
+      var _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = oldOrder.length; _i < _len; _i++) {
+        oe = oldOrder[_i];
+        if (this.isRelevant(oe.path)) {
+          _results.push(oe);
+        }
+      }
+      return _results;
+    }).call(this);
+    if (oldOrder.length !== this.sortOrder.length) {
+      return this.trigger('change:sortorder change:orderby', this.sortOrder.slice());
+    }
   };
 
   Query = (function() {
@@ -13978,6 +14164,7 @@ Thu Jun 14 13:18:14 BST 2012
         }));
         return _.flatten(ret.concat(others));
       };
+      this.on('change:views', removeIrrelevantSortOrders, this);
     }
 
     Query.prototype.removeFromSelect = function(unwanted) {
@@ -14185,34 +14372,55 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.getQueryNodes = function() {
-      var constrainedNodes, viewNodes,
-        _this = this;
+      var c, constrainedNodes, pi, viewNodes;
       viewNodes = this.getViewNodes();
-      constrainedNodes = _.map(this.constraints, function(c) {
-        var pi;
-        pi = _this.getPathInfo(c.path);
-        if (pi.isAttribute()) {
-          return pi.getParent();
-        } else {
-          return pi;
+      constrainedNodes = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = this.constraints;
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          if (!(!(c.type != null))) {
+            continue;
+          }
+          pi = this.getPathInfo(c.path);
+          if (pi.isAttribute()) {
+            _results.push(pi.getParent());
+          } else {
+            _results.push(pi);
+          }
         }
-      });
-      return _.uniq(viewNodes.concat(constrainedNodes), false, function(n) {
-        return n.toPathString();
-      });
+        return _results;
+      }).call(this);
+      return _.uniq(viewNodes.concat(constrainedNodes), false, String);
     };
 
     Query.prototype.isInQuery = function(p) {
-      var pi, pstr;
+      var c, pi, pstr, _i, _len, _ref2;
       pi = this.getPathInfo(p);
       if (pi) {
         pstr = pi.toPathString();
-        return _.any(_.union(this.views, _.pluck(this.constraints, 'path')), function(p) {
-          return p.indexOf(pstr) === 0;
-        });
-      } else {
-        return true;
+        _ref2 = this.views.concat((function() {
+          var _j, _len, _ref2, _results;
+          _ref2 = this.constraints;
+          _results = [];
+          for (_j = 0, _len = _ref2.length; _j < _len; _j++) {
+            c = _ref2[_j];
+            if (!(c.type != null)) {
+              _results.push(c.path);
+            }
+          }
+          return _results;
+        }).call(this));
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          p = _ref2[_i];
+          if (0 === p.indexOf(pstr)) {
+            return true;
+          }
+        }
+        return false;
       }
+      return true;
     };
 
     Query.prototype.isRelevant = function(path) {
@@ -14222,7 +14430,7 @@ Thu Jun 14 13:18:14 BST 2012
         pi = pi.getParent();
       }
       sought = pi.toString();
-      nodes = this.getQueryNodes();
+      nodes = this.getViewNodes();
       return _.any(nodes, function(n) {
         return n.toPathString() === sought;
       });
@@ -14377,12 +14585,19 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.clone = function(cloneEvents) {
-      var cloned;
+      var cloned, k, v, _ref2, _ref3;
       cloned = new Query(this, this.service);
-      if (cloneEvents) {
-        cloned._callbacks = this._callbacks;
-      } else {
+      if ((_ref2 = cloned._callbacks) == null) {
         cloned._callbacks = {};
+      }
+      if (cloneEvents) {
+        _ref3 = this._callbacks;
+        for (k in _ref3) {
+          if (!__hasProp.call(_ref3, k)) continue;
+          v = _ref3[k];
+          cloned._callbacks[k] = v;
+        }
+        cloned.off('change:views', removeIrrelevantSortOrders, this);
       }
       return cloned;
     };
@@ -14495,7 +14710,7 @@ Thu Jun 14 13:18:14 BST 2012
         oe = oes[_i];
         this.addSortOrder(this._parse_sort_order(oe));
       }
-      return this.trigger('set:sortorder', this.sortOrder);
+      return this.trigger('set:sortorder change:sortorder', this.sortOrder);
     };
 
     Query.prototype.addJoins = function(joins) {
@@ -14616,10 +14831,23 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.getConstraintXML = function() {
-      if (this.constraints.length) {
+      var c, toSerialise;
+      toSerialise = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = this.constraints;
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          if (!(c.type != null) || this.isInQuery(c.path)) {
+            _results.push(c);
+          }
+        }
+        return _results;
+      }).call(this);
+      if (toSerialise.length) {
         return concatMap(conStr)(concatMap(id)(partition(function(c) {
           return c.type != null;
-        })(this.constraints)));
+        })(toSerialise)));
       } else {
         return '';
       }
@@ -15089,6 +15317,8 @@ Thu Jun 14 13:18:14 BST 2012
   Service = (function() {
     var toMapByName;
 
+    Service.prototype.doReq = http.doReq;
+
     function Service(_arg) {
       var loc, noCache, _ref, _ref1,
         _this = this;
@@ -15117,6 +15347,8 @@ Thu Jun 14 13:18:14 BST 2012
 
       this.tableRows = __bind(this.tableRows, this);
 
+      this.values = __bind(this.values, this);
+
       this.rows = __bind(this.rows, this);
 
       this.records = __bind(this.records, this);
@@ -15124,8 +15356,6 @@ Thu Jun 14 13:18:14 BST 2012
       this.table = __bind(this.table, this);
 
       this.pathValues = __bind(this.pathValues, this);
-
-      this.values = __bind(this.values, this);
 
       this.fetchUser = __bind(this.fetchUser, this);
 
@@ -15232,7 +15462,7 @@ Thu Jun 14 13:18:14 BST 2012
         url: url,
         type: method
       };
-      return http.doReq(opts, indiv);
+      return this.doReq(opts, indiv);
     };
 
     Service.prototype.enrichment = function(opts, cb) {
@@ -15337,7 +15567,7 @@ Thu Jun 14 13:18:14 BST 2012
       return this.whoami.apply(this, args);
     };
 
-    Service.prototype.values = function(path, typeConstraints, cb) {
+    Service.prototype.pathValues = function(path, typeConstraints, cb) {
       var _this = this;
       if (typeConstraints == null) {
         typeConstraints = {};
@@ -15346,26 +15576,30 @@ Thu Jun 14 13:18:14 BST 2012
         cb = (function() {});
       }
       return REQUIRES_VERSION(this, 6, function() {
+        var wanted, _pathValues;
+        if (_.isString(typeConstraints)) {
+          wanted = typeConstraints;
+          typeConstraints = {};
+        }
+        if (wanted !== 'count') {
+          wanted = 'results';
+        }
+        _pathValues = function(path) {
+          var format, req;
+          format = wanted === 'count' ? 'jsoncount' : 'json';
+          req = {
+            format: format,
+            path: path.toString(),
+            typeConstraints: JSON.stringify(path.subclasses)
+          };
+          return _this.post(PATH_VALUES_PATH, req).pipe(get(wanted));
+        };
         try {
-          return _this.fetchModel().pipe(invoke('makePath', path, path.subclasses || typeConstraints)).pipe(_this.pathValues).done(cb);
+          return _this.fetchModel().pipe(invoke('makePath', path, path.subclasses || typeConstraints)).pipe(_pathValues).done(cb);
         } catch (e) {
           return error(e);
         }
       });
-    };
-
-    Service.prototype.pathValues = function(path, wanted) {
-      var format, req;
-      if (wanted !== 'count') {
-        wanted = 'results';
-      }
-      format = wanted === 'count' ? 'jsoncount' : 'json';
-      req = {
-        format: format,
-        path: path.toString(),
-        typeConstraints: JSON.stringify(path.subclasses)
-      };
-      return this.post(PATH_VALUES_PATH, req).pipe(get(wanted));
     };
 
     Service.prototype.doPagedRequest = function(q, path, page, format, cb) {
@@ -15405,6 +15639,26 @@ Thu Jun 14 13:18:14 BST 2012
 
     Service.prototype.rows = function(q, page, cb) {
       return this.doPagedRequest(q, QUERY_RESULTS_PATH, page, 'json', cb);
+    };
+
+    Service.prototype.values = function(q, opts, cb) {
+      var _this = this;
+      if (cb == null) {
+        cb = (function() {});
+      }
+      if (!(q != null)) {
+        return error("No query term supplied");
+      } else if ((q.descriptors != null) || _.isString(q)) {
+        return this.pathValues(q, opts, cb);
+      } else {
+        return this.query(q).then(function(query) {
+          if (query.views.length !== 1) {
+            return error("Expected one column, got " + q.views.length);
+          } else {
+            return _this.rows(query, opts).then(invoke('map', get(0))).done(cb);
+          }
+        });
+      }
     };
 
     Service.prototype.tableRows = function(q, page, cb) {
@@ -15596,13 +15850,13 @@ Thu Jun 14 13:18:14 BST 2012
       return REQUIRES_VERSION(this, 10, function() {
         var req;
         req = {
-          data: JSON.stringify(opts),
-          dataType: 'json',
-          url: _this.root + 'ids',
           type: 'POST',
-          contentType: 'application/json'
+          url: _this.root + 'ids',
+          contentType: 'application/json',
+          data: JSON.stringify(opts),
+          dataType: 'json'
         };
-        return http.doReq(req).pipe(get('uid')).pipe(IDResolutionJob.create(_this)).done(cb);
+        return _this.doReq(req).pipe(get('uid')).pipe(IDResolutionJob.create(_this)).done(cb);
       });
     };
 
@@ -15633,7 +15887,7 @@ Thu Jun 14 13:18:14 BST 2012
         type: 'POST',
         contentType: 'text/plain'
       };
-      return http.doReq(req).pipe(LIST_PIPE(this)).done(cb);
+      return this.doReq(req).pipe(LIST_PIPE(this)).done(cb);
     };
 
     return Service;
@@ -17547,7 +17801,7 @@ var saveAs = saveAs
           this.widgetOptions = _.extend({}, this.widgetOptions, widgetOptions);
           this.formOptions = _.extend({}, this.formOptions, formOptions);
           this.log = [];
-          EnrichmentWidget.__super__.constructor.call(this);
+          EnrichmentWidget.__super__.constructor.apply(this, arguments);
           this.render();
         }
       
@@ -17656,7 +17910,7 @@ var saveAs = saveAs
             'class': "inner",
             'style': "height:572px;overflow:hidden;position:relative"
           }));
-          this.el = "" + this.el + " div.inner";
+          this.el = $(this.el).find('div.inner');
           this.log.push('Initializing InterMine Service');
           this._service = new intermine.Service({
             'root': this.service,
@@ -21485,7 +21739,7 @@ var saveAs = saveAs
             return google.load('visualization', '1.0', {
               packages: ['corechart'],
               callback: function() {
-                wait = false;
+                _this.wait = false;
                 return (function(func, args, ctor) {
                   ctor.prototype = func.prototype;
                   var child = new ctor, result = func.apply(child, args);
@@ -21519,35 +21773,34 @@ var saveAs = saveAs
                 var child = new ctor, result = func.apply(child, args);
                 return Object(result) === result ? result : child;
               })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-            } else {
-              _this.wait = true;
-              return $.ajax({
-                'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
-                'dataType': 'jsonp',
-                success: function(data) {
-                  if (data.statusCode !== 200 && (data.lists == null)) {
-                    return $(opts[2]).html($('<div/>', {
-                      'class': "alert alert-error",
-                      'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
-                    }));
-                  } else {
-                    _this.lists = data.lists;
-                    _this.wait = false;
-                    return (function(func, args, ctor) {
-                      ctor.prototype = func.prototype;
-                      var child = new ctor, result = func.apply(child, args);
-                      return Object(result) === result ? result : child;
-                    })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-                  }
-                },
-                error: function(xhr, opts, err) {
+            }
+            _this.wait = true;
+            return $.ajax({
+              'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
+              'dataType': 'jsonp',
+              success: function(data) {
+                if (data.statusCode !== 200 && (data.lists == null)) {
                   return $(opts[2]).html($('<div/>', {
                     'class': "alert alert-error",
-                    'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
+                    'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
                   }));
+                } else {
+                  _this.lists = data.lists;
+                  _this.wait = false;
+                  return (function(func, args, ctor) {
+                    ctor.prototype = func.prototype;
+                    var child = new ctor, result = func.apply(child, args);
+                    return Object(result) === result ? result : child;
+                  })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
                 }
-              });
-            }
+              },
+              error: function(xhr, opts, err) {
+                return $(opts[2]).html($('<div/>', {
+                  'class': "alert alert-error",
+                  'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
+                }));
+              }
+            });
           })();
         };
       
@@ -21588,7 +21841,7 @@ var saveAs = saveAs
             'url': "" + this.service + "widgets",
             'dataType': 'jsonp',
             success: function(response) {
-              var widget, widgetEl, _i, _len, _ref1, _results;
+              var target, widget, widgetEl, _i, _len, _ref1, _results;
               if (response.widgets) {
                 _ref1 = response.widgets;
                 _results = [];
@@ -21598,23 +21851,11 @@ var saveAs = saveAs
                     continue;
                   }
                   widgetEl = widget.name.replace(/[^-a-zA-Z0-9,&\s]+/ig, '').replace(/-/gi, "_").replace(/\s/gi, "-").toLowerCase();
-                  $(el).append($('<div/>', {
+                  $(el).append(target = $('<div/>', {
                     'id': widgetEl,
                     'class': "widget span6"
                   }));
-                  switch (widget.widgetType) {
-                    case "chart":
-                      _results.push(_this.chart(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    case "enrichment":
-                      _results.push(_this.enrichment(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    case "table":
-                      _results.push(_this.table(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    default:
-                      _results.push(void 0);
-                  }
+                  _results.push(_this[widget.widgetType](widget.name, bagName, target, widgetOptions));
                 }
                 return _results;
               }
