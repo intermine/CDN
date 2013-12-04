@@ -211,10 +211,12 @@
     // ChartWidget.coffee
     require.register('list-widgets/src/class/ChartWidget.js', function(exports, require, module) {
     
-      var ChartView, ChartWidget, InterMineWidget, type,
+      var $, ChartView, ChartWidget, InterMineWidget, type, _, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../deps'), _ = _ref._, $ = _ref.$;
       
       InterMineWidget = require('./InterMineWidget');
       
@@ -283,22 +285,22 @@
         }
       
         ChartWidget.prototype.render = function() {
-          var data, key, timeout, value, _ref, _ref1,
+          var data, key, timeout, value, _ref1, _ref2,
             _this = this;
           timeout = window.setTimeout((function() {
             return $(_this.el).append(_this.loading = $(require('../templates/loading')()));
           }), 400);
-          if ((_ref = this.view) != null) {
-            _ref.undelegateEvents();
+          if ((_ref1 = this.view) != null) {
+            _ref1.undelegateEvents();
           }
           data = {
             'widget': this.id,
             'list': this.bagName,
             'token': this.token
           };
-          _ref1 = this.formOptions;
-          for (key in _ref1) {
-            value = _ref1[key];
+          _ref2 = this.formOptions;
+          for (key in _ref2) {
+            value = _ref2[key];
             if (key !== 'errorCorrection' && key !== 'pValue') {
               data['filter'] = value;
             }
@@ -309,11 +311,11 @@
             dataType: "jsonp",
             data: data,
             success: function(response) {
-              var _ref2;
+              var _ref3;
               _this.log.push('Received a response ' + JSON.stringify(response));
               window.clearTimeout(timeout);
-              if ((_ref2 = _this.loading) != null) {
-                _ref2.remove();
+              if ((_ref3 = _this.loading) != null) {
+                _ref3.remove();
               }
               _this.validateType(response, _this.spec.response);
               if (response.wasSuccessful) {
@@ -351,11 +353,13 @@
     // EnrichmentWidget.coffee
     require.register('list-widgets/src/class/EnrichmentWidget.js', function(exports, require, module) {
     
-      var EnrichmentView, EnrichmentWidget, InterMineWidget, type,
+      var $, EnrichmentView, EnrichmentWidget, InterMineWidget, type, _, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
         __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+      
+      _ref = require('../deps'), _ = _ref._, $ = _ref.$;
       
       InterMineWidget = require('./InterMineWidget');
       
@@ -460,13 +464,13 @@
         }
       
         EnrichmentWidget.prototype.render = function() {
-          var data, key, timeout, value, _ref, _ref1,
+          var data, key, timeout, value, _ref1, _ref2,
             _this = this;
           timeout = window.setTimeout((function() {
             return $(_this.el).append(_this.loading = $(require('../templates/loading')()));
           }), 400);
-          if ((_ref = this.view) != null) {
-            _ref.undelegateEvents();
+          if ((_ref1 = this.view) != null) {
+            _ref1.undelegateEvents();
           }
           data = {
             'widget': this.id,
@@ -475,9 +479,9 @@
             'maxp': this.formOptions.pValue,
             'token': this.token
           };
-          _ref1 = this.formOptions;
-          for (key in _ref1) {
-            value = _ref1[key];
+          _ref2 = this.formOptions;
+          for (key in _ref2) {
+            value = _ref2[key];
             if (key !== 'errorCorrection' && key !== 'pValue' && key !== 'current_population' && key !== 'remember_population' && key !== 'gene_length_correction') {
               key = 'filter';
             }
@@ -489,21 +493,21 @@
             'dataType': "jsonp",
             'data': data,
             success: function(response) {
-              var l, lists, _ref2;
+              var l, lists, _ref3;
               _this.log.push('Received a response ' + JSON.stringify(response));
               window.clearTimeout(timeout);
-              if ((_ref2 = _this.loading) != null) {
-                _ref2.remove();
+              if ((_ref3 = _this.loading) != null) {
+                _ref3.remove();
               }
               _this.validateType(response, _this.spec.response);
               if (response.wasSuccessful) {
                 _this.name = response.title;
                 lists = (function() {
-                  var _i, _len, _ref3, _results;
-                  _ref3 = this.lists;
+                  var _i, _len, _ref4, _results;
+                  _ref4 = this.lists;
                   _results = [];
-                  for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-                    l = _ref3[_i];
+                  for (_i = 0, _len = _ref4.length; _i < _len; _i++) {
+                    l = _ref4[_i];
                     if (l.type === response.type && l.size !== 0) {
                       _results.push(l);
                     }
@@ -547,8 +551,10 @@
     // InterMineWidget.coffee
     require.register('list-widgets/src/class/InterMineWidget.js', function(exports, require, module) {
     
-      var InterMineWidget,
+      var $, InterMineWidget, async, intermine, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+      
+      _ref = require('../deps'), $ = _ref.$, async = _ref.async, intermine = _ref.intermine;
       
       InterMineWidget = (function() {
         function InterMineWidget() {
@@ -681,10 +687,12 @@
     // TableWidget.coffee
     require.register('list-widgets/src/class/TableWidget.js', function(exports, require, module) {
     
-      var InterMineWidget, TableView, TableWidget, type,
+      var $, InterMineWidget, TableView, TableWidget, type, _, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../deps'), _ = _ref._, $ = _ref.$;
       
       InterMineWidget = require('./InterMineWidget');
       
@@ -745,13 +753,13 @@
         }
       
         TableWidget.prototype.render = function() {
-          var data, timeout, _ref,
+          var data, timeout, _ref1,
             _this = this;
           timeout = window.setTimeout((function() {
             return $(_this.el).append(_this.loading = $(require('../templates/loading')()));
           }), 400);
-          if ((_ref = this.view) != null) {
-            _ref.undelegateEvents();
+          if ((_ref1 = this.view) != null) {
+            _ref1.undelegateEvents();
           }
           data = {
             'widget': this.id,
@@ -764,11 +772,11 @@
             dataType: "jsonp",
             data: data,
             success: function(response) {
-              var _ref1;
+              var _ref2;
               _this.log.push('Received a response ' + JSON.stringify(response));
               window.clearTimeout(timeout);
-              if ((_ref1 = _this.loading) != null) {
-                _ref1.remove();
+              if ((_ref2 = _this.loading) != null) {
+                _ref2.remove();
               }
               _this.validateType(response, _this.spec.response);
               if (response.wasSuccessful) {
@@ -803,10 +811,12 @@
     // CoreModel.coffee
     require.register('list-widgets/src/class/models/CoreModel.js', function(exports, require, module) {
     
-      var CoreCollection, CoreModel, EnrichmentResults, EnrichmentRow, TableResults, TableRow, type, _ref, _ref1, _ref2, _ref3, _ref4, _ref5,
+      var Backbone, CoreCollection, CoreModel, EnrichmentResults, EnrichmentRow, TableResults, TableRow, type, _, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), _ = _ref._, Backbone = _ref.Backbone;
       
       type = require('../../utils/type');
       
@@ -816,8 +826,8 @@
         function CoreModel() {
           this.toggleSelected = __bind(this.toggleSelected, this);
           this.validate = __bind(this.validate, this);
-          _ref = CoreModel.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = CoreModel.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         CoreModel.prototype.defaults = {
@@ -847,8 +857,8 @@
         __extends(CoreCollection, _super);
       
         function CoreCollection() {
-          _ref1 = CoreCollection.__super__.constructor.apply(this, arguments);
-          return _ref1;
+          _ref2 = CoreCollection.__super__.constructor.apply(this, arguments);
+          return _ref2;
         }
       
         CoreCollection.prototype.model = CoreModel;
@@ -860,12 +870,12 @@
         };
       
         CoreCollection.prototype.toggleSelected = function() {
-          var model, _i, _j, _len, _len1, _ref2, _ref3, _results, _results1;
+          var model, _i, _j, _len, _len1, _ref3, _ref4, _results, _results1;
           if (this.models.length - this.selected().length) {
-            _ref2 = this.models;
+            _ref3 = this.models;
             _results = [];
-            for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-              model = _ref2[_i];
+            for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
+              model = _ref3[_i];
               _results.push(model.set({
                 "selected": true
               }, {
@@ -874,10 +884,10 @@
             }
             return _results;
           } else {
-            _ref3 = this.models;
+            _ref4 = this.models;
             _results1 = [];
-            for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
-              model = _ref3[_j];
+            for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
+              model = _ref4[_j];
               _results1.push(model.set({
                 "selected": false
               }, {
@@ -899,8 +909,8 @@
         __extends(EnrichmentRow, _super);
       
         function EnrichmentRow() {
-          _ref2 = EnrichmentRow.__super__.constructor.apply(this, arguments);
-          return _ref2;
+          _ref3 = EnrichmentRow.__super__.constructor.apply(this, arguments);
+          return _ref3;
         }
       
         EnrichmentRow.prototype.spec = {
@@ -931,8 +941,8 @@
         __extends(EnrichmentResults, _super);
       
         function EnrichmentResults() {
-          _ref3 = EnrichmentResults.__super__.constructor.apply(this, arguments);
-          return _ref3;
+          _ref4 = EnrichmentResults.__super__.constructor.apply(this, arguments);
+          return _ref4;
         }
       
         EnrichmentResults.prototype.model = EnrichmentRow;
@@ -948,8 +958,8 @@
         __extends(TableRow, _super);
       
         function TableRow() {
-          _ref4 = TableRow.__super__.constructor.apply(this, arguments);
-          return _ref4;
+          _ref5 = TableRow.__super__.constructor.apply(this, arguments);
+          return _ref5;
         }
       
         TableRow.prototype.spec = {
@@ -967,8 +977,8 @@
         __extends(TableResults, _super);
       
         function TableResults() {
-          _ref5 = TableResults.__super__.constructor.apply(this, arguments);
-          return _ref5;
+          _ref6 = TableResults.__super__.constructor.apply(this, arguments);
+          return _ref6;
         }
       
         TableResults.prototype.model = TableRow;
@@ -990,12 +1000,15 @@
     // ChartPopoverView.coffee
     require.register('list-widgets/src/class/views/ChartPopoverView.js', function(exports, require, module) {
     
-      /* Chart Widget bar onclick box.*/
-      
-      var ChartPopoverView, _ref,
+      var $, Backbone, ChartPopoverView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
+      
+      /* Chart Widget bar onclick box.*/
+      
       
       ChartPopoverView = (function(_super) {
         __extends(ChartPopoverView, _super);
@@ -1007,8 +1020,8 @@
           this.matchAction = __bind(this.matchAction, this);
           this.renderValues = __bind(this.renderValues, this);
           this.render = __bind(this.render, this);
-          _ref = ChartPopoverView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = ChartPopoverView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         ChartPopoverView.prototype.descriptionLimit = 50;
@@ -1093,10 +1106,12 @@
     // ChartView.coffee
     require.register('list-widgets/src/class/views/ChartView.js', function(exports, require, module) {
     
-      var ChartPopoverView, ChartView, _ref,
+      var $, Backbone, ChartPopoverView, ChartView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
       
       ChartPopoverView = require('./ChartPopoverView');
       
@@ -1111,8 +1126,8 @@
           this.viewBarAction = __bind(this.viewBarAction, this);
           this.keypressAction = __bind(this.keypressAction, this);
           this.renderToolbar = __bind(this.renderToolbar, this);
-          _ref = ChartView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = ChartView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         ChartView.prototype.chartOptions = {
@@ -1319,11 +1334,11 @@
         };
       
         ChartView.prototype.viewBarsAction = function(selections) {
-          var a, b, bag, category, code, constraint, constraints, field, getConstraint, i, orLogic, pq, selection, series, _i, _len, _ref1;
+          var a, b, bag, category, code, constraint, constraints, field, getConstraint, i, orLogic, pq, selection, series, _i, _len, _ref2;
           pq = JSON.parse(this.response.pathQuery);
-          _ref1 = pq.where;
-          for (i in _ref1) {
-            field = _ref1[i];
+          _ref2 = pq.where;
+          for (i in _ref2) {
+            field = _ref2[i];
             switch (field.value) {
               case '%category':
                 category = field;
@@ -1387,14 +1402,14 @@
         };
       
         ChartView.prototype.viewAllAction = function() {
-          var field, i, pq, rem, _i, _len, _ref1, _ref2;
+          var field, i, pq, rem, _i, _len, _ref2, _ref3;
           pq = JSON.parse(this.response.pathQuery);
-          _ref1 = ['%category', '%series'];
-          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-            rem = _ref1[_i];
-            _ref2 = pq.where;
-            for (i in _ref2) {
-              field = _ref2[i];
+          _ref2 = ['%category', '%series'];
+          for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+            rem = _ref2[_i];
+            _ref3 = pq.where;
+            for (i in _ref3) {
+              field = _ref3[i];
               if ((field != null ? field.value : void 0) === rem) {
                 pq.where.splice(i, 1);
                 break;
@@ -1405,11 +1420,11 @@
         };
       
         ChartView.prototype.viewSeriesAction = function(pathQuery) {
-          var field, i, pq, _ref1;
+          var field, i, pq, _ref2;
           pq = JSON.parse(pathQuery);
-          _ref1 = pq.where;
-          for (i in _ref1) {
-            field = _ref1[i];
+          _ref2 = pq.where;
+          for (i in _ref2) {
+            field = _ref2[i];
             if ((field != null ? field.value : void 0) === '%category') {
               pq.where.splice(i, 1);
               break;
@@ -1435,12 +1450,15 @@
     // EnrichmentLengthCorrectionView.coffee
     require.register('list-widgets/src/class/views/EnrichmentLengthCorrectionView.js', function(exports, require, module) {
     
-      /* Enrichment Widget gene length correction.*/
-      
-      var EnrichmentLengthCorrectionView, _ref,
+      var $, Backbone, EnrichmentLengthCorrectionView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
+      
+      /* Enrichment Widget gene length correction.*/
+      
       
       EnrichmentLengthCorrectionView = (function(_super) {
         __extends(EnrichmentLengthCorrectionView, _super);
@@ -1451,8 +1469,8 @@
           this.hideHelp = __bind(this.hideHelp, this);
           this.showHelp = __bind(this.showHelp, this);
           this.render = __bind(this.render, this);
-          _ref = EnrichmentLengthCorrectionView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = EnrichmentLengthCorrectionView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         EnrichmentLengthCorrectionView.prototype.help = "Depending on the type of experiment your data comes from, it is sometimes \nnecessary to normalize by gene length in order to get the correct p-values. \nIf your data comes from a genome-wide binding experiment such as ChIP-seq \nor DamID, binding intervals are more likely to be associated with longer \ngenes than shorter ones, and you should therefore normalize by gene length. \nThis is not the case for experiments such as gene expression studies, where \ngene length does not play a role in the likelihood that a particular set of \ngenes will be overrepresented in the list.";
@@ -1523,13 +1541,16 @@
     // EnrichmentPopoverView.coffee
     require.register('list-widgets/src/class/views/EnrichmentPopoverView.js', function(exports, require, module) {
     
-      /* Enrichment Widget table row matches box.*/
-      
-      var EnrichmentPopoverView, _ref,
+      var $, Backbone, EnrichmentPopoverView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
         __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
+      
+      /* Enrichment Widget table row matches box.*/
+      
       
       EnrichmentPopoverView = (function(_super) {
         __extends(EnrichmentPopoverView, _super);
@@ -1543,8 +1564,8 @@
           this.adjustPopover = __bind(this.adjustPopover, this);
           this.renderValues = __bind(this.renderValues, this);
           this.render = __bind(this.render, this);
-          _ref = EnrichmentPopoverView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = EnrichmentPopoverView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         EnrichmentPopoverView.prototype.descriptionLimit = 50;
@@ -1593,10 +1614,10 @@
           for (_i = 0, _len = response.length; _i < _len; _i++) {
             object = response[_i];
             value = (function(object) {
-              var column, _j, _len1, _ref1;
-              _ref1 = object.reverse();
-              for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-                column = _ref1[_j];
+              var column, _j, _len1, _ref2;
+              _ref2 = object.reverse();
+              for (_j = 0, _len1 = _ref2.length; _j < _len1; _j++) {
+                column = _ref2[_j];
                 if (column && column.length > 0) {
                   return column;
                 }
@@ -1682,12 +1703,15 @@
     // EnrichmentPopulationView.coffee
     require.register('list-widgets/src/class/views/EnrichmentPopulationView.js', function(exports, require, module) {
     
-      /* Enrichment Widget background population selection box.*/
-      
-      var EnrichmentPopulationView, _ref,
+      var $, Backbone, EnrichmentPopulationView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
+      
+      /* Enrichment Widget background population selection box.*/
+      
       
       EnrichmentPopulationView = (function(_super) {
         __extends(EnrichmentPopulationView, _super);
@@ -1698,8 +1722,8 @@
           this.toggleAction = __bind(this.toggleAction, this);
           this.renderLists = __bind(this.renderLists, this);
           this.render = __bind(this.render, this);
-          _ref = EnrichmentPopulationView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = EnrichmentPopulationView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         EnrichmentPopulationView.prototype.events = {
@@ -1750,11 +1774,11 @@
               _this.query = query;
               re = new RegExp("" + query + ".*", 'i');
               return _this.renderLists((function() {
-                var _i, _len, _ref1, _results;
-                _ref1 = this.lists;
+                var _i, _len, _ref2, _results;
+                _ref2 = this.lists;
                 _results = [];
-                for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-                  l = _ref1[_i];
+                for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+                  l = _ref2[_i];
                   if (l.name.match(re)) {
                     _results.push(l);
                   }
@@ -1785,10 +1809,12 @@
     // EnrichmentRowView.coffee
     require.register('list-widgets/src/class/views/EnrichmentRowView.js', function(exports, require, module) {
     
-      var EnrichmentPopoverView, EnrichmentRowView, _ref,
+      var $, Backbone, EnrichmentPopoverView, EnrichmentRowView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
       
       EnrichmentPopoverView = require('./EnrichmentPopoverView');
       
@@ -1799,8 +1825,8 @@
           this.toggleMatchesAction = __bind(this.toggleMatchesAction, this);
           this.selectAction = __bind(this.selectAction, this);
           this.render = __bind(this.render, this);
-          _ref = EnrichmentRowView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = EnrichmentRowView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         EnrichmentRowView.prototype.tagName = "tr";
@@ -1865,10 +1891,12 @@
     // EnrichmentView.coffee
     require.register('list-widgets/src/class/views/EnrichmentView.js', function(exports, require, module) {
     
-      var EnrichmentLengthCorrectionView, EnrichmentPopoverView, EnrichmentPopulationView, EnrichmentRowView, EnrichmentView, Models, exporter, _ref,
+      var $, Backbone, EnrichmentLengthCorrectionView, EnrichmentPopoverView, EnrichmentPopulationView, EnrichmentRowView, EnrichmentView, Models, exporter, _, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, _ = _ref._, Backbone = _ref.Backbone;
       
       Models = require('../models/CoreModel');
       
@@ -1894,8 +1922,8 @@
           this.renderTableBody = __bind(this.renderTableBody, this);
           this.renderTable = __bind(this.renderTable, this);
           this.renderToolbar = __bind(this.renderToolbar, this);
-          _ref = EnrichmentView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = EnrichmentView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         EnrichmentView.prototype.events = {
@@ -1979,7 +2007,7 @@
         };
       
         EnrichmentView.prototype.renderTable = function() {
-          var height, i, table, _fn, _i, _ref1,
+          var height, i, table, _fn, _i, _ref2,
             _this = this;
           $(this.el).find("div.content").html(require('../../templates/enrichment/enrichment.table')({
             "label": this.response.label
@@ -1994,7 +2022,7 @@
             row = new Models.EnrichmentRow(data, _this.widget);
             return _this.collection.add(row);
           };
-          for (i = _i = 0, _ref1 = this.response.results.length; 0 <= _ref1 ? _i < _ref1 : _i > _ref1; i = 0 <= _ref1 ? ++_i : --_i) {
+          for (i = _i = 0, _ref2 = this.response.results.length; 0 <= _ref2 ? _i < _ref2 : _i > _ref2; i = 0 <= _ref2 ? ++_i : --_i) {
             _fn(i);
           }
           this.renderTableBody(table);
@@ -2010,11 +2038,11 @@
         };
       
         EnrichmentView.prototype.renderTableBody = function(table) {
-          var fragment, row, _i, _len, _ref1;
+          var fragment, row, _i, _len, _ref2;
           fragment = document.createDocumentFragment();
-          _ref1 = this.collection.models;
-          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-            row = _ref1[_i];
+          _ref2 = this.collection.models;
+          for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+            row = _ref2[_i];
             fragment.appendChild(new EnrichmentRowView({
               "model": row,
               "type": this.response.type,
@@ -2086,7 +2114,7 @@
         };
       
         EnrichmentView.prototype.viewAction = function() {
-          var descriptions, model, rowIdentifiers, selected, _i, _len, _ref1;
+          var descriptions, model, rowIdentifiers, selected, _i, _len, _ref2;
           selected = this.collection.selected();
           if (!selected.length) {
             selected = this.collection.models;
@@ -2099,8 +2127,8 @@
             rowIdentifiers.push(model.get('identifier'));
           }
           if (rowIdentifiers.length) {
-            if ((_ref1 = this.popoverView) != null) {
-              _ref1.remove();
+            if ((_ref2 = this.popoverView) != null) {
+              _ref2.remove();
             }
             return $(this.el).find('div.actions').after((this.popoverView = new EnrichmentPopoverView({
               "identifiers": rowIdentifiers,
@@ -2139,12 +2167,15 @@
     // TablePopoverView.coffee
     require.register('list-widgets/src/class/views/TablePopoverView.js', function(exports, require, module) {
     
-      /* Table Widget table row matches box.*/
-      
-      var TablePopoverView, _ref,
+      var $, Backbone, TablePopoverView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
+      
+      /* Table Widget table row matches box.*/
+      
       
       TablePopoverView = (function(_super) {
         __extends(TablePopoverView, _super);
@@ -2157,8 +2188,8 @@
           this.matchAction = __bind(this.matchAction, this);
           this.renderValues = __bind(this.renderValues, this);
           this.render = __bind(this.render, this);
-          _ref = TablePopoverView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = TablePopoverView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         TablePopoverView.prototype.descriptionLimit = 50;
@@ -2274,10 +2305,12 @@
     // TableRowView.coffee
     require.register('list-widgets/src/class/views/TableRowView.js', function(exports, require, module) {
     
-      var TablePopoverView, TableRowView, _ref,
+      var $, Backbone, TablePopoverView, TableRowView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
       
       TablePopoverView = require('./TablePopoverView');
       
@@ -2288,8 +2321,8 @@
           this.toggleMatchesAction = __bind(this.toggleMatchesAction, this);
           this.selectAction = __bind(this.selectAction, this);
           this.render = __bind(this.render, this);
-          _ref = TableRowView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = TableRowView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         TableRowView.prototype.tagName = "tr";
@@ -2355,10 +2388,12 @@
     // TableView.coffee
     require.register('list-widgets/src/class/views/TableView.js', function(exports, require, module) {
     
-      var Models, TablePopoverView, TableRowView, TableView, exporter, _ref,
+      var $, Backbone, Models, TablePopoverView, TableRowView, TableView, exporter, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ref = require('../../deps'), $ = _ref.$, Backbone = _ref.Backbone;
       
       Models = require('../models/CoreModel');
       
@@ -2378,8 +2413,8 @@
           this.renderTableBody = __bind(this.renderTableBody, this);
           this.renderTable = __bind(this.renderTable, this);
           this.renderToolbar = __bind(this.renderToolbar, this);
-          _ref = TableView.__super__.constructor.apply(this, arguments);
-          return _ref;
+          _ref1 = TableView.__super__.constructor.apply(this, arguments);
+          return _ref1;
         }
       
         TableView.prototype.events = {
@@ -2426,7 +2461,7 @@
         };
       
         TableView.prototype.renderTable = function() {
-          var height, i, table, _fn, _i, _ref1,
+          var height, i, table, _fn, _i, _ref2,
             _this = this;
           $(this.el).find("div.content").html(require('../../templates/table/table.table')({
             "columns": this.response.columns.split(',')
@@ -2437,7 +2472,7 @@
             row = new Models.TableRow(_this.response.results[i], _this.widget);
             return _this.collection.add(row);
           };
-          for (i = _i = 0, _ref1 = this.response.results.length; 0 <= _ref1 ? _i < _ref1 : _i > _ref1; i = 0 <= _ref1 ? ++_i : --_i) {
+          for (i = _i = 0, _ref2 = this.response.results.length; 0 <= _ref2 ? _i < _ref2 : _i > _ref2; i = 0 <= _ref2 ? ++_i : --_i) {
             _fn(i);
           }
           this.renderTableBody(table);
@@ -2453,11 +2488,11 @@
         };
       
         TableView.prototype.renderTableBody = function(table) {
-          var fragment, row, _i, _len, _ref1;
+          var fragment, row, _i, _len, _ref2;
           fragment = document.createDocumentFragment();
-          _ref1 = this.collection.models;
-          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-            row = _ref1[_i];
+          _ref2 = this.collection.models;
+          for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+            row = _ref2[_i];
             fragment.appendChild(new TableRowView({
               "model": row,
               "response": this.response,
@@ -2498,7 +2533,7 @@
         };
       
         TableView.prototype.viewAction = function() {
-          var descriptions, model, rowIdentifiers, selected, _i, _len, _ref1;
+          var descriptions, model, rowIdentifiers, selected, _i, _len, _ref2;
           selected = this.collection.selected();
           if (!selected.length) {
             selected = this.collection.models;
@@ -2511,8 +2546,8 @@
             rowIdentifiers.push(model.get('identifier'));
           }
           if (rowIdentifiers.length) {
-            if ((_ref1 = this.popoverView) != null) {
-              _ref1.remove();
+            if ((_ref2 = this.popoverView) != null) {
+              _ref2.remove();
             }
             return $(this.el).find('div.actions').after((this.popoverView = new TablePopoverView({
               "identifiers": rowIdentifiers,
@@ -2534,6 +2569,26 @@
       })(Backbone.View);
       
       module.exports = TableView;
+      
+    });
+
+    
+    // deps.coffee
+    require.register('list-widgets/src/deps.js', function(exports, require, module) {
+    
+      var $;
+      
+      $ = window.jQuery || window.Zepto;
+      
+      module.exports = {
+        $: $,
+        _: _,
+        Backbone: Backbone,
+        saveAs: saveAs,
+        async: async,
+        google: google,
+        intermine: intermine
+      };
       
     });
 
@@ -4032,7 +4087,12 @@
     // exporter.coffee
     require.register('list-widgets/src/utils/exporter.js', function(exports, require, module) {
     
+      var $, saveAs, _ref;
+      
+      _ref = require('../deps'), $ = _ref.$, saveAs = _ref.saveAs;
+      
       /* Create file download with custom content.*/
+      
       
       exports.Exporter = (function() {
         Exporter.prototype.mime = 'text/plain';
@@ -4085,8 +4145,8 @@
             w.document.close();
           }
           destroy = function() {
-            var _ref;
-            return (_ref = _this.msg) != null ? _ref.fadeOut() : void 0;
+            var _ref1;
+            return (_ref1 = _this.msg) != null ? _ref1.fadeOut() : void 0;
           };
           setTimeout(destroy, 5000);
         }
@@ -4279,9 +4339,11 @@
     // widgets.coffee
     require.register('list-widgets/src/widgets.js', function(exports, require, module) {
     
-      var ChartWidget, EnrichmentWidget, TableWidget, Widgets,
+      var $, ChartWidget, EnrichmentWidget, TableWidget, Widgets, google, _ref,
         __slice = [].slice,
         __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+      
+      _ref = require('./deps'), $ = _ref.$, google = _ref.google;
       
       ChartWidget = require('./class/ChartWidget');
       
@@ -4438,12 +4500,12 @@
             'url': "" + this.service + "widgets",
             'dataType': 'jsonp',
             success: function(response) {
-              var widget, widgetEl, _i, _len, _ref, _results;
+              var widget, widgetEl, _i, _len, _ref1, _results;
               if (response.widgets) {
-                _ref = response.widgets;
+                _ref1 = response.widgets;
                 _results = [];
-                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                  widget = _ref[_i];
+                for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+                  widget = _ref1[_i];
                   if (!(__indexOf.call(widget.targets, type) >= 0)) {
                     continue;
                   }
