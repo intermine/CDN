@@ -11684,58 +11684,1951 @@ if ( typeof window === "object" && typeof window.document === "object" ) {
   };
 
 }).call(this);
-;if(!window['googleLT_']){window['googleLT_']=(new Date()).getTime();}if (!window['google']) {
-window['google'] = {};
-}
-if (!window['google']['loader']) {
-window['google']['loader'] = {};
-google.loader.ServiceBase = 'https://www.google.com/uds';
-google.loader.GoogleApisBase = 'https://ajax.googleapis.com/ajax';
-google.loader.ApiKey = 'notsupplied';
-google.loader.KeyVerified = true;
-google.loader.LoadFailure = false;
-google.loader.Secure = true;
-google.loader.GoogleLocale = 'www.google.com';
-google.loader.ClientLocation = null;
-google.loader.AdditionalParams = '';
-(function() {var d=encodeURIComponent,g=window,h=document;function l(a,b){return a.load=b}var m="push",n="replace",q="charAt",r="indexOf",t="ServiceBase",u="name",v="getTime",w="length",x="prototype",y="setTimeout",z="loader",A="substring",B="join",C="toLowerCase";function D(a){return a in E?E[a]:E[a]=-1!=navigator.userAgent[C]()[r](a)}var E={};function F(a,b){var c=function(){};c.prototype=b[x];a.U=b[x];a.prototype=new c}
-function G(a,b,c){var e=Array[x].slice.call(arguments,2)||[];return function(){var c=e.concat(Array[x].slice.call(arguments));return a.apply(b,c)}}function H(a){a=Error(a);a.toString=function(){return this.message};return a}function I(a,b){for(var c=a.split(/\./),e=g,f=0;f<c[w]-1;f++)e[c[f]]||(e[c[f]]={}),e=e[c[f]];e[c[c[w]-1]]=b}function J(a,b,c){a[b]=c}if(!K)var K=I;if(!L)var L=J;google[z].v={};K("google.loader.callbacks",google[z].v);var M={},N={};google[z].eval={};K("google.loader.eval",google[z].eval);
-l(google,function(a,b,c){function e(a){var b=a.split(".");if(2<b[w])throw H("Module: '"+a+"' not found!");"undefined"!=typeof b[1]&&(f=b[0],c.packages=c.packages||[],c.packages[m](b[1]))}var f=a;c=c||{};if(a instanceof Array||a&&"object"==typeof a&&"function"==typeof a[B]&&"function"==typeof a.reverse)for(var k=0;k<a[w];k++)e(a[k]);else e(a);if(a=M[":"+f]){c&&!c.language&&c.locale&&(c.language=c.locale);c&&"string"==typeof c.callback&&(k=c.callback,k.match(/^[[\]A-Za-z0-9._]+$/)&&(k=g.eval(k),c.callback=
-k));if((k=c&&null!=c.callback)&&!a.s(b))throw H("Module: '"+f+"' must be loaded before DOM onLoad!");k?a.m(b,c)?g[y](c.callback,0):a.load(b,c):a.m(b,c)||a.load(b,c)}else throw H("Module: '"+f+"' not found!");});K("google.load",google.load);
-google.T=function(a,b){b?(0==O[w]&&(P(g,"load",Q),!D("msie")&&!D("safari")&&!D("konqueror")&&D("mozilla")||g.opera?g.addEventListener("DOMContentLoaded",Q,!1):D("msie")?h.write("<script defer onreadystatechange='google.loader.domReady()' src=//:>\x3c/script>"):(D("safari")||D("konqueror"))&&g[y](S,10)),O[m](a)):P(g,"load",a)};K("google.setOnLoadCallback",google.T);
-function P(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent("on"+b,c);else{var e=a["on"+b];a["on"+b]=null!=e?aa([c,e]):c}}function aa(a){return function(){for(var b=0;b<a[w];b++)a[b]()}}var O=[];google[z].P=function(){var a=g.event.srcElement;"complete"==a.readyState&&(a.onreadystatechange=null,a.parentNode.removeChild(a),Q())};K("google.loader.domReady",google[z].P);var ba={loaded:!0,complete:!0};function S(){ba[h.readyState]?Q():0<O[w]&&g[y](S,10)}
-function Q(){for(var a=0;a<O[w];a++)O[a]();O.length=0}google[z].d=function(a,b,c){if(c){var e;"script"==a?(e=h.createElement("script"),e.type="text/javascript",e.src=b):"css"==a&&(e=h.createElement("link"),e.type="text/css",e.href=b,e.rel="stylesheet");(a=h.getElementsByTagName("head")[0])||(a=h.body.parentNode.appendChild(h.createElement("head")));a.appendChild(e)}else"script"==a?h.write('<script src="'+b+'" type="text/javascript">\x3c/script>'):"css"==a&&h.write('<link href="'+b+'" type="text/css" rel="stylesheet"></link>')};
-K("google.loader.writeLoadTag",google[z].d);google[z].Q=function(a){N=a};K("google.loader.rfm",google[z].Q);google[z].S=function(a){for(var b in a)"string"==typeof b&&b&&":"==b[q](0)&&!M[b]&&(M[b]=new T(b[A](1),a[b]))};K("google.loader.rpl",google[z].S);google[z].R=function(a){if((a=a.specs)&&a[w])for(var b=0;b<a[w];++b){var c=a[b];"string"==typeof c?M[":"+c]=new U(c):(c=new V(c[u],c.baseSpec,c.customSpecs),M[":"+c[u]]=c)}};K("google.loader.rm",google[z].R);google[z].loaded=function(a){M[":"+a.module].l(a)};
-K("google.loader.loaded",google[z].loaded);google[z].O=function(){return"qid="+((new Date)[v]().toString(16)+Math.floor(1E7*Math.random()).toString(16))};K("google.loader.createGuidArg_",google[z].O);I("google_exportSymbol",I);I("google_exportProperty",J);google[z].a={};K("google.loader.themes",google[z].a);google[z].a.I="//www.google.com/cse/style/look/bubblegum.css";L(google[z].a,"BUBBLEGUM",google[z].a.I);google[z].a.K="//www.google.com/cse/style/look/greensky.css";L(google[z].a,"GREENSKY",google[z].a.K);
-google[z].a.J="//www.google.com/cse/style/look/espresso.css";L(google[z].a,"ESPRESSO",google[z].a.J);google[z].a.M="//www.google.com/cse/style/look/shiny.css";L(google[z].a,"SHINY",google[z].a.M);google[z].a.L="//www.google.com/cse/style/look/minimalist.css";L(google[z].a,"MINIMALIST",google[z].a.L);google[z].a.N="//www.google.com/cse/style/look/v2/default.css";L(google[z].a,"V2_DEFAULT",google[z].a.N);function U(a){this.b=a;this.o=[];this.n={};this.e={};this.f={};this.j=!0;this.c=-1}
-U[x].g=function(a,b){var c="";void 0!=b&&(void 0!=b.language&&(c+="&hl="+d(b.language)),void 0!=b.nocss&&(c+="&output="+d("nocss="+b.nocss)),void 0!=b.nooldnames&&(c+="&nooldnames="+d(b.nooldnames)),void 0!=b.packages&&(c+="&packages="+d(b.packages)),null!=b.callback&&(c+="&async=2"),void 0!=b.style&&(c+="&style="+d(b.style)),void 0!=b.noexp&&(c+="&noexp=true"),void 0!=b.other_params&&(c+="&"+b.other_params));if(!this.j){google[this.b]&&google[this.b].JSHash&&(c+="&sig="+d(google[this.b].JSHash));
-var e=[],f;for(f in this.n)":"==f[q](0)&&e[m](f[A](1));for(f in this.e)":"==f[q](0)&&this.e[f]&&e[m](f[A](1));c+="&have="+d(e[B](","))}return google[z][t]+"/?file="+this.b+"&v="+a+google[z].AdditionalParams+c};U[x].t=function(a){var b=null;a&&(b=a.packages);var c=null;if(b)if("string"==typeof b)c=[a.packages];else if(b[w])for(c=[],a=0;a<b[w];a++)"string"==typeof b[a]&&c[m](b[a][n](/^\s*|\s*$/,"")[C]());c||(c=["default"]);b=[];for(a=0;a<c[w];a++)this.n[":"+c[a]]||b[m](c[a]);return b};
-l(U[x],function(a,b){var c=this.t(b),e=b&&null!=b.callback;if(e)var f=new W(b.callback);for(var k=[],p=c[w]-1;0<=p;p--){var s=c[p];e&&f.B(s);if(this.e[":"+s])c.splice(p,1),e&&this.f[":"+s][m](f);else k[m](s)}if(c[w]){b&&b.packages&&(b.packages=c.sort()[B](","));for(p=0;p<k[w];p++)s=k[p],this.f[":"+s]=[],e&&this.f[":"+s][m](f);if(b||null==N[":"+this.b]||null==N[":"+this.b].versions[":"+a]||google[z].AdditionalParams||!this.j)b&&b.autoloaded||google[z].d("script",this.g(a,b),e);else{c=N[":"+this.b];
-google[this.b]=google[this.b]||{};for(var R in c.properties)R&&":"==R[q](0)&&(google[this.b][R[A](1)]=c.properties[R]);google[z].d("script",google[z][t]+c.path+c.js,e);c.css&&google[z].d("css",google[z][t]+c.path+c.css,e)}this.j&&(this.j=!1,this.c=(new Date)[v](),1!=this.c%100&&(this.c=-1));for(p=0;p<k[w];p++)s=k[p],this.e[":"+s]=!0}});
-U[x].l=function(a){-1!=this.c&&(X("al_"+this.b,"jl."+((new Date)[v]()-this.c),!0),this.c=-1);this.o=this.o.concat(a.components);google[z][this.b]||(google[z][this.b]={});google[z][this.b].packages=this.o.slice(0);for(var b=0;b<a.components[w];b++){this.n[":"+a.components[b]]=!0;this.e[":"+a.components[b]]=!1;var c=this.f[":"+a.components[b]];if(c){for(var e=0;e<c[w];e++)c[e].C(a.components[b]);delete this.f[":"+a.components[b]]}}};U[x].m=function(a,b){return 0==this.t(b)[w]};U[x].s=function(){return!0};
-function W(a){this.F=a;this.q={};this.r=0}W[x].B=function(a){this.r++;this.q[":"+a]=!0};W[x].C=function(a){this.q[":"+a]&&(this.q[":"+a]=!1,this.r--,0==this.r&&g[y](this.F,0))};function V(a,b,c){this.name=a;this.D=b;this.p=c;this.u=this.h=!1;this.k=[];google[z].v[this[u]]=G(this.l,this)}F(V,U);l(V[x],function(a,b){var c=b&&null!=b.callback;c?(this.k[m](b.callback),b.callback="google.loader.callbacks."+this[u]):this.h=!0;b&&b.autoloaded||google[z].d("script",this.g(a,b),c)});V[x].m=function(a,b){return b&&null!=b.callback?this.u:this.h};V[x].l=function(){this.u=!0;for(var a=0;a<this.k[w];a++)g[y](this.k[a],0);this.k=[]};
-var Y=function(a,b){return a.string?d(a.string)+"="+d(b):a.regex?b[n](/(^.*$)/,a.regex):""};V[x].g=function(a,b){return this.G(this.w(a),a,b)};
-V[x].G=function(a,b,c){var e="";a.key&&(e+="&"+Y(a.key,google[z].ApiKey));a.version&&(e+="&"+Y(a.version,b));b=google[z].Secure&&a.ssl?a.ssl:a.uri;if(null!=c)for(var f in c)a.params[f]?e+="&"+Y(a.params[f],c[f]):"other_params"==f?e+="&"+c[f]:"base_domain"==f&&(b="http://"+c[f]+a.uri[A](a.uri[r]("/",7)));google[this[u]]={};-1==b[r]("?")&&e&&(e="?"+e[A](1));return b+e};V[x].s=function(a){return this.w(a).deferred};V[x].w=function(a){if(this.p)for(var b=0;b<this.p[w];++b){var c=this.p[b];if(RegExp(c.pattern).test(a))return c}return this.D};function T(a,b){this.b=a;this.i=b;this.h=!1}F(T,U);l(T[x],function(a,b){this.h=!0;google[z].d("script",this.g(a,b),!1)});T[x].m=function(){return this.h};T[x].l=function(){};T[x].g=function(a,b){if(!this.i.versions[":"+a]){if(this.i.aliases){var c=this.i.aliases[":"+a];c&&(a=c)}if(!this.i.versions[":"+a])throw H("Module: '"+this.b+"' with version '"+a+"' not found!");}return google[z].GoogleApisBase+"/libs/"+this.b+"/"+a+"/"+this.i.versions[":"+a][b&&b.uncompressed?"uncompressed":"compressed"]};
-T[x].s=function(){return!1};var ca=!1,Z=[],da=(new Date)[v](),fa=function(){ca||(P(g,"unload",ea),ca=!0)},ga=function(a,b){fa();if(!(google[z].Secure||google[z].Options&&!1!==google[z].Options.csi)){for(var c=0;c<a[w];c++)a[c]=d(a[c][C]()[n](/[^a-z0-9_.]+/g,"_"));for(c=0;c<b[w];c++)b[c]=d(b[c][C]()[n](/[^a-z0-9_.]+/g,"_"));g[y](G($,null,"//gg.google.com/csi?s=uds&v=2&action="+a[B](",")+"&it="+b[B](",")),1E4)}},X=function(a,b,c){c?ga([a],[b]):(fa(),Z[m]("r"+Z[w]+"="+d(a+(b?"|"+b:""))),g[y](ea,5<Z[w]?0:15E3))},ea=function(){if(Z[w]){var a=
-google[z][t];0==a[r]("http:")&&(a=a[n](/^http:/,"https:"));$(a+"/stats?"+Z[B]("&")+"&nc="+(new Date)[v]()+"_"+((new Date)[v]()-da));Z.length=0}},$=function(a){var b=new Image,c=$.H++;$.A[c]=b;b.onload=b.onerror=function(){delete $.A[c]};b.src=a;b=null};$.A={};$.H=0;I("google.loader.recordCsiStat",ga);I("google.loader.recordStat",X);I("google.loader.createImageForLogging",$);
+;// vim:ts=4:sts=4:sw=4:
+/*!
+ *
+ * Copyright 2009-2012 Kris Kowal under the terms of the MIT
+ * license found at http://github.com/kriskowal/q/raw/master/LICENSE
+ *
+ * With parts by Tyler Close
+ * Copyright 2007-2009 Tyler Close under the terms of the MIT X license found
+ * at http://www.opensource.org/licenses/mit-license.html
+ * Forked at ref_send.js version: 2009-05-11
+ *
+ * With parts by Mark Miller
+ * Copyright (C) 2011 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
 
-}) ();google.loader.rm({"specs":["feeds","spreadsheets","gdata","visualization",{"name":"sharing","baseSpec":{"uri":"http://www.google.com/s2/sharing/js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":false,"params":{"language":{"string":"hl"}}}},"search","orkut","ads","elements",{"name":"books","baseSpec":{"uri":"http://books.google.com/books/api.js","ssl":"https://encrypted.google.com/books/api.js","key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"}}}},{"name":"friendconnect","baseSpec":{"uri":"http://www.google.com/friendconnect/script/friendconnect.js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":false,"params":{}}},"identitytoolkit","ima",{"name":"maps","baseSpec":{"uri":"http://maps.google.com/maps?file\u003dgoogleapi","ssl":"https://maps-api-ssl.google.com/maps?file\u003dgoogleapi","key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"regex":"callback\u003d$1\u0026async\u003d2"},"language":{"string":"hl"}}},"customSpecs":[{"uri":"http://maps.googleapis.com/maps/api/js","ssl":"https://maps.googleapis.com/maps/api/js","version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"}},"pattern":"^(3|3..*)$"}]},"payments","wave","annotations_v2","earth","language",{"name":"annotations","baseSpec":{"uri":"http://www.google.com/reviews/scripts/annotations_bootstrap.js","ssl":null,"key":{"string":"key"},"version":{"string":"v"},"deferred":true,"params":{"callback":{"string":"callback"},"language":{"string":"hl"},"country":{"string":"gl"}}}},"picker"]});
-google.loader.rfm({":search":{"versions":{":1":"1",":1.0":"1"},"path":"/api/search/1.0/a075bd7791aa5f99550ea5c9db01a0d5/","js":"default+en.I.js","css":"default+en.css","properties":{":JSHash":"a075bd7791aa5f99550ea5c9db01a0d5",":NoOldNames":false,":Version":"1.0"}},":language":{"versions":{":1":"1",":1.0":"1"},"path":"/api/language/1.0/f66252f80431973fa38526a329b0a47b/","js":"default+en.I.js","properties":{":JSHash":"f66252f80431973fa38526a329b0a47b",":Version":"1.0"}},":feeds":{"versions":{":1":"1",":1.0":"1"},"path":"/api/feeds/1.0/c95430d91553a3f34679e480fd8c0961/","js":"default+en.I.js","css":"default+en.css","properties":{":JSHash":"c95430d91553a3f34679e480fd8c0961",":Version":"1.0"}},":spreadsheets":{"versions":{":0":"1",":0.4":"1"},"path":"/api/spreadsheets/0.4/87ff7219e9f8a8164006cbf28d5e911a/","js":"default.I.js","properties":{":JSHash":"87ff7219e9f8a8164006cbf28d5e911a",":Version":"0.4"}},":ima":{"versions":{":3":"1",":3.0":"1"},"path":"/api/ima/3.0/28a914332232c9a8ac0ae8da68b1006e/","js":"default.I.js","properties":{":JSHash":"28a914332232c9a8ac0ae8da68b1006e",":Version":"3.0"}},":wave":{"versions":{":1":"1",":1.0":"1"},"path":"/api/wave/1.0/3b6f7573ff78da6602dda5e09c9025bf/","js":"default.I.js","properties":{":JSHash":"3b6f7573ff78da6602dda5e09c9025bf",":Version":"1.0"}},":annotations":{"versions":{":1":"1",":1.0":"1"},"path":"/api/annotations/1.0/bacce7b6155a1bbadda3c05d65391b22/","js":"default+en.I.js","properties":{":JSHash":"bacce7b6155a1bbadda3c05d65391b22",":Version":"1.0"}},":earth":{"versions":{":1":"1",":1.0":"1"},"path":"/api/earth/1.0/109c7b2bae7fe6cc34ea875176165d81/","js":"default.I.js","properties":{":JSHash":"109c7b2bae7fe6cc34ea875176165d81",":Version":"1.0"}},":picker":{"versions":{":1":"1",":1.0":"1"},"path":"/api/picker/1.0/1c635e91b9d0c082c660a42091913907/","js":"default.I.js","css":"default.css","properties":{":JSHash":"1c635e91b9d0c082c660a42091913907",":Version":"1.0"}}});
-google.loader.rpl({":scriptaculous":{"versions":{":1.8.3":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.9.0":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.2":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"},":1.8.1":{"uncompressed":"scriptaculous.js","compressed":"scriptaculous.js"}},"aliases":{":1.8":"1.8.3",":1":"1.9.0",":1.9":"1.9.0"}},":yui":{"versions":{":2.6.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.9.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.7.0":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.0r4":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.2r1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":2.8.1":{"uncompressed":"build/yuiloader/yuiloader.js","compressed":"build/yuiloader/yuiloader-min.js"},":3.3.0":{"uncompressed":"build/yui/yui.js","compressed":"build/yui/yui-min.js"}},"aliases":{":3":"3.3.0",":2":"2.9.0",":2.7":"2.7.0",":2.8.2":"2.8.2r1",":2.6":"2.6.0",":2.9":"2.9.0",":2.8":"2.8.2r1",":2.8.0":"2.8.0r4",":3.3":"3.3.0"}},":swfobject":{"versions":{":2.1":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"},":2.2":{"uncompressed":"swfobject_src.js","compressed":"swfobject.js"}},"aliases":{":2":"2.2"}},":webfont":{"versions":{":1.0.28":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.27":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.29":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.12":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.13":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.14":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.15":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.10":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.11":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.2":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.1":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.0":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.6":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.19":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.5":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.18":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.4":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.17":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.3":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.16":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.9":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.21":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.22":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.25":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.26":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.23":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"},":1.0.24":{"uncompressed":"webfont_debug.js","compressed":"webfont.js"}},"aliases":{":1":"1.0.29",":1.0":"1.0.29"}},":ext-core":{"versions":{":3.1.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"},":3.0.0":{"uncompressed":"ext-core-debug.js","compressed":"ext-core.js"}},"aliases":{":3":"3.1.0",":3.0":"3.0.0",":3.1":"3.1.0"}},":mootools":{"versions":{":1.3.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.3.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.1.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.3":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.4":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.2.5":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.0":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.1":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"},":1.4.2":{"uncompressed":"mootools.js","compressed":"mootools-yui-compressed.js"}},"aliases":{":1":"1.1.2",":1.11":"1.1.1",":1.4":"1.4.2",":1.3":"1.3.2",":1.2":"1.2.5",":1.1":"1.1.2"}},":jqueryui":{"versions":{":1.8.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.15":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.14":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.13":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.12":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.11":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.10":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.17":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.16":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.6.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.9":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.7":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.8":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.5":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.6":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.0":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.7.1":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.8.4":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.3":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"},":1.5.2":{"uncompressed":"jquery-ui.js","compressed":"jquery-ui.min.js"}},"aliases":{":1.8":"1.8.17",":1.7":"1.7.3",":1.6":"1.6.0",":1":"1.8.17",":1.5":"1.5.3",":1.8.3":"1.8.4"}},":chrome-frame":{"versions":{":1.0.2":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.1":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"},":1.0.0":{"uncompressed":"CFInstall.js","compressed":"CFInstall.min.js"}},"aliases":{":1":"1.0.2",":1.0":"1.0.2"}},":jquery":{"versions":{":1.6.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.3.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.6.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.7.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.2.6":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.3":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.4":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.0":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.5.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.1":{"uncompressed":"jquery.js","compressed":"jquery.min.js"},":1.4.2":{"uncompressed":"jquery.js","compressed":"jquery.min.js"}},"aliases":{":1.7":"1.7.1",":1.6":"1.6.4",":1":"1.7.1",":1.5":"1.5.2",":1.4":"1.4.4",":1.3":"1.3.2",":1.2":"1.2.6"}},":dojo":{"versions":{":1.3.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.1.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.3.2":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.6.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.7.2":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.0":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.7.1":{"uncompressed":"dojo/dojo.js.uncompressed.js","compressed":"dojo/dojo.js"},":1.4.3":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.5.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.2.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.0":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"},":1.4.1":{"uncompressed":"dojo/dojo.xd.js.uncompressed.js","compressed":"dojo/dojo.xd.js"}},"aliases":{":1.7":"1.7.2",":1":"1.6.1",":1.6":"1.6.1",":1.5":"1.5.1",":1.4":"1.4.3",":1.3":"1.3.2",":1.2":"1.2.3",":1.1":"1.1.1"}},":prototype":{"versions":{":1.7.0.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.2":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.1.0":{"uncompressed":"prototype.js","compressed":"prototype.js"},":1.6.0.3":{"uncompressed":"prototype.js","compressed":"prototype.js"}},"aliases":{":1.7":"1.7.0.0",":1.6.1":"1.6.1.0",":1":"1.7.0.0",":1.6":"1.6.1.0",":1.7.0":"1.7.0.0",":1.6.0":"1.6.0.3"}}});
+(function (definition) {
+    // Turn off strict mode for this function so we can assign to global.Q
+    /* jshint strict: false */
+
+    // This file will function properly as a <script> tag, or a module
+    // using CommonJS and NodeJS or RequireJS module formats.  In
+    // Common/Node/RequireJS, the module exports the Q API and when
+    // executed as a simple <script>, it creates a Q global instead.
+
+    // Montage Require
+    if (typeof bootstrap === "function") {
+        bootstrap("promise", definition);
+
+    // CommonJS
+    } else if (typeof exports === "object") {
+        module.exports = definition();
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+        define(definition);
+
+    // SES (Secure EcmaScript)
+    } else if (typeof ses !== "undefined") {
+        if (!ses.ok()) {
+            return;
+        } else {
+            ses.makeQ = definition;
+        }
+
+    // <script>
+    } else {
+        Q = definition();
+    }
+
+})(function () {
+"use strict";
+
+var hasStacks = false;
+try {
+    throw new Error();
+} catch (e) {
+    hasStacks = !!e.stack;
 }
-;/*! imjs - v2.8.1 - 2013-11-07 */
+
+// All code after this point will be filtered from stack traces reported
+// by Q.
+var qStartingLine = captureLine();
+var qFileName;
+
+// shims
+
+// used for fallback in "allResolved"
+var noop = function () {};
+
+// Use the fastest possible means to execute a task in a future turn
+// of the event loop.
+var nextTick =(function () {
+    // linked list of tasks (single, with head node)
+    var head = {task: void 0, next: null};
+    var tail = head;
+    var flushing = false;
+    var requestTick = void 0;
+    var isNodeJS = false;
+
+    function flush() {
+        /* jshint loopfunc: true */
+
+        while (head.next) {
+            head = head.next;
+            var task = head.task;
+            head.task = void 0;
+            var domain = head.domain;
+
+            if (domain) {
+                head.domain = void 0;
+                domain.enter();
+            }
+
+            try {
+                task();
+
+            } catch (e) {
+                if (isNodeJS) {
+                    // In node, uncaught exceptions are considered fatal errors.
+                    // Re-throw them synchronously to interrupt flushing!
+
+                    // Ensure continuation if the uncaught exception is suppressed
+                    // listening "uncaughtException" events (as domains does).
+                    // Continue in next event to avoid tick recursion.
+                    if (domain) {
+                        domain.exit();
+                    }
+                    setTimeout(flush, 0);
+                    if (domain) {
+                        domain.enter();
+                    }
+
+                    throw e;
+
+                } else {
+                    // In browsers, uncaught exceptions are not fatal.
+                    // Re-throw them asynchronously to avoid slow-downs.
+                    setTimeout(function() {
+                       throw e;
+                    }, 0);
+                }
+            }
+
+            if (domain) {
+                domain.exit();
+            }
+        }
+
+        flushing = false;
+    }
+
+    nextTick = function (task) {
+        tail = tail.next = {
+            task: task,
+            domain: isNodeJS && process.domain,
+            next: null
+        };
+
+        if (!flushing) {
+            flushing = true;
+            requestTick();
+        }
+    };
+
+    if (typeof process !== "undefined" && process.nextTick) {
+        // Node.js before 0.9. Note that some fake-Node environments, like the
+        // Mocha test runner, introduce a `process` global without a `nextTick`.
+        isNodeJS = true;
+
+        requestTick = function () {
+            process.nextTick(flush);
+        };
+
+    } else if (typeof setImmediate === "function") {
+        // In IE10, Node.js 0.9+, or https://github.com/NobleJS/setImmediate
+        if (typeof window !== "undefined") {
+            requestTick = setImmediate.bind(window, flush);
+        } else {
+            requestTick = function () {
+                setImmediate(flush);
+            };
+        }
+
+    } else if (typeof MessageChannel !== "undefined") {
+        // modern browsers
+        // http://www.nonblocking.io/2011/06/windownexttick.html
+        var channel = new MessageChannel();
+        // At least Safari Version 6.0.5 (8536.30.1) intermittently cannot create
+        // working message ports the first time a page loads.
+        channel.port1.onmessage = function () {
+            requestTick = requestPortTick;
+            channel.port1.onmessage = flush;
+            flush();
+        };
+        var requestPortTick = function () {
+            // Opera requires us to provide a message payload, regardless of
+            // whether we use it.
+            channel.port2.postMessage(0);
+        };
+        requestTick = function () {
+            setTimeout(flush, 0);
+            requestPortTick();
+        };
+
+    } else {
+        // old browsers
+        requestTick = function () {
+            setTimeout(flush, 0);
+        };
+    }
+
+    return nextTick;
+})();
+
+// Attempt to make generics safe in the face of downstream
+// modifications.
+// There is no situation where this is necessary.
+// If you need a security guarantee, these primordials need to be
+// deeply frozen anyway, and if you don’t need a security guarantee,
+// this is just plain paranoid.
+// However, this does have the nice side-effect of reducing the size
+// of the code by reducing x.call() to merely x(), eliminating many
+// hard-to-minify characters.
+// See Mark Miller’s explanation of what this does.
+// http://wiki.ecmascript.org/doku.php?id=conventions:safe_meta_programming
+var call = Function.call;
+function uncurryThis(f) {
+    return function () {
+        return call.apply(f, arguments);
+    };
+}
+// This is equivalent, but slower:
+// uncurryThis = Function_bind.bind(Function_bind.call);
+// http://jsperf.com/uncurrythis
+
+var array_slice = uncurryThis(Array.prototype.slice);
+
+var array_reduce = uncurryThis(
+    Array.prototype.reduce || function (callback, basis) {
+        var index = 0,
+            length = this.length;
+        // concerning the initial value, if one is not provided
+        if (arguments.length === 1) {
+            // seek to the first value in the array, accounting
+            // for the possibility that is is a sparse array
+            do {
+                if (index in this) {
+                    basis = this[index++];
+                    break;
+                }
+                if (++index >= length) {
+                    throw new TypeError();
+                }
+            } while (1);
+        }
+        // reduce
+        for (; index < length; index++) {
+            // account for the possibility that the array is sparse
+            if (index in this) {
+                basis = callback(basis, this[index], index);
+            }
+        }
+        return basis;
+    }
+);
+
+var array_indexOf = uncurryThis(
+    Array.prototype.indexOf || function (value) {
+        // not a very good shim, but good enough for our one use of it
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] === value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+);
+
+var array_map = uncurryThis(
+    Array.prototype.map || function (callback, thisp) {
+        var self = this;
+        var collect = [];
+        array_reduce(self, function (undefined, value, index) {
+            collect.push(callback.call(thisp, value, index, self));
+        }, void 0);
+        return collect;
+    }
+);
+
+var object_create = Object.create || function (prototype) {
+    function Type() { }
+    Type.prototype = prototype;
+    return new Type();
+};
+
+var object_hasOwnProperty = uncurryThis(Object.prototype.hasOwnProperty);
+
+var object_keys = Object.keys || function (object) {
+    var keys = [];
+    for (var key in object) {
+        if (object_hasOwnProperty(object, key)) {
+            keys.push(key);
+        }
+    }
+    return keys;
+};
+
+var object_toString = uncurryThis(Object.prototype.toString);
+
+function isObject(value) {
+    return value === Object(value);
+}
+
+// generator related shims
+
+// FIXME: Remove this function once ES6 generators are in SpiderMonkey.
+function isStopIteration(exception) {
+    return (
+        object_toString(exception) === "[object StopIteration]" ||
+        exception instanceof QReturnValue
+    );
+}
+
+// FIXME: Remove this helper and Q.return once ES6 generators are in
+// SpiderMonkey.
+var QReturnValue;
+if (typeof ReturnValue !== "undefined") {
+    QReturnValue = ReturnValue;
+} else {
+    QReturnValue = function (value) {
+        this.value = value;
+    };
+}
+
+// Until V8 3.19 / Chromium 29 is released, SpiderMonkey is the only
+// engine that has a deployed base of browsers that support generators.
+// However, SM's generators use the Python-inspired semantics of
+// outdated ES6 drafts.  We would like to support ES6, but we'd also
+// like to make it possible to use generators in deployed browsers, so
+// we also support Python-style generators.  At some point we can remove
+// this block.
+var hasES6Generators;
+try {
+    /* jshint evil: true, nonew: false */
+    new Function("(function* (){ yield 1; })");
+    hasES6Generators = true;
+} catch (e) {
+    hasES6Generators = false;
+}
+
+// long stack traces
+
+var STACK_JUMP_SEPARATOR = "From previous event:";
+
+function makeStackTraceLong(error, promise) {
+    // If possible, transform the error stack trace by removing Node and Q
+    // cruft, then concatenating with the stack trace of `promise`. See #57.
+    if (hasStacks &&
+        promise.stack &&
+        typeof error === "object" &&
+        error !== null &&
+        error.stack &&
+        error.stack.indexOf(STACK_JUMP_SEPARATOR) === -1
+    ) {
+        var stacks = [];
+        for (var p = promise; !!p; p = p.source) {
+            if (p.stack) {
+                stacks.unshift(p.stack);
+            }
+        }
+        stacks.unshift(error.stack);
+
+        var concatedStacks = stacks.join("\n" + STACK_JUMP_SEPARATOR + "\n");
+        error.stack = filterStackString(concatedStacks);
+    }
+}
+
+function filterStackString(stackString) {
+    var lines = stackString.split("\n");
+    var desiredLines = [];
+    for (var i = 0; i < lines.length; ++i) {
+        var line = lines[i];
+
+        if (!isInternalFrame(line) && !isNodeFrame(line) && line) {
+            desiredLines.push(line);
+        }
+    }
+    return desiredLines.join("\n");
+}
+
+function isNodeFrame(stackLine) {
+    return stackLine.indexOf("(module.js:") !== -1 ||
+           stackLine.indexOf("(node.js:") !== -1;
+}
+
+function getFileNameAndLineNumber(stackLine) {
+    // Named functions: "at functionName (filename:lineNumber:columnNumber)"
+    // In IE10 function name can have spaces ("Anonymous function") O_o
+    var attempt1 = /at .+ \((.+):(\d+):(?:\d+)\)$/.exec(stackLine);
+    if (attempt1) {
+        return [attempt1[1], Number(attempt1[2])];
+    }
+
+    // Anonymous functions: "at filename:lineNumber:columnNumber"
+    var attempt2 = /at ([^ ]+):(\d+):(?:\d+)$/.exec(stackLine);
+    if (attempt2) {
+        return [attempt2[1], Number(attempt2[2])];
+    }
+
+    // Firefox style: "function@filename:lineNumber or @filename:lineNumber"
+    var attempt3 = /.*@(.+):(\d+)$/.exec(stackLine);
+    if (attempt3) {
+        return [attempt3[1], Number(attempt3[2])];
+    }
+}
+
+function isInternalFrame(stackLine) {
+    var fileNameAndLineNumber = getFileNameAndLineNumber(stackLine);
+
+    if (!fileNameAndLineNumber) {
+        return false;
+    }
+
+    var fileName = fileNameAndLineNumber[0];
+    var lineNumber = fileNameAndLineNumber[1];
+
+    return fileName === qFileName &&
+        lineNumber >= qStartingLine &&
+        lineNumber <= qEndingLine;
+}
+
+// discover own file name and line number range for filtering stack
+// traces
+function captureLine() {
+    if (!hasStacks) {
+        return;
+    }
+
+    try {
+        throw new Error();
+    } catch (e) {
+        var lines = e.stack.split("\n");
+        var firstLine = lines[0].indexOf("@") > 0 ? lines[1] : lines[2];
+        var fileNameAndLineNumber = getFileNameAndLineNumber(firstLine);
+        if (!fileNameAndLineNumber) {
+            return;
+        }
+
+        qFileName = fileNameAndLineNumber[0];
+        return fileNameAndLineNumber[1];
+    }
+}
+
+function deprecate(callback, name, alternative) {
+    return function () {
+        if (typeof console !== "undefined" &&
+            typeof console.warn === "function") {
+            console.warn(name + " is deprecated, use " + alternative +
+                         " instead.", new Error("").stack);
+        }
+        return callback.apply(callback, arguments);
+    };
+}
+
+// end of shims
+// beginning of real work
 
 /**
-This library is open source software according to the definition of the
-GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
-included with this software. All use of this software is covered according to
-the terms of the LGPLv3.
+ * Constructs a promise for an immediate reference, passes promises through, or
+ * coerces promises from different systems.
+ * @param value immediate reference or promise
+ */
+function Q(value) {
+    // If the object is already a Promise, return it directly.  This enables
+    // the resolve function to both be used to created references from objects,
+    // but to tolerably coerce non-promises to promises.
+    if (isPromise(value)) {
+        return value;
+    }
 
-The copyright is held by InterMine (www.intermine.org) and Alex Kalderimis (alex@intermine.org).
+    // assimilate thenables
+    if (isPromiseAlike(value)) {
+        return coerce(value);
+    } else {
+        return fulfill(value);
+    }
+}
+Q.resolve = Q;
 
-Thu Jun 14 13:18:14 BST 2012
-**/
+/**
+ * Performs a task in a future turn of the event loop.
+ * @param {Function} task
+ */
+Q.nextTick = nextTick;
 
+/**
+ * Controls whether or not long stack traces will be on
+ */
+Q.longStackSupport = false;
+
+/**
+ * Constructs a {promise, resolve, reject} object.
+ *
+ * `resolve` is a callback to invoke with a more resolved value for the
+ * promise. To fulfill the promise, invoke `resolve` with any value that is
+ * not a thenable. To reject the promise, invoke `resolve` with a rejected
+ * thenable, or invoke `reject` with the reason directly. To resolve the
+ * promise to another thenable, thus putting it in the same state, invoke
+ * `resolve` with that other thenable.
+ */
+Q.defer = defer;
+function defer() {
+    // if "messages" is an "Array", that indicates that the promise has not yet
+    // been resolved.  If it is "undefined", it has been resolved.  Each
+    // element of the messages array is itself an array of complete arguments to
+    // forward to the resolved promise.  We coerce the resolution value to a
+    // promise using the `resolve` function because it handles both fully
+    // non-thenable values and other thenables gracefully.
+    var messages = [], progressListeners = [], resolvedPromise;
+
+    var deferred = object_create(defer.prototype);
+    var promise = object_create(Promise.prototype);
+
+    promise.promiseDispatch = function (resolve, op, operands) {
+        var args = array_slice(arguments);
+        if (messages) {
+            messages.push(args);
+            if (op === "when" && operands[1]) { // progress operand
+                progressListeners.push(operands[1]);
+            }
+        } else {
+            nextTick(function () {
+                resolvedPromise.promiseDispatch.apply(resolvedPromise, args);
+            });
+        }
+    };
+
+    // XXX deprecated
+    promise.valueOf = deprecate(function () {
+        if (messages) {
+            return promise;
+        }
+        var nearerValue = nearer(resolvedPromise);
+        if (isPromise(nearerValue)) {
+            resolvedPromise = nearerValue; // shorten chain
+        }
+        return nearerValue;
+    }, "valueOf", "inspect");
+
+    promise.inspect = function () {
+        if (!resolvedPromise) {
+            return { state: "pending" };
+        }
+        return resolvedPromise.inspect();
+    };
+
+    if (Q.longStackSupport && hasStacks) {
+        try {
+            throw new Error();
+        } catch (e) {
+            // NOTE: don't try to use `Error.captureStackTrace` or transfer the
+            // accessor around; that causes memory leaks as per GH-111. Just
+            // reify the stack trace as a string ASAP.
+            //
+            // At the same time, cut off the first line; it's always just
+            // "[object Promise]\n", as per the `toString`.
+            promise.stack = e.stack.substring(e.stack.indexOf("\n") + 1);
+        }
+    }
+
+    // NOTE: we do the checks for `resolvedPromise` in each method, instead of
+    // consolidating them into `become`, since otherwise we'd create new
+    // promises with the lines `become(whatever(value))`. See e.g. GH-252.
+
+    function become(newPromise) {
+        resolvedPromise = newPromise;
+        promise.source = newPromise;
+
+        array_reduce(messages, function (undefined, message) {
+            nextTick(function () {
+                newPromise.promiseDispatch.apply(newPromise, message);
+            });
+        }, void 0);
+
+        messages = void 0;
+        progressListeners = void 0;
+    }
+
+    deferred.promise = promise;
+    deferred.resolve = function (value) {
+        if (resolvedPromise) {
+            return;
+        }
+
+        become(Q(value));
+    };
+
+    deferred.fulfill = function (value) {
+        if (resolvedPromise) {
+            return;
+        }
+
+        become(fulfill(value));
+    };
+    deferred.reject = function (reason) {
+        if (resolvedPromise) {
+            return;
+        }
+
+        become(reject(reason));
+    };
+    deferred.notify = function (progress) {
+        if (resolvedPromise) {
+            return;
+        }
+
+        array_reduce(progressListeners, function (undefined, progressListener) {
+            nextTick(function () {
+                progressListener(progress);
+            });
+        }, void 0);
+    };
+
+    return deferred;
+}
+
+/**
+ * Creates a Node-style callback that will resolve or reject the deferred
+ * promise.
+ * @returns a nodeback
+ */
+defer.prototype.makeNodeResolver = function () {
+    var self = this;
+    return function (error, value) {
+        if (error) {
+            self.reject(error);
+        } else if (arguments.length > 2) {
+            self.resolve(array_slice(arguments, 1));
+        } else {
+            self.resolve(value);
+        }
+    };
+};
+
+/**
+ * @param resolver {Function} a function that returns nothing and accepts
+ * the resolve, reject, and notify functions for a deferred.
+ * @returns a promise that may be resolved with the given resolve and reject
+ * functions, or rejected by a thrown exception in resolver
+ */
+Q.promise = promise;
+function promise(resolver) {
+    if (typeof resolver !== "function") {
+        throw new TypeError("resolver must be a function.");
+    }
+    var deferred = defer();
+    try {
+        resolver(deferred.resolve, deferred.reject, deferred.notify);
+    } catch (reason) {
+        deferred.reject(reason);
+    }
+    return deferred.promise;
+}
+
+// XXX experimental.  This method is a way to denote that a local value is
+// serializable and should be immediately dispatched to a remote upon request,
+// instead of passing a reference.
+Q.passByCopy = function (object) {
+    //freeze(object);
+    //passByCopies.set(object, true);
+    return object;
+};
+
+Promise.prototype.passByCopy = function () {
+    //freeze(object);
+    //passByCopies.set(object, true);
+    return this;
+};
+
+/**
+ * If two promises eventually fulfill to the same value, promises that value,
+ * but otherwise rejects.
+ * @param x {Any*}
+ * @param y {Any*}
+ * @returns {Any*} a promise for x and y if they are the same, but a rejection
+ * otherwise.
+ *
+ */
+Q.join = function (x, y) {
+    return Q(x).join(y);
+};
+
+Promise.prototype.join = function (that) {
+    return Q([this, that]).spread(function (x, y) {
+        if (x === y) {
+            // TODO: "===" should be Object.is or equiv
+            return x;
+        } else {
+            throw new Error("Can't join: not the same: " + x + " " + y);
+        }
+    });
+};
+
+/**
+ * Returns a promise for the first of an array of promises to become fulfilled.
+ * @param answers {Array[Any*]} promises to race
+ * @returns {Any*} the first promise to be fulfilled
+ */
+Q.race = race;
+function race(answerPs) {
+    return promise(function(resolve, reject) {
+        // Switch to this once we can assume at least ES5
+        // answerPs.forEach(function(answerP) {
+        //     Q(answerP).then(resolve, reject);
+        // });
+        // Use this in the meantime
+        for (var i = 0, len = answerPs.length; i < len; i++) {
+            Q(answerPs[i]).then(resolve, reject);
+        }
+    });
+}
+
+Promise.prototype.race = function () {
+    return this.then(Q.race);
+};
+
+/**
+ * Constructs a Promise with a promise descriptor object and optional fallback
+ * function.  The descriptor contains methods like when(rejected), get(name),
+ * set(name, value), post(name, args), and delete(name), which all
+ * return either a value, a promise for a value, or a rejection.  The fallback
+ * accepts the operation name, a resolver, and any further arguments that would
+ * have been forwarded to the appropriate method above had a method been
+ * provided with the proper name.  The API makes no guarantees about the nature
+ * of the returned object, apart from that it is usable whereever promises are
+ * bought and sold.
+ */
+Q.makePromise = Promise;
+function Promise(descriptor, fallback, inspect) {
+    if (fallback === void 0) {
+        fallback = function (op) {
+            return reject(new Error(
+                "Promise does not support operation: " + op
+            ));
+        };
+    }
+    if (inspect === void 0) {
+        inspect = function () {
+            return {state: "unknown"};
+        };
+    }
+
+    var promise = object_create(Promise.prototype);
+
+    promise.promiseDispatch = function (resolve, op, args) {
+        var result;
+        try {
+            if (descriptor[op]) {
+                result = descriptor[op].apply(promise, args);
+            } else {
+                result = fallback.call(promise, op, args);
+            }
+        } catch (exception) {
+            result = reject(exception);
+        }
+        if (resolve) {
+            resolve(result);
+        }
+    };
+
+    promise.inspect = inspect;
+
+    // XXX deprecated `valueOf` and `exception` support
+    if (inspect) {
+        var inspected = inspect();
+        if (inspected.state === "rejected") {
+            promise.exception = inspected.reason;
+        }
+
+        promise.valueOf = deprecate(function () {
+            var inspected = inspect();
+            if (inspected.state === "pending" ||
+                inspected.state === "rejected") {
+                return promise;
+            }
+            return inspected.value;
+        });
+    }
+
+    return promise;
+}
+
+Promise.prototype.toString = function () {
+    return "[object Promise]";
+};
+
+Promise.prototype.then = function (fulfilled, rejected, progressed) {
+    var self = this;
+    var deferred = defer();
+    var done = false;   // ensure the untrusted promise makes at most a
+                        // single call to one of the callbacks
+
+    function _fulfilled(value) {
+        try {
+            return typeof fulfilled === "function" ? fulfilled(value) : value;
+        } catch (exception) {
+            return reject(exception);
+        }
+    }
+
+    function _rejected(exception) {
+        if (typeof rejected === "function") {
+            makeStackTraceLong(exception, self);
+            try {
+                return rejected(exception);
+            } catch (newException) {
+                return reject(newException);
+            }
+        }
+        return reject(exception);
+    }
+
+    function _progressed(value) {
+        return typeof progressed === "function" ? progressed(value) : value;
+    }
+
+    nextTick(function () {
+        self.promiseDispatch(function (value) {
+            if (done) {
+                return;
+            }
+            done = true;
+
+            deferred.resolve(_fulfilled(value));
+        }, "when", [function (exception) {
+            if (done) {
+                return;
+            }
+            done = true;
+
+            deferred.resolve(_rejected(exception));
+        }]);
+    });
+
+    // Progress propagator need to be attached in the current tick.
+    self.promiseDispatch(void 0, "when", [void 0, function (value) {
+        var newValue;
+        var threw = false;
+        try {
+            newValue = _progressed(value);
+        } catch (e) {
+            threw = true;
+            if (Q.onerror) {
+                Q.onerror(e);
+            } else {
+                throw e;
+            }
+        }
+
+        if (!threw) {
+            deferred.notify(newValue);
+        }
+    }]);
+
+    return deferred.promise;
+};
+
+/**
+ * Registers an observer on a promise.
+ *
+ * Guarantees:
+ *
+ * 1. that fulfilled and rejected will be called only once.
+ * 2. that either the fulfilled callback or the rejected callback will be
+ *    called, but not both.
+ * 3. that fulfilled and rejected will not be called in this turn.
+ *
+ * @param value      promise or immediate reference to observe
+ * @param fulfilled  function to be called with the fulfilled value
+ * @param rejected   function to be called with the rejection exception
+ * @param progressed function to be called on any progress notifications
+ * @return promise for the return value from the invoked callback
+ */
+Q.when = when;
+function when(value, fulfilled, rejected, progressed) {
+    return Q(value).then(fulfilled, rejected, progressed);
+}
+
+Promise.prototype.thenResolve = function (value) {
+    return this.then(function () { return value; });
+};
+
+Q.thenResolve = function (promise, value) {
+    return Q(promise).thenResolve(value);
+};
+
+Promise.prototype.thenReject = function (reason) {
+    return this.then(function () { throw reason; });
+};
+
+Q.thenReject = function (promise, reason) {
+    return Q(promise).thenReject(reason);
+};
+
+/**
+ * If an object is not a promise, it is as "near" as possible.
+ * If a promise is rejected, it is as "near" as possible too.
+ * If it’s a fulfilled promise, the fulfillment value is nearer.
+ * If it’s a deferred promise and the deferred has been resolved, the
+ * resolution is "nearer".
+ * @param object
+ * @returns most resolved (nearest) form of the object
+ */
+
+// XXX should we re-do this?
+Q.nearer = nearer;
+function nearer(value) {
+    if (isPromise(value)) {
+        var inspected = value.inspect();
+        if (inspected.state === "fulfilled") {
+            return inspected.value;
+        }
+    }
+    return value;
+}
+
+/**
+ * @returns whether the given object is a promise.
+ * Otherwise it is a fulfilled value.
+ */
+Q.isPromise = isPromise;
+function isPromise(object) {
+    return isObject(object) &&
+        typeof object.promiseDispatch === "function" &&
+        typeof object.inspect === "function";
+}
+
+Q.isPromiseAlike = isPromiseAlike;
+function isPromiseAlike(object) {
+    return isObject(object) && typeof object.then === "function";
+}
+
+/**
+ * @returns whether the given object is a pending promise, meaning not
+ * fulfilled or rejected.
+ */
+Q.isPending = isPending;
+function isPending(object) {
+    return isPromise(object) && object.inspect().state === "pending";
+}
+
+Promise.prototype.isPending = function () {
+    return this.inspect().state === "pending";
+};
+
+/**
+ * @returns whether the given object is a value or fulfilled
+ * promise.
+ */
+Q.isFulfilled = isFulfilled;
+function isFulfilled(object) {
+    return !isPromise(object) || object.inspect().state === "fulfilled";
+}
+
+Promise.prototype.isFulfilled = function () {
+    return this.inspect().state === "fulfilled";
+};
+
+/**
+ * @returns whether the given object is a rejected promise.
+ */
+Q.isRejected = isRejected;
+function isRejected(object) {
+    return isPromise(object) && object.inspect().state === "rejected";
+}
+
+Promise.prototype.isRejected = function () {
+    return this.inspect().state === "rejected";
+};
+
+//// BEGIN UNHANDLED REJECTION TRACKING
+
+// This promise library consumes exceptions thrown in handlers so they can be
+// handled by a subsequent promise.  The exceptions get added to this array when
+// they are created, and removed when they are handled.  Note that in ES6 or
+// shimmed environments, this would naturally be a `Set`.
+var unhandledReasons = [];
+var unhandledRejections = [];
+var unhandledReasonsDisplayed = false;
+var trackUnhandledRejections = true;
+function displayUnhandledReasons() {
+    if (
+        !unhandledReasonsDisplayed &&
+        typeof window !== "undefined" &&
+        !window.Touch &&
+        window.console
+    ) {
+        console.warn("[Q] Unhandled rejection reasons (should be empty):",
+                     unhandledReasons);
+    }
+
+    unhandledReasonsDisplayed = true;
+}
+
+function logUnhandledReasons() {
+    for (var i = 0; i < unhandledReasons.length; i++) {
+        var reason = unhandledReasons[i];
+        console.warn("Unhandled rejection reason:", reason);
+    }
+}
+
+function resetUnhandledRejections() {
+    unhandledReasons.length = 0;
+    unhandledRejections.length = 0;
+    unhandledReasonsDisplayed = false;
+
+    if (!trackUnhandledRejections) {
+        trackUnhandledRejections = true;
+
+        // Show unhandled rejection reasons if Node exits without handling an
+        // outstanding rejection.  (Note that Browserify presently produces a
+        // `process` global without the `EventEmitter` `on` method.)
+        if (typeof process !== "undefined" && process.on) {
+            process.on("exit", logUnhandledReasons);
+        }
+    }
+}
+
+function trackRejection(promise, reason) {
+    if (!trackUnhandledRejections) {
+        return;
+    }
+
+    unhandledRejections.push(promise);
+    if (reason && typeof reason.stack !== "undefined") {
+        unhandledReasons.push(reason.stack);
+    } else {
+        unhandledReasons.push("(no stack) " + reason);
+    }
+    displayUnhandledReasons();
+}
+
+function untrackRejection(promise) {
+    if (!trackUnhandledRejections) {
+        return;
+    }
+
+    var at = array_indexOf(unhandledRejections, promise);
+    if (at !== -1) {
+        unhandledRejections.splice(at, 1);
+        unhandledReasons.splice(at, 1);
+    }
+}
+
+Q.resetUnhandledRejections = resetUnhandledRejections;
+
+Q.getUnhandledReasons = function () {
+    // Make a copy so that consumers can't interfere with our internal state.
+    return unhandledReasons.slice();
+};
+
+Q.stopUnhandledRejectionTracking = function () {
+    resetUnhandledRejections();
+    if (typeof process !== "undefined" && process.on) {
+        process.removeListener("exit", logUnhandledReasons);
+    }
+    trackUnhandledRejections = false;
+};
+
+resetUnhandledRejections();
+
+//// END UNHANDLED REJECTION TRACKING
+
+/**
+ * Constructs a rejected promise.
+ * @param reason value describing the failure
+ */
+Q.reject = reject;
+function reject(reason) {
+    var rejection = Promise({
+        "when": function (rejected) {
+            // note that the error has been handled
+            if (rejected) {
+                untrackRejection(this);
+            }
+            return rejected ? rejected(reason) : this;
+        }
+    }, function fallback() {
+        return this;
+    }, function inspect() {
+        return { state: "rejected", reason: reason };
+    });
+
+    // Note that the reason has not been handled.
+    trackRejection(rejection, reason);
+
+    return rejection;
+}
+
+/**
+ * Constructs a fulfilled promise for an immediate reference.
+ * @param value immediate reference
+ */
+Q.fulfill = fulfill;
+function fulfill(value) {
+    return Promise({
+        "when": function () {
+            return value;
+        },
+        "get": function (name) {
+            return value[name];
+        },
+        "set": function (name, rhs) {
+            value[name] = rhs;
+        },
+        "delete": function (name) {
+            delete value[name];
+        },
+        "post": function (name, args) {
+            // Mark Miller proposes that post with no name should apply a
+            // promised function.
+            if (name === null || name === void 0) {
+                return value.apply(void 0, args);
+            } else {
+                return value[name].apply(value, args);
+            }
+        },
+        "apply": function (thisp, args) {
+            return value.apply(thisp, args);
+        },
+        "keys": function () {
+            return object_keys(value);
+        }
+    }, void 0, function inspect() {
+        return { state: "fulfilled", value: value };
+    });
+}
+
+/**
+ * Converts thenables to Q promises.
+ * @param promise thenable promise
+ * @returns a Q promise
+ */
+function coerce(promise) {
+    var deferred = defer();
+    nextTick(function () {
+        try {
+            promise.then(deferred.resolve, deferred.reject, deferred.notify);
+        } catch (exception) {
+            deferred.reject(exception);
+        }
+    });
+    return deferred.promise;
+}
+
+/**
+ * Annotates an object such that it will never be
+ * transferred away from this process over any promise
+ * communication channel.
+ * @param object
+ * @returns promise a wrapping of that object that
+ * additionally responds to the "isDef" message
+ * without a rejection.
+ */
+Q.master = master;
+function master(object) {
+    return Promise({
+        "isDef": function () {}
+    }, function fallback(op, args) {
+        return dispatch(object, op, args);
+    }, function () {
+        return Q(object).inspect();
+    });
+}
+
+/**
+ * Spreads the values of a promised array of arguments into the
+ * fulfillment callback.
+ * @param fulfilled callback that receives variadic arguments from the
+ * promised array
+ * @param rejected callback that receives the exception if the promise
+ * is rejected.
+ * @returns a promise for the return value or thrown exception of
+ * either callback.
+ */
+Q.spread = spread;
+function spread(value, fulfilled, rejected) {
+    return Q(value).spread(fulfilled, rejected);
+}
+
+Promise.prototype.spread = function (fulfilled, rejected) {
+    return this.all().then(function (array) {
+        return fulfilled.apply(void 0, array);
+    }, rejected);
+};
+
+/**
+ * The async function is a decorator for generator functions, turning
+ * them into asynchronous generators.  Although generators are only part
+ * of the newest ECMAScript 6 drafts, this code does not cause syntax
+ * errors in older engines.  This code should continue to work and will
+ * in fact improve over time as the language improves.
+ *
+ * ES6 generators are currently part of V8 version 3.19 with the
+ * --harmony-generators runtime flag enabled.  SpiderMonkey has had them
+ * for longer, but under an older Python-inspired form.  This function
+ * works on both kinds of generators.
+ *
+ * Decorates a generator function such that:
+ *  - it may yield promises
+ *  - execution will continue when that promise is fulfilled
+ *  - the value of the yield expression will be the fulfilled value
+ *  - it returns a promise for the return value (when the generator
+ *    stops iterating)
+ *  - the decorated function returns a promise for the return value
+ *    of the generator or the first rejected promise among those
+ *    yielded.
+ *  - if an error is thrown in the generator, it propagates through
+ *    every following yield until it is caught, or until it escapes
+ *    the generator function altogether, and is translated into a
+ *    rejection for the promise returned by the decorated generator.
+ */
+Q.async = async;
+function async(makeGenerator) {
+    return function () {
+        // when verb is "send", arg is a value
+        // when verb is "throw", arg is an exception
+        function continuer(verb, arg) {
+            var result;
+            if (hasES6Generators) {
+                try {
+                    result = generator[verb](arg);
+                } catch (exception) {
+                    return reject(exception);
+                }
+                if (result.done) {
+                    return result.value;
+                } else {
+                    return when(result.value, callback, errback);
+                }
+            } else {
+                // FIXME: Remove this case when SM does ES6 generators.
+                try {
+                    result = generator[verb](arg);
+                } catch (exception) {
+                    if (isStopIteration(exception)) {
+                        return exception.value;
+                    } else {
+                        return reject(exception);
+                    }
+                }
+                return when(result, callback, errback);
+            }
+        }
+        var generator = makeGenerator.apply(this, arguments);
+        var callback = continuer.bind(continuer, "next");
+        var errback = continuer.bind(continuer, "throw");
+        return callback();
+    };
+}
+
+/**
+ * The spawn function is a small wrapper around async that immediately
+ * calls the generator and also ends the promise chain, so that any
+ * unhandled errors are thrown instead of forwarded to the error
+ * handler. This is useful because it's extremely common to run
+ * generators at the top-level to work with libraries.
+ */
+Q.spawn = spawn;
+function spawn(makeGenerator) {
+    Q.done(Q.async(makeGenerator)());
+}
+
+// FIXME: Remove this interface once ES6 generators are in SpiderMonkey.
+/**
+ * Throws a ReturnValue exception to stop an asynchronous generator.
+ *
+ * This interface is a stop-gap measure to support generator return
+ * values in older Firefox/SpiderMonkey.  In browsers that support ES6
+ * generators like Chromium 29, just use "return" in your generator
+ * functions.
+ *
+ * @param value the return value for the surrounding generator
+ * @throws ReturnValue exception with the value.
+ * @example
+ * // ES6 style
+ * Q.async(function* () {
+ *      var foo = yield getFooPromise();
+ *      var bar = yield getBarPromise();
+ *      return foo + bar;
+ * })
+ * // Older SpiderMonkey style
+ * Q.async(function () {
+ *      var foo = yield getFooPromise();
+ *      var bar = yield getBarPromise();
+ *      Q.return(foo + bar);
+ * })
+ */
+Q["return"] = _return;
+function _return(value) {
+    throw new QReturnValue(value);
+}
+
+/**
+ * The promised function decorator ensures that any promise arguments
+ * are settled and passed as values (`this` is also settled and passed
+ * as a value).  It will also ensure that the result of a function is
+ * always a promise.
+ *
+ * @example
+ * var add = Q.promised(function (a, b) {
+ *     return a + b;
+ * });
+ * add(Q(a), Q(B));
+ *
+ * @param {function} callback The function to decorate
+ * @returns {function} a function that has been decorated.
+ */
+Q.promised = promised;
+function promised(callback) {
+    return function () {
+        return spread([this, all(arguments)], function (self, args) {
+            return callback.apply(self, args);
+        });
+    };
+}
+
+/**
+ * sends a message to a value in a future turn
+ * @param object* the recipient
+ * @param op the name of the message operation, e.g., "when",
+ * @param args further arguments to be forwarded to the operation
+ * @returns result {Promise} a promise for the result of the operation
+ */
+Q.dispatch = dispatch;
+function dispatch(object, op, args) {
+    return Q(object).dispatch(op, args);
+}
+
+Promise.prototype.dispatch = function (op, args) {
+    var self = this;
+    var deferred = defer();
+    nextTick(function () {
+        self.promiseDispatch(deferred.resolve, op, args);
+    });
+    return deferred.promise;
+};
+
+/**
+ * Gets the value of a property in a future turn.
+ * @param object    promise or immediate reference for target object
+ * @param name      name of property to get
+ * @return promise for the property value
+ */
+Q.get = function (object, key) {
+    return Q(object).dispatch("get", [key]);
+};
+
+Promise.prototype.get = function (key) {
+    return this.dispatch("get", [key]);
+};
+
+/**
+ * Sets the value of a property in a future turn.
+ * @param object    promise or immediate reference for object object
+ * @param name      name of property to set
+ * @param value     new value of property
+ * @return promise for the return value
+ */
+Q.set = function (object, key, value) {
+    return Q(object).dispatch("set", [key, value]);
+};
+
+Promise.prototype.set = function (key, value) {
+    return this.dispatch("set", [key, value]);
+};
+
+/**
+ * Deletes a property in a future turn.
+ * @param object    promise or immediate reference for target object
+ * @param name      name of property to delete
+ * @return promise for the return value
+ */
+Q.del = // XXX legacy
+Q["delete"] = function (object, key) {
+    return Q(object).dispatch("delete", [key]);
+};
+
+Promise.prototype.del = // XXX legacy
+Promise.prototype["delete"] = function (key) {
+    return this.dispatch("delete", [key]);
+};
+
+/**
+ * Invokes a method in a future turn.
+ * @param object    promise or immediate reference for target object
+ * @param name      name of method to invoke
+ * @param value     a value to post, typically an array of
+ *                  invocation arguments for promises that
+ *                  are ultimately backed with `resolve` values,
+ *                  as opposed to those backed with URLs
+ *                  wherein the posted value can be any
+ *                  JSON serializable object.
+ * @return promise for the return value
+ */
+// bound locally because it is used by other methods
+Q.mapply = // XXX As proposed by "Redsandro"
+Q.post = function (object, name, args) {
+    return Q(object).dispatch("post", [name, args]);
+};
+
+Promise.prototype.mapply = // XXX As proposed by "Redsandro"
+Promise.prototype.post = function (name, args) {
+    return this.dispatch("post", [name, args]);
+};
+
+/**
+ * Invokes a method in a future turn.
+ * @param object    promise or immediate reference for target object
+ * @param name      name of method to invoke
+ * @param ...args   array of invocation arguments
+ * @return promise for the return value
+ */
+Q.send = // XXX Mark Miller's proposed parlance
+Q.mcall = // XXX As proposed by "Redsandro"
+Q.invoke = function (object, name /*...args*/) {
+    return Q(object).dispatch("post", [name, array_slice(arguments, 2)]);
+};
+
+Promise.prototype.send = // XXX Mark Miller's proposed parlance
+Promise.prototype.mcall = // XXX As proposed by "Redsandro"
+Promise.prototype.invoke = function (name /*...args*/) {
+    return this.dispatch("post", [name, array_slice(arguments, 1)]);
+};
+
+/**
+ * Applies the promised function in a future turn.
+ * @param object    promise or immediate reference for target function
+ * @param args      array of application arguments
+ */
+Q.fapply = function (object, args) {
+    return Q(object).dispatch("apply", [void 0, args]);
+};
+
+Promise.prototype.fapply = function (args) {
+    return this.dispatch("apply", [void 0, args]);
+};
+
+/**
+ * Calls the promised function in a future turn.
+ * @param object    promise or immediate reference for target function
+ * @param ...args   array of application arguments
+ */
+Q["try"] =
+Q.fcall = function (object /* ...args*/) {
+    return Q(object).dispatch("apply", [void 0, array_slice(arguments, 1)]);
+};
+
+Promise.prototype.fcall = function (/*...args*/) {
+    return this.dispatch("apply", [void 0, array_slice(arguments)]);
+};
+
+/**
+ * Binds the promised function, transforming return values into a fulfilled
+ * promise and thrown errors into a rejected one.
+ * @param object    promise or immediate reference for target function
+ * @param ...args   array of application arguments
+ */
+Q.fbind = function (object /*...args*/) {
+    var promise = Q(object);
+    var args = array_slice(arguments, 1);
+    return function fbound() {
+        return promise.dispatch("apply", [
+            this,
+            args.concat(array_slice(arguments))
+        ]);
+    };
+};
+Promise.prototype.fbind = function (/*...args*/) {
+    var promise = this;
+    var args = array_slice(arguments);
+    return function fbound() {
+        return promise.dispatch("apply", [
+            this,
+            args.concat(array_slice(arguments))
+        ]);
+    };
+};
+
+/**
+ * Requests the names of the owned properties of a promised
+ * object in a future turn.
+ * @param object    promise or immediate reference for target object
+ * @return promise for the keys of the eventually settled object
+ */
+Q.keys = function (object) {
+    return Q(object).dispatch("keys", []);
+};
+
+Promise.prototype.keys = function () {
+    return this.dispatch("keys", []);
+};
+
+/**
+ * Turns an array of promises into a promise for an array.  If any of
+ * the promises gets rejected, the whole array is rejected immediately.
+ * @param {Array*} an array (or promise for an array) of values (or
+ * promises for values)
+ * @returns a promise for an array of the corresponding values
+ */
+// By Mark Miller
+// http://wiki.ecmascript.org/doku.php?id=strawman:concurrency&rev=1308776521#allfulfilled
+Q.all = all;
+function all(promises) {
+    return when(promises, function (promises) {
+        var countDown = 0;
+        var deferred = defer();
+        array_reduce(promises, function (undefined, promise, index) {
+            var snapshot;
+            if (
+                isPromise(promise) &&
+                (snapshot = promise.inspect()).state === "fulfilled"
+            ) {
+                promises[index] = snapshot.value;
+            } else {
+                ++countDown;
+                when(
+                    promise,
+                    function (value) {
+                        promises[index] = value;
+                        if (--countDown === 0) {
+                            deferred.resolve(promises);
+                        }
+                    },
+                    deferred.reject,
+                    function (progress) {
+                        deferred.notify({ index: index, value: progress });
+                    }
+                );
+            }
+        }, void 0);
+        if (countDown === 0) {
+            deferred.resolve(promises);
+        }
+        return deferred.promise;
+    });
+}
+
+Promise.prototype.all = function () {
+    return all(this);
+};
+
+/**
+ * Waits for all promises to be settled, either fulfilled or
+ * rejected.  This is distinct from `all` since that would stop
+ * waiting at the first rejection.  The promise returned by
+ * `allResolved` will never be rejected.
+ * @param promises a promise for an array (or an array) of promises
+ * (or values)
+ * @return a promise for an array of promises
+ */
+Q.allResolved = deprecate(allResolved, "allResolved", "allSettled");
+function allResolved(promises) {
+    return when(promises, function (promises) {
+        promises = array_map(promises, Q);
+        return when(all(array_map(promises, function (promise) {
+            return when(promise, noop, noop);
+        })), function () {
+            return promises;
+        });
+    });
+}
+
+Promise.prototype.allResolved = function () {
+    return allResolved(this);
+};
+
+/**
+ * @see Promise#allSettled
+ */
+Q.allSettled = allSettled;
+function allSettled(promises) {
+    return Q(promises).allSettled();
+}
+
+/**
+ * Turns an array of promises into a promise for an array of their states (as
+ * returned by `inspect`) when they have all settled.
+ * @param {Array[Any*]} values an array (or promise for an array) of values (or
+ * promises for values)
+ * @returns {Array[State]} an array of states for the respective values.
+ */
+Promise.prototype.allSettled = function () {
+    return this.then(function (promises) {
+        return all(array_map(promises, function (promise) {
+            promise = Q(promise);
+            function regardless() {
+                return promise.inspect();
+            }
+            return promise.then(regardless, regardless);
+        }));
+    });
+};
+
+/**
+ * Captures the failure of a promise, giving an oportunity to recover
+ * with a callback.  If the given promise is fulfilled, the returned
+ * promise is fulfilled.
+ * @param {Any*} promise for something
+ * @param {Function} callback to fulfill the returned promise if the
+ * given promise is rejected
+ * @returns a promise for the return value of the callback
+ */
+Q.fail = // XXX legacy
+Q["catch"] = function (object, rejected) {
+    return Q(object).then(void 0, rejected);
+};
+
+Promise.prototype.fail = // XXX legacy
+Promise.prototype["catch"] = function (rejected) {
+    return this.then(void 0, rejected);
+};
+
+/**
+ * Attaches a listener that can respond to progress notifications from a
+ * promise's originating deferred. This listener receives the exact arguments
+ * passed to ``deferred.notify``.
+ * @param {Any*} promise for something
+ * @param {Function} callback to receive any progress notifications
+ * @returns the given promise, unchanged
+ */
+Q.progress = progress;
+function progress(object, progressed) {
+    return Q(object).then(void 0, void 0, progressed);
+}
+
+Promise.prototype.progress = function (progressed) {
+    return this.then(void 0, void 0, progressed);
+};
+
+/**
+ * Provides an opportunity to observe the settling of a promise,
+ * regardless of whether the promise is fulfilled or rejected.  Forwards
+ * the resolution to the returned promise when the callback is done.
+ * The callback can return a promise to defer completion.
+ * @param {Any*} promise
+ * @param {Function} callback to observe the resolution of the given
+ * promise, takes no arguments.
+ * @returns a promise for the resolution of the given promise when
+ * ``fin`` is done.
+ */
+Q.fin = // XXX legacy
+Q["finally"] = function (object, callback) {
+    return Q(object)["finally"](callback);
+};
+
+Promise.prototype.fin = // XXX legacy
+Promise.prototype["finally"] = function (callback) {
+    callback = Q(callback);
+    return this.then(function (value) {
+        return callback.fcall().then(function () {
+            return value;
+        });
+    }, function (reason) {
+        // TODO attempt to recycle the rejection with "this".
+        return callback.fcall().then(function () {
+            throw reason;
+        });
+    });
+};
+
+/**
+ * Terminates a chain of promises, forcing rejections to be
+ * thrown as exceptions.
+ * @param {Any*} promise at the end of a chain of promises
+ * @returns nothing
+ */
+Q.done = function (object, fulfilled, rejected, progress) {
+    return Q(object).done(fulfilled, rejected, progress);
+};
+
+Promise.prototype.done = function (fulfilled, rejected, progress) {
+    var onUnhandledError = function (error) {
+        // forward to a future turn so that ``when``
+        // does not catch it and turn it into a rejection.
+        nextTick(function () {
+            makeStackTraceLong(error, promise);
+            if (Q.onerror) {
+                Q.onerror(error);
+            } else {
+                throw error;
+            }
+        });
+    };
+
+    // Avoid unnecessary `nextTick`ing via an unnecessary `when`.
+    var promise = fulfilled || rejected || progress ?
+        this.then(fulfilled, rejected, progress) :
+        this;
+
+    if (typeof process === "object" && process && process.domain) {
+        onUnhandledError = process.domain.bind(onUnhandledError);
+    }
+
+    promise.then(void 0, onUnhandledError);
+};
+
+/**
+ * Causes a promise to be rejected if it does not get fulfilled before
+ * some milliseconds time out.
+ * @param {Any*} promise
+ * @param {Number} milliseconds timeout
+ * @param {String} custom error message (optional)
+ * @returns a promise for the resolution of the given promise if it is
+ * fulfilled before the timeout, otherwise rejected.
+ */
+Q.timeout = function (object, ms, message) {
+    return Q(object).timeout(ms, message);
+};
+
+Promise.prototype.timeout = function (ms, message) {
+    var deferred = defer();
+    var timeoutId = setTimeout(function () {
+        deferred.reject(new Error(message || "Timed out after " + ms + " ms"));
+    }, ms);
+
+    this.then(function (value) {
+        clearTimeout(timeoutId);
+        deferred.resolve(value);
+    }, function (exception) {
+        clearTimeout(timeoutId);
+        deferred.reject(exception);
+    }, deferred.notify);
+
+    return deferred.promise;
+};
+
+/**
+ * Returns a promise for the given value (or promised value), some
+ * milliseconds after it resolved. Passes rejections immediately.
+ * @param {Any*} promise
+ * @param {Number} milliseconds
+ * @returns a promise for the resolution of the given promise after milliseconds
+ * time has elapsed since the resolution of the given promise.
+ * If the given promise rejects, that is passed immediately.
+ */
+Q.delay = function (object, timeout) {
+    if (timeout === void 0) {
+        timeout = object;
+        object = void 0;
+    }
+    return Q(object).delay(timeout);
+};
+
+Promise.prototype.delay = function (timeout) {
+    return this.then(function (value) {
+        var deferred = defer();
+        setTimeout(function () {
+            deferred.resolve(value);
+        }, timeout);
+        return deferred.promise;
+    });
+};
+
+/**
+ * Passes a continuation to a Node function, which is called with the given
+ * arguments provided as an array, and returns a promise.
+ *
+ *      Q.nfapply(FS.readFile, [__filename])
+ *      .then(function (content) {
+ *      })
+ *
+ */
+Q.nfapply = function (callback, args) {
+    return Q(callback).nfapply(args);
+};
+
+Promise.prototype.nfapply = function (args) {
+    var deferred = defer();
+    var nodeArgs = array_slice(args);
+    nodeArgs.push(deferred.makeNodeResolver());
+    this.fapply(nodeArgs).fail(deferred.reject);
+    return deferred.promise;
+};
+
+/**
+ * Passes a continuation to a Node function, which is called with the given
+ * arguments provided individually, and returns a promise.
+ * @example
+ * Q.nfcall(FS.readFile, __filename)
+ * .then(function (content) {
+ * })
+ *
+ */
+Q.nfcall = function (callback /*...args*/) {
+    var args = array_slice(arguments, 1);
+    return Q(callback).nfapply(args);
+};
+
+Promise.prototype.nfcall = function (/*...args*/) {
+    var nodeArgs = array_slice(arguments);
+    var deferred = defer();
+    nodeArgs.push(deferred.makeNodeResolver());
+    this.fapply(nodeArgs).fail(deferred.reject);
+    return deferred.promise;
+};
+
+/**
+ * Wraps a NodeJS continuation passing function and returns an equivalent
+ * version that returns a promise.
+ * @example
+ * Q.nfbind(FS.readFile, __filename)("utf-8")
+ * .then(console.log)
+ * .done()
+ */
+Q.nfbind =
+Q.denodeify = function (callback /*...args*/) {
+    var baseArgs = array_slice(arguments, 1);
+    return function () {
+        var nodeArgs = baseArgs.concat(array_slice(arguments));
+        var deferred = defer();
+        nodeArgs.push(deferred.makeNodeResolver());
+        Q(callback).fapply(nodeArgs).fail(deferred.reject);
+        return deferred.promise;
+    };
+};
+
+Promise.prototype.nfbind =
+Promise.prototype.denodeify = function (/*...args*/) {
+    var args = array_slice(arguments);
+    args.unshift(this);
+    return Q.denodeify.apply(void 0, args);
+};
+
+Q.nbind = function (callback, thisp /*...args*/) {
+    var baseArgs = array_slice(arguments, 2);
+    return function () {
+        var nodeArgs = baseArgs.concat(array_slice(arguments));
+        var deferred = defer();
+        nodeArgs.push(deferred.makeNodeResolver());
+        function bound() {
+            return callback.apply(thisp, arguments);
+        }
+        Q(bound).fapply(nodeArgs).fail(deferred.reject);
+        return deferred.promise;
+    };
+};
+
+Promise.prototype.nbind = function (/*thisp, ...args*/) {
+    var args = array_slice(arguments, 0);
+    args.unshift(this);
+    return Q.nbind.apply(void 0, args);
+};
+
+/**
+ * Calls a method of a Node-style object that accepts a Node-style
+ * callback with a given array of arguments, plus a provided callback.
+ * @param object an object that has the named method
+ * @param {String} name name of the method of object
+ * @param {Array} args arguments to pass to the method; the callback
+ * will be provided by Q and appended to these arguments.
+ * @returns a promise for the value or error
+ */
+Q.nmapply = // XXX As proposed by "Redsandro"
+Q.npost = function (object, name, args) {
+    return Q(object).npost(name, args);
+};
+
+Promise.prototype.nmapply = // XXX As proposed by "Redsandro"
+Promise.prototype.npost = function (name, args) {
+    var nodeArgs = array_slice(args || []);
+    var deferred = defer();
+    nodeArgs.push(deferred.makeNodeResolver());
+    this.dispatch("post", [name, nodeArgs]).fail(deferred.reject);
+    return deferred.promise;
+};
+
+/**
+ * Calls a method of a Node-style object that accepts a Node-style
+ * callback, forwarding the given variadic arguments, plus a provided
+ * callback argument.
+ * @param object an object that has the named method
+ * @param {String} name name of the method of object
+ * @param ...args arguments to pass to the method; the callback will
+ * be provided by Q and appended to these arguments.
+ * @returns a promise for the value or error
+ */
+Q.nsend = // XXX Based on Mark Miller's proposed "send"
+Q.nmcall = // XXX Based on "Redsandro's" proposal
+Q.ninvoke = function (object, name /*...args*/) {
+    var nodeArgs = array_slice(arguments, 2);
+    var deferred = defer();
+    nodeArgs.push(deferred.makeNodeResolver());
+    Q(object).dispatch("post", [name, nodeArgs]).fail(deferred.reject);
+    return deferred.promise;
+};
+
+Promise.prototype.nsend = // XXX Based on Mark Miller's proposed "send"
+Promise.prototype.nmcall = // XXX Based on "Redsandro's" proposal
+Promise.prototype.ninvoke = function (name /*...args*/) {
+    var nodeArgs = array_slice(arguments, 1);
+    var deferred = defer();
+    nodeArgs.push(deferred.makeNodeResolver());
+    this.dispatch("post", [name, nodeArgs]).fail(deferred.reject);
+    return deferred.promise;
+};
+
+/**
+ * If a function would like to support both Node continuation-passing-style and
+ * promise-returning-style, it can end its internal promise chain with
+ * `nodeify(nodeback)`, forwarding the optional nodeback argument.  If the user
+ * elects to use a nodeback, the result will be sent there.  If they do not
+ * pass a nodeback, they will receive the result promise.
+ * @param object a result (or a promise for a result)
+ * @param {Function} nodeback a Node.js-style callback
+ * @returns either the promise or nothing
+ */
+Q.nodeify = nodeify;
+function nodeify(object, nodeback) {
+    return Q(object).nodeify(nodeback);
+}
+
+Promise.prototype.nodeify = function (nodeback) {
+    if (nodeback) {
+        this.then(function (value) {
+            nextTick(function () {
+                nodeback(null, value);
+            });
+        }, function (error) {
+            nextTick(function () {
+                nodeback(error);
+            });
+        });
+    } else {
+        return this;
+    }
+};
+
+// All code before this point will be filtered from stack traces.
+var qEndingLine = captureLine();
+
+return Q;
+
+});
+;/*! imjs - v2.10.6 - 2013-11-22 */
+
+// This library is open source software according to the definition of the
+// GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
+// included with this software. All use of this software is covered according to
+// the terms of the LGPLv3.
+// 
+// The copyright is held by InterMine (www.intermine.org) and Alex Kalderimis (alex@intermine.org).
 (function() {
   var IS_NODE, data, fs, imjs, intermine, path, pkg, _ref, _ref1;
 
@@ -11759,7 +13652,7 @@ Thu Jun 14 13:18:14 BST 2012
       imjs.VERSION = pkg.version;
     }
   } else {
-    imjs.VERSION = "2.8.1";
+    imjs.VERSION = "2.10.6";
   }
 
 }).call(this);
@@ -12078,6 +13971,13 @@ Thu Jun 14 13:18:14 BST 2012
   root.fold = fold = function(f) {
     return function(init, xs) {
       var k, ret, v;
+      if (arguments.length === 1) {
+        xs = (init != null ? init.slice() : void 0) || init;
+        init = (xs != null ? xs.shift() : void 0) || {};
+      }
+      if (xs == null) {
+        throw new Error("xs is null");
+      }
       if (xs.reduce != null) {
         return xs.reduce(f, init);
       } else {
@@ -12450,12 +14350,20 @@ Thu Jun 14 13:18:14 BST 2012
     });
   };
 
-  ERROR_PIPE = function(xhr, textStatus, e) {
-    try {
-      return JSON.parse(xhr.responseText).error;
-    } catch (e) {
-      return textStatus;
+  ERROR_PIPE = function(f) {
+    if (f == null) {
+      f = (function() {});
     }
+    return function(xhr, textStatus, e) {
+      if ((xhr != null ? xhr.status : void 0) === 0) {
+        return;
+      }
+      try {
+        return f(JSON.parse(xhr.responseText).error);
+      } catch (e) {
+        return f(textStatus);
+      }
+    };
   };
 
   inIE9 = XDomainRequest != null;
@@ -12532,10 +14440,21 @@ Thu Jun 14 13:18:14 BST 2012
   };
 
   http.doReq = function(opts) {
-    var errBack;
+    var def, errBack;
     errBack = opts.error || this.errorHandler;
-    opts.error = _.compose(errBack, ERROR_PIPE);
-    return jQuery.ajax(opts).pipe(CHECKING_PIPE).fail(errBack);
+    opts.error = ERROR_PIPE(errBack);
+    def = jQuery.Deferred(function() {
+      var resp,
+        _this = this;
+      resp = jQuery.ajax(opts);
+      resp.then(function() {
+        return _this.resolve.apply(_this, arguments);
+      });
+      return resp.fail(ERROR_PIPE(function(err) {
+        return _this.reject(err);
+      }));
+    });
+    return def.promise();
   };
 
 }).call(this);
@@ -13305,7 +15224,9 @@ Thu Jun 14 13:18:14 BST 2012
 }).call(this);
 
 (function() {
-  var Deferred, IDResolutionJob, IS_NODE, funcutils, get, intermine, __root__,
+  var CategoryResults, Deferred, IDResolutionJob, IS_NODE, IdResults, ONE_MINUTE, concatMap, fold, funcutils, get, id, intermine, __root__,
+    __hasProp = {}.hasOwnProperty,
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   IS_NODE = typeof exports !== 'undefined';
@@ -13322,7 +15243,127 @@ Thu Jun 14 13:18:14 BST 2012
     funcutils = intermine.funcutils;
   }
 
-  get = funcutils.get;
+  id = funcutils.id, get = funcutils.get, fold = funcutils.fold, concatMap = funcutils.concatMap;
+
+  ONE_MINUTE = 60 * 1000;
+
+  CategoryResults = (function() {
+    var getIssueMatches;
+
+    function CategoryResults(results) {
+      var k, v;
+      for (k in results) {
+        if (!__hasProp.call(results, k)) continue;
+        v = results[k];
+        this[k] = v;
+      }
+    }
+
+    getIssueMatches = concatMap(get('matches'));
+
+    CategoryResults.prototype.getMatches = function(k) {
+      var _ref;
+      if (k === 'MATCH') {
+        return this.matches[k];
+      } else {
+        return (_ref = getIssueMatches(this.matches[k])) != null ? _ref : [];
+      }
+    };
+
+    CategoryResults.prototype.getMatchIds = function(k) {
+      if (k != null) {
+        return this.getMatches(k).map(get('id'));
+      } else {
+        return this.allMatchIds();
+      }
+    };
+
+    CategoryResults.prototype.goodMatchIds = function() {
+      return this.getMatchIds('MATCH');
+    };
+
+    CategoryResults.prototype.allMatchIds = function() {
+      var combineIds,
+        _this = this;
+      combineIds = fold(function(res, issueSet) {
+        return res.concat(_this.getMatchIds(issueSet));
+      });
+      return combineIds(this.goodMatchIds(), ['DUPLICATE', 'WILDCARD', 'TYPE_CONVERTED', 'OTHER']);
+    };
+
+    return CategoryResults;
+
+  })();
+
+  IdResults = (function() {
+    var flatten, getReasons, isGood;
+
+    function IdResults(results) {
+      var k, v;
+      for (k in results) {
+        if (!__hasProp.call(results, k)) continue;
+        v = results[k];
+        this[k] = v;
+      }
+    }
+
+    flatten = concatMap(id);
+
+    getReasons = function(match) {
+      var k, vals;
+      return flatten((function() {
+        var _ref, _results;
+        _ref = match.identifiers;
+        _results = [];
+        for (k in _ref) {
+          vals = _ref[k];
+          _results.push(vals);
+        }
+        return _results;
+      })());
+    };
+
+    isGood = function(match, k) {
+      return !(k != null) || __indexOf.call(getReasons(match), k) >= 0;
+    };
+
+    IdResults.prototype.getMatches = function(k) {
+      var match, _results;
+      _results = [];
+      for (id in this) {
+        if (!__hasProp.call(this, id)) continue;
+        match = this[id];
+        if (isGood(match, k)) {
+          _results.push(match);
+        }
+      }
+      return _results;
+    };
+
+    IdResults.prototype.getMatchIds = function(k) {
+      var match, _results;
+      _results = [];
+      for (id in this) {
+        if (!__hasProp.call(this, id)) continue;
+        match = this[id];
+        if (isGood(match, k)) {
+          _results.push(id);
+        }
+      }
+      return _results;
+    };
+
+    IdResults.prototype.goodMatchIds = function() {
+      return this.getMatchIds('MATCH');
+    };
+
+    IdResults.prototype.allMatchIds = function() {
+      return this.getMatchIds();
+    };
+
+    return IdResults;
+
+  })();
 
   IDResolutionJob = (function() {
 
@@ -13348,19 +15389,34 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     IDResolutionJob.prototype.fetchResults = function(cb) {
-      return this.service.get("ids/" + this.uid + "/result").pipe(get('results')).done(cb);
+      var gettingRes, gettingVer;
+      gettingRes = this.service.get("ids/" + this.uid + "/result").pipe(get('results'));
+      gettingVer = this.service.fetchVersion();
+      return gettingVer.then(function(v) {
+        return gettingRes.then(function(results) {
+          if (v >= 16) {
+            return new CategoryResults(results);
+          } else {
+            return new IdResults(results);
+          }
+        });
+      });
     };
 
     IDResolutionJob.prototype.del = function(cb) {
       return this.service.makeRequest('DELETE', "ids/" + this.uid, {}, cb);
     };
 
+    IDResolutionJob.prototype.decay = 50;
+
     IDResolutionJob.prototype.poll = function(onSuccess, onError, onProgress) {
-      var resp, ret,
+      var backOff, resp, ret,
         _this = this;
       ret = Deferred().done(onSuccess).fail(onError).progress(onProgress);
       resp = this.fetchStatus();
       resp.fail(ret.reject);
+      backOff = this.decay;
+      this.decay = Math.min(ONE_MINUTE, backOff * 2);
       resp.done(function(status) {
         ret.notify(status);
         switch (status) {
@@ -13369,7 +15425,9 @@ Thu Jun 14 13:18:14 BST 2012
           case 'ERROR':
             return _this.fetchErrorMessage().then(ret.reject, ret.reject);
           default:
-            return _this.poll(ret.resolve, ret.reject, ret.notify);
+            return setTimeout((function() {
+              return _this.poll(ret.resolve, ret.reject, ret.notify);
+            }), backOff);
         }
       });
       return ret.promise();
@@ -13379,6 +15437,8 @@ Thu Jun 14 13:18:14 BST 2012
 
   })();
 
+  IDResolutionJob.prototype.wait = IDResolutionJob.prototype.poll;
+
   IDResolutionJob.create = function(service) {
     return function(uid) {
       return new IDResolutionJob(uid, service);
@@ -13387,13 +15447,18 @@ Thu Jun 14 13:18:14 BST 2012
 
   intermine.IDResolutionJob = IDResolutionJob;
 
+  intermine.CategoryResults = CategoryResults;
+
+  intermine.IdResults = IdResults;
+
 }).call(this);
 
 (function() {
-  var $, BASIC_ATTRS, CODES, Deferred, IS_NODE, LIST_PIPE, Query, RESULTS_METHODS, SIMPLE_ATTRS, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, jQuery, mth, multiConStr, noUndefVals, noValueConStr, pairsToObj, partition, simpleConStr, stringToSortOrder, take, toQueryString, typeConStr, _, __root__, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref, _ref1, _ref2,
+  var $, BASIC_ATTRS, CODES, Deferred, IS_NODE, LIST_PIPE, Query, RESULTS_METHODS, SIMPLE_ATTRS, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, jQuery, mth, multiConStr, noUndefVals, noValueConStr, pairsToObj, partition, removeIrrelevantSortOrders, simpleConStr, stringToSortOrder, take, toQueryString, typeConStr, _, __root__, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref, _ref1, _ref2,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-    __slice = [].slice;
+    __slice = [].slice,
+    __hasProp = {}.hasOwnProperty;
 
   IS_NODE = typeof exports !== 'undefined';
 
@@ -13647,6 +15712,25 @@ Thu Jun 14 13:18:14 BST 2012
       _results.push([parts[i], parts[i + 1]]);
     }
     return _results;
+  };
+
+  removeIrrelevantSortOrders = function() {
+    var oe, oldOrder;
+    oldOrder = this.sortOrder;
+    this.sortOrder = (function() {
+      var _i, _len, _results;
+      _results = [];
+      for (_i = 0, _len = oldOrder.length; _i < _len; _i++) {
+        oe = oldOrder[_i];
+        if (this.isRelevant(oe.path)) {
+          _results.push(oe);
+        }
+      }
+      return _results;
+    }).call(this);
+    if (oldOrder.length !== this.sortOrder.length) {
+      return this.trigger('change:sortorder change:orderby', this.sortOrder.slice());
+    }
   };
 
   Query = (function() {
@@ -13978,6 +16062,7 @@ Thu Jun 14 13:18:14 BST 2012
         }));
         return _.flatten(ret.concat(others));
       };
+      this.on('change:views', removeIrrelevantSortOrders, this);
     }
 
     Query.prototype.removeFromSelect = function(unwanted) {
@@ -14185,34 +16270,55 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.getQueryNodes = function() {
-      var constrainedNodes, viewNodes,
-        _this = this;
+      var c, constrainedNodes, pi, viewNodes;
       viewNodes = this.getViewNodes();
-      constrainedNodes = _.map(this.constraints, function(c) {
-        var pi;
-        pi = _this.getPathInfo(c.path);
-        if (pi.isAttribute()) {
-          return pi.getParent();
-        } else {
-          return pi;
+      constrainedNodes = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = this.constraints;
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          if (!(!(c.type != null))) {
+            continue;
+          }
+          pi = this.getPathInfo(c.path);
+          if (pi.isAttribute()) {
+            _results.push(pi.getParent());
+          } else {
+            _results.push(pi);
+          }
         }
-      });
-      return _.uniq(viewNodes.concat(constrainedNodes), false, function(n) {
-        return n.toPathString();
-      });
+        return _results;
+      }).call(this);
+      return _.uniq(viewNodes.concat(constrainedNodes), false, String);
     };
 
     Query.prototype.isInQuery = function(p) {
-      var pi, pstr;
+      var c, pi, pstr, _i, _len, _ref2;
       pi = this.getPathInfo(p);
       if (pi) {
         pstr = pi.toPathString();
-        return _.any(_.union(this.views, _.pluck(this.constraints, 'path')), function(p) {
-          return p.indexOf(pstr) === 0;
-        });
-      } else {
-        return true;
+        _ref2 = this.views.concat((function() {
+          var _j, _len, _ref2, _results;
+          _ref2 = this.constraints;
+          _results = [];
+          for (_j = 0, _len = _ref2.length; _j < _len; _j++) {
+            c = _ref2[_j];
+            if (!(c.type != null)) {
+              _results.push(c.path);
+            }
+          }
+          return _results;
+        }).call(this));
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          p = _ref2[_i];
+          if (0 === p.indexOf(pstr)) {
+            return true;
+          }
+        }
+        return false;
       }
+      return true;
     };
 
     Query.prototype.isRelevant = function(path) {
@@ -14222,7 +16328,7 @@ Thu Jun 14 13:18:14 BST 2012
         pi = pi.getParent();
       }
       sought = pi.toString();
-      nodes = this.getQueryNodes();
+      nodes = this.getViewNodes();
       return _.any(nodes, function(n) {
         return n.toPathString() === sought;
       });
@@ -14377,12 +16483,19 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.clone = function(cloneEvents) {
-      var cloned;
+      var cloned, k, v, _ref2, _ref3;
       cloned = new Query(this, this.service);
-      if (cloneEvents) {
-        cloned._callbacks = this._callbacks;
-      } else {
+      if ((_ref2 = cloned._callbacks) == null) {
         cloned._callbacks = {};
+      }
+      if (cloneEvents) {
+        _ref3 = this._callbacks;
+        for (k in _ref3) {
+          if (!__hasProp.call(_ref3, k)) continue;
+          v = _ref3[k];
+          cloned._callbacks[k] = v;
+        }
+        cloned.off('change:views', removeIrrelevantSortOrders, this);
       }
       return cloned;
     };
@@ -14495,7 +16608,7 @@ Thu Jun 14 13:18:14 BST 2012
         oe = oes[_i];
         this.addSortOrder(this._parse_sort_order(oe));
       }
-      return this.trigger('set:sortorder', this.sortOrder);
+      return this.trigger('set:sortorder change:sortorder', this.sortOrder);
     };
 
     Query.prototype.addJoins = function(joins) {
@@ -14616,10 +16729,23 @@ Thu Jun 14 13:18:14 BST 2012
     };
 
     Query.prototype.getConstraintXML = function() {
-      if (this.constraints.length) {
+      var c, toSerialise;
+      toSerialise = (function() {
+        var _i, _len, _ref2, _results;
+        _ref2 = this.constraints;
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          if (!(c.type != null) || this.isInQuery(c.path)) {
+            _results.push(c);
+          }
+        }
+        return _results;
+      }).call(this);
+      if (toSerialise.length) {
         return concatMap(conStr)(concatMap(id)(partition(function(c) {
           return c.type != null;
-        })(this.constraints)));
+        })(toSerialise)));
       } else {
         return '';
       }
@@ -15089,6 +17215,8 @@ Thu Jun 14 13:18:14 BST 2012
   Service = (function() {
     var toMapByName;
 
+    Service.prototype.doReq = http.doReq;
+
     function Service(_arg) {
       var loc, noCache, _ref, _ref1,
         _this = this;
@@ -15117,6 +17245,8 @@ Thu Jun 14 13:18:14 BST 2012
 
       this.tableRows = __bind(this.tableRows, this);
 
+      this.values = __bind(this.values, this);
+
       this.rows = __bind(this.rows, this);
 
       this.records = __bind(this.records, this);
@@ -15124,8 +17254,6 @@ Thu Jun 14 13:18:14 BST 2012
       this.table = __bind(this.table, this);
 
       this.pathValues = __bind(this.pathValues, this);
-
-      this.values = __bind(this.values, this);
 
       this.fetchUser = __bind(this.fetchUser, this);
 
@@ -15232,7 +17360,7 @@ Thu Jun 14 13:18:14 BST 2012
         url: url,
         type: method
       };
-      return http.doReq(opts, indiv);
+      return this.doReq(opts, indiv);
     };
 
     Service.prototype.enrichment = function(opts, cb) {
@@ -15337,7 +17465,7 @@ Thu Jun 14 13:18:14 BST 2012
       return this.whoami.apply(this, args);
     };
 
-    Service.prototype.values = function(path, typeConstraints, cb) {
+    Service.prototype.pathValues = function(path, typeConstraints, cb) {
       var _this = this;
       if (typeConstraints == null) {
         typeConstraints = {};
@@ -15346,26 +17474,30 @@ Thu Jun 14 13:18:14 BST 2012
         cb = (function() {});
       }
       return REQUIRES_VERSION(this, 6, function() {
+        var wanted, _pathValues;
+        if (_.isString(typeConstraints)) {
+          wanted = typeConstraints;
+          typeConstraints = {};
+        }
+        if (wanted !== 'count') {
+          wanted = 'results';
+        }
+        _pathValues = function(path) {
+          var format, req;
+          format = wanted === 'count' ? 'jsoncount' : 'json';
+          req = {
+            format: format,
+            path: path.toString(),
+            typeConstraints: JSON.stringify(path.subclasses)
+          };
+          return _this.post(PATH_VALUES_PATH, req).pipe(get(wanted));
+        };
         try {
-          return _this.fetchModel().pipe(invoke('makePath', path, path.subclasses || typeConstraints)).pipe(_this.pathValues).done(cb);
+          return _this.fetchModel().pipe(invoke('makePath', path, path.subclasses || typeConstraints)).pipe(_pathValues).done(cb);
         } catch (e) {
           return error(e);
         }
       });
-    };
-
-    Service.prototype.pathValues = function(path, wanted) {
-      var format, req;
-      if (wanted !== 'count') {
-        wanted = 'results';
-      }
-      format = wanted === 'count' ? 'jsoncount' : 'json';
-      req = {
-        format: format,
-        path: path.toString(),
-        typeConstraints: JSON.stringify(path.subclasses)
-      };
-      return this.post(PATH_VALUES_PATH, req).pipe(get(wanted));
     };
 
     Service.prototype.doPagedRequest = function(q, path, page, format, cb) {
@@ -15405,6 +17537,26 @@ Thu Jun 14 13:18:14 BST 2012
 
     Service.prototype.rows = function(q, page, cb) {
       return this.doPagedRequest(q, QUERY_RESULTS_PATH, page, 'json', cb);
+    };
+
+    Service.prototype.values = function(q, opts, cb) {
+      var _this = this;
+      if (cb == null) {
+        cb = (function() {});
+      }
+      if (!(q != null)) {
+        return error("No query term supplied");
+      } else if ((q.descriptors != null) || _.isString(q)) {
+        return this.pathValues(q, opts, cb);
+      } else {
+        return this.query(q).then(function(query) {
+          if (query.views.length !== 1) {
+            return error("Expected one column, got " + q.views.length);
+          } else {
+            return _this.rows(query, opts).then(invoke('map', get(0))).done(cb);
+          }
+        });
+      }
     };
 
     Service.prototype.tableRows = function(q, page, cb) {
@@ -15596,13 +17748,13 @@ Thu Jun 14 13:18:14 BST 2012
       return REQUIRES_VERSION(this, 10, function() {
         var req;
         req = {
-          data: JSON.stringify(opts),
-          dataType: 'json',
-          url: _this.root + 'ids',
           type: 'POST',
-          contentType: 'application/json'
+          url: _this.root + 'ids',
+          contentType: 'application/json',
+          data: JSON.stringify(opts),
+          dataType: 'json'
         };
-        return http.doReq(req).pipe(get('uid')).pipe(IDResolutionJob.create(_this)).done(cb);
+        return _this.doReq(req).pipe(get('uid')).pipe(IDResolutionJob.create(_this)).done(cb);
       });
     };
 
@@ -15633,7 +17785,7 @@ Thu Jun 14 13:18:14 BST 2012
         type: 'POST',
         contentType: 'text/plain'
       };
-      return http.doReq(req).pipe(LIST_PIPE(this)).done(cb);
+      return this.doReq(req).pipe(LIST_PIPE(this)).done(cb);
     };
 
     return Service;
@@ -15699,1393 +17851,6 @@ Thu Jun 14 13:18:14 BST 2012
   intermine.Service = Service;
 
 }).call(this);
-;/* FileSaver.js
- * A saveAs() FileSaver implementation.
- * 2013-01-23
- *
- * By Eli Grey, http://eligrey.com
- * License: X11/MIT
- *   See LICENSE.md
- */
-
-/*global self */
-/*jslint bitwise: true, regexp: true, confusion: true, es5: true, vars: true, white: true,
-  plusplus: true */
-
-/*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
-
-var saveAs = saveAs
-  || (navigator.msSaveBlob && navigator.msSaveBlob.bind(navigator))
-  || (function(view) {
-	"use strict";
-	var
-		  doc = view.document
-		  // only get URL when necessary in case BlobBuilder.js hasn't overridden it yet
-		, get_URL = function() {
-			return view.URL || view.webkitURL || view;
-		}
-		, URL = view.URL || view.webkitURL || view
-		, save_link = doc.createElementNS("http://www.w3.org/1999/xhtml", "a")
-		, can_use_save_link =  !view.externalHost && "download" in save_link
-		, click = function(node) {
-			var event = doc.createEvent("MouseEvents");
-			event.initMouseEvent(
-				"click", true, false, view, 0, 0, 0, 0, 0
-				, false, false, false, false, 0, null
-			);
-			node.dispatchEvent(event);
-		}
-		, webkit_req_fs = view.webkitRequestFileSystem
-		, req_fs = view.requestFileSystem || webkit_req_fs || view.mozRequestFileSystem
-		, throw_outside = function (ex) {
-			(view.setImmediate || view.setTimeout)(function() {
-				throw ex;
-			}, 0);
-		}
-		, force_saveable_type = "application/octet-stream"
-		, fs_min_size = 0
-		, deletion_queue = []
-		, process_deletion_queue = function() {
-			var i = deletion_queue.length;
-			while (i--) {
-				var file = deletion_queue[i];
-				if (typeof file === "string") { // file is an object URL
-					URL.revokeObjectURL(file);
-				} else { // file is a File
-					file.remove();
-				}
-			}
-			deletion_queue.length = 0; // clear queue
-		}
-		, dispatch = function(filesaver, event_types, event) {
-			event_types = [].concat(event_types);
-			var i = event_types.length;
-			while (i--) {
-				var listener = filesaver["on" + event_types[i]];
-				if (typeof listener === "function") {
-					try {
-						listener.call(filesaver, event || filesaver);
-					} catch (ex) {
-						throw_outside(ex);
-					}
-				}
-			}
-		}
-		, FileSaver = function(blob, name) {
-			// First try a.download, then web filesystem, then object URLs
-			var
-				  filesaver = this
-				, type = blob.type
-				, blob_changed = false
-				, object_url
-				, target_view
-				, get_object_url = function() {
-					var object_url = get_URL().createObjectURL(blob);
-					deletion_queue.push(object_url);
-					return object_url;
-				}
-				, dispatch_all = function() {
-					dispatch(filesaver, "writestart progress write writeend".split(" "));
-				}
-				// on any filesys errors revert to saving with object URLs
-				, fs_error = function() {
-					// don't create more object URLs than needed
-					if (blob_changed || !object_url) {
-						object_url = get_object_url(blob);
-					}
-					if (target_view) {
-						target_view.location.href = object_url;
-					} else {
-                        window.open(object_url, "_blank");
-                    }
-					filesaver.readyState = filesaver.DONE;
-					dispatch_all();
-				}
-				, abortable = function(func) {
-					return function() {
-						if (filesaver.readyState !== filesaver.DONE) {
-							return func.apply(this, arguments);
-						}
-					};
-				}
-				, create_if_not_found = {create: true, exclusive: false}
-				, slice
-			;
-			filesaver.readyState = filesaver.INIT;
-			if (!name) {
-				name = "download";
-			}
-			if (can_use_save_link) {
-				object_url = get_object_url(blob);
-				save_link.href = object_url;
-				save_link.download = name;
-				click(save_link);
-				filesaver.readyState = filesaver.DONE;
-				dispatch_all();
-				return;
-			}
-			// Object and web filesystem URLs have a problem saving in Google Chrome when
-			// viewed in a tab, so I force save with application/octet-stream
-			// http://code.google.com/p/chromium/issues/detail?id=91158
-			if (view.chrome && type && type !== force_saveable_type) {
-				slice = blob.slice || blob.webkitSlice;
-				blob = slice.call(blob, 0, blob.size, force_saveable_type);
-				blob_changed = true;
-			}
-			// Since I can't be sure that the guessed media type will trigger a download
-			// in WebKit, I append .download to the filename.
-			// https://bugs.webkit.org/show_bug.cgi?id=65440
-			if (webkit_req_fs && name !== "download") {
-				name += ".download";
-			}
-			if (type === force_saveable_type || webkit_req_fs) {
-				target_view = view;
-			}
-			if (!req_fs) {
-				fs_error();
-				return;
-			}
-			fs_min_size += blob.size;
-			req_fs(view.TEMPORARY, fs_min_size, abortable(function(fs) {
-				fs.root.getDirectory("saved", create_if_not_found, abortable(function(dir) {
-					var save = function() {
-						dir.getFile(name, create_if_not_found, abortable(function(file) {
-							file.createWriter(abortable(function(writer) {
-								writer.onwriteend = function(event) {
-									target_view.location.href = file.toURL();
-									deletion_queue.push(file);
-									filesaver.readyState = filesaver.DONE;
-									dispatch(filesaver, "writeend", event);
-								};
-								writer.onerror = function() {
-									var error = writer.error;
-									if (error.code !== error.ABORT_ERR) {
-										fs_error();
-									}
-								};
-								"writestart progress write abort".split(" ").forEach(function(event) {
-									writer["on" + event] = filesaver["on" + event];
-								});
-								writer.write(blob);
-								filesaver.abort = function() {
-									writer.abort();
-									filesaver.readyState = filesaver.DONE;
-								};
-								filesaver.readyState = filesaver.WRITING;
-							}), fs_error);
-						}), fs_error);
-					};
-					dir.getFile(name, {create: false}, abortable(function(file) {
-						// delete file if it already exists
-						file.remove();
-						save();
-					}), abortable(function(ex) {
-						if (ex.code === ex.NOT_FOUND_ERR) {
-							save();
-						} else {
-							fs_error();
-						}
-					}));
-				}), fs_error);
-			}), fs_error);
-		}
-		, FS_proto = FileSaver.prototype
-		, saveAs = function(blob, name) {
-			return new FileSaver(blob, name);
-		}
-	;
-	FS_proto.abort = function() {
-		var filesaver = this;
-		filesaver.readyState = filesaver.DONE;
-		dispatch(filesaver, "abort");
-	};
-	FS_proto.readyState = FS_proto.INIT = 0;
-	FS_proto.WRITING = 1;
-	FS_proto.DONE = 2;
-
-	FS_proto.error =
-	FS_proto.onwritestart =
-	FS_proto.onprogress =
-	FS_proto.onwrite =
-	FS_proto.onabort =
-	FS_proto.onerror =
-	FS_proto.onwriteend =
-		null;
-
-	view.addEventListener("unload", process_deletion_queue, false);
-	return saveAs;
-}(self));;(function (global, undefined) {
-    "use strict";
-
-    var tasks = (function () {
-        function Task(handler, args) {
-            this.handler = handler;
-            this.args = args;
-        }
-        Task.prototype.run = function () {
-            // See steps in section 5 of the spec.
-            if (typeof this.handler === "function") {
-                // Choice of `thisArg` is not in the setImmediate spec; `undefined` is in the setTimeout spec though:
-                // http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html
-                this.handler.apply(undefined, this.args);
-            } else {
-                var scriptSource = "" + this.handler;
-                /*jshint evil: true */
-                eval(scriptSource);
-            }
-        };
-
-        var nextHandle = 1; // Spec says greater than zero
-        var tasksByHandle = {};
-        var currentlyRunningATask = false;
-
-        return {
-            addFromSetImmediateArguments: function (args) {
-                var handler = args[0];
-                var argsToHandle = Array.prototype.slice.call(args, 1);
-                var task = new Task(handler, argsToHandle);
-
-                var thisHandle = nextHandle++;
-                tasksByHandle[thisHandle] = task;
-                return thisHandle;
-            },
-            runIfPresent: function (handle) {
-                // From the spec: "Wait until any invocations of this algorithm started before this one have completed."
-                // So if we're currently running a task, we'll need to delay this invocation.
-                if (!currentlyRunningATask) {
-                    var task = tasksByHandle[handle];
-                    if (task) {
-                        currentlyRunningATask = true;
-                        try {
-                            task.run();
-                        } finally {
-                            delete tasksByHandle[handle];
-                            currentlyRunningATask = false;
-                        }
-                    }
-                } else {
-                    // Delay by doing a setTimeout. setImmediate was tried instead, but in Firefox 7 it generated a
-                    // "too much recursion" error.
-                    global.setTimeout(function () {
-                        tasks.runIfPresent(handle);
-                    }, 0);
-                }
-            },
-            remove: function (handle) {
-                delete tasksByHandle[handle];
-            }
-        };
-    }());
-
-    function canUseNextTick() {
-        // Don't get fooled by e.g. browserify environments.
-        return typeof process === "object" &&
-               Object.prototype.toString.call(process) === "[object process]";
-    }
-
-    function canUseMessageChannel() {
-        return !!global.MessageChannel;
-    }
-
-    function canUsePostMessage() {
-        // The test against `importScripts` prevents this implementation from being installed inside a web worker,
-        // where `global.postMessage` means something completely different and can't be used for this purpose.
-
-        if (!global.postMessage || global.importScripts) {
-            return false;
-        }
-
-        var postMessageIsAsynchronous = true;
-        var oldOnMessage = global.onmessage;
-        global.onmessage = function () {
-            postMessageIsAsynchronous = false;
-        };
-        global.postMessage("", "*");
-        global.onmessage = oldOnMessage;
-
-        return postMessageIsAsynchronous;
-    }
-
-    function canUseReadyStateChange() {
-        return "document" in global && "onreadystatechange" in global.document.createElement("script");
-    }
-
-    function installNextTickImplementation(attachTo) {
-        attachTo.setImmediate = function () {
-            var handle = tasks.addFromSetImmediateArguments(arguments);
-
-            process.nextTick(function () {
-                tasks.runIfPresent(handle);
-            });
-
-            return handle;
-        };
-    }
-
-    function installMessageChannelImplementation(attachTo) {
-        var channel = new global.MessageChannel();
-        channel.port1.onmessage = function (event) {
-            var handle = event.data;
-            tasks.runIfPresent(handle);
-        };
-        attachTo.setImmediate = function () {
-            var handle = tasks.addFromSetImmediateArguments(arguments);
-
-            channel.port2.postMessage(handle);
-
-            return handle;
-        };
-    }
-
-    function installPostMessageImplementation(attachTo) {
-        // Installs an event handler on `global` for the `message` event: see
-        // * https://developer.mozilla.org/en/DOM/window.postMessage
-        // * http://www.whatwg.org/specs/web-apps/current-work/multipage/comms.html#crossDocumentMessages
-
-        var MESSAGE_PREFIX = "com.bn.NobleJS.setImmediate" + Math.random();
-
-        function isStringAndStartsWith(string, putativeStart) {
-            return typeof string === "string" && string.substring(0, putativeStart.length) === putativeStart;
-        }
-
-        function onGlobalMessage(event) {
-            // This will catch all incoming messages (even from other windows!), so we need to try reasonably hard to
-            // avoid letting anyone else trick us into firing off. We test the origin is still this window, and that a
-            // (randomly generated) unpredictable identifying prefix is present.
-            if (event.source === global && isStringAndStartsWith(event.data, MESSAGE_PREFIX)) {
-                var handle = event.data.substring(MESSAGE_PREFIX.length);
-                tasks.runIfPresent(handle);
-            }
-        }
-        if (global.addEventListener) {
-            global.addEventListener("message", onGlobalMessage, false);
-        } else {
-            global.attachEvent("onmessage", onGlobalMessage);
-        }
-
-        attachTo.setImmediate = function () {
-            var handle = tasks.addFromSetImmediateArguments(arguments);
-
-            // Make `global` post a message to itself with the handle and identifying prefix, thus asynchronously
-            // invoking our onGlobalMessage listener above.
-            global.postMessage(MESSAGE_PREFIX + handle, "*");
-
-            return handle;
-        };
-    }
-
-    function installReadyStateChangeImplementation(attachTo) {
-        attachTo.setImmediate = function () {
-            var handle = tasks.addFromSetImmediateArguments(arguments);
-
-            // Create a <script> element; its readystatechange event will be fired asynchronously once it is inserted
-            // into the document. Do so, thus queuing up the task. Remember to clean up once it's been called.
-            var scriptEl = global.document.createElement("script");
-            scriptEl.onreadystatechange = function () {
-                tasks.runIfPresent(handle);
-
-                scriptEl.onreadystatechange = null;
-                scriptEl.parentNode.removeChild(scriptEl);
-                scriptEl = null;
-            };
-            global.document.documentElement.appendChild(scriptEl);
-
-            return handle;
-        };
-    }
-
-    function installSetTimeoutImplementation(attachTo) {
-        attachTo.setImmediate = function () {
-            var handle = tasks.addFromSetImmediateArguments(arguments);
-
-            global.setTimeout(function () {
-                tasks.runIfPresent(handle);
-            }, 0);
-
-            return handle;
-        };
-    }
-
-    if (!global.setImmediate) {
-        // If supported, we should attach to the prototype of global, since that is where setTimeout et al. live.
-        var attachTo = typeof Object.getPrototypeOf === "function" && "setTimeout" in Object.getPrototypeOf(global) ?
-                          Object.getPrototypeOf(global)
-                        : global;
-
-        if (canUseNextTick()) {
-            // For Node.js before 0.9
-            installNextTickImplementation(attachTo);
-        } else if (canUsePostMessage()) {
-            // For non-IE10 modern browsers
-            installPostMessageImplementation(attachTo);
-        } else if (canUseMessageChannel()) {
-            // For web workers, where supported
-            installMessageChannelImplementation(attachTo);
-        } else if (canUseReadyStateChange()) {
-            // For IE 6–8
-            installReadyStateChangeImplementation(attachTo);
-        } else {
-            // For older browsers
-            installSetTimeoutImplementation(attachTo);
-        }
-
-        attachTo.clearImmediate = tasks.remove;
-    }
-}(typeof global === "object" && global ? global : this));;/*global setImmediate: false, setTimeout: false, console: false */
-(function () {
-
-    var async = {};
-
-    // global on the server, window in the browser
-    var root, previous_async;
-
-    root = this;
-    if (root != null) {
-      previous_async = root.async;
-    }
-
-    async.noConflict = function () {
-        root.async = previous_async;
-        return async;
-    };
-
-    function only_once(fn) {
-        var called = false;
-        return function() {
-            if (called) throw new Error("Callback was already called.");
-            called = true;
-            fn.apply(root, arguments);
-        }
-    }
-
-    //// cross-browser compatiblity functions ////
-
-    var _each = function (arr, iterator) {
-        if (arr.forEach) {
-            return arr.forEach(iterator);
-        }
-        for (var i = 0; i < arr.length; i += 1) {
-            iterator(arr[i], i, arr);
-        }
-    };
-
-    var _map = function (arr, iterator) {
-        if (arr.map) {
-            return arr.map(iterator);
-        }
-        var results = [];
-        _each(arr, function (x, i, a) {
-            results.push(iterator(x, i, a));
-        });
-        return results;
-    };
-
-    var _reduce = function (arr, iterator, memo) {
-        if (arr.reduce) {
-            return arr.reduce(iterator, memo);
-        }
-        _each(arr, function (x, i, a) {
-            memo = iterator(memo, x, i, a);
-        });
-        return memo;
-    };
-
-    var _keys = function (obj) {
-        if (Object.keys) {
-            return Object.keys(obj);
-        }
-        var keys = [];
-        for (var k in obj) {
-            if (obj.hasOwnProperty(k)) {
-                keys.push(k);
-            }
-        }
-        return keys;
-    };
-
-    //// exported async module functions ////
-
-    //// nextTick implementation with browser-compatible fallback ////
-    if (typeof process === 'undefined' || !(process.nextTick)) {
-        if (typeof setImmediate === 'function') {
-            async.nextTick = function (fn) {
-                setImmediate(fn);
-            };
-        }
-        else {
-            async.nextTick = function (fn) {
-                setTimeout(fn, 0);
-            };
-        }
-    }
-    else {
-        async.nextTick = process.nextTick;
-    }
-
-    async.each = function (arr, iterator, callback) {
-        callback = callback || function () {};
-        if (!arr.length) {
-            return callback();
-        }
-        var completed = 0;
-        _each(arr, function (x) {
-            iterator(x, only_once(function (err) {
-                if (err) {
-                    callback(err);
-                    callback = function () {};
-                }
-                else {
-                    completed += 1;
-                    if (completed >= arr.length) {
-                        callback(null);
-                    }
-                }
-            }));
-        });
-    };
-    async.forEach = async.each;
-
-    async.eachSeries = function (arr, iterator, callback) {
-        callback = callback || function () {};
-        if (!arr.length) {
-            return callback();
-        }
-        var completed = 0;
-        var iterate = function () {
-            var sync = true;
-            iterator(arr[completed], function (err) {
-                if (err) {
-                    callback(err);
-                    callback = function () {};
-                }
-                else {
-                    completed += 1;
-                    if (completed >= arr.length) {
-                        callback(null);
-                    }
-                    else {
-                        if (sync) {
-                            async.nextTick(iterate);
-                        }
-                        else {
-                            iterate();
-                        }
-                    }
-                }
-            });
-            sync = false;
-        };
-        iterate();
-    };
-    async.forEachSeries = async.eachSeries;
-
-    async.eachLimit = function (arr, limit, iterator, callback) {
-        var fn = _eachLimit(limit);
-        fn.apply(null, [arr, iterator, callback]);
-    };
-    async.forEachLimit = async.eachLimit;
-
-    var _eachLimit = function (limit) {
-
-        return function (arr, iterator, callback) {
-            callback = callback || function () {};
-            if (!arr.length || limit <= 0) {
-                return callback();
-            }
-            var completed = 0;
-            var started = 0;
-            var running = 0;
-
-            (function replenish () {
-                if (completed >= arr.length) {
-                    return callback();
-                }
-
-                while (running < limit && started < arr.length) {
-                    started += 1;
-                    running += 1;
-                    iterator(arr[started - 1], function (err) {
-                        if (err) {
-                            callback(err);
-                            callback = function () {};
-                        }
-                        else {
-                            completed += 1;
-                            running -= 1;
-                            if (completed >= arr.length) {
-                                callback();
-                            }
-                            else {
-                                replenish();
-                            }
-                        }
-                    });
-                }
-            })();
-        };
-    };
-
-
-    var doParallel = function (fn) {
-        return function () {
-            var args = Array.prototype.slice.call(arguments);
-            return fn.apply(null, [async.each].concat(args));
-        };
-    };
-    var doParallelLimit = function(limit, fn) {
-        return function () {
-            var args = Array.prototype.slice.call(arguments);
-            return fn.apply(null, [_eachLimit(limit)].concat(args));
-        };
-    };
-    var doSeries = function (fn) {
-        return function () {
-            var args = Array.prototype.slice.call(arguments);
-            return fn.apply(null, [async.eachSeries].concat(args));
-        };
-    };
-
-
-    var _asyncMap = function (eachfn, arr, iterator, callback) {
-        var results = [];
-        arr = _map(arr, function (x, i) {
-            return {index: i, value: x};
-        });
-        eachfn(arr, function (x, callback) {
-            iterator(x.value, function (err, v) {
-                results[x.index] = v;
-                callback(err);
-            });
-        }, function (err) {
-            callback(err, results);
-        });
-    };
-    async.map = doParallel(_asyncMap);
-    async.mapSeries = doSeries(_asyncMap);
-    async.mapLimit = function (arr, limit, iterator, callback) {
-        return _mapLimit(limit)(arr, iterator, callback);
-    };
-
-    var _mapLimit = function(limit) {
-        return doParallelLimit(limit, _asyncMap);
-    };
-
-    // reduce only has a series version, as doing reduce in parallel won't
-    // work in many situations.
-    async.reduce = function (arr, memo, iterator, callback) {
-        async.eachSeries(arr, function (x, callback) {
-            iterator(memo, x, function (err, v) {
-                memo = v;
-                callback(err);
-            });
-        }, function (err) {
-            callback(err, memo);
-        });
-    };
-    // inject alias
-    async.inject = async.reduce;
-    // foldl alias
-    async.foldl = async.reduce;
-
-    async.reduceRight = function (arr, memo, iterator, callback) {
-        var reversed = _map(arr, function (x) {
-            return x;
-        }).reverse();
-        async.reduce(reversed, memo, iterator, callback);
-    };
-    // foldr alias
-    async.foldr = async.reduceRight;
-
-    var _filter = function (eachfn, arr, iterator, callback) {
-        var results = [];
-        arr = _map(arr, function (x, i) {
-            return {index: i, value: x};
-        });
-        eachfn(arr, function (x, callback) {
-            iterator(x.value, function (v) {
-                if (v) {
-                    results.push(x);
-                }
-                callback();
-            });
-        }, function (err) {
-            callback(_map(results.sort(function (a, b) {
-                return a.index - b.index;
-            }), function (x) {
-                return x.value;
-            }));
-        });
-    };
-    async.filter = doParallel(_filter);
-    async.filterSeries = doSeries(_filter);
-    // select alias
-    async.select = async.filter;
-    async.selectSeries = async.filterSeries;
-
-    var _reject = function (eachfn, arr, iterator, callback) {
-        var results = [];
-        arr = _map(arr, function (x, i) {
-            return {index: i, value: x};
-        });
-        eachfn(arr, function (x, callback) {
-            iterator(x.value, function (v) {
-                if (!v) {
-                    results.push(x);
-                }
-                callback();
-            });
-        }, function (err) {
-            callback(_map(results.sort(function (a, b) {
-                return a.index - b.index;
-            }), function (x) {
-                return x.value;
-            }));
-        });
-    };
-    async.reject = doParallel(_reject);
-    async.rejectSeries = doSeries(_reject);
-
-    var _detect = function (eachfn, arr, iterator, main_callback) {
-        eachfn(arr, function (x, callback) {
-            iterator(x, function (result) {
-                if (result) {
-                    main_callback(x);
-                    main_callback = function () {};
-                }
-                else {
-                    callback();
-                }
-            });
-        }, function (err) {
-            main_callback();
-        });
-    };
-    async.detect = doParallel(_detect);
-    async.detectSeries = doSeries(_detect);
-
-    async.some = function (arr, iterator, main_callback) {
-        async.each(arr, function (x, callback) {
-            iterator(x, function (v) {
-                if (v) {
-                    main_callback(true);
-                    main_callback = function () {};
-                }
-                callback();
-            });
-        }, function (err) {
-            main_callback(false);
-        });
-    };
-    // any alias
-    async.any = async.some;
-
-    async.every = function (arr, iterator, main_callback) {
-        async.each(arr, function (x, callback) {
-            iterator(x, function (v) {
-                if (!v) {
-                    main_callback(false);
-                    main_callback = function () {};
-                }
-                callback();
-            });
-        }, function (err) {
-            main_callback(true);
-        });
-    };
-    // all alias
-    async.all = async.every;
-
-    async.sortBy = function (arr, iterator, callback) {
-        async.map(arr, function (x, callback) {
-            iterator(x, function (err, criteria) {
-                if (err) {
-                    callback(err);
-                }
-                else {
-                    callback(null, {value: x, criteria: criteria});
-                }
-            });
-        }, function (err, results) {
-            if (err) {
-                return callback(err);
-            }
-            else {
-                var fn = function (left, right) {
-                    var a = left.criteria, b = right.criteria;
-                    return a < b ? -1 : a > b ? 1 : 0;
-                };
-                callback(null, _map(results.sort(fn), function (x) {
-                    return x.value;
-                }));
-            }
-        });
-    };
-
-    async.auto = function (tasks, callback) {
-        callback = callback || function () {};
-        var keys = _keys(tasks);
-        if (!keys.length) {
-            return callback(null);
-        }
-
-        var results = {};
-
-        var listeners = [];
-        var addListener = function (fn) {
-            listeners.unshift(fn);
-        };
-        var removeListener = function (fn) {
-            for (var i = 0; i < listeners.length; i += 1) {
-                if (listeners[i] === fn) {
-                    listeners.splice(i, 1);
-                    return;
-                }
-            }
-        };
-        var taskComplete = function () {
-            _each(listeners.slice(0), function (fn) {
-                fn();
-            });
-        };
-
-        addListener(function () {
-            if (_keys(results).length === keys.length) {
-                callback(null, results);
-                callback = function () {};
-            }
-        });
-
-        _each(keys, function (k) {
-            var task = (tasks[k] instanceof Function) ? [tasks[k]]: tasks[k];
-            var taskCallback = function (err) {
-                if (err) {
-                    callback(err);
-                    // stop subsequent errors hitting callback multiple times
-                    callback = function () {};
-                }
-                else {
-                    var args = Array.prototype.slice.call(arguments, 1);
-                    if (args.length <= 1) {
-                        args = args[0];
-                    }
-                    results[k] = args;
-                    async.nextTick(taskComplete);
-                }
-            };
-            var requires = task.slice(0, Math.abs(task.length - 1)) || [];
-            var ready = function () {
-                return _reduce(requires, function (a, x) {
-                    return (a && results.hasOwnProperty(x));
-                }, true) && !results.hasOwnProperty(k);
-            };
-            if (ready()) {
-                task[task.length - 1](taskCallback, results);
-            }
-            else {
-                var listener = function () {
-                    if (ready()) {
-                        removeListener(listener);
-                        task[task.length - 1](taskCallback, results);
-                    }
-                };
-                addListener(listener);
-            }
-        });
-    };
-
-    async.waterfall = function (tasks, callback) {
-        callback = callback || function () {};
-        if (!tasks.length) {
-            return callback();
-        }
-        var wrapIterator = function (iterator) {
-            return function (err) {
-                if (err) {
-                    callback.apply(null, arguments);
-                    callback = function () {};
-                }
-                else {
-                    var args = Array.prototype.slice.call(arguments, 1);
-                    var next = iterator.next();
-                    if (next) {
-                        args.push(wrapIterator(next));
-                    }
-                    else {
-                        args.push(callback);
-                    }
-                    async.nextTick(function () {
-                        iterator.apply(null, args);
-                    });
-                }
-            };
-        };
-        wrapIterator(async.iterator(tasks))();
-    };
-
-    var _parallel = function(eachfn, tasks, callback) {
-        callback = callback || function () {};
-        if (tasks.constructor === Array) {
-            eachfn.map(tasks, function (fn, callback) {
-                if (fn) {
-                    fn(function (err) {
-                        var args = Array.prototype.slice.call(arguments, 1);
-                        if (args.length <= 1) {
-                            args = args[0];
-                        }
-                        callback.call(null, err, args);
-                    });
-                }
-            }, callback);
-        }
-        else {
-            var results = {};
-            eachfn.each(_keys(tasks), function (k, callback) {
-                tasks[k](function (err) {
-                    var args = Array.prototype.slice.call(arguments, 1);
-                    if (args.length <= 1) {
-                        args = args[0];
-                    }
-                    results[k] = args;
-                    callback(err);
-                });
-            }, function (err) {
-                callback(err, results);
-            });
-        }
-    };
-
-    async.parallel = function (tasks, callback) {
-        _parallel({ map: async.map, each: async.each }, tasks, callback);
-    };
-
-    async.parallelLimit = function(tasks, limit, callback) {
-        _parallel({ map: _mapLimit(limit), each: _eachLimit(limit) }, tasks, callback);
-    };
-
-    async.series = function (tasks, callback) {
-        callback = callback || function () {};
-        if (tasks.constructor === Array) {
-            async.mapSeries(tasks, function (fn, callback) {
-                if (fn) {
-                    fn(function (err) {
-                        var args = Array.prototype.slice.call(arguments, 1);
-                        if (args.length <= 1) {
-                            args = args[0];
-                        }
-                        callback.call(null, err, args);
-                    });
-                }
-            }, callback);
-        }
-        else {
-            var results = {};
-            async.eachSeries(_keys(tasks), function (k, callback) {
-                tasks[k](function (err) {
-                    var args = Array.prototype.slice.call(arguments, 1);
-                    if (args.length <= 1) {
-                        args = args[0];
-                    }
-                    results[k] = args;
-                    callback(err);
-                });
-            }, function (err) {
-                callback(err, results);
-            });
-        }
-    };
-
-    async.iterator = function (tasks) {
-        var makeCallback = function (index) {
-            var fn = function () {
-                if (tasks.length) {
-                    tasks[index].apply(null, arguments);
-                }
-                return fn.next();
-            };
-            fn.next = function () {
-                return (index < tasks.length - 1) ? makeCallback(index + 1): null;
-            };
-            return fn;
-        };
-        return makeCallback(0);
-    };
-
-    async.apply = function (fn) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        return function () {
-            return fn.apply(
-                null, args.concat(Array.prototype.slice.call(arguments))
-            );
-        };
-    };
-
-    var _concat = function (eachfn, arr, fn, callback) {
-        var r = [];
-        eachfn(arr, function (x, cb) {
-            fn(x, function (err, y) {
-                r = r.concat(y || []);
-                cb(err);
-            });
-        }, function (err) {
-            callback(err, r);
-        });
-    };
-    async.concat = doParallel(_concat);
-    async.concatSeries = doSeries(_concat);
-
-    async.whilst = function (test, iterator, callback) {
-        if (test()) {
-            var sync = true;
-            iterator(function (err) {
-                if (err) {
-                    return callback(err);
-                }
-                if (sync) {
-                    async.nextTick(function () {
-                        async.whilst(test, iterator, callback);
-                    });
-                }
-                else {
-                    async.whilst(test, iterator, callback);
-                }
-            });
-            sync = false;
-        }
-        else {
-            callback();
-        }
-    };
-
-    async.doWhilst = function (iterator, test, callback) {
-        var sync = true;
-        iterator(function (err) {
-            if (err) {
-                return callback(err);
-            }
-            if (test()) {
-                if (sync) {
-                    async.nextTick(function () {
-                        async.doWhilst(iterator, test, callback);
-                    });
-                }
-                else {
-                    async.doWhilst(iterator, test, callback);
-                }
-            }
-            else {
-                callback();
-            }
-        });
-        sync = false;
-    };
-
-    async.until = function (test, iterator, callback) {
-        if (!test()) {
-            var sync = true;
-            iterator(function (err) {
-                if (err) {
-                    return callback(err);
-                }
-                if (sync) {
-                    async.nextTick(function () {
-                        async.until(test, iterator, callback);
-                    });
-                }
-                else {
-                    async.until(test, iterator, callback);
-                }
-            });
-            sync = false;
-        }
-        else {
-            callback();
-        }
-    };
-
-    async.doUntil = function (iterator, test, callback) {
-        var sync = true;
-        iterator(function (err) {
-            if (err) {
-                return callback(err);
-            }
-            if (!test()) {
-                if (sync) {
-                    async.nextTick(function () {
-                        async.doUntil(iterator, test, callback);
-                    });
-                }
-                else {
-                    async.doUntil(iterator, test, callback);
-                }
-            }
-            else {
-                callback();
-            }
-        });
-        sync = false;
-    };
-
-    async.queue = function (worker, concurrency) {
-        function _insert(q, data, pos, callback) {
-          if(data.constructor !== Array) {
-              data = [data];
-          }
-          _each(data, function(task) {
-              var item = {
-                  data: task,
-                  callback: typeof callback === 'function' ? callback : null
-              };
-
-              if (pos) {
-                q.tasks.unshift(item);
-              } else {
-                q.tasks.push(item);
-              }
-
-              if (q.saturated && q.tasks.length === concurrency) {
-                  q.saturated();
-              }
-              async.nextTick(q.process);
-          });
-        }
-
-        var workers = 0;
-        var q = {
-            tasks: [],
-            concurrency: concurrency,
-            saturated: null,
-            empty: null,
-            drain: null,
-            push: function (data, callback) {
-              _insert(q, data, false, callback);
-            },
-            unshift: function (data, callback) {
-              _insert(q, data, true, callback);
-            },
-            process: function () {
-                if (workers < q.concurrency && q.tasks.length) {
-                    var task = q.tasks.shift();
-                    if (q.empty && q.tasks.length === 0) {
-                        q.empty();
-                    }
-                    workers += 1;
-                    var sync = true;
-                    var next = function () {
-                        workers -= 1;
-                        if (task.callback) {
-                            task.callback.apply(task, arguments);
-                        }
-                        if (q.drain && q.tasks.length + workers === 0) {
-                            q.drain();
-                        }
-                        q.process();
-                    };
-                    var cb = only_once(function () {
-                        var cbArgs = arguments;
-
-                        if (sync) {
-                            async.nextTick(function () {
-                                next.apply(null, cbArgs);
-                            });
-                        } else {
-                            next.apply(null, arguments);
-                        }
-                    });
-                    worker(task.data, cb);
-                    sync = false;
-                }
-            },
-            length: function () {
-                return q.tasks.length;
-            },
-            running: function () {
-                return workers;
-            }
-        };
-        return q;
-    };
-
-    async.cargo = function (worker, payload) {
-        var working     = false,
-            tasks       = [];
-
-        var cargo = {
-            tasks: tasks,
-            payload: payload,
-            saturated: null,
-            empty: null,
-            drain: null,
-            push: function (data, callback) {
-                if(data.constructor !== Array) {
-                    data = [data];
-                }
-                _each(data, function(task) {
-                    tasks.push({
-                        data: task,
-                        callback: typeof callback === 'function' ? callback : null
-                    });
-                    if (cargo.saturated && tasks.length === payload) {
-                        cargo.saturated();
-                    }
-                });
-                async.nextTick(cargo.process);
-            },
-            process: function process() {
-                if (working) return;
-                if (tasks.length === 0) {
-                    if(cargo.drain) cargo.drain();
-                    return;
-                }
-
-                var ts = typeof payload === 'number'
-                            ? tasks.splice(0, payload)
-                            : tasks.splice(0);
-
-                var ds = _map(ts, function (task) {
-                    return task.data;
-                });
-
-                if(cargo.empty) cargo.empty();
-                working = true;
-                worker(ds, function () {
-                    working = false;
-
-                    var args = arguments;
-                    _each(ts, function (data) {
-                        if (data.callback) {
-                            data.callback.apply(null, args);
-                        }
-                    });
-
-                    process();
-                });
-            },
-            length: function () {
-                return tasks.length;
-            },
-            running: function () {
-                return working;
-            }
-        };
-        return cargo;
-    };
-
-    var _console_fn = function (name) {
-        return function (fn) {
-            var args = Array.prototype.slice.call(arguments, 1);
-            fn.apply(null, args.concat([function (err) {
-                var args = Array.prototype.slice.call(arguments, 1);
-                if (typeof console !== 'undefined') {
-                    if (err) {
-                        if (console.error) {
-                            console.error(err);
-                        }
-                    }
-                    else if (console[name]) {
-                        _each(args, function (x) {
-                            console[name](x);
-                        });
-                    }
-                }
-            }]));
-        };
-    };
-    async.log = _console_fn('log');
-    async.dir = _console_fn('dir');
-    /*async.info = _console_fn('info');
-    async.warn = _console_fn('warn');
-    async.error = _console_fn('error');*/
-
-    async.memoize = function (fn, hasher) {
-        var memo = {};
-        var queues = {};
-        hasher = hasher || function (x) {
-            return x;
-        };
-        var memoized = function () {
-            var args = Array.prototype.slice.call(arguments);
-            var callback = args.pop();
-            var key = hasher.apply(null, args);
-            if (key in memo) {
-                callback.apply(null, memo[key]);
-            }
-            else if (key in queues) {
-                queues[key].push(callback);
-            }
-            else {
-                queues[key] = [callback];
-                fn.apply(null, args.concat([function () {
-                    memo[key] = arguments;
-                    var q = queues[key];
-                    delete queues[key];
-                    for (var i = 0, l = q.length; i < l; i++) {
-                      q[i].apply(null, arguments);
-                    }
-                }]));
-            }
-        };
-        memoized.memo = memo;
-        memoized.unmemoized = fn;
-        return memoized;
-    };
-
-    async.unmemoize = function (fn) {
-      return function () {
-        return (fn.unmemoized || fn).apply(null, arguments);
-      };
-    };
-
-    async.times = function (count, iterator, callback) {
-        var counter = [];
-        for (var i = 0; i < count; i++) {
-            counter.push(i);
-        }
-        return async.map(counter, iterator, callback);
-    };
-
-    async.timesSeries = function (count, iterator, callback) {
-        var counter = [];
-        for (var i = 0; i < count; i++) {
-            counter.push(i);
-        }
-        return async.mapSeries(counter, iterator, callback);
-    };
-
-    async.compose = function (/* functions... */) {
-        var fns = Array.prototype.reverse.call(arguments);
-        return function () {
-            var that = this;
-            var args = Array.prototype.slice.call(arguments);
-            var callback = args.pop();
-            async.reduce(fns, args, function (newargs, fn, cb) {
-                fn.apply(that, newargs.concat([function () {
-                    var err = arguments[0];
-                    var nextargs = Array.prototype.slice.call(arguments, 1);
-                    cb(err, nextargs);
-                }]))
-            },
-            function (err, results) {
-                callback.apply(that, [err].concat(results));
-            });
-        };
-    };
-
-    // AMD / RequireJS
-    if (typeof define !== 'undefined' && define.amd) {
-        define([], function () {
-            return async;
-        });
-    }
-    // Node.js
-    else if (typeof module !== 'undefined' && module.exports) {
-        module.exports = async;
-    }
-    // included directly via <script> tag
-    else {
-        root.async = async;
-    }
-
-}());
 ;(function() {
   /**
    * Require the given path.
@@ -17296,4276 +18061,957 @@ var saveAs = saveAs
   (function() {
     
     
-    // ChartWidget.coffee
-    require.register('list-widgets/src/class/ChartWidget.js', function(exports, require, module) {
+    // main.js
+    require.register('MyFirstCommonJSApp/src/main.js', function(exports, require, module) {
     
-      var ChartView, ChartWidget, InterMineWidget, type,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      var AppView = require('./views/appview');
+      var Helper = require('./modules/helper');
+      var $ = require('./modules/dependencies').$;
       
-      InterMineWidget = require('./InterMineWidget');
+      module.exports = function(params) {
       
-      ChartView = require('./views/ChartView');
+      	var view = new AppView(params);
+      	if ($(params.target).length != 1) throw "Not found";
+      	view.setElement($(params.target));
+      	view.render();
       
-      type = require('../utils/type');
+      	//console.log(view.re);
       
-      ChartWidget = (function(_super) {
-        __extends(ChartWidget, _super);
+      	//$(params.target).html(view.render().el);
+      	
       
-        ChartWidget.prototype.widgetOptions = {
-          "title": true,
-          "description": true,
-          matchCb: function(id, type) {
-            return typeof console !== "undefined" && console !== null ? console.log(id, type) : void 0;
+      }
+    });
+
+    
+    // pathwaycollection.js
+    require.register('MyFirstCommonJSApp/src/models/pathwaycollection.js', function(exports, require, module) {
+    
+      var PathwayModel = require('./pathwaymodel');
+      
+        var PathwayCollection = Backbone.Collection.extend({
+      
+          model: PathwayModel,
+      
+          add: function(models) {
+      
+      
+            if (!_.isArray(models)) {
+              models = [models];
+            }
+      
+            // Step through the models and look for a duplicates by slug.
+            _.each(models, function(model) {
+      
+            	//console.log("Next model: " + JSON.stringify(model, null, 2));
+      
+              //model.url = aUrl;
+      
+      
+              var returned = this.findWhere({slug: this.toSlug(model.name)});
+      
+      
+         
+      
+              if (returned) {
+              //console.log("found");
+                //returned.updateData(model); 
+                //console.log('returned, ' + model.url);      
+              } else {
+              	//console.log(model.name);
+                Backbone.Collection.prototype.add.call(this, model);
+              }
+      
+            },this);
           },
-          resultsCb: function(pq) {
-            return typeof console !== "undefined" && console !== null ? console.log(pq) : void 0;
-          },
-          listCb: function(pq) {
-            return typeof console !== "undefined" && console !== null ? console.log(pq) : void 0;
-          }
-        };
       
-        ChartWidget.prototype.formOptions = {};
+          comparator: function(pway) {
+              return pway.get('name');
+            },
       
-        ChartWidget.prototype.spec = {
-          response: {
-            "chartType": type.isString,
-            "description": type.isString,
-            "error": type.isNull,
-            "list": type.isString,
-            "notAnalysed": type.isInteger,
-            "pathQuery": type.isString,
-            "requestedAt": type.isString,
-            "results": type.isArray,
-            "seriesLabels": type.isString,
-            "seriesValues": type.isString,
-            "statusCode": type.isHTTPSuccess,
-            "title": type.isString,
-            "type": type.isString,
-            "wasSuccessful": type.isBoolean,
-            "filters": type.isString,
-            "filterLabel": type.isString,
-            "filterSelectedValue": type.isString,
-            "simplePathQuery": type.isString,
-            "domainLabel": type.isString,
-            "rangeLabel": type.isString
-          }
-        };
-      
-        function ChartWidget(service, token, id, bagName, el, widgetOptions) {
-          this.service = service;
-          this.token = token;
-          this.id = id;
-          this.bagName = bagName;
-          this.el = el;
-          if (widgetOptions == null) {
-            widgetOptions = {};
-          }
-          this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
-          this.log = [];
-          ChartWidget.__super__.constructor.call(this);
-          this.render();
+         toSlug: function(text) {
+          return text.toString().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
         }
       
-        ChartWidget.prototype.render = function() {
-          var data, key, timeout, value, _ref, _ref1,
-            _this = this;
-          timeout = window.setTimeout((function() {
-            return $(_this.el).append(_this.loading = $(require('../templates/loading')()));
-          }), 400);
-          if ((_ref = this.view) != null) {
-            _ref.undelegateEvents();
-          }
-          data = {
-            'widget': this.id,
-            'list': this.bagName,
-            'token': this.token
-          };
-          _ref1 = this.formOptions;
-          for (key in _ref1) {
-            value = _ref1[key];
-            if (key !== 'errorCorrection' && key !== 'pValue') {
-              data['filter'] = value;
-            }
-          }
-          this.log.push('Sending data payload ' + JSON.stringify(data));
-          return $.ajax({
-            url: "" + this.service + "list/chart",
-            dataType: "jsonp",
-            data: data,
-            success: function(response) {
-              var _ref2;
-              _this.log.push('Received a response ' + JSON.stringify(response));
-              window.clearTimeout(timeout);
-              if ((_ref2 = _this.loading) != null) {
-                _ref2.remove();
+        });
+      
+      module.exports = new PathwayCollection();
+    });
+
+    
+    // pathwaymodel.js
+    require.register('MyFirstCommonJSApp/src/models/pathwaymodel.js', function(exports, require, module) {
+    
+      var mediator = require('../modules/mediator');
+      
+      var PathwayModel = Backbone.Model.extend({
+      
+          initialize: function() {
+            //console.log("pathway model created");
+            this.shiftPathwayIdentifier();
+            this.set( {slug: this.toSlug(this.get('name')) });
+            this.shiftData();
+          },
+      
+          defaults: function() {
+            return {organisms: []};
+          },
+      
+          toSlug: function(text) {
+            return text.toString().toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,'');
+          },
+      
+          shiftPathwayIdentifier: function() {
+            var pwayId = this.get('identifier');
+            var pwayObjId = this.get('objectId');
+            _.each(this.attributes.genes, function(o) {
+              o.pwayId = pwayId;
+              o.pathwayId = pwayObjId;
+            });
+          },
+      
+          shiftData: function() {
+            currentOrganisms = this.get("organisms");
+      
+            that = this;
+            _.each(this.get('genes'), function(o) {
+      
+               mediator.trigger('column:add', {taxonId: o.organism.taxonId, sName: o.organism.shortName});
+      
+              var found = _.findWhere(currentOrganisms, {taxonId: o.organism.taxonId});
+              // Did we find the organism in the pathway by taxonId?
+              if (!found) {
+                // push ourself onto the organism as an attribute
+                var geneData = _.omit(o, 'organism');
+                _.extend(geneData, {url: that.attributes.url});
+                geneArray = [geneData]
+                o.organism.genes = geneArray;
+                currentOrganisms.push(o.organism);
+              } else {
+                var geneData = _.omit(o, 'organism');
+                _.extend(geneData, {url: that.attributes.url});
+                found.genes.push(geneData);
               }
-              _this.validateType(response, _this.spec.response);
-              if (response.wasSuccessful) {
-                _this.name = response.title;
-                _this.log.push('Creating new ChartView');
-                return _this.view = new ChartView({
-                  "widget": _this,
-                  "el": _this.el,
-                  "response": response,
-                  "form": {
-                    "options": _this.formOptions
-                  },
-                  "options": _this.widgetOptions
-                });
+      
+            });
+            this.set({organisms: currentOrganisms});
+            this.unset('genes');
+          },
+      
+          updateData: function(jsonData) {
+      
+            currentOrganisms = this.get("organisms");
+      
+            _.each(jsonData.genes, function(o) {
+      
+              mediator.trigger('column:add', {taxonId: o.organism.taxonId, sName: o.organism.shortName});
+      
+              var found = _.findWhere(currentOrganisms, {taxonId: o.organism.taxonId});
+              // Did we find the organism in the pathway by taxonId?
+              if (!found) {
+                // copy our gene data to the organism
+                var geneData = _.omit(o, 'organism');
+                _.extend(geneData, {url: jsonData.url, pathwayId: jsonData.objectId});
+                geneArray = [geneData]
+                o.organism.genes = geneArray;
+                currentOrganisms.push(o.organism);
+              } else {
+                var geneData = _.omit(o, 'organism');
+                _.extend(geneData, {url: jsonData.url});
+                found.genes.push(geneData);
               }
-            },
-            error: function(request, status, error) {
-              clearTimeout(timeout);
-              return _this.error({
-                'text': "" + _this.service + "list/chart"
-              }, 'AJAXTransport');
-            }
-          });
-        };
       
-        return ChartWidget;
+            });
+            this.set({organisms: currentOrganisms});
+            this.unset('genes');
       
-      })(InterMineWidget);
+          },
       
-      module.exports = ChartWidget;
+        });
+      
+      module.exports = PathwayModel;
+      
       
     });
 
     
-    // EnrichmentWidget.coffee
-    require.register('list-widgets/src/class/EnrichmentWidget.js', function(exports, require, module) {
+    // dependencies.js
+    require.register('MyFirstCommonJSApp/src/modules/dependencies.js', function(exports, require, module) {
     
-      var EnrichmentView, EnrichmentWidget, InterMineWidget, type,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      var $;
+            
+      $ = window.jQuery
+            
+      module.exports = {
+              $: $,
+              _: _,
+              Backbone: Backbone,
       
-      InterMineWidget = require('./InterMineWidget');
+      };
+    });
+
+    
+    // globals.js
+    require.register('MyFirstCommonJSApp/src/modules/globals.js', function(exports, require, module) {
+    
+      var columns = [];
+      exports.columns = columns;
+    });
+
+    
+    // helper.js
+    require.register('MyFirstCommonJSApp/src/modules/helper.js', function(exports, require, module) {
+    
+      var $ = require('./dependencies').$;
+      var pwayCollection = require('../models/pathwaycollection.js');
+      var mediator = require('./mediator');
       
-      EnrichmentView = require('./views/EnrichmentView');
       
-      type = require('../utils/type');
+       var launchAll = function(gene, url) {
       
-      EnrichmentWidget = (function(_super) {
-        __extends(EnrichmentWidget, _super);
       
-        EnrichmentWidget.prototype.widgetOptions = {
-          "title": true,
-          "description": true,
-          matchCb: function(id, type) {
-            return typeof console !== "undefined" && console !== null ? console.log(id, type) : void 0;
-          },
-          resultsCb: function(pq) {
-            return typeof console !== "undefined" && console !== null ? console.log(pq) : void 0;
-          },
-          listCb: function(pq) {
-            return typeof console !== "undefined" && console !== null ? console.log(pq) : void 0;
+        //console.log("launchAll has been called");
+      
+          /** Return a promise **/
+          //return function (genes) {
+      
+            /// Array to store our pathway
+            death = function(err) {
+              console.log("death: " + err);
+            }
+      
+            var promiseArray = [];
+      
+            // Step through or mines
+            for (mine in url) {
+              promiseArray.push(runOne(gene, url[mine], mine));
+            }
+      
+            // Return when all results have finished.
+      
+            return Q.all(promiseArray).fail(death);
+      
+          //}
+        }
+      
+        var runOne = function(gene, location, mine) {
+      
+      
+      
+          return Q.when(getHomologues([gene], location)).then(
+            function(returned) {
+              return getPathwaysByGene(location, returned, "collection");
+            },
+            function(e) {
+              mediator.trigger('notify:minefail', {mine: mine});
+            }
+          ).fail(error);
+      
+          function error (err) {
+                console.log("done " + err);
           }
-        };
       
-        EnrichmentWidget.prototype.errorCorrections = ["Holm-Bonferroni", "Benjamini Hochberg", "Bonferroni", "None"];
+      /*
+           return Q.when(getHomologues([gene], location))
+          .then(function(returned) {
+            return getPathwaysByGene(location, returned, "collection")
+          }).fail(error);
+      */
+              
+        }
       
-        EnrichmentWidget.prototype.pValues = ["0.05", "0.10", "1.00"];
+        // :: (string, string) -> (Array<Gene>) -> Promise<Array<Record>>
+        var getPathwaysByGene = function(url, genes, pathwayCollection) { 
       
-        EnrichmentWidget.prototype.spec = {
-          response: {
-            "title": type.isString,
-            "description": type.isString,
-            "pathQuery": type.isJSON,
-            "pathConstraint": type.isString,
-            "error": type.isNull,
-            "list": type.isString,
-            "notAnalysed": type.isInteger,
-            "requestedAt": type.isString,
-            "results": type.isArray,
-            "label": type.isString,
-            "statusCode": type.isHTTPSuccess,
-            "type": type.isString,
-            "wasSuccessful": type.isBoolean,
-            "filters": type.isString,
-            "filterLabel": type.isString,
-            "filterSelectedValue": type.isString,
-            "externalLink": type.isString,
-            "pathQueryForMatches": type.isString,
-            "is_logged": type.isBoolean,
-            "current_population": type.isStringOrNull,
-            "message": type.isString,
-            "extraAttribute": type.isStringOrNull
+            var query, printRecords, getService, getData, error, fin, luString;
+      
+            // Build a lookup string from our array of genes:
+            luString = genes.map(function(gene) {return "\"" + gene.primaryIdentifier + "\""}).join(',');
+      
+            // Build our query using our lookup string.
+            query = {"select":["Pathway.genes.primaryIdentifier","Pathway.id","Pathway.dataSets.name","Pathway.name","Pathway.identifier","Pathway.genes.organism.shortName","Pathway.genes.organism.taxonId"],"orderBy":[{"Pathway.name":"ASC"}],"where":{"Pathway.genes": {LOOKUP: luString}}};
+      
+            // Build a query that gets us a list of gene for a given pathway
+           // geneQuery = {"select":["Pathway.genes.primaryIdentifier","Pathway.id","Pathway.name","Pathway.identifier","Pathway.genes.organism.shortName","Pathway.genes.organism.taxonId"],"orderBy":[{"Pathway.name":"ASC"}],"where":{"Pathway.genes": {LOOKUP: luString}}};
+      
+            /** Return an IMJS service. **/
+            getService = function (aUrl) {
+              //console.log("getService has been called");
+              return new IM.Service({root: aUrl});
+            };
+      
+            /** Return query results **/
+            getData = function (aService) {
+                return aService.records(query);
+            };
+      
+            /** Manipulate our results and add them to our collection. **/
+            makeModels = function () {
+      
+      
+              return function(pways) {
+      
+                _.map(pways, function(pathway) {
+                  pathway.url = url;
+                 
+                })
+      
+                 pwayCollection.add(pways);
+      
+                return pways;
+      
+              }
+      
+      
+            } // End makeModels
+      
+            // Return our error
+            error = function(err) {
+              throw new Error("HELP ME");
+            };
+      
+            // Wait for our results and then return them.
+            return Q(getService(url)).then(getData).then(makeModels()).fail(error);
+      
+          } // End function getPathwaysByGene
+      
+       // }
+      
+        /**
+        * Get a list of homologues for a given gene from a given mine.
+        **/
+        // :: (string, string) -> Promise<Array<Gene>>
+      var getHomologues = function(pIdentifier, url) {
+      
+          IM = intermine;
+      
+          var query, getService, getData, error, fin;
+      
+          // Build our query:
+          var query = {"select":["Homologue.homologue.primaryIdentifier"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
+          //var selfQuery = {"model":{"name":"genomic"},"select":["Gene.primaryIdentifier"],"orderBy":[{"Gene.primaryIdentifier":"ASC"}],"where":[{"path":"Gene.primaryIdentifier","op":"=","code":"A","value":pIdentifier}]};
+      
+          // Get our service.
+          getService = function (aUrl) {
+      
+            return new IM.Service({root: aUrl});
+      
+      
+          };
+      
+          // Run our query.
+          getData = function (aService) {
+              return aService.records(query);
+          };
+      
+          // Deal with our results.
+          returnResults = function () {
+      
+           // console.log("Returning results.");
+            
+            return function (orgs) {
+      
+              // Return the homologue attribute of our results.
+              var values = orgs.map(function(o) {
+                return o.homologue
+              });
+      
+              // Create a 'fake' gene that represents the primary identifier and add it to our results
+              var selfObject = new Object();
+              selfObject.primaryIdentifier = pIdentifier;
+              values.push(selfObject);
+      
+      
+              luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
+              _.each(values, function(gene) {
+                 // console.log(gene.primaryIdentifier);
+              });
+             // console.log("luString" + luString);
+      
+              return values;
+            }
           }
-        };
+          function error (err) {
+                 mediator.trigger('notify:minefail', {url: url});
+                return new Error(err);
+          }
       
-        /*
-        Set the params on us and render.
-        @param {string} service http://aragorn.flymine.org:8080/flymine/service/
-        @param {string} token Token for accessing user's lists
-        @param {Array} lists All lists that we have access to
-        @param {string} id widgetId
-        @param {string} bagName myBag
-        @param {string} el #target
-        @param {object} widgetOptions { "title": true/false, "description": true/false, "matchCb": function(id, type) {}, "resultsCb": function(pq) {}, "listCb": function(pq) {} } }
+          // Return our results when finished
+          return Q(getService(url)).then(getData).then(returnResults());
+        } // End getHomologues
+      
+        function dynamicSort(property) {
+          var sortOrder = 1;
+          if(property[0] === "-") {
+              sortOrder = -1;
+              property = property.substr(1);
+          }
+          return function (a,b) {
+              var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+              return result * sortOrder;
+          }
+        }
+      
+      /*
+        var d = Q.defer();
+        doSth.then(d.resolve, d.reject);
+        setTimeout(d.reject.bind(d, new Error("TIMEOUT")), 2000);
+        return d.promise;
         */
       
-      
-        function EnrichmentWidget(service, token, lists, id, bagName, el, widgetOptions) {
-          this.service = service;
-          this.token = token;
-          this.lists = lists;
-          this.id = id;
-          this.bagName = bagName;
-          this.el = el;
-          if (widgetOptions == null) {
-            widgetOptions = {};
-          }
-          this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
-          this.formOptions = {
-            errorCorrection: "Holm-Bonferroni",
-            pValue: "0.05"
-          };
-          this.log = [];
-          EnrichmentWidget.__super__.constructor.call(this);
-          this.render();
-        }
-      
-        EnrichmentWidget.prototype.render = function() {
-          var data, key, timeout, value, _ref, _ref1,
-            _this = this;
-          timeout = window.setTimeout((function() {
-            return $(_this.el).append(_this.loading = $(require('../templates/loading')()));
-          }), 400);
-          if ((_ref = this.view) != null) {
-            _ref.undelegateEvents();
-          }
-          data = {
-            'widget': this.id,
-            'list': this.bagName,
-            'correction': this.formOptions.errorCorrection,
-            'maxp': this.formOptions.pValue,
-            'token': this.token
-          };
-          _ref1 = this.formOptions;
-          for (key in _ref1) {
-            value = _ref1[key];
-            if (key !== 'errorCorrection' && key !== 'pValue' && key !== 'current_population' && key !== 'remember_population' && key !== 'gene_length_correction') {
-              key = 'filter';
-            }
-            data[key] = value;
-          }
-          this.log.push('Sending data payload ' + JSON.stringify(data));
-          return $.ajax({
-            'url': "" + this.service + "list/enrichment",
-            'dataType': "jsonp",
-            'data': data,
-            success: function(response) {
-              var l, lists, _ref2;
-              _this.log.push('Received a response ' + JSON.stringify(response));
-              window.clearTimeout(timeout);
-              if ((_ref2 = _this.loading) != null) {
-                _ref2.remove();
-              }
-              _this.validateType(response, _this.spec.response);
-              if (response.wasSuccessful) {
-                _this.name = response.title;
-                lists = (function() {
-                  var _i, _len, _ref3, _results;
-                  _ref3 = this.lists;
-                  _results = [];
-                  for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
-                    l = _ref3[_i];
-                    if (l.type === response.type && l.size !== 0) {
-                      _results.push(l);
-                    }
-                  }
-                  return _results;
-                }).call(_this);
-                _this.log.push('Creating new EnrichmentView');
-                return _this.view = new EnrichmentView({
-                  "widget": _this,
-                  "el": _this.el,
-                  "template": _this.template,
-                  "response": response,
-                  "form": {
-                    "options": _this.formOptions,
-                    "pValues": _this.pValues,
-                    "errorCorrections": _this.errorCorrections
-                  },
-                  "options": _this.widgetOptions,
-                  "lists": lists
-                });
-              }
-            },
-            error: function(request, status, error) {
-              clearTimeout(timeout);
-              return _this.error({
-                'text': "" + _this.service + "list/enrichment"
-              }, "AJAXTransport");
-            }
-          });
-        };
-      
-        return EnrichmentWidget;
-      
-      })(InterMineWidget);
-      
-      module.exports = EnrichmentWidget;
-      
+      exports.getHomologues = getHomologues;
+      exports.launchAll = launchAll;
+      exports.dynamicSort = dynamicSort;
     });
 
     
-    // InterMineWidget.coffee
-    require.register('list-widgets/src/class/InterMineWidget.js', function(exports, require, module) {
+    // mediator.js
+    require.register('MyFirstCommonJSApp/src/modules/mediator.js', function(exports, require, module) {
     
-      var InterMineWidget,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+        var mediator = _.extend({}, Backbone.Events);
+        module.exports = mediator;
+    });
+
+    
+    // celltitle.js
+    require.register('MyFirstCommonJSApp/src/templates/celltitle.js', function(exports, require, module) {
+    
+      module.exports = '<%= name %>';
+    });
+
+    
+    // details.js
+    require.register('MyFirstCommonJSApp/src/templates/details.js', function(exports, require, module) {
+    
+      //module.exports = '<h2>test</h2>';
       
-      InterMineWidget = (function() {
-        function InterMineWidget() {
-          this.queryRows = __bind(this.queryRows, this);
-          this.error = __bind(this.error, this);
-          this.validateType = __bind(this.validateType, this);
-          var _this = this;
-          this.log = this.log || [];
-          this.log.push('Creating wrapping element');
-          $(this.el).html($('<div/>', {
-            'class': "inner",
-            'style': "height:572px;overflow:hidden;position:relative"
-          }));
-          this.el = "" + this.el + " div.inner";
-          this.log.push('Initializing InterMine Service');
-          this._service = new intermine.Service({
-            'root': this.service,
-            'token': this.token
-          });
-          this.log.push('Monitoring for debug mode');
-          $(window).on('hashchange', function() {
-            if (window.location.hash === '#debug') {
-              return $(_this.el).append($('<a/>', {
-                'class': 'btn btn-small btn-warning',
-                'text': 'Debug',
-                'style': 'z-index:5;position:absolute;display:block;top:0;left:0',
-                click: function() {
-                  var pre;
-                  pre = $('<pre/>', {
-                    'html': _this.log.join('\n\n')
+      module.exports = '<div class="innerDetailsContainer"> \
+      	<div>◀ Close</div> \
+      	<h2>Pathway Name</h2> \
+      	<% console.log(JSON.stringify(pway, null, 2)); %> \
+      	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].genes[0].pathwayId + ">" %> \
+      	<%= pway.name %> \
+      	</a> \
+      	<h2>Organism</h2> \
+      	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].objectId + ">" %> \
+      	<%= pway.organism[0].shortName %> \
+      	</a> \
+      	<h2>Intersection of Homologous Genes</h2> \
+      	<ul class="genes"> \
+      		<% _.each(pway.organism[0].genes, function(gene) { %> \
+      			<% console.log(gene) %> \
+      			<li> \
+      			<%= "<a href=http://" + gene.url + "/report.do?id=" + gene.objectId + ">" %> \
+      				<%= gene.primaryIdentifier %> \
+      			</a> \
+      			</li> \
+      		<% }) %> \
+      	</ul> \
+      	<h2>Data Set(s)</h2> \
+      	<ul> \
+      		<% _.each(pway.datasets, function(dataset) { %> \
+      			<li> \
+      				<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + dataset.objectId + ">" %> \
+      				<%= dataset.name %> \
+      				</a> \
+      			</li> \
+      		<% }); %> \
+      	</ul></div>';
+    });
+
+    
+    // pathwaycell.js
+    require.register('MyFirstCommonJSApp/src/templates/pathwaycell.js', function(exports, require, module) {
+    
+      module.exports = '<div class="circle"></div>';
+    });
+
+    
+    // results.js
+    require.register('MyFirstCommonJSApp/src/templates/results.js', function(exports, require, module) {
+    
+      module.exports = '<table id="myTableResults"></table>';
+    });
+
+    
+    // shell.js
+    require.register('MyFirstCommonJSApp/src/templates/shell.js', function(exports, require, module) {
+    
+      module.exports = '\
+      	<div class="pwayWrapper"> \
+      		<div class="pwayMain"> \
+      			<div id="pwayHeadersContainer"></div> \
+      			<div id="pwayResultsContainer"> \
+      				<div class="dataPane"></div> \
+      			</div> \
+      			<div id="statusBar">All mines have been queried successfully.</div> \
+      		</div> \
+      	</div>';
+    });
+
+    
+    // tableheaders.js
+    require.register('MyFirstCommonJSApp/src/templates/tableheaders.js', function(exports, require, module) {
+    
+      module.exports = '<thead>\
+      		<tr>\
+      		<th>Pathway Name</th>\
+      	<% _.each(columns, function(col) { %>\
+      		<th><%= col.sName %></th>\
+      	<% }) %>\
+      	</tr>\
+      	</thead>';
+    });
+
+    
+    // tableheaderssanstable.js
+    require.register('MyFirstCommonJSApp/src/templates/tableheaderssanstable.js', function(exports, require, module) {
+    
+      module.exports = '<thead>\
+      		<tr>\
+      		<th>Pathway Name</th>\
+      	<% _.each(columns, function(col) { %>\
+      		<th><%= col.sName %></th>\
+      	<% }) %>\
+      	</tr>\
+      	</thead>';
+    });
+
+    
+    // appview.js
+    require.register('MyFirstCommonJSApp/src/views/appview.js', function(exports, require, module) {
+    
+        // Include helper functions:
+        var mediator = require("../modules/mediator");
+        var Helper = require('../modules/helper');
+        var pwayCollection = require('../models/pathwaycollection');
+        var TableView = require("./tableview");
+        var TableViewHeaders = require("./tableviewheaders");
+        var Globals = require('../modules/globals');
+      var $ = require('../modules/dependencies').$;
+      
+        // The Application
+        // --------------
+        var AppView = Backbone.View.extend({
+      
+          // Stores the final value of our columns
+          columns: [],
+      
+          // TODO: Move to external configuration
+          //el: "#pathwaysappcontainer",
+      
+          // Get the HTML template shell for our application
+      
+          //templateApp: _.template($('#tmplPwayApp').html()),
+          templateShell: require('../templates/shell'),
+      
+      
+          initialize: function(params) {
+            $(window).on("resize",this.resizeContext)
+            console.log(JSON.stringify(params));
+            var friendlyMines = params.friendlyMines;
+            console.log("friendlyMines: " + friendlyMines);
+      
+      
+           this.$el.html($(this.templateShell));
+      
+      
+      
+            //var friendlyMines = params.friendlyMines;
+      
+           mediator.on("test", this.test, this);
+      
+            // Listen to our mediator for events
+            mediator.on('column:add', this.addColumn, this);
+            mediator.on('stats:show', this.showStats, this);
+            mediator.on('table:show', this.showTable, this);
+            mediator.on('stats:hide', this.hideStats, this);
+            mediator.on('notify:minefail', this.notifyFail, this);
+      
+      
+           // Q.when(Helper.launchAll(friendlyMines.flymine))
+           Q.when(Helper.launchAll(params.gene, friendlyMines))
+            .then(function(results) { return console.log(results) })
+            .then(function() { mediator.trigger('table:show', {});});
+        
+        
+          },
+      
+          resizeContext: function() {
+             $("#pwayResultsId th").each(function(i, val) {
+                  $(".pwayHeaders th:eq(" + i + ")").width($(this).width());
+              });
+             $(".pwayHeaders").width($("#pwayResultsId").width());
+             
+             $("#pwayResultsId").css("margin-top", $("#pwayResultsId thead").height() * -1);
+             $(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height());
+      
+          },
+      
+          test: function() {
+              console.log("test function trigger");
+          },
+      
+          render: function() {
+            var output = _.template(this.templateShell, {});
+            this.$el.html(output);
+            return this;
+          },
+      
+          // Show our data table:
+          showTable: function() {
+      
+            console.log("showTable has been called");
+            // Build our table view.
+            var atableView = new TableView({collection: pwayCollection});
+            var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
+      
+           // console.log("atableView", atableView.el.wrap("<p></p>"));
+            this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
+            this.$("#pwayResultsContainer").append(atableView.render().el);
+      
+            this.resizeContext();
+      
+            console.log("header height: " + $('#pwayResultsId thead').height());
+      
+            $(document).keyup(function(e) {
+              if (e.keyCode == 27) {
+                mediator.trigger('stats:hide', null);
+                }   // esc
+            });
+      
+      
+          },
+      
+          // Show our stats pane with information
+          showStats:function(pway) {
+      
+            var organism = _.where(pway.aModel.get("organisms"), {taxonId: pway.taxonId});
+            var dataSets = pway.aModel.get("dataSets");
+      
+      
+            var object = {
+              name: pway.aModel.get("name"),
+              organism: organism,
+              datasets: pway.aModel.get("dataSets")
+            }
+      
+      
+      
+            var detailsTemplate = require('../templates/details');
+            var detailsHtml = _.template(detailsTemplate, {pway: object});
+         
+            this.$el.find(".dataPane").html(detailsHtml);
+            this.$el.find(".dataPane").addClass("active");
+      
+            
+           
+          },
+      
+          addColumn: function(colName) {
+      
+      
+            var index = _.where(Globals.columns, {taxonId: colName.taxonId});
+            if (index.length < 1) {
+              Globals.columns.push(colName);
+              Globals.columns.sort(Helper.dynamicSort("sName"));
+            }
+          },
+      
+          hideStats: function() {
+            console.log("hiding stats");
+            this.$(".dataPane").removeClass("active");
+            $("tr.highlighted").removeClass("highlighted");
+      
+          },
+      
+          notifyFail: function(value) {
+            console.log("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPS");
+            console.log("length: " + this.$el.find('#statusBar').append(value.mine));
+          }
+      
+        });
+      
+      
+        module.exports = AppView;
+    });
+
+    
+    // celltitleview.js
+    require.register('MyFirstCommonJSApp/src/views/celltitleview.js', function(exports, require, module) {
+    
+      var $ = require('../modules/dependencies').$;
+      var mediator = require('../modules/mediator');
+      
+        var CellTitleTemplate = require('../templates/celltitle.js');
+      
+        var PathwayCellTitleView = Backbone.View.extend({
+      
+            tagName: "td",
+      
+            events: {
+              'click': 'openMe'
+            },
+      
+            initialize: function(options) {
+      
+              this.options = options || {};
+      
+            },
+      
+            openMe: function() {
+      
+              mediator.trigger('stats:hide', {taxonId: this.options.taxonId, aModel: this.model});
+              //this.options.parent.$el.css("background-color", "black");
+      
+            },
+      
+            render: function() {
+      
+             var compiledTemplate = _.template(CellTitleTemplate, {name: this.model.get("name")});
+             this.$el.append(compiledTemplate);
+      
+              return this.$el;
+            }
+      
+      
+        });
+      
+        module.exports = PathwayCellTitleView;
+    });
+
+    
+    // pathwaycellview.js
+    require.register('MyFirstCommonJSApp/src/views/pathwaycellview.js', function(exports, require, module) {
+    
+      var $ = require('../modules/dependencies').$;
+      var mediator = require('../modules/mediator');
+      
+      var CellTemplate = require('../templates/pathwaycell');
+      
+      var PathwayCellView = Backbone.View.extend({
+      
+            tagName: "td",
+            className: "clickable",
+      
+            events: {
+              'click': 'openMe'
+            },
+      
+            initialize: function(options) {
+      
+              this.options = options || {};
+      
+            },
+      
+            openMe: function() {
+      
+              //this.options.parent.$el.css("background-color", "#252525");
+               this.options.parent.$el.addClass("highlighted");
+              mediator.trigger('stats:show', {taxonId: this.options.taxonId, aModel: this.model});
+              console.log("Cell Click Detected");
+      
+            },
+      
+            render: function() {
+      
+      
+             var cellTemplate = _.template(CellTemplate, {})
+             console.log("cellTemplate: ", cellTemplate);
+      
+             this.$el.html(cellTemplate);
+      
+              return this.$el;
+            },
+      
+            showMessage: function() {
+      
+              this.$el.html("<div>Test</div>");
+            }
+      
+      
+        });
+      
+      module.exports = PathwayCellView;
+    });
+
+    
+    // pathwayview.js
+    require.register('MyFirstCommonJSApp/src/views/pathwayview.js', function(exports, require, module) {
+    
+      var $ = require('../modules/dependencies').$;
+      var PathwayCellView = require('./pathwaycellview');
+      var PathwayCellTitleView = require('./celltitleview');
+      var Globals = require('../modules/globals');
+      
+      var PathwayView = Backbone.View.extend({
+      
+          tagName: "tr",
+      
+          initialize: function (){
+            
+          },
+      
+          events: {
+      
+            "click": "open"
+      
+          },
+      
+          open: function() {
+      
+            console.log("Row Click Detected");    
+            
+          },
+      
+          render: function() {
+      
+            // Get the models from our organisms:
+            var modelOrganisms = this.model.get("organisms");
+            var foundOrganism;
+      
+      
+            var cellTitleView = new PathwayCellTitleView({
+                 model: this.model,
+                 parent: this
+            });
+      
+            this.$el.append(cellTitleView.render());
+      
+      
+            _.each(Globals.columns, function(col) {
+      
+                foundOrganism = _.where(modelOrganisms, {taxonId: col.taxonId});
+      
+      
+                if (foundOrganism != null && foundOrganism != "" && foundOrganism.length > 0) {
+                  var cellView = new PathwayCellView({
+                    model: this.model,
+                    taxonId: col.taxonId,
+                    parent: this
                   });
-                  return $(_this.el).css('overflow', 'scroll').html(pre);
+                  this.$el.append(cellView.render());
+      
+                } else {
+      
+                  this.$el.append("<td></td>");
+      
                 }
-              }));
-            }
-          });
-        }
       
-        InterMineWidget.prototype.validateType = function(object, spec) {
-          var fails, key, r, value;
-          this.log.push('Validating ' + JSON.stringify(object));
-          fails = [];
-          for (key in object) {
-            value = object[key];
-            r = typeof spec[key] === "function" ? new spec[key](value) : void 0;
-            if (r && !r.is()) {
-              fails.push(require('../templates/invalidjsonkey')({
-                'actual': r.is(),
-                'expected': new String(r),
-                key: key
-              }));
-            }
-          }
-          if (fails.length) {
-            return this.error(fails, "JSONResponse");
-          }
-        };
+            }, this);
       
-        InterMineWidget.prototype.error = function(opts, type) {
-          if (opts == null) {
-            opts = {
-              'title': 'Error',
-              'text': 'Generic error'
-            };
-          }
-          opts.name = this.name || this.id;
-          switch (type) {
-            case "AJAXTransport":
-              opts.title = "AJAX Request Failed";
-              break;
-            case "JSONResponse":
-              opts.title = "Invalid JSON Response";
-              opts.text = "<ol>" + (opts.join('')) + "</ol>";
-          }
-          $(this.el).html(require('../templates/error')(opts));
-          this.log.push(opts.title);
-          return this.fireEvent({
-            'event': 'error',
-            'type': type,
-            'message': opts.title
-          });
-        };
-      
-        InterMineWidget.prototype.fireEvent = function(obj) {
-          var evt, key, value;
-          evt = document.createEvent('Events');
-          evt.initEvent('InterMine', true, true);
-          for (key in obj) {
-            value = obj[key];
-            evt[key] = value;
-          }
-          evt.source = 'ListWidgets';
-          evt.widget = {
-            'id': this.id,
-            'bag': this.bagName,
-            'el': this.el,
-            'service': this.service
-          };
-          return window.dispatchEvent(evt);
-        };
-      
-        InterMineWidget.prototype.queryRows = function(query, cb) {
-          var service;
-          this.log.push('Querying for rows');
-          service = this._service;
-          return async.waterfall([
-            function(cb) {
-              return service.query(query, function(q) {
-                return cb(null, q);
-              });
-            }, function(q, cb) {
-              return q.rows(function(response) {
-                return cb(null, response);
-              });
-            }
-          ], function(err, response) {
-            return cb(response);
-          });
-        };
-      
-        return InterMineWidget;
-      
-      })();
-      
-      module.exports = InterMineWidget;
-      
-    });
-
-    
-    // TableWidget.coffee
-    require.register('list-widgets/src/class/TableWidget.js', function(exports, require, module) {
-    
-      var InterMineWidget, TableView, TableWidget, type,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      InterMineWidget = require('./InterMineWidget');
-      
-      TableView = require('./views/TableView');
-      
-      type = require('../utils/type');
-      
-      TableWidget = (function(_super) {
-        __extends(TableWidget, _super);
-      
-        TableWidget.prototype.widgetOptions = {
-          "title": true,
-          "description": true,
-          matchCb: function(id, type) {
-            return typeof console !== "undefined" && console !== null ? console.log(id, type) : void 0;
+             return this;
           },
-          resultsCb: function(pq) {
-            return typeof console !== "undefined" && console !== null ? console.log(pq) : void 0;
-          },
-          listCb: function(pq) {
-            return typeof console !== "undefined" && console !== null ? console.log(pq) : void 0;
-          }
-        };
       
-        TableWidget.prototype.spec = {
-          response: {
-            "columnTitle": type.isString,
-            "title": type.isString,
-            "description": type.isString,
-            "pathQuery": type.isString,
-            "columns": type.isString,
-            "pathConstraint": type.isString,
-            "requestedAt": type.isString,
-            "list": type.isString,
-            "type": type.isString,
-            "notAnalysed": type.isInteger,
-            "results": type.isArray,
-            "wasSuccessful": type.isBoolean,
-            "error": type.isNull,
-            "statusCode": type.isHTTPSuccess
-          }
-        };
+       
       
-        function TableWidget(service, token, id, bagName, el, widgetOptions) {
-          this.service = service;
-          this.token = token;
-          this.id = id;
-          this.bagName = bagName;
-          this.el = el;
-          if (widgetOptions == null) {
-            widgetOptions = {};
-          }
-          this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
-          this.log = [];
-          TableWidget.__super__.constructor.call(this);
-          this.render();
-        }
       
-        TableWidget.prototype.render = function() {
-          var data, timeout, _ref,
-            _this = this;
-          timeout = window.setTimeout((function() {
-            return $(_this.el).append(_this.loading = $(require('../templates/loading')()));
-          }), 400);
-          if ((_ref = this.view) != null) {
-            _ref.undelegateEvents();
-          }
-          data = {
-            'widget': this.id,
-            'list': this.bagName,
-            'token': this.token
-          };
-          this.log.push('Sending data payload ' + JSON.stringify(data));
-          return $.ajax({
-            url: "" + this.service + "list/table",
-            dataType: "jsonp",
-            data: data,
-            success: function(response) {
-              var _ref1;
-              _this.log.push('Received a response ' + JSON.stringify(response));
-              window.clearTimeout(timeout);
-              if ((_ref1 = _this.loading) != null) {
-                _ref1.remove();
-              }
-              _this.validateType(response, _this.spec.response);
-              if (response.wasSuccessful) {
-                _this.name = response.title;
-                _this.log.push('Creating new TableView');
-                return _this.view = new TableView({
-                  "widget": _this,
-                  "el": _this.el,
-                  "response": response,
-                  "options": _this.widgetOptions
-                });
-              }
-            },
-            error: function(request, status, error) {
-              clearTimeout(timeout);
-              return _this.error({
-                'text': "" + _this.service + "list/table"
-              }, "AJAXTransport");
-            }
-          });
-        };
+        });
       
-        return TableWidget;
-      
-      })(InterMineWidget);
-      
-      module.exports = TableWidget;
-      
+      module.exports = PathwayView;
     });
 
     
-    // CoreModel.coffee
-    require.register('list-widgets/src/class/models/CoreModel.js', function(exports, require, module) {
+    // tableview.js
+    require.register('MyFirstCommonJSApp/src/views/tableview.js', function(exports, require, module) {
     
-      var CoreCollection, CoreModel, EnrichmentResults, EnrichmentRow, TableResults, TableRow, type, _ref, _ref1, _ref2, _ref3, _ref4, _ref5,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      var $ = require('../modules/dependencies').$;
+      var mediator = require("../modules/mediator");
+      var pwayCollection = require('../models/pathwaycollection.js');
+      var templateTableHeaders = require('../templates/tableheaders');
+      var templateTableHeadersSansTable = require('../templates/tableheaderssanstable');
+      var PathwayView = require('./pathwayview');
+      var Globals = require('../modules/globals');
       
-      type = require('../../utils/type');
+      var TableView = Backbone.View.extend({
       
-      CoreModel = (function(_super) {
-        __extends(CoreModel, _super);
-      
-        function CoreModel() {
-          this.toggleSelected = __bind(this.toggleSelected, this);
-          this.validate = __bind(this.validate, this);
-          _ref = CoreModel.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        CoreModel.prototype.defaults = {
-          "selected": false
-        };
-      
-        CoreModel.prototype.initialize = function(row, widget) {
-          this.widget = widget;
-          return this.validate(row);
-        };
-      
-        CoreModel.prototype.validate = function(row) {
-          return this.widget.validateType(row, this.spec);
-        };
-      
-        CoreModel.prototype.toggleSelected = function() {
-          return this.set({
-            selected: !this.get("selected")
-          });
-        };
-      
-        return CoreModel;
-      
-      })(Backbone.Model);
-      
-      CoreCollection = (function(_super) {
-        __extends(CoreCollection, _super);
-      
-        function CoreCollection() {
-          _ref1 = CoreCollection.__super__.constructor.apply(this, arguments);
-          return _ref1;
-        }
-      
-        CoreCollection.prototype.model = CoreModel;
-      
-        CoreCollection.prototype.selected = function() {
-          return this.filter(function(row) {
-            return row.get("selected");
-          });
-        };
-      
-        CoreCollection.prototype.toggleSelected = function() {
-          var model, _i, _j, _len, _len1, _ref2, _ref3, _results, _results1;
-          if (this.models.length - this.selected().length) {
-            _ref2 = this.models;
-            _results = [];
-            for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
-              model = _ref2[_i];
-              _results.push(model.set({
-                "selected": true
-              }, {
-                'silent': true
-              }));
-            }
-            return _results;
-          } else {
-            _ref3 = this.models;
-            _results1 = [];
-            for (_j = 0, _len1 = _ref3.length; _j < _len1; _j++) {
-              model = _ref3[_j];
-              _results1.push(model.set({
-                "selected": false
-              }, {
-                'silent': true
-              }));
-            }
-            return _results1;
-          }
-        };
-      
-        return CoreCollection;
-      
-      })(Backbone.Collection);
-      
-      /* Models underpinning Enrichment Widget results.*/
+        //tagName: 'pathwaysappcontainer',
+        tagName: "table",
+        className: "pwayResults",
+        id: "pwayResultsId",
       
       
-      EnrichmentRow = (function(_super) {
-        __extends(EnrichmentRow, _super);
+        initialize: function() {
+         
       
-        function EnrichmentRow() {
-          _ref2 = EnrichmentRow.__super__.constructor.apply(this, arguments);
-          return _ref2;
-        }
-      
-        EnrichmentRow.prototype.spec = {
-          "description": type.isString,
-          "identifier": type.isString,
-          "matches": type.isInteger,
-          "p-value": type.isInteger,
-          "selected": type.isBoolean,
-          "externalLink": type.isString
-        };
-      
-        EnrichmentRow.prototype.toJSON = function() {
-          var attributes;
-          attributes = _.clone(this.attributes);
-          if (attributes['p-value'] < 0.001) {
-            attributes['p-value'] = attributes['p-value'].toExponential(6);
-          } else {
-            attributes['p-value'] = attributes['p-value'].toFixed(6);
-          }
-          return attributes;
-        };
-      
-        return EnrichmentRow;
-      
-      })(CoreModel);
-      
-      EnrichmentResults = (function(_super) {
-        __extends(EnrichmentResults, _super);
-      
-        function EnrichmentResults() {
-          _ref3 = EnrichmentResults.__super__.constructor.apply(this, arguments);
-          return _ref3;
-        }
-      
-        EnrichmentResults.prototype.model = EnrichmentRow;
-      
-        return EnrichmentResults;
-      
-      })(CoreCollection);
-      
-      /* Models underpinning Table Widget results.*/
+          _.bindAll(this,'render','renderOne');
+          console.log('table view initialized');
       
       
-      TableRow = (function(_super) {
-        __extends(TableRow, _super);
+        },
+        render: function() {
       
-        function TableRow() {
-          _ref4 = TableRow.__super__.constructor.apply(this, arguments);
-          return _ref4;
-        }
+          var compiledTemplate = _.template(templateTableHeadersSansTable, {columns: Globals.columns});
+          //console.log("compiledTemplate: " + compiledTemplate);
       
-        TableRow.prototype.spec = {
-          "matches": type.isInteger,
-          "identifier": type.isInteger,
-          "descriptions": type.isArray,
-          "selected": type.isBoolean
-        };
+          this.$el.append(compiledTemplate);
+          this.collection.each(this.renderOne);
+          console.log("from table view: " + this.$el.html());
+          //this.$el.append("TESTING");
+          //return this;
       
-        return TableRow;
-      
-      })(CoreModel);
-      
-      TableResults = (function(_super) {
-        __extends(TableResults, _super);
-      
-        function TableResults() {
-          _ref5 = TableResults.__super__.constructor.apply(this, arguments);
-          return _ref5;
-        }
-      
-        TableResults.prototype.model = TableRow;
-      
-        return TableResults;
-      
-      })(CoreCollection);
-      
-      module.exports = {
-        EnrichmentRow: EnrichmentRow,
-        EnrichmentResults: EnrichmentResults,
-        TableRow: TableRow,
-        TableResults: TableResults
-      };
-      
-    });
-
-    
-    // ChartPopoverView.coffee
-    require.register('list-widgets/src/class/views/ChartPopoverView.js', function(exports, require, module) {
-    
-      /* Chart Widget bar onclick box.*/
-      
-      var ChartPopoverView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      ChartPopoverView = (function(_super) {
-        __extends(ChartPopoverView, _super);
-      
-        function ChartPopoverView() {
-          this.close = __bind(this.close, this);
-          this.listAction = __bind(this.listAction, this);
-          this.resultsAction = __bind(this.resultsAction, this);
-          this.matchAction = __bind(this.matchAction, this);
-          this.renderValues = __bind(this.renderValues, this);
-          this.render = __bind(this.render, this);
-          _ref = ChartPopoverView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        ChartPopoverView.prototype.descriptionLimit = 50;
-      
-        ChartPopoverView.prototype.valuesLimit = 5;
-      
-        ChartPopoverView.prototype.events = {
-          "click a.match": "matchAction",
-          "click a.results": "resultsAction",
-          "click a.list": "listAction",
-          "click a.close": "close"
-        };
-      
-        ChartPopoverView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          return this.render();
-        };
-      
-        ChartPopoverView.prototype.render = function() {
-          $(this.el).html(require('../../templates/popover/popover')({
-            "description": this.description,
-            "descriptionLimit": this.descriptionLimit,
-            "style": 'width:300px'
-          }));
-          this.widget.queryRows(this.quickPq, this.renderValues);
           return this;
-        };
+        },
+        renderOne: function(model) {
       
-        ChartPopoverView.prototype.renderValues = function(response) {
-          var object, values, _i, _len;
-          values = [];
-          for (_i = 0, _len = response.length; _i < _len; _i++) {
-            object = response[_i];
-            values.push((function(object) {
-              var column, _j, _len1;
-              for (_j = 0, _len1 = object.length; _j < _len1; _j++) {
-                column = object[_j];
-                if (column && column.length > 0) {
-                  return column;
-                }
-              }
-            })(object));
-          }
-          return $(this.el).find('div.values').html(require('../../templates/popover/popover.values')({
-            'values': values,
-            'type': this.type,
-            'valuesLimit': this.valuesLimit,
-            'size': values.length
-          }));
-        };
+          var row=new PathwayView({model: model});
       
-        ChartPopoverView.prototype.matchAction = function(e) {
-          this.matchCb($(e.target).text(), this.type);
-          return e.preventDefault();
-        };
-      
-        ChartPopoverView.prototype.resultsAction = function() {
-          return this.resultsCb(this.resultsPq);
-        };
-      
-        ChartPopoverView.prototype.listAction = function() {
-          return this.listCb(this.resultsPq);
-        };
-      
-        ChartPopoverView.prototype.close = function() {
-          return $(this.el).remove();
-        };
-      
-        return ChartPopoverView;
-      
-      })(Backbone.View);
-      
-      module.exports = ChartPopoverView;
-      
-    });
-
-    
-    // ChartView.coffee
-    require.register('list-widgets/src/class/views/ChartView.js', function(exports, require, module) {
-    
-      var ChartPopoverView, ChartView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      ChartPopoverView = require('./ChartPopoverView');
-      
-      ChartView = (function(_super) {
-        __extends(ChartView, _super);
-      
-        function ChartView() {
-          this.formAction = __bind(this.formAction, this);
-          this.viewSeriesAction = __bind(this.viewSeriesAction, this);
-          this.viewAllAction = __bind(this.viewAllAction, this);
-          this.viewBarsAction = __bind(this.viewBarsAction, this);
-          this.viewBarAction = __bind(this.viewBarAction, this);
-          this.keypressAction = __bind(this.keypressAction, this);
-          this.renderToolbar = __bind(this.renderToolbar, this);
-          _ref = ChartView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        ChartView.prototype.chartOptions = {
-          fontName: "Sans-Serif",
-          fontSize: 11,
-          colors: ["#2F72FF", "#9FC0FF"],
-          legend: {
-            position: "top"
-          },
-          chartArea: {
-            top: 30,
-            bottom: 80,
-            left: 50
-          },
-          hAxis: {
-            titleTextStyle: {
-              fontName: "Sans-Serif"
-            }
-          },
-          vAxis: {
-            titleTextStyle: {
-              fontName: "Sans-Serif"
-            }
-          }
-        };
-      
-        ChartView.prototype.brewer = {
-          '3': ["rgb(189,215,231)", "rgb(107,174,214)", "rgb(33,113,181)"],
-          '4': ["rgb(189,215,231)", "rgb(107,174,214)", "rgb(49,130,189)", "rgb(8,81,156)"],
-          '5': ["rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(49,130,189)", "rgb(8,81,156)"],
-          '6': ["rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,69,148)"],
-          '7': ["rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,69,148)"],
-          '8': ["rgb(222,235,247)", "rgb(198,219,239)", "rgb(158,202,225)", "rgb(107,174,214)", "rgb(66,146,198)", "rgb(33,113,181)", "rgb(8,81,156)", "rgb(8,48,107)"]
-        };
-      
-        ChartView.prototype.multiselect = false;
-      
-        ChartView.prototype.events = {
-          "change div.form select": "formAction",
-          "click div.actions a.view-all": "viewAllAction"
-        };
-      
-        ChartView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          $(document).on('keyup keydown', this.keypressAction);
-          return this.render();
-        };
-      
-        ChartView.prototype.render = function() {
-          var chart, height, ln, options, width,
-            _this = this;
-          $(this.el).html(require('../../templates/chart/chart')({
-            "title": this.options.title ? this.response.title : "",
-            "description": this.options.description ? this.response.description : "",
-            "notAnalysed": this.response.notAnalysed,
-            "type": this.response.type
-          }));
-          if (this.response.filterLabel != null) {
-            $(this.el).find('div.form form').append(require('../../templates/extra')({
-              "label": this.response.filterLabel,
-              "possible": this.response.filters.split(','),
-              "selected": this.response.filterSelectedValue
-            }));
-          }
-          if (this.response.results.length > 1) {
-            if (this.response.chartType in google.visualization) {
-              this.renderToolbar();
-              width = $(this.el).width();
-              height = $(this.el).height() - $(this.el).find('div.header').height();
-              this.chartOptions.width = width;
-              this.chartOptions.chartArea.width = width - this.chartOptions.chartArea.left;
-              this.chartOptions.height = height;
-              this.chartOptions.chartArea.height = height - this.chartOptions.chartArea.top - this.chartOptions.chartArea.bottom;
-              this.chartOptions.hAxis = {
-                'title': this.response.chartType === 'BarChart' ? this.response.rangeLabel : this.response.domainLabel
-              };
-              this.chartOptions.vAxis = {
-                'title': this.response.chartType === 'BarChart' ? this.response.domainLabel : this.response.rangeLabel
-              };
-              chart = new google.visualization[this.response.chartType]($(this.el).find("div.content")[0]);
-              google.visualization.events.addListener(chart, 'click', function() {
-                var input;
-                $(_this.el).find('.content').prepend(input = $('<input/>', {
-                  'class': 'focus',
-                  'type': 'text'
-                }));
-                return input.focus().remove();
-              });
-              if (this.response.pathQuery != null) {
-                google.visualization.events.addListener(chart, "select", function() {
-                  return _this.viewBarAction(chart);
-                });
-              }
-              if (this.response.results[0].length === 1) {
-                this.response.results[0] = [this.response.domainLabel, this.response.results[0][0]];
-              }
-              options = JSON.parse(JSON.stringify(this.chartOptions));
-              if (this.response.chartType === 'PieChart' && (ln = this.response.results.length - 1) >= 3) {
-                if (ln > 8) {
-                  ln = 8;
-                }
-                options.colors = this.brewer[ln].reverse();
-              }
-              chart.draw(google.visualization.arrayToDataTable(this.response.results, false), options);
-            } else {
-              this.error({
-                'title': this.response.chartType,
-                'text': "This chart type does not exist in Google Visualization API"
-              });
-            }
-          } else {
-            $(this.el).find("div.content").html($(require('../../templates/noresults')({
-              'text': "No \"" + this.response.title + "\" with your list."
-            })));
-          }
-          this.widget.fireEvent({
-            'class': 'ChartView',
-            'event': 'rendered'
-          });
+          this.$el.append(row.render().$el);
           return this;
-        };
-      
-        ChartView.prototype.renderToolbar = function() {
-          return $(this.el).find("div.actions").html(require('../../templates/chart/chart.actions')());
-        };
-      
-        ChartView.prototype.translate = function(response, series) {
-          if (response.seriesValues != null) {
-            return response.seriesValues.split(',')[response.seriesLabels.split(',').indexOf(series)];
-          }
-        };
-      
-        ChartView.prototype.keypressAction = function(e) {
-          if (e.type === 'keydown') {
-            if (e.keyCode >= 16 && e.keyCode <= 18) {
-              return this.multiselect = true;
-            }
-          } else {
-            if (e.keyCode >= 16 && e.keyCode <= 18) {
-              this.multiselect = false;
-              if ((this.selection != null) && this.selection.length !== 0) {
-                this.viewBarsAction(this.selection);
-                return this.selection = null;
-              }
-            }
-          }
-        };
-      
-        ChartView.prototype.viewBarAction = function(chart) {
-          var column, description, quickPq, resultsPq, row, selection;
-          if (this.barView != null) {
-            this.barView.close();
-          }
-          selection = chart.getSelection()[0];
-          if (this.multiselect) {
-            if (this.selection == null) {
-              this.selection = [];
-            }
-            return this.selection.push(selection);
-          } else {
-            if (selection) {
-              description = '';
-              resultsPq = this.response.pathQuery;
-              quickPq = this.response.simplePathQuery;
-              if (selection.row != null) {
-                row = this.response.results[selection.row + 1][0];
-                description += row;
-                resultsPq = resultsPq.replace("%category", row);
-                quickPq = quickPq.replace("%category", row);
-                if (selection.column != null) {
-                  if (this.response.seriesPath === 'ActualExpectedCriteria' && selection.column === 2) {
-                    return false;
-                  }
-                  column = this.response.results[0][selection.column];
-                  description += ' ' + column;
-                  resultsPq = resultsPq.replace("%series", this.translate(this.response, column));
-                  quickPq = resultsPq.replace("%series", this.translate(this.response, column));
-                }
-              } else {
-                if (selection.column != null) {
-                  return this.viewSeriesAction(resultsPq.replace("%series", this.translate(this.response, this.response.results[0][selection.column])));
-                }
-              }
-              resultsPq = JSON.parse(resultsPq);
-              quickPq = JSON.parse(quickPq);
-              if (description) {
-                return $(this.el).find('div.content').append((this.barView = new ChartPopoverView({
-                  "description": description,
-                  "resultsPq": resultsPq,
-                  "resultsCb": this.options.resultsCb,
-                  "listCb": this.options.listCb,
-                  "matchCb": this.options.matchCb,
-                  "quickPq": quickPq,
-                  "widget": this.widget,
-                  "type": this.response.type
-                })).el);
-              }
-            }
-          }
-        };
-      
-        ChartView.prototype.viewBarsAction = function(selections) {
-          var a, b, bag, category, code, constraint, constraints, field, getConstraint, i, orLogic, pq, selection, series, _i, _len, _ref1;
-          pq = JSON.parse(this.response.pathQuery);
-          _ref1 = pq.where;
-          for (i in _ref1) {
-            field = _ref1[i];
-            switch (field.value) {
-              case '%category':
-                category = field;
-                break;
-              case '%series':
-                series = field;
-                break;
-              default:
-                field.code = 'A';
-                bag = field;
-            }
-          }
-          pq.where = [bag, category, series];
-          pq.constraintLogic = '';
-          orLogic = [];
-          code = 66;
-          constraints = [bag];
-          getConstraint = function(newConstraint) {
-            var constraint, _i, _len;
-            for (_i = 0, _len = constraints.length; _i < _len; _i++) {
-              constraint = constraints[_i];
-              if (constraint.path === newConstraint.path && constraint.value === newConstraint.value) {
-                return constraint.code;
-              }
-            }
-          };
-          for (_i = 0, _len = selections.length; _i < _len; _i++) {
-            selection = selections[_i];
-            if ((selection != null) && (category != null)) {
-              constraint = $.extend(true, {}, category, {
-                'value': this.response.results[selection.row + 1][0]
-              });
-              a = getConstraint(constraint);
-              if (a == null) {
-                constraint.code = a = String.fromCharCode(code++).toUpperCase();
-                constraints.push(constraint);
-              }
-              if ((selection.column != null) && (series != null)) {
-                constraint = $.extend(true, {}, series, {
-                  'value': this.translate(this.response, this.response.results[0][selection.column])
-                });
-                b = getConstraint(constraint);
-                if (b == null) {
-                  constraint.code = b = String.fromCharCode(code++).toUpperCase();
-                  constraints.push(constraint);
-                }
-                orLogic.push('(' + [a, b].join(' AND ') + ')');
-              } else {
-                orLogic.push(a);
-              }
-            }
-          }
-          if (code > 90) {
-            throw 'Too many constraints';
-          }
-          pq.constraintLogic = ['A', '(' + orLogic.join(' OR ') + ')'].join(' AND ');
-          pq.where = constraints;
-          if (code > 66) {
-            return this.options.resultsCb(pq);
-          }
-        };
-      
-        ChartView.prototype.viewAllAction = function() {
-          var field, i, pq, rem, _i, _len, _ref1, _ref2;
-          pq = JSON.parse(this.response.pathQuery);
-          _ref1 = ['%category', '%series'];
-          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-            rem = _ref1[_i];
-            _ref2 = pq.where;
-            for (i in _ref2) {
-              field = _ref2[i];
-              if ((field != null ? field.value : void 0) === rem) {
-                pq.where.splice(i, 1);
-                break;
-              }
-            }
-          }
-          return this.options.resultsCb(pq);
-        };
-      
-        ChartView.prototype.viewSeriesAction = function(pathQuery) {
-          var field, i, pq, _ref1;
-          pq = JSON.parse(pathQuery);
-          _ref1 = pq.where;
-          for (i in _ref1) {
-            field = _ref1[i];
-            if ((field != null ? field.value : void 0) === '%category') {
-              pq.where.splice(i, 1);
-              break;
-            }
-          }
-          return this.options.resultsCb(pq);
-        };
-      
-        ChartView.prototype.formAction = function(e) {
-          this.widget.formOptions[$(e.target).attr("name")] = $(e.target[e.target.selectedIndex]).attr("value");
-          return this.widget.render();
-        };
-      
-        return ChartView;
-      
-      })(Backbone.View);
-      
-      module.exports = ChartView;
-      
-    });
-
-    
-    // EnrichmentLengthCorrectionView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentLengthCorrectionView.js', function(exports, require, module) {
-    
-      /* Enrichment Widget gene length correction.*/
-      
-      var EnrichmentLengthCorrectionView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      EnrichmentLengthCorrectionView = (function(_super) {
-        __extends(EnrichmentLengthCorrectionView, _super);
-      
-        function EnrichmentLengthCorrectionView() {
-          this.seeWhich = __bind(this.seeWhich, this);
-          this.toggleCull = __bind(this.toggleCull, this);
-          this.hideHelp = __bind(this.hideHelp, this);
-          this.showHelp = __bind(this.showHelp, this);
-          this.render = __bind(this.render, this);
-          _ref = EnrichmentLengthCorrectionView.__super__.constructor.apply(this, arguments);
-          return _ref;
         }
-      
-        EnrichmentLengthCorrectionView.prototype.help = "Depending on the type of experiment your data comes from, it is sometimes \nnecessary to normalize by gene length in order to get the correct p-values. \nIf your data comes from a genome-wide binding experiment such as ChIP-seq \nor DamID, binding intervals are more likely to be associated with longer \ngenes than shorter ones, and you should therefore normalize by gene length. \nThis is not the case for experiments such as gene expression studies, where \ngene length does not play a role in the likelihood that a particular set of \ngenes will be overrepresented in the list.";
-      
-        EnrichmentLengthCorrectionView.prototype.events = {
-          'click .correction a.correction': 'toggleCull',
-          'click .correction a.which': 'seeWhich',
-          'hover .correction label .badge': 'showHelp',
-          'click .correction a.close': 'hideHelp'
-        };
-      
-        EnrichmentLengthCorrectionView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          if (this.gene_length_correction !== null) {
-            return this.render();
-          }
-        };
-      
-        EnrichmentLengthCorrectionView.prototype.render = function() {
-          $(this.el).append(require('../../templates/enrichment/enrichment.correction')(), this);
-          return this;
-        };
-      
-        EnrichmentLengthCorrectionView.prototype.showHelp = function() {
-          return $(this.el).find('.hjalp').html(require('../../templates/popover/popover.help')({
-            "title": 'What does "Normalise by length" mean?',
-            "text": this.help
-          }));
-        };
-      
-        EnrichmentLengthCorrectionView.prototype.hideHelp = function() {
-          return $(this.el).find('.hjalp').empty();
-        };
-      
-        EnrichmentLengthCorrectionView.prototype.toggleCull = function(e) {
-          var el;
-          (el = $(e.target)).toggleClass('active').text(function() {
-            if (el.hasClass('active')) {
-              return 'Normalised';
-            } else {
-              return 'Normalise';
-            }
-          });
-          this.widget.widget.formOptions['gene_length_correction'] = el.hasClass('active');
-          return this.widget.widget.render();
-        };
-      
-        EnrichmentLengthCorrectionView.prototype.seeWhich = function(e) {
-          var pq;
-          pq = JSON.parse(this.pathQueryGeneLengthNull);
-          this.cb(pq);
-          return e.preventDefault();
-        };
-      
-        return EnrichmentLengthCorrectionView;
-      
-      })(Backbone.View);
-      
-      module.exports = EnrichmentLengthCorrectionView;
-      
-    });
-
-    
-    // EnrichmentPopoverView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentPopoverView.js', function(exports, require, module) {
-    
-      /* Enrichment Widget table row matches box.*/
-      
-      var EnrichmentPopoverView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-        __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-      
-      EnrichmentPopoverView = (function(_super) {
-        __extends(EnrichmentPopoverView, _super);
-      
-        function EnrichmentPopoverView() {
-          this.listAction = __bind(this.listAction, this);
-          this.resultsAction = __bind(this.resultsAction, this);
-          this.matchAction = __bind(this.matchAction, this);
-          this.getPq = __bind(this.getPq, this);
-          this.toggle = __bind(this.toggle, this);
-          this.adjustPopover = __bind(this.adjustPopover, this);
-          this.renderValues = __bind(this.renderValues, this);
-          this.render = __bind(this.render, this);
-          _ref = EnrichmentPopoverView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        EnrichmentPopoverView.prototype.descriptionLimit = 50;
-      
-        EnrichmentPopoverView.prototype.valuesLimit = 5;
-      
-        EnrichmentPopoverView.prototype.events = {
-          "click a.match": "matchAction",
-          "click a.results": "resultsAction",
-          "click a.list": "listAction",
-          "click a.close": "toggle"
-        };
-      
-        EnrichmentPopoverView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          return this.render();
-        };
-      
-        EnrichmentPopoverView.prototype.render = function() {
-          var pq;
-          $(this.el).css({
-            'position': 'relative'
-          });
-          $(this.el).html(require('../../templates/popover/popover')({
-            "description": this.description,
-            "descriptionLimit": this.descriptionLimit,
-            "style": this.style || "width:300px;margin-left:-300px"
-          }));
-          pq = JSON.parse(this.response['pathQueryForMatches']);
-          pq.where.push({
-            "path": this.response.pathConstraint,
-            "op": "ONE OF",
-            "values": this.identifiers
-          });
-          this.widget.queryRows(pq, this.renderValues);
-          return this;
-        };
-      
-        EnrichmentPopoverView.prototype.renderValues = function(response) {
-          var object, value, values, _i, _len;
-          values = [];
-          for (_i = 0, _len = response.length; _i < _len; _i++) {
-            object = response[_i];
-            value = (function(object) {
-              var column, _j, _len1, _ref1;
-              _ref1 = object.reverse();
-              for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-                column = _ref1[_j];
-                if (column && column.length > 0) {
-                  return column;
-                }
-              }
-            })(object);
-            if (__indexOf.call(values, value) < 0) {
-              values.push(value);
-            }
-          }
-          $(this.el).find('div.values').html(require('../../templates/popover/popover.values')({
-            'values': values,
-            'type': this.response.type,
-            'valuesLimit': this.valuesLimit,
-            'size': this.size
-          }));
-          return this.adjustPopover();
-        };
-      
-        EnrichmentPopoverView.prototype.adjustPopover = function() {
-          var _this = this;
-          return window.setTimeout((function() {
-            var diff, head, header, parent, popover, table, widget;
-            table = $(_this.el).closest('div.wrapper');
-            popover = $(_this.el).find('.popover');
-            parent = popover.closest('td.matches');
-            if (!parent.length) {
-              return;
-            }
-            widget = parent.closest('div.inner');
-            header = widget.find('div.header');
-            head = widget.find('div.content div.head');
-            diff = ((parent.position().top - header.height() + head.height()) + popover.outerHeight()) - table.height();
-            if (diff > 0) {
-              return popover.css('top', -diff);
-            }
-          }), 0);
-        };
-      
-        EnrichmentPopoverView.prototype.toggle = function() {
-          $(this.el).toggle();
-          return this.adjustPopover();
-        };
-      
-        EnrichmentPopoverView.prototype.getPq = function() {
-          var pq;
-          pq = this.response.pathQuery;
-          this.pq = JSON.parse(pq);
-          return this.pq.where.push({
-            "path": this.response.pathConstraint,
-            "op": "ONE OF",
-            "values": this.identifiers
-          });
-        };
-      
-        EnrichmentPopoverView.prototype.matchAction = function(e) {
-          this.matchCb($(e.target).text(), this.response.type);
-          return e.preventDefault();
-        };
-      
-        EnrichmentPopoverView.prototype.resultsAction = function() {
-          if (this.pq == null) {
-            this.getPq();
-          }
-          return this.resultsCb(this.pq);
-        };
-      
-        EnrichmentPopoverView.prototype.listAction = function() {
-          if (this.pq == null) {
-            this.getPq();
-          }
-          return this.listCb(this.pq);
-        };
-      
-        return EnrichmentPopoverView;
-      
-      })(Backbone.View);
-      
-      module.exports = EnrichmentPopoverView;
-      
-    });
-
-    
-    // EnrichmentPopulationView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentPopulationView.js', function(exports, require, module) {
-    
-      /* Enrichment Widget background population selection box.*/
-      
-      var EnrichmentPopulationView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      EnrichmentPopulationView = (function(_super) {
-        __extends(EnrichmentPopulationView, _super);
-      
-        function EnrichmentPopulationView() {
-          this.selectListAction = __bind(this.selectListAction, this);
-          this.filterAction = __bind(this.filterAction, this);
-          this.toggleAction = __bind(this.toggleAction, this);
-          this.renderLists = __bind(this.renderLists, this);
-          this.render = __bind(this.render, this);
-          _ref = EnrichmentPopulationView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        EnrichmentPopulationView.prototype.events = {
-          "click .background a.change": "toggleAction",
-          "click .background a.close": "toggleAction",
-          "keyup .background input.filter": "filterAction",
-          "click .background table a": "selectListAction"
-        };
-      
-        EnrichmentPopulationView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          return this.render();
-        };
-      
-        EnrichmentPopulationView.prototype.render = function() {
-          $(this.el).append(require('../../templates/enrichment/enrichment.population')({
-            'current': this.current != null ? this.current : 'Default',
-            'loggedIn': this.loggedIn
-          }));
-          this.renderLists(this.lists);
-          return this;
-        };
-      
-        EnrichmentPopulationView.prototype.renderLists = function(lists) {
-          return $(this.el).find('div.values').html(require('../../templates/enrichment/enrichment.populationlist')({
-            'lists': lists,
-            'current': this.current
-          }));
-        };
-      
-        EnrichmentPopulationView.prototype.toggleAction = function() {
-          return $(this.el).find('div.popover').toggle();
-        };
-      
-        EnrichmentPopulationView.prototype.filterAction = function(e) {
-          var _this = this;
-          if (this.timeout != null) {
-            clearTimeout(this.timeout);
-          }
-          return this.timeout = setTimeout((function() {
-            var l, query, re;
-            query = $(e.target).val();
-            if (query !== _this.query) {
-              _this.query = query;
-              re = new RegExp("" + query + ".*", 'i');
-              return _this.renderLists((function() {
-                var _i, _len, _ref1, _results;
-                _ref1 = this.lists;
-                _results = [];
-                for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-                  l = _ref1[_i];
-                  if (l.name.match(re)) {
-                    _results.push(l);
-                  }
-                }
-                return _results;
-              }).call(_this));
-            }
-          }), 500);
-        };
-      
-        EnrichmentPopulationView.prototype.selectListAction = function(e) {
-          var list;
-          list = $(e.target).text();
-          e.preventDefault();
-          this.toggleAction();
-          return this.widget.selectBackgroundList(list, $(this.el).find('input.save:checked').length === 1);
-        };
-      
-        return EnrichmentPopulationView;
-      
-      })(Backbone.View);
-      
-      module.exports = EnrichmentPopulationView;
-      
-    });
-
-    
-    // EnrichmentRowView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentRowView.js', function(exports, require, module) {
-    
-      var EnrichmentPopoverView, EnrichmentRowView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      EnrichmentPopoverView = require('./EnrichmentPopoverView');
-      
-      EnrichmentRowView = (function(_super) {
-        __extends(EnrichmentRowView, _super);
-      
-        function EnrichmentRowView() {
-          this.toggleMatchesAction = __bind(this.toggleMatchesAction, this);
-          this.selectAction = __bind(this.selectAction, this);
-          this.render = __bind(this.render, this);
-          _ref = EnrichmentRowView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        EnrichmentRowView.prototype.tagName = "tr";
-      
-        EnrichmentRowView.prototype.events = {
-          "click td.check input": "selectAction",
-          "click td.matches a.count": "toggleMatchesAction"
-        };
-      
-        EnrichmentRowView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          this.model.bind('change', this.render);
-          return this.render();
-        };
-      
-        EnrichmentRowView.prototype.render = function() {
-          $(this.el).html(require('../../templates/enrichment/enrichment.row')({
-            "row": this.model.toJSON()
-          }));
-          return this;
-        };
-      
-        EnrichmentRowView.prototype.selectAction = function() {
-          this.model.toggleSelected();
-          if (this.popoverView != null) {
-            $(this.el).find('td.matches a.count').after(this.popoverView.el);
-            return this.popoverView.delegateEvents();
-          }
-        };
-      
-        EnrichmentRowView.prototype.toggleMatchesAction = function(e) {
-          if (this.popoverView == null) {
-            return $(this.el).find('td.matches a.count').after((this.popoverView = new EnrichmentPopoverView({
-              "matches": this.model.get("matches"),
-              "identifiers": [this.model.get("identifier")],
-              "description": this.model.get("description"),
-              "matchCb": this.callbacks.matchCb,
-              "resultsCb": this.callbacks.resultsCb,
-              "listCb": this.callbacks.listCb,
-              "response": this.response,
-              "widget": this.widget,
-              "size": $(e.target).text()
-            })).el);
-          } else {
-            return this.popoverView.toggle();
-          }
-        };
-      
-        return EnrichmentRowView;
-      
-      })(Backbone.View);
-      
-      module.exports = EnrichmentRowView;
-      
-    });
-
-    
-    // EnrichmentView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentView.js', function(exports, require, module) {
-    
-      var EnrichmentLengthCorrectionView, EnrichmentPopoverView, EnrichmentPopulationView, EnrichmentRowView, EnrichmentView, Models, exporter, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      Models = require('../models/CoreModel');
-      
-      EnrichmentRowView = require('./EnrichmentRowView');
-      
-      EnrichmentPopoverView = require('./EnrichmentPopoverView');
-      
-      EnrichmentPopulationView = require('./EnrichmentPopulationView');
-      
-      EnrichmentLengthCorrectionView = require('./EnrichmentLengthCorrectionView');
-      
-      exporter = require('../../utils/exporter');
-      
-      EnrichmentView = (function(_super) {
-        __extends(EnrichmentView, _super);
-      
-        function EnrichmentView() {
-          this.selectBackgroundList = __bind(this.selectBackgroundList, this);
-          this.viewAction = __bind(this.viewAction, this);
-          this.exportAction = __bind(this.exportAction, this);
-          this.selectAllAction = __bind(this.selectAllAction, this);
-          this.formAction = __bind(this.formAction, this);
-          this.renderTableBody = __bind(this.renderTableBody, this);
-          this.renderTable = __bind(this.renderTable, this);
-          this.renderToolbar = __bind(this.renderToolbar, this);
-          _ref = EnrichmentView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        EnrichmentView.prototype.events = {
-          "click div.actions a.view": "viewAction",
-          "click div.actions a.export": "exportAction",
-          "change div.form select": "formAction",
-          "click div.content input.check": "selectAllAction"
-        };
-      
-        EnrichmentView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          this.collection = new Models.EnrichmentResults();
-          this.collection.bind('change', this.renderToolbar);
-          return this.render();
-        };
-      
-        EnrichmentView.prototype.render = function() {
-          var extraAttribute, opts;
-          $(this.el).html(require('../../templates/enrichment/enrichment')({
-            "title": this.options.title ? this.response.title : "",
-            "description": this.options.description ? this.response.description : "",
-            "notAnalysed": this.response.notAnalysed,
-            "type": this.response.type
-          }));
-          $(this.el).find("div.form").html(require('../../templates/enrichment/enrichment.form')({
-            "options": this.form.options,
-            "pValues": this.form.pValues,
-            "errorCorrections": this.form.errorCorrections
-          }));
-          if (this.response.filterLabel != null) {
-            $(this.el).find('div.form form').append(require('../../templates/extra')({
-              "label": this.response.filterLabel,
-              "possible": this.response.filters.split(','),
-              "selected": this.response.filterSelectedValue
-            }));
-          }
-          new EnrichmentPopulationView({
-            'el': $(this.el).find('div.form form'),
-            'lists': this.lists,
-            'current': this.response.current_population,
-            'loggedIn': this.response.is_logged,
-            'widget': this
-          });
-          if (this.response.extraAttribute) {
-            extraAttribute = JSON.parse(this.response.extraAttribute);
-            if (extraAttribute.gene_length) {
-              opts = _.extend({}, extraAttribute.gene_length, {
-                'el': $(this.el).find('div.form form'),
-                'widget': this,
-                'cb': this.options.resultsCb
-              });
-              new EnrichmentLengthCorrectionView(opts);
-            }
-          }
-          if (this.response.current_list != null) {
-            $(this.el).addClass('customBackgroundPopulation');
-          } else {
-            $(this.el).removeClass('customBackgroundPopulation');
-          }
-          if (this.response.results.length > 0 && (this.response.message == null)) {
-            this.renderToolbar();
-            this.renderTable();
-          } else {
-            $(this.el).find("div.content").html($(require('../../templates/noresults')({
-              'text': this.response.message || 'No enrichment found.'
-            })));
-          }
-          this.widget.fireEvent({
-            'class': 'EnrichmentView',
-            'event': 'rendered'
-          });
-          return this;
-        };
-      
-        EnrichmentView.prototype.renderToolbar = function() {
-          return $(this.el).find("div.actions").html(require('../../templates/actions')());
-        };
-      
-        EnrichmentView.prototype.renderTable = function() {
-          var height, i, table, _fn, _i, _ref1,
-            _this = this;
-          $(this.el).find("div.content").html(require('../../templates/enrichment/enrichment.table')({
-            "label": this.response.label
-          }));
-          table = $(this.el).find("div.content table");
-          _fn = function(i) {
-            var data, row;
-            data = _this.response.results[i];
-            if (_this.response.externalLink) {
-              data.externalLink = _this.response.externalLink + data.identifier;
-            }
-            row = new Models.EnrichmentRow(data, _this.widget);
-            return _this.collection.add(row);
-          };
-          for (i = _i = 0, _ref1 = this.response.results.length; 0 <= _ref1 ? _i < _ref1 : _i > _ref1; i = 0 <= _ref1 ? ++_i : --_i) {
-            _fn(i);
-          }
-          this.renderTableBody(table);
-          height = $(this.el).height() - $(this.el).find('div.header').height() - $(this.el).find('div.content table thead').height();
-          $(this.el).find("div.content div.wrapper").css('height', "" + height + "px");
-          $(this.el).find("div.content div.head").css("width", $(this.el).find("div.content table").width() + "px");
-          table.find('thead th').each(function(i, th) {
-            return $(_this.el).find("div.content div.head div:eq(" + i + ")").width($(th).width());
-          });
-          return table.css({
-            'margin-top': '-' + table.find('thead').height() + 'px'
-          });
-        };
-      
-        EnrichmentView.prototype.renderTableBody = function(table) {
-          var fragment, row, _i, _len, _ref1;
-          fragment = document.createDocumentFragment();
-          _ref1 = this.collection.models;
-          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-            row = _ref1[_i];
-            fragment.appendChild(new EnrichmentRowView({
-              "model": row,
-              "type": this.response.type,
-              "callbacks": {
-                "matchCb": this.options.matchCb,
-                "resultsCb": this.options.resultsCb,
-                "listCb": this.options.listCb
-              },
-              "response": this.response,
-              "widget": this.widget
-            }).el);
-          }
-          return table.find('tbody').html(fragment);
-        };
-      
-        EnrichmentView.prototype.formAction = function(e) {
-          this.widget.formOptions[$(e.target).attr("name")] = $(e.target[e.target.selectedIndex]).attr("value");
-          return this.widget.render();
-        };
-      
-        EnrichmentView.prototype.selectAllAction = function() {
-          this.collection.toggleSelected();
-          this.renderToolbar();
-          return this.renderTableBody($(this.el).find("div.content table"));
-        };
-      
-        EnrichmentView.prototype.exportAction = function(e) {
-          var model, pq, rowIdentifiers, selected, _i, _len,
-            _this = this;
-          selected = this.collection.selected();
-          if (!selected.length) {
-            selected = this.collection.models;
-          }
-          rowIdentifiers = [];
-          for (_i = 0, _len = selected.length; _i < _len; _i++) {
-            model = selected[_i];
-            rowIdentifiers.push(model.get('identifier'));
-          }
-          pq = JSON.parse(this.response['pathQueryForMatches']);
-          pq.where.push({
-            "path": this.response.pathConstraint,
-            "op": "ONE OF",
-            "values": rowIdentifiers
-          });
-          return this.widget.queryRows(pq, function(response) {
-            var TypeError, dict, object, result, _j, _k, _len1, _len2;
-            dict = {};
-            for (_j = 0, _len1 = response.length; _j < _len1; _j++) {
-              object = response[_j];
-              if (dict[object[0]] == null) {
-                dict[object[0]] = [];
-              }
-              dict[object[0]].push(object[1]);
-            }
-            result = [];
-            for (_k = 0, _len2 = selected.length; _k < _len2; _k++) {
-              model = selected[_k];
-              result.push([model.get('description'), model.get('p-value')].join("\t") + "\t" + dict[model.get('identifier')].join(','));
-            }
-            if (result.length) {
-              try {
-                return new exporter.Exporter(result.join("\n"), "" + _this.widget.bagName + " " + _this.widget.id + ".tsv");
-              } catch (_error) {
-                TypeError = _error;
-                return new exporter.PlainExporter($(e.target), result.join("\n"));
-              }
-            }
-          });
-        };
-      
-        EnrichmentView.prototype.viewAction = function() {
-          var descriptions, model, rowIdentifiers, selected, _i, _len, _ref1;
-          selected = this.collection.selected();
-          if (!selected.length) {
-            selected = this.collection.models;
-          }
-          descriptions = [];
-          rowIdentifiers = [];
-          for (_i = 0, _len = selected.length; _i < _len; _i++) {
-            model = selected[_i];
-            descriptions.push(model.get('description'));
-            rowIdentifiers.push(model.get('identifier'));
-          }
-          if (rowIdentifiers.length) {
-            if ((_ref1 = this.popoverView) != null) {
-              _ref1.remove();
-            }
-            return $(this.el).find('div.actions').after((this.popoverView = new EnrichmentPopoverView({
-              "identifiers": rowIdentifiers,
-              "description": descriptions.join(', '),
-              "style": "width:300px",
-              "matchCb": this.options.matchCb,
-              "resultsCb": this.options.resultsCb,
-              "listCb": this.options.listCb,
-              "response": this.response,
-              "widget": this.widget
-            })).el);
-          }
-        };
-      
-        EnrichmentView.prototype.selectBackgroundList = function(list, save) {
-          if (save == null) {
-            save = false;
-          }
-          if (list === 'Default') {
-            list = '';
-          }
-          this.widget.formOptions['current_population'] = list;
-          this.widget.formOptions['remember_population'] = save;
-          return this.widget.render();
-        };
-      
-        return EnrichmentView;
-      
-      })(Backbone.View);
-      
-      module.exports = EnrichmentView;
-      
-    });
-
-    
-    // TablePopoverView.coffee
-    require.register('list-widgets/src/class/views/TablePopoverView.js', function(exports, require, module) {
-    
-      /* Table Widget table row matches box.*/
-      
-      var TablePopoverView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      TablePopoverView = (function(_super) {
-        __extends(TablePopoverView, _super);
-      
-        function TablePopoverView() {
-          this.toggle = __bind(this.toggle, this);
-          this.adjustPopover = __bind(this.adjustPopover, this);
-          this.listAction = __bind(this.listAction, this);
-          this.resultsAction = __bind(this.resultsAction, this);
-          this.matchAction = __bind(this.matchAction, this);
-          this.renderValues = __bind(this.renderValues, this);
-          this.render = __bind(this.render, this);
-          _ref = TablePopoverView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        TablePopoverView.prototype.descriptionLimit = 50;
-      
-        TablePopoverView.prototype.valuesLimit = 5;
-      
-        TablePopoverView.prototype.events = {
-          'click a.match': 'matchAction',
-          'click a.results': 'resultsAction',
-          'click a.list': 'listAction',
-          'click a.close': 'toggle'
-        };
-      
-        TablePopoverView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          return this.render();
-        };
-      
-        TablePopoverView.prototype.render = function() {
-          $(this.el).css({
-            'position': 'relative'
-          });
-          $(this.el).html(require('../../templates/popover/popover')({
-            'description': this.description,
-            'descriptionLimit': this.descriptionLimit,
-            'style': this.style || "width:300px;margin-left:-300px"
-          }));
-          this.pathQuery = JSON.parse(this.pathQuery);
-          this.pathQuery.where.push({
-            'path': this.pathConstraint,
-            'op': 'ONE OF',
-            'values': this.identifiers
-          });
-          this.widget.queryRows(this.pathQuery, this.renderValues);
-          return this;
-        };
-      
-        TablePopoverView.prototype.renderValues = function(response) {
-          var object, values, _i, _len;
-          values = [];
-          for (_i = 0, _len = response.length; _i < _len; _i++) {
-            object = response[_i];
-            values.push((function(object) {
-              var column, _j, _len1;
-              for (_j = 0, _len1 = object.length; _j < _len1; _j++) {
-                column = object[_j];
-                if (column && column.length > 0) {
-                  return column;
-                }
-              }
-            })(object));
-          }
-          $(this.el).find('div.values').html(require('../../templates/popover/popover.values')({
-            'values': values,
-            'type': this.type,
-            'valuesLimit': this.valuesLimit,
-            'size': this.size
-          }));
-          return this.adjustPopover();
-        };
-      
-        TablePopoverView.prototype.matchAction = function(e) {
-          this.matchCb($(e.target).text(), this.type);
-          return e.preventDefault();
-        };
-      
-        TablePopoverView.prototype.resultsAction = function() {
-          return this.resultsCb(this.pathQuery);
-        };
-      
-        TablePopoverView.prototype.listAction = function() {
-          return this.listCb(this.pathQuery);
-        };
-      
-        TablePopoverView.prototype.adjustPopover = function() {
-          var _this = this;
-          return window.setTimeout((function() {
-            var diff, head, header, parent, popover, table, widget;
-            table = $(_this.el).closest('div.wrapper');
-            popover = $(_this.el).find('.popover');
-            parent = popover.closest('td.matches');
-            if (!parent.length) {
-              return;
-            }
-            widget = parent.closest('div.inner');
-            header = widget.find('div.header');
-            head = widget.find('div.content div.head');
-            diff = ((parent.position().top - header.height() + head.height()) + popover.outerHeight()) - table.height();
-            if (diff > 0) {
-              return popover.css('top', -diff);
-            }
-          }), 0);
-        };
-      
-        TablePopoverView.prototype.toggle = function() {
-          $(this.el).toggle();
-          return this.adjustPopover();
-        };
-      
-        return TablePopoverView;
-      
-      })(Backbone.View);
-      
-      module.exports = TablePopoverView;
-      
-    });
-
-    
-    // TableRowView.coffee
-    require.register('list-widgets/src/class/views/TableRowView.js', function(exports, require, module) {
-    
-      var TablePopoverView, TableRowView, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      TablePopoverView = require('./TablePopoverView');
-      
-      TableRowView = (function(_super) {
-        __extends(TableRowView, _super);
-      
-        function TableRowView() {
-          this.toggleMatchesAction = __bind(this.toggleMatchesAction, this);
-          this.selectAction = __bind(this.selectAction, this);
-          this.render = __bind(this.render, this);
-          _ref = TableRowView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        TableRowView.prototype.tagName = "tr";
-      
-        TableRowView.prototype.events = {
-          "click td.check input": "selectAction",
-          "click td.matches a.count": "toggleMatchesAction"
-        };
-      
-        TableRowView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          this.model.bind('change', this.render);
-          return this.render();
-        };
-      
-        TableRowView.prototype.render = function() {
-          $(this.el).html(require('../../templates/table/table.row')({
-            "row": this.model.toJSON()
-          }));
-          return this;
-        };
-      
-        TableRowView.prototype.selectAction = function() {
-          this.model.toggleSelected();
-          if (this.popoverView != null) {
-            $(this.el).find('td.matches a.count').after(this.popoverView.el);
-            return this.popoverView.delegateEvents();
-          }
-        };
-      
-        TableRowView.prototype.toggleMatchesAction = function(e) {
-          if (this.popoverView == null) {
-            return $(this.el).find('td.matches a.count').after((this.popoverView = new TablePopoverView({
-              "identifiers": [this.model.get("identifier")],
-              "description": this.model.get("descriptions").join(', '),
-              "matchCb": this.matchCb,
-              "resultsCb": this.resultsCb,
-              "listCb": this.listCb,
-              "pathQuery": this.response.pathQuery,
-              "pathConstraint": this.response.pathConstraint,
-              "widget": this.widget,
-              "type": this.response.type,
-              "size": $(e.target).text()
-            })).el);
-          } else {
-            return this.popoverView.toggle();
-          }
-        };
-      
-        return TableRowView;
-      
-      })(Backbone.View);
-      
-      module.exports = TableRowView;
-      
-    });
-
-    
-    // TableView.coffee
-    require.register('list-widgets/src/class/views/TableView.js', function(exports, require, module) {
-    
-      var Models, TablePopoverView, TableRowView, TableView, exporter, _ref,
-        __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      Models = require('../models/CoreModel');
-      
-      TableRowView = require('./TableRowView');
-      
-      TablePopoverView = require('./TablePopoverView');
-      
-      exporter = require('../../utils/exporter');
-      
-      TableView = (function(_super) {
-        __extends(TableView, _super);
-      
-        function TableView() {
-          this.viewAction = __bind(this.viewAction, this);
-          this.exportAction = __bind(this.exportAction, this);
-          this.selectAllAction = __bind(this.selectAllAction, this);
-          this.renderTableBody = __bind(this.renderTableBody, this);
-          this.renderTable = __bind(this.renderTable, this);
-          this.renderToolbar = __bind(this.renderToolbar, this);
-          _ref = TableView.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        TableView.prototype.events = {
-          "click div.actions a.view": "viewAction",
-          "click div.actions a.export": "exportAction",
-          "click div.content input.check": "selectAllAction"
-        };
-      
-        TableView.prototype.initialize = function(o) {
-          var k, v;
-          for (k in o) {
-            v = o[k];
-            this[k] = v;
-          }
-          this.collection = new Models.TableResults();
-          this.collection.bind('change', this.renderToolbar);
-          return this.render();
-        };
-      
-        TableView.prototype.render = function() {
-          $(this.el).html(require('../../templates/table/table')({
-            "title": this.options.title ? this.response.title : "",
-            "description": this.options.description ? this.response.description : "",
-            "notAnalysed": this.response.notAnalysed,
-            "type": this.response.type
-          }));
-          if (this.response.results.length > 0) {
-            this.renderToolbar();
-            this.renderTable();
-          } else {
-            $(this.el).find("div.content").html(require('../../templates/noresults')({
-              'text': "No \"" + this.response.title + "\" with your list."
-            }));
-          }
-          this.widget.fireEvent({
-            'class': 'TableView',
-            'event': 'rendered'
-          });
-          return this;
-        };
-      
-        TableView.prototype.renderToolbar = function() {
-          return $(this.el).find("div.actions").html(require('../../templates/actions')());
-        };
-      
-        TableView.prototype.renderTable = function() {
-          var height, i, table, _fn, _i, _ref1,
-            _this = this;
-          $(this.el).find("div.content").html(require('../../templates/table/table.table')({
-            "columns": this.response.columns.split(',')
-          }));
-          table = $(this.el).find("div.content table");
-          _fn = function(i) {
-            var row;
-            row = new Models.TableRow(_this.response.results[i], _this.widget);
-            return _this.collection.add(row);
-          };
-          for (i = _i = 0, _ref1 = this.response.results.length; 0 <= _ref1 ? _i < _ref1 : _i > _ref1; i = 0 <= _ref1 ? ++_i : --_i) {
-            _fn(i);
-          }
-          this.renderTableBody(table);
-          height = $(this.el).height() - $(this.el).find('div.header').height() - $(this.el).find('div.content div.head').height();
-          $(this.el).find("div.content div.wrapper").css('height', "" + height + "px");
-          $(this.el).find("div.content div.head").css("width", $(this.el).find("div.content table").width() + "px");
-          table.find('thead th').each(function(i, th) {
-            return $(_this.el).find("div.content div.head div:eq(" + i + ")").width($(th).width());
-          });
-          return table.css({
-            'margin-top': '-' + table.find('thead').height() + 'px'
-          });
-        };
-      
-        TableView.prototype.renderTableBody = function(table) {
-          var fragment, row, _i, _len, _ref1;
-          fragment = document.createDocumentFragment();
-          _ref1 = this.collection.models;
-          for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-            row = _ref1[_i];
-            fragment.appendChild(new TableRowView({
-              "model": row,
-              "response": this.response,
-              "matchCb": this.options.matchCb,
-              "resultsCb": this.options.resultsCb,
-              "listCb": this.options.listCb,
-              "widget": this.widget
-            }).el);
-          }
-          return table.find('tbody').html(fragment);
-        };
-      
-        TableView.prototype.selectAllAction = function() {
-          this.collection.toggleSelected();
-          this.renderToolbar();
-          return this.renderTableBody($(this.el).find("div.content table"));
-        };
-      
-        TableView.prototype.exportAction = function(e) {
-          var TypeError, model, result, selected, _i, _len;
-          selected = this.collection.selected();
-          if (!selected.length) {
-            selected = this.collection.models;
-          }
-          result = [this.response.columns.replace(/,/g, "\t")];
-          for (_i = 0, _len = selected.length; _i < _len; _i++) {
-            model = selected[_i];
-            result.push(model.get('descriptions').join("\t") + "\t" + model.get('matches'));
-          }
-          if (result.length) {
-            try {
-              return new exporter.Exporter(result.join("\n"), "" + this.widget.bagName + " " + this.widget.id + ".tsv");
-            } catch (_error) {
-              TypeError = _error;
-              return new exporter.PlainExporter($(e.target), result.join("\n"));
-            }
-          }
-        };
-      
-        TableView.prototype.viewAction = function() {
-          var descriptions, model, rowIdentifiers, selected, _i, _len, _ref1;
-          selected = this.collection.selected();
-          if (!selected.length) {
-            selected = this.collection.models;
-          }
-          descriptions = [];
-          rowIdentifiers = [];
-          for (_i = 0, _len = selected.length; _i < _len; _i++) {
-            model = selected[_i];
-            descriptions.push(model.get('descriptions')[0]);
-            rowIdentifiers.push(model.get('identifier'));
-          }
-          if (rowIdentifiers.length) {
-            if ((_ref1 = this.popoverView) != null) {
-              _ref1.remove();
-            }
-            return $(this.el).find('div.actions').after((this.popoverView = new TablePopoverView({
-              "identifiers": rowIdentifiers,
-              "description": descriptions.join(', '),
-              "matchCb": this.options.matchCb,
-              "resultsCb": this.options.resultsCb,
-              "listCb": this.options.listCb,
-              "pathQuery": this.response.pathQuery,
-              "pathConstraint": this.response.pathConstraint,
-              "widget": this.widget,
-              "type": this.response.type,
-              "style": 'width:300px'
-            })).el);
-          }
-        };
-      
-        return TableView;
-      
-      })(Backbone.View);
+      });
       
       module.exports = TableView;
-      
     });
 
     
-    // actions.eco
-    require.register('list-widgets/src/templates/actions.js', function(exports, require, module) {
+    // tableviewheaders.js
+    require.register('MyFirstCommonJSApp/src/views/tableviewheaders.js', function(exports, require, module) {
     
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<a class="btn btn-small view">View</a>\n<a class="btn btn-small export">Download</a>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // chart.actions.eco
-    require.register('list-widgets/src/templates/chart/chart.actions.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<a class="btn btn-small view-all">View in table</a>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // chart.eco
-    require.register('list-widgets/src/templates/chart/chart.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="header">\n    <h3>');
-          
-            if (this.title) {
-              __out.push(__sanitize(this.title));
-            }
-          
-            __out.push('</h3>\n    <p>');
-          
-            if (this.description) {
-              __out.push(this.description);
-            }
-          
-            __out.push('</p>\n    ');
-          
-            if (this.notAnalysed) {
-              __out.push('\n        <p>Number of ');
-              __out.push(__sanitize(this.type));
-              __out.push('s in this list not analysed in this widget: <a>');
-              __out.push(__sanitize(this.notAnalysed));
-              __out.push('</a></p>\n    ');
-            } else {
-              __out.push('\n        <p>All items in your list have been analysed.</p>\n    ');
-            }
-          
-            __out.push('\n\n    <div class="form">\n        <form style="margin:0">\n            <!-- extra.eco -->\n        </form>\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- chart.actions.eco -->\n    </div>\n</div>\n<div class="content"></div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.correction.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.correction.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="group correction" style="display:inline-block;margin-right:10px;float:left;height:60px">\n    <label>Normalise by length <em class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px">i</em><div class="hjalp" style="padding:0"></div></label>\n\n    ');
-          
-            if (this.gene_length_correction) {
-              __out.push('\n        <a class="btn btn-small active correction" style="float:right">Normalised</a>\n    ');
-            } else {
-              __out.push('\n        <a class="btn btn-small correction" style="float:right">Normalise</a>\n    ');
-            }
-          
-            __out.push('\n\n    ');
-          
-            if (this.percentage_gene_length_not_null) {
-              __out.push('\n    \t');
-              __out.push(__sanitize(this.percentage_gene_length_not_null));
-              __out.push(' of genes in your list do not have a length and will be discarded, <a class="which" style="cursor:pointer">see which</a>.\n    ');
-            }
-          
-            __out.push('\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="header">\n    <h3>');
-          
-            if (this.title) {
-              __out.push(__sanitize(this.title));
-            }
-          
-            __out.push('</h3>\n    <p>');
-          
-            if (this.description) {
-              __out.push(this.description);
-            }
-          
-            __out.push('</p>\n    ');
-          
-            if (this.notAnalysed) {
-              __out.push('\n        <p>Number of ');
-              __out.push(__sanitize(this.type));
-              __out.push('s in this list not analysed in this widget: <a>');
-              __out.push(__sanitize(this.notAnalysed));
-              __out.push('</a></p>\n    ');
-            } else {
-              __out.push('\n        <p>All items in your list have been analysed.</p>\n    ');
-            }
-          
-            __out.push('\n\n    <div class="form">\n        <!-- enrichment.form.eco -->\n    </div>\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- enrichment.table.eco -->\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.form.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.form.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            var correction, p, _i, _j, _len, _len1, _ref, _ref1;
-          
-            __out.push('<form style="margin:0">\n    <div class="group" style="display:inline-block;margin-right:10px;float:left;height:60px">\n        <label>Test Correction</label>\n        <select name="errorCorrection" class="span2">\n            ');
-          
-            _ref = this.errorCorrections;
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              correction = _ref[_i];
-              __out.push('\n                <option value="');
-              __out.push(__sanitize(correction));
-              __out.push('" ');
-              if (this.options.errorCorrection === correction) {
-                __out.push(__sanitize('selected="selected"'));
-              }
-              __out.push('>\n                    ');
-              __out.push(__sanitize(correction));
-              __out.push('\n            </option>\n            ');
-            }
-          
-            __out.push('\n        </select>\n    </div>\n\n    <div class="group" style="display:inline-block;margin-right:10px;float:left;height:60px">\n        <label>Max p-value</label>\n        <select name="pValue" class="span2">\n            ');
-          
-            _ref1 = this.pValues;
-            for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-              p = _ref1[_j];
-              __out.push('\n                <option value="');
-              __out.push(__sanitize(p));
-              __out.push('" ');
-              if (this.options.pValue === p) {
-                __out.push(__sanitize('selected="selected"'));
-              }
-              __out.push('>\n                    ');
-              __out.push(__sanitize(p));
-              __out.push('\n                </option>\n            ');
-            }
-          
-            __out.push('\n        </select>\n    </div>\n</form>\n<div style="clear:both"></div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.population.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.population.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="group background" style="display:inline-block;margin-right:10px;float:left;height:60px">\n    <label>Background population</label>\n    ');
-          
-            __out.push(__sanitize(this.current));
-          
-            __out.push(' <a class="btn btn-small change">Change</a>\n\n    <div class="popover" style="position:absolute;top:0;right:0;z-index:1;display:none">\n        <div class="popover-inner">\n            <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n            <h4 class="popover-title">Change background population</h4>\n            <div class="popover-content">\n                <p style="margin-bottom:5px">\n                    ');
-          
-            if (this.loggedIn) {
-              __out.push('\n                        <input type="checkbox" class="save" style="vertical-align:top" /> Save your preference for next time\n                    ');
-            } else {
-              __out.push('\n                        Login to save your preference for next time\n                    ');
-            }
-          
-            __out.push('\n                </p>\n\n                <input type="text" class="filter" style="width:96%" placeholder="Filter..." />\n                \n                <div class="values" style="max-height:300px;overflow-y:auto">\n                    <!-- enrichment.populationlist.eco -->\n                </div>\n            </div>\n        </div>\n    </div>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.populationlist.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.populationlist.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            var list, tag, _i, _j, _len, _len1, _ref, _ref1;
-          
-            __out.push('<table class="table table-striped">\n    <tbody>\n        <tr><td>\n            ');
-          
-            if (this.current == null) {
-              __out.push('\n                <strong><a href="#">Default</a></strong>\n            ');
-            } else {
-              __out.push('\n                <a href="#">Default</a>\n            ');
-            }
-          
-            __out.push('\n        </td></tr>\n        ');
-          
-            _ref = this.lists;
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              list = _ref[_i];
-              __out.push('\n            <tr><td>\n                ');
-              if (list.name === this.current) {
-                __out.push('\n                    <strong>\n                        <a ');
-                if (list.description) {
-                  __out.push('title="');
-                  __out.push(__sanitize(list.description));
-                  __out.push('"');
-                }
-                __out.push(' href="#">');
-                __out.push(__sanitize(list.name));
-                __out.push('</a> (');
-                __out.push(__sanitize(list.size));
-                __out.push(')\n                    </strong>\n                ');
-              } else {
-                __out.push('\n                    <a ');
-                if (list.description) {
-                  __out.push('title="');
-                  __out.push(__sanitize(list.description));
-                  __out.push('"');
-                }
-                __out.push(' href="#">');
-                __out.push(__sanitize(list.name));
-                __out.push('</a> (');
-                __out.push(__sanitize(list.size));
-                __out.push(')\n                ');
-              }
-              __out.push('\n                \n                ');
-              _ref1 = list.tags;
-              for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-                tag = _ref1[_j];
-                __out.push('\n                    <span class="label" style="vertical-align:text-bottom">');
-                __out.push(__sanitize(tag));
-                __out.push('</span>\n                ');
-              }
-              __out.push('\n            </td></tr>\n        ');
-            }
-          
-            __out.push('\n    </tbody>\n</table>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.row.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.row.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<td class="check"><input type="checkbox" ');
-          
-            if (this.row["selected"]) {
-              __out.push('checked="checked"');
-            }
-          
-            __out.push(' /></td>\n<td class="description">\n    ');
-          
-            __out.push(__sanitize(this.row["description"]));
-          
-            __out.push('\n    ');
-          
-            if (this.row["externalLink"]) {
-              __out.push('\n        [<a href="');
-              __out.push(this.row["externalLink"]);
-              __out.push('" target="_blank">');
-              __out.push(__sanitize(this.row["identifier"]));
-              __out.push('</a>]\n    ');
-            }
-          
-            __out.push('\n</td>\n<td class="pValue" style="white-space:nowrap">');
-          
-            __out.push(__sanitize(this.row["p-value"]));
-          
-            __out.push('</td>\n<td class="matches">\n    <a class="count" style="cursor:pointer">');
-          
-            __out.push(__sanitize(this.row["matches"]));
-          
-            __out.push('</a>\n</td>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // enrichment.table.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.table.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">');
-          
-            __out.push(__sanitize(this.label));
-          
-            __out.push('</div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;white-space:nowrap">p-Value <a href="http://intermine.readthedocs.org/en/latest/embedding/list-widgets/enrichment-widgets/" target="_blank" class="badge badge-info" style="font-size:11px;font-family:serif;padding:1px 3px;border-radius:2px;font-style:italic;color:#FFF!important">i</a></div>\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;">Matches</div>\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                <th>');
-          
-            __out.push(__sanitize(this.label));
-          
-            __out.push('</th>\n                <th>p-Value</th>\n                <th>Matches</th>\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop enrichment.row.eco -->\n        </tbody>\n    </table>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // error.eco
-    require.register('list-widgets/src/templates/error.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="alert alert-block">\n    <h4 class="alert-heading">');
-          
-            __out.push(__sanitize(this.title));
-          
-            __out.push(' for ');
-          
-            __out.push(__sanitize(this.name));
-          
-            __out.push('</h4>\n    <p>');
-          
-            __out.push(this.text);
-          
-            __out.push('</p>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // extra.eco
-    require.register('list-widgets/src/templates/extra.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            var v, _i, _len, _ref;
-          
-            __out.push('<div class="group" style="display:inline-block;margin-right:5px;float:left">\n    <label>');
-          
-            __out.push(__sanitize(this.label));
-          
-            __out.push('</label>\n    ');
-          
-            if (this.possible.length > 1) {
-              __out.push('\n        <select name="');
-              __out.push(__sanitize(this.label));
-              __out.push('" class="span2">\n            ');
-              _ref = this.possible;
-              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                v = _ref[_i];
-                __out.push('\n                <option value="');
-                __out.push(__sanitize(v));
-                __out.push('" ');
-                if (this.selected === v) {
-                  __out.push(__sanitize('selected="selected"'));
-                }
-                __out.push('>\n                    ');
-                __out.push(__sanitize(v));
-                __out.push('\n                </option>\n            ');
-              }
-              __out.push('\n        </select>\n    ');
-            } else {
-              __out.push('\n        ');
-              __out.push(__sanitize(this.possible[0]));
-              __out.push('\n    ');
-            }
-          
-            __out.push('\n</div>\n<div style="clear:both"></div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // invalidjsonkey.eco
-    require.register('list-widgets/src/templates/invalidjsonkey.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<li style="vertical-align:bottom">\n    <span style="display:inline-block" class="label label-important">');
-          
-            __out.push(__sanitize(this.key));
-          
-            __out.push('</span> is ');
-          
-            __out.push(__sanitize(this.actual));
-          
-            __out.push('; was expecting ');
-          
-            __out.push(__sanitize(this.expected));
-          
-            __out.push('\n</li>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // loading.eco
-    require.register('list-widgets/src/templates/loading.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="loading" style="background:rgba(255,255,255,0.9);position:absolute;top:0;left:0;height:100%;width:100%;text-align:center;">\n    <p style="padding-top:50%;font-weight:bold;">Loading &hellip;</p>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // noresults.eco
-    require.register('list-widgets/src/templates/noresults.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="alert alert-info">\n    <p>');
-          
-            __out.push(__sanitize(this.text || 'The Widget has no results.'));
-          
-            __out.push('</p>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // popover.eco
-    require.register('list-widgets/src/templates/popover/popover.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display:block">\n    <div class="popover-inner" style="');
-          
-            __out.push(__sanitize(this.style));
-          
-            __out.push('">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">\n            ');
-          
-            __out.push(__sanitize(this.description.slice(0, +(this.descriptionLimit - 1) + 1 || 9e9)));
-          
-            __out.push('\n            ');
-          
-            if (this.description.length > this.descriptionLimit) {
-              __out.push('&hellip;');
-            }
-          
-            __out.push('\n        </h3>\n        <div class="popover-content">\n            <div class="values">\n                <!-- popover.values.eco -->\n            </div>\n            <div style="margin-top:10px">\n                <a class="btn btn-small btn-primary results">View results</a>\n                <a class="btn btn-small list">Create list</a>\n            </div>\n        </div>\n    </div>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // popover.help.eco
-    require.register('list-widgets/src/templates/popover/popover.help.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="popover" style="position:absolute;top:5px;right:0;z-index:1;display: block;">\n    <div class="popover-inner">\n        <a style="cursor:pointer;margin:2px 5px 0 0" class="close">×</a>\n        <h3 class="popover-title">');
-          
-            __out.push(__sanitize(this.title));
-          
-            __out.push('</h3>\n        <div class="popover-content">\n            <p>');
-          
-            __out.push(__sanitize(this.text));
-          
-            __out.push('</p>\n        </div>\n    </div>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // popover.values.eco
-    require.register('list-widgets/src/templates/popover/popover.values.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            var object, _i, _len, _ref;
-          
-            __out.push('<h4>');
-          
-            __out.push(__sanitize(this.size));
-          
-            __out.push(' ');
-          
-            __out.push(__sanitize(this.type));
-          
-            if (parseInt(this.size) !== 1) {
-              __out.push(__sanitize('s'));
-            }
-          
-            __out.push(':</h4>\n\n');
-          
-            _ref = this.values.slice(0, +(this.valuesLimit - 1) + 1 || 9e9);
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              object = _ref[_i];
-              __out.push('\n    <a href="#" class="match">');
-              __out.push(__sanitize(object));
-              __out.push('</a>\n');
-            }
-          
-            __out.push('\n');
-          
-            if (this.values.length > this.valuesLimit) {
-              __out.push('&hellip;');
-            }
-          
-            __out.push('\n');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // table.eco
-    require.register('list-widgets/src/templates/table/table.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push('<div class="header">\n    <h3>');
-          
-            if (this.title) {
-              __out.push(__sanitize(this.title));
-            }
-          
-            __out.push('</h3>\n    <p>');
-          
-            if (this.description) {
-              __out.push(this.description);
-            }
-          
-            __out.push('</p>\n    ');
-          
-            if (this.notAnalysed) {
-              __out.push('\n        <p>Number of ');
-              __out.push(__sanitize(this.type));
-              __out.push('s in this list not analysed in this widget: <a>');
-              __out.push(__sanitize(this.notAnalysed));
-              __out.push('</a></p>\n    ');
-            } else {
-              __out.push('\n        <p>All items in your list have been analysed.</p>\n    ');
-            }
-          
-            __out.push('\n\n    <div class="actions" style="padding:10px 0">\n        <!-- actions.eco -->\n    </div>\n</div>\n<div class="content">\n    <!-- table.table.eco -->\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // table.row.eco
-    require.register('list-widgets/src/templates/table/table.row.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            var column, _i, _len, _ref;
-          
-            __out.push('<td class="check"><input type="checkbox" ');
-          
-            if (this.row["selected"]) {
-              __out.push('checked="checked"');
-            }
-          
-            __out.push(' /></td>\n');
-          
-            _ref = this.row["descriptions"];
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              column = _ref[_i];
-              __out.push('\n    <td>');
-              __out.push(__sanitize(column));
-              __out.push('</td>\n');
-            }
-          
-            __out.push('\n<td class="matches">\n    <a class="count" style="cursor:pointer">');
-          
-            __out.push(__sanitize(this.row["matches"]));
-          
-            __out.push('</a>\n</td>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // table.table.eco
-    require.register('list-widgets/src/templates/table/table.table.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            var column, _i, _j, _len, _len1, _ref, _ref1;
-          
-            __out.push('<!-- actual fixed head -->\n<div class="head" style="display:table">\n    <div style="font-weight:bold;display:table-cell;padding:0 8px;"><input type="checkbox" class="check" /></div>\n    ');
-          
-            _ref = this.columns;
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              column = _ref[_i];
-              __out.push('\n        <div style="font-weight:bold;display:table-cell;padding:0 8px;">');
-              __out.push(__sanitize(column));
-              __out.push('</div>\n    ');
-            }
-          
-            __out.push('\n    <div style="clear:both"></div>\n</div>\n<div class="wrapper" style="overflow:auto;overflow-x:hidden">\n    <table class="table table-striped">\n        <!-- head for proper cell width -->\n        <thead style="visibility:hidden">\n            <tr>\n                <th></th>\n                ');
-          
-            _ref1 = this.columns;
-            for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-              column = _ref1[_j];
-              __out.push('\n                    <th>');
-              __out.push(__sanitize(column));
-              __out.push('</th>\n                ');
-            }
-          
-            __out.push('\n            </tr>\n        </thead>\n        <tbody>\n            <!-- loop table.row.eco -->\n        </tbody>\n    </table>\n</div>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // exporter.coffee
-    require.register('list-widgets/src/utils/exporter.js', function(exports, require, module) {
-    
-      /* Create file download with custom content.*/
+      var $ = require('../modules/dependencies').$;
+      var mediator = require("../modules/mediator");
+      var pwayCollection = require('../models/pathwaycollection.js');
+      var templateTableHeaders = require('../templates/tableheaders');
+      var PathwayView = require('./pathwayview');
+      var Globals = require('../modules/globals');
+      //var TableBody = require('../templates/results');
       
-      exports.Exporter = (function() {
-        Exporter.prototype.mime = 'text/plain';
+      var TableView = Backbone.View.extend({
       
-        Exporter.prototype.charset = 'utf-8';
+        //tagName: 'pathwaysappcontainer',
+        tagName: "table",
+        className: "pwayHeaders",
       
-        /*
-        Use `BlobBuilder` and `URL` to force download dynamic string as a file.
-        @param {object} a jQuery element
-        @param {string} data string to download
-        @param {string} filename to save under
-        */
+        initialize: function() {
+         
       
       
-        function Exporter(data, filename) {
-          var blob;
-          if (filename == null) {
-            filename = 'widget.tsv';
-          }
-          blob = new Blob([data], {
-            'type': "" + this.mime + ";charset=" + this.charset
-          });
-          saveAs(blob, filename);
-        }
+          console.log('table view initialized');     
+        },
+        render: function() {
       
-        return Exporter;
+          var compiledTemplate = _.template(templateTableHeaders, {columns: Globals.columns});
+          console.log("compiledTemplate: " + compiledTemplate);
+          this.$el.append(compiledTemplate);
       
-      })();
+          //this.collection.each(this.renderOne);
+          //console.log("from table view: " + this.$el.html());
+          return this;
+        },
       
-      exports.PlainExporter = (function() {
-        /*
-        Create a new window with a formatted content.
-        @param {object} a jQuery element
-        @param {string} data string to download
-        */
+      });
       
-        function PlainExporter(a, data) {
-          var destroy, w,
-            _this = this;
-          w = window.open();
-          if ((w == null) || typeof w === "undefined") {
-            a.after(this.msg = $('<span/>', {
-              'style': 'margin-left:5px',
-              'class': 'label label-inverse',
-              'text': 'Please enable popups'
-            }));
-          } else {
-            w.document.open();
-            w.document.write("<pre>" + data + "</pre>");
-            w.document.close();
-          }
-          destroy = function() {
-            var _ref;
-            return (_ref = _this.msg) != null ? _ref.fadeOut() : void 0;
-          };
-          setTimeout(destroy, 5000);
-        }
-      
-        return PlainExporter;
-      
-      })();
-      
-    });
-
-    
-    // type.coffee
-    require.register('list-widgets/src/utils/type.js', function(exports, require, module) {
-    
-      /* Types in JS.*/
-      
-      var type, _ref,
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      module.exports = type = {};
-      
-      type.Root = (function() {
-        function Root() {}
-      
-        Root.prototype.result = false;
-      
-        Root.prototype.is = function() {
-          return this.result;
-        };
-      
-        Root.prototype.toString = function() {
-          return "" + this.expected + " but got " + this.actual;
-        };
-      
-        return Root;
-      
-      })();
-      
-      type.isString = (function(_super) {
-        __extends(isString, _super);
-      
-        isString.prototype.expected = "String";
-      
-        function isString(actual) {
-          this.actual = actual;
-          this.result = typeof actual === 'string';
-        }
-      
-        return isString;
-      
-      })(type.Root);
-      
-      type.isStringOrNull = (function(_super) {
-        __extends(isStringOrNull, _super);
-      
-        isStringOrNull.prototype.expected = "String or Null";
-      
-        function isStringOrNull(actual) {
-          this.actual = actual;
-          this.result = actual === null || typeof actual === 'string';
-        }
-      
-        return isStringOrNull;
-      
-      })(type.Root);
-      
-      type.isInteger = (function(_super) {
-        __extends(isInteger, _super);
-      
-        isInteger.prototype.expected = "Integer";
-      
-        function isInteger(actual) {
-          this.actual = actual;
-          this.result = typeof actual === 'number';
-        }
-      
-        return isInteger;
-      
-      })(type.Root);
-      
-      type.isBoolean = (function(_super) {
-        __extends(isBoolean, _super);
-      
-        isBoolean.prototype.expected = "Boolean true";
-      
-        function isBoolean(actual) {
-          this.actual = actual;
-          this.result = typeof actual === 'boolean';
-        }
-      
-        return isBoolean;
-      
-      })(type.Root);
-      
-      type.isBooleanOrNull = (function(_super) {
-        __extends(isBooleanOrNull, _super);
-      
-        isBooleanOrNull.prototype.expected = "Boolean or Null";
-      
-        function isBooleanOrNull(actual) {
-          this.actual = actual;
-          this.result = actual === null || typeof actual === 'boolean';
-        }
-      
-        return isBooleanOrNull;
-      
-      })(type.Root);
-      
-      type.isNull = (function(_super) {
-        __extends(isNull, _super);
-      
-        isNull.prototype.expected = "Null";
-      
-        function isNull(actual) {
-          this.actual = actual;
-          this.result = actual === null;
-        }
-      
-        return isNull;
-      
-      })(type.Root);
-      
-      type.isArray = (function(_super) {
-        __extends(isArray, _super);
-      
-        isArray.prototype.expected = "Array";
-      
-        function isArray(actual) {
-          this.actual = actual;
-          this.result = actual instanceof Array;
-        }
-      
-        return isArray;
-      
-      })(type.Root);
-      
-      type.isHTTPSuccess = (function(_super) {
-        __extends(isHTTPSuccess, _super);
-      
-        isHTTPSuccess.prototype.expected = "HTTP code 200";
-      
-        function isHTTPSuccess(actual) {
-          this.actual = actual;
-          this.result = actual === 200;
-        }
-      
-        return isHTTPSuccess;
-      
-      })(type.Root);
-      
-      type.isJSON = (function(_super) {
-        __extends(isJSON, _super);
-      
-        isJSON.prototype.expected = "JSON Object";
-      
-        function isJSON(actual) {
-          var e;
-          this.actual = actual;
-          this.result = true;
-          try {
-            JSON.parse(actual);
-          } catch (_error) {
-            e = _error;
-            this.result = false;
-          }
-        }
-      
-        return isJSON;
-      
-      })(type.Root);
-      
-      type.isUndefined = (function(_super) {
-        __extends(isUndefined, _super);
-      
-        function isUndefined() {
-          _ref = isUndefined.__super__.constructor.apply(this, arguments);
-          return _ref;
-        }
-      
-        isUndefined.prototype.expected = "it to be undefined";
-      
-        return isUndefined;
-      
-      })(type.Root);
-      
-    });
-
-    
-    // widgets.coffee
-    require.register('list-widgets/src/widgets.js', function(exports, require, module) {
-    
-      var ChartWidget, EnrichmentWidget, TableWidget, Widgets,
-        __slice = [].slice,
-        __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
-      
-      ChartWidget = require('./class/ChartWidget');
-      
-      EnrichmentWidget = require('./class/EnrichmentWidget');
-      
-      TableWidget = require('./class/TableWidget');
-      
-      Widgets = (function() {
-        /*
-        New Widgets client.
-        @param {string} service A string pointing to service endpoint e.g. http://aragorn:8080/flymine/service/
-        @param {string} token A string for accessing user's lists.
-        or
-        @param {Object} opts Config just like imjs consumes e.g. `{ "root": "", "token": "" }`
-        */
-      
-        function Widgets() {
-          var opts;
-          opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          if (typeof opts[0] === 'string') {
-            this.service = opts[0];
-            this.token = opts[1] || '';
-          } else {
-            if (opts[0].root != null) {
-              this.service = opts[0].root;
-            } else {
-              throw Error('You need to set the `root` parameter pointing to the mine\'s service');
-            }
-            this.token = opts[0].token || '';
-          }
-        }
-      
-        /*
-        Chart Widget.
-        @param {string} id Represents a widget identifier as represented in webconfig-model.xml
-        @param {string} bagName List name to use with this Widget.
-        @param {jQuery selector} el Where to render the Widget to.
-        @param {Object} widgetOptions `{ "title": true/false, "description": true/false, "matchCb": function(id, type) {}, "resultsCb": function(pq) {}, "listCb": function(pq) {} }`
-        */
-      
-      
-        Widgets.prototype.chart = function() {
-          var opts, wait,
-            _this = this;
-          opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (wait = function() {
-            if (_this.wait) {
-              return setTimeout(wait, 20);
-            }
-            _this.wait = true;
-            return google.load('visualization', '1.0', {
-              packages: ['corechart'],
-              callback: function() {
-                wait = false;
-                return (function(func, args, ctor) {
-                  ctor.prototype = func.prototype;
-                  var child = new ctor, result = func.apply(child, args);
-                  return Object(result) === result ? result : child;
-                })(ChartWidget, [_this.service, _this.token].concat(__slice.call(opts)), function(){});
-              }
-            });
-          })();
-        };
-      
-        /*
-        Enrichment Widget.
-        @param {string} id Represents a widget identifier as represented in webconfig-model.xml
-        @param {string} bagName List name to use with this Widget.
-        @param {jQuery selector} el Where to render the Widget to.
-        @param {Object} widgetOptions `{ "title": true/false, "description": true/false, "matchCb": function(id, type) {}, "resultsCb": function(pq) {}, "listCb": function(pq) {} }`
-        */
-      
-      
-        Widgets.prototype.enrichment = function() {
-          var opts, wait,
-            _this = this;
-          opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (wait = function() {
-            if (_this.wait) {
-              return setTimeout(wait, 20);
-            }
-            if (_this.lists != null) {
-              return (function(func, args, ctor) {
-                ctor.prototype = func.prototype;
-                var child = new ctor, result = func.apply(child, args);
-                return Object(result) === result ? result : child;
-              })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-            } else {
-              _this.wait = true;
-              return $.ajax({
-                'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
-                'dataType': 'jsonp',
-                success: function(data) {
-                  if (data.statusCode !== 200 && (data.lists == null)) {
-                    return $(opts[2]).html($('<div/>', {
-                      'class': "alert alert-error",
-                      'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
-                    }));
-                  } else {
-                    _this.lists = data.lists;
-                    _this.wait = false;
-                    return (function(func, args, ctor) {
-                      ctor.prototype = func.prototype;
-                      var child = new ctor, result = func.apply(child, args);
-                      return Object(result) === result ? result : child;
-                    })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-                  }
-                },
-                error: function(xhr, opts, err) {
-                  return $(opts[2]).html($('<div/>', {
-                    'class': "alert alert-error",
-                    'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
-                  }));
-                }
-              });
-            }
-          })();
-        };
-      
-        /*
-        Table Widget.
-        @param {string} id Represents a widget identifier as represented in webconfig-model.xml
-        @param {string} bagName List name to use with this Widget.
-        @param {jQuery selector} el Where to render the Widget to.
-        @param {Object} widgetOptions `{ "title": true/false, "description": true/false, "matchCb": function(id, type) {}, "resultsCb": function(pq) {}, "listCb": function(pq) {} }`
-        */
-      
-      
-        Widgets.prototype.table = function() {
-          var opts;
-          opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (function(func, args, ctor) {
-            ctor.prototype = func.prototype;
-            var child = new ctor, result = func.apply(child, args);
-            return Object(result) === result ? result : child;
-          })(TableWidget, [this.service, this.token].concat(__slice.call(opts)), function(){});
-        };
-      
-        /*
-        All available List Widgets.
-        @param {string} type Class of objects e.g. Gene, Protein.
-        @param {string} bagName List name to use with this Widget.
-        @param {jQuery selector} el Where to render the Widget to.
-        @param {Object} widgetOptions `{ "title": true/false, "description": true/false, "matchCb": function(id, type) {}, "resultsCb": function(pq) {}, "listCb": function(pq) {} }`
-        */
-      
-      
-        Widgets.prototype.all = function(type, bagName, el, widgetOptions) {
-          var _this = this;
-          if (type == null) {
-            type = "Gene";
-          }
-          return $.ajax({
-            'url': "" + this.service + "widgets",
-            'dataType': 'jsonp',
-            success: function(response) {
-              var widget, widgetEl, _i, _len, _ref, _results;
-              if (response.widgets) {
-                _ref = response.widgets;
-                _results = [];
-                for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                  widget = _ref[_i];
-                  if (!(__indexOf.call(widget.targets, type) >= 0)) {
-                    continue;
-                  }
-                  widgetEl = widget.name.replace(/[^-a-zA-Z0-9,&\s]+/ig, '').replace(/-/gi, "_").replace(/\s/gi, "-").toLowerCase();
-                  $(el).append($('<div/>', {
-                    'id': widgetEl,
-                    'class': "widget span6"
-                  }));
-                  switch (widget.widgetType) {
-                    case "chart":
-                      _results.push(_this.chart(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    case "enrichment":
-                      _results.push(_this.enrichment(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    case "table":
-                      _results.push(_this.table(widget.name, bagName, "" + el + " #" + widgetEl, widgetOptions));
-                      break;
-                    default:
-                      _results.push(void 0);
-                  }
-                }
-                return _results;
-              }
-            },
-            error: function(xhr, opts, err) {
-              return $(el).html($('<div/>', {
-                'class': "alert alert-error",
-                'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
-              }));
-            }
-          });
-        };
-      
-        return Widgets;
-      
-      })();
-      
-      module.exports = Widgets;
-      
+      module.exports = TableView;
     });
   })();
 
   // Return the main app.
-  var main = require("list-widgets/src/widgets.js");
+  var main = require("MyFirstCommonJSApp/src/main.js");
 
   // AMD/RequireJS.
   if (typeof define !== 'undefined' && define.amd) {
   
-    define("list-widgets", [ /* load deps ahead of time */ ], function () {
+    define("MyFirstCommonJSApp", [ /* load deps ahead of time */ ], function () {
       return main;
     });
   
@@ -21579,12 +19025,12 @@ var saveAs = saveAs
   // Globally exported.
   else {
   
-    root["list-widgets"] = main;
+    root["MyFirstCommonJSApp"] = main;
   
   }
 
   // Alias our app.
   
-  require.alias("list-widgets/src/widgets.js", "list-widgets/index.js");
+  require.alias("MyFirstCommonJSApp/src/main.js", "MyFirstCommonJSApp/index.js");
   
 })();
