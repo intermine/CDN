@@ -16286,7 +16286,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
    * @return {Object} exports
    * @api public
    */
-  function require(path, parent, orig) {
+  var require = function(path, parent, orig) {
     var resolved = require.resolve(path);
 
     // lookup failed
@@ -16444,7 +16444,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
      * The relative require() itself.
      */
 
-    function localRequire(path) {
+    var localRequire = function(path) {
       var resolved = localRequire.resolve(path);
       return require(resolved, parent, path);
     }
@@ -16482,14 +16482,14 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
   var root = this;
 
   // Do we already have require loader?
-  root.require = require = (typeof root.require !== 'undefined') ? root.require : require;
+  root.require = (typeof root.require !== 'undefined') ? root.require : require;
 
-  // All our modules will see our own require.
+  // All our modules will use global require.
   (function() {
     
     
     // app.coffee
-    require.register('component-400/src/app.js', function(exports, require, module) {
+    root.require.register('component-400/src/app.js', function(exports, require, module) {
     
       var AppView, Database, mediator, mori;
       
@@ -16524,7 +16524,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // database.coffee
-    require.register('component-400/src/models/database.js', function(exports, require, module) {
+    root.require.register('component-400/src/models/database.js', function(exports, require, module) {
     
       var Database, dict, mediator, mori, _, _ref,
         __hasProp = {}.hasOwnProperty;
@@ -16628,7 +16628,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // deps.coffee
-    require.register('component-400/src/modules/deps.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/deps.js', function(exports, require, module) {
     
       module.exports = {
         _: _,
@@ -16643,7 +16643,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // formatter.coffee
-    require.register('component-400/src/modules/formatter.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/formatter.js', function(exports, require, module) {
     
       var _;
       
@@ -16708,7 +16708,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // mediator.coffee
-    require.register('component-400/src/modules/mediator.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/mediator.js', function(exports, require, module) {
     
       var BackboneEvents;
       
@@ -16720,7 +16720,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // slicer.coffee
-    require.register('component-400/src/modules/slicer.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/slicer.js', function(exports, require, module) {
     
       module.exports = function(collection, aRng, bRng, handler) {
         var aUs, bUs, item, _i, _len, _ref, _results;
@@ -16775,7 +16775,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // view.coffee
-    require.register('component-400/src/modules/view.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/view.js', function(exports, require, module) {
     
       var $, View, id;
       
@@ -16870,7 +16870,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // app.eco
-    require.register('component-400/src/templates/app.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/app.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -16923,7 +16923,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // row.eco
-    require.register('component-400/src/templates/duplicates/row.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/duplicates/row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17000,7 +17000,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // table.eco
-    require.register('component-400/src/templates/duplicates/table.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/duplicates/table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17053,7 +17053,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // flyout.eco
-    require.register('component-400/src/templates/flyout.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/flyout.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17123,7 +17123,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // header.eco
-    require.register('component-400/src/templates/header.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/header.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17218,7 +17218,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // paginator.eco
-    require.register('component-400/src/templates/paginator.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/paginator.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17346,7 +17346,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // tab.eco
-    require.register('component-400/src/templates/summary/tab.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/summary/tab.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17403,7 +17403,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // tabs.eco
-    require.register('component-400/src/templates/summary/tabs.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/summary/tabs.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17456,7 +17456,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // many-to-one-row.eco
-    require.register('component-400/src/templates/table/many-to-one-row.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/table/many-to-one-row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17535,7 +17535,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // one-to-many-row.eco
-    require.register('component-400/src/templates/table/one-to-many-row.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/table/one-to-many-row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17606,7 +17606,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // table.eco
-    require.register('component-400/src/templates/table/table.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/table/table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17659,7 +17659,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // tooltip.eco
-    require.register('component-400/src/templates/tooltip.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/tooltip.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17714,7 +17714,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // unresolved.eco
-    require.register('component-400/src/templates/unresolved.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/unresolved.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -17779,7 +17779,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // app.coffee
-    require.register('component-400/src/views/app.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/app.js', function(exports, require, module) {
     
       var $, AppView, DuplicatesTableView, HeaderView, SummaryView, TooltipView, UnresolvedView, View, mediator, _ref,
         __hasProp = {}.hasOwnProperty,
@@ -17874,7 +17874,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // duplicates.coffee
-    require.register('component-400/src/views/duplicates.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/duplicates.js', function(exports, require, module) {
     
       var DuplicatesTableRowView, DuplicatesTableView, FlyoutView, Table, View, formatter, mediator, _ref, _ref1,
         __hasProp = {}.hasOwnProperty,
@@ -17975,7 +17975,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // flyout.coffee
-    require.register('component-400/src/views/flyout.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/flyout.js', function(exports, require, module) {
     
       var FlyoutView, View, formatter,
         __hasProp = {}.hasOwnProperty,
@@ -18012,7 +18012,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // header.coffee
-    require.register('component-400/src/views/header.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/header.js', function(exports, require, module) {
     
       var HeaderView, View, mediator,
         __hasProp = {}.hasOwnProperty,
@@ -18062,7 +18062,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // paginator.coffee
-    require.register('component-400/src/views/paginator.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/paginator.js', function(exports, require, module) {
     
       var $, Paginator, View, mediator, _, _ref,
         __hasProp = {}.hasOwnProperty,
@@ -18209,7 +18209,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // summary.coffee
-    require.register('component-400/src/views/summary.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/summary.js', function(exports, require, module) {
     
       var SummaryView, TabMatchesTableView, TabSwitcherView, TabTableView, Table, View, csv, formatter, mediator, saveAs, _, _ref, _ref1,
         __hasProp = {}.hasOwnProperty,
@@ -18386,7 +18386,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // table.coffee
-    require.register('component-400/src/views/table.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/table.js', function(exports, require, module) {
     
       var $, FlyoutView, ManyToOneTableRowView, ManyToOneTableView, OneToManyTableView, Paginator, TableRowView, View, formatter, mediator, slicer, _, _ref, _ref1, _ref2,
         __hasProp = {}.hasOwnProperty,
@@ -18610,7 +18610,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // tooltip.coffee
-    require.register('component-400/src/views/tooltip.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/tooltip.js', function(exports, require, module) {
     
       var TooltipView, View, tooltips,
         __hasProp = {}.hasOwnProperty,
@@ -18649,7 +18649,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
     
     // unresolved.coffee
-    require.register('component-400/src/views/unresolved.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/unresolved.js', function(exports, require, module) {
     
       var UnresolvedView, View, _ref,
         __hasProp = {}.hasOwnProperty,
@@ -18682,7 +18682,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
   })();
 
   // Return the main app.
-  var main = require("component-400/src/app.js");
+  var main = root.require("component-400/src/app.js");
 
   // AMD/RequireJS.
   if (typeof define !== 'undefined' && define.amd) {
@@ -18707,6 +18707,6 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
 
   // Alias our app.
   
-  require.alias("component-400/src/app.js", "component-400/index.js");
+  root.require.alias("component-400/src/app.js", "component-400/index.js");
   
 })();
