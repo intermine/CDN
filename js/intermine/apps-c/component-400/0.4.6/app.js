@@ -6,7 +6,7 @@
    * @return {Object} exports
    * @api public
    */
-  function require(path, parent, orig) {
+  var require = function(path, parent, orig) {
     var resolved = require.resolve(path);
 
     // lookup failed
@@ -164,7 +164,7 @@
      * The relative require() itself.
      */
 
-    function localRequire(path) {
+    var localRequire = function(path) {
       var resolved = localRequire.resolve(path);
       return require(resolved, parent, path);
     }
@@ -202,14 +202,14 @@
   var root = this;
 
   // Do we already have require loader?
-  root.require = require = (typeof root.require !== 'undefined') ? root.require : require;
+  root.require = (typeof root.require !== 'undefined') ? root.require : require;
 
-  // All our modules will see our own require.
+  // All our modules will use global require.
   (function() {
     
     
     // app.coffee
-    require.register('component-400/src/app.js', function(exports, require, module) {
+    root.require.register('component-400/src/app.js', function(exports, require, module) {
     
       var AppView, Database, mediator, mori;
       
@@ -244,7 +244,7 @@
 
     
     // database.coffee
-    require.register('component-400/src/models/database.js', function(exports, require, module) {
+    root.require.register('component-400/src/models/database.js', function(exports, require, module) {
     
       var Database, dict, mediator, mori, _, _ref,
         __hasProp = {}.hasOwnProperty;
@@ -348,7 +348,7 @@
 
     
     // deps.coffee
-    require.register('component-400/src/modules/deps.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/deps.js', function(exports, require, module) {
     
       module.exports = {
         _: _,
@@ -363,7 +363,7 @@
 
     
     // formatter.coffee
-    require.register('component-400/src/modules/formatter.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/formatter.js', function(exports, require, module) {
     
       var _;
       
@@ -428,7 +428,7 @@
 
     
     // mediator.coffee
-    require.register('component-400/src/modules/mediator.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/mediator.js', function(exports, require, module) {
     
       var BackboneEvents;
       
@@ -440,7 +440,7 @@
 
     
     // slicer.coffee
-    require.register('component-400/src/modules/slicer.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/slicer.js', function(exports, require, module) {
     
       module.exports = function(collection, aRng, bRng, handler) {
         var aUs, bUs, item, _i, _len, _ref, _results;
@@ -495,7 +495,7 @@
 
     
     // view.coffee
-    require.register('component-400/src/modules/view.js', function(exports, require, module) {
+    root.require.register('component-400/src/modules/view.js', function(exports, require, module) {
     
       var $, View, id;
       
@@ -590,7 +590,7 @@
 
     
     // app.eco
-    require.register('component-400/src/templates/app.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/app.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -643,7 +643,7 @@
 
     
     // row.eco
-    require.register('component-400/src/templates/duplicates/row.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/duplicates/row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -720,7 +720,7 @@
 
     
     // table.eco
-    require.register('component-400/src/templates/duplicates/table.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/duplicates/table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -773,7 +773,7 @@
 
     
     // flyout.eco
-    require.register('component-400/src/templates/flyout.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/flyout.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -843,7 +843,7 @@
 
     
     // header.eco
-    require.register('component-400/src/templates/header.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/header.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -938,7 +938,7 @@
 
     
     // paginator.eco
-    require.register('component-400/src/templates/paginator.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/paginator.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1066,7 +1066,7 @@
 
     
     // tab.eco
-    require.register('component-400/src/templates/summary/tab.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/summary/tab.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1123,7 +1123,7 @@
 
     
     // tabs.eco
-    require.register('component-400/src/templates/summary/tabs.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/summary/tabs.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1176,7 +1176,7 @@
 
     
     // many-to-one-row.eco
-    require.register('component-400/src/templates/table/many-to-one-row.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/table/many-to-one-row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1255,7 +1255,7 @@
 
     
     // one-to-many-row.eco
-    require.register('component-400/src/templates/table/one-to-many-row.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/table/one-to-many-row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1326,7 +1326,7 @@
 
     
     // table.eco
-    require.register('component-400/src/templates/table/table.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/table/table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1379,7 +1379,7 @@
 
     
     // tooltip.eco
-    require.register('component-400/src/templates/tooltip.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/tooltip.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1434,7 +1434,7 @@
 
     
     // unresolved.eco
-    require.register('component-400/src/templates/unresolved.js', function(exports, require, module) {
+    root.require.register('component-400/src/templates/unresolved.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -1499,7 +1499,7 @@
 
     
     // app.coffee
-    require.register('component-400/src/views/app.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/app.js', function(exports, require, module) {
     
       var $, AppView, DuplicatesTableView, HeaderView, SummaryView, TooltipView, UnresolvedView, View, mediator, _ref,
         __hasProp = {}.hasOwnProperty,
@@ -1594,7 +1594,7 @@
 
     
     // duplicates.coffee
-    require.register('component-400/src/views/duplicates.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/duplicates.js', function(exports, require, module) {
     
       var DuplicatesTableRowView, DuplicatesTableView, FlyoutView, Table, View, formatter, mediator, _ref, _ref1,
         __hasProp = {}.hasOwnProperty,
@@ -1695,7 +1695,7 @@
 
     
     // flyout.coffee
-    require.register('component-400/src/views/flyout.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/flyout.js', function(exports, require, module) {
     
       var FlyoutView, View, formatter,
         __hasProp = {}.hasOwnProperty,
@@ -1732,7 +1732,7 @@
 
     
     // header.coffee
-    require.register('component-400/src/views/header.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/header.js', function(exports, require, module) {
     
       var HeaderView, View, mediator,
         __hasProp = {}.hasOwnProperty,
@@ -1782,7 +1782,7 @@
 
     
     // paginator.coffee
-    require.register('component-400/src/views/paginator.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/paginator.js', function(exports, require, module) {
     
       var $, Paginator, View, mediator, _, _ref,
         __hasProp = {}.hasOwnProperty,
@@ -1929,7 +1929,7 @@
 
     
     // summary.coffee
-    require.register('component-400/src/views/summary.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/summary.js', function(exports, require, module) {
     
       var SummaryView, TabMatchesTableView, TabSwitcherView, TabTableView, Table, View, csv, formatter, mediator, saveAs, _, _ref, _ref1,
         __hasProp = {}.hasOwnProperty,
@@ -2106,7 +2106,7 @@
 
     
     // table.coffee
-    require.register('component-400/src/views/table.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/table.js', function(exports, require, module) {
     
       var $, FlyoutView, ManyToOneTableRowView, ManyToOneTableView, OneToManyTableView, Paginator, TableRowView, View, formatter, mediator, slicer, _, _ref, _ref1, _ref2,
         __hasProp = {}.hasOwnProperty,
@@ -2330,7 +2330,7 @@
 
     
     // tooltip.coffee
-    require.register('component-400/src/views/tooltip.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/tooltip.js', function(exports, require, module) {
     
       var TooltipView, View, tooltips,
         __hasProp = {}.hasOwnProperty,
@@ -2369,7 +2369,7 @@
 
     
     // unresolved.coffee
-    require.register('component-400/src/views/unresolved.js', function(exports, require, module) {
+    root.require.register('component-400/src/views/unresolved.js', function(exports, require, module) {
     
       var UnresolvedView, View, _ref,
         __hasProp = {}.hasOwnProperty,
@@ -2402,7 +2402,7 @@
   })();
 
   // Return the main app.
-  var main = require("component-400/src/app.js");
+  var main = root.require("component-400/src/app.js");
 
   // AMD/RequireJS.
   if (typeof define !== 'undefined' && define.amd) {
@@ -2427,6 +2427,6 @@
 
   // Alias our app.
   
-  require.alias("component-400/src/app.js", "component-400/index.js");
+  root.require.alias("component-400/src/app.js", "component-400/index.js");
   
 })();

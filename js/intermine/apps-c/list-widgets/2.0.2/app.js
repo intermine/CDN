@@ -6,7 +6,7 @@
    * @return {Object} exports
    * @api public
    */
-  function require(path, parent, orig) {
+  var require = function(path, parent, orig) {
     var resolved = require.resolve(path);
 
     // lookup failed
@@ -164,7 +164,7 @@
      * The relative require() itself.
      */
 
-    function localRequire(path) {
+    var localRequire = function(path) {
       var resolved = localRequire.resolve(path);
       return require(resolved, parent, path);
     }
@@ -202,14 +202,14 @@
   var root = this;
 
   // Do we already have require loader?
-  root.require = require = (typeof root.require !== 'undefined') ? root.require : require;
+  root.require = (typeof root.require !== 'undefined') ? root.require : require;
 
-  // All our modules will see our own require.
+  // All our modules will use global require.
   (function() {
     
     
     // ChartWidget.coffee
-    require.register('list-widgets/src/class/ChartWidget.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/ChartWidget.js', function(exports, require, module) {
     
       var $, ChartView, ChartWidget, InterMineWidget, type, _, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -352,7 +352,7 @@
 
     
     // EnrichmentWidget.coffee
-    require.register('list-widgets/src/class/EnrichmentWidget.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/EnrichmentWidget.js', function(exports, require, module) {
     
       var $, EnrichmentView, EnrichmentWidget, InterMineWidget, type, _, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -552,7 +552,7 @@
 
     
     // InterMineWidget.coffee
-    require.register('list-widgets/src/class/InterMineWidget.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/InterMineWidget.js', function(exports, require, module) {
     
       var $, InterMineWidget, async, intermine, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -683,7 +683,7 @@
 
     
     // TableWidget.coffee
-    require.register('list-widgets/src/class/TableWidget.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/TableWidget.js', function(exports, require, module) {
     
       var $, InterMineWidget, TableView, TableWidget, type, _, _ref,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -808,7 +808,7 @@
 
     
     // CoreModel.coffee
-    require.register('list-widgets/src/class/models/CoreModel.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/models/CoreModel.js', function(exports, require, module) {
     
       var Backbone, CoreCollection, CoreModel, EnrichmentResults, EnrichmentRow, TableResults, TableRow, type, _, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -997,7 +997,7 @@
 
     
     // ChartPopoverView.coffee
-    require.register('list-widgets/src/class/views/ChartPopoverView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/ChartPopoverView.js', function(exports, require, module) {
     
       var $, Backbone, ChartPopoverView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1103,7 +1103,7 @@
 
     
     // ChartView.coffee
-    require.register('list-widgets/src/class/views/ChartView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/ChartView.js', function(exports, require, module) {
     
       var $, Backbone, ChartPopoverView, ChartView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1447,7 +1447,7 @@
 
     
     // EnrichmentLengthCorrectionView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentLengthCorrectionView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/EnrichmentLengthCorrectionView.js', function(exports, require, module) {
     
       var $, Backbone, EnrichmentLengthCorrectionView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1538,7 +1538,7 @@
 
     
     // EnrichmentPopoverView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentPopoverView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/EnrichmentPopoverView.js', function(exports, require, module) {
     
       var $, Backbone, EnrichmentPopoverView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1700,7 +1700,7 @@
 
     
     // EnrichmentPopulationView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentPopulationView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/EnrichmentPopulationView.js', function(exports, require, module) {
     
       var $, Backbone, EnrichmentPopulationView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1806,7 +1806,7 @@
 
     
     // EnrichmentRowView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentRowView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/EnrichmentRowView.js', function(exports, require, module) {
     
       var $, Backbone, EnrichmentPopoverView, EnrichmentRowView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1888,7 +1888,7 @@
 
     
     // EnrichmentView.coffee
-    require.register('list-widgets/src/class/views/EnrichmentView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/EnrichmentView.js', function(exports, require, module) {
     
       var $, Backbone, EnrichmentLengthCorrectionView, EnrichmentPopoverView, EnrichmentPopulationView, EnrichmentRowView, EnrichmentView, Models, exporter, _, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -2164,7 +2164,7 @@
 
     
     // TablePopoverView.coffee
-    require.register('list-widgets/src/class/views/TablePopoverView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/TablePopoverView.js', function(exports, require, module) {
     
       var $, Backbone, TablePopoverView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -2302,7 +2302,7 @@
 
     
     // TableRowView.coffee
-    require.register('list-widgets/src/class/views/TableRowView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/TableRowView.js', function(exports, require, module) {
     
       var $, Backbone, TablePopoverView, TableRowView, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -2385,7 +2385,7 @@
 
     
     // TableView.coffee
-    require.register('list-widgets/src/class/views/TableView.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/class/views/TableView.js', function(exports, require, module) {
     
       var $, Backbone, Models, TablePopoverView, TableRowView, TableView, exporter, _ref, _ref1,
         __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -2573,7 +2573,7 @@
 
     
     // deps.coffee
-    require.register('list-widgets/src/deps.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/deps.js', function(exports, require, module) {
     
       var $;
       
@@ -2593,7 +2593,7 @@
 
     
     // actions.eco
-    require.register('list-widgets/src/templates/actions.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/actions.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -2646,7 +2646,7 @@
 
     
     // chart.actions.eco
-    require.register('list-widgets/src/templates/chart/chart.actions.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/chart/chart.actions.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -2699,7 +2699,7 @@
 
     
     // chart.eco
-    require.register('list-widgets/src/templates/chart/chart.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/chart/chart.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -2776,7 +2776,7 @@
 
     
     // enrichment.correction.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.correction.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.correction.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -2845,7 +2845,7 @@
 
     
     // enrichment.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -2922,7 +2922,7 @@
 
     
     // enrichment.form.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.form.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.form.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3009,7 +3009,7 @@
 
     
     // enrichment.population.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.population.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.population.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3074,7 +3074,7 @@
 
     
     // enrichment.populationlist.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.populationlist.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.populationlist.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3179,7 +3179,7 @@
 
     
     // enrichment.row.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.row.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3260,7 +3260,7 @@
 
     
     // enrichment.table.eco
-    require.register('list-widgets/src/templates/enrichment/enrichment.table.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/enrichment/enrichment.table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3321,7 +3321,7 @@
 
     
     // error.eco
-    require.register('list-widgets/src/templates/error.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/error.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3386,7 +3386,7 @@
 
     
     // extra.eco
-    require.register('list-widgets/src/templates/extra.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/extra.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3471,7 +3471,7 @@
 
     
     // invalidjsonkey.eco
-    require.register('list-widgets/src/templates/invalidjsonkey.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/invalidjsonkey.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3536,7 +3536,7 @@
 
     
     // loading.eco
-    require.register('list-widgets/src/templates/loading.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/loading.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3589,7 +3589,7 @@
 
     
     // noresults.eco
-    require.register('list-widgets/src/templates/noresults.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/noresults.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3646,7 +3646,7 @@
 
     
     // popover.eco
-    require.register('list-widgets/src/templates/popover/popover.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/popover/popover.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3713,7 +3713,7 @@
 
     
     // popover.help.eco
-    require.register('list-widgets/src/templates/popover/popover.help.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/popover/popover.help.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3774,7 +3774,7 @@
 
     
     // popover.values.eco
-    require.register('list-widgets/src/templates/popover/popover.values.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/popover/popover.values.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3857,7 +3857,7 @@
 
     
     // table.eco
-    require.register('list-widgets/src/templates/table/table.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/table/table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -3934,7 +3934,7 @@
 
     
     // table.row.eco
-    require.register('list-widgets/src/templates/table/table.row.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/table/table.row.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -4009,7 +4009,7 @@
 
     
     // table.table.eco
-    require.register('list-widgets/src/templates/table/table.table.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/templates/table/table.table.js', function(exports, require, module) {
     
       module.exports = function(__obj) {
         if (!__obj) __obj = {};
@@ -4084,7 +4084,7 @@
 
     
     // exporter.coffee
-    require.register('list-widgets/src/utils/exporter.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/utils/exporter.js', function(exports, require, module) {
     
       var $, saveAs, _ref;
       
@@ -4158,7 +4158,7 @@
 
     
     // type.coffee
-    require.register('list-widgets/src/utils/type.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/utils/type.js', function(exports, require, module) {
     
       /* Types in JS.*/
       
@@ -4336,7 +4336,7 @@
 
     
     // widgets.coffee
-    require.register('list-widgets/src/widgets.js', function(exports, require, module) {
+    root.require.register('list-widgets/src/widgets.js', function(exports, require, module) {
     
       var $, ChartWidget, EnrichmentWidget, TableWidget, Widgets, google, _ref,
         __slice = [].slice,
@@ -4509,7 +4509,7 @@
   })();
 
   // Return the main app.
-  var main = require("list-widgets/src/widgets.js");
+  var main = root.require("list-widgets/src/widgets.js");
 
   // AMD/RequireJS.
   if (typeof define !== 'undefined' && define.amd) {
@@ -4534,6 +4534,6 @@
 
   // Alias our app.
   
-  require.alias("list-widgets/src/widgets.js", "list-widgets/index.js");
+  root.require.alias("list-widgets/src/widgets.js", "list-widgets/index.js");
   
 })();
