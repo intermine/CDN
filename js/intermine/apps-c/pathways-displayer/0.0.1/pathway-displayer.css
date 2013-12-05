@@ -1,0 +1,228 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+body {
+  /*background: #1a1a1a;*/
+  background: white;
+  color: #000;
+  font-family: 'Arial';
+  letter-spacing:1px;
+  font-size: 12px;
+
+  
+}
+
+
+
+
+#pathwaysappcontainer {
+  overflow: none;
+  position: relative;
+  color: black;
+  max-height: 200px;
+}
+
+#pathwaysappcontainer .pwayMain {
+  
+  max-height: 200px;
+  width: 100%;
+  min-height: 200px;
+  position: absolute;
+  top:0;
+  left:0;
+  background: #eeeeee;
+  
+}
+
+#pathwaysappcontainer .pwayMain table {
+
+  border-collapse: collapse;
+  width: 100%;
+  z-index: 0;
+
+
+}
+
+
+
+#pathwaysappcontainer .pwayResults tr:hover td{
+  background-color: #252525;
+  color: orange;
+}
+
+#pathwaysappcontainer .pwayMain .pwayResults tr {
+  background-color: white;
+}
+
+#pathwaysappcontainer .pwayMain .pwayResults tr.highlighted {
+  background-color: #252525;
+  color: white;
+}
+
+#pathwaysappcontainer .pwayMain td {
+  padding: 2px;
+  border: 1px solid #bdbdbd;
+}
+/*
+#pathwaysappcontainer thead tr th {
+  padding: 5px;
+  background: black;
+  color: white;
+}*/
+#pwayResultsId thead {
+  border: none;
+  padding: 0;
+}
+
+#pathwaysappcontainer .pwayMain .hit {
+  padding: 5px;
+  border: 1px solid #bdbdbd;
+}
+
+#pathwaysappcontainer .pwayDetails {
+
+  border: 1px solid #bdbdbd;
+  padding: 10px 5px 10px 5px;
+  background: white;
+  color: black;
+
+
+}
+
+#pathwaysappcontainer .pwayDetails a {
+  color: orange;
+}
+
+#pathwaysappcontainer .pwayHeaders {
+  border: 1px solid #bdbdbd;
+  font-size: 14px;
+  padding: 5px;
+  background: black;
+  color: white;
+  display: block;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  background: orange;
+  margin: auto;
+  text-align: center;
+  vertical-align: top;
+  display: table;
+  overflow:hidden;
+  font-weight: bold;
+
+  /* width and height can be anything, as long as they're equal */
+}
+
+.clickable:hover {
+
+ cursor:pointer;
+
+}
+
+.dataPane {
+  
+  position: absolute;
+  top:0;
+  right:0;
+  background: #e7e7e7;
+  color: black;
+  text-align: center;
+  /*padding-left: 5px;*/
+  width: 0px;
+  height: 200px;
+  -webkit-transition:width 0.25s; 
+  text-align: left;
+  /*
+  -webkit-box-shadow: -3px 0px 5px rgba(50, 50, 50, 0.35);
+  -moz-box-shadow:    -3px 0px 5px rgba(50, 50, 50, 0.35);
+  box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);
+  */
+  z-index: 2;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.active {
+  width: 50%;
+  visibility: visible;
+  border-left: 1px solid #bdbdbd;
+  
+  -webkit-transition:width 0.25s; 
+  /*
+    -webkit-box-shadow: -3px 0px 5px rgba(50, 50, 50, 0.35);
+  -moz-box-shadow:    -3px 0px 5px rgba(50, 50, 50, 0.35);
+  box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);*/
+}
+
+
+.dataPane ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dataPane h2 {
+  font-size: 14px;
+}
+
+.flyin {
+-webkit-transition: opacity 400ms linear, width 80ms ease-in-out, right 200ms ease-out;
+}
+
+.somethingdataPane:hover {
+  visibility:visible;
+  right: 0px;
+  width: 50%;
+}
+
+
+
+.pwayWrapper {
+  position:relative;
+  height: 200px;
+}
+
+table.detailsTable {
+  width: 100%;
+}
+
+table.detailsTable td {
+  padding: 5px;
+}
+
+table.detailsTable th {
+  font-size: 18px;
+  text-align: center;
+}
+
+#pwayResultsContainer {
+  overflow: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+}
+
+#pwayResultsId {
+  height: 200px;
+
+}
+
+
+
+.innerDetailsContainer {
+  padding: 0px 10px 0px 10px;
+}
+
+#statusBar {
+  border: 1px solid #bdbdbd;
+  font-size: 14px;
+  padding: 2px;
+  background: black;
+  color: white;
+  display: block;
+}
+
