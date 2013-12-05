@@ -279,7 +279,7 @@
             widgetOptions = {};
           }
           this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
+          this.widgetOptions = _.extend({}, this.widgetOptions, widgetOptions);
           this.log = [];
           ChartWidget.__super__.constructor.apply(this, arguments);
           this.render();
@@ -745,7 +745,7 @@
             widgetOptions = {};
           }
           this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
+          this.widgetOptions = _.extend({}, this.widgetOptions, widgetOptions);
           this.log = [];
           TableWidget.__super__.constructor.apply(this, arguments);
           this.render();
