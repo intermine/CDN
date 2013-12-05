@@ -18066,6 +18066,7 @@ return Q;
     
       var AppView = require('./views/appview');
       var Helper = require('./modules/helper');
+      var $ = require('./modules/dependencies').$;
       
       module.exports = function(params) {
       
@@ -18234,6 +18235,22 @@ return Q;
     });
 
     
+    // dependencies.js
+    require.register('MyFirstCommonJSApp/src/modules/dependencies.js', function(exports, require, module) {
+    
+      var $;
+            
+      $ = window.jQuery
+            
+      module.exports = {
+              $: $,
+              _: _,
+              Backbone: Backbone,
+      
+      };
+    });
+
+    
     // globals.js
     require.register('MyFirstCommonJSApp/src/modules/globals.js', function(exports, require, module) {
     
@@ -18245,6 +18262,7 @@ return Q;
     // helper.js
     require.register('MyFirstCommonJSApp/src/modules/helper.js', function(exports, require, module) {
     
+      var $ = require('./dependencies').$;
       var pwayCollection = require('../models/pathwaycollection.js');
       var mediator = require('./mediator');
       
@@ -18570,7 +18588,7 @@ return Q;
         var TableView = require("./tableview");
         var TableViewHeaders = require("./tableviewheaders");
         var Globals = require('../modules/globals');
-      
+      var $ = require('../modules/dependencies').$;
       
         // The Application
         // --------------
@@ -18722,6 +18740,7 @@ return Q;
     // celltitleview.js
     require.register('MyFirstCommonJSApp/src/views/celltitleview.js', function(exports, require, module) {
     
+      var $ = require('../modules/dependencies').$;
       var mediator = require('../modules/mediator');
       
         var CellTitleTemplate = require('../templates/celltitle.js');
@@ -18765,6 +18784,7 @@ return Q;
     // pathwaycellview.js
     require.register('MyFirstCommonJSApp/src/views/pathwaycellview.js', function(exports, require, module) {
     
+      var $ = require('../modules/dependencies').$;
       var mediator = require('../modules/mediator');
       
       var CellTemplate = require('../templates/pathwaycell');
@@ -18819,6 +18839,7 @@ return Q;
     // pathwayview.js
     require.register('MyFirstCommonJSApp/src/views/pathwayview.js', function(exports, require, module) {
     
+      var $ = require('../modules/dependencies').$;
       var PathwayCellView = require('./pathwaycellview');
       var PathwayCellTitleView = require('./celltitleview');
       var Globals = require('../modules/globals');
@@ -18894,6 +18915,7 @@ return Q;
     // tableview.js
     require.register('MyFirstCommonJSApp/src/views/tableview.js', function(exports, require, module) {
     
+      var $ = require('../modules/dependencies').$;
       var mediator = require("../modules/mediator");
       var pwayCollection = require('../models/pathwaycollection.js');
       var templateTableHeaders = require('../templates/tableheaders');
@@ -18946,6 +18968,7 @@ return Q;
     // tableviewheaders.js
     require.register('MyFirstCommonJSApp/src/views/tableviewheaders.js', function(exports, require, module) {
     
+      var $ = require('../modules/dependencies').$;
       var mediator = require("../modules/mediator");
       var pwayCollection = require('../models/pathwaycollection.js');
       var templateTableHeaders = require('../templates/tableheaders');
