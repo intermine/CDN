@@ -6,7 +6,7 @@
    * @return {Object} exports
    * @api public
    */
-  function require(path, parent, orig) {
+  var require = function(path, parent, orig) {
     var resolved = require.resolve(path);
 
     // lookup failed
@@ -164,7 +164,7 @@
      * The relative require() itself.
      */
 
-    function localRequire(path) {
+    var localRequire = function(path) {
       var resolved = localRequire.resolve(path);
       return require(resolved, parent, path);
     }
@@ -202,14 +202,14 @@
   var root = this;
 
   // Do we already have require loader?
-  root.require = require = (typeof root.require !== 'undefined') ? root.require : require;
+  root.require = (typeof root.require !== 'undefined') ? root.require : require;
 
-  // All our modules will see our own require.
+  // All our modules will use global require.
   (function() {
     
     
     // main.js
-    require.register('MyFirstCommonJSApp/src/main.js', function(exports, require, module) {
+    root.require.register('MyFirstCommonJSApp/src/main.js', function(exports, require, module) {
     
       /*var AppView = require('./views/appview');
       var Helper = require('./modules/helper');
@@ -236,7 +236,7 @@
   })();
 
   // Return the main app.
-  var main = require("MyFirstCommonJSApp/src/main.js");
+  var main = root.require("MyFirstCommonJSApp/src/main.js");
 
   // AMD/RequireJS.
   if (typeof define !== 'undefined' && define.amd) {
@@ -261,6 +261,6 @@
 
   // Alias our app.
   
-  require.alias("MyFirstCommonJSApp/src/main.js", "MyFirstCommonJSApp/index.js");
+  root.require.alias("MyFirstCommonJSApp/src/main.js", "MyFirstCommonJSApp/index.js");
   
 })();
