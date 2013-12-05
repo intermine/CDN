@@ -17610,7 +17610,8 @@ var saveAs = saveAs
           }
         };
       
-        function ChartWidget(service, token, id, bagName, el, widgetOptions) {
+        function ChartWidget(imjs, service, token, id, bagName, el, widgetOptions) {
+          this.imjs = imjs;
           this.service = service;
           this.token = token;
           this.id = id;
@@ -17620,9 +17621,9 @@ var saveAs = saveAs
             widgetOptions = {};
           }
           this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
+          this.widgetOptions = _.extend({}, this.widgetOptions, widgetOptions);
           this.log = [];
-          ChartWidget.__super__.constructor.call(this);
+          ChartWidget.__super__.constructor.apply(this, arguments);
           this.render();
         }
       
@@ -17764,6 +17765,7 @@ var saveAs = saveAs
       
         /*
         Set the params on us and render.
+        @param {object} intermine.Service
         @param {string} service http://aragorn.flymine.org:8080/flymine/service/
         @param {string} token Token for accessing user's lists
         @param {Array} lists All lists that we have access to
@@ -17774,8 +17776,9 @@ var saveAs = saveAs
         */
       
       
-        function EnrichmentWidget(service, token, lists, id, bagName, el, widgetOptions) {
+        function EnrichmentWidget(imjs, service, token, lists, id, bagName, el, widgetOptions) {
           var formKeys, formOptions, k, v, _i, _len;
+          this.imjs = imjs;
           this.service = service;
           this.token = token;
           this.lists = lists;
@@ -17911,11 +17914,6 @@ var saveAs = saveAs
             'style': "height:572px;overflow:hidden;position:relative"
           }));
           this.el = $(this.el).find('div.inner');
-          this.log.push('Initializing InterMine Service');
-          this._service = new intermine.Service({
-            'root': this.service,
-            'token': this.token
-          });
           this.log.push('Monitoring for debug mode');
           $(window).on('hashchange', function() {
             if (window.location.hash === '#debug') {
@@ -18001,7 +17999,7 @@ var saveAs = saveAs
         InterMineWidget.prototype.queryRows = function(query, cb) {
           var service;
           this.log.push('Querying for rows');
-          service = this._service;
+          service = this.imjs;
           return async.waterfall([
             function(cb) {
               return service.query(query, function(q) {
@@ -18078,7 +18076,8 @@ var saveAs = saveAs
           }
         };
       
-        function TableWidget(service, token, id, bagName, el, widgetOptions) {
+        function TableWidget(imjs, service, token, id, bagName, el, widgetOptions) {
+          this.imjs = imjs;
           this.service = service;
           this.token = token;
           this.id = id;
@@ -18088,9 +18087,9 @@ var saveAs = saveAs
             widgetOptions = {};
           }
           this.render = __bind(this.render, this);
-          this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
+          this.widgetOptions = _.extend({}, this.widgetOptions, widgetOptions);
           this.log = [];
-          TableWidget.__super__.constructor.call(this);
+          TableWidget.__super__.constructor.apply(this, arguments);
           this.render();
         }
       
@@ -21706,16 +21705,21 @@ var saveAs = saveAs
           var opts;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
           if (typeof opts[0] === 'string') {
-            this.service = opts[0];
+            this.root = opts[0];
             this.token = opts[1] || '';
           } else {
             if (opts[0].root != null) {
-              this.service = opts[0].root;
+              this.root = opts[0].root;
             } else {
               throw Error('You need to set the `root` parameter pointing to the mine\'s service');
             }
             this.token = opts[0].token || '';
           }
+          this.imjs = new intermine.Service({
+            root: this.root,
+            token: this.token
+          });
+          this.lists = this.imjs.fetchLists();
         }
       
         /*
@@ -21728,26 +21732,19 @@ var saveAs = saveAs
       
       
         Widgets.prototype.chart = function() {
-          var opts, wait,
+          var opts,
             _this = this;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (wait = function() {
-            if (_this.wait) {
-              return setTimeout(wait, 20);
+          return google.load('visualization', '1.0', {
+            packages: ['corechart'],
+            callback: function() {
+              return (function(func, args, ctor) {
+                ctor.prototype = func.prototype;
+                var child = new ctor, result = func.apply(child, args);
+                return Object(result) === result ? result : child;
+              })(ChartWidget, [_this.imjs, _this.root, _this.token].concat(__slice.call(opts)), function(){});
             }
-            _this.wait = true;
-            return google.load('visualization', '1.0', {
-              packages: ['corechart'],
-              callback: function() {
-                _this.wait = false;
-                return (function(func, args, ctor) {
-                  ctor.prototype = func.prototype;
-                  var child = new ctor, result = func.apply(child, args);
-                  return Object(result) === result ? result : child;
-                })(ChartWidget, [_this.service, _this.token].concat(__slice.call(opts)), function(){});
-              }
-            });
-          })();
+          });
         };
       
         /*
@@ -21760,48 +21757,23 @@ var saveAs = saveAs
       
       
         Widgets.prototype.enrichment = function() {
-          var opts, wait,
+          var done, error, opts,
             _this = this;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (wait = function() {
-            if (_this.wait) {
-              return setTimeout(wait, 20);
-            }
-            if (_this.lists != null) {
-              return (function(func, args, ctor) {
-                ctor.prototype = func.prototype;
-                var child = new ctor, result = func.apply(child, args);
-                return Object(result) === result ? result : child;
-              })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-            }
-            _this.wait = true;
-            return $.ajax({
-              'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
-              'dataType': 'jsonp',
-              success: function(data) {
-                if (data.statusCode !== 200 && (data.lists == null)) {
-                  return $(opts[2]).html($('<div/>', {
-                    'class': "alert alert-error",
-                    'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
-                  }));
-                } else {
-                  _this.lists = data.lists;
-                  _this.wait = false;
-                  return (function(func, args, ctor) {
-                    ctor.prototype = func.prototype;
-                    var child = new ctor, result = func.apply(child, args);
-                    return Object(result) === result ? result : child;
-                  })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-                }
-              },
-              error: function(xhr, opts, err) {
-                return $(opts[2]).html($('<div/>', {
-                  'class': "alert alert-error",
-                  'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
-                }));
-              }
-            });
-          })();
+          done = function(lists) {
+            return (function(func, args, ctor) {
+              ctor.prototype = func.prototype;
+              var child = new ctor, result = func.apply(child, args);
+              return Object(result) === result ? result : child;
+            })(EnrichmentWidget, [_this.imjs, _this.root, _this.token, lists].concat(__slice.call(opts)), function(){});
+          };
+          error = function() {
+            return $(opts[2]).html($('<div/>', {
+              'class': "alert alert-error",
+              'html': "" + xhr.statusText + " for <a href='" + _this.root + "widgets'>" + _this.root + "widgets</a>"
+            }));
+          };
+          return this.lists.done(done).fail(error);
         };
       
         /*
@@ -21820,7 +21792,7 @@ var saveAs = saveAs
             ctor.prototype = func.prototype;
             var child = new ctor, result = func.apply(child, args);
             return Object(result) === result ? result : child;
-          })(TableWidget, [this.service, this.token].concat(__slice.call(opts)), function(){});
+          })(TableWidget, [this.imjs, this.root, this.token].concat(__slice.call(opts)), function(){});
         };
       
         /*
@@ -21838,7 +21810,7 @@ var saveAs = saveAs
             type = "Gene";
           }
           return $.ajax({
-            'url': "" + this.service + "widgets",
+            'url': "" + this.root + "widgets",
             'dataType': 'jsonp',
             success: function(response) {
               var target, widget, widgetEl, _i, _len, _ref1, _results;
@@ -21863,7 +21835,7 @@ var saveAs = saveAs
             error: function(xhr, opts, err) {
               return $(el).html($('<div/>', {
                 'class': "alert alert-error",
-                'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
+                'html': "" + xhr.statusText + " for <a href='" + _this.root + "widgets'>" + _this.root + "widgets</a>"
               }));
             }
           });
