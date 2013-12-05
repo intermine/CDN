@@ -21703,19 +21703,24 @@ var saveAs = saveAs
         */
       
         function Widgets() {
-          var opts;
+          var opts, service;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
           if (typeof opts[0] === 'string') {
-            this.service = opts[0];
+            this.root = opts[0];
             this.token = opts[1] || '';
           } else {
             if (opts[0].root != null) {
-              this.service = opts[0].root;
+              this.root = opts[0].root;
             } else {
               throw Error('You need to set the `root` parameter pointing to the mine\'s service');
             }
             this.token = opts[0].token || '';
           }
+          service = new intermine.Service({
+            root: this.root,
+            token: this.token
+          });
+          this.lists = service.fetchLists();
         }
       
         /*
@@ -21738,7 +21743,7 @@ var saveAs = saveAs
                 ctor.prototype = func.prototype;
                 var child = new ctor, result = func.apply(child, args);
                 return Object(result) === result ? result : child;
-              })(ChartWidget, [_this.service, _this.token].concat(__slice.call(opts)), function(){});
+              })(ChartWidget, [_this.root, _this.token].concat(__slice.call(opts)), function(){});
             }
           });
         };
@@ -21753,48 +21758,23 @@ var saveAs = saveAs
       
       
         Widgets.prototype.enrichment = function() {
-          var opts, wait,
+          var done, error, opts,
             _this = this;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (wait = function() {
-            if (_this.wait) {
-              return setTimeout(wait, 20);
-            }
-            if (_this.lists != null) {
-              return (function(func, args, ctor) {
-                ctor.prototype = func.prototype;
-                var child = new ctor, result = func.apply(child, args);
-                return Object(result) === result ? result : child;
-              })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-            }
-            _this.wait = true;
-            return $.ajax({
-              'url': "" + _this.service + "lists?token=" + _this.token + "&format=json",
-              'dataType': 'jsonp',
-              success: function(data) {
-                if (data.statusCode !== 200 && (data.lists == null)) {
-                  return $(opts[2]).html($('<div/>', {
-                    'class': "alert alert-error",
-                    'html': "Problem fetching lists we have access to <a href='" + _this.service + "lists'>" + _this.service + "lists</a>"
-                  }));
-                } else {
-                  _this.lists = data.lists;
-                  _this.wait = false;
-                  return (function(func, args, ctor) {
-                    ctor.prototype = func.prototype;
-                    var child = new ctor, result = func.apply(child, args);
-                    return Object(result) === result ? result : child;
-                  })(EnrichmentWidget, [_this.service, _this.token, _this.lists].concat(__slice.call(opts)), function(){});
-                }
-              },
-              error: function(xhr, opts, err) {
-                return $(opts[2]).html($('<div/>', {
-                  'class': "alert alert-error",
-                  'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
-                }));
-              }
-            });
-          })();
+          done = function(lists) {
+            return (function(func, args, ctor) {
+              ctor.prototype = func.prototype;
+              var child = new ctor, result = func.apply(child, args);
+              return Object(result) === result ? result : child;
+            })(EnrichmentWidget, [_this.root, _this.token, lists].concat(__slice.call(opts)), function(){});
+          };
+          error = function() {
+            return $(opts[2]).html($('<div/>', {
+              'class': "alert alert-error",
+              'html': "" + xhr.statusText + " for <a href='" + _this.root + "widgets'>" + _this.root + "widgets</a>"
+            }));
+          };
+          return this.lists.done(done).fail(error);
         };
       
         /*
@@ -21813,7 +21793,7 @@ var saveAs = saveAs
             ctor.prototype = func.prototype;
             var child = new ctor, result = func.apply(child, args);
             return Object(result) === result ? result : child;
-          })(TableWidget, [this.service, this.token].concat(__slice.call(opts)), function(){});
+          })(TableWidget, [this.root, this.token].concat(__slice.call(opts)), function(){});
         };
       
         /*
@@ -21831,7 +21811,7 @@ var saveAs = saveAs
             type = "Gene";
           }
           return $.ajax({
-            'url': "" + this.service + "widgets",
+            'url': "" + this.root + "widgets",
             'dataType': 'jsonp',
             success: function(response) {
               var target, widget, widgetEl, _i, _len, _ref1, _results;
@@ -21856,7 +21836,7 @@ var saveAs = saveAs
             error: function(xhr, opts, err) {
               return $(el).html($('<div/>', {
                 'class': "alert alert-error",
-                'html': "" + xhr.statusText + " for <a href='" + _this.service + "widgets'>" + _this.service + "widgets</a>"
+                'html': "" + xhr.statusText + " for <a href='" + _this.root + "widgets'>" + _this.root + "widgets</a>"
               }));
             }
           });
