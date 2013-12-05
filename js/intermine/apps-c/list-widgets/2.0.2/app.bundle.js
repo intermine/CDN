@@ -21728,26 +21728,19 @@ var saveAs = saveAs
       
       
         Widgets.prototype.chart = function() {
-          var opts, wait,
+          var opts,
             _this = this;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          return (wait = function() {
-            if (_this.wait) {
-              return setTimeout(wait, 20);
+          return google.load('visualization', '1.0', {
+            packages: ['corechart'],
+            callback: function() {
+              return (function(func, args, ctor) {
+                ctor.prototype = func.prototype;
+                var child = new ctor, result = func.apply(child, args);
+                return Object(result) === result ? result : child;
+              })(ChartWidget, [_this.service, _this.token].concat(__slice.call(opts)), function(){});
             }
-            _this.wait = true;
-            return google.load('visualization', '1.0', {
-              packages: ['corechart'],
-              callback: function() {
-                _this.wait = false;
-                return (function(func, args, ctor) {
-                  ctor.prototype = func.prototype;
-                  var child = new ctor, result = func.apply(child, args);
-                  return Object(result) === result ? result : child;
-                })(ChartWidget, [_this.service, _this.token].concat(__slice.call(opts)), function(){});
-              }
-            });
-          })();
+          });
         };
       
         /*
