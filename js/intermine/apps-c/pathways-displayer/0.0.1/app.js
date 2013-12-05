@@ -211,9 +211,9 @@
     // main.js
     root.require.register('MyFirstCommonJSApp/src/main.js', function(exports, require, module) {
     
-      /*var AppView = require('./views/appview');
+      var AppView = require('./views/appview');
       var Helper = require('./modules/helper');
-      var $ = require('./modules/dependencies').$;*/
+      var $ = require('./modules/dependencies').$;
       
       module.exports = function(params) {
       
