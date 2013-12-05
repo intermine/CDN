@@ -268,7 +268,8 @@
           }
         };
       
-        function ChartWidget(service, token, id, bagName, el, widgetOptions) {
+        function ChartWidget(imjs, service, token, id, bagName, el, widgetOptions) {
+          this.imjs = imjs;
           this.service = service;
           this.token = token;
           this.id = id;
@@ -280,7 +281,7 @@
           this.render = __bind(this.render, this);
           this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
           this.log = [];
-          ChartWidget.__super__.constructor.call(this);
+          ChartWidget.__super__.constructor.apply(this, arguments);
           this.render();
         }
       
@@ -422,6 +423,7 @@
       
         /*
         Set the params on us and render.
+        @param {object} intermine.Service
         @param {string} service http://aragorn.flymine.org:8080/flymine/service/
         @param {string} token Token for accessing user's lists
         @param {Array} lists All lists that we have access to
@@ -432,8 +434,9 @@
         */
       
       
-        function EnrichmentWidget(service, token, lists, id, bagName, el, widgetOptions) {
+        function EnrichmentWidget(imjs, service, token, lists, id, bagName, el, widgetOptions) {
           var formKeys, formOptions, k, v, _i, _len;
+          this.imjs = imjs;
           this.service = service;
           this.token = token;
           this.lists = lists;
@@ -569,11 +572,6 @@
             'style': "height:572px;overflow:hidden;position:relative"
           }));
           this.el = $(this.el).find('div.inner');
-          this.log.push('Initializing InterMine Service');
-          this._service = new intermine.Service({
-            'root': this.service,
-            'token': this.token
-          });
           this.log.push('Monitoring for debug mode');
           $(window).on('hashchange', function() {
             if (window.location.hash === '#debug') {
@@ -659,7 +657,7 @@
         InterMineWidget.prototype.queryRows = function(query, cb) {
           var service;
           this.log.push('Querying for rows');
-          service = this._service;
+          service = this.imjs;
           return async.waterfall([
             function(cb) {
               return service.query(query, function(q) {
@@ -736,7 +734,8 @@
           }
         };
       
-        function TableWidget(service, token, id, bagName, el, widgetOptions) {
+        function TableWidget(imjs, service, token, id, bagName, el, widgetOptions) {
+          this.imjs = imjs;
           this.service = service;
           this.token = token;
           this.id = id;
@@ -748,7 +747,7 @@
           this.render = __bind(this.render, this);
           this.widgetOptions = _.extend({}, widgetOptions, this.widgetOptions);
           this.log = [];
-          TableWidget.__super__.constructor.call(this);
+          TableWidget.__super__.constructor.apply(this, arguments);
           this.render();
         }
       
@@ -4361,7 +4360,7 @@
         */
       
         function Widgets() {
-          var opts, service;
+          var opts;
           opts = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
           if (typeof opts[0] === 'string') {
             this.root = opts[0];
@@ -4374,11 +4373,11 @@
             }
             this.token = opts[0].token || '';
           }
-          service = new intermine.Service({
+          this.imjs = new intermine.Service({
             root: this.root,
             token: this.token
           });
-          this.lists = service.fetchLists();
+          this.lists = this.imjs.fetchLists();
         }
       
         /*
@@ -4401,7 +4400,7 @@
                 ctor.prototype = func.prototype;
                 var child = new ctor, result = func.apply(child, args);
                 return Object(result) === result ? result : child;
-              })(ChartWidget, [_this.root, _this.token].concat(__slice.call(opts)), function(){});
+              })(ChartWidget, [_this.imjs, _this.root, _this.token].concat(__slice.call(opts)), function(){});
             }
           });
         };
@@ -4424,7 +4423,7 @@
               ctor.prototype = func.prototype;
               var child = new ctor, result = func.apply(child, args);
               return Object(result) === result ? result : child;
-            })(EnrichmentWidget, [_this.root, _this.token, lists].concat(__slice.call(opts)), function(){});
+            })(EnrichmentWidget, [_this.imjs, _this.root, _this.token, lists].concat(__slice.call(opts)), function(){});
           };
           error = function() {
             return $(opts[2]).html($('<div/>', {
@@ -4451,7 +4450,7 @@
             ctor.prototype = func.prototype;
             var child = new ctor, result = func.apply(child, args);
             return Object(result) === result ? result : child;
-          })(TableWidget, [this.root, this.token].concat(__slice.call(opts)), function(){});
+          })(TableWidget, [this.imjs, this.root, this.token].concat(__slice.call(opts)), function(){});
         };
       
         /*
