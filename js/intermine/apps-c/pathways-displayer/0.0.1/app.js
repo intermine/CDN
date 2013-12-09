@@ -684,14 +684,15 @@
     // failurestatus.js
     root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
     
-      module.exports = 'WARNING! The following mines were unreachable: \
+      module.exports = '<div class="inline-list">WARNING! The following mines were unreachable: \
       				<ul> \
       				<% _.each(failedMines, function(mine) { %> \
       					<li> \
       					<%= mine %> \
       					</li> \
       				<% }) %> \
-      				</ul>';
+      				</ul> \
+      				</div>';
     });
 
     
@@ -726,7 +727,7 @@
       			<div id="pwayResultsContainer"> \
       				<div class="dataPane"></div> \
       			</div> \
-      			<div id="statusBar"><div class="loading-spinner">Querying mines...</div> \
+      			<div id="statusBar" class="hidden"><div class="loading-spinner">Querying mines...</div> \
       		</div> \
       	</div>';
     });
@@ -908,13 +909,15 @@
       
             if (failures.length > 0) {
               var failureTemplate = require('../templates/failurestatus');
+              this.$el.find("#statusBar").removeClass("hidden");
               output = _.template(failureTemplate, {failedMines: failures});
-            } else {
-              output = require('../templates/successstatus');
+              this.$el.find("#statusBar").html(output);
             }
       
       
-            this.$el.find("#statusBar").html(output);
+            //
+            
+            
            
       
       
