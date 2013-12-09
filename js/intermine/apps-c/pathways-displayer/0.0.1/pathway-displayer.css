@@ -14,8 +14,8 @@ body {
 
 
 #pathwaysappcontainer {
-  overflow: none;
-  position: block;
+  overflow: hidden;
+  display: block;
   height: 200px;
 }
 
