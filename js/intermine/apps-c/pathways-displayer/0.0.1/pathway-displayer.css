@@ -4,11 +4,8 @@
 
 body {
   /*background: #1a1a1a;*/
-  background: white;
-  color: #000;
-  font-family: 'Arial';
-  letter-spacing:1px;
-  font-size: 12px;
+
+
 
   
 }
@@ -19,7 +16,6 @@ body {
 #pathwaysappcontainer {
   overflow: none;
   position: relative;
-  color: black;
   max-height: 200px;
 }
 
@@ -94,6 +90,7 @@ body {
   color: orange;
 }
 
+/*
 #pathwaysappcontainer .pwayHeaders {
   border: 1px solid #bdbdbd;
   font-size: 14px;
@@ -101,7 +98,7 @@ body {
   background: black;
   color: white;
   display: block;
-}
+}*/
 
 .circle {
   border-radius: 50%;
@@ -219,10 +216,10 @@ table.detailsTable th {
 
 #statusBar {
   border: 1px solid #bdbdbd;
-  font-size: 14px;
+  font-size: 10px;
   padding: 2px;
-  background: black;
-  color: white;
+  /*background: black;*/
+  /*color: white;*/
   display: block;
 }
 
