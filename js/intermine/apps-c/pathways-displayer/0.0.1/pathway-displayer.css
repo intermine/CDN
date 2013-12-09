@@ -15,18 +15,17 @@ body {
 
 #pathwaysappcontainer {
   overflow: none;
-  position: relative;
-  max-height: 200px;
+  position: block;
+  height: 200px;
 }
 
 #pathwaysappcontainer .pwayMain {
   
-  max-height: 200px;
-  width: 100%;
-  min-height: 200px;
+  height: 200px;
   position: absolute;
   top:0;
   left:0;
+  width: 100%;
 
   
 }
@@ -213,7 +212,7 @@ table.detailsTable th {
 }
 
 #pwayResultsId {
-  height: 200px;
+  height: 100px;
 
 }
 
