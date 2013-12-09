@@ -347,6 +347,25 @@
     });
 
     
+    // tooltips.coffee
+    root.require.register('component-400/src/models/tooltips.js', function(exports, require, module) {
+    
+      module.exports = {
+        '1': 'These identifiers matched more than one record in the database. Click on the ADD button next to the identifier you want to include in your list.',
+        'provided': 'These are the identifiers you typed in the form on the previous page.',
+        'add': 'Use these buttons to add (or remove) this record to your list.',
+        'matches': 'These are the records in the database that correspond to the identifier you entered on the previous page.',
+        '2': 'This is a summary of what is in your list.',
+        'match': 'An exact match was found between what you entered and what is in our database.',
+        'type_converted': 'These identifiers matched records in our database but were not the type of data you specified on the previous page.',
+        'other': 'These identifiers matched old identifiers.',
+        '4': 'Identifiers that could not be resolved.',
+        '5': "Multiple identifiers matched an object."
+      };
+      
+    });
+
+    
     // deps.coffee
     root.require.register('component-400/src/modules/deps.js', function(exports, require, module) {
     
@@ -2343,6 +2362,8 @@
       
       View = require('../modules/view');
       
+      tooltips = require('../models/tooltips');
+      
       TooltipView = (function(_super) {
         __extends(TooltipView, _super);
       
@@ -2359,18 +2380,6 @@
         return TooltipView;
       
       })(View);
-      
-      tooltips = {
-        '1': 'These identifiers matched more than one record in the database.<br />Click on the ADD button next to the identifier you want to include in your list.',
-        'provided': 'These are the identifiers you typed in the form on the previous page.',
-        'add': 'Use these buttons to add (or remove) this record to your list.',
-        'matches': 'These are the records in the database that correspond to the<br/>identifier you entered on the previous page.',
-        '2': 'This is a summary of what is in your list.',
-        'match': 'An exact match was found between what you entered and what is in our database.',
-        'type_converted': 'These identifiers matched records in our database but were<br/>not the type of data you specified on the previous page.',
-        'other': 'These identifiers matched old identifiers.',
-        '4': 'Identifiers that could not be resolved.'
-      };
       
       module.exports = TooltipView;
       
