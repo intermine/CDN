@@ -229,6 +229,10 @@ table.detailsTable th {
   padding: 2px;
   /*background: black;*/
   /*color: white;*/
-  display: block;
+  
 }
 
+.hidden {
+  display: none;
+  color: green;
+}
