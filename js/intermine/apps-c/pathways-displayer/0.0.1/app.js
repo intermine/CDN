@@ -724,7 +724,7 @@
       		<div class="pwayMain"> \
       			<div id="pwayHeadersContainer"></div> \
       			<div id="pwayResultsContainer" class="collection-table"> \
-      				<div id="mine-pathway-displayer" class="collection-table column-border"><div class="header dataPane"></div></div> \
+      				<div class="dataPane">
       			</div> \
       			<div id="statusBar"><div class="loading-spinner">Querying mines...</div> \
       		</div> \
