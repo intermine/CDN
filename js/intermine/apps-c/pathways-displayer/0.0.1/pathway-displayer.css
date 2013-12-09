@@ -27,7 +27,7 @@ body {
   position: absolute;
   top:0;
   left:0;
-  background: #eeeeee;
+
   
 }
 
@@ -47,35 +47,42 @@ body {
   color: orange;
 }
 
+
+
+/*
+
 #pathwaysappcontainer .pwayMain .pwayResults tr {
   background-color: white;
-}
+}*/
 
 #pathwaysappcontainer .pwayMain .pwayResults tr.highlighted {
   background-color: #252525;
   color: white;
 }
 
+/*
 #pathwaysappcontainer .pwayMain td {
   padding: 2px;
   border: 1px solid #bdbdbd;
-}
+}*/
 /*
 #pathwaysappcontainer thead tr th {
   padding: 5px;
   background: black;
   color: white;
 }*/
+/*
 #pwayResultsId thead {
   border: none;
   padding: 0;
-}
-
+}*/
+/*
 #pathwaysappcontainer .pwayMain .hit {
   padding: 5px;
   border: 1px solid #bdbdbd;
-}
+}*/
 
+/*
 #pathwaysappcontainer .pwayDetails {
 
   border: 1px solid #bdbdbd;
@@ -84,11 +91,12 @@ body {
   color: black;
 
 
-}
+}*/
 
+/*
 #pathwaysappcontainer .pwayDetails a {
   color: orange;
-}
+}*/
 
 /*
 #pathwaysappcontainer .pwayHeaders {
@@ -156,16 +164,17 @@ body {
   box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);*/
 }
 
-
+/*
 .dataPane ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
-}
+}*/
 
+/*
 .dataPane h2 {
   font-size: 14px;
-}
+}*/
 
 .flyin {
 -webkit-transition: opacity 400ms linear, width 80ms ease-in-out, right 200ms ease-out;
@@ -188,14 +197,16 @@ table.detailsTable {
   width: 100%;
 }
 
+/*
 table.detailsTable td {
   padding: 5px;
-}
+}*/
 
+/*
 table.detailsTable th {
   font-size: 18px;
   text-align: center;
-}
+}*/
 
 #pwayResultsContainer {
   overflow: auto;
@@ -213,6 +224,7 @@ table.detailsTable th {
 .innerDetailsContainer {
   padding: 0px 10px 0px 10px;
 }
+
 
 #statusBar {
   border: 1px solid #bdbdbd;
