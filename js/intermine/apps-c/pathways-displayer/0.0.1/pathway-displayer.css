@@ -14,14 +14,13 @@ body {
 
 
 #pathwaysappcontainer {
-  overflow: hidden;
   display: block;
-  height: 200px;
+  /*height: 250px;*/
 }
 
 #pathwaysappcontainer .pwayMain {
   
-  height: 200px;
+  /*height: 200px;*/
   position: absolute;
   top:0;
   left:0;
@@ -136,7 +135,7 @@ body {
   text-align: center;
   /*padding-left: 5px;*/
   width: 0px;
-  height: 200px;
+  /*height: 200px;*/
   -webkit-transition:width 0.25s; 
   text-align: left;
   /*
@@ -187,7 +186,7 @@ body {
 
 .pwayWrapper {
   position:relative;
-  height: 200px;
+  /*height: 200px;*/
 }
 
 table.detailsTable {
@@ -212,7 +211,7 @@ table.detailsTable th {
 }
 
 #pwayResultsId {
-  height: 100px;
+  /*height: 100px;*/
 
 }
 

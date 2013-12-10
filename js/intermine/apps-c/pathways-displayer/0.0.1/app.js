@@ -727,7 +727,7 @@
       			<div id="pwayResultsContainer"> \
       				<div class="dataPane"></div> \
       			</div> \
-      			<div id="statusBar" class="hidden"><div class="loading-spinner">Querying mines...</div> \
+      			<div id="statusBar"><div class="loading-spinner">Querying mines...</div> \
       		</div> \
       	</div>';
     });
@@ -864,9 +864,14 @@
               });
              $(".pwayHeaders").width($("#pwayResultsId").width());
              
+             // Moves our table header over the copy:
              $("#pwayResultsId").css("margin-top", $("#pwayResultsId thead").height() * -1);
+      
             $(".dataPane").css("top", $("#pwayHeadersContainer").height());
-             $(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
+             //$(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
+             $(".dataPane").css("height", $("#pwayResultsContainer").height());
+      
+             console.log("HEIGHT CHECK OF pwayResultsContainer CONTAINER: " + $("#pwayResultsContainer").height() );
       
           },
       
