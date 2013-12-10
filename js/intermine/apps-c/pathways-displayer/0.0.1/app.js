@@ -584,9 +584,9 @@
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
               _.each(values, function(gene) {
-                 // console.log(gene.primaryIdentifier);
+                 //console.log(gene.primaryIdentifier);
               });
-             // console.log("luString" + luString);
+              console.log("luString" + luString);
       
               return values;
             }
@@ -865,6 +865,7 @@
              $(".pwayHeaders").width($("#pwayResultsId").width());
              
              $("#pwayResultsId").css("margin-top", $("#pwayResultsId thead").height() * -1);
+            $(".dataPane").css("top", $("#pwayHeadersContainer").height());
              $(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
       
           },
