@@ -16514,10 +16514,11 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
         mediator.on('app:save', function() {
           return opts.cb(null, mori.into_array(db.selected));
         }, this);
-        return new AppView({
+        new AppView({
           'el': opts.target || 'body',
           db: db
         });
+        return mori.into_array(db.selected);
       };
       
     });
