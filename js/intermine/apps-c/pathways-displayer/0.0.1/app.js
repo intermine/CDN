@@ -592,7 +592,7 @@
             }
           }
           function error (err) {
-                console.log("I have failed in getHomologues", err.stack);
+                console.log("I have failed in getHomologues.", err);
                 //mediator.trigger('notify:minefail', {url: url});
                 throw new Error(err);
           }
@@ -971,6 +971,7 @@
           },
       
           notifyFail: function(value) {
+            console.log("notifay failure with value: " + JSON.stringify(value, null, 2));
            failures.push(value.mine);
           },
       
