@@ -5704,6 +5704,7 @@ that IE7/8 do not support :nth-child.
   font-weight: normal;
   top: -20px;
   left: 20px;
+  width: auto;
   padding: 2px;
 }
 
