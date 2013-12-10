@@ -705,7 +705,7 @@
     // pathwaycell.js
     root.require.register('MyFirstCommonJSApp/src/templates/pathwaycell.js', function(exports, require, module) {
     
-      module.exports = '<div class="circle"></div>';
+      module.exports = '<a href="#">Yes</a>';
     });
 
     
