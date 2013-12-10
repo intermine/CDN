@@ -584,9 +584,9 @@
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
               _.each(values, function(gene) {
-                 // console.log(gene.primaryIdentifier);
+                 //console.log(gene.primaryIdentifier);
               });
-             // console.log("luString" + luString);
+              console.log("luString" + luString);
       
               return values;
             }
@@ -684,14 +684,15 @@
     // failurestatus.js
     root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
     
-      module.exports = 'WARNING! The following mines were unreachable: \
+      module.exports = '<div class="inline-list">WARNING! The following mines were unreachable: \
       				<ul> \
       				<% _.each(failedMines, function(mine) { %> \
       					<li> \
       					<%= mine %> \
       					</li> \
       				<% }) %> \
-      				</ul>';
+      				</ul> \
+      				</div>';
     });
 
     
@@ -863,8 +864,14 @@
               });
              $(".pwayHeaders").width($("#pwayResultsId").width());
              
+             // Moves our table header over the copy:
              $("#pwayResultsId").css("margin-top", $("#pwayResultsId thead").height() * -1);
-             $(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
+      
+            $(".dataPane").css("top", $("#pwayHeadersContainer").height());
+             //$(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
+             $(".dataPane").css("height", $("#pwayResultsContainer").height());
+      
+             console.log("HEIGHT CHECK OF pwayResultsContainer CONTAINER: " + $("#pwayResultsContainer").height() );
       
           },
       
@@ -908,13 +915,15 @@
       
             if (failures.length > 0) {
               var failureTemplate = require('../templates/failurestatus');
+              this.$el.find("#statusBar").removeClass("hidden");
               output = _.template(failureTemplate, {failedMines: failures});
-            } else {
-              output = require('../templates/successstatus');
+              this.$el.find("#statusBar").html(output);
             }
       
       
-            this.$el.find("#statusBar").html(output);
+            //
+            
+            
            
       
       
