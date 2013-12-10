@@ -1,6 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:100);
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
 
 body {
   /*background: #1a1a1a;*/
@@ -110,11 +108,11 @@ body {
   height: 16px;
   background: orange;
   margin: auto;
-  text-align: center;
+
   vertical-align: top;
-  display: table;
-  overflow:hidden;
-  font-weight: bold;
+
+  
+
 
   /* width and height can be anything, as long as they're equal */
 }
@@ -234,4 +232,16 @@ table.detailsTable th {
 .hidden {
   display: none;
   color: green;
+}
+
+ul.inline
+{
+display: inline;
+list-style-type:none;
+margin:0;
+padding:0;
+}
+
+ul.inline li {
+  display: inline;
 }

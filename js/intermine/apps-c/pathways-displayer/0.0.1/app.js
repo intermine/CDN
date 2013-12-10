@@ -684,15 +684,14 @@
     // failurestatus.js
     root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
     
-      module.exports = '<div class="inline-list">WARNING! The following mines were unreachable: \
-      				<ul> \
+      module.exports = '<span>WARNING! The following mines were unreachables: </span> \
+      				<ul class="inline"> \
       				<% _.each(failedMines, function(mine) { %> \
       					<li> \
       					<%= mine %> \
       					</li> \
       				<% }) %> \
-      				</ul> \
-      				</div>';
+      				</ul>';
     });
 
     
@@ -727,7 +726,7 @@
       			<div id="pwayResultsContainer"> \
       				<div class="dataPane"></div> \
       			</div> \
-      			<div id="statusBar"><div class="loading-spinner">Querying mines...</div> \
+      			<div id="statusBar" class="hidden"><div class="loading-spinner">Querying mines...</div> \
       		</div> \
       	</div>';
     });
@@ -817,16 +816,11 @@
       
             var shellTemplate = require('../templates/shell');
             var shellHTML = _.template(shellTemplate, {"myFriendlyMines": friendlyMines});
-            //console.log("SHELL TEMPLATE!: " + shellHTML);
-            //console.log("friendlyMines LENGTH FROM INSIDE APPVIEW: " + Object.keys(friendlyMines).length);
             
       
            this.$el.html(this.templateShell);
            this.$el.html(shellHTML);
       
-          
-      
-           //this.$el.find('#statusBar').append("HELLO");
       
             // Listen to our mediator for events
             mediator.on('column:add', this.addColumn, this);
@@ -916,6 +910,7 @@
             if (failures.length > 0) {
               var failureTemplate = require('../templates/failurestatus');
               this.$el.find("#statusBar").removeClass("hidden");
+              this.$el.find("#statusBar").addClass("warning");
               output = _.template(failureTemplate, {failedMines: failures});
               this.$el.find("#statusBar").html(output);
             }
