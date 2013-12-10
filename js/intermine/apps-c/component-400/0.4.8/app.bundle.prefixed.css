@@ -5684,11 +5684,14 @@ that IE7/8 do not support :nth-child.
 .-im-component400 .help:after,
 .-im-component400 .help-flyout:after,
 .-im-component400 .help:before,
-.-im-component400 .help-flyout:before {
+.-im-component400 .help-flyout:before,
+.-im-component400 .help .flyout,
+.-im-component400 .help-flyout .flyout {
   font-style: normal;
   text-transform: none;
   white-space: pre;
   text-align: left;
+  font-family: sans-serif;
 }
 
 .-im-component400 .help-flyout {
@@ -5696,6 +5699,7 @@ that IE7/8 do not support :nth-child.
 }
 
 .-im-component400 .help-flyout .flyout {
+  position: absolute;
   color: #333;
   font-weight: normal;
   top: -20px;

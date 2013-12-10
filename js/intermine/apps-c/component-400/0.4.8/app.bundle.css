@@ -1359,9 +1359,9 @@ h2{font-size:20px;display:inline-block;margin:0;line-height:.5}
 table{width:100%}
 a{cursor:pointer}
 .help,.help-flyout{cursor:pointer;content:"i";padding:0 4px;font-size:12px;line-height:14px;text-align:center;color:#fff;background:#2ba6cb;display:inline-block;font-family:serif;font-weight:bold;font-style:italic;text-transform:lowercase;vertical-align:middle;}
-.help:after,.help-flyout:after,.help:before,.help-flyout:before{font-style:normal;text-transform:none;white-space:pre;text-align:left}
+.help:after,.help-flyout:after,.help:before,.help-flyout:before,.help .flyout,.help-flyout .flyout{font-style:normal;text-transform:none;white-space:pre;text-align:left;font-family:sans-serif}
 .help-flyout{position:relative;}
-.help-flyout .flyout{color:#333;font-weight:normal;top:-20px;left:20px;padding:2px;}
+.help-flyout .flyout{position:absolute;color:#333;font-weight:normal;top:-20px;left:20px;padding:2px;}
 .help-flyout .flyout tr td:first-child{text-transform:capitalize}
 .section{padding:10px;}
 .section:nth-child(even){border:1px solid #e6e6e6;border-width:1px 0}

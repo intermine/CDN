@@ -17547,7 +17547,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>');
           
           }).call(this);
           
@@ -17618,7 +17618,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>');
           
           }).call(this);
           

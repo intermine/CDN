@@ -1267,7 +1267,7 @@
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>');
           
           }).call(this);
           
@@ -1338,7 +1338,7 @@
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>');
           
           }).call(this);
           
