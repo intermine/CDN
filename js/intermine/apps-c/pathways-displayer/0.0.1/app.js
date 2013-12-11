@@ -428,7 +428,7 @@
       
             /// Array to store our pathway
             death = function(err) {
-              console.log("death: " + err);
+              //console.log("death: " + err);
             }
       
             var promiseArray = [];
@@ -454,12 +454,14 @@
               return getPathwaysByGene(location, returned, "collection");
             },
             function(e) {
-              mediator.trigger('notify:minefail', {mine: mine});
+              //console.log(e, e.stack);
+              mediator.trigger('notify:minefail', {mine: mine, err: e});
+              throw e;
             }
           ).fail(error);
       
           function error (err) {
-                console.log("done " + err);
+            //console.log("error has been thrown", err.stack);
           }
       
       /*
@@ -479,8 +481,10 @@
             // Build a lookup string from our array of genes:
             luString = genes.map(function(gene) {return "\"" + gene.primaryIdentifier + "\""}).join(',');
       
+            //console.log("luString: ", luString);
+      
             // Build our query using our lookup string.
-            query = {"select":["Pathway.genes.primaryIdentifier","Pathway.id","Pathway.dataSets.name","Pathway.name","Pathway.identifier","Pathway.genes.organism.shortName","Pathway.genes.organism.taxonId"],"orderBy":[{"Pathway.name":"ASC"}],"where":{"Pathway.genes": {LOOKUP: luString}}};
+            query = {"select":["Pathway.genes.primaryIdentifier","Pathway.genes.symbol","Pathway.id","Pathway.dataSets.name","Pathway.name","Pathway.identifier","Pathway.genes.organism.shortName","Pathway.genes.organism.taxonId"],"orderBy":[{"Pathway.name":"ASC"}],"where":{"Pathway.genes": {LOOKUP: luString}}};
       
             // Build a query that gets us a list of gene for a given pathway
            // geneQuery = {"select":["Pathway.genes.primaryIdentifier","Pathway.id","Pathway.name","Pathway.identifier","Pathway.genes.organism.shortName","Pathway.genes.organism.taxonId"],"orderBy":[{"Pathway.name":"ASC"}],"where":{"Pathway.genes": {LOOKUP: luString}}};
@@ -493,6 +497,7 @@
       
             /** Return query results **/
             getData = function (aService) {
+                //console.log("------------------------getData has also been called");
                 return aService.records(query);
             };
       
@@ -502,6 +507,7 @@
       
               return function(pways) {
       
+                //console.log("------------------------MAKE MODELS");
                 _.map(pways, function(pathway) {
                   pathway.url = url;
                  
@@ -518,11 +524,12 @@
       
             // Return our error
             error = function(err) {
+             // console.log("I have failed in getPathwaysByGene");
               throw new Error("HELP ME");
             };
       
             // Wait for our results and then return them.
-            return Q(getService(url)).then(getData).then(makeModels()).fail(error);
+            return Q(getService(url)).then(getData).then(makeModels());
       
           } // End function getPathwaysByGene
       
@@ -539,12 +546,13 @@
           var query, getService, getData, error, fin;
       
           // Build our query:
-          var query = {"select":["Homologue.homologue.primaryIdentifier"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
+          var query = {"select":["Homologue.homologue.primaryIdentifier", "Homologue.homologue.symbol"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
           //var selfQuery = {"model":{"name":"genomic"},"select":["Gene.primaryIdentifier"],"orderBy":[{"Gene.primaryIdentifier":"ASC"}],"where":[{"path":"Gene.primaryIdentifier","op":"=","code":"A","value":pIdentifier}]};
       
           // Get our service.
           getService = function (aUrl) {
       
+            //console.log("building service");
             return new IM.Service({root: aUrl});
       
       
@@ -552,13 +560,14 @@
       
           // Run our query.
           getData = function (aService) {
+              //console.log("getHomologues detData called.");
               return aService.records(query);
           };
       
           // Deal with our results.
           returnResults = function () {
       
-           // console.log("Returning results.");
+            //console.log("Returning results.");
             
             return function (orgs) {
       
@@ -575,20 +584,22 @@
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
               _.each(values, function(gene) {
-                 // console.log(gene.primaryIdentifier);
+                 //console.log(gene.primaryIdentifier);
               });
-             // console.log("luString" + luString);
+              console.log("luString" + luString);
       
               return values;
             }
           }
           function error (err) {
-                 mediator.trigger('notify:minefail', {url: url});
-                return new Error(err);
+                console.log("I have failed in getHomologues.", err);
+                //mediator.trigger('notify:minefail', {url: url});
+                throw new Error(err);
           }
       
           // Return our results when finished
-          return Q(getService(url)).then(getData).then(returnResults());
+          return Q(getService(url)).then(getData).then(returnResults()).fail(error);
+          //return Q(getService(url)).fail(error);
         } // End getHomologues
       
         function dynamicSort(property) {
@@ -637,9 +648,8 @@
       //module.exports = '<h2>test</h2>';
       
       module.exports = '<div class="innerDetailsContainer"> \
-      	<div>◀ Close</div> \
+      	<div class="close clickable">◀ Close</div> \
       	<h2>Pathway Name</h2> \
-      	<% console.log(JSON.stringify(pway, null, 2)); %> \
       	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].genes[0].pathwayId + ">" %> \
       	<%= pway.name %> \
       	</a> \
@@ -647,13 +657,13 @@
       	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].objectId + ">" %> \
       	<%= pway.organism[0].shortName %> \
       	</a> \
-      	<h2>Intersection of Homologous Genes</h2> \
+      	<h2>Homologous Genes</h2> \
       	<ul class="genes"> \
       		<% _.each(pway.organism[0].genes, function(gene) { %> \
       			<% console.log(gene) %> \
       			<li> \
       			<%= "<a href=http://" + gene.url + "/report.do?id=" + gene.objectId + ">" %> \
-      				<%= gene.primaryIdentifier %> \
+      				<%= gene.symbol %> \
       			</a> \
       			</li> \
       		<% }) %> \
@@ -668,6 +678,27 @@
       			</li> \
       		<% }); %> \
       	</ul></div>';
+    });
+
+    
+    // failurestatus.js
+    root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
+    
+      module.exports = '<span>WARNING! The following mines were unreachables: </span> \
+      				<ul class="inline"> \
+      				<% _.each(failedMines, function(mine) { %> \
+      					<li> \
+      					<%= mine %> \
+      					</li> \
+      				<% }) %> \
+      				</ul>';
+    });
+
+    
+    // mineStatus.js
+    root.require.register('MyFirstCommonJSApp/src/templates/mineStatus.js', function(exports, require, module) {
+    
+      module.exports = '<span class="mineStatus"> <div class="loading-spinner"></div>Loading: <%= name %></span>';
     });
 
     
@@ -695,9 +726,23 @@
       			<div id="pwayResultsContainer"> \
       				<div class="dataPane"></div> \
       			</div> \
-      			<div id="statusBar">All mines have been queried successfully.</div> \
+      			<div id="statusBar" class="hidden"><div class="loading-spinner">Querying mines...</div> \
       		</div> \
       	</div>';
+    });
+
+    
+    // status.js
+    root.require.register('MyFirstCommonJSApp/src/templates/status.js', function(exports, require, module) {
+    
+      module.exports = '<span>Querying <% console.log("FML: " + friendlyMines.length) %> mines.';
+    });
+
+    
+    // successstatus.js
+    root.require.register('MyFirstCommonJSApp/src/templates/successstatus.js', function(exports, require, module) {
+    
+      module.exports = '<span>All mines queried successfully.</span>';
     });
 
     
@@ -738,9 +783,12 @@
         var pwayCollection = require('../models/pathwaycollection');
         var TableView = require("./tableview");
         var TableViewHeaders = require("./tableviewheaders");
+        var MineStatusView = require("./statusview");
+        var DataPaneView = require("./datapaneview");
         var Globals = require('../modules/globals');
-      var $ = require('../modules/dependencies').$;
+        var $ = require('../modules/dependencies').$;
       
+        var failures = new Array();
         // The Application
         // --------------
         var AppView = Backbone.View.extend({
@@ -755,6 +803,7 @@
       
           //templateApp: _.template($('#tmplPwayApp').html()),
           templateShell: require('../templates/shell'),
+          myFriendlyMines: null,
       
       
           initialize: function(params) {
@@ -762,15 +811,16 @@
             console.log(JSON.stringify(params));
             var friendlyMines = params.friendlyMines;
             console.log("friendlyMines: " + friendlyMines);
+            this.myFriendlyMines = friendlyMines;
       
       
-           this.$el.html($(this.templateShell));
+            var shellTemplate = require('../templates/shell');
+            var shellHTML = _.template(shellTemplate, {"myFriendlyMines": friendlyMines});
+            
       
+           this.$el.html(this.templateShell);
+           this.$el.html(shellHTML);
       
-      
-            //var friendlyMines = params.friendlyMines;
-      
-           mediator.on("test", this.test, this);
       
             // Listen to our mediator for events
             mediator.on('column:add', this.addColumn, this);
@@ -778,14 +828,28 @@
             mediator.on('table:show', this.showTable, this);
             mediator.on('stats:hide', this.hideStats, this);
             mediator.on('notify:minefail', this.notifyFail, this);
+            mediator.on('notify:queryprogress', this.notifyQueryStatus, this);
+            mediator.on('stats:clearselected', this.clearSelected, this);
+      
       
       
            // Q.when(Helper.launchAll(friendlyMines.flymine))
+           //console.log("length: " + this.$el.find('#statusBar').append(value.mine));
+      
+           
+      
            Q.when(Helper.launchAll(params.gene, friendlyMines))
             .then(function(results) { return console.log(results) })
             .then(function() { mediator.trigger('table:show', {});});
-        
-        
+      
+      
+          },
+      
+          notifyQueryStatus: function(value) {
+      
+            statView = new MineStatusView({name: "TEST"});
+          //this.$el.find('#statusBar').append(statView.el);
+           
           },
       
           resizeContext: function() {
@@ -794,8 +858,14 @@
               });
              $(".pwayHeaders").width($("#pwayResultsId").width());
              
+             // Moves our table header over the copy:
              $("#pwayResultsId").css("margin-top", $("#pwayResultsId thead").height() * -1);
-             $(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height());
+      
+            $(".dataPane").css("top", $("#pwayHeadersContainer").height());
+             //$(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
+             $(".dataPane").css("height", $("#pwayResultsContainer").height());
+      
+             console.log("HEIGHT CHECK OF pwayResultsContainer CONTAINER: " + $("#pwayResultsContainer").height() );
       
           },
       
@@ -804,7 +874,7 @@
           },
       
           render: function() {
-            var output = _.template(this.templateShell, {});
+            var output = _.template(this.templateShell, {myFriendlyMines: this.myFriendlyMines});
             this.$el.html(output);
             return this;
           },
@@ -831,6 +901,26 @@
                 }   // esc
             });
       
+            mediator.trigger('notify:queryprogress', this.myFriendlyMines);
+      
+            // We have failures, let the user know
+      
+            var output;
+      
+            if (failures.length > 0) {
+              var failureTemplate = require('../templates/failurestatus');
+              this.$el.find("#statusBar").removeClass("hidden");
+              this.$el.find("#statusBar").addClass("warning");
+              output = _.template(failureTemplate, {failedMines: failures});
+              this.$el.find("#statusBar").html(output);
+            }
+      
+      
+            //
+            
+            
+           
+      
       
           },
       
@@ -852,11 +942,14 @@
             var detailsTemplate = require('../templates/details');
             var detailsHtml = _.template(detailsTemplate, {pway: object});
          
-            this.$el.find(".dataPane").html(detailsHtml);
+            //this.$el.find(".dataPane").html(detailsHtml);
             this.$el.find(".dataPane").addClass("active");
       
-            
-           
+            var testModel = new Backbone.Model(object);
+            console.log("testModel: " + JSON.stringify(testModel, null, 2));
+      
+            var dataView = new DataPaneView({model: testModel});
+            //this.$el.find(".dataPane").html(detailsHtml);
           },
       
           addColumn: function(colName) {
@@ -873,12 +966,19 @@
             console.log("hiding stats");
             this.$(".dataPane").removeClass("active");
             $("tr.highlighted").removeClass("highlighted");
+            
       
           },
       
           notifyFail: function(value) {
-            console.log("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPS");
-            console.log("length: " + this.$el.find('#statusBar').append(value.mine));
+            console.log("notifay failure with value: " + JSON.stringify(value, null, 2));
+           failures.push(value.mine);
+          },
+      
+          clearSelected: function() {
+            //$("tr.highlighted").removeClass("highlighted");
+            console.log("clearSelected called");
+            this.$("tr.highlighted").removeClass("highlighted");
           }
       
         });
@@ -929,6 +1029,64 @@
         });
       
         module.exports = PathwayCellTitleView;
+    });
+
+    
+    // datapaneview.js
+    root.require.register('MyFirstCommonJSApp/src/views/datapaneview.js', function(exports, require, module) {
+    
+      var $ = require('../modules/dependencies').$;
+      var mediator = require('../modules/mediator');
+      
+      
+      var DataPaneView = Backbone.View.extend({
+      
+            el: '.dataPane',
+      
+            events: {
+              'click .close': 'close'
+            },
+      
+            initialize: function(options) {
+      
+              console.log("Data Pane Created with model " + this.model);
+      
+              this.options = options || {};
+              console.log("name: " + this.model.get("name"));
+              this.render();
+              //this.render();
+      
+            },
+      
+            close: function() {
+              console.log("I am closing.");
+              this.$el.removeClass("active");
+              mediator.trigger('stats:clearselected', {});
+            },
+      
+            openMe: function() {
+      
+              //this.options.parent.$el.css("background-color", "#252525");
+               this.options.parent.$el.addClass("highlighted");
+              mediator.trigger('stats:show', {taxonId: this.options.taxonId, aModel: this.model});
+              console.log("Cell Click Detected");
+      
+            },
+      
+            render: function() {
+      
+              var detailsTemplate = require('../templates/details');
+              var detailsHtml = _.template(detailsTemplate, {pway: this.model.toJSON()});
+      
+             this.$el.html(detailsHtml);
+             console.log("final html: " + detailsHtml);
+      
+              return this.$el;
+            },
+      
+        });
+      
+      module.exports = DataPaneView;
     });
 
     
@@ -1063,6 +1221,45 @@
     });
 
     
+    // statusview.js
+    root.require.register('MyFirstCommonJSApp/src/views/statusview.js', function(exports, require, module) {
+    
+      var $ = require('../modules/dependencies').$;
+      var mediator = require('../modules/mediator');
+      
+        var mineStatusTemplate = require('../templates/mineStatus');
+      
+        var MineStatusView = Backbone.View.extend({
+      
+            initialize: function(options) {
+      
+              console.log("MineStatusView has been created with options: " + options.name);
+              this.options = options || {};
+              this.render();
+      
+            },
+      
+            success: function() {
+      
+              mediator.trigger('stats:hide', {taxonId: this.options.taxonId, aModel: this.model});
+      
+            },
+      
+            render: function() {
+      
+             var compiledTemplate = _.template(mineStatusTemplate, {name: this.options.name});
+             this.$el.append(compiledTemplate);
+             console.log("compiledTemplate " + compiledTemplate);
+              return this.$el;
+            }
+      
+      
+        });
+      
+        module.exports = MineStatusView;
+    });
+
+    
     // tableview.js
     root.require.register('MyFirstCommonJSApp/src/views/tableview.js', function(exports, require, module) {
     
@@ -1086,7 +1283,7 @@
          
       
           _.bindAll(this,'render','renderOne');
-          console.log('table view initialized');
+          //console.log('table view initialized');
       
       
         },
@@ -1097,7 +1294,7 @@
       
           this.$el.append(compiledTemplate);
           this.collection.each(this.renderOne);
-          console.log("from table view: " + this.$el.html());
+          //console.log("from table view: " + this.$el.html());
           //this.$el.append("TESTING");
           //return this;
       

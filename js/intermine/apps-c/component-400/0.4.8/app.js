@@ -234,10 +234,11 @@
         mediator.on('app:save', function() {
           return opts.cb(null, mori.into_array(db.selected));
         }, this);
-        return new AppView({
+        new AppView({
           'el': opts.target || 'body',
           db: db
         });
+        return mori.into_array(db.selected);
       };
       
     });
@@ -343,6 +344,25 @@
       };
       
       module.exports = Database;
+      
+    });
+
+    
+    // tooltips.coffee
+    root.require.register('component-400/src/models/tooltips.js', function(exports, require, module) {
+    
+      module.exports = {
+        '1': "These identifiers matched more than\none record in the database. Click on the\nADD button next to the identifier you\nwant to include in your list.",
+        'provided': "These are the identifiers you typed\nin the form on the previous page.",
+        'add': "Use these buttons to add (or remove)\nthis record to your list.",
+        'matches': "These are the records in the database that correspond\nto the identifier you entered on the previous page.",
+        '2': 'This is a summary of what is in your list.',
+        'match': "An exact match was found between what\nyou entered and what is in our database.",
+        'type_converted': "These identifiers matched records in our\ndatabase but were not the type of data you\nspecified on the previous page.",
+        'other': 'These identifiers matched old identifiers.',
+        '4': 'Identifiers that could not be resolved.',
+        '5': "Multiple identifiers matched an object."
+      };
       
     });
 
@@ -702,7 +722,7 @@
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>\n');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>\n');
           
             if (this.selected) {
               __out.push('\n    <td><span class="tiny secondary button">Remove</span></td>\n');
@@ -761,7 +781,7 @@
         }
         (function() {
           (function() {
-            __out.push('<header>\n    <span class="small secondary remove-all button">Remove all</span>\n    <span class="small success add-all button">Add all</span>\n    <h2>Which one do you want?</h2>\n    <span data-id="1" class="help"></span>\n</header>\n\n<div class="paginator"></div>\n\n<table class="striped">\n    <thead>\n        <tr>\n            <th>Identifier you provided</th>\n            <th>Matches</th>\n            <th>Action</th>\n        </tr>\n    </thead>\n    <tbody></tbody>\n</table>');
+            __out.push('<header>\n    <span class="small secondary remove-all button">Remove all</span>\n    <span class="small success add-all button">Add all</span>\n    <h2>Duplicates found - which one(s) do you want?</h2>\n    <span data-id="1" class="help hint--left">i</span>\n</header>\n\n<div class="paginator"></div>\n\n<table class="striped">\n    <thead>\n        <tr>\n            <th>Identifier you provided <span data-id="provided" class="help hint--right">i</span></a></th>\n            <th>Matches <span data-id="matches" class="help hint--left">i</span></th>\n            <th>Action <span data-id="add" class="help hint--left">i</span></th>\n        </tr>\n    </thead>\n    <tbody></tbody>\n</table>');
           
           }).call(this);
           
@@ -1111,7 +1131,11 @@
           
             __out.push(__sanitize(this.name));
           
-            __out.push('s <span data-id="3" class="help"></span></a>');
+            __out.push('s <span data-id="');
+          
+            __out.push(__sanitize(this.reason));
+          
+            __out.push('" class="help hint--top">i</span></a>');
           
           }).call(this);
           
@@ -1164,7 +1188,7 @@
         }
         (function() {
           (function() {
-            __out.push('<header>\n    <span class="small download button">Download summary</span>\n    <h2>Summary</h2>\n    <span data-id="2" class="help"></span>\n</header>\n<dl class="tabs contained"></dl>\n<ul class="tabs-content contained"></ul>');
+            __out.push('<header>\n    <span class="small download button">Download summary</span>\n    <h2>Summary</h2>\n    <span data-id="2" class="help hint--right">i</span>\n</header>\n<dl class="tabs contained"></dl>\n<ul class="tabs-content contained"></ul>');
           
           }).call(this);
           
@@ -1234,7 +1258,7 @@
               }
               __out.push('\n        </ul>\n        ');
               if (this.input.length !== 1) {
-                __out.push('\n            <span data-id="5" class="help"></span>\n        ');
+                __out.push('\n            <span data-id="5" class="help">i</span>\n        ');
               }
               __out.push('\n    </td>\n');
             }
@@ -1243,7 +1267,7 @@
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>');
           
           }).call(this);
           
@@ -1314,7 +1338,7 @@
           
             __out.push(this.matched);
           
-            __out.push('</a>\n    <span class="help-flyout"></span>\n</td>');
+            __out.push('</a>\n    <span class="help-flyout">i</span>\n</td>');
           
           }).call(this);
           
@@ -1367,62 +1391,7 @@
         }
         (function() {
           (function() {
-            __out.push('<div class="paginator"></div>\n\n<table class="striped">\n    <thead>\n        <tr>\n            <th>Identifier you provided</th>\n            <th>Match</th>\n        </tr>\n    </thead>\n    <tbody></tbody>\n</table>');
-          
-          }).call(this);
-          
-        }).call(__obj);
-        __obj.safe = __objSafe, __obj.escape = __escape;
-        return __out.join('');
-      }
-    });
-
-    
-    // tooltip.eco
-    root.require.register('component-400/src/templates/tooltip.js', function(exports, require, module) {
-    
-      module.exports = function(__obj) {
-        if (!__obj) __obj = {};
-        var __out = [], __capture = function(callback) {
-          var out = __out, result;
-          __out = [];
-          callback.call(this);
-          result = __out.join('');
-          __out = out;
-          return __safe(result);
-        }, __sanitize = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else if (typeof value !== 'undefined' && value != null) {
-            return __escape(value);
-          } else {
-            return '';
-          }
-        }, __safe, __objSafe = __obj.safe, __escape = __obj.escape;
-        __safe = __obj.safe = function(value) {
-          if (value && value.ecoSafe) {
-            return value;
-          } else {
-            if (!(typeof value !== 'undefined' && value != null)) value = '';
-            var result = new String(value);
-            result.ecoSafe = true;
-            return result;
-          }
-        };
-        if (!__escape) {
-          __escape = __obj.escape = function(value) {
-            return ('' + value)
-              .replace(/&/g, '&amp;')
-              .replace(/</g, '&lt;')
-              .replace(/>/g, '&gt;')
-              .replace(/"/g, '&quot;');
-          };
-        }
-        (function() {
-          (function() {
-            __out.push(this.text);
-          
-            __out.push('<span class="nub" style="top: auto; bottom: -10px; left: auto; right: auto;"></span>');
+            __out.push('<div class="paginator"></div>\n\n<table class="striped">\n    <thead>\n        <tr>\n            <th>Identifier you provided</th>\n            <th>Match <span data-id="matches" class="help hint--left">i</span></th>\n        </tr>\n    </thead>\n    <tbody></tbody>\n</table>');
           
           }).call(this);
           
@@ -1477,7 +1446,7 @@
           (function() {
             var item, _i, _len, _ref;
           
-            __out.push('<header>\n    <h2>No matches found</h2>\n    <span data-id="4" class="help"></span>\n</header>\n\n<ul class="inline">\n    ');
+            __out.push('<header>\n    <h2>No matches found</h2>\n    <span data-id="4" class="help hint--top">i</span>\n</header>\n\n<ul class="inline">\n    ');
           
             _ref = this.collection;
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -1501,7 +1470,7 @@
     // app.coffee
     root.require.register('component-400/src/views/app.js', function(exports, require, module) {
     
-      var $, AppView, DuplicatesTableView, HeaderView, SummaryView, TooltipView, UnresolvedView, View, mediator, _ref,
+      var $, AppView, DuplicatesTableView, HeaderView, SummaryView, UnresolvedView, View, mediator, tooltips, _ref,
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
       
@@ -1510,6 +1479,8 @@
       mediator = require('../modules/mediator');
       
       View = require('../modules/view');
+      
+      tooltips = require('../models/tooltips');
       
       HeaderView = require('./header');
       
@@ -1520,8 +1491,6 @@
       SummaryView = require('./summary');
       
       HeaderView = require('./header');
-      
-      TooltipView = require('./tooltip');
       
       AppView = (function(_super) {
         __extends(AppView, _super);
@@ -1536,8 +1505,7 @@
         AppView.prototype.template = require('../templates/app');
       
         AppView.prototype.events = {
-          'mouseover .help': 'toggleTooltip',
-          'mouseout  .help': 'toggleTooltip'
+          'mouseover .help': 'addTooltip'
         };
       
         AppView.prototype.render = function() {
@@ -1562,26 +1530,11 @@
           return this;
         };
       
-        AppView.prototype.toggleTooltip = function(ev) {
-          var id, target, view, _i, _len, _ref1, _results;
-          switch (ev.type) {
-            case 'mouseover':
-              id = (target = $(ev.target)).data('id');
-              this.views.push(view = new TooltipView({
-                'model': {
-                  id: id
-                }
-              }));
-              return target.append(view.render().el);
-            case 'mouseout':
-              _ref1 = this.views;
-              _results = [];
-              for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-                view = _ref1[_i];
-                _results.push(view.dispose());
-              }
-              return _results;
-          }
+        AppView.prototype.addTooltip = function(ev) {
+          var target;
+          target = $(ev.target);
+          target.addClass('hint--bounce');
+          return ev.target.setAttribute('data-hint', tooltips[target.data('id')]);
         };
       
         return AppView;
@@ -1596,9 +1549,11 @@
     // duplicates.coffee
     root.require.register('component-400/src/views/duplicates.js', function(exports, require, module) {
     
-      var DuplicatesTableRowView, DuplicatesTableView, FlyoutView, Table, View, formatter, mediator, _ref, _ref1,
+      var Daddy, DuplicatesTableRowView, DuplicatesTableView, FlyoutView, Table, View, formatter, mediator, _, _ref, _ref1,
         __hasProp = {}.hasOwnProperty,
         __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+      
+      _ = require('../modules/deps')._;
       
       formatter = require('../modules/formatter');
       
@@ -1610,6 +1565,8 @@
       
       Table = require('../views/table');
       
+      Daddy = Table.TableRowView;
+      
       DuplicatesTableRowView = (function(_super) {
         __extends(DuplicatesTableRowView, _super);
       
@@ -1620,12 +1577,9 @@
       
         DuplicatesTableRowView.prototype.template = require('../templates/duplicates/row');
       
-        DuplicatesTableRowView.prototype.events = {
-          'click .button': 'toggle',
-          'mouseover .help-flyout': 'toggleFlyout',
-          'mouseout .help-flyout': 'toggleFlyout',
-          'click a': 'portal'
-        };
+        DuplicatesTableRowView.prototype.events = _.extend({}, Daddy.prototype.events, {
+          'click .button': 'toggle'
+        });
       
         DuplicatesTableRowView.prototype.toggle = function() {
           var _base;
@@ -1639,7 +1593,7 @@
       
         return DuplicatesTableRowView;
       
-      })(Table.TableRowView);
+      })(Daddy);
       
       DuplicatesTableView = (function(_super) {
         __extends(DuplicatesTableView, _super);
@@ -1976,7 +1930,8 @@
             }
             this.views.push(view = new TabSwitcherView({
               'model': {
-                name: name
+                name: name,
+                'reason': reason.toLowerCase()
               },
               reason: reason
             }));
@@ -2325,45 +2280,6 @@
       exports.OtMTableView = OneToManyTableView;
       
       exports.MtOTableView = ManyToOneTableView;
-      
-    });
-
-    
-    // tooltip.coffee
-    root.require.register('component-400/src/views/tooltip.js', function(exports, require, module) {
-    
-      var TooltipView, View, tooltips,
-        __hasProp = {}.hasOwnProperty,
-        __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-      
-      View = require('../modules/view');
-      
-      TooltipView = (function(_super) {
-        __extends(TooltipView, _super);
-      
-        TooltipView.prototype.tag = 'span';
-      
-        TooltipView.prototype.template = require('../templates/tooltip');
-      
-        function TooltipView() {
-          TooltipView.__super__.constructor.apply(this, arguments);
-          this.model.text = tooltips[this.model.id];
-          this.el.addClass('tooltip tip-top noradius');
-        }
-      
-        return TooltipView;
-      
-      })(View);
-      
-      tooltips = {
-        '1': 'Choose from among duplicate matches below',
-        '2': 'These objects have been automatically added to your list',
-        '3': 'A class of matches',
-        '4': 'Identifiers that could not be resolved',
-        '5': 'Multiple identifiers matched an object'
-      };
-      
-      module.exports = TooltipView;
       
     });
 
