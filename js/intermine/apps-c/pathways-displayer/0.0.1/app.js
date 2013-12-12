@@ -567,7 +567,6 @@
           // Deal with our results.
           returnResults = function () {
       
-            console.log("orgs", orgs);
             
             return function (orgs) {
       
