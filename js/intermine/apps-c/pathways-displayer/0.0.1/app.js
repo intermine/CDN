@@ -491,7 +491,7 @@
       
             /** Return an IMJS service. **/
             getService = function (aUrl) {
-              //console.log("getService has been called");
+              console.log("getService has been called in getPathwaysByGene");
               return new IM.Service({root: aUrl});
             };
       
@@ -507,7 +507,6 @@
       
               return function(pways) {
       
-                //console.log("------------------------MAKE MODELS");
                 _.map(pways, function(pathway) {
                   pathway.url = url;
                  
@@ -524,12 +523,12 @@
       
             // Return our error
             error = function(err) {
-             // console.log("I have failed in getPathwaysByGene");
-              throw new Error("HELP ME");
+              console.log("I have failed in getPathways, ", err);
+              throw new Error(err);
             };
       
             // Wait for our results and then return them.
-            return Q(getService(url)).then(getData).then(makeModels());
+            return Q(getService(url)).then(getData).then(makeModels()).fail(error);
       
           } // End function getPathwaysByGene
       
@@ -547,12 +546,11 @@
       
           // Build our query:
           var query = {"select":["Homologue.homologue.primaryIdentifier", "Homologue.homologue.symbol"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
-          //var selfQuery = {"model":{"name":"genomic"},"select":["Gene.primaryIdentifier"],"orderBy":[{"Gene.primaryIdentifier":"ASC"}],"where":[{"path":"Gene.primaryIdentifier","op":"=","code":"A","value":pIdentifier}]};
       
           // Get our service.
           getService = function (aUrl) {
       
-            //console.log("building service");
+            console.log("building service");
             return new IM.Service({root: aUrl});
       
       
@@ -560,14 +558,15 @@
       
           // Run our query.
           getData = function (aService) {
-              //console.log("getHomologues detData called.");
-              return aService.records(query);
+              console.log("getHomologues detData called with query: ", JSON.stringify(query, null, 2));
+              var aValue = aService.records(query);
+              console.log(aValue);
+              return aValue;
           };
       
           // Deal with our results.
           returnResults = function () {
       
-            //console.log("Returning results.");
             
             return function (orgs) {
       
@@ -575,6 +574,7 @@
               var values = orgs.map(function(o) {
                 return o.homologue
               });
+      
       
               // Create a 'fake' gene that represents the primary identifier and add it to our results
               var selfObject = new Object();
@@ -584,7 +584,7 @@
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
               _.each(values, function(gene) {
-                 //console.log(gene.primaryIdentifier);
+                 console.log(gene.primaryIdentifier);
               });
               console.log("luString" + luString);
       
@@ -593,7 +593,6 @@
           }
           function error (err) {
                 console.log("I have failed in getHomologues.", err);
-                //mediator.trigger('notify:minefail', {url: url});
                 throw new Error(err);
           }
       
@@ -684,7 +683,7 @@
     // failurestatus.js
     root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
     
-      module.exports = '<span>WARNING! The following mines were unreachables: </span> \
+      module.exports = '<span>WARNING! The following mines were unreachable: </span> \
       				<ul class="inline"> \
       				<% _.each(failedMines, function(mine) { %> \
       					<li> \
@@ -692,13 +691,6 @@
       					</li> \
       				<% }) %> \
       				</ul>';
-    });
-
-    
-    // mineStatus.js
-    root.require.register('MyFirstCommonJSApp/src/templates/mineStatus.js', function(exports, require, module) {
-    
-      module.exports = '<span class="mineStatus"> <div class="loading-spinner"></div>Loading: <%= name %></span>';
     });
 
     
@@ -783,7 +775,7 @@
         var pwayCollection = require('../models/pathwaycollection');
         var TableView = require("./tableview");
         var TableViewHeaders = require("./tableviewheaders");
-        var MineStatusView = require("./statusview");
+      
         var DataPaneView = require("./datapaneview");
         var Globals = require('../modules/globals');
         var $ = require('../modules/dependencies').$;
@@ -847,7 +839,6 @@
       
           notifyQueryStatus: function(value) {
       
-            statView = new MineStatusView({name: "TEST"});
           //this.$el.find('#statusBar').append(statView.el);
            
           },
