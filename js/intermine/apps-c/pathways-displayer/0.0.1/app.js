@@ -695,13 +695,6 @@
     });
 
     
-    // mineStatus.js
-    root.require.register('MyFirstCommonJSApp/src/templates/mineStatus.js', function(exports, require, module) {
-    
-      module.exports = '<span class="mineStatus"> <div class="loading-spinner"></div>Loading: <%= name %></span>';
-    });
-
-    
     // pathwaycell.js
     root.require.register('MyFirstCommonJSApp/src/templates/pathwaycell.js', function(exports, require, module) {
     
@@ -783,7 +776,7 @@
         var pwayCollection = require('../models/pathwaycollection');
         var TableView = require("./tableview");
         var TableViewHeaders = require("./tableviewheaders");
-        var MineStatusView = require("./statusview");
+      
         var DataPaneView = require("./datapaneview");
         var Globals = require('../modules/globals');
         var $ = require('../modules/dependencies').$;
@@ -847,7 +840,6 @@
       
           notifyQueryStatus: function(value) {
       
-            statView = new MineStatusView({name: "TEST"});
           //this.$el.find('#statusBar').append(statView.el);
            
           },
