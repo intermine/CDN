@@ -671,7 +671,7 @@
       	<ul> \
       		<% _.each(pway.datasets, function(dataset) { %> \
       			<li> \
-      				<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + dataset.objectId + ">" %> \
+      				<%= "<a href=http:://" + pway.organism[0].genes[0].url + "/report.do?id=" + dataset.objectId + ">" %> \
       				<%= dataset.name %> \
       				</a> \
       			</li> \
@@ -691,6 +691,13 @@
       					</li> \
       				<% }) %> \
       				</ul>';
+    });
+
+    
+    // noresults.js
+    root.require.register('MyFirstCommonJSApp/src/templates/noresults.js', function(exports, require, module) {
+    
+      module.exports = "<table><tr><td>0 results.</td></tr></table>";
     });
 
     
@@ -775,6 +782,7 @@
         var pwayCollection = require('../models/pathwaycollection');
         var TableView = require("./tableview");
         var TableViewHeaders = require("./tableviewheaders");
+      
       
         var DataPaneView = require("./datapaneview");
         var Globals = require('../modules/globals');
@@ -874,7 +882,12 @@
           showTable: function() {
       
             console.log("showTable has been called");
-            // Build our table view.
+            if (pwayCollection.length < 1) {
+              var noResultsTemplate = require('../templates/noresults');
+              this.$("#pwayResultsContainer").append(noResultsTemplate);
+              console.log("finished appending NO RESULTS");
+            } else {
+      
             var atableView = new TableView({collection: pwayCollection});
             var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
       
@@ -882,6 +895,10 @@
             this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
             this.$("#pwayResultsContainer").append(atableView.render().el);
       
+      
+            }
+            // Build our table view.
+            
             this.resizeContext();
       
             console.log("header height: " + $('#pwayResultsId thead').height());
