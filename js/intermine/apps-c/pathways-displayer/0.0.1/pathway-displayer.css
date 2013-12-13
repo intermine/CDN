@@ -16,6 +16,10 @@ body {
   height: 300px;
 }
 
+#pathwaysappcontainer h4{
+  padding-top: 10px;
+}
+
 #pathwaysappcontainer .pwayMain {
   
   /*height: 200px;*/
