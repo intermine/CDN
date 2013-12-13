@@ -491,7 +491,7 @@
       
             /** Return an IMJS service. **/
             getService = function (aUrl) {
-              //console.log("getService has been called");
+              console.log("getService has been called in getPathwaysByGene");
               return new IM.Service({root: aUrl});
             };
       
@@ -507,7 +507,6 @@
       
               return function(pways) {
       
-                //console.log("------------------------MAKE MODELS");
                 _.map(pways, function(pathway) {
                   pathway.url = url;
                  
@@ -524,12 +523,12 @@
       
             // Return our error
             error = function(err) {
-             // console.log("I have failed in getPathwaysByGene");
-              throw new Error("HELP ME");
+              console.log("I have failed in getPathways, ", err);
+              throw new Error(err);
             };
       
             // Wait for our results and then return them.
-            return Q(getService(url)).then(getData).then(makeModels());
+            return Q(getService(url)).then(getData).then(makeModels()).fail(error);
       
           } // End function getPathwaysByGene
       
@@ -547,12 +546,11 @@
       
           // Build our query:
           var query = {"select":["Homologue.homologue.primaryIdentifier", "Homologue.homologue.symbol"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
-          //var selfQuery = {"model":{"name":"genomic"},"select":["Gene.primaryIdentifier"],"orderBy":[{"Gene.primaryIdentifier":"ASC"}],"where":[{"path":"Gene.primaryIdentifier","op":"=","code":"A","value":pIdentifier}]};
       
           // Get our service.
           getService = function (aUrl) {
       
-            //console.log("building service");
+            console.log("building service");
             return new IM.Service({root: aUrl});
       
       
@@ -560,14 +558,15 @@
       
           // Run our query.
           getData = function (aService) {
-              //console.log("getHomologues detData called.");
-              return aService.records(query);
+              console.log("getHomologues detData called with query: ", JSON.stringify(query, null, 2));
+              var aValue = aService.records(query);
+              console.log(aValue);
+              return aValue;
           };
       
           // Deal with our results.
           returnResults = function () {
       
-            //console.log("Returning results.");
             
             return function (orgs) {
       
@@ -575,6 +574,7 @@
               var values = orgs.map(function(o) {
                 return o.homologue
               });
+      
       
               // Create a 'fake' gene that represents the primary identifier and add it to our results
               var selfObject = new Object();
@@ -584,7 +584,7 @@
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
               _.each(values, function(gene) {
-                 //console.log(gene.primaryIdentifier);
+                 console.log(gene.primaryIdentifier);
               });
               console.log("luString" + luString);
       
@@ -593,7 +593,6 @@
           }
           function error (err) {
                 console.log("I have failed in getHomologues.", err);
-                //mediator.trigger('notify:minefail', {url: url});
                 throw new Error(err);
           }
       
@@ -645,19 +644,19 @@
     // details.js
     root.require.register('MyFirstCommonJSApp/src/templates/details.js', function(exports, require, module) {
     
-      //module.exports = '<h2>test</h2>';
+      //module.exports = '<h4>test</h4>';
       
       module.exports = '<div class="innerDetailsContainer"> \
       	<div class="close clickable">◀ Close</div> \
-      	<h2>Pathway Name</h2> \
+      	<h4>Pathway Name</h4> \
       	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].genes[0].pathwayId + ">" %> \
       	<%= pway.name %> \
       	</a> \
-      	<h2>Organism</h2> \
+      	<h4>Organism</h4> \
       	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].objectId + ">" %> \
       	<%= pway.organism[0].shortName %> \
       	</a> \
-      	<h2>Homologous Genes</h2> \
+      	<h4>Homologous Genes</h4> \
       	<ul class="genes"> \
       		<% _.each(pway.organism[0].genes, function(gene) { %> \
       			<% console.log(gene) %> \
@@ -668,11 +667,11 @@
       			</li> \
       		<% }) %> \
       	</ul> \
-      	<h2>Data Set(s)</h2> \
+      	<h4>Data Set(s)</h4> \
       	<ul> \
       		<% _.each(pway.datasets, function(dataset) { %> \
       			<li> \
-      				<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + dataset.objectId + ">" %> \
+      				<%= "<a href=http:://" + pway.organism[0].genes[0].url + "/report.do?id=" + dataset.objectId + ">" %> \
       				<%= dataset.name %> \
       				</a> \
       			</li> \
@@ -684,7 +683,7 @@
     // failurestatus.js
     root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
     
-      module.exports = '<span>WARNING! The following mines were unreachables: </span> \
+      module.exports = '<span>WARNING! The following mines were unreachable: </span> \
       				<ul class="inline"> \
       				<% _.each(failedMines, function(mine) { %> \
       					<li> \
@@ -692,6 +691,13 @@
       					</li> \
       				<% }) %> \
       				</ul>';
+    });
+
+    
+    // noresults.js
+    root.require.register('MyFirstCommonJSApp/src/templates/noresults.js', function(exports, require, module) {
+    
+      module.exports = "<table><tr><td>No pathways found.</td></tr></table>";
     });
 
     
@@ -776,6 +782,7 @@
         var pwayCollection = require('../models/pathwaycollection');
         var TableView = require("./tableview");
         var TableViewHeaders = require("./tableviewheaders");
+      
       
         var DataPaneView = require("./datapaneview");
         var Globals = require('../modules/globals');
@@ -875,7 +882,12 @@
           showTable: function() {
       
             console.log("showTable has been called");
-            // Build our table view.
+            if (pwayCollection.length < 1) {
+              var noResultsTemplate = require('../templates/noresults');
+              this.$("#pwayResultsContainer").append(noResultsTemplate);
+              console.log("finished appending NO RESULTS");
+            } else {
+      
             var atableView = new TableView({collection: pwayCollection});
             var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
       
@@ -883,6 +895,10 @@
             this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
             this.$("#pwayResultsContainer").append(atableView.render().el);
       
+      
+            }
+            // Build our table view.
+            
             this.resizeContext();
       
             console.log("header height: " + $('#pwayResultsId thead').height());
