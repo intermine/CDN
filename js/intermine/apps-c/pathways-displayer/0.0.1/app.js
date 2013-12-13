@@ -648,14 +648,17 @@
       
       module.exports = '<div class="innerDetailsContainer"> \
       	<div class="close clickable">◀ Close</div> \
+      	<br /> \
       	<h4>Pathway Name</h4> \
       	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].genes[0].pathwayId + ">" %> \
       	<%= pway.name %> \
       	</a> \
+      	<br /> \
       	<h4>Organism</h4> \
       	<%= "<a href=http://" + pway.organism[0].genes[0].url + "/report.do?id=" + pway.organism[0].objectId + ">" %> \
       	<%= pway.organism[0].shortName %> \
       	</a> \
+      	<br /> \
       	<h4>Homologous Genes</h4> \
       	<ul class="genes"> \
       		<% _.each(pway.organism[0].genes, function(gene) { %> \
@@ -667,6 +670,7 @@
       			</li> \
       		<% }) %> \
       	</ul> \
+      	<br /> \
       	<h4>Data Set(s)</h4> \
       	<ul> \
       		<% _.each(pway.datasets, function(dataset) { %> \
