@@ -697,7 +697,7 @@
     // noresults.js
     root.require.register('MyFirstCommonJSApp/src/templates/noresults.js', function(exports, require, module) {
     
-      module.exports = "<table><tr><td>0 results.</td></tr></table>";
+      module.exports = "<table><tr><td>No pathways found.</td></tr></table>";
     });
 
     
