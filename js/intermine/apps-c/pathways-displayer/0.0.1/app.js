@@ -845,6 +845,7 @@
       
            var loadingTemplate = require('../templates/loading');
             this.$("#pwayResultsContainer").append(loadingTemplate);
+            console.log("Loading template:" + loadingTemplate);
       
            Q.when(Helper.launchAll(params.gene, friendlyMines))
             .then(function(results) { return console.log(results) })
