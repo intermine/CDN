@@ -698,7 +698,7 @@
     // loading.js
     root.require.register('MyFirstCommonJSApp/src/templates/loading.js', function(exports, require, module) {
     
-      module.exports = '<table><tr><td><div style="float: left;" class="loading-spinner"></div><div style="float: left;">Querying mines...</div></td></tr></table>';
+      module.exports = '<table><tr><td><div style="float: left;" class="loading-spinner"></div><div style="float: left; padding-left: 5px">Querying mines...</div></td></tr></table>';
     });
 
     
