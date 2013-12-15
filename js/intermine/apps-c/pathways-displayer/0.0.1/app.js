@@ -867,7 +867,7 @@
             console.log("showLoading called");
             var loadingTemplate = require('../templates/loading');
            // this.$el.append(loadingTemplate);
-           this.$("#pwayHeadersContainer").html(loadingTemplate);
+           this.$("#pwayResultsContainer").html(loadingTemplate);
              },
       
           notifyQueryStatus: function(value) {
