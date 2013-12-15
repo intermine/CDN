@@ -916,7 +916,7 @@
       
            // console.log("atableView", atableView.el.wrap("<p></p>"));
             this.$("#pwayHeadersContainer").html(atableViewHeaders.render().el);
-            this.$("#pwayResultsContainer").append(atableView.render().el);
+            this.$("#pwayResultsContainer").html(atableView.render().el);
       
       
             }
