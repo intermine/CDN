@@ -727,6 +727,7 @@
       			</div> \
       			<div id="statusBar" class="hidden"><div class="loading-spinner">Querying mines...</div> \
       		</div> \
+      		<div class="loading-spinner"></div> \
       	</div>';
     });
 
