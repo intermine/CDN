@@ -844,7 +844,8 @@
            //console.log("length: " + this.$el.find('#statusBar').append(value.mine));
       
            var loadingTemplate = require('../templates/loading');
-            this.$("#pwayResultsContainer").append(loadingTemplate);
+            //this.$("#pwayResultsContainer").append(loadingTemplate);
+            this.$("#pwayResultsContainer").append("<h2>LOOK FOR ME, LOADING</h2>");
             console.log("Loading template:" + loadingTemplate);
             console.log("length: " + this.$("#pwayResultsContainer").length);
       
