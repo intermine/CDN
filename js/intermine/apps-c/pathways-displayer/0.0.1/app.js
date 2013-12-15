@@ -698,7 +698,7 @@
     // loading.js
     root.require.register('MyFirstCommonJSApp/src/templates/loading.js', function(exports, require, module) {
     
-      module.exports = '<table><tr><td><div style="float: left;" class="loading-spinner"></div><div style="float: left; padding-left: 5px">Querying mines...</div></td></tr></table>';
+      module.exports = '<table id="pathways-displayer-loading"><tr><td><div style="float: left;" class="loading-spinner"></div><div style="float: left; padding-left: 5px">Querying mines...</div></td></tr></table>';
     });
 
     
@@ -867,7 +867,7 @@
             console.log("showLoading called");
             var loadingTemplate = require('../templates/loading');
            // this.$el.append(loadingTemplate);
-           this.$("#pwayResultsContainer").html(loadingTemplate);
+           this.$("#pwayResultsContainer").append(loadingTemplate);
              },
       
           notifyQueryStatus: function(value) {
@@ -915,8 +915,9 @@
             var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
       
            // console.log("atableView", atableView.el.wrap("<p></p>"));
-            this.$("#pwayHeadersContainer").html(atableViewHeaders.render().el);
-            this.$("#pwayResultsContainer").html(atableView.render().el);
+           this.$("#pathways-displayer-loading").remove();
+            this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
+            this.$("#pwayResultsContainer").append(atableView.render().el);
       
       
             }
