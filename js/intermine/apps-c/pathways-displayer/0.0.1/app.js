@@ -732,9 +732,8 @@
       			<div id="pwayResultsContainer"> \
       				<div class="dataPane"></div> \
       			</div> \
-      			<div id="statusBar" class="hidden"><div class="loading-spinner">Querying mines...</div> \
+      			<div id="statusBar" class="hidden"> \
       		</div> \
-      		<div class="loading-spinner"></div> \
       	</div>';
     });
 
@@ -844,7 +843,8 @@
            // Q.when(Helper.launchAll(friendlyMines.flymine))
            //console.log("length: " + this.$el.find('#statusBar').append(value.mine));
       
-           
+           var loadingTemplate = require('../templates/loading');
+            this.$("#pwayResultsContainer").append(loadingTemplate);
       
            Q.when(Helper.launchAll(params.gene, friendlyMines))
             .then(function(results) { return console.log(results) })
