@@ -907,7 +907,7 @@
             console.log("showTable has been called");
             if (pwayCollection.length < 1) {
               var noResultsTemplate = require('../templates/noresults');
-              this.$("#pwayResultsContainer").append(noResultsTemplate);
+              this.$("#pwayResultsContainer").html(noResultsTemplate);
               console.log("finished appending NO RESULTS");
             } else {
       
