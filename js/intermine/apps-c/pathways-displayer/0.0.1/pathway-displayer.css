@@ -145,7 +145,7 @@ body {
   -moz-box-shadow:    -3px 0px 5px rgba(50, 50, 50, 0.35);
   box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);
   */
-  z-index: 2;
+  /*z-index: 2;*/
   overflow-x: hidden;
   height: 100%;
 }
