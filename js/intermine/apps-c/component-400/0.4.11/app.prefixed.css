@@ -1,0 +1,181 @@
+.-im-component400 h2 {
+  font-size: 20px;
+  display: inline-block;
+  margin: 0;
+  line-height: .5;
+}
+
+.-im-component400 table {
+  width: 100%;
+}
+
+.-im-component400 a {
+  cursor: pointer;
+}
+
+.-im-component400 .help,
+.-im-component400 .help-flyout {
+  cursor: pointer;
+  content: "i";
+  padding: 0 4px;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #fff;
+  background: #2ba6cb;
+  display: inline-block;
+  font-family: serif;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: lowercase;
+  vertical-align: middle;
+}
+
+.-im-component400 .help:after,
+.-im-component400 .help-flyout:after,
+.-im-component400 .help:before,
+.-im-component400 .help-flyout:before,
+.-im-component400 .help .flyout,
+.-im-component400 .help-flyout .flyout {
+  font-style: normal;
+  text-transform: none;
+  white-space: pre;
+  text-align: left;
+  font-family: sans-serif;
+}
+
+.-im-component400 .help-flyout {
+  position: relative;
+}
+
+.-im-component400 .help-flyout .flyout {
+  position: absolute;
+  color: #333;
+  font-weight: normal;
+  top: -20px;
+  left: 20px;
+  width: auto;
+  padding: 2px;
+}
+
+.-im-component400 .help-flyout .flyout tr td:first-child {
+  text-transform: capitalize;
+}
+
+.-im-component400 .section {
+  padding: 10px;
+}
+
+.-im-component400 .section:nth-child(even) {
+  border: 1px solid #e6e6e6;
+  border-width: 1px 0;
+}
+
+.-im-component400 .section header {
+  margin-bottom: 10px;
+  line-height: 37px;
+}
+
+.-im-component400 .section header .button {
+  margin-left: 10px;
+  float: right;
+}
+
+.-im-component400 .section header * {
+  vertical-align: middle;
+}
+
+.-im-component400 .header header table {
+  width: auto;
+  border: 0;
+}
+
+.-im-component400 .header header table tr {
+  background: #fff;
+}
+
+.-im-component400 .header header table tr:nth-child(1) {
+  font-weight: bold;
+}
+
+.-im-component400 .header header table tr td {
+  padding: 0;
+  font-size: 20px;
+}
+
+.-im-component400 .header header table tr td:nth-child(1) {
+  text-align: right;
+}
+
+.-im-component400 .header header table tr td:nth-child(2) {
+  padding-left: 5px;
+  text-align: left;
+}
+
+.-im-component400 .duplicates table {
+  border: 1px solid #ddd !important;
+  margin-bottom: 10px;
+}
+
+.-im-component400 table.striped thead th .help {
+  margin-bottom: 2px;
+}
+
+.-im-component400 table.striped tbody td.odd {
+  background: #f9f9f9;
+}
+
+.-im-component400 table.striped tbody td.even {
+  background: #fff;
+}
+
+.-im-component400 .summary header .help.right {
+  margin: 7px 0 0 10px;
+}
+
+.-im-component400 .summary dl.tabs dd a {
+  text-transform: capitalize;
+}
+
+.-im-component400 ul.inline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+.-im-component400 ul.inline li {
+  display: inline-block;
+}
+
+.-im-component400 ul.inline li:not(:last-child):after {
+  content: ", ";
+}
+
+.-im-component400 div.paginator .dropdown.secondary::after {
+  border-color: #1d1d1d transparent transparent transparent;
+}
+
+.-im-component400 div.paginator .dropdown ul {
+  top: 27px;
+  width: 0;
+}
+
+.-im-component400 div.paginator ul.pagination {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.-im-component400 div.paginator ul.pagination li {
+  display: inline-block;
+  margin-left: 0;
+  float: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.-im-component400 div.paginator ul.pagination li.arrow:not(.unavailable) {
+  background: #e9f6fa;
+}
