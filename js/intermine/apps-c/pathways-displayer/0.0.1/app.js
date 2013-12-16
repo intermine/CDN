@@ -919,8 +919,11 @@
       
            // Get the color of our previous parent container
            var parentColor = this.$el.prev('div').css('background-color');
-           this.$("#pwayHeadersContainer").css("background-color", parentColor);
-           var pColor = this.$('#pwayHeadersContainer').css('background-color');
+           
+           var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
+      
+           this.$("#pwayHeadersContainer").css("background-color", pColor);
+      
            console.log("PCOLOR: " + pColor);
       
       
