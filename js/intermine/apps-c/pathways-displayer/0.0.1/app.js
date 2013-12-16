@@ -209,7 +209,7 @@
     
     
     // main.js
-    root.require.register('MyFirstCommonJSApp/src/main.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/main.js', function(exports, require, module) {
     
       var AppView = require('./views/appview');
       var Helper = require('./modules/helper');
@@ -225,7 +225,7 @@
       	view.showLoading();
       
       
-      	console.log("Require Debug Test");
+      
       
       	//console.log(view.re);
       
@@ -237,7 +237,7 @@
 
     
     // pathwaycollection.js
-    root.require.register('MyFirstCommonJSApp/src/models/pathwaycollection.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/models/pathwaycollection.js', function(exports, require, module) {
     
       var PathwayModel = require('./pathwaymodel');
       
@@ -292,7 +292,7 @@
 
     
     // pathwaymodel.js
-    root.require.register('MyFirstCommonJSApp/src/models/pathwaymodel.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/models/pathwaymodel.js', function(exports, require, module) {
     
       var mediator = require('../modules/mediator');
       
@@ -388,7 +388,7 @@
 
     
     // dependencies.js
-    root.require.register('MyFirstCommonJSApp/src/modules/dependencies.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/modules/dependencies.js', function(exports, require, module) {
     
       var $;
             
@@ -404,7 +404,7 @@
 
     
     // globals.js
-    root.require.register('MyFirstCommonJSApp/src/modules/globals.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/modules/globals.js', function(exports, require, module) {
     
       var columns = [];
       exports.columns = columns;
@@ -412,7 +412,7 @@
 
     
     // helper.js
-    root.require.register('MyFirstCommonJSApp/src/modules/helper.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/modules/helper.js', function(exports, require, module) {
     
       var $ = require('./dependencies').$;
       var pwayCollection = require('../models/pathwaycollection.js');
@@ -422,14 +422,14 @@
        var launchAll = function(gene, url) {
       
       
-        //console.log("launchAll has been called");
+        ////console.log("launchAll has been called");
       
           /** Return a promise **/
           //return function (genes) {
       
             /// Array to store our pathway
             death = function(err) {
-              //console.log("death: " + err);
+              ////console.log("death: " + err);
             }
       
             var promiseArray = [];
@@ -455,14 +455,14 @@
               return getPathwaysByGene(location, returned, "collection");
             },
             function(e) {
-              //console.log(e, e.stack);
+              ////console.log(e, e.stack);
               mediator.trigger('notify:minefail', {mine: mine, err: e});
               throw e;
             }
           ).fail(error);
       
           function error (err) {
-            //console.log("error has been thrown", err.stack);
+            ////console.log("error has been thrown", err.stack);
           }
       
       /*
@@ -482,7 +482,7 @@
             // Build a lookup string from our array of genes:
             luString = genes.map(function(gene) {return "\"" + gene.primaryIdentifier + "\""}).join(',');
       
-            //console.log("luString: ", luString);
+            ////console.log("luString: ", luString);
       
             // Build our query using our lookup string.
             query = {"select":["Pathway.genes.primaryIdentifier","Pathway.genes.symbol","Pathway.id","Pathway.dataSets.name","Pathway.name","Pathway.identifier","Pathway.genes.organism.shortName","Pathway.genes.organism.taxonId"],"orderBy":[{"Pathway.name":"ASC"}],"where":{"Pathway.genes": {LOOKUP: luString}}};
@@ -492,13 +492,13 @@
       
             /** Return an IMJS service. **/
             getService = function (aUrl) {
-              console.log("getService has been called in getPathwaysByGene");
+              //console.log("getService has been called in getPathwaysByGene");
               return new IM.Service({root: aUrl});
             };
       
             /** Return query results **/
             getData = function (aService) {
-                //console.log("------------------------getData has also been called");
+                ////console.log("------------------------getData has also been called");
                 return aService.records(query);
             };
       
@@ -524,7 +524,7 @@
       
             // Return our error
             error = function(err) {
-              console.log("I have failed in getPathways, ", err);
+              //console.log("I have failed in getPathways, ", err);
               throw new Error(err);
             };
       
@@ -551,7 +551,7 @@
           // Get our service.
           getService = function (aUrl) {
       
-            console.log("building service");
+            //console.log("building service");
             return new IM.Service({root: aUrl});
       
       
@@ -559,9 +559,9 @@
       
           // Run our query.
           getData = function (aService) {
-              console.log("getHomologues detData called with query: ", JSON.stringify(query, null, 2));
+              //console.log("getHomologues detData called with query: ", JSON.stringify(query, null, 2));
               var aValue = aService.records(query);
-              console.log(aValue);
+              //console.log(aValue);
               return aValue;
           };
       
@@ -585,15 +585,15 @@
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
               _.each(values, function(gene) {
-                 console.log(gene.primaryIdentifier);
+                 //console.log(gene.primaryIdentifier);
               });
-              console.log("luString" + luString);
+              //console.log("luString" + luString);
       
               return values;
             }
           }
           function error (err) {
-                console.log("I have failed in getHomologues.", err);
+                //console.log("I have failed in getHomologues.", err);
                 throw new Error(err);
           }
       
@@ -628,7 +628,7 @@
 
     
     // mediator.js
-    root.require.register('MyFirstCommonJSApp/src/modules/mediator.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/modules/mediator.js', function(exports, require, module) {
     
         var mediator = _.extend({}, Backbone.Events);
         module.exports = mediator;
@@ -636,14 +636,14 @@
 
     
     // celltitle.js
-    root.require.register('MyFirstCommonJSApp/src/templates/celltitle.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/celltitle.js', function(exports, require, module) {
     
       module.exports = '<%= name %>';
     });
 
     
     // details.js
-    root.require.register('MyFirstCommonJSApp/src/templates/details.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/details.js', function(exports, require, module) {
     
       //module.exports = '<h4>test</h4>';
       
@@ -682,7 +682,7 @@
 
     
     // failurestatus.js
-    root.require.register('MyFirstCommonJSApp/src/templates/failurestatus.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/failurestatus.js', function(exports, require, module) {
     
       module.exports = '<span>WARNING! The following mines were unreachable: </span> \
       				<ul class="inline"> \
@@ -696,35 +696,35 @@
 
     
     // loading.js
-    root.require.register('MyFirstCommonJSApp/src/templates/loading.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/loading.js', function(exports, require, module) {
     
       module.exports = '<table id="pathways-displayer-loading"><tr><td><div style="float: left;" class="loading-spinner"></div><div style="float: left; padding-left: 5px">Querying mines...</div></td></tr></table>';
     });
 
     
     // noresults.js
-    root.require.register('MyFirstCommonJSApp/src/templates/noresults.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/noresults.js', function(exports, require, module) {
     
       module.exports = "<table><tr><td>No pathways found.</td></tr></table>";
     });
 
     
     // pathwaycell.js
-    root.require.register('MyFirstCommonJSApp/src/templates/pathwaycell.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/pathwaycell.js', function(exports, require, module) {
     
       module.exports = '<div class="circle"></div>';
     });
 
     
     // results.js
-    root.require.register('MyFirstCommonJSApp/src/templates/results.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/results.js', function(exports, require, module) {
     
       module.exports = '<table id="myTableResults"></table>';
     });
 
     
     // shell.js
-    root.require.register('MyFirstCommonJSApp/src/templates/shell.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/shell.js', function(exports, require, module) {
     
       module.exports = '\
       	<div class="pwayWrapper"> \
@@ -740,21 +740,21 @@
 
     
     // status.js
-    root.require.register('MyFirstCommonJSApp/src/templates/status.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/status.js', function(exports, require, module) {
     
       module.exports = '<span>Querying <% console.log("FML: " + friendlyMines.length) %> mines.';
     });
 
     
     // successstatus.js
-    root.require.register('MyFirstCommonJSApp/src/templates/successstatus.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/successstatus.js', function(exports, require, module) {
     
       module.exports = '<span>All mines queried successfully.</span>';
     });
 
     
     // tableheaders.js
-    root.require.register('MyFirstCommonJSApp/src/templates/tableheaders.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/tableheaders.js', function(exports, require, module) {
     
       module.exports = '<thead>\
       		<tr>\
@@ -768,7 +768,7 @@
 
     
     // tableheaderssanstable.js
-    root.require.register('MyFirstCommonJSApp/src/templates/tableheaderssanstable.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/templates/tableheaderssanstable.js', function(exports, require, module) {
     
       module.exports = '<thead>\
       		<tr>\
@@ -782,7 +782,7 @@
 
     
     // appview.js
-    root.require.register('MyFirstCommonJSApp/src/views/appview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/appview.js', function(exports, require, module) {
     
         // Include helper functions:
         var mediator = require("../modules/mediator");
@@ -818,9 +818,9 @@
       
       
             $(window).on("resize",this.resizeContext)
-            console.log(JSON.stringify(params));
+            //console.log(JSON.stringify(params));
             var friendlyMines = params.friendlyMines;
-            console.log("friendlyMines: " + friendlyMines);
+            //console.log("friendlyMines: " + friendlyMines);
             this.myFriendlyMines = friendlyMines;
       
       
@@ -829,7 +829,7 @@
             
       
            this.$el.html(this.templateShell);
-           console.log("this el: ", this.$el);
+           //console.log("this el: ", this.$el);
            //this.$el.html(shellHTML);
       
       
@@ -845,14 +845,14 @@
       
       
            // Q.when(Helper.launchAll(friendlyMines.flymine))
-           //console.log("length: " + this.$el.find('#statusBar').append(value.mine));
+           ////console.log("length: " + this.$el.find('#statusBar').append(value.mine));
       
            
             //this.$("#pwayResultsContainer").append(loadingTemplate);
             //this.$("#pwayResultsContainer").append("<h2>LOOK FOR ME, LOADING</h2>");
             
-            //console.log("Loading template:" + loadingTemplate);
-            //console.log("length: " + this.$("#pwayResultsContainer").length);
+            ////console.log("Loading template:" + loadingTemplate);
+            ////console.log("length: " + this.$("#pwayResultsContainer").length);
            // mediator.trigger('notify:loading', {});
       
            Q.when(Helper.launchAll(params.gene, friendlyMines))
@@ -863,8 +863,8 @@
           },
       
           showLoading: function() {
-            console.log("this html: " + this.$el.html());
-            console.log("showLoading called");
+            //console.log("this html: " + this.$el.html());
+            //console.log("showLoading called");
             var loadingTemplate = require('../templates/loading');
            // this.$el.append(loadingTemplate);
            this.$("#pwayResultsContainer").append(loadingTemplate);
@@ -889,7 +889,7 @@
              //$(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
              $(".dataPane").css("height", $("#pwayResultsContainer").height());
       
-             console.log("HEIGHT CHECK OF pwayResultsContainer CONTAINER: " + $("#pwayResultsContainer").height() );
+             ////console.log("HEIGHT CHECK OF pwayResultsContainer CONTAINER: " + $("#pwayResultsContainer").height() );
       
           },
       
@@ -904,18 +904,24 @@
           // Show our data table:
           showTable: function() {
       
-            console.log("showTable has been called");
+            //console.log("showTable has been called");
             if (pwayCollection.length < 1) {
               var noResultsTemplate = require('../templates/noresults');
               this.$("#pwayResultsContainer").html(noResultsTemplate);
-              console.log("finished appending NO RESULTS");
+              //console.log("finished appending NO RESULTS");
             } else {
       
             var atableView = new TableView({collection: pwayCollection});
             var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
       
-           // console.log("atableView", atableView.el.wrap("<p></p>"));
+           // //console.log("atableView", atableView.el.wrap("<p></p>"));
            this.$("#pathways-displayer-loading").remove();
+      
+           // Get the color of our previous parent container
+           var parentColor = this.$el.prev('div').css('background-color');
+           this.$("#pwayHeadersContainer").css("background-color", parentColor)
+      
+      
             this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
             this.$("#pwayResultsContainer").append(atableView.render().el);
       
@@ -927,7 +933,7 @@
             
             this.resizeContext();
       
-            console.log("header height: " + $('#pwayResultsId thead').height());
+            //console.log("header height: " + $('#pwayResultsId thead').height());
       
             $(document).keyup(function(e) {
               if (e.keyCode == 27) {
@@ -980,7 +986,7 @@
             this.$el.find(".dataPane").addClass("active");
       
             var testModel = new Backbone.Model(object);
-            console.log("testModel: " + JSON.stringify(testModel, null, 2));
+            //console.log("testModel: " + JSON.stringify(testModel, null, 2));
       
             var dataView = new DataPaneView({model: testModel});
             //this.$el.find(".dataPane").html(detailsHtml);
@@ -997,7 +1003,7 @@
           },
       
           hideStats: function() {
-            console.log("hiding stats");
+            //console.log("hiding stats");
             this.$(".dataPane").removeClass("active");
             $("tr.highlighted").removeClass("highlighted");
             
@@ -1005,13 +1011,13 @@
           },
       
           notifyFail: function(value) {
-            console.log("notifay failure with value: " + JSON.stringify(value, null, 2));
+            //console.log("notifay failure with value: " + JSON.stringify(value, null, 2));
            failures.push(value.mine);
           },
       
           clearSelected: function() {
             //$("tr.highlighted").removeClass("highlighted");
-            console.log("clearSelected called");
+            //console.log("clearSelected called");
             this.$("tr.highlighted").removeClass("highlighted");
           }
       
@@ -1023,7 +1029,7 @@
 
     
     // celltitleview.js
-    root.require.register('MyFirstCommonJSApp/src/views/celltitleview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/celltitleview.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var mediator = require('../modules/mediator');
@@ -1067,7 +1073,7 @@
 
     
     // datapaneview.js
-    root.require.register('MyFirstCommonJSApp/src/views/datapaneview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/datapaneview.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var mediator = require('../modules/mediator');
@@ -1125,7 +1131,7 @@
 
     
     // pathwaycellview.js
-    root.require.register('MyFirstCommonJSApp/src/views/pathwaycellview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/pathwaycellview.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var mediator = require('../modules/mediator');
@@ -1152,7 +1158,7 @@
               //this.options.parent.$el.css("background-color", "#252525");
                this.options.parent.$el.addClass("highlighted");
               mediator.trigger('stats:show', {taxonId: this.options.taxonId, aModel: this.model});
-              console.log("Cell Click Detected");
+              //console.log("Cell Click Detected");
       
             },
       
@@ -1160,7 +1166,7 @@
       
       
              var cellTemplate = _.template(CellTemplate, {})
-             console.log("cellTemplate: ", cellTemplate);
+             //console.log("cellTemplate: ", cellTemplate);
       
              this.$el.html(cellTemplate);
       
@@ -1180,7 +1186,7 @@
 
     
     // pathwayview.js
-    root.require.register('MyFirstCommonJSApp/src/views/pathwayview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/pathwayview.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var PathwayCellView = require('./pathwaycellview');
@@ -1256,7 +1262,7 @@
 
     
     // statusview.js
-    root.require.register('MyFirstCommonJSApp/src/views/statusview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/statusview.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var mediator = require('../modules/mediator');
@@ -1283,7 +1289,7 @@
       
              var compiledTemplate = _.template(mineStatusTemplate, {name: this.options.name});
              this.$el.append(compiledTemplate);
-             console.log("compiledTemplate " + compiledTemplate);
+             //console.log("compiledTemplate " + compiledTemplate);
               return this.$el;
             }
       
@@ -1295,7 +1301,7 @@
 
     
     // tableview.js
-    root.require.register('MyFirstCommonJSApp/src/views/tableview.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/tableview.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var mediator = require("../modules/mediator");
@@ -1348,7 +1354,7 @@
 
     
     // tableviewheaders.js
-    root.require.register('MyFirstCommonJSApp/src/views/tableviewheaders.js', function(exports, require, module) {
+    root.require.register('PathwaysDisplayer/src/views/tableviewheaders.js', function(exports, require, module) {
     
       var $ = require('../modules/dependencies').$;
       var mediator = require("../modules/mediator");
@@ -1368,12 +1374,12 @@
          
       
       
-          console.log('table view initialized');     
+          //console.log('table view initialized');     
         },
         render: function() {
       
           var compiledTemplate = _.template(templateTableHeaders, {columns: Globals.columns});
-          console.log("compiledTemplate: " + compiledTemplate);
+          //console.log("compiledTemplate: " + compiledTemplate);
           this.$el.append(compiledTemplate);
       
           //this.collection.each(this.renderOne);
@@ -1388,12 +1394,12 @@
   })();
 
   // Return the main app.
-  var main = root.require("MyFirstCommonJSApp/src/main.js");
+  var main = root.require("PathwaysDisplayer/src/main.js");
 
   // AMD/RequireJS.
   if (typeof define !== 'undefined' && define.amd) {
   
-    define("MyFirstCommonJSApp", [ /* load deps ahead of time */ ], function () {
+    define("PathwaysDisplayer", [ /* load deps ahead of time */ ], function () {
       return main;
     });
   
@@ -1407,12 +1413,12 @@
   // Globally exported.
   else {
   
-    root["MyFirstCommonJSApp"] = main;
+    root["PathwaysDisplayer"] = main;
   
   }
 
   // Alias our app.
   
-  root.require.alias("MyFirstCommonJSApp/src/main.js", "MyFirstCommonJSApp/index.js");
+  root.require.alias("PathwaysDisplayer/src/main.js", "PathwaysDisplayer/index.js");
   
 })();
