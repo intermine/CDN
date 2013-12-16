@@ -16585,6 +16585,7 @@ r("mori.zip.remove",function(a){Q.c(a,0,null);var b=Q.c(a,1,null),b=xc(b)?T.a(cc
               newline = "\n";
           }
         }
+        console.log('line endings:', new String(newline));
         return _.map(rows, function(row) {
           return _.map(row, escape).join(delimiter);
         }).join(newline);
