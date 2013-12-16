@@ -373,9 +373,9 @@
     // csv.coffee
     root.require.register('component-400/src/modules/csv.js', function(exports, require, module) {
     
-      var escape, platform, _, _ref;
+      var escape, _;
       
-      _ref = require('./deps'), _ = _ref._, platform = _ref.platform;
+      _ = require('./deps')._;
       
       escape = function(text) {
         if (!text) {
@@ -390,7 +390,7 @@
         }
         if (!newline) {
           switch (false) {
-            case platform.os.family !== 'Windows':
+            case navigator.appVersion.indexOf('Win') === -1:
               newline = "\r\n";
               break;
             default:
@@ -403,7 +403,7 @@
       };
       
       exports.read = function(data, delimiter) {
-        var column, foundDelimiter, matches, objPattern, quoted, row, sheet, value, _ref1;
+        var column, foundDelimiter, matches, objPattern, quoted, row, sheet, value, _ref;
         if (delimiter == null) {
           delimiter = ',';
         }
@@ -416,7 +416,7 @@
         row = 0;
         column = 0;
         while (matches = objPattern.exec(data)) {
-          _ref1 = matches.slice(1), foundDelimiter = _ref1[0], quoted = _ref1[1], value = _ref1[2];
+          _ref = matches.slice(1), foundDelimiter = _ref[0], quoted = _ref[1], value = _ref[2];
           if (foundDelimiter && (foundDelimiter !== delimiter)) {
             row++;
             column = 0;
@@ -444,7 +444,6 @@
         mori: mori,
         BackboneEvents: BackboneEvents,
         saveAs: saveAs,
-        platform: platform,
         $: $
       };
       
