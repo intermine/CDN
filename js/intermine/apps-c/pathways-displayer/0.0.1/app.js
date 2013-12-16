@@ -919,7 +919,12 @@
       
            // Get the color of our previous parent container
            var parentColor = this.$el.prev('div').css('background-color');
-           this.$("#pwayHeadersContainer").css("background-color", parentColor)
+           
+           var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
+      
+           this.$("#pwayHeadersContainer").css("background-color", pColor);
+      
+           console.log("PCOLOR: " + pColor);
       
       
             this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
@@ -1089,17 +1094,17 @@
       
             initialize: function(options) {
       
-              console.log("Data Pane Created with model " + this.model);
+              //console.log("Data Pane Created with model " + this.model);
       
               this.options = options || {};
-              console.log("name: " + this.model.get("name"));
+             // console.log("name: " + this.model.get("name"));
               this.render();
               //this.render();
       
             },
       
             close: function() {
-              console.log("I am closing.");
+             // console.log("I am closing.");
               this.$el.removeClass("active");
               mediator.trigger('stats:clearselected', {});
             },
@@ -1109,7 +1114,7 @@
               //this.options.parent.$el.css("background-color", "#252525");
                this.options.parent.$el.addClass("highlighted");
               mediator.trigger('stats:show', {taxonId: this.options.taxonId, aModel: this.model});
-              console.log("Cell Click Detected");
+              //console.log("Cell Click Detected");
       
             },
       
@@ -1119,7 +1124,7 @@
               var detailsHtml = _.template(detailsTemplate, {pway: this.model.toJSON()});
       
              this.$el.html(detailsHtml);
-             console.log("final html: " + detailsHtml);
+            // console.log("final html: " + detailsHtml);
       
               return this.$el;
             },
@@ -1209,7 +1214,7 @@
       
           open: function() {
       
-            console.log("Row Click Detected");    
+            //console.log("Row Click Detected");    
             
           },
       
