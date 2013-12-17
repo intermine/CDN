@@ -668,7 +668,6 @@
       	<h4>Homologous Genes</h4> \
       	<ul class="genes"> \
       		<% _.each(pway.organism[0].genes, function(gene) { %> \
-      			<% console.log(gene) %> \
       			<li> \
       			<%= "<a href=" + gene.url + "/report.do?id=" + gene.objectId + ">" %> \
       				<%= gene.symbol %> \
@@ -904,7 +903,7 @@
       
           // Show our data table:
           showTable: function(args) {
-            console.log("showTable called with color: " + args.backgroundColor);
+            //console.log("showTable called with color: " + args.backgroundColor);
             //console.log("showTable has been called");
             if (pwayCollection.length < 1) {
               var noResultsTemplate = require('../templates/noresults');
@@ -969,10 +968,10 @@
           },
       
           updateTableColors:function() {
-            console.log("coloring headers2");
+            //console.log("coloring headers2");
             var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
             this.$("#pwayHeadersContainer").css("background-color", pColor);
-            console.log("PCOLOR: " + pColor);
+            //console.log("PCOLOR: " + pColor);
            
             
       
