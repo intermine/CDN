@@ -223,6 +223,8 @@
       	view.setElement($(params.target));
       	view.render();
       	view.showLoading();
+      	view.updateTableColors();
+      
       
       
       
@@ -910,11 +912,7 @@
            // Get the color of our previous parent container
            var parentColor = this.$el.prev('div').css('background-color');
            
-           var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
-      
-           this.$("#pwayHeadersContainer").css("background-color", pColor);
-      
-            console.log("PCOLOR: " + pColor);
+           
       
       
             this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
@@ -958,6 +956,14 @@
             
            
       
+      
+          },
+      
+          updateTableColors:function() {
+            console.log("coloring headers");
+            var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
+           this.$("#pwayHeadersContainer").css("background-color", pColor);
+            console.log("PCOLOR: " + pColor);
       
           },
       
