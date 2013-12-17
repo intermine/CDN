@@ -224,10 +224,11 @@
       	view.render();
       	view.showLoading();
       
+      /*
       	setTimeout(function() {
       		view.updateTableColors();
       
-      	}, 5000);
+      	}, 5000);*/
       	
       
       
@@ -843,6 +844,7 @@
             mediator.on('stats:show', this.showStats, this);
             mediator.on('table:show', this.showTable, this);
             mediator.on('stats:hide', this.hideStats, this);
+            mediator.on('table:color', this.updateTableColors, this);
             mediator.on('notify:minefail', this.notifyFail, this);
             mediator.on('notify:queryprogress', this.notifyQueryStatus, this);
             mediator.on('stats:clearselected', this.clearSelected, this);
@@ -855,7 +857,8 @@
       
            Q.when(Helper.launchAll(params.gene, friendlyMines))
             //.then(function(results) { return console.log(results) })
-            .then(function() { mediator.trigger('table:show', {backgroundColor: params.themeColor});});
+            .then(function() { mediator.trigger('table:show', {backgroundColor: params.themeColor});})
+            .then(function() { mediator.trigger('table:color', {})});
       
       
           },
