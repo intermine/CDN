@@ -1,16 +1,3 @@
-
-
-body {
-  /*background: #1a1a1a;*/
-
-
-
-  
-}
-
-
-
-
 #pathwaysappcontainer {
   display: block;
   height: 300px;
@@ -27,8 +14,6 @@ body {
   top:0;
   left:0;
   width: 100%;
-
-  
 }
 
 #pathwaysappcontainer .pwayMain table {
@@ -40,71 +25,14 @@ body {
 
 }
 
-
-
 #pathwaysappcontainer .pwayResults tr:hover td{
   background-color: #FFF3D3;
 }
 
 
-
-/*
-
-#pathwaysappcontainer .pwayMain .pwayResults tr {
-  background-color: white;
-}*/
-
 #pathwaysappcontainer .pwayMain .pwayResults tr.highlighted {
   background-color: #FFF3D3;
 }
-
-/*
-#pathwaysappcontainer .pwayMain td {
-  padding: 2px;
-  border: 1px solid #bdbdbd;
-}*/
-/*
-#pathwaysappcontainer thead tr th {
-  padding: 5px;
-  background: black;
-  color: white;
-}*/
-/*
-#pwayResultsId thead {
-  border: none;
-  padding: 0;
-}*/
-/*
-#pathwaysappcontainer .pwayMain .hit {
-  padding: 5px;
-  border: 1px solid #bdbdbd;
-}*/
-
-/*
-#pathwaysappcontainer .pwayDetails {
-
-  border: 1px solid #bdbdbd;
-  padding: 10px 5px 10px 5px;
-  background: white;
-  color: black;
-
-
-}*/
-
-/*
-#pathwaysappcontainer .pwayDetails a {
-  color: orange;
-}*/
-
-/*
-#pathwaysappcontainer .pwayHeaders {
-  border: 1px solid #bdbdbd;
-  font-size: 14px;
-  padding: 5px;
-  background: black;
-  color: white;
-  display: block;
-}*/
 
 #pathwaysappcontainer .circle {
   border-radius: 50%;
@@ -112,19 +40,11 @@ body {
   height: 9px;
   background: orange;
   margin: auto;
-
   vertical-align: top;
-
-  
-
-
-  /* width and height can be anything, as long as they're equal */
 }
 
 #pathwaysappcontainer .clickable:hover {
-
  cursor:pointer;
-
 }
 
 #pathwaysappcontainer .dataPane {
@@ -162,17 +82,6 @@ body {
   box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);*/
 }
 
-/*
-.dataPane ul {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}*/
-
-/*
-.dataPane h2 {
-  font-size: 14px;
-}*/
 
 #pathwaysappcontainer .flyin {
 -webkit-transition: opacity 400ms linear, width 80ms ease-in-out, right 200ms ease-out;
@@ -184,40 +93,19 @@ body {
   width: 50%;
 }
 
-
-
 .pwayWrapper {
   position:relative;
-  /*height: 200px;*/
 }
 
 #pathwaysappcontainer table.detailsTable {
   width: 100%;
 }
 
-/*
-table.detailsTable td {
-  padding: 5px;
-}*/
-
-/*
-table.detailsTable th {
-  font-size: 18px;
-  text-align: center;
-}*/
-
 #pwayResultsContainer {
   overflow: auto;
   overflow-x: hidden;
   max-height: 250px;
 }
-
-#pwayResultsId {
-  /*height: 100px;*/
-
-}
-
-
 
 #pathwaysappcontainer .innerDetailsContainer {
   padding: 0px 10px 0px 10px;
@@ -228,9 +116,6 @@ table.detailsTable th {
   border: 1px solid #bdbdbd;
   font-size: 10px;
   padding: 2px;
-  /*background: black;*/
-  /*color: white;*/
-  
 }
 
 #pathwaysappcontainer .hidden {
