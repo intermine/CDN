@@ -223,7 +223,7 @@
       	view.setElement($(params.target));
       	view.render();
       	view.showLoading();
-      	view.updateTableColors();
+      
       
       
       
@@ -890,6 +890,7 @@
           render: function() {
             var output = _.template(this.templateShell, {myFriendlyMines: this.myFriendlyMines});
             this.$el.html(output);
+            this.updateTableColors();
             return this;
           },
       
@@ -962,8 +963,9 @@
           updateTableColors:function() {
             console.log("coloring headers");
             var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
-           this.$("#pwayHeadersContainer").css("background-color", pColor);
             console.log("PCOLOR: " + pColor);
+           this.$("#pwayHeadersContainer").css("background-color", pColor);
+            
       
           },
       
