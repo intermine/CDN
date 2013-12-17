@@ -223,6 +223,7 @@
       	view.setElement($(params.target));
       	view.render();
       	view.showLoading();
+      	view.updateTableColors();
       
       
       
@@ -961,10 +962,11 @@
           },
       
           updateTableColors:function() {
-            console.log("coloring headers");
+            console.log("coloring headers2");
             var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
+            this.$("#pwayHeadersContainer").css("background-color", pColor);
             console.log("PCOLOR: " + pColor);
-           this.$("#pwayHeadersContainer").css("background-color", pColor);
+           
             
       
           },
