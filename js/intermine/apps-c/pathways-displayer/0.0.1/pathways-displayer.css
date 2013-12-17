@@ -106,7 +106,7 @@ body {
   display: block;
 }*/
 
-.circle {
+#pathwaysappcontainer .circle {
   border-radius: 50%;
   width: 9px;
   height: 9px;
@@ -121,13 +121,13 @@ body {
   /* width and height can be anything, as long as they're equal */
 }
 
-.clickable:hover {
+#pathwaysappcontainer .clickable:hover {
 
  cursor:pointer;
 
 }
 
-.dataPane {
+#pathwaysappcontainer .dataPane {
   
   position: absolute;
   top:0;
@@ -150,7 +150,7 @@ body {
   height: 100%;
 }
 
-.active {
+#pathwaysappcontainer .active {
   width: 50%;
   visibility: visible;
   border-left: 1px solid #bdbdbd;
@@ -174,7 +174,7 @@ body {
   font-size: 14px;
 }*/
 
-.flyin {
+#pathwaysappcontainer .flyin {
 -webkit-transition: opacity 400ms linear, width 80ms ease-in-out, right 200ms ease-out;
 }
 
@@ -191,7 +191,7 @@ body {
   /*height: 200px;*/
 }
 
-table.detailsTable {
+#pathwaysappcontainer table.detailsTable {
   width: 100%;
 }
 
@@ -219,7 +219,7 @@ table.detailsTable th {
 
 
 
-.innerDetailsContainer {
+#pathwaysappcontainer .innerDetailsContainer {
   padding: 0px 10px 0px 10px;
 }
 
@@ -233,12 +233,12 @@ table.detailsTable th {
   
 }
 
-.hidden {
+#pathwaysappcontainer .hidden {
   display: none;
   color: green;
 }
 
-ul.inline
+#pathwaysappcontainer ul.inline
 {
 display: inline;
 list-style-type:none;
@@ -246,6 +246,6 @@ margin:0;
 padding:0;
 }
 
-ul.inline li {
+#pathwaysappcontainer ul.inline li {
   display: inline;
 }
