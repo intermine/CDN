@@ -816,6 +816,7 @@
       
           initialize: function(params) {
       
+            console.log("params stringified: " + JSON.stringify(params, null, 2));
       
             $(window).on("resize",this.resizeContext)
       
