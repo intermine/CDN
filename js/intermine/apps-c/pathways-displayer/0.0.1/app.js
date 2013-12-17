@@ -818,9 +818,9 @@
       
       
             $(window).on("resize",this.resizeContext)
-            //console.log(JSON.stringify(params));
+      
             var friendlyMines = params.friendlyMines;
-            //console.log("friendlyMines: " + friendlyMines);
+      
             this.myFriendlyMines = friendlyMines;
       
       
@@ -829,9 +829,6 @@
             
       
            this.$el.html(this.templateShell);
-           //console.log("this el: ", this.$el);
-           //this.$el.html(shellHTML);
-      
       
             // Listen to our mediator for events
             mediator.on('column:add', this.addColumn, this);
@@ -843,32 +840,24 @@
             mediator.on('stats:clearselected', this.clearSelected, this);
             mediator.on('notify:loading', this.showLoading, this);
       
+            //var color = params.themeColor;
+            //console.log("parameter color: " + color);
       
-           // Q.when(Helper.launchAll(friendlyMines.flymine))
-           ////console.log("length: " + this.$el.find('#statusBar').append(value.mine));
       
-           
-            //this.$("#pwayResultsContainer").append(loadingTemplate);
-            //this.$("#pwayResultsContainer").append("<h2>LOOK FOR ME, LOADING</h2>");
-            
-            ////console.log("Loading template:" + loadingTemplate);
-            ////console.log("length: " + this.$("#pwayResultsContainer").length);
-           // mediator.trigger('notify:loading', {});
       
            Q.when(Helper.launchAll(params.gene, friendlyMines))
             //.then(function(results) { return console.log(results) })
-            .then(function() { mediator.trigger('table:show', {});});
+            .then(function() { mediator.trigger('table:show', {backgroundColor: params.themeColor});});
       
       
           },
       
           showLoading: function() {
-            //console.log("this html: " + this.$el.html());
-            //console.log("showLoading called");
+      
             var loadingTemplate = require('../templates/loading');
-           // this.$el.append(loadingTemplate);
-           this.$("#pwayResultsContainer").append(loadingTemplate);
-             },
+      
+            this.$("#pwayResultsContainer").append(loadingTemplate);
+          },
       
           notifyQueryStatus: function(value) {
       
@@ -902,8 +891,8 @@
           },
       
           // Show our data table:
-          showTable: function() {
-      
+          showTable: function(args) {
+            console.log("showTable called with color: " + args.backgroundColor);
             //console.log("showTable has been called");
             if (pwayCollection.length < 1) {
               var noResultsTemplate = require('../templates/noresults');
@@ -924,11 +913,13 @@
       
            this.$("#pwayHeadersContainer").css("background-color", pColor);
       
-           console.log("PCOLOR: " + pColor);
+            console.log("PCOLOR: " + pColor);
       
       
             this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
             this.$("#pwayResultsContainer").append(atableView.render().el);
+      
+            $( ".circle" ).css( "background-color", args.backgroundColor );
       
       
             }
