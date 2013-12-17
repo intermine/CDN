@@ -223,8 +223,12 @@
       	view.setElement($(params.target));
       	view.render();
       	view.showLoading();
-      	view.updateTableColors();
       
+      	setTimeout(function() {
+      		view.updateTableColors();
+      
+      	}, 5000);
+      	
       
       
       
