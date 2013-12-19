@@ -463,14 +463,14 @@
               return getPathwaysByGene(location, returned, "collection");
             },
             function(e) {
-              console.log(e, e.stack);
+      
               mediator.trigger('notify:minefail', {mine: mine, err: e});
               throw e;
             }
           ).fail(error);
       
           function error (err) {
-            ////console.log("error has been thrown", err.stack);
+      
           }
       
       /*
@@ -586,8 +586,7 @@
                 // no results, return
                 return [];
               }
-              console.log(orgs.length);
-              console.log("RAW VALUE: ", JSON.stringify(orgs, null, 2));
+      
               // Return the homologue attribute of our results.
             //var values = orgs.map(function(o) {
               var values = orgs[0].homologues.map(function(o) {
@@ -595,7 +594,7 @@
                 //return o.homologues.homologue
               });
       
-              //console.log("final values: " + JSON.stringify(values, null, 2));
+          
       
       
               // Create a 'fake' gene that represents the primary identifier and add it to our results
@@ -824,9 +823,6 @@
           // Stores the final value of our columns
           columns: [],
       
-          // TODO: Move to external configuration
-          //el: "#pathwaysappcontainer",
-      
           // Get the HTML template shell for our application
       
           //templateApp: _.template($('#tmplPwayApp').html()),
@@ -836,7 +832,7 @@
       
           initialize: function(params) {
       
-            //console.log("params stringified: " + JSON.stringify(params, null, 2));
+           
       
             $(window).on("resize",this.resizeContext)
       
@@ -858,17 +854,12 @@
             mediator.on('stats:hide', this.hideStats, this);
             mediator.on('table:color', this.updateTableColors, this);
             mediator.on('notify:minefail', this.notifyFail, this);
-            mediator.on('notify:queryprogress', this.notifyQueryStatus, this);
+            
             mediator.on('stats:clearselected', this.clearSelected, this);
             mediator.on('notify:loading', this.showLoading, this);
       
-            //var color = params.themeColor;
-            //console.log("parameter color: " + color);
-      
-      
       
            Q.when(Helper.launchAll(params.gene, friendlyMines))
-            //.then(function(results) { return console.log(results) })
             .then(function() { mediator.trigger('table:show', {backgroundColor: params.themeColor});})
             .then(function() { mediator.trigger('table:color', {})});
       
@@ -878,30 +869,22 @@
           showLoading: function() {
       
             var loadingTemplate = require('../templates/loading');
-      
             this.$("#pwayResultsContainer").append(loadingTemplate);
           },
       
-          notifyQueryStatus: function(value) {
-      
-          //this.$el.find('#statusBar').append(statView.el);
-           
-          },
       
           resizeContext: function() {
-             $("#pwayResultsId th").each(function(i, val) {
+             this.$("#pwayResultsId th").each(function(i, val) {
                   $(".pwayHeaders th:eq(" + i + ")").width($(this).width());
               });
-             $(".pwayHeaders").width($("#pwayResultsId").width());
+             this.$(".pwayHeaders").width($("#pwayResultsId").width());
              
              // Moves our table header over the copy:
-             $("#pwayResultsId").css("margin-top", $("#pwayResultsId thead").height() * -1);
+             this.$("#pwayResultsId").css("margin-top", this.$("#pwayResultsId thead").height() * -1);
+            this.$(".dataPane").css("top", $("#pwayHeadersContainer").height());
+             this.$(".dataPane").css("height", $("#pwayResultsContainer").height());
       
-            $(".dataPane").css("top", $("#pwayHeadersContainer").height());
-             //$(".dataPane").css("height", $("#pwayResultsContainer").height() + $("#pwayHeadersContainer").height() + $("#statusBar").height() );
-             $(".dataPane").css("height", $("#pwayResultsContainer").height());
-      
-             ////console.log("HEIGHT CHECK OF pwayResultsContainer CONTAINER: " + $("#pwayResultsContainer").height() );
+             
       
           },
       
@@ -916,41 +899,38 @@
       
           // Show our data table:
           showTable: function(args) {
-            //console.log("showTable called with color: " + args.backgroundColor);
-            //console.log("showTable has been called");
+      
             if (pwayCollection.length < 1) {
               var noResultsTemplate = require('../templates/noresults');
               this.$("#pwayResultsContainer").html(noResultsTemplate);
-              //console.log("finished appending NO RESULTS");
             } else {
       
-            var atableView = new TableView({collection: pwayCollection});
-            var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
-      
-           // //console.log("atableView", atableView.el.wrap("<p></p>"));
-           this.$("#pathways-displayer-loading").remove();
-      
-           // Get the color of our previous parent container
-           var parentColor = this.$el.prev('div').css('background-color');
-           
-           
+              var atableView = new TableView({collection: pwayCollection});
+              var atableViewHeaders = new TableViewHeaders({collection: pwayCollection});
       
       
-            this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
-            this.$("#pwayResultsContainer").append(atableView.render().el);
+             this.$("#pathways-displayer-loading").remove();
       
-            $( ".circle" ).css( "background-color", args.backgroundColor );
+             // Get the color of our previous parent container
+             var parentColor = this.$el.prev('div').css('background-color');
+             
+             
+      
+      
+              this.$("#pwayHeadersContainer").append(atableViewHeaders.render().el);
+              this.$("#pwayResultsContainer").append(atableView.render().el);
+      
+              this.$( ".circle" ).css( "background-color", args.backgroundColor );
       
       
             }
       
-            //this.$("#pwayResultsContainer").append("<P>LOOK FOR ME, LOADING</P>");
+       
             // Build our table view.
             
             this.resizeContext();
       
-            //console.log("header height: " + $('#pwayResultsId thead').height());
-      
+          
             $(document).keyup(function(e) {
               if (e.keyCode == 27) {
                 mediator.trigger('stats:hide', null);
@@ -972,22 +952,13 @@
             }
       
       
-            //
-            
-            
-           
-      
-      
           },
       
           updateTableColors:function() {
-            //console.log("coloring headers2");
+           
             var pColor = this.$('.pwayHeaders thead tr th').css("background-color");
             this.$("#pwayHeadersContainer").css("background-color", pColor);
-            //console.log("PCOLOR: " + pColor);
            
-            
-      
           },
       
           // Show our stats pane with information
@@ -1003,19 +974,16 @@
               datasets: pway.aModel.get("dataSets")
             }
       
-      
-      
             var detailsTemplate = require('../templates/details');
             var detailsHtml = _.template(detailsTemplate, {pway: object});
          
-            //this.$el.find(".dataPane").html(detailsHtml);
             this.$el.find(".dataPane").addClass("active");
       
             var testModel = new Backbone.Model(object);
-            //console.log("testModel: " + JSON.stringify(testModel, null, 2));
+           
       
             var dataView = new DataPaneView({model: testModel});
-            //this.$el.find(".dataPane").html(detailsHtml);
+           
           },
       
           addColumn: function(colName) {
@@ -1029,7 +997,7 @@
           },
       
           hideStats: function() {
-            //console.log("hiding stats");
+           
             this.$(".dataPane").removeClass("active");
             $("tr.highlighted").removeClass("highlighted");
             
@@ -1037,13 +1005,12 @@
           },
       
           notifyFail: function(value) {
-            //console.log("notifay failure with value: " + JSON.stringify(value, null, 2));
+         
            failures.push(value.mine);
           },
       
           clearSelected: function() {
-            //$("tr.highlighted").removeClass("highlighted");
-            //console.log("clearSelected called");
+       
             this.$("tr.highlighted").removeClass("highlighted");
           }
       
