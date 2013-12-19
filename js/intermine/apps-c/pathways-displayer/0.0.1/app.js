@@ -554,9 +554,12 @@
           var query, getService, getData, error, fin;
       
           // Build our query:
-          var query = {"select":["Homologue.homologue.primaryIdentifier", "Homologue.homologue.symbol"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
-      
+          //var query = {"select":["Homologue.homologue.primaryIdentifier", "Homologue.homologue.symbol"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
+          // var query = {"select":["Homologue.homologue.primaryIdentifier", "Homologue.homologue.symbol"],"orderBy":[{"Homologue.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Homologue.gene","op":"LOOKUP","value":pIdentifier}]};
+          //var query = {"select":["Gene.homologues.homologue.primaryIdentifier","Gene.homologues.homologue.symbol"],"constraintLogic":"A and B","orderBy":[{"Gene.homologues.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Gene","op":"LOOKUP","code":"A","value":"eyeless"},{"path":"Gene.homologues.type","op":"=","code":"B","value":"orthologue"}]};
           // Get our service.
+          // var query = {"select":["Gene.homologues.homologue.primaryIdentifier"],"constraintLogic":"A and B","orderBy":[{"Gene.homologues.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Gene","op":"LOOKUP","code":"A","value":"FBgn0005558","extraValue":""},{"path":"Gene.homologues.type","op":"=","code":"B","value":"orthologue"}]};
+          var query = {"select":["Gene.homologues.homologue.primaryIdentifier","Gene.homologues.homologue.symbol"],"constraintLogic":"A and B and C","orderBy":[{"Gene.homologues.homologue.primaryIdentifier":"ASC"}],"where":[{"path":"Gene","op":"LOOKUP","code":"A","value":"FBgn0005558","extraValue":""},{"path":"Gene.homologues.type","op":"!=","code":"B","value":"paralogue"},{"path":"Gene.homologues.type","op":"!=","code":"C","value":"paralog"}]};
           getService = function (aUrl) {
       
             //console.log("building service");
@@ -567,9 +570,9 @@
       
           // Run our query.
           getData = function (aService) {
-              //console.log("getHomologues detData called with query: ", JSON.stringify(query, null, 2));
+      
               var aValue = aService.records(query);
-              //console.log(aValue);
+      
               return aValue;
           };
       
@@ -579,10 +582,15 @@
             
             return function (orgs) {
       
+      
               // Return the homologue attribute of our results.
-              var values = orgs.map(function(o) {
+              //var values = orgs.homologues.map(function(o) {
+              var values = orgs[0].homologues.map(function(o) {
                 return o.homologue
+                //return o.homologues.homologue
               });
+      
+              console.log("final values: " + JSON.stringify(values, null, 2));
       
       
               // Create a 'fake' gene that represents the primary identifier and add it to our results
@@ -592,10 +600,10 @@
       
       
               luString = values.map(function(gene) {return gene.primaryIdentifier}).join(',');
-              _.each(values, function(gene) {
-                 //console.log(gene.primaryIdentifier);
-              });
-              //console.log("luString" + luString);
+              /*_.each(values, function(gene) {
+                 console.log("primary identifier: " + gene.primaryIdentifier);
+              });*/
+      
       
               return values;
             }
@@ -823,7 +831,7 @@
       
           initialize: function(params) {
       
-            console.log("params stringified: " + JSON.stringify(params, null, 2));
+            //console.log("params stringified: " + JSON.stringify(params, null, 2));
       
             $(window).on("resize",this.resizeContext)
       
