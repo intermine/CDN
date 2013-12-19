@@ -463,7 +463,7 @@
               return getPathwaysByGene(location, returned, "collection");
             },
             function(e) {
-              ////console.log(e, e.stack);
+              console.log(e, e.stack);
               mediator.trigger('notify:minefail', {mine: mine, err: e});
               throw e;
             }
@@ -582,15 +582,20 @@
             
             return function (orgs) {
       
-      
+              if (orgs.length < 1) {
+                // no results, return
+                return [];
+              }
+              console.log(orgs.length);
+              console.log("RAW VALUE: ", JSON.stringify(orgs, null, 2));
               // Return the homologue attribute of our results.
-              //var values = orgs.homologues.map(function(o) {
+            //var values = orgs.map(function(o) {
               var values = orgs[0].homologues.map(function(o) {
                 return o.homologue
                 //return o.homologues.homologue
               });
       
-              console.log("final values: " + JSON.stringify(values, null, 2));
+              //console.log("final values: " + JSON.stringify(values, null, 2));
       
       
               // Create a 'fake' gene that represents the primary identifier and add it to our results
