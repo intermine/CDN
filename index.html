@@ -1,24 +1,64 @@
 <!doctype html>
 <head>
-	<link rel="stylesheet" media="screen" href="css/bootstrap/1.3.0/bootstrap.css">
+	<link rel="stylesheet" media="screen" href="css/foundation/5.0/css/normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <style>
+    html {
+        background: #3c2e47;
+        background: -moz-radial-gradient(center, ellipse cover,  #3c2e47 0%, #292031 100%);
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#3c2e47), color-stop(100%,#292031));
+        background: -webkit-radial-gradient(center, ellipse cover,  #3c2e47 0%,#292031 100%);
+        background: -o-radial-gradient(center, ellipse cover,  #3c2e47 0%,#292031 100%);
+        background: -ms-radial-gradient(center, ellipse cover,  #3c2e47 0%,#292031 100%);
+        background: radial-gradient(ellipse at center,  #3c2e47 0%,#292031 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c2e47', endColorstr='#292031',GradientType=1 );
+    }
+    body {
+        font-family: 'Raleway', sans-serif;
+        padding: 40px;
+        color: #937CA5;
+        font-size: 20px;
+        margin: 0 auto;
+        width: 800px;
+    }
+    #title {
+        box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+        padding: 20px 10px;
+        background: #FFF;
+        margin-bottom: 40px;
+    }
+    h1 {
+        text-transform: uppercase;
+        color: #5B4370;
+        display: inline-block;
+        text-align: center;
+        margin: 0;
+    }
+    a {
+        color: #FFF;
+        font-weight: bold;
+    }
+    p, li {
+        line-height: 2rem;
+        text-align: justify;
+    }
+    </style>
 </head>
 <body>
-<div class="container">
-<div class="row">
-<h1 id="javascript-cascading-style-sheet-content-delivery-network">JavaScript, Cascading Style Sheet Content Delivery Network</h1>
-<p>Maintain resources used in InterMine apps</p>
-<h2 id="add-new-resource">Add new resource</h2>
-<ol style="list-style-type: decimal">
-<li>Add your library as per conventions in this repo</li>
-<li>Add a <code>package.json</code> and validate through <a href="http://jsonlint.com">JSONLint</a></li>
-<li>Commit</li>
-<li><code>git pull</code> latest changes on the server</li>
-</ol>
-<h2 id="where">Where?</h2>
-<p>The repo is cloned on <strong>met0</strong> powered by nginx on port 1000 and should be accessible through <a href="http://cdn.intermine.org">http://cdn.intermine.org</a></p>
-<h2 id="intermine-javascript-api-loader">InterMine JavaScript API Loader</h2>
-<p>A symbolic link is made from <code>./api</code> to <code>js/intermine/api-loader/latest/intermine.api.js</code> to easily resolve (some) InterMine resources.</p>
-</div>
-</div>
+    <div id="title">
+        <h1>InterMine Content Delivery Network</h1>
+    </div>
+
+    <p>This repository hosts web libraries used in the <a href="http://intermine.org">InterMine</a> ecosystem.
+
+    <h2>Host your own</h2>
+    <p>The main repo is hosted by <a href="https://status.github.com/">GitHub</a>, but sometimes it goes down. Before that happens, we encourage you to host your own copy. Your apps will potentially work faster, depending on your location, and you will be fully in control.</p>
+    <p>Follow these steps:</p>
+
+    <ol>
+        <li>Make a fork of the following repo: <a href="git@github.com:intermine/CDN.git">git@github.com:intermine/CDN.git</a>.</li>
+        <li>Serve the repo using a static web server, such as <a href="http://nginx.org/en/">nginx</a>.</li>
+        <li>Point to your CDN by, for example, editing the <code>global.web.properties</code> file on the line where it says <code>head.cdn.location</code>.</li>
+    </ol>
 </body>
 </html>

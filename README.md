@@ -1,18 +1,13 @@
-# JavaScript, Cascading Style Sheet Content Delivery Network
+#InterMine Content Delivery Network
 
-Maintain resources used in InterMine apps
+This repository hosts web libraries used in the [InterMine](http://intermine.org) ecosystem.
 
-## Add new resource
+##Host your own
 
-1. Add your library as per conventions in this repo
-2. Add a `package.json` and validate through [JSONLint](http://jsonlint.com)
-3. Commit
-4. `git pull` latest changes on the server
+The main repo is hosted by [GitHub](https://status.github.com/), but sometimes it goes down. Before that happens, we encourage you to host your own copy. Your apps will potentially work faster, depending on your location, and you will be fully in control.
 
-## Where?
+Follow these steps:
 
-The repo is cloned on **met0** powered by nginx on port 1000 and should be accessible through [http://cdn.intermine.org](http://cdn.intermine.org)
-
-## InterMine JavaScript API Loader
-
-A symbolic link is made from `./api` to `js/intermine/api-loader/latest/intermine.api.js` to easily resolve (some) InterMine resources.
+1. Make a fork of the following repo: [git@github.com:intermine/CDN.git](git@github.com:intermine/CDN.git).
+1. Serve the repo using a static web server, such as [nginx](http://nginx.org/en/).
+Point to your CDN by, for example, editing the `global.web.properties` file on the line where it says `head.cdn.location`.
