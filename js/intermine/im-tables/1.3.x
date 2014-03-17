@@ -1,1 +1,0 @@
-js/intermine/im-tables/1.3.2
