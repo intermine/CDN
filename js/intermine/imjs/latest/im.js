@@ -1,4 +1,4 @@
-/*! imjs - v3.2.1 - 2013-12-16 */
+/*! imjs - v3.2.2 - 2014-03-28 */
 
 // This library is open source software according to the definition of the
 // GNU Lesser General Public Licence, Version 3, (LGPLv3) a copy of which is
@@ -240,6 +240,8 @@
 
 }).call(this);
 
+},{}],"./http":[function(require,module,exports){
+module.exports=require('zlU5Ni');
 },{}],"zlU5Ni":[function(require,module,exports){
 (function() {
   var ACCEPT_HEADER, CHARSET, CONVERTERS, IE_VERSION, PESKY_COMMA, Promise, URLENC, annotateError, check, error, httpinvoke, matches, merge, re, streaming, success, ua, utils, withCB, _ref;
@@ -400,9 +402,7 @@
 
 }).call(this);
 
-},{"./constants":2,"./promise":9,"./util":14,"httpinvoke":19}],"./http":[function(require,module,exports){
-module.exports=require('zlU5Ni');
-},{}],5:[function(require,module,exports){
+},{"./constants":2,"./promise":9,"./util":14,"httpinvoke":19}],5:[function(require,module,exports){
 (function() {
   var CategoryResults, IDResolutionJob, IdResults, ONE_MINUTE, concatMap, defer, difference, fold, funcutils, get, id, intermine, uniqBy, withCB,
     __hasProp = {}.hasOwnProperty,
@@ -1379,8 +1379,8 @@ module.exports=require('zlU5Ni');
   };
 
   copyCon = function(con) {
-    var code, extraValue, ids, op, path, type, value, values;
-    path = con.path, type = con.type, op = con.op, value = con.value, values = con.values, extraValue = con.extraValue, ids = con.ids, code = con.code;
+    var code, editable, extraValue, ids, op, path, switchable, switched, type, value, values;
+    path = con.path, type = con.type, op = con.op, value = con.value, values = con.values, extraValue = con.extraValue, ids = con.ids, code = con.code, editable = con.editable, switched = con.switched, switchable = con.switchable;
     ids = ids != null ? ids.slice() : void 0;
     values = values != null ? values.slice() : void 0;
     return noUndefVals({
@@ -1391,7 +1391,10 @@ module.exports=require('zlU5Ni');
       values: values,
       extraValue: extraValue,
       ids: ids,
-      code: code
+      code: code,
+      editable: editable,
+      switched: switched,
+      switchable: switchable
     });
   };
 
@@ -2612,6 +2615,9 @@ module.exports=require('zlU5Ni');
         constraint = interpretConArray(constraint);
       } else {
         constraint = copyCon(constraint);
+      }
+      if (constraint.switched === 'OFF') {
+        return this;
       }
       constraint.path = this.adjustPath(constraint.path);
       if (constraint.type == null) {
@@ -4690,7 +4696,7 @@ module.exports=require('zlU5Ni');
 },{"./promise":9}],15:[function(require,module,exports){
 (function() {
 
-  exports.VERSION = '3.2.1';
+  exports.VERSION = '3.2.2';
 
 }).call(this);
 
