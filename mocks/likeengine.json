@@ -1,0 +1,31 @@
+[
+    {
+        "id": 123456,
+        "type": "gene",
+        "score": 6,
+        "linkedto": [
+            {
+                "id": 456789,
+                "type": "gene",
+                "score": 4,
+                "commonitems": [
+                    {
+                        "id": 384693,
+                        "type": "pathway"
+                    }
+                ]
+            },
+            {
+                "id": 678910,
+                "type": "gene",
+                "score": 2,
+                "commonitems": [
+                    {
+                        "id": 787825,
+                        "type": "proteindomain"
+                    }
+                ]
+            }
+        ]
+    }
+]
