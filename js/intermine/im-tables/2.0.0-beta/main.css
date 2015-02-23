@@ -8688,9 +8688,13 @@ fieldset[disabled] .modal .btn-cancel.active {
 .im-export-dialogue .im-export-preview {
   max-height: 25em;
 }
+.im-export-dialogue .im-export-tab-menu > li {
+  margin-left: 0px;
+}
 @media (max-width: 900px) {
   .im-export-dialogue .im-export-tab-menu > li {
     float: left;
+    margin-left: 5px;
   }
 }
 .im-summary-chart .im-bucket,

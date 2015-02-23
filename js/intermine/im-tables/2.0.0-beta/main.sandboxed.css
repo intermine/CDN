@@ -6571,9 +6571,12 @@
   color: #777777;}
 .imtables .im-export-dialogue .im-export-preview {
   max-height: 25em;}
+.imtables .im-export-dialogue .im-export-tab-menu > li {
+  margin-left: 0px;}
 @media (max-width:900px) {
 .imtables .im-export-dialogue .im-export-tab-menu > li {
-    float: left;}}
+    float: left;
+    margin-left: 5px;}}
 .imtables .im-summary-chart .im-bucket,
 .imtables .im-summary-chart .im-item-bar {
   fill: #37578b;
