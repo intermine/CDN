@@ -5108,7 +5108,7 @@
             "http://some.host.somewhere": "http://some.host.somewhere/logo.png"
           }
         },
-        StylePrefix: 'intermine',
+        StylePrefix: 'imtables',
         SuggestionDepth: 4,
         Events: {
           ActivateTab: 'mouseenter'
@@ -7376,7 +7376,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":276}],107:[function(require,module,exports){
-module.exports = '2.0.0-beta-2';
+module.exports = '2.0.0-beta-3';
 
 },{}],108:[function(require,module,exports){
 (function() {
