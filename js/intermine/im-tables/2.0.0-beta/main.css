@@ -8067,9 +8067,7 @@ button.close {
 .panel-body:before,
 .panel-body:after,
 .modal-footer:before,
-.modal-footer:after,
-.imtables-dashboard:before,
-.imtables-dashboard:after {
+.modal-footer:after {
   content: " ";
   display: table;
 }
@@ -8087,8 +8085,7 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-footer:after,
-.imtables-dashboard:after {
+.modal-footer:after {
   clear: both;
 }
 .center-block {
@@ -9624,76 +9621,58 @@ li.L9 {
     content: 'No value';
   }
 }
-.imtables-dashboard {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.imtables-dashboard > .navbar-header,
-.imtables-dashboard > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
-}
-@media (min-width: 768px) {
-  .imtables-dashboard > .navbar-header,
-  .imtables-dashboard > .navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
-.imtables-dashboard .im-query-tools > div {
+.im-query-tools > div {
   display: inline-block;
 }
-.imtables-dashboard .im-query-tools .im-query-management {
+.im-query-tools .im-query-management {
   width: 42%;
 }
 @media (max-width: 768px) {
-  .imtables-dashboard .im-query-tools .im-query-management {
+  .im-query-tools .im-query-management {
     width: 30%;
   }
 }
 @media (max-width: 480px) {
-  .imtables-dashboard .im-query-tools .im-query-management {
+  .im-query-tools .im-query-management {
     width: 35%;
   }
 }
-.imtables-dashboard .im-query-tools .im-query-management > div {
+.im-query-tools .im-query-management > div {
   margin-right: 0.5em;
   display: inline-block;
   float: left;
   margin-bottom: 0.2em;
 }
-.imtables-dashboard .im-query-tools .im-history {
+.im-query-tools .im-history {
   width: 10%;
 }
 @media (max-width: 768px) {
-  .imtables-dashboard .im-query-tools .im-history {
+  .im-query-tools .im-history {
     width: 15%;
   }
 }
 @media (max-width: 480px) {
-  .imtables-dashboard .im-query-tools .im-history {
+  .im-query-tools .im-history {
     width: 20%;
   }
 }
-.imtables-dashboard .im-query-tools .im-history > div {
+.im-query-tools .im-history > div {
   float: left;
 }
-.imtables-dashboard .im-query-tools .im-query-consumers {
+.im-query-tools .im-query-consumers {
   width: 48%;
 }
 @media (max-width: 768px) {
-  .imtables-dashboard .im-query-tools .im-query-consumers {
+  .im-query-tools .im-query-consumers {
     width: 55%;
   }
 }
 @media (max-width: 480px) {
-  .imtables-dashboard .im-query-tools .im-query-consumers {
+  .im-query-tools .im-query-consumers {
     width: 45%;
   }
 }
-.imtables-dashboard .im-query-tools .im-query-consumers > div {
+.im-query-tools .im-query-consumers > div {
   margin-left: 0.5em;
   margin-bottom: 0.2em;
   display: inline-block;

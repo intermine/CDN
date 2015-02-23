@@ -11382,7 +11382,7 @@ module.exports = '2.0.0-beta-3';
 
     Dashboard.prototype.tagName = 'div';
 
-    Dashboard.prototype.className = 'imtables-dashboard';
+    Dashboard.prototype.className = 'imtables-dashboard container-fluid';
 
     Dashboard.prototype.Model = TableModel;
 
