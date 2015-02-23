@@ -6978,6 +6978,8 @@
 .imtables .im-undo-history .im-state-list .im-toggle-trivial {
   position: relative;
   top: -0.5em;}
+.imtables .im-undo-history .im-state-list li {
+  margin-left: 0px;}
 .imtables .im-undo-history .im-state-list li > .btn {
   float: right;
   float: right!important;

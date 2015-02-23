@@ -9217,6 +9217,9 @@ li.L9 {
   position: relative;
   top: -0.5em;
 }
+.im-undo-history .im-state-list li {
+  margin-left: 0px;
+}
 .im-undo-history .im-state-list li > .btn {
   float: right;
   float: right !important;
