@@ -6026,6 +6026,12 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 },{"./fetch-missing-data":80,"./has-fields":85}],79:[function(require,module,exports){
 (function() {
+  var Backbone, _;
+
+  _ = require('underscore');
+
+  Backbone = require('backbone');
+
   exports.ignore = function(e) {
     if (e != null) {
       e.preventDefault();
@@ -6036,9 +6042,23 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
     return false;
   };
 
+  exports.Bus = (function() {
+    function Bus() {}
+
+    _.extend(Bus.prototype, Backbone.Events);
+
+    Bus.prototype.destroy = function() {
+      this.stopListening();
+      return this.off();
+    };
+
+    return Bus;
+
+  })();
+
 }).call(this);
 
-},{}],80:[function(require,module,exports){
+},{"backbone":227,"underscore":307}],80:[function(require,module,exports){
 (function() {
   var buildProps, refs, refsIn, _;
 
@@ -7356,7 +7376,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":276}],107:[function(require,module,exports){
-module.exports = '2.0.0-beta-3';
+module.exports = '2.0.0-beta-2';
 
 },{}],108:[function(require,module,exports){
 (function() {
@@ -11333,7 +11353,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../constraints":127,"./composed-column-adder":129,"./single-column-adder":130}],132:[function(require,module,exports){
 (function() {
-  var CoreView, Dashboard, ERR, History, QueryTools, SelectedObjects, Table, TableModel,
+  var Bus, CoreView, Dashboard, ERR, History, QueryTools, SelectedObjects, Table, TableModel,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -11344,6 +11364,8 @@ module.exports = '2.0.0-beta-3';
   TableModel = require('../models/table');
 
   SelectedObjects = require('../models/selected-objects');
+
+  Bus = require('../utils/events').Bus;
 
   Table = require('./table');
 
@@ -11372,6 +11394,7 @@ module.exports = '2.0.0-beta-3';
       }
       Dashboard.__super__.initialize.apply(this, arguments);
       this.history = new History;
+      this.bus = new Bus;
       this.history.setInitialState(query);
       return this.selectedObjects = new SelectedObjects(query.service);
     };
@@ -11396,9 +11419,16 @@ module.exports = '2.0.0-beta-3';
       tools = new QueryTools({
         tableState: this.model,
         history: this.history,
-        selectedObjects: this.selectedObjects
+        selectedObjects: this.selectedObjects,
+        bus: this.bus
       });
       return this.renderChild('tools', tools);
+    };
+
+    Dashboard.prototype.remove = function() {
+      this.bus.destroy();
+      this.history.close();
+      return Dashboard.__super__.remove.apply(this, arguments);
     };
 
     return Dashboard;
@@ -11407,7 +11437,7 @@ module.exports = '2.0.0-beta-3';
 
 }).call(this);
 
-},{"../core-view":3,"../models/history":44,"../models/selected-objects":57,"../models/table":60,"./query-tools":203,"./table":204}],133:[function(require,module,exports){
+},{"../core-view":3,"../models/history":44,"../models/selected-objects":57,"../models/table":60,"../utils/events":79,"./query-tools":203,"./table":204}],133:[function(require,module,exports){
 (function() {
   var CoreView, ErrorMessage, Icons, Templates, fs, _,
     __hasProp = {}.hasOwnProperty,
@@ -17230,7 +17260,10 @@ module.exports = '2.0.0-beta-3';
     BaseCreateListDialogue.prototype.stateEvents = function() {
       return {
         'change:typeName change:count': 'setTitle',
-        'change:typeName': 'setListName'
+        'change:typeName': 'setListName',
+        'change:error': function() {
+          return console.log(this.state.get('error'));
+        }
       };
     };
 
@@ -17246,11 +17279,25 @@ module.exports = '2.0.0-beta-3';
 
     BaseCreateListDialogue.prototype.initState = function() {
       this.state.set({
+        existingLists: {},
         minimised: _.result(this, 'initiallyMinimised')
       });
       this.setTypeName();
       this.setCount();
-      return this.checkAuth();
+      this.checkAuth();
+      return this.getService().fetchLists().then(function(ls) {
+        return _.where(ls, {
+          authorized: true
+        });
+      }).then(function(ls) {
+        return _.groupBy(ls, 'name');
+      }).then((function(_this) {
+        return function(existingLists) {
+          return _this.state.set({
+            existingLists: existingLists
+          });
+        };
+      })(this));
     };
 
     BaseCreateListDialogue.prototype.setCount = function() {
@@ -17443,16 +17490,33 @@ module.exports = '2.0.0-beta-3';
     };
 
     ListDialogueBody.prototype.renderListNameInput = function() {
-      return this.renderChildAt('.im-list-name', new InputWithLabel({
+      var nameInput;
+      nameInput = new InputWithLabel({
         model: this.model,
         attr: 'name',
         label: 'lists.params.Name',
         helpMessage: 'lists.params.help.Name',
         placeholder: 'lists.params.NamePlaceholder',
-        getProblem: function(name) {
-          return !(name != null ? name.length : void 0);
-        }
-      }));
+        getProblem: (function(_this) {
+          return function(name) {
+            return _this.validateName(name);
+          };
+        })(this)
+      });
+      this.listenTo(nameInput.state, 'change:problem', function() {
+        var err;
+        err = nameInput.state.get('problem');
+        return this.state.set({
+          disabled: !!err
+        });
+      });
+      return this.renderChildAt('.im-list-name', nameInput);
+    };
+
+    ListDialogueBody.prototype.validateName = function(name) {
+      var trimmed;
+      trimmed = name != null ? name.replace(/(^\s+|\s+$)/g, '') : void 0;
+      return (!trimmed) || (this.state.get('existingLists')[trimmed]);
     };
 
     ListDialogueBody.prototype.renderListDescInput = function() {
@@ -17702,20 +17766,19 @@ module.exports = '2.0.0-beta-3';
     };
 
     ListDialogueButton.prototype.showDialogue = function(Dialogue, args) {
-      var dialogue, failure, success;
+      var action, dialogue, handler;
       dialogue = new Dialogue(args);
       this.renderChild('dialogue', dialogue);
-      success = (function(_this) {
-        return function(list) {
-          return _this.trigger("list:" + action, list);
+      action = this.state.get('action');
+      handler = (function(_this) {
+        return function(outcome) {
+          return function(result) {
+            _this.trigger("" + outcome + ":" + action, result);
+            return _this.trigger(outcome, action, result);
+          };
         };
       })(this);
-      failure = (function(_this) {
-        return function(e) {
-          return _this.trigger("failure:" + action, e);
-        };
-      })(this);
-      return dialogue.show().then(success, failure);
+      return dialogue.show().then(handler('success'), handler('failure'));
     };
 
     ListDialogueButton.prototype.showPathDialogue = function(args) {
@@ -19861,9 +19924,10 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-view":3,"../templates":66,"underscore":307}],203:[function(require,module,exports){
 (function() {
-  var CodeGenButton, ColumnMangerButton, CoreView, ExportDialogueButton, FilterDialogueButton, JoinManagerButton, ListDialogueButton, QueryTools, SUBSECTIONS, Templates, UndoHistory, subsection,
+  var Bus, CodeGenButton, ColumnMangerButton, CoreView, ExportDialogueButton, FilterDialogueButton, JoinManagerButton, ListDialogueButton, QueryTools, SUBSECTIONS, Templates, UndoHistory, subsection,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __slice = [].slice;
 
   CoreView = require('../core-view');
 
@@ -19883,6 +19947,8 @@ module.exports = '2.0.0-beta-3';
 
   ExportDialogueButton = require('./export-dialogue/button');
 
+  Bus = require('../utils/events').Bus;
+
   SUBSECTIONS = ['im-query-management', 'im-history', 'im-query-consumers'];
 
   subsection = function(s) {
@@ -19899,6 +19965,10 @@ module.exports = '2.0.0-beta-3';
     QueryTools.prototype.className = 'im-query-tools';
 
     QueryTools.prototype.parameters = ['tableState', 'history', 'selectedObjects'];
+
+    QueryTools.prototype.optionalParameters = ['bus'];
+
+    QueryTools.prototype.bus = new Bus;
 
     QueryTools.prototype.template = function() {
       var subs;
@@ -19942,11 +20012,24 @@ module.exports = '2.0.0-beta-3';
     };
 
     QueryTools.prototype.renderQueryConsumers = function() {
-      var $consumers, query, selected;
+      var $consumers, listDialogue, query, selected;
       $consumers = this.$('.im-query-consumers');
       query = this.history.getCurrentQuery();
       selected = this.selectedObjects;
       $consumers.empty();
+      listDialogue = new ListDialogueButton({
+        query: query,
+        tableState: this.tableState,
+        selected: selected
+      });
+      this.listenTo(listDialogue, 'all', (function(_this) {
+        return function() {
+          var args, evt, _ref, _ref1;
+          evt = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+          (_ref = _this.bus).trigger.apply(_ref, ["list-action:" + evt].concat(__slice.call(args)));
+          return (_ref1 = _this.bus).trigger.apply(_ref1, ["list-action", evt].concat(__slice.call(args)));
+        };
+      })(this));
       this.renderChild('save', new ExportDialogueButton({
         query: query,
         tableState: this.tableState
@@ -19955,11 +20038,7 @@ module.exports = '2.0.0-beta-3';
         query: query,
         tableState: this.tableState
       }), $consumers);
-      this.renderChild('lists', new ListDialogueButton({
-        query: query,
-        tableState: this.tableState,
-        selected: selected
-      }), $consumers);
+      this.renderChild('lists', listDialogue, $consumers);
       return $consumers.append(Templates.clear);
     };
 
@@ -19969,7 +20048,7 @@ module.exports = '2.0.0-beta-3';
 
 }).call(this);
 
-},{"../core-view":3,"../templates":66,"./code-gen-button":111,"./column-manager/button":115,"./export-dialogue/button":135,"./filter-dialogue/button":164,"./join-manager/button":174,"./list-dialogue/button":182,"./undo-history":224}],204:[function(require,module,exports){
+},{"../core-view":3,"../templates":66,"../utils/events":79,"./code-gen-button":111,"./column-manager/button":115,"./export-dialogue/button":135,"./filter-dialogue/button":164,"./join-manager/button":174,"./list-dialogue/button":182,"./undo-history":224}],204:[function(require,module,exports){
 (function() {
   var CellModelFactory, Collection, ColumnHeaders, CoreModel, CoreView, ErrorNotice, History, Messages, Options, PageSizer, Pagination, ResultsTable, RowsCollection, SelectedObjects, Table, TableModel, TableResults, TableSummary, Templates, Types, UNKNOWN_ERROR, UniqItems, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
