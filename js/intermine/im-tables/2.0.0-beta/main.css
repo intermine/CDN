@@ -9751,3 +9751,6 @@ li.L9 {
 .breadcrumb.summary > li > .label {
   display: inline-block;
 }
+ul.dropdown-menu > li {
+  margin-left: 0px;
+}

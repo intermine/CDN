@@ -7359,3 +7359,5 @@
   content: "\00a0";}
 .imtables .breadcrumb.summary > li > .label {
   display: inline-block;}
+.imtables ul.dropdown-menu > li {
+  margin-left: 0px;}
