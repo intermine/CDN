@@ -1787,12 +1787,16 @@
 
   createView = function(create, elem, query, page) {
     return function(resolve) {
-      var element, model, view;
+      var c, element, model, view, _i, _len, _ref;
       element = asElement(elem);
       model = page != null ? _.pick(page, 'start', 'size') : null;
       view = create(query, model);
       view.setElement(element);
-      element.classList.add(_.result(view, 'className'));
+      _ref = (_.result(view, 'className')).split(' ');
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        c = _ref[_i];
+        element.classList.add(c);
+      }
       element.classList.add(Options.get('StylePrefix'));
       view.render();
       return resolve(view);
