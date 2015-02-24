@@ -9551,6 +9551,9 @@ li.L9 {
   position: absolute;
   left: 25%;
 }
+.im-table-container .im-error-notice .query-xml {
+  margin-top: 1em;
+}
 .im-table-container .im-table-controls .im-page-sizer,
 .im-table-container .im-table-controls .im-table-summary {
   margin: 20px 0;

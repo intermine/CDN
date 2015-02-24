@@ -7223,6 +7223,8 @@
   font-size: 72px;
   position: absolute;
   left: 25%;}
+.imtables .im-table-container .im-error-notice .query-xml {
+  margin-top: 1em;}
 .imtables .im-table-container .im-table-controls .im-page-sizer,
 .imtables .im-table-container .im-table-controls .im-table-summary {
   margin: 20px 0;}
