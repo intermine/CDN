@@ -5437,7 +5437,7 @@ exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(mar
 exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
 exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
 exports.table_error = "<div class=\"alert alert-error\">\n\n  <h2><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto://<%- mailto %>\">\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-error\">\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n\n  <p class=\"query-xml\" style=\"display:none\" class=\"well\">\n    <textarea><%- indent(query) %></textarea>\n  <p>\n\n</div>\n";
-exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n    <% if (canUndo) { %>\n      <button class=\"btn btn-large btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n  </div>\n</td>\n";
+exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <% if (canUndo) { %>\n      <button class=\"pull-right btn btn-large btn-default btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n  </div>\n</td>\n";
 exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- messages.getText('conbuilder.ExtraPlaceholder') %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
 exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
 
@@ -11904,7 +11904,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-model":2,"../messages":16,"../mixins/runs-query":32,"../models/export-formats":41,"../options":62,"../templates":66,"../utils/open-window-with-post":91,"../utils/send-to-dropbox":96,"../utils/send-to-galaxy":97,"../utils/send-to-genomespace":98,"../utils/send-to-google-drive":99,"./constraint-adder":124,"./export-dialogue/column-controls":136,"./export-dialogue/compression-controls":137,"./export-dialogue/destination-options":138,"./export-dialogue/flat-file-options":139,"./export-dialogue/format-controls":140,"./export-dialogue/json-options":141,"./export-dialogue/preview":143,"./export-dialogue/row-controls":144,"./export-dialogue/tab-menu":145,"./modal":193,"jquery":304,"underscore":307}],135:[function(require,module,exports){
 (function() {
-  var ExportDialogue, ExportDialogueButton, QueryDialogueButton, _,
+  var Counter, ExportDialogue, ExportDialogueButton, QueryDialogueButton, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -11913,6 +11913,8 @@ module.exports = '2.0.0-beta-3';
   QueryDialogueButton = require('../query-dialogue-button');
 
   ExportDialogue = require('../export-dialogue');
+
+  Counter = require('../../utils/count-executor');
 
   module.exports = ExportDialogueButton = (function(_super) {
     __extends(ExportDialogueButton, _super);
@@ -11930,6 +11932,24 @@ module.exports = '2.0.0-beta-3';
     ExportDialogueButton.prototype.icon = 'Download';
 
     ExportDialogueButton.prototype.optionalParameters = ['tableState'];
+
+    ExportDialogueButton.prototype.initialize = function() {
+      ExportDialogueButton.__super__.initialize.apply(this, arguments);
+      return Counter.count(this.query).then((function(_this) {
+        return function(count) {
+          return _this.state.set({
+            disabled: count === 0
+          });
+        };
+      })(this)).then(null, (function(_this) {
+        return function(err) {
+          return _this.state.set({
+            disabled: true,
+            error: err
+          });
+        };
+      })(this));
+    };
 
     ExportDialogueButton.prototype.dialogueOptions = function() {
       var page, _ref;
@@ -11950,7 +11970,7 @@ module.exports = '2.0.0-beta-3';
 
 }).call(this);
 
-},{"../export-dialogue":134,"../query-dialogue-button":202,"underscore":307}],136:[function(require,module,exports){
+},{"../../utils/count-executor":75,"../export-dialogue":134,"../query-dialogue-button":202,"underscore":307}],136:[function(require,module,exports){
 (function() {
   var AddColumnControl, ColumnControls, ColumnView, HasTypeaheads, HeadingLabel, LabelView, Messages, PathSet, ResetButton, Templates, View, pathSuggester, _,
     __hasProp = {}.hasOwnProperty,
@@ -17600,7 +17620,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../../core-view":3,"../../core/input-with-button":6,"../../core/input-with-label":7,"../../messages":16,"../../messages/lists":24,"../../models/create-list":40,"../../templates":66,"./tag":187,"./tags-apology":188,"underscore":307}],182:[function(require,module,exports){
 (function() {
-  var AppendFromPath, AppendPicker, ClassSet, Collection, CoreModel, CoreView, CreateFromPath, CreatePicker, ListDialogueButton, PathModel, Paths, SelectableNode, Templates, _,
+  var AppendFromPath, AppendPicker, ClassSet, Collection, CoreModel, CoreView, Counter, CreateFromPath, CreatePicker, ListDialogueButton, PathModel, Paths, SelectableNode, Templates, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -17615,6 +17635,8 @@ module.exports = '2.0.0-beta-3';
   Templates = require('../../templates');
 
   ClassSet = require('../../utils/css-class-set');
+
+  Counter = require('../../utils/count-executor');
 
   PathModel = require('../../models/path');
 
@@ -17732,14 +17754,16 @@ module.exports = '2.0.0-beta-3';
     ListDialogueButton.prototype.initState = function() {
       return this.state.set({
         action: 'create',
-        authenticated: false
+        authenticated: false,
+        disabled: false
       });
     };
 
     ListDialogueButton.prototype.stateEvents = function() {
       return {
         'change:action': this.setActionButtonState,
-        'change:authenticated': this.setVisible
+        'change:authenticated': this.setVisible,
+        'change:disabled': this.onChangeDisabled
       };
     };
 
@@ -17760,10 +17784,24 @@ module.exports = '2.0.0-beta-3';
           return _this.paths.add(new PathModel(n));
         };
       })(this));
-      return this.query.service.whoami().then((function(_this) {
+      this.query.service.whoami().then((function(_this) {
         return function(u) {
           return _this.state.set({
             authenticated: !!u
+          });
+        };
+      })(this));
+      return Counter.count(this.query).then((function(_this) {
+        return function(count) {
+          return _this.state.set({
+            disabled: count === 0
+          });
+        };
+      })(this)).then(null, (function(_this) {
+        return function(err) {
+          return _this.state.set({
+            disabled: true,
+            error: err
           });
         };
       })(this));
@@ -17778,6 +17816,7 @@ module.exports = '2.0.0-beta-3';
     ListDialogueButton.prototype.postRender = function() {
       var highLight, menu, showDialogue;
       this.setVisible();
+      this.onChangeDisabled();
       menu = this.$('.dropdown-menu');
       highLight = (function(_this) {
         return function(p) {
@@ -17803,6 +17842,10 @@ module.exports = '2.0.0-beta-3';
           return _this.renderChild("path-" + i, node, menu, 'prepend');
         };
       })(this));
+    };
+
+    ListDialogueButton.prototype.onChangeDisabled = function() {
+      return this.$('.btn').toggleClass('disabled', this.state.get('disabled'));
     };
 
     ListDialogueButton.prototype.setVisible = function() {
@@ -17923,7 +17966,7 @@ module.exports = '2.0.0-beta-3';
 
 }).call(this);
 
-},{"../../core-model":2,"../../core-view":3,"../../core/collection":5,"../../messages/lists":24,"../../models/path":55,"../../templates":66,"../../utils/css-class-set":77,"./append-from-path":176,"./append-from-selection":177,"./create-from-path":183,"./create-from-selection":184,"underscore":307}],183:[function(require,module,exports){
+},{"../../core-model":2,"../../core-view":3,"../../core/collection":5,"../../messages/lists":24,"../../models/path":55,"../../templates":66,"../../utils/count-executor":75,"../../utils/css-class-set":77,"./append-from-path":176,"./append-from-selection":177,"./create-from-path":183,"./create-from-selection":184,"underscore":307}],183:[function(require,module,exports){
 (function() {
   var BaseCreateListDialogue, CreateFromPath, FromPathMixin, Promise,
     __hasProp = {}.hasOwnProperty,
@@ -19950,6 +19993,14 @@ module.exports = '2.0.0-beta-3';
     QueryDialogueButton.prototype.dialogueOptions = function() {
       return {
         query: this.query
+      };
+    };
+
+    QueryDialogueButton.prototype.stateEvents = function() {
+      return {
+        'change:disabled': function() {
+          return this.$('.btn.im-open-dialogue').toggleClass('disabled', this.state.get('disabled'));
+        }
       };
     };
 
