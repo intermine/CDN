@@ -2757,13 +2757,19 @@
 
 },{"../core/collection":5,"./path":55}],36:[function(require,module,exports){
 (function() {
-  var CellModel, CoreModel, _,
+  var CellModel, CoreModel, DELIM, Options, Promise, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore');
 
+  Promise = require('es6-promise').Promise;
+
+  Options = require('../options');
+
   CoreModel = require('../core-model');
+
+  DELIM = 'DynamicObjects.NameDelimiter';
 
   module.exports = CellModel = (function(_super) {
     __extends(CellModel, _super);
@@ -2776,6 +2782,7 @@
       return {
         columnName: null,
         typeName: null,
+        typeNames: [],
         entity: null,
         column: null,
         node: null,
@@ -2785,10 +2792,10 @@
     };
 
     CellModel.prototype.initialize = function() {
-      var column, type, _ref;
+      var column, model, nameRequests, t, types, _ref;
       CellModel.__super__.initialize.apply(this, arguments);
-      type = (_ref = this.get('entity').get('class')) != null ? _ref : this.get('node');
-      column = this.get('column');
+      types = (_ref = this.get('entity').get('classes')) != null ? _ref : [this.get('node')];
+      model = (column = this.get('column')).model;
       column.getDisplayName().then((function(_this) {
         return function(columnName) {
           return _this.set({
@@ -2796,10 +2803,20 @@
           });
         };
       })(this));
-      return column.model.makePath(type).getDisplayName().then((function(_this) {
-        return function(typeName) {
+      nameRequests = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = types.length; _i < _len; _i++) {
+          t = types[_i];
+          _results.push(model.makePath(t).getDisplayName());
+        }
+        return _results;
+      })();
+      return Promise.all(nameRequests).then((function(_this) {
+        return function(names) {
           return _this.set({
-            typeName: typeName
+            typeNames: names,
+            typeName: names.join(Options.get(DELIM))
           });
         };
       })(this));
@@ -2823,7 +2840,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":307}],37:[function(require,module,exports){
+},{"../core-model":2,"../options":62,"es6-promise":276,"underscore":307}],37:[function(require,module,exports){
 (function() {
   var CodeGenModel, CoreModel, Options,
     __hasProp = {}.hasOwnProperty,
@@ -3233,7 +3250,7 @@
       FPObject.__super__.constructor.call(this);
       this.set({
         'id': null,
-        'class': obj["class"],
+        'classes': [obj["class"]],
         'service:base': '',
         'service:url': '',
         'report:uri': null
@@ -3583,15 +3600,15 @@
   module.exports = IMObject = (function(_super) {
     __extends(IMObject, _super);
 
-    function IMObject(base, type, id) {
+    function IMObject(base, types, id) {
       IMObject.__super__.constructor.call(this, {
-        "class": String(type),
+        classes: types != null ? types.map(String) : void 0,
         id: id
       });
       this.set({
         'service:base': base
       });
-      this.freeze('service:base', 'id', 'class');
+      this.freeze('service:base', 'id', 'classes');
     }
 
     IMObject.prototype.toJSON = function() {
@@ -3815,7 +3832,7 @@
       this.set({
         'id': null,
         'isNULL': true,
-        'class': type,
+        'classes': [type],
         'service:base': '',
         'service:url': '',
         'report:uri': null
@@ -3948,7 +3965,18 @@
     };
 
     ObjectStore.prototype._newObject = function(obj) {
-      return new IMObject(this.base, this.schema.makePath(obj['class']), obj.id);
+      var c, classes;
+      classes = (function() {
+        var _i, _len, _ref, _ref1, _ref2, _results;
+        _ref2 = (_ref = (_ref1 = obj['class']) != null ? _ref1.split(',') : void 0) != null ? _ref : [];
+        _results = [];
+        for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+          c = _ref2[_i];
+          _results.push(this.schema.makePath(c));
+        }
+        return _results;
+      }).call(this);
+      return new IMObject(this.base, classes, obj.id);
     };
 
     ObjectStore.prototype.destroy = function() {
@@ -5089,6 +5117,9 @@
         MAX_PIE_SLICES: 15,
         DropdownMax: 20,
         DefaultPageSize: 25,
+        DynamicObjects: {
+          NameDelimiter: ' / '
+        },
         CodeGen: {
           Default: 'py',
           Langs: ['py', 'pl', 'java', 'rb', 'js', 'xml']
@@ -5105,6 +5136,7 @@
           FullPathPopoverEnabled: true
         },
         TableCell: {
+          AddDataClasses: true,
           PreviewTrigger: 'hover',
           HoverDelay: 200,
           IndicateOffHostLinks: true,
@@ -6615,17 +6647,16 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
     }
 
     PopoverFactory.prototype.get = function(obj) {
-      var Preview, id, model, service, type;
+      var Preview, id, service, types;
       Preview = this.Preview, service = this.service;
-      type = obj.get('class');
+      types = obj.get('classes');
       id = obj.get('id');
-      model = {
-        type: type,
-        id: id
-      };
       return new Preview({
         service: service,
-        model: model
+        model: {
+          types: types,
+          id: id
+        }
       });
     };
 
@@ -15864,7 +15895,7 @@ module.exports = '2.0.0-beta-3';
 
 },{}],168:[function(require,module,exports){
 (function() {
-  var AttrDetailsModel, Collection, CoreModel, CoreView, CountsTitle, DetailsModel, ERROR, HIDDEN_FIELDS, ItemDetails, Options, PathModel, Preview, PreviewModel, Promise, RefDetailsModel, ReferenceCounts, ServiceType, SortedByName, Templates, acceptAttr, acceptRef, concat, getLeaves, types, _,
+  var AttrDetailsModel, Collection, CoreModel, CoreView, CountsTitle, DetailsModel, ERROR, HIDDEN_FIELDS, ItemDetails, Options, PathModel, Preview, PreviewModel, Promise, RefDetailsModel, ReferenceCounts, ServiceType, SortedByName, Templates, acceptAttr, acceptRef, cantFindField, concat, getLeaves, types, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -15895,6 +15926,10 @@ module.exports = '2.0.0-beta-3';
   ReferenceCounts = require('./item-preview/reference-counts');
 
   CountsTitle = require('./item-preview/counts-title');
+
+  cantFindField = function(fld, types) {
+    return "Could not determine origin of " + fld + " from [" + (types.join(', ')) + "]";
+  };
 
   DetailsModel = (function(_super) {
     __extends(DetailsModel, _super);
@@ -15972,7 +16007,7 @@ module.exports = '2.0.0-beta-3';
 
     PreviewModel.prototype.defaults = function() {
       return {
-        type: null,
+        types: [],
         id: null,
         error: null,
         phase: 'FETCHING'
@@ -16087,7 +16122,7 @@ module.exports = '2.0.0-beta-3';
     Preview.prototype.postRender = function() {
       var t, _i, _len, _ref, _results;
       if ('SUCCESS' === this.model.get('phase')) {
-        _ref = this.model.get('type').split(',');
+        _ref = this.model.get('types');
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           t = _ref[_i];
@@ -16117,22 +16152,21 @@ module.exports = '2.0.0-beta-3';
     Preview.prototype.fetchData = function() {
       return this.service.fetchModel().then((function(_this) {
         return function(schema) {
-          var gettingCounts, gettingDetails, type;
+          var gettingCounts, gettingDetails;
           _this.schema = schema;
-          type = _this.model.get('type');
-          types = type.split(',');
-          gettingDetails = _this.getAllDetails(types);
-          gettingCounts = _this.getRelationCounts(types);
+          gettingDetails = _this.getAllDetails();
+          gettingCounts = _this.getRelationCounts();
           return Promise.all(gettingDetails.concat(gettingCounts));
         };
       })(this));
     };
 
-    Preview.prototype.getAllDetails = function(types) {
-      var t, _i, _len, _results;
+    Preview.prototype.getAllDetails = function() {
+      var t, _i, _len, _ref, _results;
+      _ref = this.model.get('types');
       _results = [];
-      for (_i = 0, _len = types.length; _i < _len; _i++) {
-        t = types[_i];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        t = _ref[_i];
         _results.push(this.getDetails(t));
       }
       return _results;
@@ -16145,29 +16179,50 @@ module.exports = '2.0.0-beta-3';
     };
 
     Preview.prototype.handleItem = function(item) {
-      var coll, field, testAttr, testRef, value;
+      var clds, coll, field, t, testAttr, testRef, value;
       coll = this.fieldDetails;
       testAttr = acceptAttr(coll);
       testRef = acceptRef(coll);
+      clds = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.model.get('types');
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          t = _ref[_i];
+          _results.push(this.schema.classes[t]);
+        }
+        return _results;
+      }).call(this);
       for (field in item) {
         value = item[field];
         if (testAttr(field, value)) {
-          this.handleAttribute(item, field, value);
+          this.handleAttribute(item, clds, field, value);
         }
       }
       for (field in item) {
         value = item[field];
         if (testRef(field, value)) {
-          this.handleSubObj(item, field, value);
+          this.handleSubObj(item, clds, field, value);
         }
       }
       return null;
     };
 
-    Preview.prototype.handleSubObj = function(item, field, value) {
+    Preview.prototype.getPathForField = function(clds, field) {
+      var cld, path;
+      cld = _.find(clds, function(c) {
+        return c.fields[field] != null;
+      });
+      if (cld == null) {
+        throw new Error(cantFindField(field, _.pick(clds, 'name')));
+      }
+      return path = this.schema.makePath("" + cld.name + "." + field);
+    };
+
+    Preview.prototype.handleSubObj = function(item, clds, field, value) {
       var details, path, values;
+      path = this.getPathForField(clds, field);
       values = getLeaves(value, HIDDEN_FIELDS);
-      path = this.schema.makePath("" + item['class'] + "." + field);
       details = {
         path: path,
         field: field,
@@ -16176,9 +16231,9 @@ module.exports = '2.0.0-beta-3';
       return this.fieldDetails.add(new RefDetailsModel(details));
     };
 
-    Preview.prototype.handleAttribute = function(item, field, rawValue) {
+    Preview.prototype.handleAttribute = function(item, clds, field, rawValue) {
       var cuttoff, details, path, snipPoint, tooLong, valueString;
-      path = this.schema.makePath("" + item['class'] + "." + field);
+      path = this.getPathForField(clds, field);
       details = {
         path: path,
         field: field,
@@ -16201,8 +16256,9 @@ module.exports = '2.0.0-beta-3';
       return this.fieldDetails.add(new AttrDetailsModel(details));
     };
 
-    Preview.prototype.getRelationCounts = function(types) {
+    Preview.prototype.getRelationCounts = function() {
       var c, cld, countSets, opts, root, settings, type, _ref;
+      types = this.model.get('types');
       root = this.service.root;
       opts = (_ref = Options.get(['Preview', 'Count', root])) != null ? _ref : {};
       countSets = (function() {
@@ -20719,7 +20775,8 @@ module.exports = '2.0.0-beta-3';
 (function() {
   var Cell, CellModel, CoreView, Formatting, Messages, Options, SelectedObjects, Templates, compatible, popoverTemplate, types, _, _compatible,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   _ = require('underscore');
 
@@ -20737,7 +20794,12 @@ module.exports = '2.0.0-beta-3';
 
   Messages.setWithPrefix('table.cell', {
     Link: 'link',
-    NullEntity: 'No <%= type %>'
+    NullEntity: 'No <%= type %>',
+    PreviewTitle: function(_arg) {
+      var types;
+      types = _arg.types;
+      return types.join(Options.get('DynamicObjects.NameDelimiter'));
+    }
   });
 
   SelectedObjects = require('../../models/selected-objects');
@@ -20810,14 +20872,19 @@ module.exports = '2.0.0-beta-3';
       return this.model.get('column');
     };
 
-    Cell.prototype.getType = function() {
-      var entityType, node;
+    Cell.prototype.getTypes = function() {
+      var c, classes, node, _i, _len, _results;
       node = this.model.get('node');
-      entityType = this.model.get('entity').get('class');
-      if (entityType != null) {
-        return node.model.makePath(entityType);
+      classes = this.model.get('entity').get('classes');
+      if (classes != null) {
+        _results = [];
+        for (_i = 0, _len = classes.length; _i < _len; _i++) {
+          c = classes[_i];
+          _results.push(node.model.makePath(c));
+        }
+        return _results;
       } else {
-        return node;
+        return [node];
       }
     };
 
@@ -20933,15 +21000,55 @@ module.exports = '2.0.0-beta-3';
     };
 
     Cell.prototype.toggleSelection = function() {
-      var ent, found;
+      var ent, found, id, toAdd;
       ent = this.model.get('entity');
+      id = ent.get('id');
       if (ent == null) {
         return;
       }
-      if (found = this.selectedObjects.get(ent)) {
+      if (found = this.selectedObjects.get(id)) {
         return this.selectedObjects.remove(found);
       } else {
-        return this.selectedObjects.add(ent);
+        toAdd = this.getMostSuitableIdentity();
+        if (toAdd == null) {
+          throw new Error("None of our identities is a compatible");
+        }
+        return this.selectedObjects.add(toAdd);
+      }
+    };
+
+    Cell.prototype.getMostSuitableIdentity = function() {
+      var columnTypes, ct, id, identities, node, ranked, suitable, t;
+      node = this.model.get('node');
+      columnTypes = node.model.getSubclassesOf(node.getType());
+      id = this.model.get('entity').get('id');
+      identities = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.getTypes();
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          t = _ref[_i];
+          _results.push({
+            'class': String(t),
+            id: id
+          });
+        }
+        return _results;
+      }).call(this);
+      if (this.selectedObjects.isEmpty()) {
+        return _.find(identities, function(x) {
+          var _ref;
+          return _ref = x['class'], __indexOf.call(columnTypes, _ref) >= 0;
+        });
+      } else {
+        ct = node.model.makePath(this.selectedObjects.state.get('commonType'));
+        suitable = _.all(identities, function(x) {
+          return compatible(ct, x['class']);
+        });
+        ranked = _.sortBy(identities, function(x) {
+          return node.model.getAncestorsOf(x['class']).length;
+        });
+        return _.last(ranked);
       }
     };
 
@@ -20955,9 +21062,15 @@ module.exports = '2.0.0-beta-3';
       var commonType, selectable, size;
       commonType = this.selectedObjects.state.get('commonType');
       size = this.selectedObjects.size();
-      selectable = (size === 0) || (compatible(this.getType(), commonType));
+      selectable = (size === 0) || (this.isCompatibleWith(commonType));
       return this.state.set({
         selectable: selectable
+      });
+    };
+
+    Cell.prototype.isCompatibleWith = function(commonType) {
+      return this.getTypes().some(function(t) {
+        return compatible(t, commonType);
       });
     };
 
@@ -21164,9 +21277,17 @@ module.exports = '2.0.0-beta-3';
     };
 
     Cell.prototype.setAttrClass = function() {
-      var attrType;
-      attrType = this.model.get('column').getType();
-      return this.$el.addClass('im-type-' + attrType.toLowerCase());
+      var attrType, entType, _i, _len, _ref;
+      if (Options.get('TableCell.AddDataClasses')) {
+        attrType = this.model.get('column').getType();
+        this.$el.addClass('im-type-' + attrType.toLowerCase());
+        _ref = this.getTypes();
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          entType = _ref[_i];
+          this.$el.addClass(String(entType));
+        }
+        return this.$el.addClass(this.model.get('column').end.name);
+      }
     };
 
     Cell.prototype.setMinimisedClass = function() {
@@ -21223,13 +21344,14 @@ module.exports = '2.0.0-beta-3';
     Cell.prototype.popoverTarget = null;
 
     Cell.prototype.initPreview = function() {
-      var content, trigger;
+      var content, getTitle, trigger;
       if ((this.children.popover != null) || (!this.canHavePreview())) {
         return;
       }
       content = this.popovers.get(this.model.get('entity'));
       trigger = Options.get('TableCell.PreviewTrigger');
       this.popoverTarget = trigger === 'hover' ? this.$('.im-cell-link') : this.$el;
+      getTitle = Messages.getText.bind(Messages, 'table.cell.PreviewTitle');
       this.listenToOnce(content, 'rendered', (function(_this) {
         return function() {
           var container;
@@ -21241,7 +21363,9 @@ module.exports = '2.0.0-beta-3';
             container: container,
             html: true,
             title: function() {
-              return _this.model.get('typeName');
+              return getTitle({
+                types: _this.model.get('typeNames')
+              });
             },
             content: content.el
           });
