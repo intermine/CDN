@@ -8548,6 +8548,7 @@ span.twitter-typeahead {
 }
 .im-path-chooser li {
   list-style-type: none;
+  margin-left: 0px;
   width: 100%;
 }
 .im-path-chooser li > a {
@@ -9081,6 +9082,7 @@ li.L9 {
   list-style-type: none;
 }
 .im-column-manager .im-addition > div > .im-path-chooser {
+  padding-left: 0px;
   overflow-y: auto;
 }
 .im-column-manager .im-addition {
@@ -9551,7 +9553,10 @@ li.L9 {
   position: absolute;
   left: 25%;
 }
-.im-table-container .im-error-notice .query-xml {
+.im-table-container .im-error-notice p {
+  margin-bottom: 1em;
+}
+.im-table-container .im-error-notice .well {
   margin-top: 1em;
 }
 .im-table-container .im-table-controls .im-page-sizer,

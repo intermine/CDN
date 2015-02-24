@@ -6461,6 +6461,7 @@
   overflow: visible;}
 .imtables .im-path-chooser li {
   list-style-type: none;
+  margin-left: 0px;
   width: 100%;}
 .imtables .im-path-chooser li > a {
   color: inherit;
@@ -6877,6 +6878,7 @@
   background-color: #5472a2;
   list-style-type: none;}
 .imtables .im-column-manager .im-addition > div > .im-path-chooser {
+  padding-left: 0px;
   overflow-y: auto;}
 .imtables .im-column-manager .im-addition {
   overflow-y: hidden;}
@@ -7223,7 +7225,9 @@
   font-size: 72px;
   position: absolute;
   left: 25%;}
-.imtables .im-table-container .im-error-notice .query-xml {
+.imtables .im-table-container .im-error-notice p {
+  margin-bottom: 1em;}
+.imtables .im-table-container .im-error-notice .well {
   margin-top: 1em;}
 .imtables .im-table-container .im-table-controls .im-page-sizer,
 .imtables .im-table-container .im-table-controls .im-table-summary {

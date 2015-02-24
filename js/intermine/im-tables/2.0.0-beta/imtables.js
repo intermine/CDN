@@ -2227,8 +2227,9 @@
 
   Messages.setWithPrefix('error', {
     Oops: 'Oops! - Sorry we cannot get that table for you.',
-    EmailHelp: 'Email the help desk',
+    EmailHelp: 'Send a bug report',
     ShowQuery: 'Show query',
+    ShowError: 'Show error',
     ConnectionError: 'Could not connect to server'
   });
 
@@ -2238,12 +2239,12 @@
 
   Messages.setWithPrefix('error.client', {
     Heading: 'Application error.',
-    Body: "This is due to an unexpected error in the tables\napplication - we are sorry for the inconvenience"
+    Body: "This is due to an unexpected error in the tables\napplication - this is our fault, and we are sorry for the\ninconvenience. Please send us the pre-filled bug report so\nwe can fix this as soon as possible."
   });
 
   Messages.setWithPrefix('error.server', {
     Heading: "Server error - our bad!",
-    Body: "This is most likely related to the query that was just run. If you have\ntime, please send us an email with details of this query to help us\ndiagnose and fix this bug."
+    Body: "This is most likely related to the query that was just run. If you have\ntwo minutes, please send us an email with details of this query to help us\ndiagnose and fix this bug - we have already pre-filled the bug report,\nyou just need to hit send (and maybe give us some extra details).\nAlternatively, you might be able to fix this query by changing its column, \nfilters or joins; use the tools above to do so."
   });
 
 }).call(this);
@@ -5444,7 +5445,7 @@ exports.export_format_controls = "<h4 class=\"im-title\"></h4>\n\n<% _.each(form
 exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(marker) { %>\n        <span class=\"im-slider-marker <%- (marker.percent > 50) ? 'high' : 'low' %>\"\n              style=\"left:<%- marker.percent %>%\">\n            <%- marker.value %>\n        </span>\n    <% }); %>\n</div>\n";
 exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
 exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
-exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n</div>\n";
+exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
 exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <% if (canUndo) { %>\n      <button class=\"pull-right btn btn-large btn-default btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n  </div>\n</td>\n";
 exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- messages.getText('conbuilder.ExtraPlaceholder') %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
 exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
@@ -21594,7 +21595,7 @@ module.exports = '2.0.0-beta-3';
     ErrorNotice.prototype.postRender = function() {
       var pre, query;
       query = indentXML(this.query.toXML());
-      pre = this.$('pre');
+      pre = this.$('.query-xml');
       return withPrettyPrintOne(function(ppo) {
         return pre.html(ppo(_.escape(query)));
       });
@@ -21602,9 +21603,13 @@ module.exports = '2.0.0-beta-3';
 
     ErrorNotice.prototype.events = function() {
       return {
-        'click button': function() {
+        'click .im-show-query': function() {
           this.$('.query-xml').slideToggle();
-          return this.$('button').toggleClass('active');
+          return this.$('.im-show-query').toggleClass('active');
+        },
+        'click .im-show-error': function() {
+          this.$('.error-message').slideToggle();
+          return this.$('.im-show-error').toggleClass('active');
         }
       };
     };
