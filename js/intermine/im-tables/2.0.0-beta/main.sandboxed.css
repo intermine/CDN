@@ -6286,8 +6286,16 @@
 .imtables .im-filter-manager .im-path-finder {
   max-height: 400px;
   overflow-y: auto;}
+.imtables .im-filter-summary .label-path .im-name-part {
+  display: none;}
+.imtables .im-filter-summary .label-path .im-name-part:last-child {
+  display: inline;}
+.imtables .im-filter-summary .label-path.im-show-full-path .im-name-part {
+  display: inline;}
 .imtables .im-constraint-editor {
   padding: 1em;}
+.imtables .im-constraint-editor:empty {
+  display: none;}
 .imtables .im-constraint-editor .path-label {
   text-align: right;}
 .imtables .im-constraint-editor .twitter-typeahead {
@@ -6317,6 +6325,12 @@
 .imtables .im-con-overview .im-remove-constraint,
 .imtables .im-con-overview .im-edit {
   cursor: pointer;}
+.imtables .im-con-overview .breadcrumb li {
+  margin-right: 0.2em;}
+.imtables .im-con-overview .breadcrumb li:before {
+  content: '';}
+.imtables .im-con-overview .breadcrumb .label {
+  font-size: 1.25em;}
 .imtables span.twitter-typeahead {
   float: left;
   width: 100%;}

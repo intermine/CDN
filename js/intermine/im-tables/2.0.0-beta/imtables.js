@@ -5356,7 +5356,7 @@ exports.facet_row = "<% /* requires: selected, symbol, item, count, percent, opa
 exports.new_filter_dialogue = "<div class=\"modal-body\">\n</div>\n<div class=\"modal-footer\">\n    <button class=\"disabled btn btn-primary pull-right im-add-constraint\">\n        <%- Messages.getText('constraints.AddFilter') %>\n    </button>\n    <button class=\"btn im-close pull-left\">\n        <%- Messages.getText('Cancel') %>\n        Cancel\n    </button>\n</div>\n";
 exports.input_with_button = "<input type=\"text\" class=\"form-control\"\n       value=\"<%- value %>\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\">\n<span class=\"input-group-btn\">\n  <button class=\"btn btn-default\" type=\"button\">\n    <%- Messages.getText(button) %>\n  </button>\n</span>\n\n";
 exports.undo_history_step = "<% if (!state.current) { %>\n  <button class=\"btn btn-default btn-small im-state-revert\"\n      title=\"<%- Messages.getText('undo.RevertToState') %>\">\n      <%= Icons.icon('Undo') %>\n  </button>\n<% } %>\n\n<h4>\n    <%- Messages.getText('undo.StepTitle', title) %>\n</h4>\n\n<% if (state.current) { %>\n  <span class=\"help-block\"><%- Messages.getText('undo.IsCurrentState') %></span>\n<% } %>\n<div style=\"clear:both\"></div>\n\n<span class=\"im-revision\" title=\"<%- Messages.getText('undo.RevisionTitle', {v: revision}) %>\">\n  <%- Messages.getText('undo.Revision', {v: revision}) %>\n</span>\n\n<div class=\"im-step-count\">\n  <span><%- Messages.getText('undo.StepCount', {count: count}) %></span>\n  <% if (diff) { %>\n    <span class=\"label im-label-<%= (diff > 0 ) ? 'pos' : 'neg' %>\">\n      <% if (diff > 0) { %>+<% } %><%- numToString(diff) %>\n    </span>\n  <% } %>\n</div>\n\n<div class=\"im-step-details\"></div>\n\n<div style=\"clear:both\"></div>\n";
-exports.active_constraint = "<div class=\"im-con-overview\">\n  <% if (data.con.editable != null && data.con.editable === false) { %>\n    <a title=\"<%- data.messages.getText('conbuilder.NotEditable') %>\">\n        <%= data.icons.icon('Lock') %>\n    </a>\n  <% } else { %>\n    <a class=\"im-remove-constraint\"\n        title=\"<%- data.messages.getText('conbuilder.Remove') %>\"\n        >\n        <%= data.icons.icon('RemoveConstraint') %>\n    </a>\n    <a class=\"im-edit\" title=\"<%- data.messages.getText('conbuilder.EditCon') %>\">\n        <%= data.icons.icon('Edit') %>\n    </a>\n  <% } %>\n</div>\n\n<div class=\"im-constraint-editor\">\n</div>\n";
+exports.active_constraint = "<div class=\"im-con-overview\">\n  <% if (data.con.editable != null && data.con.editable === false) { %>\n    <a title=\"<%- data.messages.getText('conbuilder.NotEditable') %>\">\n        <%= data.icons.icon('Lock') %>\n    </a>\n  <% } else { %>\n    <a class=\"im-remove-constraint\"\n        title=\"<%- data.messages.getText('conbuilder.Remove') %>\"\n        >\n        <%= data.icons.icon('RemoveConstraint') %>\n    </a>\n    <a class=\"im-edit\" title=\"<%- data.messages.getText('conbuilder.EditCon') %>\">\n        <%= data.icons.icon('Edit') %>\n    </a>\n  <% } %>\n</div>\n\n<% /* We use the :empty selector on this element - hence it must be on one line */ %>\n<div class=\"im-constraint-editor\"></div>\n";
 exports.facet_frequency = "<% /* requires: error, initialized */ %>\n<% if (error) { %>\n    <% /* Oh noes - something went wrong. */ %>\n    <div class=\"alert alert-warning\">\n        <%= Icons.icon('Error') %>\n        <strong><%- Messages.getText('Error') %></strong>\n        <% if (error.key) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } else if (initialized) { %>\n    <% /* Huzzah - there is data, which will be added here as child views */ %>\n<% } else { %>\n    <% /* Boo - no data. Show an indeterminate progress bar while we wait. */ %>\n    <div class=\"progress\">\n      <div class=\"progress-bar progress-bar-info progress-bar-striped active\"\n           role=\"progressbar\"\n           style=\"width:100%\">\n        <span class=\"sr-only\"><%- Messages.getText('Loading') %>.</span>\n      </div>\n    </div>\n<% } %>\n";
 exports.column_manager_path_name = "<% /* requires parts */ %>\n<span class=\"im-path-name\">\n    <% _.each(parts, function (part) { %>\n        <span class=\"im-name-part\"><%- part %></span>\n    <% }); %>\n</span>\n\n";
 exports.list_dialogue_expander = "<button class=\"btn btn-default im-expand-dialogue <%= minimised ? 'active' : void 0 %>\">\n  <%- Messages.getText('lists.picker.Collapse') %>\n</button>\n";
@@ -5395,7 +5395,7 @@ exports.export_add_column_control = "<div class=\"row\">\n    <div class=\"col-s
 exports.export_dialogue_footer = "<% if (linkToFile) { %>\n    <div class=\"pull-left alert alert-info\">\n        <%- Messages.getText('export.cloud.FileLocation', {cloud: dest}) %>\n        <a href=\"<%= linkToFile %>\" target=\"_blank\"><%- linkToFile %></a>\n    </div>\n<% } %>\n\n<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n\n<% if (dest === 'download') { %>\n    <a class=\"btn btn-primary\"\n        href=\"<%- exportURI %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <button type=\"button\"\n            <%= (error || doneness != null) ? 'disabled' : void 0 %>\n            class=\"btn btn-primary\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </button>\n<% } %>\n\n";
 exports.column_manager_path_remover = "<% /* requires: removeTitle */ %>\n<span class=\"pull-right im-remove-view\"\n      title=\"<%- Messages.getText(removeTitle) %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n\n";
 exports.export_flat_file_options = "<h4><%- Messages.getText('export.category.ColumnHeaders', state) %></h4>\n\n<div class=\"checkbox im-headers\">\n    <label>\n        <input type=\"checkbox\" <%= headers ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.AddHeaders') %>\n    </label>\n</div>\n\n<fieldset <%= headers ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-friendly\"\n                <%= (headerType === 'friendly') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.FriendlyHeaders') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-path\"\n                <%= (headerType === 'path') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.PathHeaders') %>\n        </label>\n    </div>\n</fieldset>\n\n";
-exports.constraint_summary = "<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= icons.icon('Error') %>\n        <%- messages.getText('consummary.' + label.content) %>\n      <% } else { %>\n        <% if (label.icon) { %><%= icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
+exports.constraint_summary = "<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
 exports.classy_popover = "<div class=\"popover <%- classes %>\" role=\"tooltip\">\n  <div class=\"arrow\"></div>\n  <h3 class=\"popover-title\"></h3>\n  <div class=\"popover-content\"></div>\n</div>\n";
 exports.join_manager_body = "<ul class=\"list-group\"></ul>\n\n<div class=\"alert alert-info\">\n  <%= Icons.icon('Info') %>\n  <strong class=\"im-clickable\">\n    <%- Messages.getText('joins.ExplanationTitle') %>\n  </strong>\n  <p class=\"<%= (!state.explaining) ? 'im-latent' : void 0 %>\">\n    <%- Messages.getText('joins.Explanation') %>\n  </p>\n</div>\n";
 exports.summary_selected_count = "<% if (state.selectedCount) { %>\n    <div class=\"alert alert-info im-selected-count\">\n        <strong>\n            <%- Messages.getText('summary.SelectedCount', state) %>\n        </strong>\n    </div>\n<% } %>\n";
@@ -10353,7 +10353,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-view":3,"../mixins/has-typeaheads":31,"../options":62,"../patterns":63,"../templates":66,"../utils/path-suggester":94,"es6-promise":277,"underscore":308}],125:[function(require,module,exports){
 (function() {
-  var ConstraintAdder, ConstraintAdderModel, ConstraintAdderOptions, CoreModel, Messages, NewConstraint, OpenNodes, PathChooser, PathSet, Templates, View, _,
+  var ConstraintAdder, ConstraintAdderModel, ConstraintAdderOptions, CoreModel, Messages, NewConstraint, OPTIONS_SEL, OpenNodes, PathChooser, PathSet, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -10407,6 +10407,8 @@ module.exports = '2.0.0-beta-3';
     return ConstraintAdderModel;
 
   })(CoreModel);
+
+  OPTIONS_SEL = '.im-constraint-adder-options';
 
   module.exports = ConstraintAdder = (function(_super) {
     __extends(ConstraintAdder, _super);
@@ -10487,7 +10489,12 @@ module.exports = '2.0.0-beta-3';
         query: this.query,
         constraint: constraint
       });
-      return this.renderChild('con', editor, this.$('.im-new-constraint'));
+      this.renderChild('con', editor, this.$('.im-new-constraint'));
+      return this.listenTo(editor, 'remove', function() {
+        return this.model.set({
+          showTree: true
+        });
+      });
     };
 
     ConstraintAdder.prototype.onChangeConstraint = function() {
@@ -10541,7 +10548,7 @@ module.exports = '2.0.0-beta-3';
         chosenPaths: this.chosenPaths,
         query: this.query
       };
-      return this.renderChild('opts', new ConstraintAdderOptions(opts), this.$('.im-constraint-adder-options'));
+      return this.renderChild('opts', new ConstraintAdderOptions(opts), this.$(OPTIONS_SEL));
     };
 
     ConstraintAdder.prototype.postRender = function() {
@@ -10903,7 +10910,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-view":3,"../icons":14,"../messages":16,"./attribute-value-controls":110,"./boolean-value-controls":111,"./error-message":134,"./list-value-controls":190,"./lookup-value-controls":191,"./loop-value-controls":192,"./multi-value-controls":195,"./type-value-controls":224,"imjs":286,"underscore":308}],127:[function(require,module,exports){
 (function() {
-  var ConstraintSummary, IS_BLANK, Icons, Messages, Model, Query, TEMPLATE, View, fs, _, _ref,
+  var ConstraintSummary, CoreView, IS_BLANK, Messages, Model, Query, Templates, _, _ref,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -10911,13 +10918,11 @@ module.exports = '2.0.0-beta-3';
 
   _ = require('underscore');
 
-  
-
   Messages = require('../messages');
 
-  Icons = require('../icons');
+  Templates = require('../templates');
 
-  View = require('../core-view');
+  CoreView = require('../core-view');
 
   IS_BLANK = require('../patterns').IS_BLANK;
 
@@ -10928,8 +10933,6 @@ module.exports = '2.0.0-beta-3';
     'consummary.NoValue': 'no value'
   });
 
-  TEMPLATE = "<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= icons.icon('Error') %>\n        <%- messages.getText('consummary.' + label.content) %>\n      <% } else { %>\n        <% if (label.icon) { %><%= icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
-
   module.exports = ConstraintSummary = (function(_super) {
     __extends(ConstraintSummary, _super);
 
@@ -10939,26 +10942,51 @@ module.exports = '2.0.0-beta-3';
 
     ConstraintSummary.prototype.tagName = 'ol';
 
-    ConstraintSummary.prototype.className = 'summary breadcrumb';
+    ConstraintSummary.prototype.className = 'constraint-summary breadcrumb';
 
     ConstraintSummary.prototype.initialize = function() {
-      this.listenTo(this.model, 'change', this.reRender);
-      this.listenTo(Messages, 'change', this.reRender);
-      return this.listenTo(Icons, 'change', this.reRender);
+      ConstraintSummary.__super__.initialize.apply(this, arguments);
+      return this.listenTo(Messages, 'change', this.reRender);
     };
 
     ConstraintSummary.prototype.getData = function() {
-      return {
-        icons: Icons,
-        messages: Messages,
+      return _.extend(ConstraintSummary.__super__.getData.apply(this, arguments), {
         labels: this.getSummary()
-      };
+      });
     };
 
-    ConstraintSummary.prototype.template = _.template(TEMPLATE);
+    ConstraintSummary.prototype.template = Templates.template('constraint-summary');
 
     ConstraintSummary.prototype.getTitleOp = function() {
       return this.model.get('op') || Messages.getText('consummary.IsA');
+    };
+
+    ConstraintSummary.prototype.modelEvents = function() {
+      return {
+        change: this.reRender
+      };
+    };
+
+    ConstraintSummary.prototype.events = function() {
+      return {
+        'click .label-path': function() {
+          return this.state.toggle('showFullPath');
+        }
+      };
+    };
+
+    ConstraintSummary.prototype.stateEvents = function() {
+      return {
+        'change:showFullPath': this.toggleFullPath
+      };
+    };
+
+    ConstraintSummary.prototype.toggleFullPath = function() {
+      return this.$('.label-path').toggleClass('im-show-full-path', !!this.state.get('showFullPath'));
+    };
+
+    ConstraintSummary.prototype.postRender = function() {
+      return this.toggleFullPath();
     };
 
     ConstraintSummary.prototype.getTitleVal = function() {
@@ -10991,7 +11019,7 @@ module.exports = '2.0.0-beta-3';
       var displayName, path, title, _ref1, _ref2;
       _ref1 = this.model.toJSON(), title = _ref1.title, displayName = _ref1.displayName, path = _ref1.path;
       return {
-        content: (_ref2 = title != null ? title : displayName) != null ? _ref2 : path,
+        content: String((_ref2 = title != null ? title : displayName) != null ? _ref2 : path),
         type: 'path'
       };
     };
@@ -11033,11 +11061,11 @@ module.exports = '2.0.0-beta-3';
 
     return ConstraintSummary;
 
-  })(View);
+  })(CoreView);
 
 }).call(this);
 
-},{"../core-view":3,"../icons":14,"../messages":16,"../patterns":63,"imjs":286,"underscore":308}],128:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../patterns":63,"../templates":66,"imjs":286,"underscore":308}],128:[function(require,module,exports){
 (function() {
   var ActiveConstraint, ConstraintAdder, Constraints, CoreView, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -11118,7 +11146,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-view":3,"../messages/constraints":21,"../templates":66,"./active-constraint":109,"./constraint-adder":125,"underscore":308}],129:[function(require,module,exports){
 (function() {
-  var AdderButton, CoreView, Messages, _,
+  var AdderButton, CoreView, Messages, PathModel, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -11128,6 +11156,8 @@ module.exports = '2.0.0-beta-3';
 
   Messages = require('../../messages');
 
+  PathModel = require('../../models/path');
+
   require('../../messages/constraints');
 
   module.exports = AdderButton = (function(_super) {
@@ -11136,6 +11166,8 @@ module.exports = '2.0.0-beta-3';
     function AdderButton() {
       return AdderButton.__super__.constructor.apply(this, arguments);
     }
+
+    AdderButton.prototype.Model = PathModel;
 
     AdderButton.prototype.tagName = 'button';
 
@@ -11175,11 +11207,12 @@ module.exports = '2.0.0-beta-3';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"underscore":308}],130:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":55,"underscore":308}],130:[function(require,module,exports){
 (function() {
-  var AdderButton, ButtonGrp, ComposedColumnConstraintAdder, ConstraintAdder, CoreView, Messages, OPTS_SEL, PathModel, Templates, _,
+  var AdderButton, ComposedColumnConstraintAdder, ConstraintAdder, CoreView, DropdownButtonGrp, Messages, OPTS_SEL, Option, PathModel, Templates, Toggle, _,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __slice = [].slice;
 
   _ = require('underscore');
 
@@ -11199,31 +11232,101 @@ module.exports = '2.0.0-beta-3';
 
   OPTS_SEL = '.im-constraint-adder-options';
 
-  ButtonGrp = (function(_super) {
-    __extends(ButtonGrp, _super);
+  DropdownButtonGrp = (function(_super) {
+    __extends(DropdownButtonGrp, _super);
 
-    function ButtonGrp() {
-      return ButtonGrp.__super__.constructor.apply(this, arguments);
+    function DropdownButtonGrp() {
+      return DropdownButtonGrp.__super__.constructor.apply(this, arguments);
     }
 
-    ButtonGrp.prototype.className = 'btn-group';
+    DropdownButtonGrp.prototype.className = 'btn-group';
 
-    ButtonGrp.prototype.parameters = ['kids'];
+    DropdownButtonGrp.prototype.parameters = ['main', 'options'];
 
-    ButtonGrp.prototype.postRender = function() {
-      var i, kid, _i, _len, _ref, _results;
-      _ref = this.kids;
-      _results = [];
-      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
-        kid = _ref[i];
-        _results.push(this.renderChild(i, kid));
-      }
-      return _results;
+    DropdownButtonGrp.prototype.initState = function() {
+      return this.state.set({
+        open: false
+      });
     };
 
-    return ButtonGrp;
+    DropdownButtonGrp.prototype.stateEvents = function() {
+      return {
+        'change:open': this.toggleOpen
+      };
+    };
+
+    DropdownButtonGrp.prototype.toggleOpen = function() {
+      return this.$el.toggleClass('open', this.state.get('open'));
+    };
+
+    DropdownButtonGrp.prototype.ICONS = 'NONE';
+
+    DropdownButtonGrp.prototype.postRender = function() {
+      var i, kid, ul, _i, _len, _ref;
+      this.toggleOpen();
+      this.renderChild('main', this.main);
+      this.renderChild('toggle', new Toggle({
+        state: this.state
+      }));
+      ul = document.createElement('ul');
+      ul.className = 'dropdown-menu';
+      _ref = this.options;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        kid = _ref[i];
+        this.renderChild(i, kid, ul);
+      }
+      return this.$el.append(ul);
+    };
+
+    return DropdownButtonGrp;
 
   })(CoreView);
+
+  Toggle = (function(_super) {
+    __extends(Toggle, _super);
+
+    function Toggle() {
+      return Toggle.__super__.constructor.apply(this, arguments);
+    }
+
+    Toggle.prototype.tagName = 'button';
+
+    Toggle.prototype.className = 'btn btn-primary dropdown-toggle';
+
+    Toggle.prototype.ICONS = 'NONE';
+
+    Toggle.prototype.template = _.template("<span class=\"caret\"></span>\n<span class=\"sr-only\"><%- Messages.getText('constraints.OtherPaths') %></span>");
+
+    Toggle.prototype.events = function() {
+      return {
+        click: function() {
+          return this.state.toggle('open');
+        }
+      };
+    };
+
+    return Toggle;
+
+  })(CoreView);
+
+  Option = (function(_super) {
+    __extends(Option, _super);
+
+    function Option() {
+      return Option.__super__.constructor.apply(this, arguments);
+    }
+
+    Option.prototype.tagName = 'li';
+
+    Option.prototype.className = '';
+
+    Option.prototype.template = function() {
+      return "<a>" + Option.__super__.template.apply(this, arguments) + "</a>";
+    };
+
+    return Option;
+
+  })(AdderButton);
 
   module.exports = ComposedColumnConstraintAdder = (function(_super) {
     __extends(ComposedColumnConstraintAdder, _super);
@@ -11235,39 +11338,43 @@ module.exports = '2.0.0-beta-3';
     ComposedColumnConstraintAdder.prototype.parameters = ['query', 'paths'];
 
     ComposedColumnConstraintAdder.prototype.onChosen = function(path) {
-      this.model.set({
+      return this.model.set({
         constraint: {
           path: path
         }
       });
-      this.hideTree();
-      return this.renderConstraintEditor();
     };
 
     ComposedColumnConstraintAdder.prototype.renderOptions = function() {};
 
     ComposedColumnConstraintAdder.prototype.showTree = function() {
-      var b, btns, grp, p, _i, _len;
-      btns = (function() {
-        var _i, _len, _ref, _results;
-        _ref = this.paths;
+      var b, grp, mainButton, opts, p, p_, ps, _i, _len, _ref, _ref1;
+      _ref = this.paths, p = _ref[0], ps = 2 <= _ref.length ? __slice.call(_ref, 1) : [];
+      mainButton = new AdderButton({
+        hideType: true,
+        model: new PathModel(p)
+      });
+      opts = (function() {
+        var _i, _len, _results;
         _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          p = _ref[_i];
-          _results.push(new AdderButton({
+        for (_i = 0, _len = ps.length; _i < _len; _i++) {
+          p_ = ps[_i];
+          _results.push(new Option({
             hideType: true,
-            model: new PathModel(p)
+            model: new PathModel(p_)
           }));
         }
         return _results;
-      }).call(this);
-      for (_i = 0, _len = btns.length; _i < _len; _i++) {
-        b = btns[_i];
+      })();
+      grp = new DropdownButtonGrp({
+        main: mainButton,
+        options: opts
+      });
+      _ref1 = [mainButton].concat(__slice.call(opts));
+      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+        b = _ref1[_i];
         this.listenTo(b, 'chosen', this.onChosen);
       }
-      grp = new ButtonGrp({
-        kids: btns
-      });
       return this.renderChild('tree', grp, this.$(OPTS_SEL));
     };
 
@@ -11371,23 +11478,33 @@ module.exports = '2.0.0-beta-3';
     }
 
     SingleColumnConstraints.prototype.getConAdder = function() {
+      var isComposed, outerJoined, path, replaces, _ref;
       if (this.shouldShowAdder()) {
-        if (this.model.get('isComposed')) {
+        _ref = this.model.attributes, replaces = _ref.replaces, isComposed = _ref.isComposed, outerJoined = _ref.outerJoined;
+        path = this.model.pathInfo();
+        if (isComposed && replaces.length > 1) {
           return new ComposedColumnConstraintAdder({
             query: this.query,
-            paths: this.model.get('replaces')
+            paths: replaces
+          });
+        } else if (outerJoined) {
+          return new ComposedColumnConstraintAdder({
+            query: this.query,
+            paths: [path].concat(replaces)
           });
         } else {
           return new SingleColumnConstraintAdder({
             query: this.query,
-            path: this.model.get('path')
+            path: path
           });
         }
       }
     };
 
     SingleColumnConstraints.prototype.shouldShowAdder = function() {
-      return this.model.get('numeric') || this.model.get('isComposed') || (!this.getConstraints().length);
+      var isComposed, numeric, outerJoined, _ref;
+      _ref = this.model.attributes, numeric = _ref.numeric, isComposed = _ref.isComposed, outerJoined = _ref.outerJoined;
+      return numeric || isComposed || outerJoined || (!this.getConstraints().length);
     };
 
     SingleColumnConstraints.prototype.getConstraints = function() {
@@ -23027,7 +23144,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../../core-view":3,"../../messages":16,"../../messages/subtables":25,"../../templates":66}],222:[function(require,module,exports){
 (function() {
-  var Collection, CoreView, NestedTableModel, Options, PathCollection, PathModel, SubTable, SubtableInner, SubtableSummary, Templates, TypeAssertions, ignore, _,
+  var Collection, CoreView, INITIAL_STATE, NestedTableModel, Options, PathCollection, PathModel, SubTable, SubtableInner, SubtableSummary, Templates, TypeAssertions, ignore, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -23066,6 +23183,8 @@ module.exports = '2.0.0-beta-3';
 
   })(Collection);
 
+  INITIAL_STATE = 'Subtables.Initially.expanded';
+
   module.exports = SubTable = (function(_super) {
     __extends(SubTable, _super);
 
@@ -23099,8 +23218,10 @@ module.exports = '2.0.0-beta-3';
     };
 
     SubTable.prototype.initState = function() {
+      var open;
+      open = (Options.get(INITIAL_STATE)) || (this.expandedSubtables.contains(this.getPath()));
       return this.state.set({
-        open: Options.get('Subtables.Initially.expanded')
+        open: open
       });
     };
 

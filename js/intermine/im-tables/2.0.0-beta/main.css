@@ -8342,8 +8342,20 @@ button.close {
   max-height: 400px;
   overflow-y: auto;
 }
+.im-filter-summary .label-path .im-name-part {
+  display: none;
+}
+.im-filter-summary .label-path .im-name-part:last-child {
+  display: inline;
+}
+.im-filter-summary .label-path.im-show-full-path .im-name-part {
+  display: inline;
+}
 .im-constraint-editor {
   padding: 1em;
+}
+.im-constraint-editor:empty {
+  display: none;
 }
 .im-constraint-editor .path-label {
   text-align: right;
@@ -8383,6 +8395,15 @@ button.close {
 .im-con-overview .im-remove-constraint,
 .im-con-overview .im-edit {
   cursor: pointer;
+}
+.im-con-overview .breadcrumb li {
+  margin-right: 0.2em;
+}
+.im-con-overview .breadcrumb li:before {
+  content: '';
+}
+.im-con-overview .breadcrumb .label {
+  font-size: 1.25em;
 }
 span.twitter-typeahead {
   float: left;
