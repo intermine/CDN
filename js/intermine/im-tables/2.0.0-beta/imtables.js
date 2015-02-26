@@ -11610,7 +11610,7 @@ module.exports = '2.0.0-beta-3';
 
     Dashboard.prototype.Model = TableModel;
 
-    Dashboard.prototype.optionalParameters = ['consumerContainer'];
+    Dashboard.prototype.optionalParameters = ['consumerContainer', 'consumerBtnClass'];
 
     Dashboard.prototype.initialize = function(_arg) {
       var query;
@@ -20233,12 +20233,14 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-view":3,"../templates":66,"underscore":309}],205:[function(require,module,exports){
 (function() {
-  var Bus, CodeGenButton, ColumnMangerButton, CoreView, ExportDialogueButton, FilterDialogueButton, JoinManagerButton, ListDialogueButton, Options, QueryTools, SUBSECTIONS, Templates, UndoHistory, subsection, _,
+  var $, Bus, CodeGenButton, ColumnMangerButton, CoreView, ExportDialogueButton, FilterDialogueButton, JoinManagerButton, ListDialogueButton, Options, QueryTools, SUBSECTIONS, Templates, UndoHistory, subsection, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __slice = [].slice;
 
   _ = require('underscore');
+
+  $ = require('jquery');
 
   CoreView = require('../core-view');
 
@@ -20279,7 +20281,7 @@ module.exports = '2.0.0-beta-3';
 
     QueryTools.prototype.parameters = ['tableState', 'history', 'selectedObjects'];
 
-    QueryTools.prototype.optionalParameters = ['bus', 'consumerContainer'];
+    QueryTools.prototype.optionalParameters = ['bus', 'consumerContainer', 'consumerBtnClass'];
 
     QueryTools.prototype.bus = new Bus;
 
@@ -20297,6 +20299,13 @@ module.exports = '2.0.0-beta-3';
       this.renderManagementTools();
       this.renderUndo();
       return this.renderQueryConsumers();
+    };
+
+    QueryTools.prototype.postRender = function() {
+      var cls;
+      if (this.consumerContainer && (cls = this.consumerBtnClass)) {
+        return $('.btn', this.consumerContainer).addClass(cls);
+      }
     };
 
     QueryTools.prototype.renderManagementTools = function() {
@@ -20376,7 +20385,7 @@ module.exports = '2.0.0-beta-3';
 
 }).call(this);
 
-},{"../core-view":3,"../options":62,"../templates":66,"../utils/events":80,"./code-gen-button":113,"./column-manager/button":117,"./export-dialogue/button":137,"./filter-dialogue/button":166,"./join-manager/button":176,"./list-dialogue/button":184,"./undo-history":226,"underscore":309}],206:[function(require,module,exports){
+},{"../core-view":3,"../options":62,"../templates":66,"../utils/events":80,"./code-gen-button":113,"./column-manager/button":117,"./export-dialogue/button":137,"./filter-dialogue/button":166,"./join-manager/button":176,"./list-dialogue/button":184,"./undo-history":226,"jquery":306,"underscore":309}],206:[function(require,module,exports){
 (function() {
   var CellModelFactory, Collection, ColumnHeaders, CoreModel, CoreView, ErrorNotice, History, Messages, Options, PageSizer, Pagination, ResultsTable, RowsCollection, SelectedObjects, Table, TableModel, TableResults, TableSummary, Templates, Types, UNKNOWN_ERROR, UniqItems, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
