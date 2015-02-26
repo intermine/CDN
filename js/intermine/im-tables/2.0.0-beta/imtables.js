@@ -1777,24 +1777,31 @@
 
   load = function(create) {
     var loadView;
-    return loadView = function(elem, page, queryDef) {
+    return loadView = function(elem, opts, queryDef) {
       var conn, query, service;
       if (Types.Query.test(queryDef)) {
-        return new Promise(createView(create, elem, queryDef, page));
+        return new Promise(createView(create, elem, queryDef, opts));
       } else {
         service = queryDef.service, query = queryDef.query;
         conn = Types.Service.test(service) ? service : connect(service);
-        return conn.query(query).then(_.partial(loadView, elem, page));
+        return conn.query(query).then(_.partial(loadView, elem, opts));
       }
     };
   };
 
-  createView = function(create, elem, query, page) {
+  createView = function(create, elem, query, opts) {
+    if (opts == null) {
+      opts = {};
+    }
     return function(resolve) {
       var c, element, model, view, _i, _len, _ref;
       element = asElement(elem);
-      model = page != null ? _.pick(page, 'start', 'size') : null;
-      view = create(query, model);
+      model = typeof page !== "undefined" && page !== null ? _.pick(opts, 'start', 'size') : null;
+      opts = _.extend(_.omit(opts, 'start', 'size'), {
+        model: model,
+        query: query
+      });
+      view = create(opts);
       view.setElement(element);
       _ref = (_.result(view, 'className')).split(' ');
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -1825,11 +1832,8 @@
 
   exports.loadTable = load(Table.create);
 
-  exports.loadDash = load(function(query, model) {
-    return new Dashboard({
-      query: query,
-      model: model
-    });
+  exports.loadDash = load(function(opts) {
+    return new Dashboard(opts);
   });
 
   exports.createFormatter = simpleFormatter;
@@ -20413,8 +20417,9 @@ module.exports = '2.0.0-beta-3';
       return Table.__super__.constructor.apply(this, arguments);
     }
 
-    Table.create = function(query, model) {
-      var history, selectedObjects;
+    Table.create = function(_arg) {
+      var history, model, query, selectedObjects;
+      query = _arg.query, model = _arg.model;
       Types.assertMatch(Types.Query, query);
       if (model == null) {
         model = new TableModel;
