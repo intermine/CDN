@@ -1940,8 +1940,8 @@
 },{"./messages/actions":17,"./messages/common":20,"./templates/helpers":67,"backbone":229,"underscore":309}],17:[function(require,module,exports){
 (function() {
   module.exports = {
-    'export.Export': 'Download',
-    'export.ExportQuery': 'Download <%= name || "Results" %>',
+    'export.Export': 'Export',
+    'export.ExportQuery': 'Export',
     'export.DialogueTitle': 'Export',
     'export.category.Format': "<%= format.EXT %> Format",
     'export.category.Columns': "<%= columns %> Columns",
@@ -2088,7 +2088,13 @@
     ChooseLang: 'Choose Language',
     ShowBoilerPlate: 'Show comments',
     HighlightSyntax: 'Highlight Syntax',
-    GenerateCodeIn: 'Generate code in',
+    GenerateCodeIn: function(_arg) {
+      var lang;
+      lang = _arg.lang;
+      return "Generate " + (Messages.getText('codegen.Lang', {
+        lang: lang
+      })) + " code";
+    },
     Lang: function(_arg) {
       var lang;
       lang = _arg.lang;
@@ -5367,6 +5373,7 @@ exports.list_dialogue_expander = "<button class=\"btn btn-default im-expand-dial
 exports.export_destination_options = "<div class=\"form-group im-param-name\">\n    <label><%- Messages.getText('export.param.Name') %></label>\n    <div class=\"input-group\">\n      <input type=\"text\"\n             value=\"<%- filename %>\"\n             class=\"form-control\"\n             placeholder=\"<%- Messages.getText('export.param.Name') %>\"\n             aria-label=\"<%- Messages.getText('export.param.Name') %>\">\n      <div class=\"input-group-btn\">\n        <button type=\"button\"\n                class=\"btn btn-default dropdown-toggle\"\n                data-toggle=\"dropdown\"\n                aria-expanded=\"false\">\n          .<%- format %>\n          <span class=\"caret\"></span>\n        </button>\n        <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n          <% _.chain(formats).groupBy('group').each(function (fmts, grp) { %>\n            <% if (this.i++) { %><li class=\"divider\"></li><% } %>\n            <% _.each(fmts, function (fmt) { %>\n                <li>\n                    <a href=\"#\"\n                       class=\"im-fmt-<%- fmt.id %>\">\n                      <%= Icons.icon(fmt.icon) %>\n                      <%- Messages.getText(fmt.name) %>\n                    </a>\n                </li>\n            <% }); %>\n          <% }, {i: 0}); %>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<% if (format && format.desc) { %>\n  <div class=\"alert alert-info\">\n    <%- Messages.getText(format.desc) %>\n  </div>\n<% } %>\n\n<div class=\"row\">\n    <div class=\"col-sm-6 im-param-dest\">\n    </div>\n    <div class=\"col-sm-6 im-dest-opts\">\n    </div>\n</div>\n";
 exports.constraint_adder_options = "<% if (showTree) { %>\n    <div class=\"col-sm-5\">\n        <div class=\"input-group\">\n            <span class=\"input-group-addon\">find</span>\n            <input type=\"text\"\n                value=\"<%- filter %>\"\n                class=\"im-tree-filter form-control\" placeholder=\"path\">\n            <span class=\"input-group-btn\">\n                <button class=\"btn btn-default im-clear-filter\" type=\"button\">\n                    <%- Messages.getText('Clear') %>\n                </button>\n            </span>\n        </div>\n    </div>\n<% } %>\n<div class=\"col-sm-7\">\n    <div class=\"btn-group\">\n        <% if (!showTree) { %>\n            <button type=\"button\" class=\"btn btn-default btn-chooser im-choose\">\n                <%= Icons.icon('Tree') %>\n                <span><%- Messages.getText('constraints.BrowseForColumn') %></span>\n            </button>\n        <% } else { %>\n            <button <%= anyNodeChosen ? void 0 : 'disabled' %>\n                    class=\"btn btn-primary im-approve\"\n                    type=\"button\" >\n                <%- Messages.getText('constraints.Choose') %>\n                <% _.each(chosen, function (path, i) { %>\n                    <%- path %>\n                    <% if (i + 2 === chosen.length) { %>\n                        <%- Messages.get('and') %>\n                    <% } else if (i + 2 < chosen.length) { %>\n                        <%- Messages.get('comma') %>\n                    <% } %>\n                <% }); %>\n            </button>\n        <% } %>\n    </div>\n    <div class=\"form-group\">\n        <label class=\"im-tree-option\">\n            <%- Messages.getText('columns.AllowRevRef') %>\n            <input type=\"checkbox\"\n                    class=\"im-allow-rev-ref\"\n                    <%= allowRevRefs ? 'checked' : void 0 %> >\n        </label>\n    </div>\n</div>\n";
 exports.error_message = "<% if (error) { %>\n    <div class=\"alert alert-<%= error.level || 'danger' %>\">\n        <%= icons.icon('Error') %>\n        <span class=\"im-conbuilder-error\">\n            <%- error.message || error %>\n        </span>\n    </div>\n<% } %>\n\n";
+exports.code_gen_button_main = "<%= Icons.icon('CodeFile') %>\n<span class=\"hidden-sm hidden-xs\">\n  <%- Messages.getText('codegen.GenerateCodeIn', {lang: lang}) %>\n</span>\n<span class=\"visible-sm-inline im-current-lang\">\n    <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n</span>\n\n";
 exports.export_dialogue = "<div class=\"row\">\n    <nav class=\"col-sm-3 menu\">\n    </nav>\n    <div class=\"col-sm-9 main\">\n    </div>\n</div>\n";
 exports.column_manager_select_list = "<div class=\"im-removal-and-rearrangement\">\n  <button class=\"pull-right btn btn-success im-add-view-path\">\n      <%= Icons.icon('Add') %>\n      <%- Messages.getText('columns.FindColumnToAdd') %>\n  </button>\n\n  <h4>\n    <%- Messages.getText('columns.ColumnsSelected', {columns: collection, removed: hasRubbish}) %>\n  </h4>\n\n  <span class=\"help-block\"><%- Messages.getText('columns.CurrentViewHelp') %></span>\n\n  <div class=\"well im-current-view\">\n\n    <div class=\"row\">\n\n      <div class=\"col-md-6\">\n        <ul class=\"list-group im-active-view im-connected-list\">\n        </ul>\n      </div>\n\n      <div class=\"col-md-6\">\n        <div class=\"im-rubbish-bin\">\n            <%= Icons.icon((hasRubbish ? 'RubbishFull' : 'Rubbish'), 'lg') %>\n            <% if (hasRubbish) { %>\n                <ul class=\"list-group im-removed im-removed-view im-connected-list\">\n                </ul>\n            <% } %>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"im-addition\">\n</div>\n\n";
 exports.table_subtables_header = "<a title=\"<%- Messages.getText('subtables.RemoveColumn') %>\">\n  <%= Icons.icon('Remove') %>\n</a>\n<% if (displayName && columnName) { %>\n  <%- displayName.replace(columnName, '').replace(/^ > /, '') %>\n<% } %>\n";
@@ -5427,7 +5434,7 @@ exports.table_subtable = "<span class=\"im-subtable-summary\">\n</span>\n<div cl
 exports.export_destination_galaxy_options = "<div class=\"form-group\">\n    <label><%- Messages.getText('GalaxyURILabel') %></label>\n    <input type=\"url\"\n           class=\"form-control im-galaxy-uri-param\"\n           value=\"<%- Galaxy.Current || Galaxy.Main %>\">\n</div>\n<div class=\"checkbox im-save-galaxy\">\n    <label>\n        <input type=\"checkbox\" <%= (Galaxy.Save) ? 'checked' : void 0 %>>\n        <%- Messages.getText('SaveGalaxyURL') %></label>\n    </label>\n</div>\n";
 exports.summary_stats = "<table class=\"table\">\n    <thead>\n        <tr>\n            <th><%- Messages.getText('summary.Max') %></th>\n            <th><%- Messages.getText('summary.Min') %></th>\n            <th><%- Messages.getText('summary.Average') %></th>\n            <th><%- Messages.getText('summary.StdDev') %></th>\n        </tr>\n        <tr>\n            <td><%- Messages.getText('Number', {n: max}) %></td>\n            <td><%- Messages.getText('Number', {n: min}) %></td>\n            <td><%- Messages.getText('Number', {n: average}) %></td>\n            <td><%- Messages.getText('Number', {n: stdev}) %></td>\n        </tr>\n    </thead>\n</table>\n\n<div class=\"row im-range-controls\">\n    <div class=\"col-sm-4 im-range-from\">\n        <input type=\"text\"\n               class=\"form-control im-range-min input im-range-val\"\n               value=\"<%- min %>\">\n    </div>\n    <div class=\"col-sm-1 im-ellipsis\">\n        <span>...</span>\n    </div>\n    <div class=\"col-sm-4 im-range-to\">\n        <input type=\"text\"\n               class=\"form-control im-range-max input im-range-val\"\n               value=\"<%- max %>\">\n    </div>\n    <div class=\"col-sm-3 im-range-buttons\">\n        <div class=\"btn-group pull-right\">\n            <button class=\"btn btn-primary disabled\">Apply</button>\n            <button class=\"btn btn-cancel disabled\">Reset</button>\n        </div>\n    </div>\n</div>\n\n<div class=\"slider\"></div>\n\n";
 exports.export_destination_radios = "<label><%- Messages.getText('export.param.Destination') %></label>\n<% _.each(destinations, function (d) { %>\n    <div class=\"radio im-dest-<%- d %>\">\n        <label>\n            <input type=\"radio\"\n                    name=\"dest\"\n                    <%= (d === dest) ? 'checked' : void 0 %>>\n            <%- Messages.getText(d) %>\n        </label>\n    </div>\n<% }); %>\n\n";
-exports.code_gen_button = "<% /* requires lang :: string, options.Langs :: [string] */ %>\n<div class=\"btn-group language-selector\">\n    <button type=\"button\"\n            class=\"btn btn-default im-show-code-gen-dialogue\">\n        <%= Icons.icon('CodeFile') %>\n        <span class=\"hidden-sm hidden-xs\">\n          <%- Messages.getText('codegen.GenerateCodeIn') %>\n        </span>\n        <span class=\"hidden-xs im-current-lang\">\n            <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n    </button>\n    <button type=\"button\"\n            data-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            class=\"btn btn-default dropdown-toggle\">\n        <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\" class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n                <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n    </ul>\n</div>\n";
+exports.code_gen_button = "<% /* requires lang :: string, options.Langs :: [string] */ %>\n<div class=\"btn-group language-selector\">\n    <button type=\"button\"\n            class=\"btn btn-default im-show-code-gen-dialogue\">\n    </button>\n    <button type=\"button\"\n            data-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            class=\"btn btn-default dropdown-toggle\">\n        <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\" class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n                <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n    </ul>\n</div>\n";
 exports.modal_base = "<div class=\"modal-dialog <%- modalSize %>\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n            <h4 class=\"modal-title\"><%- title %></h4>\n        </div>\n        <div class=\"modal-body\">\n            <%= body %>\n        </div>\n    </div>\n</div>\n";
 exports.value_control_row = "<td>\n  <input type=\"checkbox\" {{ (selected) ? 'checked' : void 0 }}>\n</td>\n<td class=\"im-multi-value\">\n  {{# if (editing) { }}\n    <div class=\"input-group\">\n      <input type=\"text\" value=\"{{ value }}\" class=\"form-control\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-success im-save\"\n                title=\"{{ messages.getText('multivalue.SaveValue') }}\"\n                type=\"button\">\n            {{{ icons.icon('OK') }}}\n            <span class=\"im-long\">{{ messages.getText('multivalue.SaveValue') }}</span>\n        </button>\n        <button class=\"btn btn-danger im-cancel\"\n                title=\"{{ messages.getText('Cancel') }}\"\n                type=\"button\">\n            {{{ icons.icon('Cancel') }}}\n            <span class=\"im-long\">{{ messages.getText('Cancel') }}</span>\n        </button>\n      </span>\n    </div>\n  {{# } else { }}\n    <a class=\"im-edit pull-right\">{{{ icons.icon('Edit') }}}</a>\n    {{ value }}\n  {{# } }}\n</td>\n";
 exports.formatted_sorting = "<a> <% /* requires Icons, direction and name */ %>\n    <%= Icons.icon(direction || 'unsorted') %>\n    <span class=\"im-sort-path\"><%- name %></span>\n</a>\n";
@@ -8247,7 +8254,7 @@ module.exports = '2.0.0-beta-3';
 
 },{"../core-view":3,"../messages":16,"../options":62,"../templates/mustache-settings":68,"underscore":309}],113:[function(require,module,exports){
 (function() {
-  var CodeGenButton, CodeGenModel, CoreView, Dialogue, Messages, Options, Templates, _,
+  var CodeGenButton, CodeGenModel, CoreView, Dialogue, MainButton, Messages, Options, Templates, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -8266,6 +8273,25 @@ module.exports = '2.0.0-beta-3';
   Dialogue = require('./code-gen-dialogue');
 
   require('../messages/code-gen');
+
+  MainButton = (function(_super) {
+    __extends(MainButton, _super);
+
+    function MainButton() {
+      return MainButton.__super__.constructor.apply(this, arguments);
+    }
+
+    MainButton.prototype.modelEvents = function() {
+      return {
+        'change:lang': this.reRender
+      };
+    };
+
+    MainButton.prototype.template = Templates.template('code-gen-button-main');
+
+    return MainButton;
+
+  })(CoreView);
 
   module.exports = CodeGenButton = (function(_super) {
     __extends(CodeGenButton, _super);
@@ -8286,10 +8312,10 @@ module.exports = '2.0.0-beta-3';
       });
     };
 
-    CodeGenButton.prototype.modelEvents = function() {
-      return {
-        'change:lang': this.onChangeLang
-      };
+    CodeGenButton.prototype.renderChildren = function() {
+      return this.renderChildAt('.im-show-code-gen-dialogue', new MainButton({
+        model: this.model
+      }));
     };
 
     CodeGenButton.prototype.events = function() {
@@ -8305,14 +8331,6 @@ module.exports = '2.0.0-beta-3';
       return this.model.set({
         lang: lang
       });
-    };
-
-    CodeGenButton.prototype.onChangeLang = function() {
-      var lang;
-      lang = this.model.get('lang');
-      return this.$('.im-current-lang').text(Messages.getText('codegen.Lang', {
-        lang: lang
-      }));
     };
 
     CodeGenButton.prototype.showDialogue = function() {
