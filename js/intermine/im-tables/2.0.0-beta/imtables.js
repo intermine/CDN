@@ -2093,7 +2093,7 @@
       lang = _arg.lang;
       return "Generate " + (Messages.getText('codegen.Lang', {
         lang: lang
-      })) + " code";
+      })) + "\n" + (lang !== 'xml' ? 'code' : '');
     },
     Lang: function(_arg) {
       var lang;
