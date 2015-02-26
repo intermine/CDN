@@ -1941,7 +1941,7 @@
 (function() {
   module.exports = {
     'export.Export': 'Download',
-    'export.ExportQuery': 'Download Results',
+    'export.ExportQuery': 'Download <%= name || "Results" %>',
     'export.DialogueTitle': 'Export',
     'export.category.Format': "<%= format.EXT %> Format",
     'export.category.Columns': "<%= columns %> Columns",
@@ -5408,7 +5408,7 @@ exports.export_json_options = "<h3><%- Messages.getText('export.category.Options
 exports.count_summary = "<% if (size && count) { %>\n  <% var msg = (size == 0 ? '.ShowingAll' : '.ShowingRange'); %>\n  <% ['xs', 'sm', 'md', 'lg'].forEach(function (pageSize) { %>\n    <span class=\"visible-<%= pageSize %>-inline\">\n      <%- Messages.getText('table.' + pageSize + msg, page) %>\n    </span>\n  <% }); %>\n<% } %>\n";
 exports.list_tag = "<%- id %>\n<span class=\"im-remove\" title=\"<%- Messages.getText('lists.RemoveTag') %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n";
 exports.table_cell = "<% if (state.minimised) { %>\n  &hellip;\n<% } else if (entity.id == null) { %>\n  <% if (value != null && formattedValue != null) { %>\n    <span class=\"im-displayed-value\"><%= value %></span>\n  <% } else if (entity.isNULL) { %>\n    <span class=\"im-null-entity\">\n      <%- Messages.getText('table.cell.NullEntity', {type: entity['class']}) %>\n    </span>\n  <% } else { %>\n    <%= NULL_VALUE %>\n  <% } %>\n<% } else { %>\n  <input\n    class=\"im-list-chooser\"\n    type=\"checkbox\"\n    <% if (input.checked) { %>checked<% } %>\n    <% if (input.disabled) { %>disabled<% } %>\n    style=\"display:<%- input.display %>\">\n\n  <a class=\"im-cell-link\" target=\"<%- target %>\" href=\"<%= url %>\">\n\n    <% if (isForeign) { %>\n      <% if (icon) { %>\n        <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n      <% } else { %>\n        <%= Icons.icon('ExternalLink') %>\n      <% } %>\n    <% } %>\n\n    <% if (value != null && formattedValue != null) { %>\n      <span class=\"im-displayed-value\"><%= formattedValue %></span>\n    <% } else { %>\n      <%= NULL_VALUE %>\n    <% } %>\n\n  </a>\n\n  <% if (value != null && field === 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <%= Icons.icon('ExternalLink') %>\n      <%- Messages.getText('table.cell.Link') %>\n    </a>\n  <% } %>\n<% } %>\n";
-exports.modal_dialogue_opener = "<button class=\"btn btn-default im-open-dialogue\">\n  <%= Icons.icon(labels.ICON) %>\n  <span class=\"im-hidden-sm hidden-sm hidden-xs\">\n    <%- Messages.getText(labels.LONG) %>\n  </span>\n  <span class=\"im-visible-sm-inline visible-sm-inline\">\n    <%- Messages.getText(labels.SHORT) %>\n  <span>\n</button>\n";
+exports.modal_dialogue_opener = "<button class=\"btn btn-default im-open-dialogue\">\n  <%= Icons.icon(labels.ICON) %>\n  <span class=\"im-hidden-sm hidden-sm hidden-xs\">\n    <%- Messages.getText(labels.LONG, state) %>\n  </span>\n  <span class=\"im-visible-sm-inline visible-sm-inline\">\n    <%- Messages.getText(labels.SHORT, state) %>\n  <span>\n</button>\n";
 exports.progress_bar = "<% /* requires: doneness (float: 0 <= i <= 1) */ %>\n<% if (doneness != null && doneness >= 0) { %>\n    <div class=\"progress\">\n        <div class=\"progress-bar progress-bar-striped active\"\n             role=\"progressbar\"\n             aria-valuenow=\"<%- doneness %>\"\n             aria-valuemin=\"0\"\n             aria-valuemax=\"1\"\n             style=\"width: <%- 100 * doneness %>%;\">\n            <% if (doneness < 1) { %>\n              <span class=\"sr-only\">\n                <%- Math.round(100 * doneness) %>% <%- Messages.getText('Complete') %>\n              </span>\n            <% } %>\n        </div>\n    </div>\n<% } %>\n";
 exports.cell_preview_items = "<colgroup>\n  <col class=\"im-item-field\"/>\n  <col class=\"im-item-value\"/>\n</colgroup>\n<tbody></tbody>\n";
 exports.list_tags_apology = "<% if (!hasTags) { %>\n  <span>\n    <%- Messages.getText('lists.NoTags') %>\n  </span>\n<% } %>\n";
@@ -12123,6 +12123,12 @@ module.exports = '2.0.0-beta-3';
           });
         };
       })(this));
+    };
+
+    ExportDialogueButton.prototype.initState = function() {
+      return this.state.set({
+        name: this.query.name
+      });
     };
 
     ExportDialogueButton.prototype.dialogueOptions = function() {
