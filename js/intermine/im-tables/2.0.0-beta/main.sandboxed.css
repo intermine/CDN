@@ -7299,6 +7299,18 @@
 @media (min-width:900px) {
 .imtables .table tbody > tr td.im-result-field .im-null-value:before {
     content: 'No value';}}
+.imtables .im-query-tools:before,
+.imtables .im-query-tools:after {
+  content: " ";
+  display: table;}
+.imtables .im-query-tools:after {
+  clear: both;}
+.imtables .im-query-tools:before,
+.imtables .im-query-tools:after {
+  content: " ";
+  display: table;}
+.imtables .im-query-tools:after {
+  clear: both;}
 .imtables .im-query-tools > div {
   display: inline-block;}
 .imtables .im-query-tools .im-query-management {
@@ -7309,6 +7321,8 @@
 @media (max-width:480px) {
 .imtables .im-query-tools .im-query-management {
     width: 35%;}}
+.imtables .im-query-tools .im-query-management.im-has-more-space {
+  width: 82%;}
 .imtables .im-query-tools .im-query-management > div {
   margin-right: 0.5em;
   display: inline-block;
@@ -7332,6 +7346,8 @@
 @media (max-width:480px) {
 .imtables .im-query-tools .im-query-consumers {
     width: 45%;}}
+.imtables .im-query-tools .im-query-consumers:empty {
+  width: 0px;}
 .imtables .im-query-tools .im-query-consumers > div {
   margin-left: 0.5em;
   margin-bottom: 0.2em;
