@@ -7322,7 +7322,7 @@
 .imtables .im-query-tools .im-query-management {
     width: 35%;}}
 .imtables .im-query-tools .im-query-management.im-has-more-space {
-  width: 82%;}
+  width: 80%;}
 .imtables .im-query-tools .im-query-management > div {
   margin-right: 0.5em;
   display: inline-block;
@@ -7336,6 +7336,13 @@
 @media (max-width:480px) {
 .imtables .im-query-tools .im-history {
     width: 20%;}}
+.imtables .im-query-tools .im-history.im-has-more-space {
+  width: 20%;}
+.imtables .im-query-tools .im-history.im-has-more-space > div {
+  float: right;}
+.imtables .im-query-tools .im-history.im-has-more-space > div .dropdown-menu {
+  left: auto;
+  right: 0;}
 .imtables .im-query-tools .im-history > div {
   float: left;}
 .imtables .im-query-tools .im-query-consumers {

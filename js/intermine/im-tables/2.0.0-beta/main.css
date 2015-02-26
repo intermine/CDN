@@ -9690,7 +9690,7 @@ li.L9 {
   }
 }
 .im-query-tools .im-query-management.im-has-more-space {
-  width: 82%;
+  width: 80%;
 }
 .im-query-tools .im-query-management > div {
   margin-right: 0.5em;
@@ -9710,6 +9710,16 @@ li.L9 {
   .im-query-tools .im-history {
     width: 20%;
   }
+}
+.im-query-tools .im-history.im-has-more-space {
+  width: 20%;
+}
+.im-query-tools .im-history.im-has-more-space > div {
+  float: right;
+}
+.im-query-tools .im-history.im-has-more-space > div .dropdown-menu {
+  left: auto;
+  right: 0;
 }
 .im-query-tools .im-history > div {
   float: left;

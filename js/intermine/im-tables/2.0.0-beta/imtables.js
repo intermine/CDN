@@ -20304,6 +20304,7 @@ module.exports = '2.0.0-beta-3';
         this.consumerContainer.classList.add(Options.get('StylePrefix'));
         this.consumerContainer.classList.add('im-query-consumers');
         this.$('.im-query-management').addClass('im-has-more-space');
+        this.$('.im-history').addClass('im-has-more-space');
         return this.consumerContainer;
       } else {
         cons = this.$('.im-query-consumers').empty();
