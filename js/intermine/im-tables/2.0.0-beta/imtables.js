@@ -20465,14 +20465,12 @@ module.exports = '2.0.0-beta-3';
 
     Table.prototype.parameters = ['history', 'selectedObjects'];
 
-    Table.prototype.optionalParameters = ['model'];
+    Table.prototype.optionalParameters = ['model', 'columnHeaders', 'blacklistedFormatters'];
 
     Table.prototype.parameterTypes = {
       history: Types.InstanceOf(History, 'History'),
       selectedObjects: Types.InstanceOf(SelectedObjects, 'SelectedObjects')
     };
-
-    Table.prototype.optionalParameters = ['columnHeaders', 'blacklistedFormatters'];
 
     Table.prototype.cellModelFactory = null;
 
