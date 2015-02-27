@@ -22749,7 +22749,7 @@ module.exports = '2.0.0-beta-3';
         _results = [];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           s = _ref[_i];
-          if ((count == null) || (s[0] <= count)) {
+          if ((count == null) || (s[0] < count)) {
             _results.push(s);
           }
         }
@@ -22827,6 +22827,12 @@ module.exports = '2.0.0-beta-3';
 
     Pagination.prototype.template = _.template(html);
 
+    Pagination.prototype.modelEvents = function() {
+      return {
+        'change:count': this.setVisible
+      };
+    };
+
     Pagination.prototype.getData = function() {
       var count, data, max, size, start, _ref;
       _ref = this.model.toJSON(), start = _ref.start, size = _ref.size, count = _ref.count;
@@ -22850,9 +22856,16 @@ module.exports = '2.0.0-beta-3';
     };
 
     Pagination.prototype.postRender = function() {
-      return this.$('li').tooltip({
+      this.$('li').tooltip({
         placement: 'top'
       });
+      return this.setVisible();
+    };
+
+    Pagination.prototype.setVisible = function() {
+      var max;
+      max = this.getMaxPage();
+      return this.$el.toggleClass('im-hidden', max < 2);
     };
 
     Pagination.prototype.events = function() {
@@ -22864,12 +22877,6 @@ module.exports = '2.0.0-beta-3';
         'click .im-goto-start': (function(_this) {
           return function() {
             return _this.goTo(0);
-          };
-        })(this),
-        'click .im-goto-end': (function(_this) {
-          return function() {
-            console.debug('off to the end');
-            return _this.goTo((_this.getMaxPage() - 1) * _this.model.get('size'));
           };
         })(this),
         'click .im-go-back-5': (function(_this) {
@@ -22890,6 +22897,11 @@ module.exports = '2.0.0-beta-3';
         'click .im-go-fwd-1': (function(_this) {
           return function() {
             return _this.goForward(1);
+          };
+        })(this),
+        'click .im-goto-end': (function(_this) {
+          return function() {
+            return _this.goTo((_this.getMaxPage() - 1) * _this.model.get('size'));
           };
         })(this)
       };
