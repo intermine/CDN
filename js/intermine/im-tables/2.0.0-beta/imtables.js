@@ -22613,7 +22613,8 @@ module.exports = '2.0.0-beta-3';
 (function() {
   var CoreView, Events, ExportDialogue, HasDialogues, LargeTableDisuader, NewFilterDialogue, PageSizer, Paging, Templates, _,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   _ = require('underscore');
 
@@ -22741,8 +22742,9 @@ module.exports = '2.0.0-beta-3';
     PageSizer.prototype.template = Templates.template('page_sizer');
 
     PageSizer.prototype.getData = function() {
-      var count, s, sizes;
+      var count, s, size, sizes;
       count = this.model.get('count');
+      size = this.model.get('size');
       sizes = (function() {
         var _i, _len, _ref, _results;
         _ref = this.sizes;
@@ -22755,6 +22757,9 @@ module.exports = '2.0.0-beta-3';
         }
         return _results;
       }).call(this);
+      if (sizes.length && (__indexOf.call(sizes, size) < 0)) {
+        sizes.push([size]);
+      }
       return _.extend(PageSizer.__super__.getData.apply(this, arguments), {
         sizes: sizes
       });
