@@ -9040,6 +9040,7 @@ li.L9 {
   font-size: 0.9em;
   max-height: 450px;
   overflow: auto;
+  resize: vertical;
 }
 .modal.im-floating {
   right: inherit;

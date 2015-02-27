@@ -6841,7 +6841,8 @@
 .imtables .im-generated-code {
   font-size: 0.9em;
   max-height: 450px;
-  overflow: auto;}
+  overflow: auto;
+  resize: vertical;}
 .imtables .modal.im-floating {
   right: inherit;
   bottom: inherit;
