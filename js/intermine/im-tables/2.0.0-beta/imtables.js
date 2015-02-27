@@ -8619,8 +8619,10 @@ module.exports = '2.0.0-beta-3';
     };
 
     CodeGenDialogue.prototype.setMaxHeight = function() {
+      var maxHeight;
+      maxHeight = Math.max(250, this.$el.closest('.modal').height() - 200);
       return this.$('.im-generated-code').css({
-        'max-height': Math.max(250, this.$el.closest('.modal').height() - 200)
+        'max-height': maxHeight
       });
     };
 
@@ -20308,13 +20310,6 @@ module.exports = '2.0.0-beta-3';
       return this.renderQueryConsumers();
     };
 
-    QueryTools.prototype.postRender = function() {
-      var cls;
-      if (this.consumerContainer && (cls = this.consumerBtnClass)) {
-        return $('.btn', this.consumerContainer).addClass(cls);
-      }
-    };
-
     QueryTools.prototype.renderManagementTools = function() {
       var $management, query;
       $management = this.$('.im-query-management');
@@ -20355,7 +20350,7 @@ module.exports = '2.0.0-beta-3';
     };
 
     QueryTools.prototype.renderQueryConsumers = function() {
-      var container, listDialogue, query, selected;
+      var container, kid, listDialogue, query, selected, _i, _len, _ref;
       container = this.getConsumerContainer();
       if (!container) {
         return;
@@ -20383,7 +20378,23 @@ module.exports = '2.0.0-beta-3';
         query: query,
         tableState: this.tableState
       }), container);
-      return this.renderChild('lists', listDialogue, container);
+      this.renderChild('lists', listDialogue, container);
+      if (this.consumerContainer && this.consumerBtnClass) {
+        _ref = ['save', 'code', 'lists'];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          kid = _ref[_i];
+          console.log('listening to', this.children[kid]);
+          this.listenTo(this.children[kid], 'rendered', this.setButtonStyle);
+        }
+      }
+      return this.setButtonStyle();
+    };
+
+    QueryTools.prototype.setButtonStyle = function() {
+      var cls, con;
+      if ((con = this.consumerContainer) && (cls = this.consumerBtnClass)) {
+        return $('.btn', con).addClass(cls);
+      }
     };
 
     return QueryTools;
