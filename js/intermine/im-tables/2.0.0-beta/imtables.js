@@ -8614,7 +8614,14 @@ module.exports = '2.0.0-beta-3';
     CodeGenDialogue.prototype.postRender = function() {
       CodeGenDialogue.__super__.postRender.apply(this, arguments);
       this.addCheckboxes();
-      return this.highlightCode();
+      this.highlightCode();
+      return this.setMaxHeight();
+    };
+
+    CodeGenDialogue.prototype.setMaxHeight = function() {
+      return this.$('.im-generated-code').css({
+        'max-height': Math.max(250, this.$el.closest('.modal').height() - 200)
+      });
     };
 
     CodeGenDialogue.prototype.addCheckboxes = function() {
