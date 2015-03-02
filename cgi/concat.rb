@@ -36,6 +36,9 @@ puts cgi.header({
 
 existing_files.map do |filename|
     f = File.new(filename, "r")
-    puts f.read()
+    f.each do |line| # print lines, stripping mappings (which will be wrong).
+        puts line unless (line =~ /\/\/. sourceMappingURL=/) 
+    end
+    f.close() unless f.closed?
 end
 
