@@ -8,6 +8,26 @@ The main repo is hosted by [GitHub](https://status.github.com/), but sometimes i
 
 Follow these steps:
 
-1. Make a fork of the following repo: [git@github.com:intermine/CDN.git](git@github.com:intermine/CDN.git).
-1. Serve the repo using a static web server, such as [nginx](http://nginx.org/en/).
-Point to your CDN by, for example, editing the `global.web.properties` file on the line where it says `head.cdn.location`.
+1. Make a fork of the following repo:
+   [git@github.com:intermine/CDN.git](git@github.com:intermine/CDN.git).
+1. Serve the repo using a static web server, such as
+   [Apache](http://httpd.apache.org/) or [nginx](http://nginx.org/en/).  Point
+   your InterMine web-application at your local CDN installation by editing the
+   `global.web.properties` file on the line where it says `head.cdn.location`:
+
+```properties
+head.cdn.location = http://cdn.myserver.com
+```
+
+You web-server must support CGI scripts. A suitable configuration stanza for
+Apache is presented below.
+
+```apache
+Alias /cdn /path/to/clone/of/CDN
+<Directory /path/to/clone/of/CDN>
+	Options Indexes FollowSymLinks
+    Require all granted
+    AllowOverride FileInfo Options=ExecCGI
+</Directory>
+```
+
