@@ -4,16 +4,30 @@ require "cgi"
 
 cgi = CGI.new
 
-js = cgi.params["js"]
+is_js = cgi.params.has_key?('js')
+is_css = cgi.params.has_key?('css')
 dev = cgi.params.has_key? "dev"
 
-prefix = "#{ File.dirname(__FILE__) }/../js/"
+if is_js and is_css
+    cgi.out("type" => "text/plain", "status" => "400") {
+        "js and css resources provided - please provide only one"
+    }
+    exit!
+elsif not (is_js or is_css)
+    cgi.out("type" => "text/plain", "status" => "200") {
+        ""
+    }
+    exit!
+end
 
-js_files = js.map { |path| File.absolute_path(prefix + path.gsub(/\.\./, '')) }
-existing_files = js_files.select { |filename| File.exists? filename }
+prefix = "#{ File.dirname(__FILE__) }/../"
+files = (is_js ? cgi.params["js"] : cgi.params['css'])
+
+existing_files = files.map { |path| File.absolute_path(prefix + path.gsub(/\.\./, '')) }.
+                       select { |filename| File.exists? filename }
 
 puts cgi.header({
-    "type" => "text/javascript",
+    "type" => (is_js ? "text/javascript" : "text/css"),
     "charset" => "utf8",
     "status" => 200,
     "connection" => "close",
