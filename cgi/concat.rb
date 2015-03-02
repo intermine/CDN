@@ -35,10 +35,10 @@ puts cgi.header({
 })
 
 existing_files.map do |filename|
-    f = File.new(filename, "r")
-    f.each do |line| # print lines, stripping mappings (which will be wrong).
+    # print lines, stripping mappings (which will be wrong).
+    File.open(filename, "r:UTF-8").each do |line|
         puts line unless (line =~ /\/\/. sourceMappingURL=/) 
     end
-    f.close() unless f.closed?
+    puts ""
 end
 
