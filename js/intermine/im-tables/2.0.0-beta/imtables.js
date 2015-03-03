@@ -4446,10 +4446,12 @@
       SelectedObjects.__super__.constructor.call(this);
       types.assertMatch(types.Service, service, 'service');
       this.state = new CoreModel({
+        node: null,
         commonType: null,
         typeName: null
       });
       this.listenTo(this.state, 'change:commonType', this.onChangeType);
+      this.listenTo(this.state, 'change:node', this.onChangeNode);
       this.listenTo(this, 'add remove reset', this.setType);
       service.fetchModel().then((function(_this) {
         return function(schema) {
@@ -4458,6 +4460,10 @@
         };
       })(this));
     }
+
+    SelectedObjects.prototype.onChangeNode = function() {
+      return this.trigger('change:node change', this.state.get('node'));
+    };
 
     SelectedObjects.prototype.onChangeType = function() {
       var path, type;
@@ -21210,7 +21216,7 @@ module.exports = '2.0.0-beta-3';
       var objs;
       objs = this.selectedObjects;
       this.listenTo(objs, 'add remove reset', this.setSelected);
-      return this.listenTo(objs, 'add remove reset change:commonType', this.setSelectable);
+      return this.listenTo(objs, 'add remove reset change:commonType change:node', this.setSelectable);
     };
 
     Cell.prototype.modelEvents = function() {
@@ -21355,10 +21361,11 @@ module.exports = '2.0.0-beta-3';
     };
 
     Cell.prototype.setSelectable = function() {
-      var commonType, selectable, size;
+      var commonType, node, selectable, size;
       commonType = this.selectedObjects.state.get('commonType');
+      node = this.selectedObjects.state.get('node');
       size = this.selectedObjects.size();
-      selectable = (size === 0) || (this.isCompatibleWith(commonType));
+      selectable = ((node == null) || (node === String(this.model.get('node')))) && ((size === 0) || (this.isCompatibleWith(commonType)));
       return this.state.set({
         selectable: selectable
       });
