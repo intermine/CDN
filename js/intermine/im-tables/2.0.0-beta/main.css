@@ -9657,6 +9657,13 @@ li.L9 {
     content: 'No value';
   }
 }
+.im-query-management > div,
+.im-query-consumers > div {
+  margin-right: 0.5em;
+  margin-bottom: 0.2em;
+  display: inline-block;
+  float: left;
+}
 .im-query-tools:before,
 .im-query-tools:after {
   content: " ";
@@ -9691,12 +9698,6 @@ li.L9 {
 }
 .im-query-tools .im-query-management.im-has-more-space {
   width: 80%;
-}
-.im-query-tools .im-query-management > div {
-  margin-right: 0.5em;
-  display: inline-block;
-  float: left;
-  margin-bottom: 0.2em;
 }
 .im-query-tools .im-history {
   width: 10%;
@@ -9741,9 +9742,6 @@ li.L9 {
   width: 0px;
 }
 .im-query-tools .im-query-consumers > div {
-  margin-left: 0.5em;
-  margin-bottom: 0.2em;
-  display: inline-block;
   float: right;
 }
 /* Two hidden helpers - they differ in usage:

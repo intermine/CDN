@@ -7299,6 +7299,12 @@
 @media (min-width:900px) {
 .imtables .table tbody > tr td.im-result-field .im-null-value:before {
     content: 'No value';}}
+.imtables .im-query-management > div,
+.imtables .im-query-consumers > div {
+  margin-right: 0.5em;
+  margin-bottom: 0.2em;
+  display: inline-block;
+  float: left;}
 .imtables .im-query-tools:before,
 .imtables .im-query-tools:after {
   content: " ";
@@ -7323,11 +7329,6 @@
     width: 35%;}}
 .imtables .im-query-tools .im-query-management.im-has-more-space {
   width: 80%;}
-.imtables .im-query-tools .im-query-management > div {
-  margin-right: 0.5em;
-  display: inline-block;
-  float: left;
-  margin-bottom: 0.2em;}
 .imtables .im-query-tools .im-history {
   width: 10%;}
 @media (max-width:768px) {
@@ -7356,9 +7357,6 @@
 .imtables .im-query-tools .im-query-consumers:empty {
   width: 0px;}
 .imtables .im-query-tools .im-query-consumers > div {
-  margin-left: 0.5em;
-  margin-bottom: 0.2em;
-  display: inline-block;
   float: right;}
 .imtables .im-hidden {
   display: none!important;}
