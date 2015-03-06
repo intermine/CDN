@@ -8782,7 +8782,12 @@ fieldset[disabled] .modal .btn-cancel.active {
   float: right;
   float: right !important;
   padding-right: 0.5em;
+  height: 1.3em;
   border-radius: 5px;
+}
+.im-summary-items .im-count-col .im-count {
+  position: absolute;
+  right: 0.5em;
 }
 .im-summary-items .im-summary-controls .popover-content {
   padding: 0;

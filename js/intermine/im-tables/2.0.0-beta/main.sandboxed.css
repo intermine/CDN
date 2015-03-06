@@ -6640,7 +6640,11 @@
   float: right;
   float: right!important;
   padding-right: 0.5em;
+  height: 1.3em;
   border-radius: 5px;}
+.imtables .im-summary-items .im-count-col .im-count {
+  position: absolute;
+  right: 0.5em;}
 .imtables .im-summary-items .im-summary-controls .popover-content {
   padding: 0;}
 .imtables .im-summary-items .im-export-summary {
