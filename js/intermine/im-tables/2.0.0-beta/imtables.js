@@ -5209,7 +5209,7 @@
           Count: {}
         },
         StylePrefix: 'imtables',
-        SuggestionDepth: 4,
+        SuggestionDepth: 2,
         Events: {
           ActivateTab: 'mouseenter'
         },
