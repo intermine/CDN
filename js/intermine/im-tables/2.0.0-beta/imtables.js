@@ -12,6 +12,7 @@
 
   CDN = {
     server: 'http://cdn.intermine.org',
+    imtables: '/js/intermine/im-tables/2.0.0-beta/',
     tests: {
       fontawesome: /font-awesome/,
       glyphicons: /bootstrap-icons/
@@ -2114,6 +2115,7 @@
   Messages = require('../messages');
 
   Messages.setWithPrefix('codegen', {
+    AsHTML: "As HTML page",
     DialogueTitle: "Generated <%= Messages.getText(\"codegen.Lang\", {lang: lang}) %>\nCode for <%= query.name || \"Query\" %>",
     CannotExportXML: "You cannot save the XML as a file directly. Please use your browser's cut\nand paste functionality.",
     PrimaryAction: 'Save',
@@ -5182,7 +5184,10 @@
         },
         CodeGen: {
           Default: 'py',
-          Langs: ['py', 'pl', 'java', 'rb', 'js', 'xml']
+          Langs: ['py', 'pl', 'java', 'rb', 'js', 'xml'],
+          Extra: {
+            js: 'codegen.AsHTML'
+          }
         },
         ListFreshness: 250,
         MaxSuggestions: 1000,
@@ -5395,7 +5400,7 @@ function getTemplate (name) {
 // Simple templates we can define inline.
 TEMPLATES.clear = '<div style="clear:both"></div>';
 exports.list_dialogue_button_node = "<a href=\"#\">\n    <strong>\n        <%- displayName || path %>\n    </strong>\n    <% if (state.count) { %>\n        (<%- numToString(state.count) %>\n        <%- pluralise((typeName || type), state.count) %>)\n    <% } %>\n</a>\n";
-exports.code_gen_body = "<div class=\"row\">\n  <div class=\"col-sm-2\">\n    <% /* requires lang :: string, options.Langs :: [string] */ %>\n    <div class=\"btn-group language-selector\">\n      <button type=\"button\"\n              data-toggle=\"dropdown\"\n              aria-expanded=\"false\"\n              class=\"btn btn-default dropdown-toggle\">\n        <span class=\"im-current-lang\">\n          <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n        <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\"\n                class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n              <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n      </ul>\n    </div>\n    <div class=\"im-show-boilerplate\"></div>\n    <div class=\"im-highlight-syntax\"></div>\n  </div>\n  <div class=\"col-sm-10\">\n    <pre class=\"im-generated-code\"><%- generatedCode %></pre>\n  </div>\n</div>\n";
+exports.code_gen_body = "<div class=\"row\">\n  <div class=\"col-sm-2\">\n    <% /* requires lang :: string, options :: {Extra :: {}, Langs :: [string]} */ %>\n    <div class=\"btn-group language-selector\">\n      <button type=\"button\"\n              data-toggle=\"dropdown\"\n              aria-expanded=\"false\"\n              class=\"btn btn-default dropdown-toggle\">\n        <span class=\"im-current-lang\">\n          <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n        <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\"\n                class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n              <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n      </ul>\n    </div>\n    <div class=\"im-show-boilerplate\"></div>\n    <div class=\"im-highlight-syntax\"></div>\n    <div class=\"im-extra-options\"></div>\n  </div>\n  <div class=\"col-sm-10\">\n    <pre class=\"im-generated-code\"><%- generatedCode %></pre>\n  </div>\n</div>\n";
 exports.column_manager_tabs = "<ul class=\"nav nav-tabs\">\n    <li role=\"presentation\" class=\"<%- classes.view %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.ViewTabTitle') %>\n      </a>\n    </li>\n    <li role=\"presentation\" class=\"<%- classes.sortorder %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.SortOrderTabTitle') %>\n      </a>\n    </li>\n</ul>\n";
 exports.export_column_control = "<span class=\"badge\"><%- item.getType() %></span>\n<span class=\"im-active-state\">\n    <% if (active) { %>\n        <%= Icons.icon('Check') %>\n    <% } else { %>\n        <%= Icons.icon('UnCheck') %>\n    <% } %>\n</span>\n<%- name %>\n";
 exports.modal_error = "<% /* Renders an alert box at various levels, with appropriate icons and messages */ %>\n<% if (error) { %>\n    <div class=\"pull-left alert <%- errorAlert(error) %>\">\n        <% if (!error.cannotDismiss) { %>\n            <button type=\"button\" class=\"dismiss\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n        <% } %>\n        <%= Icons.icon(errorIcon(error)) %>\n        <strong><%- Messages.getText('ErrorTitle', error) %></strong>\n        <% if (error.key != null) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } %>\n";
@@ -5419,7 +5424,7 @@ exports.code_gen_button_main = "<%= Icons.icon('CodeFile') %>\n<span class=\"hid
 exports.export_dialogue = "<div class=\"row\">\n    <nav class=\"col-sm-3 menu\">\n    </nav>\n    <div class=\"col-sm-9 main\">\n    </div>\n</div>\n";
 exports.column_manager_select_list = "<div class=\"im-removal-and-rearrangement\">\n  <button class=\"pull-right btn btn-success im-add-view-path\">\n      <%= Icons.icon('Add') %>\n      <%- Messages.getText('columns.FindColumnToAdd') %>\n  </button>\n\n  <h4>\n    <%- Messages.getText('columns.ColumnsSelected', {columns: collection, removed: hasRubbish}) %>\n  </h4>\n\n  <span class=\"help-block\"><%- Messages.getText('columns.CurrentViewHelp') %></span>\n\n  <div class=\"well im-current-view\">\n\n    <div class=\"row\">\n\n      <div class=\"col-md-6\">\n        <ul class=\"list-group im-active-view im-connected-list\">\n        </ul>\n      </div>\n\n      <div class=\"col-md-6\">\n        <div class=\"im-rubbish-bin\">\n            <%= Icons.icon((hasRubbish ? 'RubbishFull' : 'Rubbish'), 'lg') %>\n            <% if (hasRubbish) { %>\n                <ul class=\"list-group im-removed im-removed-view im-connected-list\">\n                </ul>\n            <% } %>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"im-addition\">\n</div>\n\n";
 exports.table_subtables_header = "<a title=\"<%- Messages.getText('subtables.RemoveColumn') %>\">\n  <%= Icons.icon('Remove') %>\n</a>\n<% if (displayName && columnName) { %>\n  <%- displayName.replace(columnName, '').replace(/^ > /, '') %>\n<% } %>\n";
-exports.code_gen_js = "/* Install from npm: npm install imtables\n * This snippet assumes the presence on the page of an element like:\n * <div id=\"some-elem\"></div>\n */\nvar imtables = require('imtables');\n\nvar selector = '#some-elem';\nvar service  = {root: '<%= service.root %>'};\nvar query    = <%= JSON.stringify(query, null, 2) %>;\n\nimtables.loadQuery(\n  selector, // Can also be an element, or a jQuery object.\n  <%= JSON.stringify(page) %>, // May be null\n  {service: service, query: query} // May be an imjs.Query\n).then(\n  function (table) { console.log('Table loaded', table); },\n  function (error) { console.error('Could not load table', error); }\n);\n";
+exports.code_gen_js = "<% if (asHTML) { %>\n<!-- The Element we will target -->\n<div id=\"some-elem\"></div>\n<!-- The imtables source -->\n<script src=\"<%= imtablesJS %>\" charset=\"UTF-8\"></script>\n<link rel=\"stylesheet\" href=\"<%= imtablesCSS %>\">\n<script>\n<% } %>\n<% if (!asHTML) { %>\n/* Install from npm: npm install imtables\n * This snippet assumes the presence on the page of an element like:\n * <div id=\"some-elem\"></div>\n */\nvar imtables = require('imtables');\n<% } %>\n\nvar selector = '#some-elem';\nvar service  = {root: '<%= service.root %>'};\nvar query    = <%= JSON.stringify(query, null, 2) %>;\n\nimtables.loadTable(\n  selector, // Can also be an element, or a jQuery object.\n  <%= JSON.stringify(page) %>, // May be null\n  {service: service, query: query} // May be an imjs.Query\n).then(\n  function (table) { console.log('Table loaded', table); },\n  function (error) { console.error('Could not load table', error); }\n);\n<% if (asHTML) { %>\n</script>\n<% } %>\n";
 exports.active_constraints = "<% /* requires: constraints.length */ %>\n<div class=\"well im-current-constraints\">\n    <p class=\"well-help\">\n      <% if (constraints.length) { %>\n        <%- Messages.getText('constraints.EditOrRemove') %>\n      <% } else { %>\n        <%- Messages.getText('constraints.None') %>\n      <% } %>\n    </p>\n\n    <ul class=\"im-active-constraints\">\n    </ul>\n</div>\n";
 exports.export_preview = "<div class=\"form-group im-export-formats\">\n  <label><%- Messages.getText('export.param.Format') %></label>\n  <select class=\"form-control\">\n    <% _.each(formats, function (fmt) { %>\n      <option value=\"<%- fmt.id %>\"\n              <%= (fmt.id === format.id) ? 'selected' : void 0 %>>\n        <%- Messages.getText(fmt.name) %>\n      </option>\n    <% }); %>\n  </select>\n</div>\n\n<pre class=\"im-export-preview\">\n<%- state.preview %>\n</pre>\n\n<div class=\"alert alert-info\">\n    <strong class=\"nb\">nb</strong>\n    <%- Messages.getText('export.preview.Limit') %>\n</div>\n";
 exports.active_progress_bar = "<div class=\"progress progress-info progress-striped active\">\n  <div class=\"bar\" style=\"width: 100%\"></div>\n</div>\n";
@@ -7506,7 +7511,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":278}],109:[function(require,module,exports){
-module.exports = '2.0.0-beta-17';
+module.exports = '2.0.0-beta-19';
 
 },{}],110:[function(require,module,exports){
 (function() {
@@ -8396,7 +8401,7 @@ module.exports = '2.0.0-beta-17';
 },{"../core-view":3,"../messages":16,"../messages/code-gen":18,"../models/code-gen":37,"../options":62,"../templates":66,"./code-gen-dialogue":114,"underscore":309}],114:[function(require,module,exports){
 (function (global){
 (function() {
-  var CANNOT_SAVE, C_STYLE_COMMENTS, Checkbox, CodeGenDialogue, CodeGenModel, Messages, Modal, OCTOTHORPE_COMMENTS, Options, Promise, Templates, XML_MIMETYPE, alreadyRejected, canSaveFromMemory, indentXml, stripEmptyValues, stripExtraneousWhiteSpace, withFileSaver, withPrettyPrintOne, withResource, _,
+  var CANNOT_SAVE, C_STYLE_COMMENTS, Checkbox, CodeGenDialogue, CodeGenModel, HTML_MIMETYPE, JS_MIMETYPE, MIMETYPES, Messages, Modal, OCTOTHORPE_COMMENTS, Options, Promise, Templates, XML_MIMETYPE, alreadyRejected, canSaveFromMemory, indentXml, stripEmptyValues, stripExtraneousWhiteSpace, withFileSaver, withPrettyPrintOne, withResource, _,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -8431,9 +8436,19 @@ module.exports = '2.0.0-beta-17';
 
   XML_MIMETYPE = 'application/xml;charset=utf8';
 
+  JS_MIMETYPE = 'text/javascript;charset=utf8';
+
+  HTML_MIMETYPE = 'text/html;charset=utf8';
+
   CANNOT_SAVE = {
     level: 'Info',
     key: 'codegen.CannotExportXML'
+  };
+
+  MIMETYPES = {
+    js: JS_MIMETYPE,
+    xml: XML_MIMETYPE,
+    html: HTML_MIMETYPE
   };
 
   withPrettyPrintOne = _.partial(withResource, 'prettify', 'prettyPrintOne');
@@ -8523,7 +8538,7 @@ module.exports = '2.0.0-beta-17';
 
     CodeGenDialogue.prototype.modelEvents = function() {
       return {
-        'change:lang': this.onChangeLang,
+        'change': this.onChangeLang,
         'change:showBoilerPlate': this.reRenderBody,
         'change:highlightSyntax': this.reRenderBody
       };
@@ -8559,11 +8574,15 @@ module.exports = '2.0.0-beta-17';
     };
 
     CodeGenDialogue.prototype.act = function() {
-      var blob, _ref;
+      var blob, lang, _ref;
+      lang = this.model.get('lang');
+      if (lang === 'js' && this.model.get('extrajs')) {
+        lang = 'html';
+      }
       blob = new Blob([this.state.get('generatedCode')], {
-        type: XML_MIMETYPE
+        type: MIMETYPES[lang]
       });
-      return saveAs(blob, "" + ((_ref = this.query.name) != null ? _ref : 'name') + ".xml");
+      return saveAs(blob, "" + ((_ref = this.query.name) != null ? _ref : 'name') + "." + lang);
     };
 
     CodeGenDialogue.prototype.onChangeLang = function() {
@@ -8620,13 +8639,17 @@ module.exports = '2.0.0-beta-17';
     };
 
     CodeGenDialogue.prototype.generateJS = function() {
-      var data, query, t;
+      var cdnBase, data, query, t;
       t = Templates.template('code-gen-js');
       query = stripEmptyValues(this.query.toJSON());
+      cdnBase = Options.get('CDN.server') + Options.get(['CDN', 'imtables']);
       data = {
         service: this.query.service,
         query: query,
-        page: this.page
+        page: this.page,
+        asHTML: this.model.get('extrajs'),
+        imtablesJS: cdnBase + 'imtables.js',
+        imtablesCSS: cdnBase + 'main.sandboxed.css'
       };
       return t(data);
     };
@@ -8636,6 +8659,7 @@ module.exports = '2.0.0-beta-17';
       lang = this.model.get('lang');
       switch (lang) {
         case 'xml':
+        case 'js':
           return this.state.set({
             exportLink: null
           });
@@ -8669,16 +8693,24 @@ module.exports = '2.0.0-beta-17';
     };
 
     CodeGenDialogue.prototype.addCheckboxes = function() {
+      var opt;
       this.renderChildAt('.im-show-boilerplate', new Checkbox({
         model: this.model,
         attr: 'showBoilerPlate',
         label: 'codegen.ShowBoilerPlate'
       }));
-      return this.renderChildAt('.im-highlight-syntax', new Checkbox({
+      this.renderChildAt('.im-highlight-syntax', new Checkbox({
         model: this.model,
         attr: 'highlightSyntax',
         label: 'codegen.HighlightSyntax'
       }));
+      if ((opt = Options.get(['CodeGen', 'Extra', this.model.get('lang')]))) {
+        return this.renderChildAt('.im-extra-options', new Checkbox({
+          model: this.model,
+          attr: 'extra' + this.model.get('lang'),
+          label: opt
+        }));
+      }
     };
 
     CodeGenDialogue.prototype.highlightCode = function() {
