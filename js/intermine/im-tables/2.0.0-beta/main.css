@@ -8338,7 +8338,10 @@ button.close {
 /* green for rows added, red for rows removed - no value judgements implied */
 /* Row surrogates. */
 /* The width of a minimised column. */
-.im-filter-manager .im-path-finder {
+.im-path-finder {
+  overflow: visible;
+}
+.im-filter-manager .im-path-finder.open {
   max-height: 400px;
   overflow-y: auto;
 }

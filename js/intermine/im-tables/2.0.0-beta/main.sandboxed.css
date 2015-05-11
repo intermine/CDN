@@ -6283,7 +6283,9 @@
 @media print {
 .imtables .hidden-print {
     display: none!important;}}
-.imtables .im-filter-manager .im-path-finder {
+.imtables .im-path-finder {
+  overflow: visible;}
+.imtables .im-filter-manager .im-path-finder.open {
   max-height: 400px;
   overflow-y: auto;}
 .imtables .im-filter-summary .label-path .im-name-part {

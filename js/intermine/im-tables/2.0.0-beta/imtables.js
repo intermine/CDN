@@ -2585,8 +2585,10 @@
     }
     _results = [];
     while ((ta = this._typeaheads.shift())) {
+      ta.off('typeahead:select');
       ta.off('typeahead:selected');
       ta.off('typeahead:autocompleted');
+      ta.off('typeahead:close');
       ta.typeahead('destroy');
       _results.push(ta.remove());
     }
@@ -2598,12 +2600,16 @@
     return _.last((_ref = this._typeaheads) != null ? _ref : []);
   };
 
-  exports.activateTypeahead = function(input, opts, data, placeholder, cb) {
+  exports.activateTypeahead = function(input, opts, data, placeholder, cb, onChange) {
     input.attr({
       placeholder: placeholder
     }).typeahead(opts, data);
     input.on('typeahead:selected', cb);
+    input.on('typeahead:select', cb);
     input.on('typeahead:autocompleted', cb);
+    if (onChange != null) {
+      input.on('typeahead:close', onChange);
+    }
     this.initTypeaheads().push(input);
     input.focus();
     return this;
@@ -5444,7 +5450,7 @@ exports.null_value = "<span class=\"im-null-value\">&nbsp;</span>\n";
 exports.summary_items_controls = "<button class=\"btn btn-default pull-right im-download\">\n  <%= Icons.icon('Download') %>\n  <%- Messages.getText('summary.DownloadData') %>\n</button>\n\n<div class=\"btn-group im-filter-group\">\n  <button type=\"submit\"\n        class=\"btn btn-primary im-filter-in\"\n        <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <%- Messages.getText('Filter') %>\n  </button>\n  <button class=\"btn btn-primary dropdown-toggle\" \n          title=\"<%- Messages.getText('summary.SelectFilter') %>\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <span class=\"caret\"></span>\n  </button>\n  <ul class=\"dropdown-menu\">\n    <li>\n      <a href=\"#\" class=\"im-filter-in\">\n        <%- Messages.getText('summary.Include') %>\n      </a>\n    </li>\n    <li>\n      <a href=\"#\" class=\"im-filter-out\">\n        <%- Messages.getText('summary.Exclude') %>\n      </a>\n    </li>\n  </ul>\n</div>\n\n<div class=\"btn-group\">\n  <button class=\"btn btn-default btn-cancel\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>\n          title=\"<%- Messages.getText('summary.Reset') %>\">\n    <%= Icons.icon('Undo') %>\n  </button>\n  <% if (!(/boolean/i).test(type)) { %>\n    <button class=\"btn btn-default btn-toggle-selection\"\n            title=\"<%- Messages.getText('summary.Toggle') %>\">\n        <%= Icons.icon('Toggle') %>\n    </button>\n  <% } %>\n</div>\n\n";
 exports.column_manager_restore_path = "<% /* requires: restoreTitle */ %>\n<span class=\"pull-right im-restore-view\"\n    title=\"<%- Messages.getText(restoreTitle) %>\">\n    <%= Icons.icon('Add') %>\n</span>\n\n";
 exports.loop_value_controls = "<% if (candidateLoops.length) { %>\n    <%= select(candidateLoops, isSelected, 'form-control im-value-options im-con-value') %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLoops') %>\n<% } %>\n";
-exports.attribute_value_controls = "<input class=\"form-control im-constraint-value im-value-options im-con-value im-con-value-attr\"\n    type=\"text\"\n    placeholder=\"<%- messages.getText('conbuilder.ValuePlaceholder') %>\"\n    value=\"<%- con.value %>\">\n";
+exports.attribute_value_controls = "<div>\n    <input class=\"form-control im-constraint-value im-value-options im-con-value im-con-value-attr\"\n           type=\"text\"\n           placeholder=\"<%- state.valuePlaceholder %>\"\n           value=\"<%- con.value %>\">\n</div>\n";
 exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role=\"menu\" class=\"im-export-summary\">\n    <% _.each(formats, function (icon, param) { %>\n      <li role=\"presentation\">\n        <a role=\"menuitem\"\n            href=\"<%= query.getExportURI(param) %>&summaryPath=<%= path %>\">\n            <%= Icons.icon(icon) %>\n            <%- icon.toUpperCase() %>\n        </a>\n      </li>\n    <% }); %>\n</ul>\n";
 exports.input_with_label = "<label><%- Messages.getText(label) %></label>\n<input class=\"form-control\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\"\n       value=\"<%- value %>\">\n<% if (helpMessage) { %>\n  <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n        class=\"help-block\">\n        <%- Messages.getText(helpMessage) %>\n  </span>\n<% } %>\n";
 exports.join_style = "<% /* requires innerJoinBtn, outerJoinBtn */ %>\n<div class=\"btn-group pull-right\">\n  <button class=\"<%- innerJoinBtn %>\">\n    <%- Messages.getText('joins.Inner') %>\n  </button>\n  <button class=\"<%- outerJoinBtn %>\">\n    <%- Messages.getText('joins.Outer') %>\n  </button>\n</div>\n";
@@ -5505,7 +5511,7 @@ exports.column_manager_sort_order_editor = "<% /* requires: collection, availabl
 exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
 exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
 exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <% if (canUndo) { %>\n      <button class=\"pull-right btn btn-large btn-default btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n  </div>\n</td>\n";
-exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- messages.getText('conbuilder.ExtraPlaceholder') %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
+exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- state.extraPlaceholder %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
 exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
 
 },{"underscore":309}],67:[function(require,module,exports){
@@ -7251,6 +7257,18 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
     SuggestionSource.prototype.suggest = function(term, cb) {
       var matches, parts, s, _ref, _ref1;
+      if ((term == null) || term === '') {
+        return cb((function() {
+          var _i, _len, _ref, _results;
+          _ref = this.suggestions.slice(0, 10);
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            s = _ref[_i];
+            _results.push(s);
+          }
+          return _results;
+        }).call(this));
+      }
       parts = (_ref = term != null ? (_ref1 = term.toLowerCase()) != null ? _ref1.split(' ') : void 0 : void 0) != null ? _ref : [];
       matches = function(_arg) {
         var item;
@@ -7511,7 +7529,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":278}],109:[function(require,module,exports){
-module.exports = '2.0.0-beta-20';
+module.exports = '2.0.0-beta-21';
 
 },{}],110:[function(require,module,exports){
 (function() {
@@ -7872,7 +7890,7 @@ module.exports = '2.0.0-beta-20';
 
 },{"../core-view":3,"../icons":14,"../messages":16,"../options":62,"../templates":66,"./constraint-editor":127,"./constraint-summary":128,"es6-promise":278,"imjs":287,"jquery":306,"underscore":309}],111:[function(require,module,exports){
 (function() {
-  var $, AttributeValueControls, CoreView, HasTypeaheads, INTEGRAL_TYPES, IS_BLANK, Messages, NUMERIC_TYPES, Options, Promise, Query, SuggestionSource, Templates, numToString, numify, selectTemplate, trim, _, _ref, _ref1,
+  var $, AttributeValueControls, CoreView, HasTypeaheads, INTEGRAL_TYPES, IS_BLANK, Messages, NUMERIC_TYPES, NestedModel, Options, Promise, Query, SuggestionSource, Templates, getBranding, numToString, numify, selectTemplate, trim, _, _ref, _ref1,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -7890,6 +7908,10 @@ module.exports = '2.0.0-beta-20';
   CoreView = require('../core-view');
 
   Options = require('../options');
+
+  NestedModel = require('../core/nested-model');
+
+  getBranding = require('../utils/branding');
 
   IS_BLANK = require('../patterns').IS_BLANK;
 
@@ -7930,10 +7952,10 @@ module.exports = '2.0.0-beta-20';
     AttributeValueControls.prototype.template = Templates.template('attribute_value_controls');
 
     AttributeValueControls.prototype.getData = function() {
-      return {
+      return _.extend(this.getBaseData(), {
         messages: Messages,
         con: this.model.toJSON()
-      };
+      });
     };
 
     AttributeValueControls.prototype.initialize = function(_arg) {
@@ -7941,11 +7963,25 @@ module.exports = '2.0.0-beta-20';
       this.query = _arg.query;
       AttributeValueControls.__super__.initialize.apply(this, arguments);
       this.sliders = [];
+      this.branding = new NestedModel;
       this.cast = (_ref2 = this.model.get('path').getType(), __indexOf.call(NUMERIC_TYPES, _ref2) >= 0) ? numify : trim;
       this.listenTo(Messages, 'change', this.reRender);
+      this.state.set({
+        valuePlaceholder: Messages.getText('conbuilder.ValuePlaceholder')
+      });
+      this.listenTo(this.branding, 'change:defaults.value', function() {
+        return this.state.set({
+          valuePlaceholder: this.branding.get('defaults.value')
+        });
+      });
       if (this.query != null) {
         this.listenTo(this.query, 'change:constraints', this.clearCachedData);
-        return this.listenTo(this.query, 'change:constraints', this.reRender);
+        this.listenTo(this.query, 'change:constraints', this.reRender);
+        return getBranding(this.query.service).then((function(_this) {
+          return function(branding) {
+            return _this.branding.set(branding);
+          };
+        })(this));
       }
     };
 
@@ -7956,6 +7992,12 @@ module.exports = '2.0.0-beta-20';
         },
         'change:value': this.onChangeValue,
         'change:op': this.onChangeOp
+      };
+    };
+
+    AttributeValueControls.prototype.stateEvents = function() {
+      return {
+        'change:valuePlaceholder': this.reRender
       };
     };
 
@@ -8225,13 +8267,18 @@ module.exports = '2.0.0-beta-20';
       return this.sliders.push($slider);
     };
 
+    AttributeValueControls.prototype.remove = function() {
+      AttributeValueControls.__super__.remove.apply(this, arguments);
+      return this.removeTypeAheads();
+    };
+
     return AttributeValueControls;
 
   })(CoreView);
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../mixins/has-typeaheads":31,"../options":62,"../patterns":63,"../templates":66,"../templates/helpers":67,"../utils/suggestion-source":105,"es6-promise":278,"imjs":287,"jquery":306,"underscore":309}],112:[function(require,module,exports){
+},{"../core-view":3,"../core/nested-model":8,"../messages":16,"../mixins/has-typeaheads":31,"../options":62,"../patterns":63,"../templates":66,"../templates/helpers":67,"../utils/branding":69,"../utils/suggestion-source":105,"es6-promise":278,"imjs":287,"jquery":306,"underscore":309}],112:[function(require,module,exports){
 (function() {
   var BooleanValueControls, Messages, Options, View, fs, html, mustacheSettings, _,
     __hasProp = {}.hasOwnProperty,
@@ -10643,6 +10690,7 @@ module.exports = '2.0.0-beta-20';
 
     ConstraintAdder.prototype.hideTree = function() {
       this.trigger('resetting:tree');
+      this.$('.im-path-finder').removeClass('open');
       return this.removeChild('tree');
     };
 
@@ -10658,6 +10706,7 @@ module.exports = '2.0.0-beta-20';
         view: this.view,
         trail: []
       });
+      this.$('.im-path-finder').addClass('open');
       return this.renderChild('tree', pathFinder, this.$('.im-path-finder'));
     };
 
@@ -10869,7 +10918,8 @@ module.exports = '2.0.0-beta-20';
       }
       if (this.isMultiValueConstraint()) {
         return new MultiValueControls({
-          model: this.model
+          model: this.model,
+          query: this.query
         });
       }
       if (this.isListConstraint()) {
@@ -10880,7 +10930,8 @@ module.exports = '2.0.0-beta-20';
       }
       if (this.isBooleanConstraint()) {
         return new BooleanValueControls({
-          model: this.model
+          model: this.model,
+          query: this.query
         });
       }
       if (this.isLoopConstraint()) {
@@ -10891,12 +10942,14 @@ module.exports = '2.0.0-beta-20';
       }
       if (this.isLookupConstraint()) {
         return new LookupValueControls({
-          model: this.model
+          model: this.model,
+          query: this.query
         });
       }
       if (this.isRangeConstraint()) {
         return new MultiValueControls({
-          model: this.model
+          model: this.model,
+          query: this.query
         });
       }
       if (this.path.isAttribute()) {
@@ -18691,7 +18744,7 @@ module.exports = '2.0.0-beta-20';
 
 },{"../core-view":3,"../messages":16,"../templates/helpers":67,"../templates/mustache-settings":68,"es6-promise":278,"underscore":309}],191:[function(require,module,exports){
 (function() {
-  var AttributeValueControls, LoopValueControls, Promise, fs, html, template, _,
+  var AttributeValueControls, LoopValueControls, Messages, Promise, SuggestionSource, fs, html, template, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -18701,9 +18754,13 @@ module.exports = '2.0.0-beta-20';
 
   Promise = require('es6-promise').Promise;
 
+  SuggestionSource = require('../utils/suggestion-source');
+
+  Messages = require('../messages');
+
   AttributeValueControls = require('./attribute-value-controls');
 
-  html = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- messages.getText('conbuilder.ExtraPlaceholder') %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
+  html = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- state.extraPlaceholder %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
 
   template = _.template(html);
 
@@ -18713,6 +18770,26 @@ module.exports = '2.0.0-beta-20';
     function LoopValueControls() {
       return LoopValueControls.__super__.constructor.apply(this, arguments);
     }
+
+    LoopValueControls.prototype.initialize = function() {
+      LoopValueControls.__super__.initialize.apply(this, arguments);
+      this.state.set({
+        extraPlaceholder: Messages.get('conbuilder.ExtraPlaceholder')
+      });
+      this.listenTo(this.branding, 'change:defaults.extraValue.path', this.reRender);
+      this.listenTo(this.branding, 'change:defaults.extraValue.value', function() {
+        return this.state.set({
+          extraPlaceholder: this.branding.get('defaults.extraValue.value')
+        });
+      });
+      return this.listenTo(this.model, 'change', this.reRender);
+    };
+
+    LoopValueControls.prototype.stateEvents = function() {
+      return _.extend(LoopValueControls.__super__.stateEvents.apply(this, arguments), {
+        'change:extraPlaceholder': this.reRender
+      });
+    };
 
     LoopValueControls.prototype.template = function(data) {
       var base;
@@ -18728,19 +18805,130 @@ module.exports = '2.0.0-beta-20';
     };
 
     LoopValueControls.prototype.setValue = function() {
+      var input, value;
+      input = this.$('input.im-con-value-attr.tt-input');
+      if (!input.length) {
+        input = this.$('input.im-con-value-attr');
+      }
+      value = input.val();
       return this.model.set({
-        value: this.$('.im-con-value-attr').val()
+        value: value
       });
     };
 
     LoopValueControls.prototype.setExtraValue = function() {
-      return this.model.set({
-        extraValue: this.$('.im-extra-value').val()
+      var input, value;
+      input = this.$('input.im-extra-value.tt-input');
+      if (!input.length) {
+        input = this.$('input.im-extra-value');
+      }
+      value = input.val();
+      if (value) {
+        return this.model.set({
+          extraValue: value
+        });
+      } else {
+        return this.model.unset('extraValue');
+      }
+    };
+
+    LoopValueControls.prototype.setBoth = function() {
+      this.setValue();
+      return this.setExtraValue();
+    };
+
+    LoopValueControls.prototype.suggestExtra = function() {
+      var handler, path, suggesting, suggestingExtra, summPath, target;
+      path = this.branding.get('defaults.extraValue.path');
+      target = this.branding.get('defaults.extraValue.extraFor');
+      return suggestingExtra = (path == null) || !this.model.get('path').isa(target) ? Promise.resolve(true) : (summPath = "" + (this.model.get('path')) + "." + path, suggesting = (this.__extra_suggestions != null ? this.__extra_suggestions : this.__extra_suggestions = this.query.summarise(summPath)), handler = this.handleSuggestionSet.bind(this, this.$('input.im-extra-value'), 'extraValue'), suggesting.then(function(_arg) {
+        var results;
+        results = _arg.results;
+        return results;
+      }).then(handler));
+    };
+
+    LoopValueControls.prototype.suggestValue = function() {
+      var cls, gettingKeys, handler, path, s;
+      path = this.model.get('path');
+      s = this.query.service;
+      cls = path.getEndClass().name;
+      gettingKeys = s.fetchClassKeys().then(function(keys) {
+        return keys[cls];
       });
+      if (this.__value_suggestions == null) {
+        this.__value_suggestions = gettingKeys.then((function(_this) {
+          return function(keys) {
+            var k, summaries;
+            if (!(keys != null ? keys.length : void 0)) {
+              return [];
+            }
+            summaries = (function() {
+              var _i, _len, _results;
+              _results = [];
+              for (_i = 0, _len = keys.length; _i < _len; _i++) {
+                k = keys[_i];
+                _results.push(this.query.summarise(path + k.replace(/^[^\.]+/, '')));
+              }
+              return _results;
+            }).call(_this);
+            return Promise.all(summaries).then(function(resultSets) {
+              return resultSets.reduce((function(acc, rs) {
+                return acc.concat(rs.results);
+              }), []);
+            });
+          };
+        })(this));
+      }
+      handler = this.handleSuggestionSet.bind(this, this.$('input.im-con-value-attr'), 'value');
+      return this.__value_suggestions.then(handler);
+    };
+
+    LoopValueControls.prototype.handleSuggestionSet = function(input, prop, results) {
+      var dataset, handleSuggestion, mostCommon, opts, source, total;
+      total = results.length;
+      if (total === 0) {
+        return;
+      }
+      source = new SuggestionSource(results, total);
+      opts = {
+        minLength: 0,
+        highlight: true
+      };
+      dataset = {
+        name: "" + prop + "_suggestions",
+        source: source.suggest,
+        displayKey: 'item',
+        templates: {
+          footer: source.tooMany
+        }
+      };
+      handleSuggestion = (function(_this) {
+        return function(control) {
+          return function(e, suggestion) {
+            return _this.model.set(prop, suggestion.item);
+          };
+        };
+      })(this);
+      mostCommon = results[0].item;
+      return this.activateTypeahead(input, opts, dataset, mostCommon, handleSuggestion(input), (function(_this) {
+        return function() {
+          return _this.setBoth();
+        };
+      })(this));
     };
 
     LoopValueControls.prototype.provideSuggestions = function() {
-      return Promise.resolve(true);
+      var suggestingExtra, suggestingValue;
+      this.removeTypeAheads();
+      suggestingValue = this.suggestValue();
+      suggestingExtra = this.suggestExtra();
+      return Promise.all([suggestingExtra, suggestingValue]);
+    };
+
+    LoopValueControls.prototype.remove = function() {
+      LoopValueControls.__super__.remove.apply(this, arguments);
+      return this.branding.destroy();
     };
 
     return LoopValueControls;
@@ -18749,7 +18937,7 @@ module.exports = '2.0.0-beta-20';
 
 }).call(this);
 
-},{"./attribute-value-controls":111,"es6-promise":278,"underscore":309}],192:[function(require,module,exports){
+},{"../messages":16,"../utils/suggestion-source":105,"./attribute-value-controls":111,"es6-promise":278,"underscore":309}],192:[function(require,module,exports){
 (function() {
   var LoopValueControls, Messages, Promise, View, fs, helpers, html, mustacheSettings, template, toNamedPath, toOption, _,
     __hasProp = {}.hasOwnProperty,
