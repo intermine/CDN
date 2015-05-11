@@ -7511,7 +7511,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":278}],109:[function(require,module,exports){
-module.exports = '2.0.0-beta-19';
+module.exports = '2.0.0-beta-20';
 
 },{}],110:[function(require,module,exports){
 (function() {
@@ -15066,7 +15066,7 @@ module.exports = '2.0.0-beta-19';
     };
 
     SummaryItemsControls.prototype.addConstraint = function(ops, e) {
-      var item, unselected, vals, _ref;
+      var anyIsNull, item, unselected, vals, _ref;
       IGNORE(e);
       vals = (function() {
         var _i, _len, _ref, _results;
@@ -15088,7 +15088,10 @@ module.exports = '2.0.0-beta-19';
           error: new Error('All items are selected')
         });
       }
-      if (this.model.hasAll() && ((MIN_VALS_OPTIMISATION > (_ref = vals.length) && _ref > unselected.length))) {
+      anyIsNull = _.any(vals, function(v) {
+        return v == null;
+      });
+      if ((!anyIsNull) && this.model.hasAll() && ((MIN_VALS_OPTIMISATION > (_ref = vals.length) && _ref > unselected.length))) {
         return this.constrainTo(negateOps(ops), (function() {
           var _i, _len, _results;
           _results = [];
