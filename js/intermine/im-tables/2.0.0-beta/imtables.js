@@ -1784,7 +1784,7 @@
 
 },{"./core-model":2,"./options":62,"underscore":310}],15:[function(require,module,exports){
 (function() {
-  var Dashboard, Formatting, Messages, Options, Promise, Table, Types, asElement, connect, createView, load, simpleFormatter, _;
+  var Dashboard, Formatting, Messages, Options, Promise, Table, Types, asElement, connect, createView, load, simpleFormatter, version, _;
 
   _ = require('underscore');
 
@@ -1793,6 +1793,8 @@
   connect = require('imjs').Service.connect;
 
   Promise = require('es6-promise').Promise;
+
+  version = require('./version');
 
   Types = require('./core/type-assertions');
 
@@ -1859,6 +1861,8 @@
     return ret;
   };
 
+  exports.version = version;
+
   exports.setMessages = Messages.set.bind(Messages);
 
   exports.configure = Options.set.bind(Options);
@@ -1875,7 +1879,7 @@
 
 }).call(this);
 
-},{"./core/type-assertions":10,"./formatting":13,"./messages":16,"./options":62,"./shim":65,"./utils/simple-formatter":103,"./views/dashboard":135,"./views/table":207,"es6-promise":279,"imjs":288,"underscore":310}],16:[function(require,module,exports){
+},{"./core/type-assertions":10,"./formatting":13,"./messages":16,"./options":62,"./shim":65,"./utils/simple-formatter":103,"./version":110,"./views/dashboard":135,"./views/table":207,"es6-promise":279,"imjs":288,"underscore":310}],16:[function(require,module,exports){
 (function() {
   var Backbone, DEFAULTS, HELPERS, Messages, actionMessages, common, numToString, pluralise, _, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -7589,7 +7593,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":279}],110:[function(require,module,exports){
-module.exports = '2.0.0-beta-23';
+module.exports = '2.0.0-beta-24';
 
 },{}],111:[function(require,module,exports){
 (function() {
