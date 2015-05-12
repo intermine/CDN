@@ -9524,7 +9524,7 @@ li.L9 {
   display: inline;
 }
 .popover.item-preview {
-  min-width: 300px;
+  min-width: 385px;
 }
 .im-cell-preview-inner {
   font-size: 90%;
@@ -9541,6 +9541,7 @@ li.L9 {
 .im-cell-preview-inner .im-related-counts .im-relation {
   padding: 0.1em 1em;
   width: 50%;
+  margin-left: 0;
   float: left;
   float: left !important;
   display: inline-block;

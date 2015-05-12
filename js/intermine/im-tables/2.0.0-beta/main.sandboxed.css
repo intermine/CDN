@@ -7201,7 +7201,7 @@
 .imtables .im-column-th .im-constraints .im-value-section .im-multi-value-table .im-add .im-short {
   display: inline;}
 .imtables .popover.item-preview {
-  min-width: 300px;}
+  min-width: 385px;}
 .imtables .im-cell-preview-inner {
   font-size: 90%;}
 .imtables .im-cell-preview-inner h4 {
@@ -7214,6 +7214,7 @@
 .imtables .im-cell-preview-inner .im-related-counts .im-relation {
   padding: 0.1em 1em;
   width: 50%;
+  margin-left: 0;
   float: left;
   float: left!important;
   display: inline-block;}
