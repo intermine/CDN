@@ -8345,6 +8345,16 @@ button.close {
   max-height: 400px;
   overflow-y: auto;
 }
+.im-new-constraint .im-con-overview .im-name-part {
+  display: none;
+}
+.im-new-constraint .im-con-overview .im-name-part:first-child:after {
+  content: '...';
+}
+.im-new-constraint .im-con-overview .im-name-part:first-child,
+.im-new-constraint .im-con-overview .im-name-part:nth-last-child(-n+3) {
+  display: inline-block;
+}
 .im-filter-summary .label-path .im-name-part {
   display: none;
 }
@@ -8373,7 +8383,6 @@ button.close {
   position: relative;
 }
 .im-constraint-editor .ui-slider .im-slider-marker {
-  position: absolute;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   top: 1em;
 }
@@ -8569,6 +8578,14 @@ span.twitter-typeahead {
   -o-transition: 0.1s linear background-image;
   transition: 0.1s linear background-image;
   overflow: visible;
+}
+.im-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.im-path-chooser ul {
+  padding-left: 2em;
 }
 .im-path-chooser li {
   list-style-type: none;

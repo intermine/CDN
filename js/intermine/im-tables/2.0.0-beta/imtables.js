@@ -2593,8 +2593,7 @@
       ta.off('typeahead:selected');
       ta.off('typeahead:autocompleted');
       ta.off('typeahead:close');
-      ta.typeahead('destroy');
-      _results.push(ta.remove());
+      _results.push(ta.typeahead('destroy'));
     }
     return _results;
   };
@@ -5463,7 +5462,7 @@ exports.export_add_column_control = "<div class=\"row\">\n    <div class=\"col-s
 exports.export_dialogue_footer = "<% if (linkToFile) { %>\n    <div class=\"pull-left alert alert-info\">\n        <%- Messages.getText('export.cloud.FileLocation', {cloud: dest}) %>\n        <a href=\"<%= linkToFile %>\" target=\"_blank\"><%- linkToFile %></a>\n    </div>\n<% } %>\n\n<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n\n<% if (dest === 'download') { %>\n    <a class=\"btn btn-primary\"\n        href=\"<%- exportURI %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <button type=\"button\"\n            <%= (error || doneness != null) ? 'disabled' : void 0 %>\n            class=\"btn btn-primary\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </button>\n<% } %>\n\n";
 exports.column_manager_path_remover = "<% /* requires: removeTitle */ %>\n<span class=\"pull-right im-remove-view\"\n      title=\"<%- Messages.getText(removeTitle) %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n\n";
 exports.export_flat_file_options = "<h4><%- Messages.getText('export.category.ColumnHeaders', state) %></h4>\n\n<div class=\"checkbox im-headers\">\n    <label>\n        <input type=\"checkbox\" <%= headers ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.AddHeaders') %>\n    </label>\n</div>\n\n<fieldset <%= headers ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-friendly\"\n                <%= (headerType === 'friendly') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.FriendlyHeaders') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-path\"\n                <%= (headerType === 'path') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.PathHeaders') %>\n        </label>\n    </div>\n</fieldset>\n\n";
-exports.constraint_summary = "<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
+exports.constraint_summary = "<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span title=\"<%- label.content %>\" class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
 exports.classy_popover = "<div class=\"popover <%- classes %>\" role=\"tooltip\">\n  <div class=\"arrow\"></div>\n  <h3 class=\"popover-title\"></h3>\n  <div class=\"popover-content\"></div>\n</div>\n";
 exports.join_manager_body = "<ul class=\"list-group\"></ul>\n\n<div class=\"alert alert-info\">\n  <%= Icons.icon('Info') %>\n  <strong class=\"im-clickable\">\n    <%- Messages.getText('joins.ExplanationTitle') %>\n  </strong>\n  <p class=\"<%= (!state.explaining) ? 'im-latent' : void 0 %>\">\n    <%- Messages.getText('joins.Explanation') %>\n  </p>\n</div>\n";
 exports.summary_selected_count = "<% if (state.selectedCount) { %>\n    <div class=\"alert alert-info im-selected-count\">\n        <strong>\n            <%- Messages.getText('summary.SelectedCount', state) %>\n        </strong>\n    </div>\n<% } %>\n";
@@ -5510,7 +5509,7 @@ exports.facet_title = "<%= Icons.icon(state.open ? 'Expanded' : 'Collapsed') %>\
 exports.large_table_disuader = "<div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>\n            <%= size %> rows - are you sure?\n            </h3>\n        </div>\n\n        <div class=\"modal-body\">\n\n            <p><%= Messages.getText('largetable.appeal', {size: size}) %></p>\n\n            <ul>\n                <li>\n                    <p>\n                        If you want to see all the data, you can page \n                        <span class=\"label label-info\">\n                            <%= Icons.icon('GoBack') %>\n                            backwards\n                        </span>\n                        and \n                        <span class=\"label label-info\">\n                            forwards\n                            <%= Icons.icon('GoForward') %>\n                        </span>\n                        through the results.\n                    </p>\n                    <div class=\"btn-group\">\n                        <a class=\"btn btn-default im-alternative-action page-backwards\" href=\"#\">\n                            <%= Icons.icon('GoBack') %>\n                            go one page back\n                        </a>\n                        <a class=\"btn btn-default im-alternative-action page-forwards\" href=\"#\">\n                            go one page forward\n                            <%= Icons.icon('GoForward') %>\n                        </a>\n                    </div>\n                </li>\n\n                <li>\n                    <p>\n                        If you are looking for something specific, you can use the\n                        <span class=\"label label-info\">filtering tools</span>\n                        to narrow down the result set. Then you \n                        might be able to fit the items you are interested in in a\n                        single page.\n                    </p>\n                    <button class=\"btn btn-default im-alternative-action add-filter-dialogue\">\n                        <%= Icons.icon('Filter') %>\n                        Add a new filter.\n                    </button>\n                </li>\n\n                <li>\n                    <p>\n                        If you want to get and save the results, we suggest\n                        <span class=\"label label-info\">downloading</span>\n                        the results in a format that suits you. \n                    <p>\n                    <button class=\"btn btn-default im-alternative-action download-menu\">\n                        <%= Icons.icon('Export') %>\n                        Open the download menu.\n                    </buttn>\n                </li>\n\n            </ul>\n        </div>\n\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary pull-right\">\n                <%- Messages.getText('largetable.ok', {size: size}) %>\n            </button>\n            <button class=\"btn pull-left close\">\n                <%- Messages.getText('largetable.abort') %>\n            </button>\n        </div>\n    </div>\n</div>\n";
 exports.list_dialogue_button = "<button class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">\n  <%= Icons.icon('Lists') %>\n  <span class=\"hidden-xxs\">\n    <%- Messages.getText('lists.SaveAsList') %>\n  </span>\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n    <li class=\"divider\"></li>\n    <li>\n        <a class=\"im-pick-items\" href=\"#\">\n            <%- Messages.getText('lists.StartPicking') %>\n        </a>\n    </li>\n    <li class=\"divider\"></li>\n    <li>\n        <div class=\"btn-group btn-group-justified\" role=\"group\">\n            <a role=\"button\" class=\"<%- createBtnClasses %>\">\n                <%- Messages.getText('lists.Create') %>\n            </a>\n            <a role=\"button\" class=\"<%- appendBtnClasses %>\">\n                <%- Messages.getText('lists.Append') %>\n            </a>\n        </div>\n    </li>\n</ul>\n";
 exports.export_format_controls = "<h4 class=\"im-title\"></h4>\n\n<% _.each(formats, function (formatDef) { %>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                   name=\"format\"\n                   value=\"<%= formatDef.id %>\"\n                   <%= (formatDef.id === format) ? 'checked' : void 0 %>>\n            <%= Icons.icon(formatDef.icon) %>\n            <%= Messages.getText(formatDef.desc) %>\n        </label>\n    </div>\n<% }); %>\n";
-exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(marker) { %>\n        <span class=\"im-slider-marker <%- (marker.percent > 50) ? 'high' : 'low' %>\"\n              style=\"left:<%- marker.percent %>%\">\n            <%- marker.value %>\n        </span>\n    <% }); %>\n</div>\n";
+exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(marker) { %>\n        <span class=\"im-slider-marker\"><%- marker.value %></span>\n    <% }); %>\n</div>\n";
 exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
 exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
 exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
@@ -7593,7 +7592,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":279}],110:[function(require,module,exports){
-module.exports = '2.0.0-beta-25';
+module.exports = '2.0.0-beta-26';
 
 },{}],111:[function(require,module,exports){
 (function() {
@@ -8069,11 +8068,12 @@ module.exports = '2.0.0-beta-25';
       var newOp;
       newOp = this.model.get('op');
       if (__indexOf.call(Query.MULTIVALUE_OPS, newOp) >= 0) {
-        return this.model.set({
+        this.model.set({
           value: null,
           values: [this.model.get('value')]
         });
       }
+      return this.reRender();
     };
 
     AttributeValueControls.prototype.onChangeValue = function() {
@@ -8212,6 +8212,7 @@ module.exports = '2.0.0-beta-25';
 
     AttributeValueControls.prototype.replaceInputWithSelect = function(items) {
       var value;
+      console.log("Select of " + items.length + " items");
       if (this.model.has('value')) {
         value = this.model.get('value');
         if ((value != null) && !(_.any(items, function(_arg) {
@@ -8236,8 +8237,8 @@ module.exports = '2.0.0-beta-25';
     };
 
     AttributeValueControls.prototype.handleSummary = function(items, total) {
-      var dataset, input, opts, source;
-      if (this.model.get('op') === '=' && items.length < Options.get('DropdownMax')) {
+      var dataset, input, opts, source, _ref2;
+      if (((_ref2 = this.model.get('op')) === '=' || _ref2 === '!=') && items.length < Options.get('DropdownMax')) {
         return this.replaceInputWithSelect(items);
       }
       input = this.$('.im-con-value-attr');
@@ -8310,6 +8311,8 @@ module.exports = '2.0.0-beta-25';
       input = this.$('input');
       container.append(this.clearer);
       markers = this.getMarkers(min, max, isInt);
+      this.removeSliders();
+      input.off('change.slider');
       $slider = $(this.makeSlider(markers));
       $slider.appendTo(container).slider({
         min: min,
@@ -8324,10 +8327,9 @@ module.exports = '2.0.0-beta-25';
         placeholder: caster(average)
       });
       container.append(this.clearer);
-      input.change(function(e) {
+      input.on('change.slider', function(e) {
         return $slider.slider('value', caster(input.val()));
       });
-      this.removeSliders();
       return this.sliders.push($slider);
     };
 

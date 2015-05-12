@@ -6288,6 +6288,13 @@
 .imtables .im-filter-manager .im-path-finder.open {
   max-height: 400px;
   overflow-y: auto;}
+.imtables .im-new-constraint .im-con-overview .im-name-part {
+  display: none;}
+.imtables .im-new-constraint .im-con-overview .im-name-part:first-child:after {
+  content: '...';}
+.imtables .im-new-constraint .im-con-overview .im-name-part:first-child,
+.imtables .im-new-constraint .im-con-overview .im-name-part:nth-last-child(-n+3) {
+  display: inline-block;}
 .imtables .im-filter-summary .label-path .im-name-part {
   display: none;}
 .imtables .im-filter-summary .label-path .im-name-part:last-child {
@@ -6308,7 +6315,6 @@
   height: 1px;
   position: relative;}
 .imtables .im-constraint-editor .ui-slider .im-slider-marker {
-  position: absolute;
   font-family: Menlo , Monaco , Consolas , "Courier New" , monospace;
   top: 1em;}
 .imtables .im-constraint-editor .ui-slider .im-slider-marker.high {
@@ -6475,6 +6481,12 @@
   -o-transition: 0.1s linear background-image;
   transition: 0.1s linear background-image;
   overflow: visible;}
+.imtables .im-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;}
+.imtables .im-path-chooser ul {
+  padding-left: 2em;}
 .imtables .im-path-chooser li {
   list-style-type: none;
   margin-left: 0px;
