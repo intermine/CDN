@@ -6769,7 +6769,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
       }
       return _results;
     })();
-    return CACHE[key] != null ? CACHE[key] : CACHE[key] = Promise.all(namings).then(matchPathsToNames(path));
+    return CACHE[key] != null ? CACHE[key] : CACHE[key] = Promise.all(namings).then(matchPathsToNames(paths));
   };
 
 }).call(this);
