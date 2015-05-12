@@ -7593,7 +7593,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":279}],110:[function(require,module,exports){
-module.exports = '2.0.0-beta-24';
+module.exports = '2.0.0-beta-25';
 
 },{}],111:[function(require,module,exports){
 (function() {
