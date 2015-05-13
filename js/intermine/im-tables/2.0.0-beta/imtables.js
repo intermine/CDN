@@ -5836,7 +5836,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   getOJCBelow = function(query, p, below) {
-    var highest, next, nextPath, oj, path;
+    var highest, oj, path;
     oj = query.getOuterJoin(p);
     if ((!oj) || (oj === below)) {
       return null;
@@ -5845,18 +5845,16 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
     highest = path.isCollection() ? oj : null;
     path = path.getParent();
     while (path && (!path.isRoot())) {
-      next = query.getOuterJoin(path);
-      if (next != null) {
-        nextPath = query.makePath(next);
-      }
-      if ((nextPath != null ? nextPath.isCollection() : void 0) && (next !== below)) {
-        highest = next;
-      }
-      if (nextPath) {
-        path = nextPath.getParent();
-      } else {
-        path = null;
-      }
+      (function(next) {
+        var nextPath;
+        if (next != null) {
+          nextPath = query.makePath(next);
+        }
+        if ((nextPath != null ? nextPath.isCollection() : void 0) && (next !== below)) {
+          highest = next;
+        }
+        return path = nextPath != null ? nextPath.getParent() : void 0;
+      })(query.getOuterJoin(path));
     }
     return highest;
   };
@@ -6029,7 +6027,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
   CACHE = {};
 
   key = function(q) {
-    return "" + q.root + ":" + q.token + ":" + (q.toXML());
+    return "" + q.service.root + ":" + q.service.token + ":" + (q.toXML());
   };
 
   exports.count = function(q) {
@@ -7592,7 +7590,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":279}],110:[function(require,module,exports){
-module.exports = '2.0.0-beta-26';
+module.exports = '2.0.0-beta-27';
 
 },{}],111:[function(require,module,exports){
 (function() {
