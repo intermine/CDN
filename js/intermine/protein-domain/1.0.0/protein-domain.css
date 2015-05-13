@@ -1,0 +1,13 @@
+.pdchart {
+  width: 100%;
+}
+
+.pdchart rect {
+  fill: steelblue;
+}
+
+.pdchart text {
+  fill: black;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
