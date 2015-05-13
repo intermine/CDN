@@ -7590,7 +7590,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":279}],110:[function(require,module,exports){
-module.exports = '2.0.0-beta-27';
+module.exports = '2.0.0-beta-28';
 
 },{}],111:[function(require,module,exports){
 (function() {
@@ -8486,9 +8486,10 @@ module.exports = '2.0.0-beta-27';
     CodeGenButton.prototype.chooseLang = function(e) {
       var lang;
       lang = this.$(e.target).closest('li').data('lang');
-      return this.model.set({
+      this.model.set({
         lang: lang
       });
+      return this.showDialogue();
     };
 
     CodeGenButton.prototype.showDialogue = function() {
