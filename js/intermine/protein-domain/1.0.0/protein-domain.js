@@ -87,7 +87,7 @@ svg.attr("height", margin.top + (barHeight * data.length) + margin.bottom);
    .append("rect")
      .attr("width", function(d) { return range(d)})
      .attr("height", barHeight - 1)
-     .style("fill", function(d, i) { console.log("index is", i); return colors(d[4])});
+     .style("fill", function(d, i) { return colors(d[4])});
 
   bar.append("a")
       .on("mouseover", function(d){
