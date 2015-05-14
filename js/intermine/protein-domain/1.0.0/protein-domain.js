@@ -87,7 +87,7 @@ svg.attr("height", margin.top + (barHeight * data.length) + margin.bottom);
    .append("rect")
      .attr("width", function(d) { return range(d)})
      .attr("height", barHeight - 1)
-     .style("fill", function(d, i) { return colors(d[4])});
+     .style("fill", function(d, i) { return colors(d[3])});
 
   bar.append("a")
       .on("mouseover", function(d){
@@ -129,7 +129,7 @@ var rescale = function() {
   bar.select("rect")
       .attr("width", function(d) { return range(d); })
       .attr("height", barHeight - 1)
-      .style("fill", function(d, i) { return colors(d[4])});
+      .style("fill", function(d, i) { return colors(d[3])});
 
   // Also reposition the bars using the new scales.
   bar.select("text")
