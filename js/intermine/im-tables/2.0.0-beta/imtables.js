@@ -7631,7 +7631,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":280}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-31';
+module.exports = '2.0.0-beta-32';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -8131,7 +8131,7 @@ module.exports = '2.0.0-beta-31';
     AttributeValueControls.prototype.onChangeOp = function() {
       var newOp;
       newOp = this.model.get('op');
-      if (__indexOf.call(Query.MULTIVALUE_OPS, newOp) >= 0) {
+      if ((this.model.get('value') != null) && __indexOf.call(Query.MULTIVALUE_OPS, newOp) >= 0) {
         this.model.set({
           value: null,
           values: [this.model.get('value')]
