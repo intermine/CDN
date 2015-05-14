@@ -2649,13 +2649,18 @@
   CACHE = {};
 
   exports.runQuery = function(overrides) {
-    var key, params;
+    var endpoint, format, key, params, _ref;
     if (overrides == null) {
       overrides = {};
     }
     params = this.getExportParameters(overrides);
     key = "results:" + this.query.service.root + ":" + (JSON.stringify(params));
-    return CACHE[key] != null ? CACHE[key] : CACHE[key] = this.query.service.post('query/results', params);
+    endpoint = 'query/results';
+    format = this.model.get('format');
+    if ((_ref = format.needs) != null ? _ref.length : void 0) {
+      endpoint += "/" + format.id;
+    }
+    return CACHE[key] != null ? CACHE[key] : CACHE[key] = this.query.service.post(endpoint, params);
   };
 
   exports.getEstimatedSize = function() {
@@ -3205,7 +3210,7 @@
   Format = (function() {
     function Format(_arg) {
       var EXT, desc, ext, icon, name, needs;
-      this.id = _arg.id, this.group = _arg.group, icon = _arg.icon, needs = _arg.needs;
+      this.id = _arg.id, this.group = _arg.group, icon = _arg.icon, needs = _arg.needs, this.maxColumns = _arg.maxColumns;
       ext = this.id === 'tab' ? 'tsv' : this.id;
       EXT = ext.toUpperCase();
       if (icon == null) {
@@ -3270,7 +3275,8 @@
       id: 'fasta',
       group: 'bio',
       icon: 'dna',
-      needs: ['Protein', 'SequenceFeature']
+      needs: ['Protein', 'SequenceFeature'],
+      maxColumns: 1
     }), new Format({
       id: 'gff3',
       group: 'bio',
@@ -7625,7 +7631,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":280}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-30';
+module.exports = '2.0.0-beta-31';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -12092,6 +12098,7 @@ module.exports = '2.0.0-beta-30';
       this.listenTo(this.state, 'change:tab', this.renderMain);
       this.listenTo(this.model, 'change', this.updateState);
       this.listenTo(this.model, 'change:columns', this.setMax);
+      this.listenTo(this.model, 'change:format', this.onChangeFormat);
       this.categoriseQuery();
       this.model.set({
         columns: this.query.views
@@ -12104,6 +12111,45 @@ module.exports = '2.0.0-beta-30';
       this.updateState();
       this.setMax();
       return this.readUserPreferences();
+    };
+
+    ExportDialogue.prototype.onChangeFormat = function() {
+      return _.defer((function(_this) {
+        return function() {
+          var activeCols, cs, format, maxCols, newColumns, nodecolumns, oldColumns, p, v, _i, _len, _ref, _ref1;
+          format = _this.model.get('format');
+          activeCols = _this.model.get('columns');
+          if ((_ref = format.needs) != null ? _ref.length : void 0) {
+            oldColumns = activeCols.slice();
+            newColumns = [];
+            _ref1 = _this.query.views;
+            for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+              v = _ref1[_i];
+              p = _this.query.makePath(v).getParent();
+              if (_.any(format.needs, function(needed) {
+                return p.isa(needed);
+              })) {
+                newColumns.push(p.append('id').toString());
+              }
+            }
+            nodecolumns = _.uniq(newColumns);
+            _this.model.set({
+              nodecolumns: nodecolumns
+            });
+            maxCols = format.maxColumns;
+            cs = maxCols ? _.first(nodecolumns, maxCols) : nodecolumns.slice();
+            _this.model.set({
+              columns: cs
+            });
+            return _this.model.once('change:format', function() {
+              _this.model.set({
+                columns: oldColumns
+              });
+              return _this.model.unset('nodecolumns');
+            });
+          }
+        };
+      })(this));
     };
 
     ExportDialogue.prototype.readUserPreferences = function() {
@@ -12406,7 +12452,8 @@ module.exports = '2.0.0-beta-30';
 (function() {
   var AddColumnControl, ColumnControls, ColumnView, HasTypeaheads, HeadingLabel, LabelView, Messages, PathSet, ResetButton, Templates, View, pathSuggester, _,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   _ = require('underscore');
 
@@ -12599,6 +12646,7 @@ module.exports = '2.0.0-beta-30';
     ColumnView.prototype.RERENDER_EVENT = 'change';
 
     ColumnView.prototype.initialize = function() {
+      var path, _ref;
       ColumnView.__super__.initialize.apply(this, arguments);
       if (!this.model.has('active')) {
         this.model.set({
@@ -12609,7 +12657,11 @@ module.exports = '2.0.0-beta-30';
         this.model.set({
           name: null
         });
-        return this.model.get('item').getDisplayName((function(_this) {
+        path = this.model.get('item');
+        if (((_ref = this.model.get('item').end) != null ? _ref.name : void 0) === 'id') {
+          path = path.getParent();
+        }
+        return path.getDisplayName((function(_this) {
           return function(error, name) {
             return _this.model.set({
               error: error,
@@ -12650,20 +12702,23 @@ module.exports = '2.0.0-beta-30';
     ColumnControls.prototype.className = 'container-fluid';
 
     ColumnControls.prototype.initialize = function(_arg) {
-      var activeCols, c, p, v, _i, _j, _len, _len1, _ref;
+      var activeCols, c, format, n, ns, p, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
       this.query = _arg.query;
       ColumnControls.__super__.initialize.apply(this, arguments);
       this.columns = new PathSet;
+      format = this.model.get('format');
       activeCols = this.model.get('columns');
-      _ref = this.query.views;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        v = _ref[_i];
-        p = this.query.makePath(v);
-        this.columns.add(p, {
-          active: _.any(activeCols, function(ac) {
-            return ac === v;
-          })
-        });
+      if (!((_ref = format.needs) != null ? _ref.length : void 0)) {
+        _ref1 = this.query.views;
+        for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+          v = _ref1[_i];
+          p = this.query.makePath(v);
+          this.columns.add(p, {
+            active: _.any(activeCols, function(ac) {
+              return ac === v;
+            })
+          });
+        }
       }
       for (_j = 0, _len1 = activeCols.length; _j < _len1; _j++) {
         c = activeCols[_j];
@@ -12671,12 +12726,20 @@ module.exports = '2.0.0-beta-30';
           active: true
         });
       }
+      if ((ns = this.model.get('nodecolumns'))) {
+        for (_k = 0, _len2 = ns.length; _k < _len2; _k++) {
+          n = ns[_k];
+          this.columns.add(this.query.makePath(n), {
+            active: false
+          });
+        }
+      }
       this.listenTo(this.columns, 'add remove reset change:active', this.setColumns);
       return this.listenTo(this.columns, 'add remove reset', this.reRender);
     };
 
-    ColumnControls.prototype.setColumns = function() {
-      var c, columns;
+    ColumnControls.prototype.setColumns = function(m) {
+      var c, columns, max, newlySelected, others;
       columns = (function() {
         var _i, _len, _ref, _results;
         _ref = this.columns.where({
@@ -12689,6 +12752,39 @@ module.exports = '2.0.0-beta-30';
         }
         return _results;
       }).call(this);
+      if ((max = this.model.get('format').maxColumns)) {
+        if ((m != null) && columns.length > max) {
+          newlySelected = m.get('item').toString();
+          others = (function() {
+            var _i, _len, _results;
+            _results = [];
+            for (_i = 0, _len = columns.length; _i < _len; _i++) {
+              c = columns[_i];
+              if (c !== newlySelected) {
+                _results.push(c);
+              }
+            }
+            return _results;
+          })();
+          columns = [newlySelected].concat(_.first(others, max - 1));
+          _.defer((function(_this) {
+            return function() {
+              var _i, _len, _ref, _ref1, _results;
+              _ref = _this.columns.where({
+                active: true
+              });
+              _results = [];
+              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                c = _ref[_i];
+                _results.push(c.set({
+                  active: (_ref1 = c.get('item').toString(), __indexOf.call(columns, _ref1) >= 0)
+                }));
+              }
+              return _results;
+            };
+          })(this));
+        }
+      }
       return this.model.set({
         columns: columns
       });
@@ -13224,19 +13320,27 @@ module.exports = '2.0.0-beta-30';
     };
 
     Preview.prototype.setPreview = function() {
-      return this.runQuery(PROPS).then((function(_this) {
-        return function(resp) {
-          if (_.isString(resp)) {
-            return _this.state.set({
-              preview: resp
-            });
-          } else {
-            return _this.state.set({
-              preview: JSON.stringify(resp, null, 2)
-            });
-          }
-        };
-      })(this));
+      var format;
+      format = this.model.get('format');
+      if (format.group === 'bio') {
+        return this.state.set({
+          preview: 'Previews are not supported for bio-informatics formats'
+        });
+      } else {
+        return this.runQuery(PROPS).then((function(_this) {
+          return function(resp) {
+            if (_.isString(resp)) {
+              return _this.state.set({
+                preview: resp
+              });
+            } else {
+              return _this.state.set({
+                preview: JSON.stringify(resp, null, 2)
+              });
+            }
+          };
+        })(this));
+      }
     };
 
     Preview.prototype.template = Templates.template('export_preview');
@@ -13463,22 +13567,34 @@ module.exports = '2.0.0-beta-30';
   Templates = require('../../templates');
 
   Tab = (function() {
-    function Tab(ident, key, formats) {
+    function Tab(ident, key, formats, groups) {
       this.ident = ident;
       this.formats = formats != null ? formats : [];
+      this.groups = groups != null ? groups : null;
       this.key = "export.category." + key;
     }
 
     Tab.prototype.isFor = function(format) {
       var _ref;
-      return (this.formats.length === 0) || (_ref = format.ext, __indexOf.call(this.formats, _ref) >= 0);
+      if (this.formats.length) {
+        return (_ref = format.ext, __indexOf.call(this.formats, _ref) >= 0);
+      }
+      if (this.groups != null) {
+        return this.groups[format.group];
+      }
+      return true;
     };
 
     return Tab;
 
   })();
 
-  TABS = [new Tab('dest', 'Destination'), new Tab('opts-json', 'JsonFormat', ['json']), new Tab('columns', 'Columns'), new Tab('rows', 'Rows'), new Tab('compression', 'Compression'), new Tab('column-headers', 'ColumnHeaders', ['tsv', 'csv']), new Tab('preview', 'Preview')];
+  TABS = [
+    new Tab('dest', 'Destination'), new Tab('opts-json', 'JsonFormat', ['json']), new Tab('columns', 'Columns'), new Tab('rows', 'Rows', [], {
+      flat: true,
+      machine: true
+    }), new Tab('compression', 'Compression'), new Tab('column-headers', 'ColumnHeaders', ['tsv', 'csv']), new Tab('preview', 'Preview')
+  ];
 
   module.exports = TabMenu = (function(_super) {
     __extends(TabMenu, _super);
