@@ -8415,7 +8415,7 @@ button.close {
   content: '';
 }
 .im-con-overview .breadcrumb .label {
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 span.twitter-typeahead {
   float: left;
@@ -8792,6 +8792,11 @@ fieldset[disabled] .modal .btn-cancel.active {
 .im-summary-items .im-facet-row .checkbox {
   margin-top: 0;
   margin-bottom: 0;
+}
+.im-summary-items .im-item-col .null-value:after {
+  font-weight: bold;
+  color: #dedede;
+  content: 'NOTHING';
 }
 .im-summary-items .im-count-col {
   font-weight: bold;
@@ -9838,4 +9843,12 @@ li.L9 {
 }
 ul.dropdown-menu > li {
   margin-left: 0px;
+}
+.im-evenly-spaced {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
 }

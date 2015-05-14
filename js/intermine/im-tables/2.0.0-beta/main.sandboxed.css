@@ -6338,7 +6338,7 @@
 .imtables .im-con-overview .breadcrumb li:before {
   content: '';}
 .imtables .im-con-overview .breadcrumb .label {
-  font-size: 1.25em;}
+  font-size: 1.1em;}
 .imtables span.twitter-typeahead {
   float: left;
   width: 100%;}
@@ -6646,6 +6646,10 @@
 .imtables .im-summary-items .im-facet-row .checkbox {
   margin-top: 0;
   margin-bottom: 0;}
+.imtables .im-summary-items .im-item-col .null-value:after {
+  font-weight: bold;
+  color: #dedede;
+  content: 'NOTHING';}
 .imtables .im-summary-items .im-count-col {
   font-weight: bold;
   text-shadow: -1px -1px #ffffff;
@@ -7421,3 +7425,10 @@
   display: inline-block;}
 .imtables ul.dropdown-menu > li {
   margin-left: 0px;}
+.imtables .im-evenly-spaced {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;}
