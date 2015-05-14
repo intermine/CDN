@@ -8351,6 +8351,13 @@ button.close {
 .im-new-constraint .im-con-overview .im-name-part:first-child:after {
   content: '...';
 }
+.im-new-constraint .im-con-overview .im-name-part:nth-last-child(-n+4):after {
+  content: "\00bb";
+  margin-left: 0.5em;
+}
+.im-new-constraint .im-con-overview .im-name-part:last-child:after {
+  content: '';
+}
 .im-new-constraint .im-con-overview .im-name-part:first-child,
 .im-new-constraint .im-con-overview .im-name-part:nth-last-child(-n+3) {
   display: inline-block;
