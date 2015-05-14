@@ -55,7 +55,7 @@ head = svg.append('foreignObject')
                         .attr('x', 0)
                         .attr('y', 0)
                         .attr('width', width)
-                        .attr('height', 200)
+                        .attr('height', 20)
                         //.attr('fill', )
                         .append("xhtml:body")
                         .html('<h3 class="goog"> ' + data.length + ' Protein Domain Regions - source: InterPro</h3>\
@@ -142,7 +142,7 @@ head = svg.append('foreignObject')
                         .attr('x', 0)
                         .attr('y', 0)
                         .attr('width', newwidth)
-                        .attr('height', 200)
+                        .attr('height', 20)
                         .append("xhtml:body")
                         .html('<h3 class="goog"> ' + data.length + ' Protein Domain Regions - source: InterPro</h3>\
                                <p> <p>');
