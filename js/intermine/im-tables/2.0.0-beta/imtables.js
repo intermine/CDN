@@ -7631,7 +7631,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":280}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-33';
+module.exports = '2.0.0-beta-34';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -8757,7 +8757,7 @@ module.exports = '2.0.0-beta-33';
     };
 
     CodeGenDialogue.prototype.act = function() {
-      var blob, lang, _ref;
+      var blob, filename, lang, _ref;
       lang = this.model.get('lang');
       if (lang === 'js' && this.model.get('extrajs')) {
         lang = 'html';
@@ -8765,7 +8765,12 @@ module.exports = '2.0.0-beta-33';
       blob = new Blob([this.state.get('generatedCode')], {
         type: MIMETYPES[lang]
       });
-      return saveAs(blob, "" + ((_ref = this.query.name) != null ? _ref : 'name') + "." + lang);
+      filename = "" + ((_ref = this.query.name) != null ? _ref : 'name') + "." + lang;
+      return withFileSaver((function(_this) {
+        return function(saveAs) {
+          return saveAs(blob, filename);
+        };
+      })(this));
     };
 
     CodeGenDialogue.prototype.onChangeLang = function() {
