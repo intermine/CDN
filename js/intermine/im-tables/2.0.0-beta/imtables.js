@@ -92,7 +92,7 @@
 
 }).call(this);
 
-},{"./options":63,"es6-promise":281,"jquery":309,"underscore":312}],2:[function(require,module,exports){
+},{"./options":63,"es6-promise":280,"jquery":308,"underscore":311}],2:[function(require,module,exports){
 (function() {
   var Backbone, CoreModel, invert,
     __hasProp = {}.hasOwnProperty,
@@ -580,7 +580,7 @@
 
 }).call(this);
 
-},{"./core-model":2,"./event":11,"./icons":14,"./messages":16,"./shim":66,"./templates":67,"./templates/helpers":68,"./utils/on-change":93,"backbone":232,"jquery":309,"underscore":312}],4:[function(require,module,exports){
+},{"./core-model":2,"./event":11,"./icons":14,"./messages":16,"./shim":66,"./templates":67,"./templates/helpers":68,"./utils/on-change":93,"backbone":232,"jquery":308,"underscore":311}],4:[function(require,module,exports){
 (function() {
   var Checkbox, CoreView, Messages, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -770,7 +770,7 @@
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":312}],7:[function(require,module,exports){
+},{"../core-view":3,"../templates":67,"underscore":311}],7:[function(require,module,exports){
 (function() {
   var CoreView, InputWithLabel, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -894,7 +894,7 @@
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":312}],8:[function(require,module,exports){
+},{"../core-view":3,"../templates":67,"underscore":311}],8:[function(require,module,exports){
 (function() {
   var Model, NestedModel, isPlainObject, mergeOldAndNew, setSection, _,
     __hasProp = {}.hasOwnProperty,
@@ -1047,7 +1047,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":312}],9:[function(require,module,exports){
+},{"../core-model":2,"underscore":311}],9:[function(require,module,exports){
 (function() {
   var InputWithLabel, SelectWithLabel, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -1113,7 +1113,7 @@
 
 }).call(this);
 
-},{"../templates":67,"./input-with-label":7,"underscore":312}],10:[function(require,module,exports){
+},{"../templates":67,"./input-with-label":7,"underscore":311}],10:[function(require,module,exports){
 (function() {
   var ArrayOf, Backbone, Callable, CoreCollection, CoreModel, DataModel, InstanceOfAssertion, InterMineService, IsArray, StringType, StructuralTypeAssertion, _,
     __slice = [].slice;
@@ -1344,7 +1344,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"./collection":5,"backbone":232,"underscore":312}],11:[function(require,module,exports){
+},{"../core-model":2,"./collection":5,"backbone":232,"underscore":311}],11:[function(require,module,exports){
 (function() {
   var Event;
 
@@ -1512,7 +1512,7 @@
 
 }).call(this);
 
-},{"./core/nested-model":8,"./templates":67,"underscore":312}],14:[function(require,module,exports){
+},{"./core/nested-model":8,"./templates":67,"underscore":311}],14:[function(require,module,exports){
 (function() {
   var ICONS, Icons, Model, Options, registerIconSet, _,
     __hasProp = {}.hasOwnProperty,
@@ -1782,7 +1782,7 @@
 
 }).call(this);
 
-},{"./core-model":2,"./options":63,"underscore":312}],15:[function(require,module,exports){
+},{"./core-model":2,"./options":63,"underscore":311}],15:[function(require,module,exports){
 (function() {
   var Dashboard, Formatting, Messages, Options, Promise, Table, Types, asElement, connect, createView, load, simpleFormatter, version, _;
 
@@ -1879,7 +1879,7 @@
 
 }).call(this);
 
-},{"./core/type-assertions":10,"./formatting":13,"./messages":16,"./options":63,"./shim":66,"./utils/simple-formatter":104,"./version":111,"./views/dashboard":136,"./views/table":209,"es6-promise":281,"imjs":290,"underscore":312}],16:[function(require,module,exports){
+},{"./core/type-assertions":10,"./formatting":13,"./messages":16,"./options":63,"./shim":66,"./utils/simple-formatter":104,"./version":111,"./views/dashboard":136,"./views/table":209,"es6-promise":280,"imjs":289,"underscore":311}],16:[function(require,module,exports){
 (function() {
   var Backbone, DEFAULTS, HELPERS, Messages, actionMessages, common, numToString, pluralise, _, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1974,7 +1974,7 @@
 
 }).call(this);
 
-},{"./messages/actions":17,"./messages/common":20,"./templates/helpers":68,"backbone":232,"underscore":312}],17:[function(require,module,exports){
+},{"./messages/actions":17,"./messages/common":20,"./templates/helpers":68,"backbone":232,"underscore":311}],17:[function(require,module,exports){
 (function() {
   module.exports = {
     'export.Export': 'Export',
@@ -2559,7 +2559,7 @@
 
 }).call(this);
 
-},{"jquery":309}],31:[function(require,module,exports){
+},{"jquery":308}],31:[function(require,module,exports){
 (function() {
   var _;
 
@@ -2593,7 +2593,7 @@
 
 }).call(this);
 
-},{"underscore":312}],32:[function(require,module,exports){
+},{"underscore":311}],32:[function(require,module,exports){
 (function() {
   var _;
 
@@ -2641,7 +2641,7 @@
 
 }).call(this);
 
-},{"underscore":312}],33:[function(require,module,exports){
+},{"underscore":311}],33:[function(require,module,exports){
 (function() {
   var CACHE, _;
 
@@ -2722,7 +2722,7 @@
 
 }).call(this);
 
-},{"underscore":312}],34:[function(require,module,exports){
+},{"underscore":311}],34:[function(require,module,exports){
 (function() {
   exports.setPathNames = function() {
     var end, q, s, service, set, setError, type, v, _ref, _ref1;
@@ -2769,7 +2769,8 @@
     AppendToListModel.prototype.defaults = function() {
       return {
         target: null,
-        type: null
+        type: null,
+        size: null
       };
     };
 
@@ -2779,7 +2780,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":312}],36:[function(require,module,exports){
+},{"../core-model":2,"underscore":311}],36:[function(require,module,exports){
 (function() {
   var AvailableColumns, Collection, PathModel, cmp, displayName, partsLen,
     __hasProp = {}.hasOwnProperty,
@@ -2931,7 +2932,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../options":63,"es6-promise":281,"underscore":312}],38:[function(require,module,exports){
+},{"../core-model":2,"../options":63,"es6-promise":280,"underscore":311}],38:[function(require,module,exports){
 (function() {
   var CodeGenModel, CoreModel, Options,
     __hasProp = {}.hasOwnProperty,
@@ -3102,7 +3103,7 @@
 
 }).call(this);
 
-},{"./path":56,"imjs":290,"underscore":312}],41:[function(require,module,exports){
+},{"./path":56,"imjs":289,"underscore":311}],41:[function(require,module,exports){
 (function() {
   var CoreCollection, CoreModel, CreateListModel, ON_COMMA, trim, _,
     __hasProp = {}.hasOwnProperty,
@@ -3205,7 +3206,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"underscore":312}],42:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"underscore":311}],42:[function(require,module,exports){
 (function() {
   var Format, formats, _;
 
@@ -3330,7 +3331,7 @@
 
 }).call(this);
 
-},{"underscore":312}],43:[function(require,module,exports){
+},{"underscore":311}],43:[function(require,module,exports){
 (function() {
   var CoreModel, FPObject,
     __hasProp = {}.hasOwnProperty,
@@ -3504,7 +3505,7 @@
 
 }).call(this);
 
-},{"../options":63,"./path":56,"underscore":312}],45:[function(require,module,exports){
+},{"../options":63,"./path":56,"underscore":311}],45:[function(require,module,exports){
 (function() {
   var Collection, History, StepModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -3696,7 +3697,7 @@
 
 }).call(this);
 
-},{"../core/collection":5,"./step":59,"underscore":312}],46:[function(require,module,exports){
+},{"../core/collection":5,"./step":59,"underscore":311}],46:[function(require,module,exports){
 (function() {
   var CoreModel, IMObject, _,
     __hasProp = {}.hasOwnProperty,
@@ -3742,7 +3743,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":312}],47:[function(require,module,exports){
+},{"../core-model":2,"underscore":311}],47:[function(require,module,exports){
 (function() {
   var Collection, Join, Joins, PathModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -3833,7 +3834,7 @@
 
 }).call(this);
 
-},{"../core/collection":5,"./path":56,"underscore":312}],48:[function(require,module,exports){
+},{"../core/collection":5,"./path":56,"underscore":311}],48:[function(require,module,exports){
 (function() {
   var CoreModel, NestedTableModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -3925,7 +3926,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":312}],49:[function(require,module,exports){
+},{"../core-model":2,"underscore":311}],49:[function(require,module,exports){
 (function() {
   var CoreModel, NullObject,
     __hasProp = {}.hasOwnProperty,
@@ -4045,7 +4046,7 @@
 
 }).call(this);
 
-},{"backbone":232,"underscore":312}],51:[function(require,module,exports){
+},{"backbone":232,"underscore":311}],51:[function(require,module,exports){
 (function() {
   var IMObject, ObjectStore, _;
 
@@ -4105,7 +4106,7 @@
 
 }).call(this);
 
-},{"./intermine-object":46,"underscore":312}],52:[function(require,module,exports){
+},{"./intermine-object":46,"underscore":311}],52:[function(require,module,exports){
 (function() {
   var Backbone, OpenNodes, UniqItems, descendsFrom,
     __hasProp = {}.hasOwnProperty,
@@ -4419,7 +4420,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"imjs":290}],57:[function(require,module,exports){
+},{"../core-model":2,"imjs":289}],57:[function(require,module,exports){
 (function() {
   var Collection, CoreModel, RowModel, RowsCollection, _,
     __hasProp = {}.hasOwnProperty,
@@ -4483,7 +4484,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"underscore":312}],58:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"underscore":311}],58:[function(require,module,exports){
 (function() {
   var Collection, CoreModel, SelectedObjects, SelectionModel, types,
     __hasProp = {}.hasOwnProperty,
@@ -4668,7 +4669,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../utils/count-executor":77,"underscore":312}],60:[function(require,module,exports){
+},{"../core-model":2,"../utils/count-executor":77,"underscore":311}],60:[function(require,module,exports){
 (function() {
   var Collection, CoreModel, Options, SummaryHistogram, SummaryItemModel, SummaryItems, SummaryModel, getColumnSummary, inty, _,
     __hasProp = {}.hasOwnProperty,
@@ -5023,7 +5024,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"../options":63,"../services/column-summary":65,"underscore":312}],61:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"../options":63,"../services/column-summary":65,"underscore":311}],61:[function(require,module,exports){
 (function() {
   var CoreModel, Options, PathSet, TableModel,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -5209,7 +5210,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"backbone":232,"underscore":312}],63:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"backbone":232,"underscore":311}],63:[function(require,module,exports){
 (function() {
   var NestedModel, Options,
     __hasProp = {}.hasOwnProperty,
@@ -5429,7 +5430,7 @@
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"backbone":232,"bootstrap":234,"jquery":309,"jquery-ui/draggable":303,"jquery-ui/droppable":304,"jquery-ui/slider":306,"jquery-ui/sortable":307,"typeahead.js":311}],67:[function(require,module,exports){
+},{"backbone":232,"bootstrap":233,"jquery":308,"jquery-ui/draggable":302,"jquery-ui/droppable":303,"jquery-ui/slider":305,"jquery-ui/sortable":306,"typeahead.js":310}],67:[function(require,module,exports){
 var _ = require('underscore');
 
 var TEMPLATES = exports;
@@ -5452,118 +5453,118 @@ function getTemplate (name) {
 }
 // Simple templates we can define inline.
 TEMPLATES.clear = '<div style="clear:both"></div>';
-exports.list_dialogue_button_node = "<a href=\"#\">\n    <strong>\n        <%- displayName || path %>\n    </strong>\n    <% if (state.count) { %>\n        (<%- numToString(state.count) %>\n        <%- pluralise((typeName || type), state.count) %>)\n    <% } %>\n</a>\n";
-exports.code_gen_body = "<div class=\"row\">\n  <div class=\"col-sm-2\">\n    <% /* requires lang :: string, options :: {Extra :: {}, Langs :: [string]} */ %>\n    <div class=\"btn-group language-selector\">\n      <button type=\"button\"\n              data-toggle=\"dropdown\"\n              aria-expanded=\"false\"\n              class=\"btn btn-default dropdown-toggle\">\n        <span class=\"im-current-lang\">\n          <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n        <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\"\n                class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n              <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n      </ul>\n    </div>\n    <div class=\"im-show-boilerplate\"></div>\n    <div class=\"im-highlight-syntax\"></div>\n    <div class=\"im-extra-options\"></div>\n  </div>\n  <div class=\"col-sm-10\">\n    <pre class=\"im-generated-code\"><%- generatedCode %></pre>\n  </div>\n</div>\n";
-exports.column_manager_tabs = "<ul class=\"nav nav-tabs\">\n    <li role=\"presentation\" class=\"<%- classes.view %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.ViewTabTitle') %>\n      </a>\n    </li>\n    <li role=\"presentation\" class=\"<%- classes.sortorder %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.SortOrderTabTitle') %>\n      </a>\n    </li>\n</ul>\n";
-exports.export_column_control = "<span class=\"badge\"><%- item.getType() %></span>\n<span class=\"im-active-state\">\n    <% if (active) { %>\n        <%= Icons.icon('Check') %>\n    <% } else { %>\n        <%= Icons.icon('UnCheck') %>\n    <% } %>\n</span>\n<%- name %>\n";
-exports.modal_error = "<% /* Renders an alert box at various levels, with appropriate icons and messages */ %>\n<% if (error) { %>\n    <div class=\"pull-left alert <%- errorAlert(error) %>\">\n        <% if (!error.cannotDismiss) { %>\n            <button type=\"button\" class=\"dismiss\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n        <% } %>\n        <%= Icons.icon(errorIcon(error)) %>\n        <strong><%- Messages.getText('ErrorTitle', error) %></strong>\n        <% if (error.key != null) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } %>\n";
-exports.export_compression_controls = "<h4><%- Messages.getText('export.category.Compression', state) %></h4>\n\n<div class=\"checkbox im-compress\">\n    <label>\n        <input type=\"checkbox\" <%= compress ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.UseCompression') %>\n    </label>\n</div>\n\n<fieldset <%= compress ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"gzip\"\n                <%= (compression === 'gzip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseGZIP') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"zip\"\n                <%= (compression === 'zip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseZIP') %>\n        </label>\n    </div>\n</fieldset>\n\n";
-exports.list_value_controls = "<% if (suitableLists.length) { %>\n    <%= select(suitableLists, isSelected, 'span7 im-value-options im-con-value im-con-value-list form-control', formatList, getOptionValue) %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLists') %>\n<% } %>\n";
-exports.column_manager_position_controls = "<div class=\"im-position-controls\">\n    <% if (index > 0) { %>\n        <%= Icons.iconWithProps('ASC', {\n            className: 'im-move-up',\n            title: Messages.getText('columns.MoveUp')\n        }) %>\n    <% } %>\n    <% if (!isLast) { %>\n        <%= Icons.iconWithProps('DESC', {\n            className: 'im-move-down',\n            title: Messages.getText('columns.MoveDown')\n        }) %>\n    <% } %>\n</div>\n\n";
-exports.column_manager_path_chooser = "<div class=\"btn-group pull-right\">\n</div>\n<h4>\n  <%- Messages.getText('columns.ChooseAPathFrom', {root: state.rootName}) %>\n</h4>\n\n";
-exports.add_value_control = "<div class=\"im-table-height-wrapper\">\n    <table class=\"table table-condensed\"></table>\n</div>\n<div class=\"input-group\">\n    <input type=\"text\" class=\"im-new-multi-value form-control\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-primary im-add\" type=\"button\">\n            <span class=\"im-long\"><%- messages.getText('multivalue.AddValue') %></span>\n            <span class=\"im-short\"><%- messages.getText('multivalue.AddValueShort') %></span>\n        </button>\n    </span>\n</div>\n";
-exports.facet_row = "<% /* requires: selected, symbol, item, count, percent, opacity, share */ %>\n<td class=\"im-selector-col\">\n  <span><%- symbol %></span>\n  <div class=\"checkbox\"></div>\n</td>\n\n<td class=\"im-item-col\">\n  <% if (item != null) { %>\n    <%- item %>\n  <% } else { %>\n    <span class=null-value>&nbsp;</span>\n  <% } %>\n</td>\n\n<td class=\"im-count-col\">\n  <% if (max > 1) { %>\n    <div class=\"im-facet-bar\"\n         style=\"width:<%- percent %>%;background:<%- Messages.getText('summary.FacetBar', {opacity: opacity}) %>\">\n    </div>\n  <% } %>\n  <span class=\"im-count\"><%- numToString(count) %></span>\n</td>\n\n<% if (share != null) { %>\n    <td class=\"im-percent-col\"><i><%- share.toFixed() %>%</i></td>\n<% } %>\n";
-exports.new_filter_dialogue = "<div class=\"modal-body\">\n</div>\n<div class=\"modal-footer\">\n    <button class=\"disabled btn btn-primary pull-right im-add-constraint\">\n        <%- Messages.getText('constraints.AddFilter') %>\n    </button>\n    <button class=\"btn im-close pull-left\">\n        <%- Messages.getText('Cancel') %>\n        Cancel\n    </button>\n</div>\n";
-exports.input_with_button = "<input type=\"text\" class=\"form-control\"\n       value=\"<%- value %>\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\">\n<span class=\"input-group-btn\">\n  <button class=\"btn btn-default\" type=\"button\">\n    <%- Messages.getText(button) %>\n  </button>\n</span>\n\n";
-exports.undo_history_step = "<% if (!state.current) { %>\n  <button class=\"btn btn-default btn-small im-state-revert\"\n      title=\"<%- Messages.getText('undo.RevertToState') %>\">\n      <%= Icons.icon('Undo') %>\n  </button>\n<% } %>\n\n<h4>\n    <%- Messages.getText('undo.StepTitle', title) %>\n</h4>\n\n<% if (state.current) { %>\n  <span class=\"help-block\"><%- Messages.getText('undo.IsCurrentState') %></span>\n<% } %>\n<div style=\"clear:both\"></div>\n\n<span class=\"im-revision\" title=\"<%- Messages.getText('undo.RevisionTitle', {v: revision}) %>\">\n  <%- Messages.getText('undo.Revision', {v: revision}) %>\n</span>\n\n<div class=\"im-step-count\">\n  <span><%- Messages.getText('undo.StepCount', {count: count}) %></span>\n  <% if (diff) { %>\n    <span class=\"label im-label-<%= (diff > 0 ) ? 'pos' : 'neg' %>\">\n      <% if (diff > 0) { %>+<% } %><%- numToString(diff) %>\n    </span>\n  <% } %>\n</div>\n\n<div class=\"im-step-details\"></div>\n\n<div style=\"clear:both\"></div>\n";
+exports.constraint_adder = "<div class=\"im-constraint-adder-options\"></div>\n<div class=\"im-path-finder\"><div>\n<div class=\"im-new-constraint\"></div>\n";
+exports.value_control_row = "<td>\n  <input type=\"checkbox\" {{ (selected) ? 'checked' : void 0 }}>\n</td>\n<td class=\"im-multi-value\">\n  {{# if (editing) { }}\n    <div class=\"input-group\">\n      <input type=\"text\" value=\"{{ value }}\" class=\"form-control\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-success im-save\"\n                title=\"{{ messages.getText('multivalue.SaveValue') }}\"\n                type=\"button\">\n            {{{ icons.icon('OK') }}}\n            <span class=\"im-long\">{{ messages.getText('multivalue.SaveValue') }}</span>\n        </button>\n        <button class=\"btn btn-danger im-cancel\"\n                title=\"{{ messages.getText('Cancel') }}\"\n                type=\"button\">\n            {{{ icons.icon('Cancel') }}}\n            <span class=\"im-long\">{{ messages.getText('Cancel') }}</span>\n        </button>\n      </span>\n    </div>\n  {{# } else { }}\n    <a class=\"im-edit pull-right\">{{{ icons.icon('Edit') }}}</a>\n    {{ value }}\n  {{# } }}\n</td>\n";
+exports.constraints_heading = "<% /* requires constraints.length */ %>\n<h3>\n  <%- Messages.getText('constraints.Heading', {n: constraints.length}) %>\n</h3>\n";
+exports.join_style = "<% /* requires innerJoinBtn, outerJoinBtn */ %>\n<div class=\"btn-group pull-right\">\n  <button class=\"<%- innerJoinBtn %>\">\n    <%- Messages.getText('joins.Inner') %>\n  </button>\n  <button class=\"<%- outerJoinBtn %>\">\n    <%- Messages.getText('joins.Outer') %>\n  </button>\n</div>\n";
+exports.export_row_controls = "<h4 class=\"im-title\"></h4>\n\n<div class=\"form-group\">\n    <label class=\"size-label\"></label>\n    <input name=\"size\"\n           step=\"1\"\n           type=\"range\"\n           min=\"1\"\n           max=\"<%= max %>\"\n           value=\"<%= size || max %>\">\n</div>\n\n<div class=\"form-group\">\n    <label class=\"start-label\"></label>\n    <input name=\"start\"\n           step=\"1\"\n           type=\"range\"\n           min=\"0\"\n           max=\"<%= max - 1 %>\"\n           value=\"<%= start %>\">\n</div>\n\n<div class=\"form-group im-reset\">\n</div>\n";
+exports.summary_no_results = "<div class=\"alert alert-warning\">\n    <%= Icons.icon('Warning') %>\n    <%- Messages.getText('summary.NoResults', {path: pathName}) %>\n</div>\n\n";
+exports.page_sizer = "<% /* Expects size, sizes */ %>\n<% if (sizes.length) { %>\n    <label>\n        <span class=\"hidden-tablet\">Rows per page:</span>\n    </label>\n    <select class=\"form-control\" title=\"Rows per page\">\n        <% sizes.forEach(function (s) { %>\n            <option value=\"<%= s[0] %>\" <%= (s[0] === size) && 'selected' %>>\n            <%= s[1] || s[0] %>\n            </option>\n        <% }); %>\n    </select>\n<% } %>\n";
+exports.modal_dialogue_opener = "<button class=\"btn btn-default im-open-dialogue\">\n  <%= Icons.icon(labels.ICON) %>\n  <span class=\"im-hidden-sm hidden-sm hidden-xs\">\n    <%- Messages.getText(labels.LONG, state) %>\n  </span>\n  <span class=\"im-visible-sm-inline visible-sm-inline\">\n    <%- Messages.getText(labels.SHORT, state) %>\n  <span>\n</button>\n";
+exports.summary_selected_count = "<% if (state.selectedCount) { %>\n    <div class=\"alert alert-info im-selected-count\">\n        <strong>\n            <%- Messages.getText('summary.SelectedCount', state) %>\n        </strong>\n    </div>\n<% } %>\n";
+exports.export_add_column_control = "<div class=\"row\">\n    <div class=\"col-sm-1 im-help\"\n         title=\"<%- Messages.getText('export.help.AdditionalCols') %>\">\n        <%= Icons.icon('Help', 'lg') %>\n    </div>\n    <div class=\"col-sm-11 form-group\">\n        <input type=\"text\" class=\"form-control\">\n    </div>\n</div>\n";
+exports.type_value_controls = "<label class=\"span4\">\n    <%- messages.getText('conbuilder.IsA') %>\n</label>\n<% if (subclasses.length == 1) { %>\n  <select disabled class=\"form-control\">\n      <option><%- subclasses[0].text %></option>\n  </select>\n<% } else { %>\n  <%= select(subclasses, isSelected, 'form-control im-value-type') %>\n<% } %>\n  \n";
+exports.select_with_label = "<label><%- Messages.getText(label) %></label>\n\n<% if (options.length) { %>\n    <select class=\"form-control\">\n        <% _.each(options, function (option) { %>\n            <option selected=\"<%= selected(option) ? 'selected' : void 0 %>\"\n                    value=\"<%- option.name %>\">\n                <%- Messages.getText(optionLabel, option) %>\n            </option>\n        <% }) %>\n    </select>\n    <% if (helpMessage) { %>\n        <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n              class=\"help-block\">\n                <%- Messages.getText(helpMessage) %>\n        </span>\n    <% } %>\n<% } else { %>\n    <span class=\"help-block\">\n        <%- Messages.getText(noOptionsMessage, {model: model}) %>\n    </span>\n<% } %>\n\n";
 exports.export_fasta_options = "<h3><%- Messages.getText('export.category.Options') %></h3>\n\n<div class=\"form-group\">\n    <label><%- Messages.getText('FastaExtension') %></label>\n    <input type=\"text\"\n           value=\"<%- fastaExtension %>\"\n           placeholder=\"5kbp\"\n           class=\"form-control im-fasta-ext\">\n</div>\n";
-exports.active_constraint = "<div class=\"im-con-overview\">\n  <% if (data.con.editable != null && data.con.editable === false) { %>\n    <a title=\"<%- data.messages.getText('conbuilder.NotEditable') %>\">\n        <%= data.icons.icon('Lock') %>\n    </a>\n  <% } else { %>\n    <a class=\"im-remove-constraint\"\n        title=\"<%- data.messages.getText('conbuilder.Remove') %>\"\n        >\n        <%= data.icons.icon('RemoveConstraint') %>\n    </a>\n    <a class=\"im-edit\" title=\"<%- data.messages.getText('conbuilder.EditCon') %>\">\n        <%= data.icons.icon('Edit') %>\n    </a>\n  <% } %>\n</div>\n\n<% /* We use the :empty selector on this element - hence it must be on one line */ %>\n<div class=\"im-constraint-editor\"></div>\n";
-exports.facet_frequency = "<% /* requires: error, initialized */ %>\n<% if (error) { %>\n    <% /* Oh noes - something went wrong. */ %>\n    <div class=\"alert alert-warning\">\n        <%= Icons.icon('Error') %>\n        <strong><%- Messages.getText('Error') %></strong>\n        <% if (error.key) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } else if (initialized) { %>\n    <% /* Huzzah - there is data, which will be added here as child views */ %>\n<% } else { %>\n    <% /* Boo - no data. Show an indeterminate progress bar while we wait. */ %>\n    <div class=\"progress\">\n      <div class=\"progress-bar progress-bar-info progress-bar-striped active\"\n           role=\"progressbar\"\n           style=\"width:100%\">\n        <span class=\"sr-only\"><%- Messages.getText('Loading') %>.</span>\n      </div>\n    </div>\n<% } %>\n";
-exports.column_manager_path_name = "<% /* requires parts */ %>\n<span class=\"im-path-name\">\n    <% _.each(parts, function (part) { %>\n        <span class=\"im-name-part\"><%- part %></span>\n    <% }); %>\n</span>\n\n";
+exports.list_dialogue_button_node = "<a href=\"#\">\n    <strong>\n        <%- displayName || path %>\n    </strong>\n    <% if (state.count) { %>\n        (<%- numToString(state.count) %>\n        <%- pluralise((typeName || type), state.count) %>)\n    <% } %>\n</a>\n";
+exports.undo_history = "<button class=\"btn btn-default im-undo\">\n  <%= Icons.icon('Undo') %>\n  <span class=\"visible-lg-inline\">\n    <%- Messages.getText('Undo') %>\n  </span>\n</button>\n\n<button class=\"btn btn-default dropdown-toggle\"\n        data-toggle=\"dropdown\">\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu im-state-list\">\n    <li>\n      <button\n          title=\"<%- Messages.getText('undo.ToggleTrivialTitle', state) %>\"\n          class=\"btn btn-xs btn-default im-toggle-trivial <%= state.hideTrivial ? 'active' : void 0 %>\">\n        <%- Messages.getText('undo.ToggleTrivial', state) %>\n      </button>\n    </li>\n</ul>\n";
+exports.cell_preview_reference_relation = "<% _.each(collection, function (relation) { %>\n  <li class=\"im-relation\">\n    <span class=\"im-name\"><%- _.last(relation.parts) %></span>\n    <span class=\"im-count\"><%- numToString(relation.count) %></span>\n  </li>\n<% }); %>\n";
+exports.select = "<select class=\"<%- data.classes %>\">\n  <% _.each(data.options, function (opt) { %>\n    <option value=\"<%- data.key(opt) %>\"\n      <%- data.selectedTest(opt) ? 'selected' : void 0 %> >\n      <% if (data.contentHandler) { %>\n        <%- data.contentHandler(opt) %>\n      <% } else { %>\n        <%- opt.text %>\n      <% } %>\n    </option>\n  <% }); %>\n</select>\n";
 exports.list_dialogue_expander = "<button class=\"btn btn-default im-expand-dialogue <%= minimised ? 'active' : void 0 %>\">\n  <%- Messages.getText('lists.picker.Collapse') %>\n</button>\n";
-exports.export_destination_options = "<div class=\"form-group im-param-name\">\n    <label><%- Messages.getText('export.param.Name') %></label>\n    <div class=\"input-group\">\n      <input type=\"text\"\n             value=\"<%- filename %>\"\n             class=\"form-control\"\n             placeholder=\"<%- Messages.getText('export.param.Name') %>\"\n             aria-label=\"<%- Messages.getText('export.param.Name') %>\">\n      <div class=\"input-group-btn\">\n        <button type=\"button\"\n                class=\"btn btn-default dropdown-toggle\"\n                data-toggle=\"dropdown\"\n                aria-expanded=\"false\">\n          .<%- format %>\n          <span class=\"caret\"></span>\n        </button>\n        <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n          <% _.chain(formats).groupBy('group').each(function (fmts, grp) { %>\n            <% if (this.i++) { %><li class=\"divider\"></li><% } %>\n            <% _.each(fmts, function (fmt) { %>\n                <li>\n                    <a href=\"#\"\n                       class=\"im-fmt-<%- fmt.id %>\">\n                      <%= Icons.icon(fmt.icon) %>\n                      <%- Messages.getText(fmt.name) %>\n                    </a>\n                </li>\n            <% }); %>\n          <% }, {i: 0}); %>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<% if (format && format.desc) { %>\n  <div class=\"alert alert-info\">\n    <%- Messages.getText(format.desc) %>\n  </div>\n<% } %>\n\n<div class=\"row\">\n    <div class=\"col-sm-6 im-param-dest\">\n    </div>\n    <div class=\"col-sm-6 im-dest-opts\">\n    </div>\n</div>\n";
+exports.code_gen_body = "<div class=\"row\">\n  <div class=\"col-sm-2\">\n    <% /* requires lang :: string, options :: {Extra :: {}, Langs :: [string]} */ %>\n    <div class=\"btn-group language-selector\">\n      <button type=\"button\"\n              data-toggle=\"dropdown\"\n              aria-expanded=\"false\"\n              class=\"btn btn-default dropdown-toggle\">\n        <span class=\"im-current-lang\">\n          <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n        <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\"\n                class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n              <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n      </ul>\n    </div>\n    <div class=\"im-show-boilerplate\"></div>\n    <div class=\"im-highlight-syntax\"></div>\n    <div class=\"im-extra-options\"></div>\n  </div>\n  <div class=\"col-sm-10\">\n    <pre class=\"im-generated-code\"><%- generatedCode %></pre>\n  </div>\n</div>\n";
+exports.checkbox = "<label>\n    <input type=\"checkbox\" \n           <%= checked ? 'checked' : void 0 %>\n           >\n    <%- label %>\n</label>\n";
+exports.table_cell = "<% if (state.minimised) { %>\n  &hellip;\n<% } else if (entity.id == null) { %>\n  <% if (value != null && formattedValue != null) { %>\n    <span class=\"im-displayed-value\"><%= value %></span>\n  <% } else if (entity.isNULL) { %>\n    <span class=\"im-null-entity\">\n      <%- Messages.getText('table.cell.NullEntity', {type: entity['class']}) %>\n    </span>\n  <% } else { %>\n    <%= NULL_VALUE %>\n  <% } %>\n<% } else { %>\n  <input\n    class=\"im-list-chooser\"\n    type=\"checkbox\"\n    <% if (input.checked) { %>checked<% } %>\n    <% if (input.disabled) { %>disabled<% } %>\n    style=\"display:<%- input.display %>\">\n\n  <a class=\"im-cell-link\" target=\"<%- target %>\" href=\"<%= url %>\">\n\n    <% if (isForeign) { %>\n      <% if (icon) { %>\n        <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n      <% } else { %>\n        <%= Icons.icon('ExternalLink') %>\n      <% } %>\n    <% } %>\n\n    <% if (value != null && formattedValue != null) { %>\n      <span class=\"im-displayed-value\"><%= formattedValue %></span>\n    <% } else { %>\n      <%= NULL_VALUE %>\n    <% } %>\n\n  </a>\n\n  <% if (value != null && field === 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <%= Icons.icon('ExternalLink') %>\n      <%- Messages.getText('table.cell.Link') %>\n    </a>\n  <% } %>\n<% } %>\n";
+exports.export_dialogue_footer = "<% if (linkToFile) { %>\n    <div class=\"pull-left alert alert-info\">\n        <%- Messages.getText('export.cloud.FileLocation', {cloud: dest}) %>\n        <a href=\"<%= linkToFile %>\" target=\"_blank\"><%- linkToFile %></a>\n    </div>\n<% } %>\n\n<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n\n<% if (dest === 'download') { %>\n    <a class=\"btn btn-primary\"\n        href=\"<%- exportURI %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <button type=\"button\"\n            <%= (error || doneness != null) ? 'disabled' : void 0 %>\n            class=\"btn btn-primary\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </button>\n<% } %>\n\n";
+exports.formatted_sorting = "<a> <% /* requires Icons, direction and name */ %>\n    <%= Icons.icon(direction || 'unsorted') %>\n    <span class=\"im-sort-path\"><%- name %></span>\n</a>\n";
+exports.modal_footer = "<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n<% if (exportLink != null) { %>\n    <a class=\"btn btn-primary\"\n        <%= (error) ? 'disabled' : void 0 %>\n        href=\"<%- exportLink %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <% /* We need the wrapper to deal with the fact that tooltips do not\n        * work on disabled buttons. */ %>\n    <div class=\"im-tooltip-wrapper\"\n        <% if (disabled && disabledReason) { %>\n          title=\"<%- Messages.getText(disabledReason)  %>\"\n        <% } %>>\n        <button type=\"button\"\n                <%= (error || disabled) ? 'disabled' : void 0 %>\n                class=\"btn btn-primary\">\n            <%= Icons.icon(primaryIcon) %>\n            <%- primaryAction %>\n        </button>\n    </div>\n<% } %>\n";
+exports.column_manager_position_controls = "<div class=\"im-position-controls\">\n    <% if (index > 0) { %>\n        <%= Icons.iconWithProps('ASC', {\n            className: 'im-move-up',\n            title: Messages.getText('columns.MoveUp')\n        }) %>\n    <% } %>\n    <% if (!isLast) { %>\n        <%= Icons.iconWithProps('DESC', {\n            className: 'im-move-down',\n            title: Messages.getText('columns.MoveDown')\n        }) %>\n    <% } %>\n</div>\n\n";
+exports.row_surrogate = "<%= Icons.icon(above ? 'ASC' : 'DESC') %>\n<%- item %>: <%- count %>\n";
+exports.list_dialogue_button = "<button class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">\n  <%= Icons.icon('Lists') %>\n  <span class=\"hidden-xxs\">\n    <%- Messages.getText('lists.SaveAsList') %>\n  </span>\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n    <li class=\"divider\"></li>\n    <li>\n        <a class=\"im-pick-items\" href=\"#\">\n            <%- Messages.getText('lists.StartPicking') %>\n        </a>\n    </li>\n    <li class=\"divider\"></li>\n    <li>\n        <div class=\"btn-group btn-group-justified\" role=\"group\">\n            <a role=\"button\" class=\"<%- createBtnClasses %>\">\n                <%- Messages.getText('lists.Create') %>\n            </a>\n            <a role=\"button\" class=\"<%- appendBtnClasses %>\">\n                <%- Messages.getText('lists.Append') %>\n            </a>\n        </div>\n    </li>\n</ul>\n";
+exports.active_constraint = "<div class=\"im-con-overview\">\n  <% if (data.con.editable != null && data.con.editable === false) { %>\n    <a title=\"<%- data.messages.getText('conbuilder.NotEditable') %>\">\n        <%= data.icons.icon('Lock') %>\n    </a>\n  <% } else { %>\n    <a class=\"im-remove-constraint\"\n        title=\"<%- data.messages.getText('conbuilder.Remove') %>\"\n        >\n        <%= data.icons.icon('RemoveConstraint') %>\n    </a>\n    <a class=\"im-edit\" title=\"<%- data.messages.getText('conbuilder.EditCon') %>\">\n        <%= data.icons.icon('Edit') %>\n    </a>\n  <% } %>\n</div>\n\n<% /* We use the :empty selector on this element - hence it must be on one line */ %>\n<div class=\"im-constraint-editor\"></div>\n";
+exports.logic_manager_body = "<div class=\"form-group\">\n  <label class=\"form-label\">\n    <%- Messages.getText('logic.LogicLabel') %>\n    <input type=\"text\"\n          class=\"im-logic form-control\"\n          placeholder=\"<%- state.defaultLogic %>\"\n          value=\"<%- logic %>\">\n  </label>\n</div>\n<div class=\"form-group\">\n  <button class=\"pull-right btn btn-primary <%- (state.disabled) ? 'disabled' : null %>\"\n          type=\"submit\">\n    <%- Messages.getText('logic.ApplyLogic') %>\n  </button>\n</div>\n";
+exports.table_throbber = "<tr class=\"im-table-throbber\">\n  <td colspan=\"<%= colcount %>\">\n    <h2><%- Messages.getText('table.RequestingData') %></h2>\n    <div class=\"progress progress-info progress-striped active\">\n      <div class=\"bar\" style=\"width: 100%\"></div>\n    </div>\n  </td>\n</tr>\n";
+exports.join_manager_body = "<ul class=\"list-group\"></ul>\n\n<div class=\"alert alert-info\">\n  <%= Icons.icon('Info') %>\n  <strong class=\"im-clickable\">\n    <%- Messages.getText('joins.ExplanationTitle') %>\n  </strong>\n  <p class=\"<%= (!state.explaining) ? 'im-latent' : void 0 %>\">\n    <%- Messages.getText('joins.Explanation') %>\n  </p>\n</div>\n";
+exports.large_table_disuader = "<div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>\n            <%= size %> rows - are you sure?\n            </h3>\n        </div>\n\n        <div class=\"modal-body\">\n\n            <p><%= Messages.getText('largetable.appeal', {size: size}) %></p>\n\n            <ul>\n                <li>\n                    <p>\n                        If you want to see all the data, you can page \n                        <span class=\"label label-info\">\n                            <%= Icons.icon('GoBack') %>\n                            backwards\n                        </span>\n                        and \n                        <span class=\"label label-info\">\n                            forwards\n                            <%= Icons.icon('GoForward') %>\n                        </span>\n                        through the results.\n                    </p>\n                    <div class=\"btn-group\">\n                        <a class=\"btn btn-default im-alternative-action page-backwards\" href=\"#\">\n                            <%= Icons.icon('GoBack') %>\n                            go one page back\n                        </a>\n                        <a class=\"btn btn-default im-alternative-action page-forwards\" href=\"#\">\n                            go one page forward\n                            <%= Icons.icon('GoForward') %>\n                        </a>\n                    </div>\n                </li>\n\n                <li>\n                    <p>\n                        If you are looking for something specific, you can use the\n                        <span class=\"label label-info\">filtering tools</span>\n                        to narrow down the result set. Then you \n                        might be able to fit the items you are interested in in a\n                        single page.\n                    </p>\n                    <button class=\"btn btn-default im-alternative-action add-filter-dialogue\">\n                        <%= Icons.icon('Filter') %>\n                        Add a new filter.\n                    </button>\n                </li>\n\n                <li>\n                    <p>\n                        If you want to get and save the results, we suggest\n                        <span class=\"label label-info\">downloading</span>\n                        the results in a format that suits you. \n                    <p>\n                    <button class=\"btn btn-default im-alternative-action download-menu\">\n                        <%= Icons.icon('Export') %>\n                        Open the download menu.\n                    </buttn>\n                </li>\n\n            </ul>\n        </div>\n\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary pull-right\">\n                <%- Messages.getText('largetable.ok', {size: size}) %>\n            </button>\n            <button class=\"btn pull-left close\">\n                <%- Messages.getText('largetable.abort') %>\n            </button>\n        </div>\n    </div>\n</div>\n";
+exports.input_with_button = "<input type=\"text\" class=\"form-control\"\n       value=\"<%- value %>\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\">\n<span class=\"input-group-btn\">\n  <button class=\"btn btn-default\" type=\"button\">\n    <%- Messages.getText(button) %>\n  </button>\n</span>\n\n";
+exports.add_value_control = "<div class=\"im-table-height-wrapper\">\n    <table class=\"table table-condensed\"></table>\n</div>\n<div class=\"input-group\">\n    <input type=\"text\" class=\"im-new-multi-value form-control\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-primary im-add\" type=\"button\">\n            <span class=\"im-long\"><%- messages.getText('multivalue.AddValue') %></span>\n            <span class=\"im-short\"><%- messages.getText('multivalue.AddValueShort') %></span>\n        </button>\n    </span>\n</div>\n";
+exports.export_format_controls = "<h4 class=\"im-title\"></h4>\n\n<% _.each(formats, function (formatDef) { %>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                   name=\"format\"\n                   value=\"<%= formatDef.id %>\"\n                   <%= (formatDef.id === format) ? 'checked' : void 0 %>>\n            <%= Icons.icon(formatDef.icon) %>\n            <%= Messages.getText(formatDef.desc) %>\n        </label>\n    </div>\n<% }); %>\n";
+exports.export_column_controls = "<h4><%- Messages.getText('export.heading.Columns') %></h4>\n\n<ul class=\"list-group\">\n</ul>\n\n<div class=\"row controls\"></div>\n";
+exports.list_dialogue_body = "<div class=\"im-list-name\"></div>\n\n<div class=\"row\">\n  <div class=\"col-sm-12 im-more-options\">\n    <h4>\n      <%= Icons.icon('Options') %>\n      <span class=\"msg\"><%- Messages.getText('lists.ShowExtraOptions', state) %></span>\n    </h4>\n  </div>\n</div>\n\n<div class=\"im-optional-attributes\" style=\"<%- state.minimised ? 'display:none' : void 0 %>\">\n  <div class=\"im-list-desc\"></div>\n\n  <div class=\"well im-tags\">\n    <div class=\"row im-active-tags\">\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6 im-apology\">\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"im-next-tag\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+exports.constraint_editor = "<fieldset class=\"im-constraint-options form-group row\">\n  <label class=\"col-sm-3 path-label\"><%- data.con.displayName %></label>\n  <% if (data.con.op) { %>\n    <div class=\"im-operator col-sm-3\">\n        <select class=\"form-control im-ops\">\n        <option selected><%- data.con.op %></option>\n        <% data.otherOperators.forEach(function (op) { %>\n            <option><%- op %></option>\n        <% }); %>\n        </select>\n    </div>\n  <% } %>\n  <div class=\"col-sm-6 im-value-options im-value-section\">\n  </div>\n</fieldset>\n\n<div class=\"btn-group im-con-buttons\">\n  <% data.buttons.forEach(function (b, i) { %>\n  <button class=\"btn btn-<%= (i === 0) ? 'primary' : 'default' %> <%- b.classes %>\">\n    <%- data.messages.getText(b.key) %>\n  </button>\n  <% }); %>\n</div>\n";
+exports.column_manager_path_name = "<% /* requires parts */ %>\n<span class=\"im-path-name\">\n    <% _.each(parts, function (part) { %>\n        <span class=\"im-name-part\"><%- part %></span>\n    <% }); %>\n</span>\n\n";
+exports.column_manager_path_remover = "<% /* requires: removeTitle */ %>\n<span class=\"pull-right im-remove-view\"\n      title=\"<%- Messages.getText(removeTitle) %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n\n";
+exports.facet_frequency = "<% /* requires: error, initialized */ %>\n<% if (error) { %>\n    <% /* Oh noes - something went wrong. */ %>\n    <div class=\"alert alert-warning\">\n        <%= Icons.icon('Error') %>\n        <strong><%- Messages.getText('Error') %></strong>\n        <% if (error.key) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } else if (initialized) { %>\n    <% /* Huzzah - there is data, which will be added here as child views */ %>\n<% } else { %>\n    <% /* Boo - no data. Show an indeterminate progress bar while we wait. */ %>\n    <div class=\"progress\">\n      <div class=\"progress-bar progress-bar-info progress-bar-striped active\"\n           role=\"progressbar\"\n           style=\"width:100%\">\n        <span class=\"sr-only\"><%- Messages.getText('Loading') %>.</span>\n      </div>\n    </div>\n<% } %>\n";
+exports.column_manager_path_chooser_buttons = "<button class=\"btn btn-default im-rearrange-columns\">\n  <%- Messages.getText('Cancel') %>\n</button>\n<button class=\"btn btn-success im-add-column\"\n  <%= collection.length ? (void 0) : 'disabled' %> >\n  <%- Messages.getText('columns.AddColumn', {num: collection.length}) %>\n</button>\n\n";
+exports.null_value = "<span class=\"im-null-value\">&nbsp;</span>\n";
+exports.table_subtable = "<span class=\"im-subtable-summary\">\n</span>\n<div class=\"im-table-wrapper\">\n</div>\n";
 exports.constraint_adder_options = "<% if (showTree) { %>\n    <div class=\"col-sm-5\">\n        <div class=\"input-group\">\n            <span class=\"input-group-addon\">find</span>\n            <input type=\"text\"\n                value=\"<%- filter %>\"\n                class=\"im-tree-filter form-control\" placeholder=\"path\">\n            <span class=\"input-group-btn\">\n                <button class=\"btn btn-default im-clear-filter\" type=\"button\">\n                    <%- Messages.getText('Clear') %>\n                </button>\n            </span>\n        </div>\n    </div>\n<% } %>\n<div class=\"col-sm-7\">\n    <div class=\"btn-group\">\n        <% if (!showTree) { %>\n            <button type=\"button\" class=\"btn btn-default btn-chooser im-choose\">\n                <%= Icons.icon('Tree') %>\n                <span><%- Messages.getText('constraints.BrowseForColumn') %></span>\n            </button>\n        <% } else { %>\n            <button <%= anyNodeChosen ? void 0 : 'disabled' %>\n                    class=\"btn btn-primary im-approve\"\n                    type=\"button\" >\n                <%- Messages.getText('constraints.Choose') %>\n                <% _.each(chosen, function (path, i) { %>\n                    <%- path %>\n                    <% if (i + 2 === chosen.length) { %>\n                        <%- Messages.get('and') %>\n                    <% } else if (i + 2 < chosen.length) { %>\n                        <%- Messages.get('comma') %>\n                    <% } %>\n                <% }); %>\n            </button>\n        <% } %>\n    </div>\n    <div class=\"form-group\">\n        <label class=\"im-tree-option\">\n            <%- Messages.getText('columns.AllowRevRef') %>\n            <input type=\"checkbox\"\n                    class=\"im-allow-rev-ref\"\n                    <%= allowRevRefs ? 'checked' : void 0 %> >\n        </label>\n    </div>\n</div>\n";
-exports.error_message = "<% if (error) { %>\n    <div class=\"alert alert-<%= error.level || 'danger' %>\">\n        <%= icons.icon('Error') %>\n        <span class=\"im-conbuilder-error\">\n            <%- error.message || error %>\n        </span>\n    </div>\n<% } %>\n\n";
+exports.summary_items_controls = "<button class=\"btn btn-default pull-right im-download\">\n  <%= Icons.icon('Download') %>\n  <%- Messages.getText('summary.DownloadData') %>\n</button>\n\n<div class=\"btn-group im-filter-group\">\n  <button type=\"submit\"\n        class=\"btn btn-primary im-filter-in\"\n        <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <%- Messages.getText('Filter') %>\n  </button>\n  <button class=\"btn btn-primary dropdown-toggle\" \n          title=\"<%- Messages.getText('summary.SelectFilter') %>\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <span class=\"caret\"></span>\n  </button>\n  <ul class=\"dropdown-menu\">\n    <li>\n      <a href=\"#\" class=\"im-filter-in\">\n        <%- Messages.getText('summary.Include') %>\n      </a>\n    </li>\n    <li>\n      <a href=\"#\" class=\"im-filter-out\">\n        <%- Messages.getText('summary.Exclude') %>\n      </a>\n    </li>\n  </ul>\n</div>\n\n<div class=\"btn-group\">\n  <button class=\"btn btn-default btn-cancel\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>\n          title=\"<%- Messages.getText('summary.Reset') %>\">\n    <%= Icons.icon('Undo') %>\n  </button>\n  <% if (!(/boolean/i).test(type)) { %>\n    <button class=\"btn btn-default btn-toggle-selection\"\n            title=\"<%- Messages.getText('summary.Toggle') %>\">\n        <%= Icons.icon('Toggle') %>\n    </button>\n  <% } %>\n</div>\n\n";
+exports.modal_base = "<div class=\"modal-dialog <%- modalSize %>\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n            <h4 class=\"modal-title\"><%- title %></h4>\n        </div>\n        <div class=\"modal-body\">\n            <%= body %>\n        </div>\n    </div>\n</div>\n";
+exports.count_summary = "<% if (size && count) { %>\n  <% var msg = (size == 0 ? '.ShowingAll' : '.ShowingRange'); %>\n  <% ['xs', 'sm', 'md', 'lg'].forEach(function (pageSize) { %>\n    <span class=\"visible-<%= pageSize %>-inline\">\n      <%- Messages.getText('table.' + pageSize + msg, page) %>\n    </span>\n  <% }); %>\n<% } %>\n";
+exports.active_progress_bar = "<div class=\"progress progress-info progress-striped active\">\n  <div class=\"bar\" style=\"width: 100%\"></div>\n</div>\n";
+exports.boolean_value_controls = "<button class=\"btn btn-default im-true {{ (value === true) ? ' active' : void 0 }}\">\n  True\n</button>\n<button class=\"btn btn-default im-false {{ (value === false) ? ' active' : void 0 }}\">\n  False\n</button>\n";
+exports.summary_heading = "<% /* requires:\n    *  numeric, available, got, uniqueValues\n    *  state.typeName, state.endName\n    *  filtered \n    */ %>\n<h3>\n  <% if (numeric) { %>\n    <%- Messages.getText('summary.NumericDistribution', {n: available}) %>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n  <% } else { %> \n    <span class=\"im-item-got\">\n      <%- Messages.getText('summary.Got', {available: available, got: got}) %>\n    </span>\n    <span class=\"im-item-available\">\n      <%- Messages.getText('Number', {n: available}) %>\n    </span>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n    <span class=\"im-item-total\">\n      <%- Messages.getText('summary.Total', {\n            filtered: filtered,\n            total: uniqueValues\n          }) %>\n    </span>\n  <% } %> \n</h3>\n";
+exports.column_manager_path_chooser = "<div class=\"btn-group pull-right\">\n</div>\n<h4>\n  <%- Messages.getText('columns.ChooseAPathFrom', {root: state.rootName}) %>\n</h4>\n\n";
+exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
+exports.classy_popover = "<div class=\"popover <%- classes %>\" role=\"tooltip\">\n  <div class=\"arrow\"></div>\n  <h3 class=\"popover-title\"></h3>\n  <div class=\"popover-content\"></div>\n</div>\n";
 exports.code_gen_button_main = "<%= Icons.icon('CodeFile') %>\n<span class=\"hidden-sm hidden-xs\">\n  <%- Messages.getText('codegen.GenerateCodeIn', {lang: lang}) %>\n</span>\n<span class=\"visible-sm-inline im-current-lang\">\n    <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n</span>\n\n";
+exports.undo_history_step = "<% if (!state.current) { %>\n  <button class=\"btn btn-default btn-small im-state-revert\"\n      title=\"<%- Messages.getText('undo.RevertToState') %>\">\n      <%= Icons.icon('Undo') %>\n  </button>\n<% } %>\n\n<h4>\n    <%- Messages.getText('undo.StepTitle', title) %>\n</h4>\n\n<% if (state.current) { %>\n  <span class=\"help-block\"><%- Messages.getText('undo.IsCurrentState') %></span>\n<% } %>\n<div style=\"clear:both\"></div>\n\n<span class=\"im-revision\" title=\"<%- Messages.getText('undo.RevisionTitle', {v: revision}) %>\">\n  <%- Messages.getText('undo.Revision', {v: revision}) %>\n</span>\n\n<div class=\"im-step-count\">\n  <span><%- Messages.getText('undo.StepCount', {count: count}) %></span>\n  <% if (diff) { %>\n    <span class=\"label im-label-<%= (diff > 0 ) ? 'pos' : 'neg' %>\">\n      <% if (diff > 0) { %>+<% } %><%- numToString(diff) %>\n    </span>\n  <% } %>\n</div>\n\n<div class=\"im-step-details\"></div>\n\n<div style=\"clear:both\"></div>\n";
+exports.export_preview = "<div class=\"form-group im-export-formats\">\n  <label><%- Messages.getText('export.param.Format') %></label>\n  <select class=\"form-control\">\n    <% _.each(formats, function (fmt) { %>\n      <option value=\"<%- fmt.id %>\"\n              <%= (fmt.id === format.id) ? 'selected' : void 0 %>>\n        <%- Messages.getText(fmt.name) %>\n      </option>\n    <% }); %>\n  </select>\n</div>\n\n<pre class=\"im-export-preview\">\n<%- state.preview %>\n</pre>\n\n<div class=\"alert alert-info\">\n    <strong class=\"nb\">nb</strong>\n    <%- Messages.getText('export.preview.Limit') %>\n</div>\n";
+exports.list_value_controls = "<% if (suitableLists.length) { %>\n    <%= select(suitableLists, isSelected, 'span7 im-value-options im-con-value im-con-value-list form-control', formatList, getOptionValue) %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLists') %>\n<% } %>\n";
+exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
+exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- state.extraPlaceholder %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
+exports.undo_history_step_section = "<div class=\"im-section-summary\">\n  <% if (collection.length) { %>\n    <%= Icons.icon(state.open ? 'ExpandedSection' : 'CollapsedSection') %>\n  <% } %>\n  <%- Messages.getText(summaryLabel, {n: count}) %>\n</div>\n<% if (collection.length) { %>\n  <div class=\"<%- collectionClasses %>\">\n    <% _.each(collection, function (e) { %>\n      <span class=\"label label-<%= e.added ? 'success' : (e.removed ? 'danger' : 'default') %>\">\n        <%- labelContent(e) %>\n      </span>\n    <% }); %>\n  </div>\n<% } %>\n";
+exports.summary_items = "<% if (!(/boolean/i).test(type)) { %>\n    <div class=\"input-group im-filter-group\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-default im-clear-value-filter\">\n        <%= Icons.icon('Refresh') %>\n        </button>\n    </span>\n    <input type=\"search\" class=\"form-control im-filter-values\"\n        value=\"<%- filterTerm %>\"\n        placeholder=\"<%- Messages.getText('summary.FilterValuesPlaceholder') %>\">\n    </div>\n<% } %>\n\n<div class=\"im-item-table\">\n  <table class=\"table table-condensed table-striped\">\n    <colgroup>\n      <% _.each(colClasses, function (cls) { %>\n        <col class=\"<%- cls %>\">\n      <% }); %>\n    </colgroup>\n    <thead>\n      <tr>\n        <% _.each(colHeaders, function (hdr) { %>\n          <th><%- hdr %></th>\n        <% }); %>\n      </tr>\n    </thead>\n    <tbody class=\"scrollable\">\n    </tbody>\n  </table>\n\n  <% if (hasMore) { %>\n    <div class=\"im-load-more\">\n      <%- Messages.getText('summary.MoreItems') %>\n    </div>\n  <% } %>\n</div>\n\n<div class=\"im-summary-controls\">\n</div>\n";
+exports.facet_title = "<%= Icons.icon(state.open ? 'Expanded' : 'Collapsed') %>\n<span class=\"im-facet-title\"><%- pathName %></span>\n&nbsp;\n<span class=\"im-facet-count\"><%- Messages.getText('Number', {n: got} %></span>\n";
+exports.too_many_suggestions = "<span class=\"alert alert-info\">\n  {{{ icons.icon('Info') }}}\n  {{ messages.getText('conbuilder.TooManySuggestions') }}\n  There are {{ extra }} values we could not include.\n</span>\n";
+exports.active_constraints = "<% /* requires: constraints.length */ %>\n<div class=\"well im-current-constraints\">\n    <p class=\"well-help\">\n      <% if (constraints.length) { %>\n        <%- Messages.getText('constraints.EditOrRemove') %>\n      <% } else { %>\n        <%- Messages.getText('constraints.None') %>\n      <% } %>\n    </p>\n\n    <ul class=\"im-active-constraints\">\n    </ul>\n</div>\n";
+exports.reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n    <%- Messages.getText('Reset') %>\n</button>\n";
+exports.cell_preview_attribute = "<tr>\n  <td class=\"im-field-name\"><%- _.last(parts) %></td>\n  <td class=\"im-field-value <%- field.toLowerCase() %> <%- type %>\">\n    <% if (isNumeric) { %>\n      <%- numToString(+value) %>\n    <% } else { %>\n      <%- value %>\n    <% } %>\n    <% if (tooLong) { %>\n      <span class=\"im-overspill\"><%- valueOverspill %></span>\n      <a class=\"im-too-long\">\n        <span class=\"im-ellipsis\">...</span>\n        <%= Icons.icon('More') %>\n      </a>\n    <% } %>\n  </td>\n</tr>\n";
+exports.export_destination_radios = "<label><%- Messages.getText('export.param.Destination') %></label>\n<% _.each(destinations, function (d) { %>\n    <div class=\"radio im-dest-<%- d %>\">\n        <label>\n            <input type=\"radio\"\n                    name=\"dest\"\n                    <%= (d === dest) ? 'checked' : void 0 %>>\n            <%- Messages.getText(d) %>\n        </label>\n    </div>\n<% }); %>\n\n";
 exports.export_dialogue = "<div class=\"row\">\n    <nav class=\"col-sm-3 menu\">\n    </nav>\n    <div class=\"col-sm-9 main\">\n    </div>\n</div>\n";
 exports.column_manager_select_list = "<div class=\"im-removal-and-rearrangement\">\n  <button class=\"pull-right btn btn-success im-add-view-path\">\n      <%= Icons.icon('Add') %>\n      <%- Messages.getText('columns.FindColumnToAdd') %>\n  </button>\n\n  <h4>\n    <%- Messages.getText('columns.ColumnsSelected', {columns: collection, removed: hasRubbish}) %>\n  </h4>\n\n  <span class=\"help-block\"><%- Messages.getText('columns.CurrentViewHelp') %></span>\n\n  <div class=\"well im-current-view\">\n\n    <div class=\"row\">\n\n      <div class=\"col-md-6\">\n        <ul class=\"list-group im-active-view im-connected-list\">\n        </ul>\n      </div>\n\n      <div class=\"col-md-6\">\n        <div class=\"im-rubbish-bin\">\n            <%= Icons.icon((hasRubbish ? 'RubbishFull' : 'Rubbish'), 'lg') %>\n            <% if (hasRubbish) { %>\n                <ul class=\"list-group im-removed im-removed-view im-connected-list\">\n                </ul>\n            <% } %>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"im-addition\">\n</div>\n\n";
-exports.table_subtables_header = "<a title=\"<%- Messages.getText('subtables.RemoveColumn') %>\">\n  <%= Icons.icon('Remove') %>\n</a>\n<% if (displayName && columnName) { %>\n  <%- displayName.replace(columnName, '').replace(/^ > /, '') %>\n<% } %>\n";
-exports.code_gen_js = "<% if (asHTML) { %>\n<!-- The Element we will target -->\n<div id=\"some-elem\"></div>\n<!-- The imtables source -->\n<script src=\"<%= imtablesJS %>\" charset=\"UTF-8\"></script>\n<link rel=\"stylesheet\" href=\"<%= imtablesCSS %>\">\n<script>\n<% } %>\n<% if (!asHTML) { %>\n/* Install from npm: npm install imtables\n * This snippet assumes the presence on the page of an element like:\n * <div id=\"some-elem\"></div>\n */\nvar imtables = require('imtables');\n<% } %>\n\nvar selector = '#some-elem';\nvar service  = {root: '<%= service.root %>'};\nvar query    = <%= JSON.stringify(query, null, 2) %>;\n\nimtables.loadTable(\n  selector, // Can also be an element, or a jQuery object.\n  <%= JSON.stringify(page) %>, // May be null\n  {service: service, query: query} // May be an imjs.Query\n).then(\n  function (table) { console.log('Table loaded', table); },\n  function (error) { console.error('Could not load table', error); }\n);\n<% if (asHTML) { %>\n</script>\n<% } %>\n";
-exports.active_constraints = "<% /* requires: constraints.length */ %>\n<div class=\"well im-current-constraints\">\n    <p class=\"well-help\">\n      <% if (constraints.length) { %>\n        <%- Messages.getText('constraints.EditOrRemove') %>\n      <% } else { %>\n        <%- Messages.getText('constraints.None') %>\n      <% } %>\n    </p>\n\n    <ul class=\"im-active-constraints\">\n    </ul>\n</div>\n";
-exports.export_preview = "<div class=\"form-group im-export-formats\">\n  <label><%- Messages.getText('export.param.Format') %></label>\n  <select class=\"form-control\">\n    <% _.each(formats, function (fmt) { %>\n      <option value=\"<%- fmt.id %>\"\n              <%= (fmt.id === format.id) ? 'selected' : void 0 %>>\n        <%- Messages.getText(fmt.name) %>\n      </option>\n    <% }); %>\n  </select>\n</div>\n\n<pre class=\"im-export-preview\">\n<%- state.preview %>\n</pre>\n\n<div class=\"alert alert-info\">\n    <strong class=\"nb\">nb</strong>\n    <%- Messages.getText('export.preview.Limit') %>\n</div>\n";
-exports.active_progress_bar = "<div class=\"progress progress-info progress-striped active\">\n  <div class=\"bar\" style=\"width: 100%\"></div>\n</div>\n";
-exports.too_many_suggestions = "<span class=\"alert alert-info\">\n  {{{ icons.icon('Info') }}}\n  {{ messages.getText('conbuilder.TooManySuggestions') }}\n  There are {{ extra }} values we could not include.\n</span>\n";
-exports.summary_items = "<% if (!(/boolean/i).test(type)) { %>\n    <div class=\"input-group im-filter-group\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-default im-clear-value-filter\">\n        <%= Icons.icon('Refresh') %>\n        </button>\n    </span>\n    <input type=\"search\" class=\"form-control im-filter-values\"\n        value=\"<%- filterTerm %>\"\n        placeholder=\"<%- Messages.getText('summary.FilterValuesPlaceholder') %>\">\n    </div>\n<% } %>\n\n<div class=\"im-item-table\">\n  <table class=\"table table-condensed table-striped\">\n    <colgroup>\n      <% _.each(colClasses, function (cls) { %>\n        <col class=\"<%- cls %>\">\n      <% }); %>\n    </colgroup>\n    <thead>\n      <tr>\n        <% _.each(colHeaders, function (hdr) { %>\n          <th><%- hdr %></th>\n        <% }); %>\n      </tr>\n    </thead>\n    <tbody class=\"scrollable\">\n    </tbody>\n  </table>\n\n  <% if (hasMore) { %>\n    <div class=\"im-load-more\">\n      <%- Messages.getText('summary.MoreItems') %>\n    </div>\n  <% } %>\n</div>\n\n<div class=\"im-summary-controls\">\n</div>\n";
-exports.logic_manager_body = "<div class=\"form-group\">\n  <label class=\"form-label\">\n    <%- Messages.getText('logic.LogicLabel') %>\n    <input type=\"text\"\n          class=\"im-logic form-control\"\n          placeholder=\"<%- state.defaultLogic %>\"\n          value=\"<%- logic %>\">\n  </label>\n</div>\n<div class=\"form-group\">\n  <button class=\"pull-right btn btn-primary <%- (state.disabled) ? 'disabled' : null %>\"\n          type=\"submit\">\n    <%- Messages.getText('logic.ApplyLogic') %>\n  </button>\n</div>\n";
-exports.page_sizer = "<% /* Expects size, sizes */ %>\n<% if (sizes.length) { %>\n    <label>\n        <span class=\"hidden-tablet\">Rows per page:</span>\n    </label>\n    <select class=\"form-control\" title=\"Rows per page\">\n        <% sizes.forEach(function (s) { %>\n            <option value=\"<%= s[0] %>\" <%= (s[0] === size) && 'selected' %>>\n            <%= s[1] || s[0] %>\n            </option>\n        <% }); %>\n    </select>\n<% } %>\n";
-exports.select_with_label = "<label><%- Messages.getText(label) %></label>\n\n<% if (options.length) { %>\n    <select class=\"form-control\">\n        <% _.each(options, function (option) { %>\n            <option selected=\"<%= selected(option) ? 'selected' : void 0 %>\"\n                    value=\"<%- option.name %>\">\n                <%- Messages.getText(optionLabel, option) %>\n            </option>\n        <% }) %>\n    </select>\n    <% if (helpMessage) { %>\n        <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n              class=\"help-block\">\n                <%- Messages.getText(helpMessage) %>\n        </span>\n    <% } %>\n<% } else { %>\n    <span class=\"help-block\">\n        <%- Messages.getText(noOptionsMessage, {model: model}) %>\n    </span>\n<% } %>\n\n";
-exports.cell_preview_reference_relation = "<% _.each(collection, function (relation) { %>\n  <li class=\"im-relation\">\n    <span class=\"im-name\"><%- _.last(relation.parts) %></span>\n    <span class=\"im-count\"><%- numToString(relation.count) %></span>\n  </li>\n<% }); %>\n";
-exports.constraints_heading = "<% /* requires constraints.length */ %>\n<h3>\n  <%- Messages.getText('constraints.Heading', {n: constraints.length}) %>\n</h3>\n";
-exports.export_tab_menu = "<% _.each(data.tabs, function (tabDef) { %>\n  <li role=\"presentation\" class=\"im-tab-<%= tabDef.ident %> <%= data.tab === tabDef.ident ? 'active' : void 0 %>\">\n    <a><%- data.Messages.getText(tabDef.key, data) %></a>\n  </li>\n<% }); %>\n";
-exports.constraint_adder = "<div class=\"im-constraint-adder-options\"></div>\n<div class=\"im-path-finder\"><div>\n<div class=\"im-new-constraint\"></div>\n";
-exports.undo_history = "<button class=\"btn btn-default im-undo\">\n  <%= Icons.icon('Undo') %>\n  <span class=\"visible-lg-inline\">\n    <%- Messages.getText('Undo') %>\n  </span>\n</button>\n\n<button class=\"btn btn-default dropdown-toggle\"\n        data-toggle=\"dropdown\">\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu im-state-list\">\n    <li>\n      <button\n          title=\"<%- Messages.getText('undo.ToggleTrivialTitle', state) %>\"\n          class=\"btn btn-xs btn-default im-toggle-trivial <%= state.hideTrivial ? 'active' : void 0 %>\">\n        <%- Messages.getText('undo.ToggleTrivial', state) %>\n      </button>\n    </li>\n</ul>\n";
-exports.modal_footer = "<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n<% if (exportLink != null) { %>\n    <a class=\"btn btn-primary\"\n        <%= (error) ? 'disabled' : void 0 %>\n        href=\"<%- exportLink %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <% /* We need the wrapper to deal with the fact that tooltips do not\n        * work on disabled buttons. */ %>\n    <div class=\"im-tooltip-wrapper\"\n        <% if (disabled && disabledReason) { %>\n          title=\"<%- Messages.getText(disabledReason)  %>\"\n        <% } %>>\n        <button type=\"button\"\n                <%= (error || disabled) ? 'disabled' : void 0 %>\n                class=\"btn btn-primary\">\n            <%= Icons.icon(primaryIcon) %>\n            <%- primaryAction %>\n        </button>\n    </div>\n<% } %>\n";
-exports.constraint_editor = "<fieldset class=\"im-constraint-options form-group row\">\n  <label class=\"col-sm-3 path-label\"><%- data.con.displayName %></label>\n  <% if (data.con.op) { %>\n    <div class=\"im-operator col-sm-3\">\n        <select class=\"form-control im-ops\">\n        <option selected><%- data.con.op %></option>\n        <% data.otherOperators.forEach(function (op) { %>\n            <option><%- op %></option>\n        <% }); %>\n        </select>\n    </div>\n  <% } %>\n  <div class=\"col-sm-6 im-value-options im-value-section\">\n  </div>\n</fieldset>\n\n<div class=\"btn-group im-con-buttons\">\n  <% data.buttons.forEach(function (b, i) { %>\n  <button class=\"btn btn-<%= (i === 0) ? 'primary' : 'default' %> <%- b.classes %>\">\n    <%- data.messages.getText(b.key) %>\n  </button>\n  <% }); %>\n</div>\n";
-exports.attribute_value_select = "<select class=\"form-control im-con-value-attr\">\n    <% _.each(items, function (item) { %>\n    <option <%= (item.item === value) ? 'selected' : void 0 %> value=\"<%- item.item %>\">\n            <%- item.item %>\n        </option>\n    <% }); %>\n</select>\n";
-exports.null_value = "<span class=\"im-null-value\">&nbsp;</span>\n";
-exports.summary_items_controls = "<button class=\"btn btn-default pull-right im-download\">\n  <%= Icons.icon('Download') %>\n  <%- Messages.getText('summary.DownloadData') %>\n</button>\n\n<div class=\"btn-group im-filter-group\">\n  <button type=\"submit\"\n        class=\"btn btn-primary im-filter-in\"\n        <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <%- Messages.getText('Filter') %>\n  </button>\n  <button class=\"btn btn-primary dropdown-toggle\" \n          title=\"<%- Messages.getText('summary.SelectFilter') %>\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <span class=\"caret\"></span>\n  </button>\n  <ul class=\"dropdown-menu\">\n    <li>\n      <a href=\"#\" class=\"im-filter-in\">\n        <%- Messages.getText('summary.Include') %>\n      </a>\n    </li>\n    <li>\n      <a href=\"#\" class=\"im-filter-out\">\n        <%- Messages.getText('summary.Exclude') %>\n      </a>\n    </li>\n  </ul>\n</div>\n\n<div class=\"btn-group\">\n  <button class=\"btn btn-default btn-cancel\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>\n          title=\"<%- Messages.getText('summary.Reset') %>\">\n    <%= Icons.icon('Undo') %>\n  </button>\n  <% if (!(/boolean/i).test(type)) { %>\n    <button class=\"btn btn-default btn-toggle-selection\"\n            title=\"<%- Messages.getText('summary.Toggle') %>\">\n        <%= Icons.icon('Toggle') %>\n    </button>\n  <% } %>\n</div>\n\n";
-exports.column_manager_restore_path = "<% /* requires: restoreTitle */ %>\n<span class=\"pull-right im-restore-view\"\n    title=\"<%- Messages.getText(restoreTitle) %>\">\n    <%= Icons.icon('Add') %>\n</span>\n\n";
-exports.loop_value_controls = "<% if (candidateLoops.length) { %>\n    <%= select(candidateLoops, isSelected, 'form-control im-value-options im-con-value') %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLoops') %>\n<% } %>\n";
-exports.attribute_value_controls = "<div>\n    <input class=\"form-control im-constraint-value im-value-options im-con-value im-con-value-attr\"\n           type=\"text\"\n           placeholder=\"<%- state.valuePlaceholder %>\"\n           value=\"<%- con.value %>\">\n</div>\n";
-exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role=\"menu\" class=\"im-export-summary\">\n    <% _.each(formats, function (icon, param) { %>\n      <li role=\"presentation\">\n        <a role=\"menuitem\"\n            href=\"<%= query.getExportURI(param) %>&summaryPath=<%= path %>\">\n            <%= Icons.icon(icon) %>\n            <%- icon.toUpperCase() %>\n        </a>\n      </li>\n    <% }); %>\n</ul>\n";
-exports.input_with_label = "<label><%- Messages.getText(label) %></label>\n<input class=\"form-control\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\"\n       value=\"<%- value %>\">\n<% if (helpMessage) { %>\n  <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n        class=\"help-block\">\n        <%- Messages.getText(helpMessage) %>\n  </span>\n<% } %>\n";
-exports.join_style = "<% /* requires innerJoinBtn, outerJoinBtn */ %>\n<div class=\"btn-group pull-right\">\n  <button class=\"<%- innerJoinBtn %>\">\n    <%- Messages.getText('joins.Inner') %>\n  </button>\n  <button class=\"<%- outerJoinBtn %>\">\n    <%- Messages.getText('joins.Outer') %>\n  </button>\n</div>\n";
-exports.summary_no_results = "<div class=\"alert alert-warning\">\n    <%= Icons.icon('Warning') %>\n    <%- Messages.getText('summary.NoResults', {path: pathName}) %>\n</div>\n\n";
-exports.export_add_column_control = "<div class=\"row\">\n    <div class=\"col-sm-1 im-help\"\n         title=\"<%- Messages.getText('export.help.AdditionalCols') %>\">\n        <%= Icons.icon('Help', 'lg') %>\n    </div>\n    <div class=\"col-sm-11 form-group\">\n        <input type=\"text\" class=\"form-control\">\n    </div>\n</div>\n";
-exports.export_dialogue_footer = "<% if (linkToFile) { %>\n    <div class=\"pull-left alert alert-info\">\n        <%- Messages.getText('export.cloud.FileLocation', {cloud: dest}) %>\n        <a href=\"<%= linkToFile %>\" target=\"_blank\"><%- linkToFile %></a>\n    </div>\n<% } %>\n\n<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n\n<% if (dest === 'download') { %>\n    <a class=\"btn btn-primary\"\n        href=\"<%- exportURI %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <button type=\"button\"\n            <%= (error || doneness != null) ? 'disabled' : void 0 %>\n            class=\"btn btn-primary\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </button>\n<% } %>\n\n";
-exports.column_manager_path_remover = "<% /* requires: removeTitle */ %>\n<span class=\"pull-right im-remove-view\"\n      title=\"<%- Messages.getText(removeTitle) %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n\n";
-exports.export_flat_file_options = "<h4><%- Messages.getText('export.category.ColumnHeaders', state) %></h4>\n\n<div class=\"checkbox im-headers\">\n    <label>\n        <input type=\"checkbox\" <%= headers ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.AddHeaders') %>\n    </label>\n</div>\n\n<fieldset <%= headers ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-friendly\"\n                <%= (headerType === 'friendly') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.FriendlyHeaders') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-path\"\n                <%= (headerType === 'path') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.PathHeaders') %>\n        </label>\n    </div>\n</fieldset>\n\n";
-exports.constraint_summary = "<% if (code) { %>\n  <li><span class=\"text-muted\"><strong><%- code %>:</strong></span></li>\n<% } %>\n<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span title=\"<%- label.content %>\" class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
-exports.classy_popover = "<div class=\"popover <%- classes %>\" role=\"tooltip\">\n  <div class=\"arrow\"></div>\n  <h3 class=\"popover-title\"></h3>\n  <div class=\"popover-content\"></div>\n</div>\n";
-exports.join_manager_body = "<ul class=\"list-group\"></ul>\n\n<div class=\"alert alert-info\">\n  <%= Icons.icon('Info') %>\n  <strong class=\"im-clickable\">\n    <%- Messages.getText('joins.ExplanationTitle') %>\n  </strong>\n  <p class=\"<%= (!state.explaining) ? 'im-latent' : void 0 %>\">\n    <%- Messages.getText('joins.Explanation') %>\n  </p>\n</div>\n";
-exports.summary_selected_count = "<% if (state.selectedCount) { %>\n    <div class=\"alert alert-info im-selected-count\">\n        <strong>\n            <%- Messages.getText('summary.SelectedCount', state) %>\n        </strong>\n    </div>\n<% } %>\n";
-exports.list_dialogue_body = "<div class=\"im-list-name\"></div>\n\n<div class=\"row\">\n  <div class=\"col-sm-12 im-more-options\">\n    <h4>\n      <%= Icons.icon('Options') %>\n      <span class=\"msg\"><%- Messages.getText('lists.ShowExtraOptions', state) %></span>\n    </h4>\n  </div>\n</div>\n\n<div class=\"im-optional-attributes\" style=\"<%- state.minimised ? 'display:none' : void 0 %>\">\n  <div class=\"im-list-desc\"></div>\n\n  <div class=\"well im-tags\">\n    <div class=\"row im-active-tags\">\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6 im-apology\">\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"im-next-tag\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
-exports.export_json_options = "<h3><%- Messages.getText('export.category.Options') %></h3>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"rows\"\n               <%= (jsonFormat === 'rows') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Rows') %>\n        <pre><%- Messages.getText('export.json.RowsExample') %></pre>\n    </label>\n</div>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"objects\"\n               <%= (jsonFormat === 'objects') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Objects') %>\n        <pre><%- Messages.getText('export.json.ObjExample') %></pre>\n    </label>\n</div>\n\n<% if ((size || start) && jsonFormat === 'objects') { %>\n    <div class=\"alert alert-warning\">\n        <h4><%- Messages.get('Warning') %></h4>\n        <p><%- Messages.get('export.json.ObjWarning') %></p>\n    </div>\n<% } %>\n\n";
-exports.count_summary = "<% if (size && count) { %>\n  <% var msg = (size == 0 ? '.ShowingAll' : '.ShowingRange'); %>\n  <% ['xs', 'sm', 'md', 'lg'].forEach(function (pageSize) { %>\n    <span class=\"visible-<%= pageSize %>-inline\">\n      <%- Messages.getText('table.' + pageSize + msg, page) %>\n    </span>\n  <% }); %>\n<% } %>\n";
-exports.list_tag = "<%- id %>\n<span class=\"im-remove\" title=\"<%- Messages.getText('lists.RemoveTag') %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n";
-exports.table_cell = "<% if (state.minimised) { %>\n  &hellip;\n<% } else if (entity.id == null) { %>\n  <% if (value != null && formattedValue != null) { %>\n    <span class=\"im-displayed-value\"><%= value %></span>\n  <% } else if (entity.isNULL) { %>\n    <span class=\"im-null-entity\">\n      <%- Messages.getText('table.cell.NullEntity', {type: entity['class']}) %>\n    </span>\n  <% } else { %>\n    <%= NULL_VALUE %>\n  <% } %>\n<% } else { %>\n  <input\n    class=\"im-list-chooser\"\n    type=\"checkbox\"\n    <% if (input.checked) { %>checked<% } %>\n    <% if (input.disabled) { %>disabled<% } %>\n    style=\"display:<%- input.display %>\">\n\n  <a class=\"im-cell-link\" target=\"<%- target %>\" href=\"<%= url %>\">\n\n    <% if (isForeign) { %>\n      <% if (icon) { %>\n        <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n      <% } else { %>\n        <%= Icons.icon('ExternalLink') %>\n      <% } %>\n    <% } %>\n\n    <% if (value != null && formattedValue != null) { %>\n      <span class=\"im-displayed-value\"><%= formattedValue %></span>\n    <% } else { %>\n      <%= NULL_VALUE %>\n    <% } %>\n\n  </a>\n\n  <% if (value != null && field === 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <%= Icons.icon('ExternalLink') %>\n      <%- Messages.getText('table.cell.Link') %>\n    </a>\n  <% } %>\n<% } %>\n";
-exports.modal_dialogue_opener = "<button class=\"btn btn-default im-open-dialogue\">\n  <%= Icons.icon(labels.ICON) %>\n  <span class=\"im-hidden-sm hidden-sm hidden-xs\">\n    <%- Messages.getText(labels.LONG, state) %>\n  </span>\n  <span class=\"im-visible-sm-inline visible-sm-inline\">\n    <%- Messages.getText(labels.SHORT, state) %>\n  <span>\n</button>\n";
-exports.progress_bar = "<% /* requires: doneness (float: 0 <= i <= 1) */ %>\n<% if (doneness != null && doneness >= 0) { %>\n    <div class=\"progress\">\n        <div class=\"progress-bar progress-bar-striped active\"\n             role=\"progressbar\"\n             aria-valuenow=\"<%- doneness %>\"\n             aria-valuemin=\"0\"\n             aria-valuemax=\"1\"\n             style=\"width: <%- 100 * doneness %>%;\">\n            <% if (doneness < 1) { %>\n              <span class=\"sr-only\">\n                <%- Math.round(100 * doneness) %>% <%- Messages.getText('Complete') %>\n              </span>\n            <% } %>\n        </div>\n    </div>\n<% } %>\n";
-exports.cell_preview_items = "<colgroup>\n  <col class=\"im-item-field\"/>\n  <col class=\"im-item-value\"/>\n</colgroup>\n<tbody></tbody>\n";
-exports.list_tags_apology = "<% if (!hasTags) { %>\n  <span>\n    <%- Messages.getText('lists.NoTags') %>\n  </span>\n<% } %>\n";
-exports.table_throbber = "<tr class=\"im-table-throbber\">\n  <td colspan=\"<%= colcount %>\">\n    <h2><%- Messages.getText('table.RequestingData') %></h2>\n    <div class=\"progress progress-info progress-striped active\">\n      <div class=\"bar\" style=\"width: 100%\"></div>\n    </div>\n  </td>\n</tr>\n";
-exports.export_column_controls = "<h4><%- Messages.getText('export.heading.Columns') %></h4>\n\n<ul class=\"list-group\">\n</ul>\n\n<div class=\"row controls\"></div>\n";
-exports.pagination = "<ul class=\"pagination\">\n    <li class=\"hidden-xs <%= gotoStart || 'im-goto-start' %>\" title=\"Go to start\">\n        <a class=\"im-pagination-button\">&#x21e4;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveBack || 'im-go-back-5' %>\"\n        title=\"Go back five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x219e;</a>\n    </li>\n    <li class=\"<%= goOneBack || 'im-go-back-1' %>\"\n        title=\"Go to previous page\">\n        <a class=\"im-pagination-button\">&larr;</a>\n    </li>\n    <li class=\"im-current-page\">\n        <% if (useSelect) { %>\n          <form class=\"im-page-form form form-inline\">\n            <select class=\"form-control\">\n              <% for (i = 0; i < max; i++) { %>\n                <option\n                  <%= selected(i) ? 'selected' : void 0 %>\n                  value=\"<%= i * size %>\">\n                  page <%= i + 1 %>\n                </option>\n              <% } %>\n            </select>\n          </form>\n        <% } else { %>\n          <a href=\"#\">&hellip;</a>\n          <form class=\"im-page-form form form-inline\"\n                style=\"display:none;\">\n            <div class=\"control-group\">\n                <input type=\"number\"\n                       value=\"<%= currentPage %>\"\n                       max=\"<%= max %>\"\n                       min=\"<%= min %>\"\n                       class=\"form-control im-page-number\">\n            </div>\n          </form>\n        <% } %>\n    </li>\n    <li class=\"<%= goOneForward || 'im-go-fwd-1' %>\"\n        title=\"Go to next page\">\n        <a class=\"im-pagination-button\">&rarr;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveForward || 'im-go-fwd-5' %>\"\n        title=\"Go forward five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x21a0;</a>\n    </li>\n    <li class=\"hidden-xs <%= gotoEnd || 'im-goto-end' %>\"\n        title=\"Go to last page\">\n        <a class=\"im-pagination-button\">&#x21e5;</a>\n    </li>\n</ul>\n";
-exports.reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n    <%- Messages.getText('Reset') %>\n</button>\n";
 exports.table_building = "<h2><%- Messages.getText('table.Building') %></h2>\n<%= IndeterminateProgressBar %>\n";
-exports.summary_heading = "<% /* requires:\n    *  numeric, available, got, uniqueValues\n    *  state.typeName, state.endName\n    *  filtered \n    */ %>\n<h3>\n  <% if (numeric) { %>\n    <%- Messages.getText('summary.NumericDistribution', {n: available}) %>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n  <% } else { %> \n    <span class=\"im-item-got\">\n      <%- Messages.getText('summary.Got', {available: available, got: got}) %>\n    </span>\n    <span class=\"im-item-available\">\n      <%- Messages.getText('Number', {n: available}) %>\n    </span>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n    <span class=\"im-item-total\">\n      <%- Messages.getText('summary.Total', {\n            filtered: filtered,\n            total: uniqueValues\n          }) %>\n    </span>\n  <% } %> \n</h3>\n";
-exports.facet_item = "<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%- count %>)\n        </b>\n        <%- item %>\n    </a>\n</dd>\n";
-exports.type_value_controls = "<label class=\"span4\">\n    <%- messages.getText('conbuilder.IsA') %>\n</label>\n<% if (subclasses.length == 1) { %>\n  <select disabled class=\"form-control\">\n      <option><%- subclasses[0].text %></option>\n  </select>\n<% } else { %>\n  <%= select(subclasses, isSelected, 'form-control im-value-type') %>\n<% } %>\n  \n";
-exports.select = "<select class=\"<%- data.classes %>\">\n  <% _.each(data.options, function (opt) { %>\n    <option value=\"<%- data.key(opt) %>\"\n      <%- data.selectedTest(opt) ? 'selected' : void 0 %> >\n      <% if (data.contentHandler) { %>\n        <%- data.contentHandler(opt) %>\n      <% } else { %>\n        <%- opt.text %>\n      <% } %>\n    </option>\n  <% }); %>\n</select>\n";
-exports.export_rows_reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n        <%- Messages.getText('export.ResetRowSelection') %>\n</button>\n\n<% if (tablePage) { %>\n    <button type=\"button\"\n            <%= (tablePage.start === start && tablePage.size === size) ? 'disabled' : void 0 %>\n            class=\"btn btn-default im-set-table-page\">\n            <%- Messages.getText('export.SetTablePage') %>\n    </button>\n<% } %>\n        \n";
-exports.undo_history_step_section = "<div class=\"im-section-summary\">\n  <% if (collection.length) { %>\n    <%= Icons.icon(state.open ? 'ExpandedSection' : 'CollapsedSection') %>\n  <% } %>\n  <%- Messages.getText(summaryLabel, {n: count}) %>\n</div>\n<% if (collection.length) { %>\n  <div class=\"<%- collectionClasses %>\">\n    <% _.each(collection, function (e) { %>\n      <span class=\"label label-<%= e.added ? 'success' : (e.removed ? 'danger' : 'default') %>\">\n        <%- labelContent(e) %>\n      </span>\n    <% }); %>\n  </div>\n<% } %>\n";
-exports.table_subtable = "<span class=\"im-subtable-summary\">\n</span>\n<div class=\"im-table-wrapper\">\n</div>\n";
-exports.export_destination_galaxy_options = "<div class=\"form-group\">\n    <label><%- Messages.getText('GalaxyURILabel') %></label>\n    <input type=\"url\"\n           class=\"form-control im-galaxy-uri-param\"\n           value=\"<%- Galaxy.Current || Galaxy.Main %>\">\n</div>\n<div class=\"checkbox im-save-galaxy\">\n    <label>\n        <input type=\"checkbox\" <%= (Galaxy.Save) ? 'checked' : void 0 %>>\n        <%- Messages.getText('SaveGalaxyURL') %></label>\n    </label>\n</div>\n";
-exports.summary_stats = "<table class=\"table\">\n    <thead>\n        <tr>\n            <th><%- Messages.getText('summary.Max') %></th>\n            <th><%- Messages.getText('summary.Min') %></th>\n            <th><%- Messages.getText('summary.Average') %></th>\n            <th><%- Messages.getText('summary.StdDev') %></th>\n        </tr>\n        <tr>\n            <td><%- Messages.getText('Number', {n: max}) %></td>\n            <td><%- Messages.getText('Number', {n: min}) %></td>\n            <td><%- Messages.getText('Number', {n: average}) %></td>\n            <td><%- Messages.getText('Number', {n: stdev}) %></td>\n        </tr>\n    </thead>\n</table>\n\n<div class=\"row im-range-controls\">\n    <div class=\"col-sm-4 im-range-from\">\n        <input type=\"text\"\n               class=\"form-control im-range-min input im-range-val\"\n               value=\"<%- min %>\">\n    </div>\n    <div class=\"col-sm-1 im-ellipsis\">\n        <span>...</span>\n    </div>\n    <div class=\"col-sm-4 im-range-to\">\n        <input type=\"text\"\n               class=\"form-control im-range-max input im-range-val\"\n               value=\"<%- max %>\">\n    </div>\n    <div class=\"col-sm-3 im-range-buttons\">\n        <div class=\"btn-group pull-right\">\n            <button class=\"btn btn-primary disabled\">Apply</button>\n            <button class=\"btn btn-cancel disabled\">Reset</button>\n        </div>\n    </div>\n</div>\n\n<div class=\"slider\"></div>\n\n";
-exports.export_destination_radios = "<label><%- Messages.getText('export.param.Destination') %></label>\n<% _.each(destinations, function (d) { %>\n    <div class=\"radio im-dest-<%- d %>\">\n        <label>\n            <input type=\"radio\"\n                    name=\"dest\"\n                    <%= (d === dest) ? 'checked' : void 0 %>>\n            <%- Messages.getText(d) %>\n        </label>\n    </div>\n<% }); %>\n\n";
-exports.code_gen_button = "<% /* requires lang :: string, options.Langs :: [string] */ %>\n<div class=\"btn-group language-selector\">\n    <button type=\"button\"\n            class=\"btn btn-default im-show-code-gen-dialogue\">\n    </button>\n    <button type=\"button\"\n            data-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            class=\"btn btn-default dropdown-toggle\">\n        <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\" class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n                <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n    </ul>\n</div>\n";
-exports.modal_base = "<div class=\"modal-dialog <%- modalSize %>\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n            <h4 class=\"modal-title\"><%- title %></h4>\n        </div>\n        <div class=\"modal-body\">\n            <%= body %>\n        </div>\n    </div>\n</div>\n";
-exports.value_control_row = "<td>\n  <input type=\"checkbox\" {{ (selected) ? 'checked' : void 0 }}>\n</td>\n<td class=\"im-multi-value\">\n  {{# if (editing) { }}\n    <div class=\"input-group\">\n      <input type=\"text\" value=\"{{ value }}\" class=\"form-control\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-success im-save\"\n                title=\"{{ messages.getText('multivalue.SaveValue') }}\"\n                type=\"button\">\n            {{{ icons.icon('OK') }}}\n            <span class=\"im-long\">{{ messages.getText('multivalue.SaveValue') }}</span>\n        </button>\n        <button class=\"btn btn-danger im-cancel\"\n                title=\"{{ messages.getText('Cancel') }}\"\n                type=\"button\">\n            {{{ icons.icon('Cancel') }}}\n            <span class=\"im-long\">{{ messages.getText('Cancel') }}</span>\n        </button>\n      </span>\n    </div>\n  {{# } else { }}\n    <a class=\"im-edit pull-right\">{{{ icons.icon('Edit') }}}</a>\n    {{ value }}\n  {{# } }}\n</td>\n";
-exports.formatted_sorting = "<a> <% /* requires Icons, direction and name */ %>\n    <%= Icons.icon(direction || 'unsorted') %>\n    <span class=\"im-sort-path\"><%- name %></span>\n</a>\n";
-exports.column_header = "<% /* requires the properties of HeaderModel +\n    *  penult, last, headerClasses, colTitleClasses, penultClasses\n    *  and the usual Icons, Messages\n    */ %>\n<div class=\"<%- headerClasses %>\">\n\n<div class=\"im-th-buttons\">\n    \n    <% if (outerJoined && isReference) { %>\n      <a href=\"#\" \n          class=\"im-subtable-expander im-th-button\"\n          title=\"<%- Messages.getText('table.header.ToggleTables') %>\">\n        <%= Icons.icon('Table') %>\n      </a>\n    <% } %>\n\n    <% if (sortable) { %>\n        <span class=\"im-th-dropdown im-col-sort dropdown\">\n            <a class=\"im-th-button im-col-sort-indicator\"\n                title=\"<%- Messages.getText('table.header.SortColumn', {dir: sortDirection}) %>\">\n                <%= Icons.icon(sortDirection || 'unsorted') %>\n            </a>\n            <div class=\"dropdown-menu\">\n                <div><%- Messages.getText('table.header.FailedToInitSortMenu') %></div>\n            </div>\n        </span>\n    <% } %>\n\n    <a class=\"im-th-button im-col-remover\"\n        title=\"<%- Messages.getText('table.header.RemoveColumn') %>\">\n        <%= Icons.icon('headerIconRemove') %>\n    </a>\n\n    <a class=\"im-th-button im-col-minumaximiser\"\n        title=\"<%- Messages.getText('table.header.ToggleColumn') %>\">\n        <%= Icons.icon(minimised ? 'headerIconReveal' : 'headerIconHide') %>\n    </a>\n\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n        <a class=\"im-th-button im-col-filters dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.FilterTitle', {count: numOfCons}) %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Filter') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitFilter') %></div>\n        </div>\n    </span>\n\n    <span class=\"dropdown im-summary im-th-dropdown\">\n        <a class=\"im-th-button summary-img dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.ViewSummary') %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Summary') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitSummary') %></div>\n        </div>\n    </span>\n\n    <% if (isComposed) { %>\n        <a class=\"im-th-button im-col-composed\"\n            title=\"<%- Messages.getText('table.header.Composed', {replaces: replaces}) %>\">\n            <%= Icons.icon('Composed') %>\n        </a>\n    <% } %>\n</div>\n\n<div class=\"<%- colTitleClasses %>\">\n  <div class=\"<%- penultClasses %>\">\n      <%- penult %>\n  </div>\n  <% if (last) { %>\n    <div class=\"im-title-part im-last\">\n        <%- last %>\n    </div>\n  <% } %>\n</div>\n\n</div>\n\n";
-exports.row_surrogate = "<%= Icons.icon(above ? 'ASC' : 'DESC') %>\n<%- item %>: <%- count %>\n";
-exports.table_subtable_summary = "<% if (rows.length) { %>\n  <%= Icons.icon('Table') %>\n<% } else { %>\n  <%= Icons.icon('EmptyTable') %>\n<% } %>\n<%- rows.length %>\n<%- pluralise(contentName, rows.length) %>\n";
-exports.column_manager_path_chooser_buttons = "<button class=\"btn btn-default im-rearrange-columns\">\n  <%- Messages.getText('Cancel') %>\n</button>\n<button class=\"btn btn-success im-add-column\"\n  <%= collection.length ? (void 0) : 'disabled' %> >\n  <%- Messages.getText('columns.AddColumn', {num: collection.length}) %>\n</button>\n\n";
-exports.column_manager_order_direction = "<% /* requires: direction, isNumeric */ %>\n<span class=\"im-change-direction\"\n  title=\"<%- Messages.getText('columns.ChangeDirection') %>\">\n  <span class=\"sr-only\">\n    <%- Messages.getText('columns.CurrentDirection', {\n      dir: direction, numeric: isNumeric\n    }) %>\n  </span>\n  <%= Icons.icon('Sort' + (isNumeric ? 'Numeric' : 'String') + direction) %>\n</span>\n";
-exports.cell_preview_error = "<div class=\"alert alert-error\">\n    <h4>Error</h4>\n    <p>Sorry. We could not fetch the preview due to an error:</p>\n    <code><%- message %></code>\n</div>\n";
-exports.cell_preview_attribute = "<tr>\n  <td class=\"im-field-name\"><%- _.last(parts) %></td>\n  <td class=\"im-field-value <%- field.toLowerCase() %> <%- type %>\">\n    <% if (isNumeric) { %>\n      <%- numToString(+value) %>\n    <% } else { %>\n      <%- value %>\n    <% } %>\n    <% if (tooLong) { %>\n      <span class=\"im-overspill\"><%- valueOverspill %></span>\n      <a class=\"im-too-long\">\n        <span class=\"im-ellipsis\">...</span>\n        <%= Icons.icon('More') %>\n      </a>\n    <% } %>\n  </td>\n</tr>\n";
-exports.boolean_value_controls = "<button class=\"btn btn-default im-true {{ (value === true) ? ' active' : void 0 }}\">\n  True\n</button>\n<button class=\"btn btn-default im-false {{ (value === false) ? ' active' : void 0 }}\">\n  False\n</button>\n";
-exports.export_row_controls = "<h4 class=\"im-title\"></h4>\n\n<div class=\"form-group\">\n    <label class=\"size-label\"></label>\n    <input name=\"size\"\n           step=\"1\"\n           type=\"range\"\n           min=\"1\"\n           max=\"<%= max %>\"\n           value=\"<%= size || max %>\">\n</div>\n\n<div class=\"form-group\">\n    <label class=\"start-label\"></label>\n    <input name=\"start\"\n           step=\"1\"\n           type=\"range\"\n           min=\"0\"\n           max=\"<%= max - 1 %>\"\n           value=\"<%= start %>\">\n</div>\n\n<div class=\"form-group im-reset\">\n</div>\n";
-exports.only_one_item = "<div class=\"alert alert-info\">\n    <%= Icons.icon('Info') %>\n    <%= Messages.getText('summary.OnlyOne', {names: state, item: items[0]}) %>\n</div>\n\n";
-exports.checkbox = "<label>\n    <input type=\"checkbox\" \n           <%= checked ? 'checked' : void 0 %>\n           >\n    <%- label %>\n</label>\n";
-exports.facet_title = "<%= Icons.icon(state.open ? 'Expanded' : 'Collapsed') %>\n<span class=\"im-facet-title\"><%- pathName %></span>\n&nbsp;\n<span class=\"im-facet-count\"><%- Messages.getText('Number', {n: got} %></span>\n";
-exports.large_table_disuader = "<div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>\n            <%= size %> rows - are you sure?\n            </h3>\n        </div>\n\n        <div class=\"modal-body\">\n\n            <p><%= Messages.getText('largetable.appeal', {size: size}) %></p>\n\n            <ul>\n                <li>\n                    <p>\n                        If you want to see all the data, you can page \n                        <span class=\"label label-info\">\n                            <%= Icons.icon('GoBack') %>\n                            backwards\n                        </span>\n                        and \n                        <span class=\"label label-info\">\n                            forwards\n                            <%= Icons.icon('GoForward') %>\n                        </span>\n                        through the results.\n                    </p>\n                    <div class=\"btn-group\">\n                        <a class=\"btn btn-default im-alternative-action page-backwards\" href=\"#\">\n                            <%= Icons.icon('GoBack') %>\n                            go one page back\n                        </a>\n                        <a class=\"btn btn-default im-alternative-action page-forwards\" href=\"#\">\n                            go one page forward\n                            <%= Icons.icon('GoForward') %>\n                        </a>\n                    </div>\n                </li>\n\n                <li>\n                    <p>\n                        If you are looking for something specific, you can use the\n                        <span class=\"label label-info\">filtering tools</span>\n                        to narrow down the result set. Then you \n                        might be able to fit the items you are interested in in a\n                        single page.\n                    </p>\n                    <button class=\"btn btn-default im-alternative-action add-filter-dialogue\">\n                        <%= Icons.icon('Filter') %>\n                        Add a new filter.\n                    </button>\n                </li>\n\n                <li>\n                    <p>\n                        If you want to get and save the results, we suggest\n                        <span class=\"label label-info\">downloading</span>\n                        the results in a format that suits you. \n                    <p>\n                    <button class=\"btn btn-default im-alternative-action download-menu\">\n                        <%= Icons.icon('Export') %>\n                        Open the download menu.\n                    </buttn>\n                </li>\n\n            </ul>\n        </div>\n\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary pull-right\">\n                <%- Messages.getText('largetable.ok', {size: size}) %>\n            </button>\n            <button class=\"btn pull-left close\">\n                <%- Messages.getText('largetable.abort') %>\n            </button>\n        </div>\n    </div>\n</div>\n";
-exports.list_dialogue_button = "<button class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">\n  <%= Icons.icon('Lists') %>\n  <span class=\"hidden-xxs\">\n    <%- Messages.getText('lists.SaveAsList') %>\n  </span>\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n    <li class=\"divider\"></li>\n    <li>\n        <a class=\"im-pick-items\" href=\"#\">\n            <%- Messages.getText('lists.StartPicking') %>\n        </a>\n    </li>\n    <li class=\"divider\"></li>\n    <li>\n        <div class=\"btn-group btn-group-justified\" role=\"group\">\n            <a role=\"button\" class=\"<%- createBtnClasses %>\">\n                <%- Messages.getText('lists.Create') %>\n            </a>\n            <a role=\"button\" class=\"<%- appendBtnClasses %>\">\n                <%- Messages.getText('lists.Append') %>\n            </a>\n        </div>\n    </li>\n</ul>\n";
-exports.export_format_controls = "<h4 class=\"im-title\"></h4>\n\n<% _.each(formats, function (formatDef) { %>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                   name=\"format\"\n                   value=\"<%= formatDef.id %>\"\n                   <%= (formatDef.id === format) ? 'checked' : void 0 %>>\n            <%= Icons.icon(formatDef.icon) %>\n            <%= Messages.getText(formatDef.desc) %>\n        </label>\n    </div>\n<% }); %>\n";
+exports.constraint_summary = "<% if (code) { %>\n  <li><span class=\"text-muted\"><strong><%- code %>:</strong></span></li>\n<% } %>\n<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span title=\"<%- label.content %>\" class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
+exports.cell_preview_items = "<colgroup>\n  <col class=\"im-item-field\"/>\n  <col class=\"im-item-value\"/>\n</colgroup>\n<tbody></tbody>\n";
 exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(marker) { %>\n        <span class=\"im-slider-marker\"><%- marker.value %></span>\n    <% }); %>\n</div>\n";
-exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
-exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
-exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
+exports.export_tab_menu = "<% _.each(data.tabs, function (tabDef) { %>\n  <li role=\"presentation\" class=\"im-tab-<%= tabDef.ident %> <%= data.tab === tabDef.ident ? 'active' : void 0 %>\">\n    <a><%- data.Messages.getText(tabDef.key, data) %></a>\n  </li>\n<% }); %>\n";
+exports.loop_value_controls = "<% if (candidateLoops.length) { %>\n    <%= select(candidateLoops, isSelected, 'form-control im-value-options im-con-value') %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLoops') %>\n<% } %>\n";
+exports.export_column_control = "<span class=\"badge\"><%- item.getType() %></span>\n<span class=\"im-active-state\">\n    <% if (active) { %>\n        <%= Icons.icon('Check') %>\n    <% } else { %>\n        <%= Icons.icon('UnCheck') %>\n    <% } %>\n</span>\n<%- name %>\n";
+exports.export_rows_reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n        <%- Messages.getText('export.ResetRowSelection') %>\n</button>\n\n<% if (tablePage) { %>\n    <button type=\"button\"\n            <%= (tablePage.start === start && tablePage.size === size) ? 'disabled' : void 0 %>\n            class=\"btn btn-default im-set-table-page\">\n            <%- Messages.getText('export.SetTablePage') %>\n    </button>\n<% } %>\n        \n";
+exports.input_with_label = "<label><%- Messages.getText(label) %></label>\n<input class=\"form-control\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\"\n       value=\"<%- value %>\">\n<% if (helpMessage) { %>\n  <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n        class=\"help-block\">\n        <%- Messages.getText(helpMessage) %>\n  </span>\n<% } %>\n";
+exports.error_message = "<% if (error) { %>\n    <div class=\"alert alert-<%= error.level || 'danger' %>\">\n        <%= icons.icon('Error') %>\n        <span class=\"im-conbuilder-error\">\n            <%- error.message || error %>\n        </span>\n    </div>\n<% } %>\n\n";
+exports.column_manager_tabs = "<ul class=\"nav nav-tabs\">\n    <li role=\"presentation\" class=\"<%- classes.view %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.ViewTabTitle') %>\n      </a>\n    </li>\n    <li role=\"presentation\" class=\"<%- classes.sortorder %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.SortOrderTabTitle') %>\n      </a>\n    </li>\n</ul>\n";
+exports.modal_error = "<% /* Renders an alert box at various levels, with appropriate icons and messages */ %>\n<% if (error) { %>\n    <div class=\"pull-left alert <%- errorAlert(error) %>\">\n        <% if (!error.cannotDismiss) { %>\n            <button type=\"button\" class=\"dismiss\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n        <% } %>\n        <%= Icons.icon(errorIcon(error)) %>\n        <strong><%- Messages.getText('ErrorTitle', error) %></strong>\n        <% if (error.key != null) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } %>\n";
 exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <% if (canUndo) { %>\n      <button class=\"pull-right btn btn-large btn-default btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n  </div>\n</td>\n";
-exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- state.extraPlaceholder %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
-exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
+exports.only_one_item = "<div class=\"alert alert-info\">\n    <%= Icons.icon('Info') %>\n    <%= Messages.getText('summary.OnlyOne', {names: state, item: items[0]}) %>\n</div>\n\n";
+exports.code_gen_button = "<% /* requires lang :: string, options.Langs :: [string] */ %>\n<div class=\"btn-group language-selector\">\n    <button type=\"button\"\n            class=\"btn btn-default im-show-code-gen-dialogue\">\n    </button>\n    <button type=\"button\"\n            data-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            class=\"btn btn-default dropdown-toggle\">\n        <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\" class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n                <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n    </ul>\n</div>\n";
+exports.export_compression_controls = "<h4><%- Messages.getText('export.category.Compression', state) %></h4>\n\n<div class=\"checkbox im-compress\">\n    <label>\n        <input type=\"checkbox\" <%= compress ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.UseCompression') %>\n    </label>\n</div>\n\n<fieldset <%= compress ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"gzip\"\n                <%= (compression === 'gzip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseGZIP') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"zip\"\n                <%= (compression === 'zip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseZIP') %>\n        </label>\n    </div>\n</fieldset>\n\n";
+exports.column_manager_order_direction = "<% /* requires: direction, isNumeric */ %>\n<span class=\"im-change-direction\"\n  title=\"<%- Messages.getText('columns.ChangeDirection') %>\">\n  <span class=\"sr-only\">\n    <%- Messages.getText('columns.CurrentDirection', {\n      dir: direction, numeric: isNumeric\n    }) %>\n  </span>\n  <%= Icons.icon('Sort' + (isNumeric ? 'Numeric' : 'String') + direction) %>\n</span>\n";
+exports.progress_bar = "<% /* requires: doneness (float: 0 <= i <= 1) */ %>\n<% if (doneness != null && doneness >= 0) { %>\n    <div class=\"progress\">\n        <div class=\"progress-bar progress-bar-striped active\"\n             role=\"progressbar\"\n             aria-valuenow=\"<%- doneness %>\"\n             aria-valuemin=\"0\"\n             aria-valuemax=\"1\"\n             style=\"width: <%- 100 * doneness %>%;\">\n            <% if (doneness < 1) { %>\n              <span class=\"sr-only\">\n                <%- Math.round(100 * doneness) %>% <%- Messages.getText('Complete') %>\n              </span>\n            <% } %>\n        </div>\n    </div>\n<% } %>\n";
+exports.export_json_options = "<h3><%- Messages.getText('export.category.Options') %></h3>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"rows\"\n               <%= (jsonFormat === 'rows') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Rows') %>\n        <pre><%- Messages.getText('export.json.RowsExample') %></pre>\n    </label>\n</div>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"objects\"\n               <%= (jsonFormat === 'objects') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Objects') %>\n        <pre><%- Messages.getText('export.json.ObjExample') %></pre>\n    </label>\n</div>\n\n<% if ((size || start) && jsonFormat === 'objects') { %>\n    <div class=\"alert alert-warning\">\n        <h4><%- Messages.get('Warning') %></h4>\n        <p><%- Messages.get('export.json.ObjWarning') %></p>\n    </div>\n<% } %>\n\n";
+exports.export_destination_galaxy_options = "<div class=\"form-group\">\n    <label><%- Messages.getText('GalaxyURILabel') %></label>\n    <input type=\"url\"\n           class=\"form-control im-galaxy-uri-param\"\n           value=\"<%- Galaxy.Current || Galaxy.Main %>\">\n</div>\n<div class=\"checkbox im-save-galaxy\">\n    <label>\n        <input type=\"checkbox\" <%= (Galaxy.Save) ? 'checked' : void 0 %>>\n        <%- Messages.getText('SaveGalaxyURL') %></label>\n    </label>\n</div>\n";
+exports.new_filter_dialogue = "<div class=\"modal-body\">\n</div>\n<div class=\"modal-footer\">\n    <button class=\"disabled btn btn-primary pull-right im-add-constraint\">\n        <%- Messages.getText('constraints.AddFilter') %>\n    </button>\n    <button class=\"btn im-close pull-left\">\n        <%- Messages.getText('Cancel') %>\n        Cancel\n    </button>\n</div>\n";
+exports.list_tags_apology = "<% if (!hasTags) { %>\n  <span>\n    <%- Messages.getText('lists.NoTags') %>\n  </span>\n<% } %>\n";
+exports.column_manager_restore_path = "<% /* requires: restoreTitle */ %>\n<span class=\"pull-right im-restore-view\"\n    title=\"<%- Messages.getText(restoreTitle) %>\">\n    <%= Icons.icon('Add') %>\n</span>\n\n";
+exports.table_subtables_header = "<a title=\"<%- Messages.getText('subtables.RemoveColumn') %>\">\n  <%= Icons.icon('Remove') %>\n</a>\n<% if (displayName && columnName) { %>\n  <%- displayName.replace(columnName, '').replace(/^ > /, '') %>\n<% } %>\n";
+exports.pagination = "<ul class=\"pagination\">\n    <li class=\"hidden-xs <%= gotoStart || 'im-goto-start' %>\" title=\"Go to start\">\n        <a class=\"im-pagination-button\">&#x21e4;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveBack || 'im-go-back-5' %>\"\n        title=\"Go back five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x219e;</a>\n    </li>\n    <li class=\"<%= goOneBack || 'im-go-back-1' %>\"\n        title=\"Go to previous page\">\n        <a class=\"im-pagination-button\">&larr;</a>\n    </li>\n    <li class=\"im-current-page\">\n        <% if (useSelect) { %>\n          <form class=\"im-page-form form form-inline\">\n            <select class=\"form-control\">\n              <% for (i = 0; i < max; i++) { %>\n                <option\n                  <%= selected(i) ? 'selected' : void 0 %>\n                  value=\"<%= i * size %>\">\n                  page <%= i + 1 %>\n                </option>\n              <% } %>\n            </select>\n          </form>\n        <% } else { %>\n          <a href=\"#\">&hellip;</a>\n          <form class=\"im-page-form form form-inline\"\n                style=\"display:none;\">\n            <div class=\"control-group\">\n                <input type=\"number\"\n                       value=\"<%= currentPage %>\"\n                       max=\"<%= max %>\"\n                       min=\"<%= min %>\"\n                       class=\"form-control im-page-number\">\n            </div>\n          </form>\n        <% } %>\n    </li>\n    <li class=\"<%= goOneForward || 'im-go-fwd-1' %>\"\n        title=\"Go to next page\">\n        <a class=\"im-pagination-button\">&rarr;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveForward || 'im-go-fwd-5' %>\"\n        title=\"Go forward five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x21a0;</a>\n    </li>\n    <li class=\"hidden-xs <%= gotoEnd || 'im-goto-end' %>\"\n        title=\"Go to last page\">\n        <a class=\"im-pagination-button\">&#x21e5;</a>\n    </li>\n</ul>\n";
+exports.facet_row = "<% /* requires: selected, symbol, item, count, percent, opacity, share */ %>\n<td class=\"im-selector-col\">\n  <span><%- symbol %></span>\n  <div class=\"checkbox\"></div>\n</td>\n\n<td class=\"im-item-col\">\n  <% if (item != null) { %>\n    <%- item %>\n  <% } else { %>\n    <span class=null-value>&nbsp;</span>\n  <% } %>\n</td>\n\n<td class=\"im-count-col\">\n  <% if (max > 1) { %>\n    <div class=\"im-facet-bar\"\n         style=\"width:<%- percent %>%;background:<%- Messages.getText('summary.FacetBar', {opacity: opacity}) %>\">\n    </div>\n  <% } %>\n  <span class=\"im-count\"><%- numToString(count) %></span>\n</td>\n\n<% if (share != null) { %>\n    <td class=\"im-percent-col\"><i><%- share.toFixed() %>%</i></td>\n<% } %>\n";
+exports.table_subtable_summary = "<% if (rows.length) { %>\n  <%= Icons.icon('Table') %>\n<% } else { %>\n  <%= Icons.icon('EmptyTable') %>\n<% } %>\n<%- rows.length %>\n<%- pluralise(contentName, rows.length) %>\n";
+exports.attribute_value_select = "<select class=\"form-control im-con-value-attr\">\n    <% _.each(items, function (item) { %>\n    <option <%= (item.item === value) ? 'selected' : void 0 %> value=\"<%- item.item %>\">\n            <%- item.item %>\n        </option>\n    <% }); %>\n</select>\n";
+exports.code_gen_js = "<% if (asHTML) { %>\n<!-- The Element we will target -->\n<div id=\"some-elem\"></div>\n<!-- The imtables source -->\n<script src=\"<%= imtablesJS %>\" charset=\"UTF-8\"></script>\n<link rel=\"stylesheet\" href=\"<%= imtablesCSS %>\">\n<script>\n<% } %>\n<% if (!asHTML) { %>\n/* Install from npm: npm install imtables\n * This snippet assumes the presence on the page of an element like:\n * <div id=\"some-elem\"></div>\n */\nvar imtables = require('imtables');\n<% } %>\n\nvar selector = '#some-elem';\nvar service  = {root: '<%= service.root %>'};\nvar query    = <%= JSON.stringify(query, null, 2) %>;\n\nimtables.loadTable(\n  selector, // Can also be an element, or a jQuery object.\n  <%= JSON.stringify(page) %>, // May be null\n  {service: service, query: query} // May be an imjs.Query\n).then(\n  function (table) { console.log('Table loaded', table); },\n  function (error) { console.error('Could not load table', error); }\n);\n<% if (asHTML) { %>\n</script>\n<% } %>\n";
+exports.export_flat_file_options = "<h4><%- Messages.getText('export.category.ColumnHeaders', state) %></h4>\n\n<div class=\"checkbox im-headers\">\n    <label>\n        <input type=\"checkbox\" <%= headers ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.AddHeaders') %>\n    </label>\n</div>\n\n<fieldset <%= headers ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-friendly\"\n                <%= (headerType === 'friendly') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.FriendlyHeaders') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-path\"\n                <%= (headerType === 'path') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.PathHeaders') %>\n        </label>\n    </div>\n</fieldset>\n\n";
+exports.cell_preview_error = "<div class=\"alert alert-error\">\n    <h4>Error</h4>\n    <p>Sorry. We could not fetch the preview due to an error:</p>\n    <code><%- message %></code>\n</div>\n";
+exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
+exports.export_destination_options = "<div class=\"form-group im-param-name\">\n    <label><%- Messages.getText('export.param.Name') %></label>\n    <div class=\"input-group\">\n      <input type=\"text\"\n             value=\"<%- filename %>\"\n             class=\"form-control\"\n             placeholder=\"<%- Messages.getText('export.param.Name') %>\"\n             aria-label=\"<%- Messages.getText('export.param.Name') %>\">\n      <div class=\"input-group-btn\">\n        <button type=\"button\"\n                class=\"btn btn-default dropdown-toggle\"\n                data-toggle=\"dropdown\"\n                aria-expanded=\"false\">\n          .<%- format %>\n          <span class=\"caret\"></span>\n        </button>\n        <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n          <% _.chain(formats).groupBy('group').each(function (fmts, grp) { %>\n            <% if (this.i++) { %><li class=\"divider\"></li><% } %>\n            <% _.each(fmts, function (fmt) { %>\n                <li>\n                    <a href=\"#\"\n                       class=\"im-fmt-<%- fmt.id %>\">\n                      <%= Icons.icon(fmt.icon) %>\n                      <%- Messages.getText(fmt.name) %>\n                    </a>\n                </li>\n            <% }); %>\n          <% }, {i: 0}); %>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<% if (format && format.desc) { %>\n  <div class=\"alert alert-info\">\n    <%- Messages.getText(format.desc) %>\n  </div>\n<% } %>\n\n<div class=\"row\">\n    <div class=\"col-sm-6 im-param-dest\">\n    </div>\n    <div class=\"col-sm-6 im-dest-opts\">\n    </div>\n</div>\n";
+exports.column_header = "<% /* requires the properties of HeaderModel +\n    *  penult, last, headerClasses, colTitleClasses, penultClasses\n    *  and the usual Icons, Messages\n    */ %>\n<div class=\"<%- headerClasses %>\">\n\n<div class=\"im-th-buttons\">\n    \n    <% if (outerJoined && isReference) { %>\n      <a href=\"#\" \n          class=\"im-subtable-expander im-th-button\"\n          title=\"<%- Messages.getText('table.header.ToggleTables') %>\">\n        <%= Icons.icon('Table') %>\n      </a>\n    <% } %>\n\n    <% if (sortable) { %>\n        <span class=\"im-th-dropdown im-col-sort dropdown\">\n            <a class=\"im-th-button im-col-sort-indicator\"\n                title=\"<%- Messages.getText('table.header.SortColumn', {dir: sortDirection}) %>\">\n                <%= Icons.icon(sortDirection || 'unsorted') %>\n            </a>\n            <div class=\"dropdown-menu\">\n                <div><%- Messages.getText('table.header.FailedToInitSortMenu') %></div>\n            </div>\n        </span>\n    <% } %>\n\n    <a class=\"im-th-button im-col-remover\"\n        title=\"<%- Messages.getText('table.header.RemoveColumn') %>\">\n        <%= Icons.icon('headerIconRemove') %>\n    </a>\n\n    <a class=\"im-th-button im-col-minumaximiser\"\n        title=\"<%- Messages.getText('table.header.ToggleColumn') %>\">\n        <%= Icons.icon(minimised ? 'headerIconReveal' : 'headerIconHide') %>\n    </a>\n\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n        <a class=\"im-th-button im-col-filters dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.FilterTitle', {count: numOfCons}) %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Filter') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitFilter') %></div>\n        </div>\n    </span>\n\n    <span class=\"dropdown im-summary im-th-dropdown\">\n        <a class=\"im-th-button summary-img dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.ViewSummary') %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Summary') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitSummary') %></div>\n        </div>\n    </span>\n\n    <% if (isComposed) { %>\n        <a class=\"im-th-button im-col-composed\"\n            title=\"<%- Messages.getText('table.header.Composed', {replaces: replaces}) %>\">\n            <%= Icons.icon('Composed') %>\n        </a>\n    <% } %>\n</div>\n\n<div class=\"<%- colTitleClasses %>\">\n  <div class=\"<%- penultClasses %>\">\n      <%- penult %>\n  </div>\n  <% if (last) { %>\n    <div class=\"im-title-part im-last\">\n        <%- last %>\n    </div>\n  <% } %>\n</div>\n\n</div>\n\n";
+exports.summary_stats = "<table class=\"table\">\n    <thead>\n        <tr>\n            <th><%- Messages.getText('summary.Max') %></th>\n            <th><%- Messages.getText('summary.Min') %></th>\n            <th><%- Messages.getText('summary.Average') %></th>\n            <th><%- Messages.getText('summary.StdDev') %></th>\n        </tr>\n        <tr>\n            <td><%- Messages.getText('Number', {n: max}) %></td>\n            <td><%- Messages.getText('Number', {n: min}) %></td>\n            <td><%- Messages.getText('Number', {n: average}) %></td>\n            <td><%- Messages.getText('Number', {n: stdev}) %></td>\n        </tr>\n    </thead>\n</table>\n\n<div class=\"row im-range-controls\">\n    <div class=\"col-sm-4 im-range-from\">\n        <input type=\"text\"\n               class=\"form-control im-range-min input im-range-val\"\n               value=\"<%- min %>\">\n    </div>\n    <div class=\"col-sm-1 im-ellipsis\">\n        <span>...</span>\n    </div>\n    <div class=\"col-sm-4 im-range-to\">\n        <input type=\"text\"\n               class=\"form-control im-range-max input im-range-val\"\n               value=\"<%- max %>\">\n    </div>\n    <div class=\"col-sm-3 im-range-buttons\">\n        <div class=\"btn-group pull-right\">\n            <button class=\"btn btn-primary disabled\">Apply</button>\n            <button class=\"btn btn-cancel disabled\">Reset</button>\n        </div>\n    </div>\n</div>\n\n<div class=\"slider\"></div>\n\n";
+exports.list_tag = "<%- id %>\n<span class=\"im-remove\" title=\"<%- Messages.getText('lists.RemoveTag') %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n";
+exports.facet_item = "<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%- count %>)\n        </b>\n        <%- item %>\n    </a>\n</dd>\n";
+exports.attribute_value_controls = "<div>\n    <input class=\"form-control im-constraint-value im-value-options im-con-value im-con-value-attr\"\n           type=\"text\"\n           placeholder=\"<%- state.valuePlaceholder %>\"\n           value=\"<%- con.value %>\">\n</div>\n";
+exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
+exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role=\"menu\" class=\"im-export-summary\">\n    <% _.each(formats, function (icon, param) { %>\n      <li role=\"presentation\">\n        <a role=\"menuitem\"\n            href=\"<%= query.getExportURI(param) %>&summaryPath=<%= path %>\">\n            <%= Icons.icon(icon) %>\n            <%- icon.toUpperCase() %>\n        </a>\n      </li>\n    <% }); %>\n</ul>\n";
 
-},{"underscore":312}],68:[function(require,module,exports){
+},{"underscore":311}],68:[function(require,module,exports){
 (function() {
   var Options, fs, pluralize, select_html, select_templ, _;
 
@@ -5665,7 +5666,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../options":63,"pluralize":310,"underscore":312}],69:[function(require,module,exports){
+},{"../options":63,"pluralize":309,"underscore":311}],69:[function(require,module,exports){
 (function() {
   module.exports = {
     interpolate: /\{\{\{ (.+?) \}\}\}/g,
@@ -5722,7 +5723,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../options":63,"es6-promise":281}],71:[function(require,module,exports){
+},{"../options":63,"es6-promise":280}],71:[function(require,module,exports){
 (function() {
   var Formatting, createColumns, getReplacedTest, index, isKeyField, notBanned, returnIfOK,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -6048,7 +6049,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../models/cell":37,"../models/fast-path-object":43,"../models/nested-table":48,"../models/null-object":49,"../models/object-store":51,"underscore":312}],76:[function(require,module,exports){
+},{"../models/cell":37,"../models/fast-path-object":43,"../models/nested-table":48,"../models/null-object":49,"../models/object-store":51,"underscore":311}],76:[function(require,module,exports){
 (function() {
   var _;
 
@@ -6066,7 +6067,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"underscore":312}],77:[function(require,module,exports){
+},{"underscore":311}],77:[function(require,module,exports){
 (function() {
   var CACHE, key;
 
@@ -6170,7 +6171,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"underscore":312}],80:[function(require,module,exports){
+},{"underscore":311}],80:[function(require,module,exports){
 (function() {
   var getMissingData, hasData, thenSet;
 
@@ -6232,7 +6233,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"backbone":232,"underscore":312}],82:[function(require,module,exports){
+},{"backbone":232,"underscore":311}],82:[function(require,module,exports){
 (function() {
   var buildProps, refs, refsIn, _;
 
@@ -6295,7 +6296,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"underscore":312}],83:[function(require,module,exports){
+},{"underscore":311}],83:[function(require,module,exports){
 (function() {
   var getLeaves,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -6433,7 +6434,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"es6-promise":281,"underscore":312}],85:[function(require,module,exports){
+},{"es6-promise":280,"underscore":311}],85:[function(require,module,exports){
 (function() {
   var getReplacedTest, isIDPath, shouldFormat;
 
@@ -6490,7 +6491,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"es6-promise":281}],87:[function(require,module,exports){
+},{"es6-promise":280}],87:[function(require,module,exports){
 (function() {
   module.exports = function(fields) {
     if (fields == null) {
@@ -6586,7 +6587,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../options":63,"es6-promise":281,"jquery":309}],91:[function(require,module,exports){
+},{"../options":63,"es6-promise":280,"jquery":308}],91:[function(require,module,exports){
 (function() {
   var longestCommonPrefix, prefixesAll, _,
     __slice = [].slice;
@@ -6624,7 +6625,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"underscore":312}],92:[function(require,module,exports){
+},{"underscore":311}],92:[function(require,module,exports){
 (function() {
   exports.href = function(address, subject, body) {
     var pairs, params;
@@ -6711,7 +6712,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"underscore":312}],96:[function(require,module,exports){
+},{"underscore":311}],96:[function(require,module,exports){
 (function() {
   var contains_i, _;
 
@@ -6757,7 +6758,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"underscore":312}],97:[function(require,module,exports){
+},{"underscore":311}],97:[function(require,module,exports){
 (function() {
   var CACHE, Promise, getPathSuggestions, matchPathsToNames, _;
 
@@ -6817,7 +6818,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"es6-promise":281,"underscore":312}],98:[function(require,module,exports){
+},{"es6-promise":280,"underscore":311}],98:[function(require,module,exports){
 (function() {
   var PopoverFactory, PreviewCachingService;
 
@@ -6939,7 +6940,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../options":63,"./load-resource":90,"es6-promise":281,"jquery":309}],101:[function(require,module,exports){
+},{"../options":63,"./load-resource":90,"es6-promise":280,"jquery":308}],101:[function(require,module,exports){
 (function() {
   var Messages, Options, Promise, getBranding, getOrganisms, getParameters, getResultClass, openWindowWithPost, parseUrl, send, _;
 
@@ -7036,7 +7037,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../messages":16,"../options":63,"./branding":70,"./get-organisms":84,"./get-result-class":86,"./open-window-with-post":94,"./parse-url":95,"es6-promise":281,"underscore":312}],102:[function(require,module,exports){
+},{"../messages":16,"../options":63,"./branding":70,"./get-organisms":84,"./get-result-class":86,"./open-window-with-post":94,"./parse-url":95,"es6-promise":280,"underscore":311}],102:[function(require,module,exports){
 (function() {
   var Options, Promise, fromPairs, getGenomeSpaceUrl, save, _;
 
@@ -7078,7 +7079,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../options":63,"./query-string":99,"es6-promise":281,"underscore":312}],103:[function(require,module,exports){
+},{"../options":63,"./query-string":99,"es6-promise":280,"underscore":311}],103:[function(require,module,exports){
 (function() {
   var $, BOUNDARY, CLOSE_DELIM, DELIMITER, DRIVE_METHOD, DRIVE_PATH, ERR, FILE_CT, GoogleExporter, LIB, METADATA_CT, MetaData, Options, Promise, REQ_CT, REQ_PARAMS, SCOPE, VERSION, loadResource, sendToGoogleDrive, withExporter, _, __GOOGLE;
 
@@ -7257,7 +7258,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../options":63,"./load-resource":90,"es6-promise":281,"jquery":309,"underscore":312}],104:[function(require,module,exports){
+},{"../options":63,"./load-resource":90,"es6-promise":280,"jquery":308,"underscore":311}],104:[function(require,module,exports){
 (function() {
   var callable, compose, escape, getData, _ref,
     __slice = [].slice;
@@ -7285,7 +7286,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"./ensure-required-data":80,"underscore":312}],105:[function(require,module,exports){
+},{"./ensure-required-data":80,"underscore":311}],105:[function(require,module,exports){
 (function() {
   var NEXT_DIRECTION_OF, sortQueryByPath;
 
@@ -7407,7 +7408,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../icons":14,"../messages":16,"../options":63,"../templates/mustache-settings":69,"underscore":312}],108:[function(require,module,exports){
+},{"../icons":14,"../messages":16,"../options":63,"../templates/mustache-settings":69,"underscore":311}],108:[function(require,module,exports){
 (function() {
   var ALREADY_DONE, CACHES, Options, Page, Promise, ResultCache,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -7591,7 +7592,7 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 
 }).call(this);
 
-},{"../models/page":54,"../options":63,"es6-promise":281}],109:[function(require,module,exports){
+},{"../models/page":54,"../options":63,"es6-promise":280}],109:[function(require,module,exports){
 (function() {
   var toNamedPath;
 
@@ -7635,8 +7636,8 @@ exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span cl
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../cdn":1,"es6-promise":281}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-35';
+},{"../cdn":1,"es6-promise":280}],111:[function(require,module,exports){
+module.exports = '2.0.0-beta-36';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -8020,7 +8021,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../icons":14,"../messages":16,"../options":63,"../templates":67,"./constraint-editor":129,"./constraint-summary":130,"es6-promise":281,"imjs":290,"jquery":309,"underscore":312}],113:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../icons":14,"../messages":16,"../options":63,"../templates":67,"./constraint-editor":129,"./constraint-summary":130,"es6-promise":280,"imjs":289,"jquery":308,"underscore":311}],113:[function(require,module,exports){
 (function() {
   var $, AttributeValueControls, CoreView, HasTypeaheads, INTEGRAL_TYPES, IS_BLANK, Messages, NUMERIC_TYPES, NestedModel, Options, Promise, Query, SuggestionSource, Templates, getBranding, numToString, numify, selectTemplate, trim, _, _ref, _ref1,
     __hasProp = {}.hasOwnProperty,
@@ -8418,7 +8419,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../core/nested-model":8,"../messages":16,"../mixins/has-typeaheads":32,"../options":63,"../patterns":64,"../templates":67,"../templates/helpers":68,"../utils/branding":70,"../utils/suggestion-source":107,"es6-promise":281,"imjs":290,"jquery":309,"underscore":312}],114:[function(require,module,exports){
+},{"../core-view":3,"../core/nested-model":8,"../messages":16,"../mixins/has-typeaheads":32,"../options":63,"../patterns":64,"../templates":67,"../templates/helpers":68,"../utils/branding":70,"../utils/suggestion-source":107,"es6-promise":280,"imjs":289,"jquery":308,"underscore":311}],114:[function(require,module,exports){
 (function() {
   var BooleanValueControls, Messages, Options, View, fs, html, mustacheSettings, _,
     __hasProp = {}.hasOwnProperty,
@@ -8486,7 +8487,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../options":63,"../templates/mustache-settings":69,"underscore":312}],115:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../options":63,"../templates/mustache-settings":69,"underscore":311}],115:[function(require,module,exports){
 (function() {
   var CodeGenButton, CodeGenModel, CoreView, Dialogue, MainButton, Messages, Options, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -8586,7 +8587,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/code-gen":18,"../models/code-gen":38,"../options":63,"../templates":67,"./code-gen-dialogue":116,"underscore":312}],116:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/code-gen":18,"../models/code-gen":38,"../options":63,"../templates":67,"./code-gen-dialogue":116,"underscore":311}],116:[function(require,module,exports){
 (function (global){
 (function() {
   var CANNOT_SAVE, C_STYLE_COMMENTS, Checkbox, CodeGenDialogue, CodeGenModel, HTML_MIMETYPE, JS_MIMETYPE, MIMETYPES, Messages, Modal, OCTOTHORPE_COMMENTS, Options, Promise, Templates, XML_MIMETYPE, alreadyRejected, canSaveFromMemory, indentXml, stripEmptyValues, stripExtraneousWhiteSpace, withFileSaver, withPrettyPrintOne, withResource, _,
@@ -8962,7 +8963,7 @@ module.exports = '2.0.0-beta-35';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../core/checkbox":4,"../messages":16,"../messages/code-gen":18,"../models/code-gen":38,"../options":63,"../templates":67,"../utils/indent-xml":88,"../utils/strip-extra-whitespace":106,"../utils/with-cdn-resource":110,"./modal":197,"es6-promise":281,"underscore":312}],117:[function(require,module,exports){
+},{"../core/checkbox":4,"../messages":16,"../messages/code-gen":18,"../models/code-gen":38,"../options":63,"../templates":67,"../utils/indent-xml":88,"../utils/strip-extra-whitespace":106,"../utils/with-cdn-resource":110,"./modal":197,"es6-promise":280,"underscore":311}],117:[function(require,module,exports){
 (function() {
   var AvailableColumns, Collection, ColumnManager, ColumnManagerTabs, IndexedCollection, Messages, Modal, OrderByList, OrderByModel, PathModel, SelectList, SelectListEditor, SortOrderEditor, Templates, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -9254,7 +9255,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core/collection":5,"../messages":16,"../messages/columns":19,"../models/available-columns":36,"../models/order-element":53,"../models/path":56,"../templates":67,"./column-manager/select-list":122,"./column-manager/sort-order":124,"./column-manager/tabs":125,"./modal":197,"underscore":312}],118:[function(require,module,exports){
+},{"../core/collection":5,"../messages":16,"../messages/columns":19,"../models/available-columns":36,"../models/order-element":53,"../models/path":56,"../templates":67,"./column-manager/select-list":122,"./column-manager/sort-order":124,"./column-manager/tabs":125,"./modal":197,"underscore":311}],118:[function(require,module,exports){
 (function() {
   var AvailablePath, CUTOFF, UnselectedColumn, _,
     __hasProp = {}.hasOwnProperty,
@@ -9334,7 +9335,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"./unselected-column":126,"underscore":312}],119:[function(require,module,exports){
+},{"./unselected-column":126,"underscore":311}],119:[function(require,module,exports){
 (function() {
   var ColumnManger, ColumnMangerButton, QueryDialogueButton,
     __hasProp = {}.hasOwnProperty,
@@ -9424,7 +9425,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../templates":67,"./selected-column":123,"underscore":312}],121:[function(require,module,exports){
+},{"../../templates":67,"./selected-column":123,"underscore":311}],121:[function(require,module,exports){
 (function() {
   var Buttons, ColumnChooser, CoreView, OpenNodes, Options, PathChooser, PathSet, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -9859,7 +9860,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./path-chooser":121,"./selected-column":123,"./unselected-column":126,"underscore":312}],123:[function(require,module,exports){
+},{"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./path-chooser":121,"./selected-column":123,"./unselected-column":126,"underscore":311}],123:[function(require,module,exports){
 (function() {
   var Collection, CoreView, PathModel, SelectedColumn, TEMPLATE_PARTS, Templates, decr, ignore, incr, _,
     __hasProp = {}.hasOwnProperty,
@@ -10010,7 +10011,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../models/path":56,"../../templates":67,"../../utils/events":81,"underscore":312}],124:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../models/path":56,"../../templates":67,"../../utils/events":81,"underscore":311}],124:[function(require,module,exports){
 (function (global){
 (function() {
   var AvailablePath, CoreModel, CoreView, HandlesDOMReSort, OrderElement, SortOrderEditor, Templates, activeId, inactiveId, _,
@@ -10254,7 +10255,7 @@ module.exports = '2.0.0-beta-35';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../core-model":2,"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./available-path":118,"./order-element":120,"underscore":312}],125:[function(require,module,exports){
+},{"../../core-model":2,"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./available-path":118,"./order-element":120,"underscore":311}],125:[function(require,module,exports){
 (function() {
   var ClassSet, ColumnManagerTabs, CoreView, Templates, tabClassSet, _,
     __hasProp = {}.hasOwnProperty,
@@ -10356,7 +10357,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"../../utils/css-class-set":79,"underscore":312}],126:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"../../utils/css-class-set":79,"underscore":311}],126:[function(require,module,exports){
 (function() {
   var SelectedColumn, TEMPLATE_PARTS, Templates, UnselectedColumn, _,
     __hasProp = {}.hasOwnProperty,
@@ -10400,7 +10401,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../templates":67,"./selected-column":123,"underscore":312}],127:[function(require,module,exports){
+},{"../../templates":67,"./selected-column":123,"underscore":311}],127:[function(require,module,exports){
 (function() {
   var ConstraintAdderOptions, HasTypeaheads, IS_BLANK, Options, Promise, Templates, View, getPathSuggestions, pathSuggester, shortenLongName, _,
     __slice = [].slice,
@@ -10635,7 +10636,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../mixins/has-typeaheads":32,"../options":63,"../patterns":64,"../templates":67,"../utils/path-suggester":96,"../utils/path-suggestions":97,"es6-promise":281,"underscore":312}],128:[function(require,module,exports){
+},{"../core-view":3,"../mixins/has-typeaheads":32,"../options":63,"../patterns":64,"../templates":67,"../utils/path-suggester":96,"../utils/path-suggestions":97,"es6-promise":280,"underscore":311}],128:[function(require,module,exports){
 (function() {
   var ConstraintAdder, ConstraintAdderModel, ConstraintAdderOptions, CoreModel, Messages, NewConstraint, OPTIONS_SEL, OpenNodes, PathChooser, PathSet, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -10848,7 +10849,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../messages":16,"../models/open-nodes":52,"../models/path-set":55,"../templates":67,"./constraint-adder-options":127,"./new-constraint":199,"./path-chooser":201,"underscore":312}],129:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../messages":16,"../models/open-nodes":52,"../models/path-set":55,"../templates":67,"./constraint-adder-options":127,"./new-constraint":199,"./path-chooser":201,"underscore":311}],129:[function(require,module,exports){
 (function() {
   var ATTRIBUTE_OPS, ATTRIBUTE_VALUE_OPS, AttributeValueControls, BASIC_OPS, BOOLEAN_TYPES, BooleanValueControls, ConstraintEditor, CoreView, ErrorMessage, Icons, LIST_OPS, ListValueControls, LookupValueControls, LoopValueControls, MULTIVALUE_OPS, Messages, Model, MultiValueControls, NO_OP, NULL_OPS, NUMERIC_TYPES, Query, REFERENCE_OPS, TEMPLATE, TypeValueControls, fs, html, operatorsFor, _, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -11198,7 +11199,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../icons":14,"../messages":16,"./attribute-value-controls":113,"./boolean-value-controls":114,"./error-message":137,"./list-value-controls":193,"./lookup-value-controls":194,"./loop-value-controls":195,"./multi-value-controls":198,"./type-value-controls":228,"imjs":290,"underscore":312}],130:[function(require,module,exports){
+},{"../core-view":3,"../icons":14,"../messages":16,"./attribute-value-controls":113,"./boolean-value-controls":114,"./error-message":137,"./list-value-controls":193,"./lookup-value-controls":194,"./loop-value-controls":195,"./multi-value-controls":198,"./type-value-controls":228,"imjs":289,"underscore":311}],130:[function(require,module,exports){
 (function() {
   var ConstraintSummary, CoreView, IS_BLANK, Messages, Model, Query, Templates, _, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -11355,7 +11356,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../patterns":64,"../templates":67,"imjs":290,"underscore":312}],131:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../patterns":64,"../templates":67,"imjs":289,"underscore":311}],131:[function(require,module,exports){
 (function() {
   var ActiveConstraint, ConstraintAdder, Constraints, CoreView, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -11434,7 +11435,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages/constraints":21,"../templates":67,"./active-constraint":112,"./constraint-adder":128,"underscore":312}],132:[function(require,module,exports){
+},{"../core-view":3,"../messages/constraints":21,"../templates":67,"./active-constraint":112,"./constraint-adder":128,"underscore":311}],132:[function(require,module,exports){
 (function() {
   var AdderButton, CoreView, Messages, PathModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -11497,7 +11498,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"underscore":312}],133:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"underscore":311}],133:[function(require,module,exports){
 (function() {
   var AdderButton, ComposedColumnConstraintAdder, ConstraintAdder, CoreView, DropdownButtonGrp, Messages, OPTS_SEL, Option, PathModel, Templates, Toggle, _,
     __hasProp = {}.hasOwnProperty,
@@ -11674,7 +11675,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"../../templates":67,"../constraint-adder":128,"./column-adder-button":132,"underscore":312}],134:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"../../templates":67,"../constraint-adder":128,"./column-adder-button":132,"underscore":311}],134:[function(require,module,exports){
 (function() {
   var AdderButton, ConstraintAdder, CoreView, Messages, OPTS_SEL, PathModel, SingleColumnConstraintAdder, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -11748,7 +11749,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"../../templates":67,"../constraint-adder":128,"./column-adder-button":132,"underscore":312}],135:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"../../templates":67,"../constraint-adder":128,"./column-adder-button":132,"underscore":311}],135:[function(require,module,exports){
 (function() {
   var ComposedColumnConstraintAdder, Constraints, SingleColumnConstraintAdder, SingleColumnConstraints,
     __hasProp = {}.hasOwnProperty,
@@ -11914,7 +11915,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../core/type-assertions":10,"../models/history":45,"../models/selected-objects":58,"../models/table":61,"../utils/children":76,"../utils/events":81,"./query-tools":208,"./table":209,"underscore":312}],137:[function(require,module,exports){
+},{"../core-view":3,"../core/type-assertions":10,"../models/history":45,"../models/selected-objects":58,"../models/table":61,"../utils/children":76,"../utils/events":81,"./query-tools":208,"./table":209,"underscore":311}],137:[function(require,module,exports){
 (function() {
   var CoreView, ErrorMessage, Icons, Templates, fs, _,
     __hasProp = {}.hasOwnProperty,
@@ -11967,7 +11968,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../icons":14,"../templates":67,"fs":247,"underscore":312}],138:[function(require,module,exports){
+},{"../core-view":3,"../icons":14,"../templates":67,"fs":246,"underscore":311}],138:[function(require,module,exports){
 (function() {
   var $, ColumnControls, CompressionControls, ConstraintAdder, DestinationOptions, ExportDialogue, ExportModel, FOOTER, FastaOptions, FlatFileOptions, FormatControls, Formats, INITIAL_STATE, JSONOptions, Menu, Messages, Modal, Model, Options, Preview, RowControls, RunsQuery, Templates, UndismissableError, isa, openWindowWithPost, sendToDropBox, sendToGalaxy, sendToGenomeSpace, sendToGoogleDrive, _,
     __hasProp = {}.hasOwnProperty,
@@ -12389,7 +12390,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-model":2,"../messages":16,"../mixins/runs-query":33,"../models/export-formats":42,"../options":63,"../templates":67,"../utils/open-window-with-post":94,"../utils/send-to-dropbox":100,"../utils/send-to-galaxy":101,"../utils/send-to-genomespace":102,"../utils/send-to-google-drive":103,"./constraint-adder":128,"./export-dialogue/column-controls":140,"./export-dialogue/compression-controls":141,"./export-dialogue/destination-options":142,"./export-dialogue/fasta-options":143,"./export-dialogue/flat-file-options":144,"./export-dialogue/format-controls":145,"./export-dialogue/json-options":146,"./export-dialogue/preview":148,"./export-dialogue/row-controls":149,"./export-dialogue/tab-menu":150,"./modal":197,"jquery":309,"underscore":312}],139:[function(require,module,exports){
+},{"../core-model":2,"../messages":16,"../mixins/runs-query":33,"../models/export-formats":42,"../options":63,"../templates":67,"../utils/open-window-with-post":94,"../utils/send-to-dropbox":100,"../utils/send-to-galaxy":101,"../utils/send-to-genomespace":102,"../utils/send-to-google-drive":103,"./constraint-adder":128,"./export-dialogue/column-controls":140,"./export-dialogue/compression-controls":141,"./export-dialogue/destination-options":142,"./export-dialogue/fasta-options":143,"./export-dialogue/flat-file-options":144,"./export-dialogue/format-controls":145,"./export-dialogue/json-options":146,"./export-dialogue/preview":148,"./export-dialogue/row-controls":149,"./export-dialogue/tab-menu":150,"./modal":197,"jquery":308,"underscore":311}],139:[function(require,module,exports){
 (function() {
   var Counter, ExportDialogue, ExportDialogueButton, QueryDialogueButton, _,
     __hasProp = {}.hasOwnProperty,
@@ -12463,7 +12464,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../utils/count-executor":77,"../export-dialogue":138,"../query-dialogue-button":206,"underscore":312}],140:[function(require,module,exports){
+},{"../../utils/count-executor":77,"../export-dialogue":138,"../query-dialogue-button":206,"underscore":311}],140:[function(require,module,exports){
 (function() {
   var AddColumnControl, ColumnControls, ColumnView, HasTypeaheads, HeadingLabel, LabelView, Messages, PathSet, ResetButton, Templates, View, pathSuggester, _,
     __hasProp = {}.hasOwnProperty,
@@ -12836,7 +12837,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../mixins/has-typeaheads":32,"../../models/path-set":55,"../../templates":67,"../../utils/path-suggester":96,"../label-view":179,"underscore":312}],141:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../mixins/has-typeaheads":32,"../../models/path-set":55,"../../templates":67,"../../utils/path-suggester":96,"../label-view":179,"underscore":311}],141:[function(require,module,exports){
 (function() {
   var CompressionControls, ModalBody, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -12889,7 +12890,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../templates":67,"./main":147,"underscore":312}],142:[function(require,module,exports){
+},{"../../templates":67,"./main":147,"underscore":311}],142:[function(require,module,exports){
 (function() {
   var CoreView, DestinationOptions, DestinationSubOptions, Formats, Options, RadioButtons, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -13085,7 +13086,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../models/export-formats":42,"../../options":63,"../../templates":67,"underscore":312}],143:[function(require,module,exports){
+},{"../../core-view":3,"../../models/export-formats":42,"../../options":63,"../../templates":67,"underscore":311}],143:[function(require,module,exports){
 (function() {
   var FastaOptions, LabelView, Messages, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13136,7 +13137,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":312}],144:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":311}],144:[function(require,module,exports){
 (function() {
   var FlatFileOptions, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13189,7 +13190,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"underscore":312}],145:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"underscore":311}],145:[function(require,module,exports){
 (function() {
   var FormatControls, Formats, HeadingView, LabelView, Messages, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13264,7 +13265,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../models/export-formats":42,"../../templates":67,"../label-view":179,"underscore":312}],146:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../models/export-formats":42,"../../templates":67,"../label-view":179,"underscore":311}],146:[function(require,module,exports){
 (function() {
   var JSONOptions, LabelView, Messages, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13316,7 +13317,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":312}],147:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":311}],147:[function(require,module,exports){
 (function() {
   var ModalBody, View,
     __hasProp = {}.hasOwnProperty,
@@ -13438,7 +13439,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../mixins/runs-query":33,"../../models/export-formats":42,"../../templates":67,"underscore":312}],149:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../mixins/runs-query":33,"../../models/export-formats":42,"../../templates":67,"underscore":311}],149:[function(require,module,exports){
 (function() {
   var HeadingLabel, LabelView, Messages, OffsetLabel, ResetButton, RowControls, SizeLabel, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13617,7 +13618,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":312}],150:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":311}],150:[function(require,module,exports){
 (function() {
   var Options, TABS, Tab, TabMenu, Templates, View, _,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -13803,7 +13804,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../options":63,"../../templates":67,"underscore":312}],151:[function(require,module,exports){
+},{"../../core-view":3,"../../options":63,"../../templates":67,"underscore":311}],151:[function(require,module,exports){
 (function() {
   var CoreView, Event, FacetItems, FacetView, FacetVisualisation, NumericRange, Options, SelectedCount, SetsPathNames, SummaryHeading, SummaryItems,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -14131,7 +14132,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../messages":16,"../../messages/summary":27,"../../options":63,"../../utils/casts":74,"./visualisation-base":165,"d3-browserify":280,"underscore":312}],153:[function(require,module,exports){
+},{"../../messages":16,"../../messages/summary":27,"../../options":63,"../../utils/casts":74,"./visualisation-base":165,"d3-browserify":279,"underscore":311}],153:[function(require,module,exports){
 (function() {
   var CoreView, FacetItems, NoResults, OnlyOneItem, REQ_ATTRS, SummaryItems, SummaryStats, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -14222,7 +14223,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"./no-results":154,"./only-one-item":156,"./summary-items":163,"./summary-stats":164,"underscore":312}],154:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"./no-results":154,"./only-one-item":156,"./summary-items":163,"./summary-stats":164,"underscore":311}],154:[function(require,module,exports){
 (function() {
   var CoreView, NoResults, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -14564,7 +14565,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../messages":16,"../../messages/summary":27,"../../options":63,"./visualisation-base":165,"d3-browserify":280,"jquery":309,"underscore":312}],156:[function(require,module,exports){
+},{"../../messages":16,"../../messages/summary":27,"../../options":63,"./visualisation-base":165,"d3-browserify":279,"jquery":308,"underscore":311}],156:[function(require,module,exports){
 (function() {
   var CoreView, OnlyOneItem, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -14792,7 +14793,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../options":63,"./visualisation-base":165,"d3-browserify":280,"jquery":309,"underscore":312}],158:[function(require,module,exports){
+},{"../../options":63,"./visualisation-base":165,"d3-browserify":279,"jquery":308,"underscore":311}],158:[function(require,module,exports){
 (function() {
   var CoreView, RowSurrogate, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -14844,7 +14845,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"underscore":312}],159:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"underscore":311}],159:[function(require,module,exports){
 (function() {
   var Checkbox, CoreView, FacetRow, RowSurrogate, Templates, bool, _,
     __hasProp = {}.hasOwnProperty,
@@ -15011,7 +15012,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/checkbox":4,"../../messages/summary":27,"../../templates":67,"./row-surrogate":158,"underscore":312}],160:[function(require,module,exports){
+},{"../../core-view":3,"../../core/checkbox":4,"../../messages/summary":27,"../../templates":67,"./row-surrogate":158,"underscore":311}],160:[function(require,module,exports){
 (function() {
   var CoreView, SelectedCount, Templates, fracWithinRange, fullyContained, getPartialCount, partiallyOverlapping, sum, sumCounts, sumPartials, _,
     __hasProp = {}.hasOwnProperty,
@@ -15172,7 +15173,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/summary":27,"../../templates":67,"underscore":312}],161:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/summary":27,"../../templates":67,"underscore":311}],161:[function(require,module,exports){
 (function() {
   var CoreView, SummaryHeading, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -15224,7 +15225,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/summary":27,"../../templates":67,"underscore":312}],162:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/summary":27,"../../templates":67,"underscore":311}],162:[function(require,module,exports){
 (function() {
   var BASIC_OPS, CoreView, IGNORE, MIN_VALS_OPTIMISATION, Messages, SUMMARY_FORMATS, SummaryItemsControls, Templates, bool, negateOps, _,
     __hasProp = {}.hasOwnProperty,
@@ -15493,7 +15494,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/summary":27,"../../templates":67,"underscore":312}],163:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/summary":27,"../../templates":67,"underscore":311}],163:[function(require,module,exports){
 (function() {
   var Backbone, CoreView, FacetRow, IGNORE, Messages, SetsPathNames, SummaryItems, SummaryItemsControls, Templates, rowId, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -15683,7 +15684,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/summary":27,"../../mixins/sets-path-names":34,"../../templates":67,"./row":159,"./summary-items-controls":162,"backbone":232,"underscore":312}],164:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/summary":27,"../../mixins/sets-path-names":34,"../../templates":67,"./row":159,"./summary-items-controls":162,"backbone":232,"underscore":311}],164:[function(require,module,exports){
 (function() {
   var CoreView, DOWN, NULL_STATS, SummaryStats, Templates, UP, _,
     __hasProp = {}.hasOwnProperty,
@@ -15937,7 +15938,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"underscore":312}],165:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"underscore":311}],165:[function(require,module,exports){
 (function() {
   var CoreView, VisualisationBase, d3, _,
     __hasProp = {}.hasOwnProperty,
@@ -16061,7 +16062,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"d3-browserify":280,"underscore":312}],166:[function(require,module,exports){
+},{"../../core-view":3,"d3-browserify":279,"underscore":311}],166:[function(require,module,exports){
 (function() {
   var CoreView, FacetVisualisation, Histogram, NumericDistribution, Options, PieChart, SummaryItems,
     __hasProp = {}.hasOwnProperty,
@@ -16414,7 +16415,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/constraints":21,"../messages/logic":25,"../templates":67,"./constraints":131,"./modal":197,"underscore":312}],168:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/constraints":21,"../messages/logic":25,"../templates":67,"./constraints":131,"./modal":197,"underscore":311}],168:[function(require,module,exports){
 (function() {
   var FilterDialogue, FilterDialogueButton, QueryDialogueButton,
     __hasProp = {}.hasOwnProperty,
@@ -17081,7 +17082,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../models/path":56,"../options":63,"../templates":67,"../utils/get-leaves":83,"./item-preview/counts-title":173,"./item-preview/details":174,"./item-preview/reference-counts":175,"es6-promise":281,"underscore":312}],173:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../models/path":56,"../options":63,"../templates":67,"../utils/get-leaves":83,"./item-preview/counts-title":173,"./item-preview/details":174,"./item-preview/reference-counts":175,"es6-promise":280,"underscore":311}],173:[function(require,module,exports){
 (function() {
   var CoreView, CountsTitle, Messages, _,
     __hasProp = {}.hasOwnProperty,
@@ -17130,7 +17131,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"underscore":312}],174:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"underscore":311}],174:[function(require,module,exports){
 (function() {
   var ATTR, CoreView, ITEMS, ItemDetails, REFERENCE, Templates, ignore, _,
     __hasProp = {}.hasOwnProperty,
@@ -17209,7 +17210,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"../../utils/events":81,"underscore":312}],175:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"../../utils/events":81,"underscore":311}],175:[function(require,module,exports){
 (function() {
   var CoreView, ReferenceCounts, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -17354,7 +17355,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/joins":23,"../models/joins":47,"./join-manager/body":177,"./modal":197,"underscore":312}],177:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/joins":23,"../models/joins":47,"./join-manager/body":177,"./modal":197,"underscore":311}],177:[function(require,module,exports){
 (function() {
   var BtnClasses, ClassSet, CoreView, Join, JoinManagerBody, LINE_PARTS, Templates, otherStyle, _,
     __hasProp = {}.hasOwnProperty,
@@ -17520,7 +17521,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/joins":23,"../../templates":67,"../../utils/css-class-set":79,"underscore":312}],178:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/joins":23,"../../templates":67,"../../utils/css-class-set":79,"underscore":311}],178:[function(require,module,exports){
 (function() {
   var JoinManager, JoinManagerButton, QueryDialogueButton,
     __hasProp = {}.hasOwnProperty,
@@ -17607,7 +17608,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"./base-append-dialogue":183,"./from-path-mixin":189,"es6-promise":281}],181:[function(require,module,exports){
+},{"./base-append-dialogue":183,"./from-path-mixin":189,"es6-promise":280}],181:[function(require,module,exports){
 (function() {
   var AppendFromSelection, BaseAppendDialogue, Floating, FromSelectionMixin, Promise,
     __hasProp = {}.hasOwnProperty,
@@ -17638,7 +17639,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../mixins/floating-dialogue":30,"./base-append-dialogue":183,"./from-selection-mixin":190,"es6-promise":281}],182:[function(require,module,exports){
+},{"../../mixins/floating-dialogue":30,"./base-append-dialogue":183,"./from-selection-mixin":190,"es6-promise":280}],182:[function(require,module,exports){
 (function() {
   var AppendToListBody, CoreView, Messages, SelectWithLabel, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -17693,7 +17694,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/select-with-label":9,"../../messages":16,"../../messages/lists":24,"../../templates":67,"underscore":312}],183:[function(require,module,exports){
+},{"../../core-view":3,"../../core/select-with-label":9,"../../messages":16,"../../messages/lists":24,"../../templates":67,"underscore":311}],183:[function(require,module,exports){
 (function() {
   var AppendToListBody, AppendToListModel, BaseAppendDialogue, BaseCreateListDialogue, CoreCollection, CoreModel, LIST_NOT_SUITABLE, Messages, NO_SUITABLE_LISTS, NO_TARGET_SELECTED, PossibleList, PossibleLists, Promise, TARGET_DOES_NOT_EXIST, onlyCurrent, theListIsSuitable, unpackLists, _,
     __hasProp = {}.hasOwnProperty,
@@ -17854,8 +17855,36 @@ module.exports = '2.0.0-beta-35';
       });
     };
 
-    BaseAppendDialogue.prototype.processQuery = function(query) {
-      return query.appendToList(this.model.get('target'));
+    BaseAppendDialogue.prototype.act = function() {
+      return this.getQuery().then((function(_this) {
+        return function(query) {
+          return _this.fetchOldList(query);
+        };
+      })(this)).then((function(_this) {
+        return function(oldWithQuery) {
+          return _this.processQuery(oldWithQuery);
+        };
+      })(this)).then(this.resolve, (function(_this) {
+        return function(e) {
+          return _this.state.set({
+            error: e
+          });
+        };
+      })(this));
+    };
+
+    BaseAppendDialogue.prototype.fetchOldList = function(query) {
+      return query.service.fetchList(this.model.get('target')).then(function(oldlist) {
+        return [oldlist, query];
+      });
+    };
+
+    BaseAppendDialogue.prototype.processQuery = function(values) {
+      var appendPromise, oldlist, query;
+      oldlist = values[0], query = values[values.length - 1];
+      return appendPromise = query.appendToList(this.model.get('target')).then(function(result) {
+        return [oldlist, result];
+      });
     };
 
     BaseAppendDialogue.prototype.modelEvents = function() {
@@ -17971,7 +18000,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-model":2,"../../core/collection":5,"../../messages":16,"../../models/append-to-list":35,"./append-to-list-body":182,"./base-dialogue":184,"es6-promise":281,"underscore":312}],184:[function(require,module,exports){
+},{"../../core-model":2,"../../core/collection":5,"../../messages":16,"../../models/append-to-list":35,"./append-to-list-body":182,"./base-dialogue":184,"es6-promise":280,"underscore":311}],184:[function(require,module,exports){
 (function() {
   var ABSTRACT, BaseCreateListDialogue, CreateListModel, ListDialogueBody, Messages, Modal, _,
     __hasProp = {}.hasOwnProperty,
@@ -18167,7 +18196,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../messages":16,"../../messages/lists":24,"../../models/create-list":41,"../modal":197,"./body":185,"underscore":312}],185:[function(require,module,exports){
+},{"../../messages":16,"../../messages/lists":24,"../../models/create-list":41,"../modal":197,"./body":185,"underscore":311}],185:[function(require,module,exports){
 (function() {
   var CoreView, CreateListModel, InputWithButton, InputWithLabel, ListDialogueBody, ListTag, Messages, TagsApology, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -18341,7 +18370,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/input-with-button":6,"../../core/input-with-label":7,"../../messages":16,"../../messages/lists":24,"../../models/create-list":41,"../../templates":67,"./tag":191,"./tags-apology":192,"underscore":312}],186:[function(require,module,exports){
+},{"../../core-view":3,"../../core/input-with-button":6,"../../core/input-with-label":7,"../../messages":16,"../../messages/lists":24,"../../models/create-list":41,"../../templates":67,"./tag":191,"./tags-apology":192,"underscore":311}],186:[function(require,module,exports){
 (function() {
   var AppendFromPath, AppendPicker, ClassSet, Collection, CoreModel, CoreView, Counter, CreateFromPath, CreatePicker, ListDialogueButton, PathModel, Paths, SelectableNode, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -18689,7 +18718,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-model":2,"../../core-view":3,"../../core/collection":5,"../../messages/lists":24,"../../models/path":56,"../../templates":67,"../../utils/count-executor":77,"../../utils/css-class-set":79,"./append-from-path":180,"./append-from-selection":181,"./create-from-path":187,"./create-from-selection":188,"underscore":312}],187:[function(require,module,exports){
+},{"../../core-model":2,"../../core-view":3,"../../core/collection":5,"../../messages/lists":24,"../../models/path":56,"../../templates":67,"../../utils/count-executor":77,"../../utils/css-class-set":79,"./append-from-path":180,"./append-from-selection":181,"./create-from-path":187,"./create-from-selection":188,"underscore":311}],187:[function(require,module,exports){
 (function() {
   var BaseCreateListDialogue, CreateFromPath, FromPathMixin, Promise,
     __hasProp = {}.hasOwnProperty,
@@ -18716,7 +18745,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"./base-dialogue":184,"./from-path-mixin":189,"es6-promise":281}],188:[function(require,module,exports){
+},{"./base-dialogue":184,"./from-path-mixin":189,"es6-promise":280}],188:[function(require,module,exports){
 (function() {
   var BaseCreateListDialogue, CreateFromSelection, Floating, FromSelectionMixin, Promise, _,
     __hasProp = {}.hasOwnProperty,
@@ -18749,7 +18778,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../mixins/floating-dialogue":30,"./base-dialogue":184,"./from-selection-mixin":190,"es6-promise":281,"underscore":312}],189:[function(require,module,exports){
+},{"../../mixins/floating-dialogue":30,"./base-dialogue":184,"./from-selection-mixin":190,"es6-promise":280,"underscore":311}],189:[function(require,module,exports){
 (function() {
   var Promise;
 
@@ -18782,7 +18811,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"es6-promise":281}],190:[function(require,module,exports){
+},{"es6-promise":280}],190:[function(require,module,exports){
 (function() {
   var NO_COMMON_TYPE, NO_OBJECTS_SELECTED, SelectedObjects, TypeAssertions;
 
@@ -18972,7 +19001,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/lists":24,"../../templates":67,"underscore":312}],193:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/lists":24,"../../templates":67,"underscore":311}],193:[function(require,module,exports){
 (function() {
   var ListValueControls, Messages, Promise, View, formatList, fs, getOptionValue, helpers, html, mustacheSettings, template, withDisplayNames, _,
     __hasProp = {}.hasOwnProperty,
@@ -19172,7 +19201,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../templates/mustache-settings":69,"es6-promise":281,"underscore":312}],194:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../templates/mustache-settings":69,"es6-promise":280,"underscore":311}],194:[function(require,module,exports){
 (function() {
   var AttributeValueControls, LoopValueControls, Messages, Promise, SuggestionSource, fs, html, template, _,
     __hasProp = {}.hasOwnProperty,
@@ -19355,7 +19384,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../messages":16,"../utils/suggestion-source":107,"./attribute-value-controls":113,"es6-promise":281,"underscore":312}],195:[function(require,module,exports){
+},{"../messages":16,"../utils/suggestion-source":107,"./attribute-value-controls":113,"es6-promise":280,"underscore":311}],195:[function(require,module,exports){
 (function() {
   var LoopValueControls, Messages, Promise, View, fs, helpers, html, mustacheSettings, template, toNamedPath, toOption, _,
     __hasProp = {}.hasOwnProperty,
@@ -19489,7 +19518,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../templates/mustache-settings":69,"../utils/to-named-path":109,"es6-promise":281,"underscore":312}],196:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../templates/mustache-settings":69,"../utils/to-named-path":109,"es6-promise":280,"underscore":311}],196:[function(require,module,exports){
 (function() {
   var CoreView, ModalFooter, Templates, defaultData, _,
     __hasProp = {}.hasOwnProperty,
@@ -19539,7 +19568,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":312}],197:[function(require,module,exports){
+},{"../core-view":3,"../templates":67,"underscore":311}],197:[function(require,module,exports){
 (function() {
   var Messages, Modal, ModalFooter, Promise, Templates, View, modalTemplate, _,
     __hasProp = {}.hasOwnProperty,
@@ -19744,7 +19773,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates":67,"./modal-footer":196,"es6-promise":281,"underscore":312}],198:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates":67,"./modal-footer":196,"es6-promise":280,"underscore":311}],198:[function(require,module,exports){
 (function() {
   var Collection, IS_BLANK, Icons, Messages, Model, MultiValueControls, Options, Templates, ValueControl, ValueModel, Values, View, ignore, mustacheSettings, _,
     __hasProp = {}.hasOwnProperty,
@@ -20060,7 +20089,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../core/collection":5,"../icons":14,"../messages":16,"../options":63,"../patterns":64,"../templates":67,"../templates/mustache-settings":69,"../utils/events":81,"backbone":232,"underscore":312}],199:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../core/collection":5,"../icons":14,"../messages":16,"../options":63,"../patterns":64,"../templates":67,"../templates/mustache-settings":69,"../utils/events":81,"backbone":232,"underscore":311}],199:[function(require,module,exports){
 (function() {
   var ActiveConstraint, Messages, NewConstraint,
     __hasProp = {}.hasOwnProperty,
@@ -20182,7 +20211,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../messages":16,"../templates":67,"./constraint-adder":128,"./modal":197,"underscore":312}],201:[function(require,module,exports){
+},{"../messages":16,"../templates":67,"./constraint-adder":128,"./modal":197,"underscore":311}],201:[function(require,module,exports){
 (function() {
   var Attribute, CoreView, Options, PathChooser, Reference, ReverseReference, RootClass, appendField, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -20386,7 +20415,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../options":63,"./pathtree/attribute":202,"./pathtree/reference":203,"./pathtree/reverse-reference":204,"./pathtree/root":205,"underscore":312}],202:[function(require,module,exports){
+},{"../core-view":3,"../options":63,"./pathtree/attribute":202,"./pathtree/reference":203,"./pathtree/reverse-reference":204,"./pathtree/root":205,"underscore":311}],202:[function(require,module,exports){
 (function() {
   var Attribute, Icons, Options, View, highlightMatch, notBlank, stripLeadingSegments, _,
     __hasProp = {}.hasOwnProperty,
@@ -20580,7 +20609,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../icons":14,"../../options":63,"underscore":312}],203:[function(require,module,exports){
+},{"../../core-view":3,"../../icons":14,"../../options":63,"underscore":311}],203:[function(require,module,exports){
 (function() {
   var Attribute, Icons, Reference, ignore,
     __hasProp = {}.hasOwnProperty,
@@ -20773,7 +20802,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../icons":14,"./attribute":202,"underscore":312}],206:[function(require,module,exports){
+},{"../../icons":14,"./attribute":202,"underscore":311}],206:[function(require,module,exports){
 (function() {
   var CoreView, QueryDialogueButton, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -20879,7 +20908,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":312}],207:[function(require,module,exports){
+},{"../core-view":3,"../templates":67,"underscore":311}],207:[function(require,module,exports){
 (function() {
   var ColumnMangerButton, CoreView, FilterDialogueButton, HistoryType, JoinManagerButton, Listenable, QueryManagement, Structure, Types, UnionOf, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -21088,7 +21117,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../options":63,"../templates":67,"../utils/events":81,"./code-gen-button":115,"./export-dialogue/button":139,"./list-dialogue/button":186,"./query-management-tools":207,"./undo-history":229,"jquery":309,"underscore":312}],209:[function(require,module,exports){
+},{"../core-view":3,"../options":63,"../templates":67,"../utils/events":81,"./code-gen-button":115,"./export-dialogue/button":139,"./list-dialogue/button":186,"./query-management-tools":207,"./undo-history":229,"jquery":308,"underscore":311}],209:[function(require,module,exports){
 (function() {
   var CellModelFactory, Collection, ColumnHeaders, CoreModel, CoreView, ErrorNotice, History, Messages, Options, PageSizer, Pagination, ResultsTable, RowsCollection, SelectedObjects, Table, TableModel, TableResults, TableSummary, Templates, Types, UNKNOWN_ERROR, UniqItems, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -21534,7 +21563,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../messages":16,"../messages/table":28,"../models/column-headers":39,"../models/history":45,"../models/rows":57,"../models/selected-objects":58,"../models/table":61,"../models/uniq-items":62,"../options":63,"../templates":67,"../utils/cell-model-factory":75,"../utils/table-results":108,"./table/error-notice":214,"./table/inner":217,"./table/page-sizer":220,"./table/pagination":221,"./table/summary":227,"underscore":312}],210:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../messages":16,"../messages/table":28,"../models/column-headers":39,"../models/history":45,"../models/rows":57,"../models/selected-objects":58,"../models/table":61,"../models/uniq-items":62,"../options":63,"../templates":67,"../utils/cell-model-factory":75,"../utils/table-results":108,"./table/error-notice":214,"./table/inner":217,"./table/page-sizer":220,"./table/pagination":221,"./table/summary":227,"underscore":311}],210:[function(require,module,exports){
 (function() {
   var CoreView, EmptyApology, RowView, TableBody, Templates, buildSkipped, _,
     __hasProp = {}.hasOwnProperty,
@@ -21706,7 +21735,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/table":28,"../../templates":67,"../../utils/build-skipset":72,"underscore":312}],211:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/table":28,"../../templates":67,"../../utils/build-skipset":72,"underscore":311}],211:[function(require,module,exports){
 (function() {
   var Cell, NestedTableModel, SubTable;
 
@@ -22375,7 +22404,7 @@ module.exports = '2.0.0-beta-35';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../messages":16,"../../models/cell":37,"../../models/selected-objects":58,"../../options":63,"../../templates":67,"jquery":309,"underscore":312}],213:[function(require,module,exports){
+},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../messages":16,"../../models/cell":37,"../../models/selected-objects":58,"../../options":63,"../../templates":67,"jquery":308,"underscore":311}],213:[function(require,module,exports){
 (function() {
   var BAD_MODEL, DropDownColumnSummary, FacetView, NO_QUERY, PathModel, ignore, _,
     __hasProp = {}.hasOwnProperty,
@@ -22432,7 +22461,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../models/path":56,"../../utils/events":81,"../facets/facet-view":151,"underscore":312}],214:[function(require,module,exports){
+},{"../../models/path":56,"../../utils/events":81,"../facets/facet-view":151,"underscore":311}],214:[function(require,module,exports){
 (function (global){
 (function() {
   var CoreView, ErrorNotice, Messages, Options, Templates, VERSION, getDomain, imjs, indentXML, mailto, withPrettyPrintOne, withResource, _,
@@ -22535,7 +22564,7 @@ module.exports = '2.0.0-beta-35';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../core-view":3,"../../messages":16,"../../messages/error":22,"../../options":63,"../../templates":67,"../../utils/indent-xml":88,"../../utils/mailto":92,"../../utils/with-cdn-resource":110,"../../version":111,"imjs":290,"underscore":312}],215:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/error":22,"../../options":63,"../../templates":67,"../../utils/indent-xml":88,"../../utils/mailto":92,"../../utils/with-cdn-resource":110,"../../version":111,"imjs":289,"underscore":311}],215:[function(require,module,exports){
 (function() {
   var ColumnHeader, CoreView, TableHead, _,
     __hasProp = {}.hasOwnProperty,
@@ -22602,7 +22631,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"./header":216,"underscore":312}],216:[function(require,module,exports){
+},{"../../core-view":3,"./header":216,"underscore":311}],216:[function(require,module,exports){
 (function() {
   var ClassSet, Collection, ColumnHeader, CoreView, DropDownColumnSummary, FormattedSorting, HeaderModel, Messages, ModelReader, Options, OuterJoinDropDown, SingleColumnConstraints, Templates, getViewPortHeight, getViewPortWidth, ignore, onChange, sortQueryByPath, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -22972,7 +23001,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/table":28,"../../models/header":44,"../../options":63,"../../templates":67,"../../utils/css-class-set":79,"../../utils/events":81,"../../utils/on-change":93,"../../utils/sort-query-by-path":105,"../constraints/single-column":135,"../formatted-sorting":169,"./column-summary":213,"./outer-join-summary":219,"underscore":312}],217:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/table":28,"../../models/header":44,"../../options":63,"../../templates":67,"../../utils/css-class-set":79,"../../utils/events":81,"../../utils/on-change":93,"../../utils/sort-query-by-path":105,"../constraints/single-column":135,"../formatted-sorting":169,"./column-summary":213,"./outer-join-summary":219,"underscore":311}],217:[function(require,module,exports){
 (function() {
   var CellFactory, ColumnHeaders, CoreView, Formatting, History, PathSet, PopoverFactory, Preview, ResultsTable, SelectedObjects, TableBody, TableHead, TableModel, Templates, Types, flip, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -23095,7 +23124,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../models/column-headers":39,"../../models/history":45,"../../models/path-set":55,"../../models/selected-objects":58,"../../models/table":61,"../../templates":67,"../../utils/popover-factory":98,"../item-preview":172,"./body":210,"./cell-factory":211,"./head":215,"underscore":312}],218:[function(require,module,exports){
+},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../models/column-headers":39,"../../models/history":45,"../../models/path-set":55,"../../models/selected-objects":58,"../../models/table":61,"../../templates":67,"../../utils/popover-factory":98,"../item-preview":172,"./body":210,"./cell-factory":211,"./head":215,"underscore":311}],218:[function(require,module,exports){
 (function() {
   var Actions, LargeTableDisuader, Modal, large_table_disuader, _,
     __hasProp = {}.hasOwnProperty,
@@ -23165,7 +23194,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../templates":67,"../modal":197,"underscore":312}],219:[function(require,module,exports){
+},{"../../templates":67,"../modal":197,"underscore":311}],219:[function(require,module,exports){
 (function() {
   var Collection, CoreView, DropDownColumnSummary, OuterJoinDropDown, PathModel, SubColumn, SubColumns, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -23302,7 +23331,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../models/path":56,"../../templates":67,"./column-summary":213,"underscore":312}],220:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../models/path":56,"../../templates":67,"./column-summary":213,"underscore":311}],220:[function(require,module,exports){
 (function() {
   var CoreView, Events, ExportDialogue, HasDialogues, LargeTableDisuader, NewFilterDialogue, PageSizer, Paging, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -23487,7 +23516,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../events":12,"../../templates":67,"../export-dialogue":138,"../has-dialogues":171,"../new-filter-dialogue":200,"./large-table-disuader":218,"./paging":222,"underscore":312}],221:[function(require,module,exports){
+},{"../../core-view":3,"../../events":12,"../../templates":67,"../export-dialogue":138,"../has-dialogues":171,"../new-filter-dialogue":200,"./large-table-disuader":218,"./paging":222,"underscore":311}],221:[function(require,module,exports){
 (function() {
   var Pagination, Paging, SELECT_LIMIT, View, ensureNumber, fs, html, strip, _,
     __hasProp = {}.hasOwnProperty,
@@ -23661,7 +23690,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"./paging":222,"underscore":312}],222:[function(require,module,exports){
+},{"../../core-view":3,"./paging":222,"underscore":311}],222:[function(require,module,exports){
 (function() {
   exports.getCurrentPage = function() {
     var size, start, _ref;
@@ -23814,7 +23843,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/subtables":26,"../../templates":67,"underscore":312}],224:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/subtables":26,"../../templates":67,"underscore":311}],224:[function(require,module,exports){
 (function() {
   var CoreView, SubtableHeader, SubtableInner, buildSkipped,
     __hasProp = {}.hasOwnProperty,
@@ -24120,7 +24149,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../core/type-assertions":10,"../../models/nested-table":48,"../../models/path":56,"../../options":63,"../../templates":67,"../../utils/events":81,"./subtable-inner":224,"./subtable-summary":225,"underscore":312}],227:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../core/type-assertions":10,"../../models/nested-table":48,"../../models/path":56,"../../options":63,"../../templates":67,"../../utils/events":81,"./subtable-inner":224,"./subtable-summary":225,"underscore":311}],227:[function(require,module,exports){
 (function() {
   var CoreView, TableSummary, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -24165,7 +24194,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/table":28,"../../templates":67,"underscore":312}],228:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/table":28,"../../templates":67,"underscore":311}],228:[function(require,module,exports){
 (function() {
   var Messages, Promise, TypeValueControls, View, asOption, fs, helpers, html, toNamedPath, _,
     __hasProp = {}.hasOwnProperty,
@@ -24328,7 +24357,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../utils/to-named-path":109,"es6-promise":281,"underscore":312}],229:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../utils/to-named-path":109,"es6-promise":280,"underscore":311}],229:[function(require,module,exports){
 (function() {
   var CoreView, ELLIPSIS, Ellipsis, Messages, Options, Step, Templates, UndoHistory, childId, notTrivial, _,
     __hasProp = {}.hasOwnProperty,
@@ -24526,7 +24555,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/undo":29,"../options":63,"../templates":67,"./undo-history/step":231,"underscore":312}],230:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/undo":29,"../options":63,"../templates":67,"./undo-history/step":231,"underscore":311}],230:[function(require,module,exports){
 (function() {
   var ClassSet, CoreView, QueryProperty, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -24619,7 +24648,7 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"../../utils/css-class-set":79,"underscore":312}],231:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":67,"../../utils/css-class-set":79,"underscore":311}],231:[function(require,module,exports){
 (function() {
   var Collection, ConstraintList, ConstraintModel, ConstraintsView, CoreView, M, ObjConstructorPM, OrderElementModel, PathModel, QueryProperty, SelectListView, SortOrder, SortOrderView, Templates, UndoStep, ViewList, idsLength, liftPathAndType, valuesLength, withAdded, _,
     __hasProp = {}.hasOwnProperty,
@@ -25042,15 +25071,21 @@ module.exports = '2.0.0-beta-35';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/constraints":21,"../../messages/undo":29,"../../models/constraint":40,"../../models/order-element":53,"../../models/path":56,"../../templates":67,"./query-property-section":230,"underscore":312}],232:[function(require,module,exports){
-//     Backbone.js 1.1.2
+},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/constraints":21,"../../messages/undo":29,"../../models/constraint":40,"../../models/order-element":53,"../../models/path":56,"../../templates":67,"./query-property-section":230,"underscore":311}],232:[function(require,module,exports){
+(function (global){
+//     Backbone.js 1.2.0
 
-//     (c) 2010-2014 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+//     (c) 2010-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Backbone may be freely distributed under the MIT license.
 //     For all details and documentation:
 //     http://backbonejs.org
 
-(function(root, factory) {
+(function(factory) {
+
+  // Establish the root object, `window` (`self`) in the browser, or `global` on the server.
+  // We use `self` instead of `window` for `WebWorker` support.
+  var root = (typeof self == 'object' && self.self == self && self) ||
+            (typeof global == 'object' && global.global == global && global);
 
   // Set up Backbone appropriately for the environment. Start with AMD.
   if (typeof define === 'function' && define.amd) {
@@ -25062,15 +25097,16 @@ module.exports = '2.0.0-beta-35';
 
   // Next for Node.js or CommonJS. jQuery may not be needed as a module.
   } else if (typeof exports !== 'undefined') {
-    var _ = require('underscore');
-    factory(root, exports, _);
+    var _ = require('underscore'), $;
+    try { $ = require('jquery'); } catch(e) {}
+    factory(root, exports, _, $);
 
   // Finally, as a browser global.
   } else {
     root.Backbone = factory(root, {}, root._, (root.jQuery || root.Zepto || root.ender || root.$));
   }
 
-}(this, function(root, Backbone, _, $) {
+}(function(root, Backbone, _, $) {
 
   // Initial Setup
   // -------------
@@ -25081,12 +25117,10 @@ module.exports = '2.0.0-beta-35';
 
   // Create local references to array methods we'll want to use later.
   var array = [];
-  var push = array.push;
   var slice = array.slice;
-  var splice = array.splice;
 
   // Current version of the library. Keep in sync with `package.json`.
-  Backbone.VERSION = '1.1.2';
+  Backbone.VERSION = '1.2.0';
 
   // For Backbone's purposes, jQuery, Zepto, Ender, or My Library (kidding) owns
   // the `$` variable.
@@ -25105,7 +25139,7 @@ module.exports = '2.0.0-beta-35';
   Backbone.emulateHTTP = false;
 
   // Turn on `emulateJSON` to support legacy servers that can't deal with direct
-  // `application/json` requests ... will encode the body as
+  // `application/json` requests ... this will encode the body as
   // `application/x-www-form-urlencoded` instead and will send the model in a
   // form param named `model`.
   Backbone.emulateJSON = false;
@@ -25123,123 +25157,235 @@ module.exports = '2.0.0-beta-35';
   //     object.on('expand', function(){ alert('expanded'); });
   //     object.trigger('expand');
   //
-  var Events = Backbone.Events = {
-
-    // Bind an event to a `callback` function. Passing `"all"` will bind
-    // the callback to all events fired.
-    on: function(name, callback, context) {
-      if (!eventsApi(this, 'on', name, [callback, context]) || !callback) return this;
-      this._events || (this._events = {});
-      var events = this._events[name] || (this._events[name] = []);
-      events.push({callback: callback, context: context, ctx: context || this});
-      return this;
-    },
-
-    // Bind an event to only be triggered a single time. After the first time
-    // the callback is invoked, it will be removed.
-    once: function(name, callback, context) {
-      if (!eventsApi(this, 'once', name, [callback, context]) || !callback) return this;
-      var self = this;
-      var once = _.once(function() {
-        self.off(name, once);
-        callback.apply(this, arguments);
-      });
-      once._callback = callback;
-      return this.on(name, once, context);
-    },
-
-    // Remove one or many callbacks. If `context` is null, removes all
-    // callbacks with that function. If `callback` is null, removes all
-    // callbacks for the event. If `name` is null, removes all bound
-    // callbacks for all events.
-    off: function(name, callback, context) {
-      var retain, ev, events, names, i, l, j, k;
-      if (!this._events || !eventsApi(this, 'off', name, [callback, context])) return this;
-      if (!name && !callback && !context) {
-        this._events = void 0;
-        return this;
-      }
-      names = name ? [name] : _.keys(this._events);
-      for (i = 0, l = names.length; i < l; i++) {
-        name = names[i];
-        if (events = this._events[name]) {
-          this._events[name] = retain = [];
-          if (callback || context) {
-            for (j = 0, k = events.length; j < k; j++) {
-              ev = events[j];
-              if ((callback && callback !== ev.callback && callback !== ev.callback._callback) ||
-                  (context && context !== ev.context)) {
-                retain.push(ev);
-              }
-            }
-          }
-          if (!retain.length) delete this._events[name];
-        }
-      }
-
-      return this;
-    },
-
-    // Trigger one or many events, firing all bound callbacks. Callbacks are
-    // passed the same arguments as `trigger` is, apart from the event name
-    // (unless you're listening on `"all"`, which will cause your callback to
-    // receive the true name of the event as the first argument).
-    trigger: function(name) {
-      if (!this._events) return this;
-      var args = slice.call(arguments, 1);
-      if (!eventsApi(this, 'trigger', name, args)) return this;
-      var events = this._events[name];
-      var allEvents = this._events.all;
-      if (events) triggerEvents(events, args);
-      if (allEvents) triggerEvents(allEvents, arguments);
-      return this;
-    },
-
-    // Tell this object to stop listening to either specific events ... or
-    // to every object it's currently listening to.
-    stopListening: function(obj, name, callback) {
-      var listeningTo = this._listeningTo;
-      if (!listeningTo) return this;
-      var remove = !name && !callback;
-      if (!callback && typeof name === 'object') callback = this;
-      if (obj) (listeningTo = {})[obj._listenId] = obj;
-      for (var id in listeningTo) {
-        obj = listeningTo[id];
-        obj.off(name, callback, this);
-        if (remove || _.isEmpty(obj._events)) delete this._listeningTo[id];
-      }
-      return this;
-    }
-
-  };
+  var Events = Backbone.Events = {};
 
   // Regular expression used to split event strings.
   var eventSplitter = /\s+/;
 
-  // Implement fancy features of the Events API such as multiple event
-  // names `"change blur"` and jQuery-style event maps `{change: action}`
-  // in terms of the existing API.
-  var eventsApi = function(obj, action, name, rest) {
-    if (!name) return true;
-
-    // Handle event maps.
-    if (typeof name === 'object') {
-      for (var key in name) {
-        obj[action].apply(obj, [key, name[key]].concat(rest));
+  // Iterates over the standard `event, callback` (as well as the fancy multiple
+  // space-separated events `"change blur", callback` and jQuery-style event
+  // maps `{event: callback}`), reducing them by manipulating `memo`.
+  // Passes a normalized single event name and callback, as well as any
+  // optional `opts`.
+  var eventsApi = function(iteratee, memo, name, callback, opts) {
+    var i = 0, names;
+    if (name && typeof name === 'object') {
+      // Handle event maps.
+      for (names = _.keys(name); i < names.length ; i++) {
+        memo = iteratee(memo, names[i], name[names[i]], opts);
       }
-      return false;
+    } else if (name && eventSplitter.test(name)) {
+      // Handle space separated event names.
+      for (names = name.split(eventSplitter); i < names.length; i++) {
+        memo = iteratee(memo, names[i], callback, opts);
+      }
+    } else {
+      memo = iteratee(memo, name, callback, opts);
+    }
+    return memo;
+  };
+
+  // Bind an event to a `callback` function. Passing `"all"` will bind
+  // the callback to all events fired.
+  Events.on = function(name, callback, context) {
+    return internalOn(this, name, callback, context);
+  };
+
+  // An internal use `on` function, used to guard the `listening` argument from
+  // the public API.
+  var internalOn = function(obj, name, callback, context, listening) {
+    obj._events = eventsApi(onApi, obj._events || {}, name, callback, {
+        context: context,
+        ctx: obj,
+        listening: listening
+    });
+
+    if (listening) {
+      var listeners = obj._listeners || (obj._listeners = {});
+      listeners[listening.id] = listening;
     }
 
-    // Handle space separated event names.
-    if (eventSplitter.test(name)) {
-      var names = name.split(eventSplitter);
-      for (var i = 0, l = names.length; i < l; i++) {
-        obj[action].apply(obj, [names[i]].concat(rest));
-      }
-      return false;
+    return obj;
+  };
+
+  // Inversion-of-control versions of `on`. Tell *this* object to listen to
+  // an event in another object... keeping track of what it's listening to.
+  Events.listenTo =  function(obj, name, callback) {
+    if (!obj) return this;
+    var id = obj._listenId || (obj._listenId = _.uniqueId('l'));
+    var listeningTo = this._listeningTo || (this._listeningTo = {});
+    var listening = listeningTo[id];
+
+    // This object is not listening to any other events on `obj` yet.
+    // Setup the necessary references to track the listening callbacks.
+    if (!listening) {
+      var thisId = this._listenId || (this._listenId = _.uniqueId('l'));
+      listening = listeningTo[id] = {obj: obj, objId: id, id: thisId, listeningTo: listeningTo, count: 0};
     }
 
-    return true;
+    // Bind callbacks on obj, and keep track of them on listening.
+    internalOn(obj, name, callback, this, listening);
+    return this;
+  };
+
+  // The reducing API that adds a callback to the `events` object.
+  var onApi = function(events, name, callback, options) {
+    if (callback) {
+      var handlers = events[name] || (events[name] = []);
+      var context = options.context, ctx = options.ctx, listening = options.listening;
+      if (listening) listening.count++;
+
+      handlers.push({ callback: callback, context: context, ctx: context || ctx, listening: listening });
+    }
+    return events;
+  };
+
+  // Remove one or many callbacks. If `context` is null, removes all
+  // callbacks with that function. If `callback` is null, removes all
+  // callbacks for the event. If `name` is null, removes all bound
+  // callbacks for all events.
+  Events.off =  function(name, callback, context) {
+    if (!this._events) return this;
+    this._events = eventsApi(offApi, this._events, name, callback, {
+        context: context,
+        listeners: this._listeners
+    });
+    return this;
+  };
+
+  // Tell this object to stop listening to either specific events ... or
+  // to every object it's currently listening to.
+  Events.stopListening =  function(obj, name, callback) {
+    var listeningTo = this._listeningTo;
+    if (!listeningTo) return this;
+
+    var ids = obj ? [obj._listenId] : _.keys(listeningTo);
+
+    for (var i = 0; i < ids.length; i++) {
+      var listening = listeningTo[ids[i]];
+
+      // If listening doesn't exist, this object is not currently
+      // listening to obj. Break out early.
+      if (!listening) break;
+
+      listening.obj.off(name, callback, this);
+    }
+    if (_.isEmpty(listeningTo)) this._listeningTo = void 0;
+
+    return this;
+  };
+
+  // The reducing API that removes a callback from the `events` object.
+  var offApi = function(events, name, callback, options) {
+    // No events to consider.
+    if (!events) return;
+
+    var i = 0, length, listening;
+    var context = options.context, listeners = options.listeners;
+
+    // Delete all events listeners and "drop" events.
+    if (!name && !callback && !context) {
+      var ids = _.keys(listeners);
+      for (; i < ids.length; i++) {
+        listening = listeners[ids[i]];
+        delete listeners[listening.id];
+        delete listening.listeningTo[listening.objId];
+      }
+      return;
+    }
+
+    var names = name ? [name] : _.keys(events);
+    for (; i < names.length; i++) {
+      name = names[i];
+      var handlers = events[name];
+
+      // Bail out if there are no events stored.
+      if (!handlers) break;
+
+      // Replace events if there are any remaining.  Otherwise, clean up.
+      var remaining = [];
+      for (var j = 0; j < handlers.length; j++) {
+        var handler = handlers[j];
+        if (
+          callback && callback !== handler.callback &&
+            callback !== handler.callback._callback ||
+              context && context !== handler.context
+        ) {
+          remaining.push(handler);
+        } else {
+          listening = handler.listening;
+          if (listening && --listening.count === 0) {
+            delete listeners[listening.id];
+            delete listening.listeningTo[listening.objId];
+          }
+        }
+      }
+
+      // Update tail event if the list has any events.  Otherwise, clean up.
+      if (remaining.length) {
+        events[name] = remaining;
+      } else {
+        delete events[name];
+      }
+    }
+    if (_.size(events)) return events;
+  };
+
+  // Bind an event to only be triggered a single time. After the first time
+  // the callback is invoked, it will be removed. When multiple events are
+  // passed in using the space-separated syntax, the event will fire once for every
+  // event you passed in, not once for a combination of all events
+  Events.once =  function(name, callback, context) {
+    // Map the event into a `{event: once}` object.
+    var events = eventsApi(onceMap, {}, name, callback, _.bind(this.off, this));
+    return this.on(events, void 0, context);
+  };
+
+  // Inversion-of-control versions of `once`.
+  Events.listenToOnce =  function(obj, name, callback) {
+    // Map the event into a `{event: once}` object.
+    var events = eventsApi(onceMap, {}, name, callback, _.bind(this.stopListening, this, obj));
+    return this.listenTo(obj, events);
+  };
+
+  // Reduces the event callbacks into a map of `{event: onceWrapper}`.
+  // `offer` unbinds the `onceWrapper` after it as been called.
+  var onceMap = function(map, name, callback, offer) {
+    if (callback) {
+      var once = map[name] = _.once(function() {
+        offer(name, once);
+        callback.apply(this, arguments);
+      });
+      once._callback = callback;
+    }
+    return map;
+  };
+
+  // Trigger one or many events, firing all bound callbacks. Callbacks are
+  // passed the same arguments as `trigger` is, apart from the event name
+  // (unless you're listening on `"all"`, which will cause your callback to
+  // receive the true name of the event as the first argument).
+  Events.trigger =  function(name) {
+    if (!this._events) return this;
+
+    var length = Math.max(0, arguments.length - 1);
+    var args = Array(length);
+    for (var i = 0; i < length; i++) args[i] = arguments[i + 1];
+
+    eventsApi(triggerApi, this._events, name, void 0, args);
+    return this;
+  };
+
+  // Handles triggering the appropriate event callbacks.
+  var triggerApi = function(objEvents, name, cb, args) {
+    if (objEvents) {
+      var events = objEvents[name];
+      var allEvents = objEvents.all;
+      if (events && allEvents) allEvents = allEvents.slice();
+      if (events) triggerEvents(events, args);
+      if (allEvents) triggerEvents(allEvents, [name].concat(args));
+    }
+    return objEvents;
   };
 
   // A difficult-to-believe, but optimized internal dispatch function for
@@ -25256,21 +25402,34 @@ module.exports = '2.0.0-beta-35';
     }
   };
 
-  var listenMethods = {listenTo: 'on', listenToOnce: 'once'};
-
-  // Inversion-of-control versions of `on` and `once`. Tell *this* object to
-  // listen to an event in another object ... keeping track of what it's
-  // listening to.
-  _.each(listenMethods, function(implementation, method) {
-    Events[method] = function(obj, name, callback) {
-      var listeningTo = this._listeningTo || (this._listeningTo = {});
-      var id = obj._listenId || (obj._listenId = _.uniqueId('l'));
-      listeningTo[id] = obj;
-      if (!callback && typeof name === 'object') callback = this;
-      obj[implementation](name, callback, this);
-      return this;
-    };
-  });
+  // Proxy Underscore methods to a Backbone class' prototype using a
+  // particular attribute as the data argument
+  var addMethod = function(length, method, attribute) {
+    switch (length) {
+      case 1: return function() {
+        return _[method](this[attribute]);
+      };
+      case 2: return function(value) {
+        return _[method](this[attribute], value);
+      };
+      case 3: return function(iteratee, context) {
+        return _[method](this[attribute], iteratee, context);
+      };
+      case 4: return function(iteratee, defaultVal, context) {
+        return _[method](this[attribute], iteratee, defaultVal, context);
+      };
+      default: return function() {
+        var args = slice.call(arguments);
+        args.unshift(this[attribute]);
+        return _[method].apply(_, args);
+      };
+    }
+  };
+  var addUnderscoreMethods = function(Class, methods, attribute) {
+    _.each(methods, function(length, method) {
+      if (_[method]) Class.prototype[method] = addMethod(length, method, attribute);
+    });
+  };
 
   // Aliases for backwards compatibility.
   Events.bind   = Events.on;
@@ -25293,7 +25452,7 @@ module.exports = '2.0.0-beta-35';
   var Model = Backbone.Model = function(attributes, options) {
     var attrs = attributes || {};
     options || (options = {});
-    this.cid = _.uniqueId('c');
+    this.cid = _.uniqueId(this.cidPrefix);
     this.attributes = {};
     if (options.collection) this.collection = options.collection;
     if (options.parse) attrs = this.parse(attrs, options) || {};
@@ -25315,6 +25474,10 @@ module.exports = '2.0.0-beta-35';
     // The default name for the JSON `id` attribute is `"id"`. MongoDB and
     // CouchDB users may want to set this to `"_id"`.
     idAttribute: 'id',
+
+    // The prefix is used to create the client id which is used to identify models locally.
+    // You may want to override this if you're experiencing name clashes with model ids.
+    cidPrefix: 'c',
 
     // Initialize is an empty function by default. Override it with your own
     // initialization logic.
@@ -25345,6 +25508,11 @@ module.exports = '2.0.0-beta-35';
     // or undefined.
     has: function(attr) {
       return this.get(attr) != null;
+    },
+
+    // Special-cased proxy to underscore's `_.matches` method.
+    matches: function(attrs) {
+      return !!_.iteratee(attrs, this)(this.attributes);
     },
 
     // Set a hash of model attributes on the object, firing `"change"`. This is
@@ -25398,7 +25566,7 @@ module.exports = '2.0.0-beta-35';
       // Trigger all relevant attribute changes.
       if (!silent) {
         if (changes.length) this._pending = options;
-        for (var i = 0, l = changes.length; i < l; i++) {
+        for (var i = 0; i < changes.length; i++) {
           this.trigger('change:' + changes[i], this, current[changes[i]], options);
         }
       }
@@ -25468,9 +25636,8 @@ module.exports = '2.0.0-beta-35';
       return _.clone(this._previousAttributes);
     },
 
-    // Fetch the model from the server. If the server's representation of the
-    // model differs from its current attributes, they will be overridden,
-    // triggering a `"change"` event.
+    // Fetch the model from the server, merging the response with the model's
+    // local attributes. Any changed attributes will trigger a "change" event.
     fetch: function(options) {
       options = options ? _.clone(options) : {};
       if (options.parse === void 0) options.parse = true;
@@ -25478,7 +25645,7 @@ module.exports = '2.0.0-beta-35';
       var success = options.success;
       options.success = function(resp) {
         if (!model.set(model.parse(resp, options), options)) return false;
-        if (success) success(model, resp, options);
+        if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
       };
       wrapError(this, options);
@@ -25489,7 +25656,7 @@ module.exports = '2.0.0-beta-35';
     // If the server returns an attributes hash that differs, the model's
     // state will be `set` again.
     save: function(key, val, options) {
-      var attrs, method, xhr, attributes = this.attributes;
+      var attrs, method, xhr, attributes = this.attributes, wait;
 
       // Handle both `"key", value` and `{key: value}` -style arguments.
       if (key == null || typeof key === 'object') {
@@ -25500,18 +25667,19 @@ module.exports = '2.0.0-beta-35';
       }
 
       options = _.extend({validate: true}, options);
+      wait = options.wait;
 
       // If we're not waiting and attributes exist, save acts as
       // `set(attr).save(null, opts)` with validation. Otherwise, check if
       // the model will be valid when the attributes, if any, are set.
-      if (attrs && !options.wait) {
+      if (attrs && !wait) {
         if (!this.set(attrs, options)) return false;
       } else {
         if (!this._validate(attrs, options)) return false;
       }
 
       // Set temporary attributes if `{wait: true}`.
-      if (attrs && options.wait) {
+      if (attrs && wait) {
         this.attributes = _.extend({}, attributes, attrs);
       }
 
@@ -25523,22 +25691,22 @@ module.exports = '2.0.0-beta-35';
       options.success = function(resp) {
         // Ensure attributes are restored during synchronous saves.
         model.attributes = attributes;
-        var serverAttrs = model.parse(resp, options);
-        if (options.wait) serverAttrs = _.extend(attrs || {}, serverAttrs);
+        var serverAttrs = options.parse ? model.parse(resp, options) : resp;
+        if (wait) serverAttrs = _.extend(attrs || {}, serverAttrs);
         if (_.isObject(serverAttrs) && !model.set(serverAttrs, options)) {
           return false;
         }
-        if (success) success(model, resp, options);
+        if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
       };
       wrapError(this, options);
 
       method = this.isNew() ? 'create' : (options.patch ? 'patch' : 'update');
-      if (method === 'patch') options.attrs = attrs;
+      if (method === 'patch' && !options.attrs) options.attrs = attrs;
       xhr = this.sync(method, this, options);
 
       // Restore attributes.
-      if (attrs && options.wait) this.attributes = attributes;
+      if (attrs && wait) this.attributes = attributes;
 
       return xhr;
     },
@@ -25550,25 +25718,27 @@ module.exports = '2.0.0-beta-35';
       options = options ? _.clone(options) : {};
       var model = this;
       var success = options.success;
+      var wait = options.wait;
 
       var destroy = function() {
+        model.stopListening();
         model.trigger('destroy', model, model.collection, options);
       };
 
       options.success = function(resp) {
-        if (options.wait || model.isNew()) destroy();
-        if (success) success(model, resp, options);
+        if (wait) destroy();
+        if (success) success.call(options.context, model, resp, options);
         if (!model.isNew()) model.trigger('sync', model, resp, options);
       };
 
+      var xhr = false;
       if (this.isNew()) {
-        options.success();
-        return false;
+        _.defer(options.success);
+      } else {
+        wrapError(this, options);
+        xhr = this.sync('delete', this, options);
       }
-      wrapError(this, options);
-
-      var xhr = this.sync('delete', this, options);
-      if (!options.wait) destroy();
+      if (!wait) destroy();
       return xhr;
     },
 
@@ -25581,7 +25751,8 @@ module.exports = '2.0.0-beta-35';
         _.result(this.collection, 'url') ||
         urlError();
       if (this.isNew()) return base;
-      return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(this.id);
+      var id = this.id || this.attributes[this.idAttribute];
+      return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(id);
     },
 
     // **parse** converts a response into the hash of attributes to be `set` on
@@ -25619,22 +25790,17 @@ module.exports = '2.0.0-beta-35';
   });
 
   // Underscore methods that we want to implement on the Model.
-  var modelMethods = ['keys', 'values', 'pairs', 'invert', 'pick', 'omit'];
+  var modelMethods = { keys: 1, values: 1, pairs: 1, invert: 1, pick: 0,
+      omit: 0, chain: 1, isEmpty: 1 };
 
   // Mix in each Underscore method as a proxy to `Model#attributes`.
-  _.each(modelMethods, function(method) {
-    Model.prototype[method] = function() {
-      var args = slice.call(arguments);
-      args.unshift(this.attributes);
-      return _[method].apply(_, args);
-    };
-  });
+  addUnderscoreMethods(Model, modelMethods, 'attributes');
 
   // Backbone.Collection
   // -------------------
 
   // If models tend to represent a single row of data, a Backbone Collection is
-  // more analagous to a table full of data ... or a small slice or page of that
+  // more analogous to a table full of data ... or a small slice or page of that
   // table, or a collection of rows that belong together for a particular reason
   // -- all of the messages in this particular folder, all of the documents
   // belonging to this particular author, and so on. Collections maintain
@@ -25685,24 +25851,11 @@ module.exports = '2.0.0-beta-35';
 
     // Remove a model, or a list of models from the set.
     remove: function(models, options) {
-      var singular = !_.isArray(models);
+      var singular = !_.isArray(models), removed;
       models = singular ? [models] : _.clone(models);
       options || (options = {});
-      var i, l, index, model;
-      for (i = 0, l = models.length; i < l; i++) {
-        model = models[i] = this.get(models[i]);
-        if (!model) continue;
-        delete this._byId[model.id];
-        delete this._byId[model.cid];
-        index = this.indexOf(model);
-        this.models.splice(index, 1);
-        this.length--;
-        if (!options.silent) {
-          options.index = index;
-          model.trigger('remove', model, this, options);
-        }
-        this._removeReference(model, options);
-      }
+      removed = this._removeModels(models, options);
+      if (!options.silent && removed) this.trigger('update', this, options);
       return singular ? models[0] : models;
     },
 
@@ -25714,32 +25867,29 @@ module.exports = '2.0.0-beta-35';
       options = _.defaults({}, options, setOptions);
       if (options.parse) models = this.parse(models, options);
       var singular = !_.isArray(models);
-      models = singular ? (models ? [models] : []) : _.clone(models);
-      var i, l, id, model, attrs, existing, sort;
+      models = singular ? (models ? [models] : []) : models.slice();
+      var id, model, attrs, existing, sort;
       var at = options.at;
-      var targetModel = this.model;
+      if (at != null) at = +at;
+      if (at < 0) at += this.length + 1;
       var sortable = this.comparator && (at == null) && options.sort !== false;
       var sortAttr = _.isString(this.comparator) ? this.comparator : null;
       var toAdd = [], toRemove = [], modelMap = {};
       var add = options.add, merge = options.merge, remove = options.remove;
       var order = !sortable && add && remove ? [] : false;
+      var orderChanged = false;
 
       // Turn bare objects into model references, and prevent invalid models
       // from being added.
-      for (i = 0, l = models.length; i < l; i++) {
-        attrs = models[i] || {};
-        if (attrs instanceof Model) {
-          id = model = attrs;
-        } else {
-          id = attrs[targetModel.prototype.idAttribute || 'id'];
-        }
+      for (var i = 0; i < models.length; i++) {
+        attrs = models[i];
 
         // If a duplicate is found, prevent it from being added and
         // optionally merge it into the existing model.
-        if (existing = this.get(id)) {
+        if (existing = this.get(attrs)) {
           if (remove) modelMap[existing.cid] = true;
-          if (merge) {
-            attrs = attrs === model ? model.attributes : attrs;
+          if (merge && attrs !== existing) {
+            attrs = this._isModel(attrs) ? attrs.attributes : attrs;
             if (options.parse) attrs = existing.parse(attrs, options);
             existing.set(attrs, options);
             if (sortable && !sort && existing.hasChanged(sortAttr)) sort = true;
@@ -25756,30 +25906,38 @@ module.exports = '2.0.0-beta-35';
 
         // Do not add multiple models with the same `id`.
         model = existing || model;
-        if (order && (model.isNew() || !modelMap[model.id])) order.push(model);
-        modelMap[model.id] = true;
+        if (!model) continue;
+        id = this.modelId(model.attributes);
+        if (order && (model.isNew() || !modelMap[id])) {
+          order.push(model);
+
+          // Check to see if this is actually a new model at this index.
+          orderChanged = orderChanged || !this.models[i] || model.cid !== this.models[i].cid;
+        }
+
+        modelMap[id] = true;
       }
 
       // Remove nonexistent models if appropriate.
       if (remove) {
-        for (i = 0, l = this.length; i < l; ++i) {
+        for (var i = 0; i < this.length; i++) {
           if (!modelMap[(model = this.models[i]).cid]) toRemove.push(model);
         }
-        if (toRemove.length) this.remove(toRemove, options);
+        if (toRemove.length) this._removeModels(toRemove, options);
       }
 
       // See if sorting is needed, update `length` and splice in new models.
-      if (toAdd.length || (order && order.length)) {
+      if (toAdd.length || orderChanged) {
         if (sortable) sort = true;
         this.length += toAdd.length;
         if (at != null) {
-          for (i = 0, l = toAdd.length; i < l; i++) {
+          for (var i = 0; i < toAdd.length; i++) {
             this.models.splice(at + i, 0, toAdd[i]);
           }
         } else {
           if (order) this.models.length = 0;
           var orderedModels = order || toAdd;
-          for (i = 0, l = orderedModels.length; i < l; i++) {
+          for (var i = 0; i < orderedModels.length; i++) {
             this.models.push(orderedModels[i]);
           }
         }
@@ -25790,10 +25948,13 @@ module.exports = '2.0.0-beta-35';
 
       // Unless silenced, it's time to fire all appropriate add/sort events.
       if (!options.silent) {
-        for (i = 0, l = toAdd.length; i < l; i++) {
-          (model = toAdd[i]).trigger('add', model, this, options);
+        var addOpts = at != null ? _.clone(options) : options;
+        for (var i = 0; i < toAdd.length; i++) {
+          if (at != null) addOpts.index = at + i;
+          (model = toAdd[i]).trigger('add', model, this, addOpts);
         }
-        if (sort || (order && order.length)) this.trigger('sort', this, options);
+        if (sort || orderChanged) this.trigger('sort', this, options);
+        if (toAdd.length || toRemove.length) this.trigger('update', this, options);
       }
 
       // Return the added (or merged) model (or models).
@@ -25805,8 +25966,8 @@ module.exports = '2.0.0-beta-35';
     // any granular `add` or `remove` events. Fires `reset` when finished.
     // Useful for bulk operations and optimizations.
     reset: function(models, options) {
-      options || (options = {});
-      for (var i = 0, l = this.models.length; i < l; i++) {
+      options = options ? _.clone(options) : {};
+      for (var i = 0; i < this.models.length; i++) {
         this._removeReference(this.models[i], options);
       }
       options.previousModels = this.models;
@@ -25848,23 +26009,22 @@ module.exports = '2.0.0-beta-35';
     // Get a model from the set by id.
     get: function(obj) {
       if (obj == null) return void 0;
-      return this._byId[obj] || this._byId[obj.id] || this._byId[obj.cid];
+      var id = this.modelId(this._isModel(obj) ? obj.attributes : obj);
+      return this._byId[obj] || this._byId[id] || this._byId[obj.cid];
     },
 
     // Get the model at the given index.
     at: function(index) {
+      if (index < 0) index += this.length;
       return this.models[index];
     },
 
     // Return models with matching attributes. Useful for simple cases of
     // `filter`.
     where: function(attrs, first) {
-      if (_.isEmpty(attrs)) return first ? void 0 : [];
+      var matches = _.matches(attrs);
       return this[first ? 'find' : 'filter'](function(model) {
-        for (var key in attrs) {
-          if (attrs[key] !== model.get(key)) return false;
-        }
-        return true;
+        return matches(model.attributes);
       });
     },
 
@@ -25908,7 +26068,7 @@ module.exports = '2.0.0-beta-35';
       options.success = function(resp) {
         var method = options.reset ? 'reset' : 'set';
         collection[method](resp, options);
-        if (success) success(collection, resp, options);
+        if (success) success.call(options.context, collection, resp, options);
         collection.trigger('sync', collection, resp, options);
       };
       wrapError(this, options);
@@ -25920,13 +26080,14 @@ module.exports = '2.0.0-beta-35';
     // wait for the server to agree.
     create: function(model, options) {
       options = options ? _.clone(options) : {};
+      var wait = options.wait;
       if (!(model = this._prepareModel(model, options))) return false;
-      if (!options.wait) this.add(model, options);
+      if (!wait) this.add(model, options);
       var collection = this;
       var success = options.success;
-      options.success = function(model, resp) {
-        if (options.wait) collection.add(model, options);
-        if (success) success(model, resp, options);
+      options.success = function(model, resp, callbackOpts) {
+        if (wait) collection.add(model, callbackOpts);
+        if (success) success.call(callbackOpts.context, model, resp, callbackOpts);
       };
       model.save(null, options);
       return model;
@@ -25940,7 +26101,15 @@ module.exports = '2.0.0-beta-35';
 
     // Create a new collection with an identical list of models as this one.
     clone: function() {
-      return new this.constructor(this.models);
+      return new this.constructor(this.models, {
+        model: this.model,
+        comparator: this.comparator
+      });
+    },
+
+    // Define how to uniquely identify models in the collection.
+    modelId: function (attrs) {
+      return attrs[this.model.prototype.idAttribute || 'id'];
     },
 
     // Private method to reset all internal state. Called when the collection
@@ -25954,7 +26123,10 @@ module.exports = '2.0.0-beta-35';
     // Prepare a hash of attributes (or other model) to be added to this
     // collection.
     _prepareModel: function(attrs, options) {
-      if (attrs instanceof Model) return attrs;
+      if (this._isModel(attrs)) {
+        if (!attrs.collection) attrs.collection = this;
+        return attrs;
+      }
       options = options ? _.clone(options) : {};
       options.collection = this;
       var model = new this.model(attrs, options);
@@ -25963,11 +26135,44 @@ module.exports = '2.0.0-beta-35';
       return false;
     },
 
+    // Internal method called by both remove and set. Does not trigger any
+    // additional events. Returns true if anything was actually removed.
+    _removeModels: function(models, options) {
+      var i, l, index, model, removed = false;
+      for (var i = 0, j = 0; i < models.length; i++) {
+        var model = models[i] = this.get(models[i]);
+        if (!model) continue;
+        var id = this.modelId(model.attributes);
+        if (id != null) delete this._byId[id];
+        delete this._byId[model.cid];
+        var index = this.indexOf(model);
+        this.models.splice(index, 1);
+        this.length--;
+        if (!options.silent) {
+          options.index = index;
+          model.trigger('remove', model, this, options);
+        }
+        models[j++] = model;
+        this._removeReference(model, options);
+        removed = true;
+      }
+      // We only need to slice if models array should be smaller, which is
+      // caused by some models not actually getting removed.
+      if (models.length !== j) models = models.slice(0, j);
+      return removed;
+    },
+
+    // Method for checking whether an object should be considered a model for
+    // the purposes of adding to the collection.
+    _isModel: function (model) {
+      return model instanceof Model;
+    },
+
     // Internal method to create a model's ties to a collection.
     _addReference: function(model, options) {
       this._byId[model.cid] = model;
-      if (model.id != null) this._byId[model.id] = model;
-      if (!model.collection) model.collection = this;
+      var id = this.modelId(model.attributes);
+      if (id != null) this._byId[id] = model;
       model.on('all', this._onModelEvent, this);
     },
 
@@ -25984,9 +26189,13 @@ module.exports = '2.0.0-beta-35';
     _onModelEvent: function(event, model, collection, options) {
       if ((event === 'add' || event === 'remove') && collection !== this) return;
       if (event === 'destroy') this.remove(model, options);
-      if (model && event === 'change:' + model.idAttribute) {
-        delete this._byId[model.previous(model.idAttribute)];
-        if (model.id != null) this._byId[model.id] = model;
+      if (event === 'change') {
+        var prevId = this.modelId(model.previousAttributes());
+        var id = this.modelId(model.attributes);
+        if (prevId !== id) {
+          if (prevId != null) delete this._byId[prevId];
+          if (id != null) this._byId[id] = model;
+        }
       }
       this.trigger.apply(this, arguments);
     }
@@ -25996,27 +26205,23 @@ module.exports = '2.0.0-beta-35';
   // Underscore methods that we want to implement on the Collection.
   // 90% of the core usefulness of Backbone Collections is actually implemented
   // right here:
-  var methods = ['forEach', 'each', 'map', 'collect', 'reduce', 'foldl',
-    'inject', 'reduceRight', 'foldr', 'find', 'detect', 'filter', 'select',
-    'reject', 'every', 'all', 'some', 'any', 'include', 'contains', 'invoke',
-    'max', 'min', 'toArray', 'size', 'first', 'head', 'take', 'initial', 'rest',
-    'tail', 'drop', 'last', 'without', 'difference', 'indexOf', 'shuffle',
-    'lastIndexOf', 'isEmpty', 'chain', 'sample'];
+  var collectionMethods = { forEach: 3, each: 3, map: 3, collect: 3, reduce: 4,
+      foldl: 4, inject: 4, reduceRight: 4, foldr: 4, find: 3, detect: 3, filter: 3,
+      select: 3, reject: 3, every: 3, all: 3, some: 3, any: 3, include: 2,
+      contains: 2, invoke: 2, max: 3, min: 3, toArray: 1, size: 1, first: 3,
+      head: 3, take: 3, initial: 3, rest: 3, tail: 3, drop: 3, last: 3,
+      without: 0, difference: 0, indexOf: 3, shuffle: 1, lastIndexOf: 3,
+      isEmpty: 1, chain: 1, sample: 3, partition: 3 };
 
   // Mix in each Underscore method as a proxy to `Collection#models`.
-  _.each(methods, function(method) {
-    Collection.prototype[method] = function() {
-      var args = slice.call(arguments);
-      args.unshift(this.models);
-      return _[method].apply(_, args);
-    };
-  });
+  addUnderscoreMethods(Collection, collectionMethods, 'models');
 
   // Underscore methods that take a property name as an argument.
   var attributeMethods = ['groupBy', 'countBy', 'sortBy', 'indexBy'];
 
   // Use attributes instead of properties.
   _.each(attributeMethods, function(method) {
+    if (!_[method]) return;
     Collection.prototype[method] = function(value, context) {
       var iterator = _.isFunction(value) ? value : function(model) {
         return model.get(value);
@@ -26044,7 +26249,6 @@ module.exports = '2.0.0-beta-35';
     _.extend(this, _.pick(options, viewOptions));
     this._ensureElement();
     this.initialize.apply(this, arguments);
-    this.delegateEvents();
   };
 
   // Cached regex to split keys for `delegate`.
@@ -26079,19 +26283,35 @@ module.exports = '2.0.0-beta-35';
     // Remove this view by taking the element out of the DOM, and removing any
     // applicable Backbone.Events listeners.
     remove: function() {
-      this.$el.remove();
+      this._removeElement();
       this.stopListening();
       return this;
     },
 
-    // Change the view's element (`this.el` property), including event
-    // re-delegation.
-    setElement: function(element, delegate) {
-      if (this.$el) this.undelegateEvents();
-      this.$el = element instanceof Backbone.$ ? element : Backbone.$(element);
-      this.el = this.$el[0];
-      if (delegate !== false) this.delegateEvents();
+    // Remove this view's element from the document and all event listeners
+    // attached to it. Exposed for subclasses using an alternative DOM
+    // manipulation API.
+    _removeElement: function() {
+      this.$el.remove();
+    },
+
+    // Change the view's element (`this.el` property) and re-delegate the
+    // view's events on the new element.
+    setElement: function(element) {
+      this.undelegateEvents();
+      this._setElement(element);
+      this.delegateEvents();
       return this;
+    },
+
+    // Creates the `this.el` and `this.$el` references for this view using the
+    // given `el`. `el` can be a CSS selector or an HTML string, a jQuery
+    // context or an element. Subclasses can override this to utilize an
+    // alternative DOM manipulation API and are only required to set the
+    // `this.el` property.
+    _setElement: function(el) {
+      this.$el = el instanceof Backbone.$ ? el : Backbone.$(el);
+      this.el = this.$el[0];
     },
 
     // Set callbacks, where `this.events` is a hash of
@@ -26107,8 +26327,6 @@ module.exports = '2.0.0-beta-35';
     // pairs. Callbacks will be bound to the view, with `this` set properly.
     // Uses event delegation for efficiency.
     // Omitting the selector binds the event to `this.el`.
-    // This only works for delegate-able events: not `focus`, `blur`, and
-    // not `change`, `submit`, and `reset` in Internet Explorer.
     delegateEvents: function(events) {
       if (!(events || (events = _.result(this, 'events')))) return this;
       this.undelegateEvents();
@@ -26116,26 +26334,37 @@ module.exports = '2.0.0-beta-35';
         var method = events[key];
         if (!_.isFunction(method)) method = this[events[key]];
         if (!method) continue;
-
         var match = key.match(delegateEventSplitter);
-        var eventName = match[1], selector = match[2];
-        method = _.bind(method, this);
-        eventName += '.delegateEvents' + this.cid;
-        if (selector === '') {
-          this.$el.on(eventName, method);
-        } else {
-          this.$el.on(eventName, selector, method);
-        }
+        this.delegate(match[1], match[2], _.bind(method, this));
       }
       return this;
     },
 
-    // Clears all callbacks previously bound to the view with `delegateEvents`.
+    // Add a single event listener to the view's element (or a child element
+    // using `selector`). This only works for delegate-able events: not `focus`,
+    // `blur`, and not `change`, `submit`, and `reset` in Internet Explorer.
+    delegate: function(eventName, selector, listener) {
+      this.$el.on(eventName + '.delegateEvents' + this.cid, selector, listener);
+    },
+
+    // Clears all callbacks previously bound to the view by `delegateEvents`.
     // You usually don't need to use this, but may wish to if you have multiple
     // Backbone views attached to the same DOM element.
     undelegateEvents: function() {
-      this.$el.off('.delegateEvents' + this.cid);
+      if (this.$el) this.$el.off('.delegateEvents' + this.cid);
       return this;
+    },
+
+    // A finer-grained `undelegateEvents` for removing a single delegated event.
+    // `selector` and `listener` are both optional.
+    undelegate: function(eventName, selector, listener) {
+      this.$el.off(eventName + '.delegateEvents' + this.cid, selector, listener);
+    },
+
+    // Produces a DOM element to be assigned to your view. Exposed for
+    // subclasses using an alternative DOM manipulation API.
+    _createElement: function(tagName) {
+      return document.createElement(tagName);
     },
 
     // Ensure that the View has a DOM element to render into.
@@ -26147,11 +26376,17 @@ module.exports = '2.0.0-beta-35';
         var attrs = _.extend({}, _.result(this, 'attributes'));
         if (this.id) attrs.id = _.result(this, 'id');
         if (this.className) attrs['class'] = _.result(this, 'className');
-        var $el = Backbone.$('<' + _.result(this, 'tagName') + '>').attr(attrs);
-        this.setElement($el, false);
+        this.setElement(this._createElement(_.result(this, 'tagName')));
+        this._setAttributes(attrs);
       } else {
-        this.setElement(_.result(this, 'el'), false);
+        this.setElement(_.result(this, 'el'));
       }
+    },
+
+    // Set attributes from a hash on this view's element.  Exposed for
+    // subclasses using an alternative DOM manipulation API.
+    _setAttributes: function(attributes) {
+      this.$el.attr(attributes);
     }
 
   });
@@ -26220,24 +26455,19 @@ module.exports = '2.0.0-beta-35';
       params.processData = false;
     }
 
-    // If we're sending a `PATCH` request, and we're in an old Internet Explorer
-    // that still has ActiveX enabled by default, override jQuery to use that
-    // for XHR instead. Remove this line when jQuery supports `PATCH` on IE8.
-    if (params.type === 'PATCH' && noXhrPatch) {
-      params.xhr = function() {
-        return new ActiveXObject("Microsoft.XMLHTTP");
-      };
-    }
+    // Pass along `textStatus` and `errorThrown` from jQuery.
+    var error = options.error;
+    options.error = function(xhr, textStatus, errorThrown) {
+      options.textStatus = textStatus;
+      options.errorThrown = errorThrown;
+      if (error) error.call(options.context, xhr, textStatus, errorThrown);
+    };
 
     // Make the request, allowing the user to override any Ajax options.
     var xhr = options.xhr = Backbone.ajax(_.extend(params, options));
     model.trigger('request', model, xhr, options);
     return xhr;
   };
-
-  var noXhrPatch =
-    typeof window !== 'undefined' && !!window.ActiveXObject &&
-      !(window.XMLHttpRequest && (new XMLHttpRequest).dispatchEvent);
 
   // Map from CRUD to HTTP for our default `Backbone.sync` implementation.
   var methodMap = {
@@ -26296,17 +26526,18 @@ module.exports = '2.0.0-beta-35';
       var router = this;
       Backbone.history.route(route, function(fragment) {
         var args = router._extractParameters(route, fragment);
-        router.execute(callback, args);
-        router.trigger.apply(router, ['route:' + name].concat(args));
-        router.trigger('route', name, args);
-        Backbone.history.trigger('route', router, name, args);
+        if (router.execute(callback, args, name) !== false) {
+          router.trigger.apply(router, ['route:' + name].concat(args));
+          router.trigger('route', name, args);
+          Backbone.history.trigger('route', router, name, args);
+        }
       });
       return this;
     },
 
     // Execute a route handler with the provided parameters.  This is an
     // excellent place to do pre-route setup or post-route cleanup.
-    execute: function(callback, args) {
+    execute: function(callback, args, name) {
       if (callback) callback.apply(this, args);
     },
 
@@ -26379,12 +26610,6 @@ module.exports = '2.0.0-beta-35';
   // Cached regex for stripping leading and trailing slashes.
   var rootStripper = /^\/+|\/+$/g;
 
-  // Cached regex for detecting MSIE.
-  var isExplorer = /msie [\w.]+/;
-
-  // Cached regex for removing a trailing slash.
-  var trailingSlash = /\/$/;
-
   // Cached regex for stripping urls of hash.
   var pathStripper = /#.*$/;
 
@@ -26400,7 +26625,29 @@ module.exports = '2.0.0-beta-35';
 
     // Are we at the app root?
     atRoot: function() {
-      return this.location.pathname.replace(/[^\/]$/, '$&/') === this.root;
+      var path = this.location.pathname.replace(/[^\/]$/, '$&/');
+      return path === this.root && !this.getSearch();
+    },
+
+    // Does the pathname match the root?
+    matchRoot: function() {
+      var path = this.decodeFragment(this.location.pathname);
+      var root = path.slice(0, this.root.length - 1) + '/';
+      return root === this.root;
+    },
+
+    // Unicode characters in `location.pathname` are percent encoded so they're
+    // decoded for comparison. `%25` should not be decoded since it may be part
+    // of an encoded parameter.
+    decodeFragment: function(fragment) {
+      return decodeURI(fragment.replace(/%25/g, '%2525'));
+    },
+
+    // In IE6, the hash fragment and search params are incorrect if the
+    // fragment contains `?`.
+    getSearch: function() {
+      var match = this.location.href.replace(/#.*/, '').match(/\?.+/);
+      return match ? match[0] : '';
     },
 
     // Gets the true hash value. Cannot use location.hash directly due to bug
@@ -26410,14 +26657,19 @@ module.exports = '2.0.0-beta-35';
       return match ? match[1] : '';
     },
 
-    // Get the cross-browser normalized URL fragment, either from the URL,
-    // the hash, or the override.
-    getFragment: function(fragment, forcePushState) {
+    // Get the pathname and search params, without the root.
+    getPath: function() {
+      var path = this.decodeFragment(
+        this.location.pathname + this.getSearch()
+      ).slice(this.root.length - 1);
+      return path.charAt(0) === '/' ? path.slice(1) : path;
+    },
+
+    // Get the cross-browser normalized URL fragment from the path or hash.
+    getFragment: function(fragment) {
       if (fragment == null) {
-        if (this._hasPushState || !this._wantsHashChange || forcePushState) {
-          fragment = decodeURI(this.location.pathname + this.location.search);
-          var root = this.root.replace(trailingSlash, '');
-          if (!fragment.indexOf(root)) fragment = fragment.slice(root.length);
+        if (this._usePushState || !this._wantsHashChange) {
+          fragment = this.getPath();
         } else {
           fragment = this.getHash();
         }
@@ -26428,7 +26680,7 @@ module.exports = '2.0.0-beta-35';
     // Start the hash change handling, returning `true` if the current URL matches
     // an existing route, and `false` otherwise.
     start: function(options) {
-      if (History.started) throw new Error("Backbone.history has already been started");
+      if (History.started) throw new Error('Backbone.history has already been started');
       History.started = true;
 
       // Figure out the initial configuration. Do we need an iframe?
@@ -26436,35 +26688,15 @@ module.exports = '2.0.0-beta-35';
       this.options          = _.extend({root: '/'}, this.options, options);
       this.root             = this.options.root;
       this._wantsHashChange = this.options.hashChange !== false;
+      this._hasHashChange   = 'onhashchange' in window;
+      this._useHashChange   = this._wantsHashChange && this._hasHashChange;
       this._wantsPushState  = !!this.options.pushState;
-      this._hasPushState    = !!(this.options.pushState && this.history && this.history.pushState);
-      var fragment          = this.getFragment();
-      var docMode           = document.documentMode;
-      var oldIE             = (isExplorer.exec(navigator.userAgent.toLowerCase()) && (!docMode || docMode <= 7));
+      this._hasPushState    = !!(this.history && this.history.pushState);
+      this._usePushState    = this._wantsPushState && this._hasPushState;
+      this.fragment         = this.getFragment();
 
       // Normalize root to always include a leading and trailing slash.
       this.root = ('/' + this.root + '/').replace(rootStripper, '/');
-
-      if (oldIE && this._wantsHashChange) {
-        var frame = Backbone.$('<iframe src="javascript:0" tabindex="-1">');
-        this.iframe = frame.hide().appendTo('body')[0].contentWindow;
-        this.navigate(fragment);
-      }
-
-      // Depending on whether we're using pushState or hashes, and whether
-      // 'onhashchange' is supported, determine how we check the URL state.
-      if (this._hasPushState) {
-        Backbone.$(window).on('popstate', this.checkUrl);
-      } else if (this._wantsHashChange && ('onhashchange' in window) && !oldIE) {
-        Backbone.$(window).on('hashchange', this.checkUrl);
-      } else if (this._wantsHashChange) {
-        this._checkUrlInterval = setInterval(this.checkUrl, this.interval);
-      }
-
-      // Determine if we need to change the base url, for a pushState link
-      // opened by a non-pushState browser.
-      this.fragment = fragment;
-      var loc = this.location;
 
       // Transition from hashChange to pushState or vice versa if both are
       // requested.
@@ -26473,18 +26705,47 @@ module.exports = '2.0.0-beta-35';
         // If we've started off with a route from a `pushState`-enabled
         // browser, but we're currently in a browser that doesn't support it...
         if (!this._hasPushState && !this.atRoot()) {
-          this.fragment = this.getFragment(null, true);
-          this.location.replace(this.root + '#' + this.fragment);
+          var root = this.root.slice(0, -1) || '/';
+          this.location.replace(root + '#' + this.getPath());
           // Return immediately as browser will do redirect to new url
           return true;
 
         // Or if we've started out with a hash-based route, but we're currently
         // in a browser where it could be `pushState`-based instead...
-        } else if (this._hasPushState && this.atRoot() && loc.hash) {
-          this.fragment = this.getHash().replace(routeStripper, '');
-          this.history.replaceState({}, document.title, this.root + this.fragment);
+        } else if (this._hasPushState && this.atRoot()) {
+          this.navigate(this.getHash(), {replace: true});
         }
 
+      }
+
+      // Proxy an iframe to handle location events if the browser doesn't
+      // support the `hashchange` event, HTML5 history, or the user wants
+      // `hashChange` but not `pushState`.
+      if (!this._hasHashChange && this._wantsHashChange && !this._usePushState) {
+        var iframe = document.createElement('iframe');
+        iframe.src = 'javascript:0';
+        iframe.style.display = 'none';
+        iframe.tabIndex = -1;
+        var body = document.body;
+        // Using `appendChild` will throw on IE < 9 if the document is not ready.
+        this.iframe = body.insertBefore(iframe, body.firstChild).contentWindow;
+        this.iframe.document.open().close();
+        this.iframe.location.hash = '#' + this.fragment;
+      }
+
+      // Add a cross-platform `addEventListener` shim for older browsers.
+      var addEventListener = window.addEventListener || function (eventName, listener) {
+        return attachEvent('on' + eventName, listener);
+      };
+
+      // Depending on whether we're using pushState or hashes, and whether
+      // 'onhashchange' is supported, determine how we check the URL state.
+      if (this._usePushState) {
+        addEventListener('popstate', this.checkUrl, false);
+      } else if (this._useHashChange && !this.iframe) {
+        addEventListener('hashchange', this.checkUrl, false);
+      } else if (this._wantsHashChange) {
+        this._checkUrlInterval = setInterval(this.checkUrl, this.interval);
       }
 
       if (!this.options.silent) return this.loadUrl();
@@ -26493,7 +26754,25 @@ module.exports = '2.0.0-beta-35';
     // Disable Backbone.history, perhaps temporarily. Not useful in a real app,
     // but possibly useful for unit testing Routers.
     stop: function() {
-      Backbone.$(window).off('popstate', this.checkUrl).off('hashchange', this.checkUrl);
+      // Add a cross-platform `removeEventListener` shim for older browsers.
+      var removeEventListener = window.removeEventListener || function (eventName, listener) {
+        return detachEvent('on' + eventName, listener);
+      };
+
+      // Remove window listeners.
+      if (this._usePushState) {
+        removeEventListener('popstate', this.checkUrl, false);
+      } else if (this._useHashChange && !this.iframe) {
+        removeEventListener('hashchange', this.checkUrl, false);
+      }
+
+      // Clean up the iframe if necessary.
+      if (this.iframe) {
+        document.body.removeChild(this.iframe.frameElement);
+        this.iframe = null;
+      }
+
+      // Some environments will throw when clearing an undefined interval.
       if (this._checkUrlInterval) clearInterval(this._checkUrlInterval);
       History.started = false;
     },
@@ -26508,9 +26787,13 @@ module.exports = '2.0.0-beta-35';
     // calls `loadUrl`, normalizing across the hidden iframe.
     checkUrl: function(e) {
       var current = this.getFragment();
+
+      // If the user pressed the back button, the iframe's hash will have
+      // changed and we should use that for comparison.
       if (current === this.fragment && this.iframe) {
-        current = this.getFragment(this.getHash(this.iframe));
+        current = this.getHash(this.iframe);
       }
+
       if (current === this.fragment) return false;
       if (this.iframe) this.navigate(current);
       this.loadUrl();
@@ -26520,6 +26803,8 @@ module.exports = '2.0.0-beta-35';
     // match, returns `true`. If no defined routes matches the fragment,
     // returns `false`.
     loadUrl: function(fragment) {
+      // If the root doesn't match, no routes can match either.
+      if (!this.matchRoot()) return false;
       fragment = this.fragment = this.getFragment(fragment);
       return _.any(this.handlers, function(handler) {
         if (handler.route.test(fragment)) {
@@ -26540,30 +26825,35 @@ module.exports = '2.0.0-beta-35';
       if (!History.started) return false;
       if (!options || options === true) options = {trigger: !!options};
 
-      var url = this.root + (fragment = this.getFragment(fragment || ''));
+      // Normalize the fragment.
+      fragment = this.getFragment(fragment || '');
 
-      // Strip the hash for matching.
-      fragment = fragment.replace(pathStripper, '');
+      // Don't include a trailing slash on the root.
+      var root = this.root;
+      if (fragment === '' || fragment.charAt(0) === '?') {
+        root = root.slice(0, -1) || '/';
+      }
+      var url = root + fragment;
+
+      // Strip the hash and decode for matching.
+      fragment = this.decodeFragment(fragment.replace(pathStripper, ''));
 
       if (this.fragment === fragment) return;
       this.fragment = fragment;
 
-      // Don't include a trailing slash on the root.
-      if (fragment === '' && url !== '/') url = url.slice(0, -1);
-
       // If pushState is available, we use it to set the fragment as a real URL.
-      if (this._hasPushState) {
+      if (this._usePushState) {
         this.history[options.replace ? 'replaceState' : 'pushState']({}, document.title, url);
 
       // If hash changes haven't been explicitly disabled, update the hash
       // fragment to store history.
       } else if (this._wantsHashChange) {
         this._updateHash(this.location, fragment, options.replace);
-        if (this.iframe && (fragment !== this.getFragment(this.getHash(this.iframe)))) {
+        if (this.iframe && (fragment !== this.getHash(this.iframe))) {
           // Opening and closing the iframe tricks IE7 and earlier to push a
           // history entry on hash-tag change.  When replace is true, we don't
           // want this.
-          if(!options.replace) this.iframe.document.open().close();
+          if (!options.replace) this.iframe.document.open().close();
           this._updateHash(this.iframe.location, fragment, options.replace);
         }
 
@@ -26595,7 +26885,7 @@ module.exports = '2.0.0-beta-35';
   // Helpers
   // -------
 
-  // Helper function to correctly set up the prototype chain, for subclasses.
+  // Helper function to correctly set up the prototype chain for subclasses.
   // Similar to `goog.inherits`, but uses a hash of prototype properties and
   // class properties to be extended.
   var extend = function(protoProps, staticProps) {
@@ -26604,7 +26894,7 @@ module.exports = '2.0.0-beta-35';
 
     // The constructor function for the new subclass is either defined by you
     // (the "constructor" property in your `extend` definition), or defaulted
-    // by us to simply call the parent's constructor.
+    // by us to simply call the parent constructor.
     if (protoProps && _.has(protoProps, 'constructor')) {
       child = protoProps.constructor;
     } else {
@@ -26615,7 +26905,7 @@ module.exports = '2.0.0-beta-35';
     _.extend(child, parent, staticProps);
 
     // Set the prototype chain to inherit from `parent`, without calling
-    // `parent`'s constructor function.
+    // `parent` constructor function.
     var Surrogate = function(){ this.constructor = child; };
     Surrogate.prototype = parent.prototype;
     child.prototype = new Surrogate;
@@ -26643,7 +26933,7 @@ module.exports = '2.0.0-beta-35';
   var wrapError = function(model, options) {
     var error = options.error;
     options.error = function(resp) {
-      if (error) error(model, resp, options);
+      if (error) error.call(options.context, model, resp, options);
       model.trigger('error', model, resp, options);
     };
   };
@@ -26652,1545 +26942,8 @@ module.exports = '2.0.0-beta-35';
 
 }));
 
-},{"underscore":233}],233:[function(require,module,exports){
-//     Underscore.js 1.8.2
-//     http://underscorejs.org
-//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-//     Underscore may be freely distributed under the MIT license.
-
-(function() {
-
-  // Baseline setup
-  // --------------
-
-  // Establish the root object, `window` in the browser, or `exports` on the server.
-  var root = this;
-
-  // Save the previous value of the `_` variable.
-  var previousUnderscore = root._;
-
-  // Save bytes in the minified (but not gzipped) version:
-  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
-
-  // Create quick reference variables for speed access to core prototypes.
-  var
-    push             = ArrayProto.push,
-    slice            = ArrayProto.slice,
-    toString         = ObjProto.toString,
-    hasOwnProperty   = ObjProto.hasOwnProperty;
-
-  // All **ECMAScript 5** native function implementations that we hope to use
-  // are declared here.
-  var
-    nativeIsArray      = Array.isArray,
-    nativeKeys         = Object.keys,
-    nativeBind         = FuncProto.bind,
-    nativeCreate       = Object.create;
-
-  // Naked function reference for surrogate-prototype-swapping.
-  var Ctor = function(){};
-
-  // Create a safe reference to the Underscore object for use below.
-  var _ = function(obj) {
-    if (obj instanceof _) return obj;
-    if (!(this instanceof _)) return new _(obj);
-    this._wrapped = obj;
-  };
-
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object.
-  if (typeof exports !== 'undefined') {
-    if (typeof module !== 'undefined' && module.exports) {
-      exports = module.exports = _;
-    }
-    exports._ = _;
-  } else {
-    root._ = _;
-  }
-
-  // Current version.
-  _.VERSION = '1.8.2';
-
-  // Internal function that returns an efficient (for current engines) version
-  // of the passed-in callback, to be repeatedly applied in other Underscore
-  // functions.
-  var optimizeCb = function(func, context, argCount) {
-    if (context === void 0) return func;
-    switch (argCount == null ? 3 : argCount) {
-      case 1: return function(value) {
-        return func.call(context, value);
-      };
-      case 2: return function(value, other) {
-        return func.call(context, value, other);
-      };
-      case 3: return function(value, index, collection) {
-        return func.call(context, value, index, collection);
-      };
-      case 4: return function(accumulator, value, index, collection) {
-        return func.call(context, accumulator, value, index, collection);
-      };
-    }
-    return function() {
-      return func.apply(context, arguments);
-    };
-  };
-
-  // A mostly-internal function to generate callbacks that can be applied
-  // to each element in a collection, returning the desired result — either
-  // identity, an arbitrary callback, a property matcher, or a property accessor.
-  var cb = function(value, context, argCount) {
-    if (value == null) return _.identity;
-    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
-    if (_.isObject(value)) return _.matcher(value);
-    return _.property(value);
-  };
-  _.iteratee = function(value, context) {
-    return cb(value, context, Infinity);
-  };
-
-  // An internal function for creating assigner functions.
-  var createAssigner = function(keysFunc, undefinedOnly) {
-    return function(obj) {
-      var length = arguments.length;
-      if (length < 2 || obj == null) return obj;
-      for (var index = 1; index < length; index++) {
-        var source = arguments[index],
-            keys = keysFunc(source),
-            l = keys.length;
-        for (var i = 0; i < l; i++) {
-          var key = keys[i];
-          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
-        }
-      }
-      return obj;
-    };
-  };
-
-  // An internal function for creating a new object that inherits from another.
-  var baseCreate = function(prototype) {
-    if (!_.isObject(prototype)) return {};
-    if (nativeCreate) return nativeCreate(prototype);
-    Ctor.prototype = prototype;
-    var result = new Ctor;
-    Ctor.prototype = null;
-    return result;
-  };
-
-  // Helper for collection methods to determine whether a collection
-  // should be iterated as an array or as an object
-  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
-  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
-  var isArrayLike = function(collection) {
-    var length = collection && collection.length;
-    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
-  };
-
-  // Collection Functions
-  // --------------------
-
-  // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles raw objects in addition to array-likes. Treats all
-  // sparse array-likes as if they were dense.
-  _.each = _.forEach = function(obj, iteratee, context) {
-    iteratee = optimizeCb(iteratee, context);
-    var i, length;
-    if (isArrayLike(obj)) {
-      for (i = 0, length = obj.length; i < length; i++) {
-        iteratee(obj[i], i, obj);
-      }
-    } else {
-      var keys = _.keys(obj);
-      for (i = 0, length = keys.length; i < length; i++) {
-        iteratee(obj[keys[i]], keys[i], obj);
-      }
-    }
-    return obj;
-  };
-
-  // Return the results of applying the iteratee to each element.
-  _.map = _.collect = function(obj, iteratee, context) {
-    iteratee = cb(iteratee, context);
-    var keys = !isArrayLike(obj) && _.keys(obj),
-        length = (keys || obj).length,
-        results = Array(length);
-    for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
-      results[index] = iteratee(obj[currentKey], currentKey, obj);
-    }
-    return results;
-  };
-
-  // Create a reducing function iterating left or right.
-  function createReduce(dir) {
-    // Optimized iterator function as using arguments.length
-    // in the main function will deoptimize the, see #1991.
-    function iterator(obj, iteratee, memo, keys, index, length) {
-      for (; index >= 0 && index < length; index += dir) {
-        var currentKey = keys ? keys[index] : index;
-        memo = iteratee(memo, obj[currentKey], currentKey, obj);
-      }
-      return memo;
-    }
-
-    return function(obj, iteratee, memo, context) {
-      iteratee = optimizeCb(iteratee, context, 4);
-      var keys = !isArrayLike(obj) && _.keys(obj),
-          length = (keys || obj).length,
-          index = dir > 0 ? 0 : length - 1;
-      // Determine the initial value if none is provided.
-      if (arguments.length < 3) {
-        memo = obj[keys ? keys[index] : index];
-        index += dir;
-      }
-      return iterator(obj, iteratee, memo, keys, index, length);
-    };
-  }
-
-  // **Reduce** builds up a single result from a list of values, aka `inject`,
-  // or `foldl`.
-  _.reduce = _.foldl = _.inject = createReduce(1);
-
-  // The right-associative version of reduce, also known as `foldr`.
-  _.reduceRight = _.foldr = createReduce(-1);
-
-  // Return the first value which passes a truth test. Aliased as `detect`.
-  _.find = _.detect = function(obj, predicate, context) {
-    var key;
-    if (isArrayLike(obj)) {
-      key = _.findIndex(obj, predicate, context);
-    } else {
-      key = _.findKey(obj, predicate, context);
-    }
-    if (key !== void 0 && key !== -1) return obj[key];
-  };
-
-  // Return all the elements that pass a truth test.
-  // Aliased as `select`.
-  _.filter = _.select = function(obj, predicate, context) {
-    var results = [];
-    predicate = cb(predicate, context);
-    _.each(obj, function(value, index, list) {
-      if (predicate(value, index, list)) results.push(value);
-    });
-    return results;
-  };
-
-  // Return all the elements for which a truth test fails.
-  _.reject = function(obj, predicate, context) {
-    return _.filter(obj, _.negate(cb(predicate)), context);
-  };
-
-  // Determine whether all of the elements match a truth test.
-  // Aliased as `all`.
-  _.every = _.all = function(obj, predicate, context) {
-    predicate = cb(predicate, context);
-    var keys = !isArrayLike(obj) && _.keys(obj),
-        length = (keys || obj).length;
-    for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
-      if (!predicate(obj[currentKey], currentKey, obj)) return false;
-    }
-    return true;
-  };
-
-  // Determine if at least one element in the object matches a truth test.
-  // Aliased as `any`.
-  _.some = _.any = function(obj, predicate, context) {
-    predicate = cb(predicate, context);
-    var keys = !isArrayLike(obj) && _.keys(obj),
-        length = (keys || obj).length;
-    for (var index = 0; index < length; index++) {
-      var currentKey = keys ? keys[index] : index;
-      if (predicate(obj[currentKey], currentKey, obj)) return true;
-    }
-    return false;
-  };
-
-  // Determine if the array or object contains a given value (using `===`).
-  // Aliased as `includes` and `include`.
-  _.contains = _.includes = _.include = function(obj, target, fromIndex) {
-    if (!isArrayLike(obj)) obj = _.values(obj);
-    return _.indexOf(obj, target, typeof fromIndex == 'number' && fromIndex) >= 0;
-  };
-
-  // Invoke a method (with arguments) on every item in a collection.
-  _.invoke = function(obj, method) {
-    var args = slice.call(arguments, 2);
-    var isFunc = _.isFunction(method);
-    return _.map(obj, function(value) {
-      var func = isFunc ? method : value[method];
-      return func == null ? func : func.apply(value, args);
-    });
-  };
-
-  // Convenience version of a common use case of `map`: fetching a property.
-  _.pluck = function(obj, key) {
-    return _.map(obj, _.property(key));
-  };
-
-  // Convenience version of a common use case of `filter`: selecting only objects
-  // containing specific `key:value` pairs.
-  _.where = function(obj, attrs) {
-    return _.filter(obj, _.matcher(attrs));
-  };
-
-  // Convenience version of a common use case of `find`: getting the first object
-  // containing specific `key:value` pairs.
-  _.findWhere = function(obj, attrs) {
-    return _.find(obj, _.matcher(attrs));
-  };
-
-  // Return the maximum element (or element-based computation).
-  _.max = function(obj, iteratee, context) {
-    var result = -Infinity, lastComputed = -Infinity,
-        value, computed;
-    if (iteratee == null && obj != null) {
-      obj = isArrayLike(obj) ? obj : _.values(obj);
-      for (var i = 0, length = obj.length; i < length; i++) {
-        value = obj[i];
-        if (value > result) {
-          result = value;
-        }
-      }
-    } else {
-      iteratee = cb(iteratee, context);
-      _.each(obj, function(value, index, list) {
-        computed = iteratee(value, index, list);
-        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
-          result = value;
-          lastComputed = computed;
-        }
-      });
-    }
-    return result;
-  };
-
-  // Return the minimum element (or element-based computation).
-  _.min = function(obj, iteratee, context) {
-    var result = Infinity, lastComputed = Infinity,
-        value, computed;
-    if (iteratee == null && obj != null) {
-      obj = isArrayLike(obj) ? obj : _.values(obj);
-      for (var i = 0, length = obj.length; i < length; i++) {
-        value = obj[i];
-        if (value < result) {
-          result = value;
-        }
-      }
-    } else {
-      iteratee = cb(iteratee, context);
-      _.each(obj, function(value, index, list) {
-        computed = iteratee(value, index, list);
-        if (computed < lastComputed || computed === Infinity && result === Infinity) {
-          result = value;
-          lastComputed = computed;
-        }
-      });
-    }
-    return result;
-  };
-
-  // Shuffle a collection, using the modern version of the
-  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
-  _.shuffle = function(obj) {
-    var set = isArrayLike(obj) ? obj : _.values(obj);
-    var length = set.length;
-    var shuffled = Array(length);
-    for (var index = 0, rand; index < length; index++) {
-      rand = _.random(0, index);
-      if (rand !== index) shuffled[index] = shuffled[rand];
-      shuffled[rand] = set[index];
-    }
-    return shuffled;
-  };
-
-  // Sample **n** random values from a collection.
-  // If **n** is not specified, returns a single random element.
-  // The internal `guard` argument allows it to work with `map`.
-  _.sample = function(obj, n, guard) {
-    if (n == null || guard) {
-      if (!isArrayLike(obj)) obj = _.values(obj);
-      return obj[_.random(obj.length - 1)];
-    }
-    return _.shuffle(obj).slice(0, Math.max(0, n));
-  };
-
-  // Sort the object's values by a criterion produced by an iteratee.
-  _.sortBy = function(obj, iteratee, context) {
-    iteratee = cb(iteratee, context);
-    return _.pluck(_.map(obj, function(value, index, list) {
-      return {
-        value: value,
-        index: index,
-        criteria: iteratee(value, index, list)
-      };
-    }).sort(function(left, right) {
-      var a = left.criteria;
-      var b = right.criteria;
-      if (a !== b) {
-        if (a > b || a === void 0) return 1;
-        if (a < b || b === void 0) return -1;
-      }
-      return left.index - right.index;
-    }), 'value');
-  };
-
-  // An internal function used for aggregate "group by" operations.
-  var group = function(behavior) {
-    return function(obj, iteratee, context) {
-      var result = {};
-      iteratee = cb(iteratee, context);
-      _.each(obj, function(value, index) {
-        var key = iteratee(value, index, obj);
-        behavior(result, value, key);
-      });
-      return result;
-    };
-  };
-
-  // Groups the object's values by a criterion. Pass either a string attribute
-  // to group by, or a function that returns the criterion.
-  _.groupBy = group(function(result, value, key) {
-    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
-  });
-
-  // Indexes the object's values by a criterion, similar to `groupBy`, but for
-  // when you know that your index values will be unique.
-  _.indexBy = group(function(result, value, key) {
-    result[key] = value;
-  });
-
-  // Counts instances of an object that group by a certain criterion. Pass
-  // either a string attribute to count by, or a function that returns the
-  // criterion.
-  _.countBy = group(function(result, value, key) {
-    if (_.has(result, key)) result[key]++; else result[key] = 1;
-  });
-
-  // Safely create a real, live array from anything iterable.
-  _.toArray = function(obj) {
-    if (!obj) return [];
-    if (_.isArray(obj)) return slice.call(obj);
-    if (isArrayLike(obj)) return _.map(obj, _.identity);
-    return _.values(obj);
-  };
-
-  // Return the number of elements in an object.
-  _.size = function(obj) {
-    if (obj == null) return 0;
-    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
-  };
-
-  // Split a collection into two arrays: one whose elements all satisfy the given
-  // predicate, and one whose elements all do not satisfy the predicate.
-  _.partition = function(obj, predicate, context) {
-    predicate = cb(predicate, context);
-    var pass = [], fail = [];
-    _.each(obj, function(value, key, obj) {
-      (predicate(value, key, obj) ? pass : fail).push(value);
-    });
-    return [pass, fail];
-  };
-
-  // Array Functions
-  // ---------------
-
-  // Get the first element of an array. Passing **n** will return the first N
-  // values in the array. Aliased as `head` and `take`. The **guard** check
-  // allows it to work with `_.map`.
-  _.first = _.head = _.take = function(array, n, guard) {
-    if (array == null) return void 0;
-    if (n == null || guard) return array[0];
-    return _.initial(array, array.length - n);
-  };
-
-  // Returns everything but the last entry of the array. Especially useful on
-  // the arguments object. Passing **n** will return all the values in
-  // the array, excluding the last N.
-  _.initial = function(array, n, guard) {
-    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
-  };
-
-  // Get the last element of an array. Passing **n** will return the last N
-  // values in the array.
-  _.last = function(array, n, guard) {
-    if (array == null) return void 0;
-    if (n == null || guard) return array[array.length - 1];
-    return _.rest(array, Math.max(0, array.length - n));
-  };
-
-  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
-  // Especially useful on the arguments object. Passing an **n** will return
-  // the rest N values in the array.
-  _.rest = _.tail = _.drop = function(array, n, guard) {
-    return slice.call(array, n == null || guard ? 1 : n);
-  };
-
-  // Trim out all falsy values from an array.
-  _.compact = function(array) {
-    return _.filter(array, _.identity);
-  };
-
-  // Internal implementation of a recursive `flatten` function.
-  var flatten = function(input, shallow, strict, startIndex) {
-    var output = [], idx = 0;
-    for (var i = startIndex || 0, length = input && input.length; i < length; i++) {
-      var value = input[i];
-      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
-        //flatten current level of array or arguments object
-        if (!shallow) value = flatten(value, shallow, strict);
-        var j = 0, len = value.length;
-        output.length += len;
-        while (j < len) {
-          output[idx++] = value[j++];
-        }
-      } else if (!strict) {
-        output[idx++] = value;
-      }
-    }
-    return output;
-  };
-
-  // Flatten out an array, either recursively (by default), or just one level.
-  _.flatten = function(array, shallow) {
-    return flatten(array, shallow, false);
-  };
-
-  // Return a version of the array that does not contain the specified value(s).
-  _.without = function(array) {
-    return _.difference(array, slice.call(arguments, 1));
-  };
-
-  // Produce a duplicate-free version of the array. If the array has already
-  // been sorted, you have the option of using a faster algorithm.
-  // Aliased as `unique`.
-  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
-    if (array == null) return [];
-    if (!_.isBoolean(isSorted)) {
-      context = iteratee;
-      iteratee = isSorted;
-      isSorted = false;
-    }
-    if (iteratee != null) iteratee = cb(iteratee, context);
-    var result = [];
-    var seen = [];
-    for (var i = 0, length = array.length; i < length; i++) {
-      var value = array[i],
-          computed = iteratee ? iteratee(value, i, array) : value;
-      if (isSorted) {
-        if (!i || seen !== computed) result.push(value);
-        seen = computed;
-      } else if (iteratee) {
-        if (!_.contains(seen, computed)) {
-          seen.push(computed);
-          result.push(value);
-        }
-      } else if (!_.contains(result, value)) {
-        result.push(value);
-      }
-    }
-    return result;
-  };
-
-  // Produce an array that contains the union: each distinct element from all of
-  // the passed-in arrays.
-  _.union = function() {
-    return _.uniq(flatten(arguments, true, true));
-  };
-
-  // Produce an array that contains every item shared between all the
-  // passed-in arrays.
-  _.intersection = function(array) {
-    if (array == null) return [];
-    var result = [];
-    var argsLength = arguments.length;
-    for (var i = 0, length = array.length; i < length; i++) {
-      var item = array[i];
-      if (_.contains(result, item)) continue;
-      for (var j = 1; j < argsLength; j++) {
-        if (!_.contains(arguments[j], item)) break;
-      }
-      if (j === argsLength) result.push(item);
-    }
-    return result;
-  };
-
-  // Take the difference between one array and a number of other arrays.
-  // Only the elements present in just the first array will remain.
-  _.difference = function(array) {
-    var rest = flatten(arguments, true, true, 1);
-    return _.filter(array, function(value){
-      return !_.contains(rest, value);
-    });
-  };
-
-  // Zip together multiple lists into a single array -- elements that share
-  // an index go together.
-  _.zip = function() {
-    return _.unzip(arguments);
-  };
-
-  // Complement of _.zip. Unzip accepts an array of arrays and groups
-  // each array's elements on shared indices
-  _.unzip = function(array) {
-    var length = array && _.max(array, 'length').length || 0;
-    var result = Array(length);
-
-    for (var index = 0; index < length; index++) {
-      result[index] = _.pluck(array, index);
-    }
-    return result;
-  };
-
-  // Converts lists into objects. Pass either a single array of `[key, value]`
-  // pairs, or two parallel arrays of the same length -- one of keys, and one of
-  // the corresponding values.
-  _.object = function(list, values) {
-    var result = {};
-    for (var i = 0, length = list && list.length; i < length; i++) {
-      if (values) {
-        result[list[i]] = values[i];
-      } else {
-        result[list[i][0]] = list[i][1];
-      }
-    }
-    return result;
-  };
-
-  // Return the position of the first occurrence of an item in an array,
-  // or -1 if the item is not included in the array.
-  // If the array is large and already in sort order, pass `true`
-  // for **isSorted** to use binary search.
-  _.indexOf = function(array, item, isSorted) {
-    var i = 0, length = array && array.length;
-    if (typeof isSorted == 'number') {
-      i = isSorted < 0 ? Math.max(0, length + isSorted) : isSorted;
-    } else if (isSorted && length) {
-      i = _.sortedIndex(array, item);
-      return array[i] === item ? i : -1;
-    }
-    if (item !== item) {
-      return _.findIndex(slice.call(array, i), _.isNaN);
-    }
-    for (; i < length; i++) if (array[i] === item) return i;
-    return -1;
-  };
-
-  _.lastIndexOf = function(array, item, from) {
-    var idx = array ? array.length : 0;
-    if (typeof from == 'number') {
-      idx = from < 0 ? idx + from + 1 : Math.min(idx, from + 1);
-    }
-    if (item !== item) {
-      return _.findLastIndex(slice.call(array, 0, idx), _.isNaN);
-    }
-    while (--idx >= 0) if (array[idx] === item) return idx;
-    return -1;
-  };
-
-  // Generator function to create the findIndex and findLastIndex functions
-  function createIndexFinder(dir) {
-    return function(array, predicate, context) {
-      predicate = cb(predicate, context);
-      var length = array != null && array.length;
-      var index = dir > 0 ? 0 : length - 1;
-      for (; index >= 0 && index < length; index += dir) {
-        if (predicate(array[index], index, array)) return index;
-      }
-      return -1;
-    };
-  }
-
-  // Returns the first index on an array-like that passes a predicate test
-  _.findIndex = createIndexFinder(1);
-
-  _.findLastIndex = createIndexFinder(-1);
-
-  // Use a comparator function to figure out the smallest index at which
-  // an object should be inserted so as to maintain order. Uses binary search.
-  _.sortedIndex = function(array, obj, iteratee, context) {
-    iteratee = cb(iteratee, context, 1);
-    var value = iteratee(obj);
-    var low = 0, high = array.length;
-    while (low < high) {
-      var mid = Math.floor((low + high) / 2);
-      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
-    }
-    return low;
-  };
-
-  // Generate an integer Array containing an arithmetic progression. A port of
-  // the native Python `range()` function. See
-  // [the Python documentation](http://docs.python.org/library/functions.html#range).
-  _.range = function(start, stop, step) {
-    if (arguments.length <= 1) {
-      stop = start || 0;
-      start = 0;
-    }
-    step = step || 1;
-
-    var length = Math.max(Math.ceil((stop - start) / step), 0);
-    var range = Array(length);
-
-    for (var idx = 0; idx < length; idx++, start += step) {
-      range[idx] = start;
-    }
-
-    return range;
-  };
-
-  // Function (ahem) Functions
-  // ------------------
-
-  // Determines whether to execute a function as a constructor
-  // or a normal function with the provided arguments
-  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
-    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
-    var self = baseCreate(sourceFunc.prototype);
-    var result = sourceFunc.apply(self, args);
-    if (_.isObject(result)) return result;
-    return self;
-  };
-
-  // Create a function bound to a given object (assigning `this`, and arguments,
-  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-  // available.
-  _.bind = function(func, context) {
-    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
-    var args = slice.call(arguments, 2);
-    var bound = function() {
-      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
-    };
-    return bound;
-  };
-
-  // Partially apply a function by creating a version that has had some of its
-  // arguments pre-filled, without changing its dynamic `this` context. _ acts
-  // as a placeholder, allowing any combination of arguments to be pre-filled.
-  _.partial = function(func) {
-    var boundArgs = slice.call(arguments, 1);
-    var bound = function() {
-      var position = 0, length = boundArgs.length;
-      var args = Array(length);
-      for (var i = 0; i < length; i++) {
-        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
-      }
-      while (position < arguments.length) args.push(arguments[position++]);
-      return executeBound(func, bound, this, this, args);
-    };
-    return bound;
-  };
-
-  // Bind a number of an object's methods to that object. Remaining arguments
-  // are the method names to be bound. Useful for ensuring that all callbacks
-  // defined on an object belong to it.
-  _.bindAll = function(obj) {
-    var i, length = arguments.length, key;
-    if (length <= 1) throw new Error('bindAll must be passed function names');
-    for (i = 1; i < length; i++) {
-      key = arguments[i];
-      obj[key] = _.bind(obj[key], obj);
-    }
-    return obj;
-  };
-
-  // Memoize an expensive function by storing its results.
-  _.memoize = function(func, hasher) {
-    var memoize = function(key) {
-      var cache = memoize.cache;
-      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
-      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
-      return cache[address];
-    };
-    memoize.cache = {};
-    return memoize;
-  };
-
-  // Delays a function for the given number of milliseconds, and then calls
-  // it with the arguments supplied.
-  _.delay = function(func, wait) {
-    var args = slice.call(arguments, 2);
-    return setTimeout(function(){
-      return func.apply(null, args);
-    }, wait);
-  };
-
-  // Defers a function, scheduling it to run after the current call stack has
-  // cleared.
-  _.defer = _.partial(_.delay, _, 1);
-
-  // Returns a function, that, when invoked, will only be triggered at most once
-  // during a given window of time. Normally, the throttled function will run
-  // as much as it can, without ever going more than once per `wait` duration;
-  // but if you'd like to disable the execution on the leading edge, pass
-  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-  _.throttle = function(func, wait, options) {
-    var context, args, result;
-    var timeout = null;
-    var previous = 0;
-    if (!options) options = {};
-    var later = function() {
-      previous = options.leading === false ? 0 : _.now();
-      timeout = null;
-      result = func.apply(context, args);
-      if (!timeout) context = args = null;
-    };
-    return function() {
-      var now = _.now();
-      if (!previous && options.leading === false) previous = now;
-      var remaining = wait - (now - previous);
-      context = this;
-      args = arguments;
-      if (remaining <= 0 || remaining > wait) {
-        if (timeout) {
-          clearTimeout(timeout);
-          timeout = null;
-        }
-        previous = now;
-        result = func.apply(context, args);
-        if (!timeout) context = args = null;
-      } else if (!timeout && options.trailing !== false) {
-        timeout = setTimeout(later, remaining);
-      }
-      return result;
-    };
-  };
-
-  // Returns a function, that, as long as it continues to be invoked, will not
-  // be triggered. The function will be called after it stops being called for
-  // N milliseconds. If `immediate` is passed, trigger the function on the
-  // leading edge, instead of the trailing.
-  _.debounce = function(func, wait, immediate) {
-    var timeout, args, context, timestamp, result;
-
-    var later = function() {
-      var last = _.now() - timestamp;
-
-      if (last < wait && last >= 0) {
-        timeout = setTimeout(later, wait - last);
-      } else {
-        timeout = null;
-        if (!immediate) {
-          result = func.apply(context, args);
-          if (!timeout) context = args = null;
-        }
-      }
-    };
-
-    return function() {
-      context = this;
-      args = arguments;
-      timestamp = _.now();
-      var callNow = immediate && !timeout;
-      if (!timeout) timeout = setTimeout(later, wait);
-      if (callNow) {
-        result = func.apply(context, args);
-        context = args = null;
-      }
-
-      return result;
-    };
-  };
-
-  // Returns the first function passed as an argument to the second,
-  // allowing you to adjust arguments, run code before and after, and
-  // conditionally execute the original function.
-  _.wrap = function(func, wrapper) {
-    return _.partial(wrapper, func);
-  };
-
-  // Returns a negated version of the passed-in predicate.
-  _.negate = function(predicate) {
-    return function() {
-      return !predicate.apply(this, arguments);
-    };
-  };
-
-  // Returns a function that is the composition of a list of functions, each
-  // consuming the return value of the function that follows.
-  _.compose = function() {
-    var args = arguments;
-    var start = args.length - 1;
-    return function() {
-      var i = start;
-      var result = args[start].apply(this, arguments);
-      while (i--) result = args[i].call(this, result);
-      return result;
-    };
-  };
-
-  // Returns a function that will only be executed on and after the Nth call.
-  _.after = function(times, func) {
-    return function() {
-      if (--times < 1) {
-        return func.apply(this, arguments);
-      }
-    };
-  };
-
-  // Returns a function that will only be executed up to (but not including) the Nth call.
-  _.before = function(times, func) {
-    var memo;
-    return function() {
-      if (--times > 0) {
-        memo = func.apply(this, arguments);
-      }
-      if (times <= 1) func = null;
-      return memo;
-    };
-  };
-
-  // Returns a function that will be executed at most one time, no matter how
-  // often you call it. Useful for lazy initialization.
-  _.once = _.partial(_.before, 2);
-
-  // Object Functions
-  // ----------------
-
-  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
-  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
-  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
-                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
-
-  function collectNonEnumProps(obj, keys) {
-    var nonEnumIdx = nonEnumerableProps.length;
-    var constructor = obj.constructor;
-    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
-
-    // Constructor is a special case.
-    var prop = 'constructor';
-    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
-
-    while (nonEnumIdx--) {
-      prop = nonEnumerableProps[nonEnumIdx];
-      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
-        keys.push(prop);
-      }
-    }
-  }
-
-  // Retrieve the names of an object's own properties.
-  // Delegates to **ECMAScript 5**'s native `Object.keys`
-  _.keys = function(obj) {
-    if (!_.isObject(obj)) return [];
-    if (nativeKeys) return nativeKeys(obj);
-    var keys = [];
-    for (var key in obj) if (_.has(obj, key)) keys.push(key);
-    // Ahem, IE < 9.
-    if (hasEnumBug) collectNonEnumProps(obj, keys);
-    return keys;
-  };
-
-  // Retrieve all the property names of an object.
-  _.allKeys = function(obj) {
-    if (!_.isObject(obj)) return [];
-    var keys = [];
-    for (var key in obj) keys.push(key);
-    // Ahem, IE < 9.
-    if (hasEnumBug) collectNonEnumProps(obj, keys);
-    return keys;
-  };
-
-  // Retrieve the values of an object's properties.
-  _.values = function(obj) {
-    var keys = _.keys(obj);
-    var length = keys.length;
-    var values = Array(length);
-    for (var i = 0; i < length; i++) {
-      values[i] = obj[keys[i]];
-    }
-    return values;
-  };
-
-  // Returns the results of applying the iteratee to each element of the object
-  // In contrast to _.map it returns an object
-  _.mapObject = function(obj, iteratee, context) {
-    iteratee = cb(iteratee, context);
-    var keys =  _.keys(obj),
-          length = keys.length,
-          results = {},
-          currentKey;
-      for (var index = 0; index < length; index++) {
-        currentKey = keys[index];
-        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
-      }
-      return results;
-  };
-
-  // Convert an object into a list of `[key, value]` pairs.
-  _.pairs = function(obj) {
-    var keys = _.keys(obj);
-    var length = keys.length;
-    var pairs = Array(length);
-    for (var i = 0; i < length; i++) {
-      pairs[i] = [keys[i], obj[keys[i]]];
-    }
-    return pairs;
-  };
-
-  // Invert the keys and values of an object. The values must be serializable.
-  _.invert = function(obj) {
-    var result = {};
-    var keys = _.keys(obj);
-    for (var i = 0, length = keys.length; i < length; i++) {
-      result[obj[keys[i]]] = keys[i];
-    }
-    return result;
-  };
-
-  // Return a sorted list of the function names available on the object.
-  // Aliased as `methods`
-  _.functions = _.methods = function(obj) {
-    var names = [];
-    for (var key in obj) {
-      if (_.isFunction(obj[key])) names.push(key);
-    }
-    return names.sort();
-  };
-
-  // Extend a given object with all the properties in passed-in object(s).
-  _.extend = createAssigner(_.allKeys);
-
-  // Assigns a given object with all the own properties in the passed-in object(s)
-  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-  _.extendOwn = _.assign = createAssigner(_.keys);
-
-  // Returns the first key on an object that passes a predicate test
-  _.findKey = function(obj, predicate, context) {
-    predicate = cb(predicate, context);
-    var keys = _.keys(obj), key;
-    for (var i = 0, length = keys.length; i < length; i++) {
-      key = keys[i];
-      if (predicate(obj[key], key, obj)) return key;
-    }
-  };
-
-  // Return a copy of the object only containing the whitelisted properties.
-  _.pick = function(object, oiteratee, context) {
-    var result = {}, obj = object, iteratee, keys;
-    if (obj == null) return result;
-    if (_.isFunction(oiteratee)) {
-      keys = _.allKeys(obj);
-      iteratee = optimizeCb(oiteratee, context);
-    } else {
-      keys = flatten(arguments, false, false, 1);
-      iteratee = function(value, key, obj) { return key in obj; };
-      obj = Object(obj);
-    }
-    for (var i = 0, length = keys.length; i < length; i++) {
-      var key = keys[i];
-      var value = obj[key];
-      if (iteratee(value, key, obj)) result[key] = value;
-    }
-    return result;
-  };
-
-   // Return a copy of the object without the blacklisted properties.
-  _.omit = function(obj, iteratee, context) {
-    if (_.isFunction(iteratee)) {
-      iteratee = _.negate(iteratee);
-    } else {
-      var keys = _.map(flatten(arguments, false, false, 1), String);
-      iteratee = function(value, key) {
-        return !_.contains(keys, key);
-      };
-    }
-    return _.pick(obj, iteratee, context);
-  };
-
-  // Fill in a given object with default properties.
-  _.defaults = createAssigner(_.allKeys, true);
-
-  // Create a (shallow-cloned) duplicate of an object.
-  _.clone = function(obj) {
-    if (!_.isObject(obj)) return obj;
-    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
-  };
-
-  // Invokes interceptor with the obj, and then returns obj.
-  // The primary purpose of this method is to "tap into" a method chain, in
-  // order to perform operations on intermediate results within the chain.
-  _.tap = function(obj, interceptor) {
-    interceptor(obj);
-    return obj;
-  };
-
-  // Returns whether an object has a given set of `key:value` pairs.
-  _.isMatch = function(object, attrs) {
-    var keys = _.keys(attrs), length = keys.length;
-    if (object == null) return !length;
-    var obj = Object(object);
-    for (var i = 0; i < length; i++) {
-      var key = keys[i];
-      if (attrs[key] !== obj[key] || !(key in obj)) return false;
-    }
-    return true;
-  };
-
-
-  // Internal recursive comparison function for `isEqual`.
-  var eq = function(a, b, aStack, bStack) {
-    // Identical objects are equal. `0 === -0`, but they aren't identical.
-    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-    if (a === b) return a !== 0 || 1 / a === 1 / b;
-    // A strict comparison is necessary because `null == undefined`.
-    if (a == null || b == null) return a === b;
-    // Unwrap any wrapped objects.
-    if (a instanceof _) a = a._wrapped;
-    if (b instanceof _) b = b._wrapped;
-    // Compare `[[Class]]` names.
-    var className = toString.call(a);
-    if (className !== toString.call(b)) return false;
-    switch (className) {
-      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
-      case '[object RegExp]':
-      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-      case '[object String]':
-        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-        // equivalent to `new String("5")`.
-        return '' + a === '' + b;
-      case '[object Number]':
-        // `NaN`s are equivalent, but non-reflexive.
-        // Object(NaN) is equivalent to NaN
-        if (+a !== +a) return +b !== +b;
-        // An `egal` comparison is performed for other numeric values.
-        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-      case '[object Date]':
-      case '[object Boolean]':
-        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-        // millisecond representations. Note that invalid dates with millisecond representations
-        // of `NaN` are not equivalent.
-        return +a === +b;
-    }
-
-    var areArrays = className === '[object Array]';
-    if (!areArrays) {
-      if (typeof a != 'object' || typeof b != 'object') return false;
-
-      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-      // from different frames are.
-      var aCtor = a.constructor, bCtor = b.constructor;
-      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-                               _.isFunction(bCtor) && bCtor instanceof bCtor)
-                          && ('constructor' in a && 'constructor' in b)) {
-        return false;
-      }
-    }
-    // Assume equality for cyclic structures. The algorithm for detecting cyclic
-    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-    
-    // Initializing stack of traversed objects.
-    // It's done here since we only need them for objects and arrays comparison.
-    aStack = aStack || [];
-    bStack = bStack || [];
-    var length = aStack.length;
-    while (length--) {
-      // Linear search. Performance is inversely proportional to the number of
-      // unique nested structures.
-      if (aStack[length] === a) return bStack[length] === b;
-    }
-
-    // Add the first object to the stack of traversed objects.
-    aStack.push(a);
-    bStack.push(b);
-
-    // Recursively compare objects and arrays.
-    if (areArrays) {
-      // Compare array lengths to determine if a deep comparison is necessary.
-      length = a.length;
-      if (length !== b.length) return false;
-      // Deep compare the contents, ignoring non-numeric properties.
-      while (length--) {
-        if (!eq(a[length], b[length], aStack, bStack)) return false;
-      }
-    } else {
-      // Deep compare objects.
-      var keys = _.keys(a), key;
-      length = keys.length;
-      // Ensure that both objects contain the same number of properties before comparing deep equality.
-      if (_.keys(b).length !== length) return false;
-      while (length--) {
-        // Deep compare each member
-        key = keys[length];
-        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
-      }
-    }
-    // Remove the first object from the stack of traversed objects.
-    aStack.pop();
-    bStack.pop();
-    return true;
-  };
-
-  // Perform a deep comparison to check if two objects are equal.
-  _.isEqual = function(a, b) {
-    return eq(a, b);
-  };
-
-  // Is a given array, string, or object empty?
-  // An "empty" object has no enumerable own-properties.
-  _.isEmpty = function(obj) {
-    if (obj == null) return true;
-    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
-    return _.keys(obj).length === 0;
-  };
-
-  // Is a given value a DOM element?
-  _.isElement = function(obj) {
-    return !!(obj && obj.nodeType === 1);
-  };
-
-  // Is a given value an array?
-  // Delegates to ECMA5's native Array.isArray
-  _.isArray = nativeIsArray || function(obj) {
-    return toString.call(obj) === '[object Array]';
-  };
-
-  // Is a given variable an object?
-  _.isObject = function(obj) {
-    var type = typeof obj;
-    return type === 'function' || type === 'object' && !!obj;
-  };
-
-  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
-  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
-    _['is' + name] = function(obj) {
-      return toString.call(obj) === '[object ' + name + ']';
-    };
-  });
-
-  // Define a fallback version of the method in browsers (ahem, IE < 9), where
-  // there isn't any inspectable "Arguments" type.
-  if (!_.isArguments(arguments)) {
-    _.isArguments = function(obj) {
-      return _.has(obj, 'callee');
-    };
-  }
-
-  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
-  // IE 11 (#1621), and in Safari 8 (#1929).
-  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
-    _.isFunction = function(obj) {
-      return typeof obj == 'function' || false;
-    };
-  }
-
-  // Is a given object a finite number?
-  _.isFinite = function(obj) {
-    return isFinite(obj) && !isNaN(parseFloat(obj));
-  };
-
-  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
-  _.isNaN = function(obj) {
-    return _.isNumber(obj) && obj !== +obj;
-  };
-
-  // Is a given value a boolean?
-  _.isBoolean = function(obj) {
-    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
-  };
-
-  // Is a given value equal to null?
-  _.isNull = function(obj) {
-    return obj === null;
-  };
-
-  // Is a given variable undefined?
-  _.isUndefined = function(obj) {
-    return obj === void 0;
-  };
-
-  // Shortcut function for checking if an object has a given property directly
-  // on itself (in other words, not on a prototype).
-  _.has = function(obj, key) {
-    return obj != null && hasOwnProperty.call(obj, key);
-  };
-
-  // Utility Functions
-  // -----------------
-
-  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
-  // previous owner. Returns a reference to the Underscore object.
-  _.noConflict = function() {
-    root._ = previousUnderscore;
-    return this;
-  };
-
-  // Keep the identity function around for default iteratees.
-  _.identity = function(value) {
-    return value;
-  };
-
-  // Predicate-generating functions. Often useful outside of Underscore.
-  _.constant = function(value) {
-    return function() {
-      return value;
-    };
-  };
-
-  _.noop = function(){};
-
-  _.property = function(key) {
-    return function(obj) {
-      return obj == null ? void 0 : obj[key];
-    };
-  };
-
-  // Generates a function for a given object that returns a given property.
-  _.propertyOf = function(obj) {
-    return obj == null ? function(){} : function(key) {
-      return obj[key];
-    };
-  };
-
-  // Returns a predicate for checking whether an object has a given set of 
-  // `key:value` pairs.
-  _.matcher = _.matches = function(attrs) {
-    attrs = _.extendOwn({}, attrs);
-    return function(obj) {
-      return _.isMatch(obj, attrs);
-    };
-  };
-
-  // Run a function **n** times.
-  _.times = function(n, iteratee, context) {
-    var accum = Array(Math.max(0, n));
-    iteratee = optimizeCb(iteratee, context, 1);
-    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
-    return accum;
-  };
-
-  // Return a random integer between min and max (inclusive).
-  _.random = function(min, max) {
-    if (max == null) {
-      max = min;
-      min = 0;
-    }
-    return min + Math.floor(Math.random() * (max - min + 1));
-  };
-
-  // A (possibly faster) way to get the current timestamp as an integer.
-  _.now = Date.now || function() {
-    return new Date().getTime();
-  };
-
-   // List of HTML entities for escaping.
-  var escapeMap = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#x27;',
-    '`': '&#x60;'
-  };
-  var unescapeMap = _.invert(escapeMap);
-
-  // Functions for escaping and unescaping strings to/from HTML interpolation.
-  var createEscaper = function(map) {
-    var escaper = function(match) {
-      return map[match];
-    };
-    // Regexes for identifying a key that needs to be escaped
-    var source = '(?:' + _.keys(map).join('|') + ')';
-    var testRegexp = RegExp(source);
-    var replaceRegexp = RegExp(source, 'g');
-    return function(string) {
-      string = string == null ? '' : '' + string;
-      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
-    };
-  };
-  _.escape = createEscaper(escapeMap);
-  _.unescape = createEscaper(unescapeMap);
-
-  // If the value of the named `property` is a function then invoke it with the
-  // `object` as context; otherwise, return it.
-  _.result = function(object, property, fallback) {
-    var value = object == null ? void 0 : object[property];
-    if (value === void 0) {
-      value = fallback;
-    }
-    return _.isFunction(value) ? value.call(object) : value;
-  };
-
-  // Generate a unique integer id (unique within the entire client session).
-  // Useful for temporary DOM ids.
-  var idCounter = 0;
-  _.uniqueId = function(prefix) {
-    var id = ++idCounter + '';
-    return prefix ? prefix + id : id;
-  };
-
-  // By default, Underscore uses ERB-style template delimiters, change the
-  // following template settings to use alternative delimiters.
-  _.templateSettings = {
-    evaluate    : /<%([\s\S]+?)%>/g,
-    interpolate : /<%=([\s\S]+?)%>/g,
-    escape      : /<%-([\s\S]+?)%>/g
-  };
-
-  // When customizing `templateSettings`, if you don't want to define an
-  // interpolation, evaluation or escaping regex, we need one that is
-  // guaranteed not to match.
-  var noMatch = /(.)^/;
-
-  // Certain characters need to be escaped so that they can be put into a
-  // string literal.
-  var escapes = {
-    "'":      "'",
-    '\\':     '\\',
-    '\r':     'r',
-    '\n':     'n',
-    '\u2028': 'u2028',
-    '\u2029': 'u2029'
-  };
-
-  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
-
-  var escapeChar = function(match) {
-    return '\\' + escapes[match];
-  };
-
-  // JavaScript micro-templating, similar to John Resig's implementation.
-  // Underscore templating handles arbitrary delimiters, preserves whitespace,
-  // and correctly escapes quotes within interpolated code.
-  // NB: `oldSettings` only exists for backwards compatibility.
-  _.template = function(text, settings, oldSettings) {
-    if (!settings && oldSettings) settings = oldSettings;
-    settings = _.defaults({}, settings, _.templateSettings);
-
-    // Combine delimiters into one regular expression via alternation.
-    var matcher = RegExp([
-      (settings.escape || noMatch).source,
-      (settings.interpolate || noMatch).source,
-      (settings.evaluate || noMatch).source
-    ].join('|') + '|$', 'g');
-
-    // Compile the template source, escaping string literals appropriately.
-    var index = 0;
-    var source = "__p+='";
-    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-      source += text.slice(index, offset).replace(escaper, escapeChar);
-      index = offset + match.length;
-
-      if (escape) {
-        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
-      } else if (interpolate) {
-        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-      } else if (evaluate) {
-        source += "';\n" + evaluate + "\n__p+='";
-      }
-
-      // Adobe VMs need the match returned to produce the correct offest.
-      return match;
-    });
-    source += "';\n";
-
-    // If a variable is not specified, place data values in local scope.
-    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
-
-    source = "var __t,__p='',__j=Array.prototype.join," +
-      "print=function(){__p+=__j.call(arguments,'');};\n" +
-      source + 'return __p;\n';
-
-    try {
-      var render = new Function(settings.variable || 'obj', '_', source);
-    } catch (e) {
-      e.source = source;
-      throw e;
-    }
-
-    var template = function(data) {
-      return render.call(this, data, _);
-    };
-
-    // Provide the compiled source as a convenience for precompilation.
-    var argument = settings.variable || 'obj';
-    template.source = 'function(' + argument + '){\n' + source + '}';
-
-    return template;
-  };
-
-  // Add a "chain" function. Start chaining a wrapped Underscore object.
-  _.chain = function(obj) {
-    var instance = _(obj);
-    instance._chain = true;
-    return instance;
-  };
-
-  // OOP
-  // ---------------
-  // If Underscore is called as a function, it returns a wrapped object that
-  // can be used OO-style. This wrapper holds altered versions of all the
-  // underscore functions. Wrapped objects may be chained.
-
-  // Helper function to continue chaining intermediate results.
-  var result = function(instance, obj) {
-    return instance._chain ? _(obj).chain() : obj;
-  };
-
-  // Add your own custom functions to the Underscore object.
-  _.mixin = function(obj) {
-    _.each(_.functions(obj), function(name) {
-      var func = _[name] = obj[name];
-      _.prototype[name] = function() {
-        var args = [this._wrapped];
-        push.apply(args, arguments);
-        return result(this, func.apply(_, args));
-      };
-    });
-  };
-
-  // Add all of the Underscore functions to the wrapper object.
-  _.mixin(_);
-
-  // Add all mutator Array functions to the wrapper.
-  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
-    var method = ArrayProto[name];
-    _.prototype[name] = function() {
-      var obj = this._wrapped;
-      method.apply(obj, arguments);
-      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
-      return result(this, obj);
-    };
-  });
-
-  // Add all accessor Array functions to the wrapper.
-  _.each(['concat', 'join', 'slice'], function(name) {
-    var method = ArrayProto[name];
-    _.prototype[name] = function() {
-      return result(this, method.apply(this._wrapped, arguments));
-    };
-  });
-
-  // Extracts the result from a wrapped and chained object.
-  _.prototype.value = function() {
-    return this._wrapped;
-  };
-
-  // Provide unwrapping proxy for some methods used in engine operations
-  // such as arithmetic and JSON stringification.
-  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
-  
-  _.prototype.toString = function() {
-    return '' + this._wrapped;
-  };
-
-  // AMD registration happens at the end for compatibility with AMD loaders
-  // that may not enforce next-turn semantics on modules. Even though general
-  // practice for AMD registration is to be anonymous, underscore registers
-  // as a named module because, like jQuery, it is a base library that is
-  // popular enough to be bundled in a third party lib, but not be part of
-  // an AMD load request. Those cases could generate an error when an
-  // anonymous define() is called outside of a loader request.
-  if (typeof define === 'function' && define.amd) {
-    define('underscore', [], function() {
-      return _;
-    });
-  }
-}.call(this));
-
-},{}],234:[function(require,module,exports){
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"jquery":308,"underscore":311}],233:[function(require,module,exports){
 // This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
 require('../../js/transition.js')
 require('../../js/alert.js')
@@ -28204,9 +26957,9 @@ require('../../js/popover.js')
 require('../../js/scrollspy.js')
 require('../../js/tab.js')
 require('../../js/affix.js')
-},{"../../js/affix.js":235,"../../js/alert.js":236,"../../js/button.js":237,"../../js/carousel.js":238,"../../js/collapse.js":239,"../../js/dropdown.js":240,"../../js/modal.js":241,"../../js/popover.js":242,"../../js/scrollspy.js":243,"../../js/tab.js":244,"../../js/tooltip.js":245,"../../js/transition.js":246}],235:[function(require,module,exports){
+},{"../../js/affix.js":234,"../../js/alert.js":235,"../../js/button.js":236,"../../js/carousel.js":237,"../../js/collapse.js":238,"../../js/dropdown.js":239,"../../js/modal.js":240,"../../js/popover.js":241,"../../js/scrollspy.js":242,"../../js/tab.js":243,"../../js/tooltip.js":244,"../../js/transition.js":245}],234:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: affix.js v3.3.2
+ * Bootstrap: affix.js v3.3.4
  * http://getbootstrap.com/javascript/#affix
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -28228,14 +26981,14 @@ require('../../js/affix.js')
       .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
     this.$element     = $(element)
-    this.affixed      =
-    this.unpin        =
+    this.affixed      = null
+    this.unpin        = null
     this.pinnedOffset = null
 
     this.checkPosition()
   }
 
-  Affix.VERSION  = '3.3.2'
+  Affix.VERSION  = '3.3.4'
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 
@@ -28285,7 +27038,7 @@ require('../../js/affix.js')
     var offset       = this.options.offset
     var offsetTop    = offset.top
     var offsetBottom = offset.bottom
-    var scrollHeight = $('body').height()
+    var scrollHeight = $(document.body).height()
 
     if (typeof offset != 'object')         offsetBottom = offsetTop = offset
     if (typeof offsetTop == 'function')    offsetTop    = offset.top(this.$element)
@@ -28368,9 +27121,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],236:[function(require,module,exports){
+},{}],235:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: alert.js v3.3.2
+ * Bootstrap: alert.js v3.3.4
  * http://getbootstrap.com/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -28389,7 +27142,7 @@ require('../../js/affix.js')
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.3.2'
+  Alert.VERSION = '3.3.4'
 
   Alert.TRANSITION_DURATION = 150
 
@@ -28464,9 +27217,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],237:[function(require,module,exports){
+},{}],236:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: button.js v3.3.2
+ * Bootstrap: button.js v3.3.4
  * http://getbootstrap.com/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -28486,7 +27239,7 @@ require('../../js/affix.js')
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.2'
+  Button.VERSION  = '3.3.4'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -28582,9 +27335,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],238:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: carousel.js v3.3.2
+ * Bootstrap: carousel.js v3.3.4
  * http://getbootstrap.com/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -28602,10 +27355,10 @@ require('../../js/affix.js')
     this.$element    = $(element)
     this.$indicators = this.$element.find('.carousel-indicators')
     this.options     = options
-    this.paused      =
-    this.sliding     =
-    this.interval    =
-    this.$active     =
+    this.paused      = null
+    this.sliding     = null
+    this.interval    = null
+    this.$active     = null
     this.$items      = null
 
     this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
@@ -28615,7 +27368,7 @@ require('../../js/affix.js')
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.3.2'
+  Carousel.VERSION  = '3.3.4'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -28821,9 +27574,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],239:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.2
+ * Bootstrap: collapse.js v3.3.4
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -28840,7 +27593,8 @@ require('../../js/affix.js')
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $(this.options.trigger).filter('[href="#' + element.id + '"], [data-target="#' + element.id + '"]')
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
     if (this.options.parent) {
@@ -28852,13 +27606,12 @@ require('../../js/affix.js')
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.2'
+  Collapse.VERSION  = '3.3.4'
 
   Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
-    toggle: true,
-    trigger: '[data-toggle="collapse"]'
+    toggle: true
   }
 
   Collapse.prototype.dimension = function () {
@@ -28996,7 +27749,7 @@ require('../../js/affix.js')
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && option == 'show') options.toggle = false
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -29027,16 +27780,16 @@ require('../../js/affix.js')
 
     var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
-    var option  = data ? 'toggle' : $.extend({}, $this.data(), { trigger: this })
+    var option  = data ? 'toggle' : $this.data()
 
     Plugin.call($target, option)
   })
 
 }(jQuery);
 
-},{}],240:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.2
+ * Bootstrap: dropdown.js v3.3.4
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -29056,7 +27809,7 @@ require('../../js/affix.js')
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.2'
+  Dropdown.VERSION = '3.3.4'
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -29109,7 +27862,7 @@ require('../../js/affix.js')
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.divider):visible a'
+    var desc = ' li:not(.disabled):visible a'
     var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
 
     if (!$items.length) return
@@ -29197,9 +27950,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],241:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: modal.js v3.3.2
+ * Bootstrap: modal.js v3.3.4
  * http://getbootstrap.com/javascript/#modals
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -29214,12 +27967,15 @@ require('../../js/affix.js')
   // ======================
 
   var Modal = function (element, options) {
-    this.options        = options
-    this.$body          = $(document.body)
-    this.$element       = $(element)
-    this.$backdrop      =
-    this.isShown        = null
-    this.scrollbarWidth = 0
+    this.options             = options
+    this.$body               = $(document.body)
+    this.$element            = $(element)
+    this.$dialog             = this.$element.find('.modal-dialog')
+    this.$backdrop           = null
+    this.isShown             = null
+    this.originalBodyPad     = null
+    this.scrollbarWidth      = 0
+    this.ignoreBackdropClick = false
 
     if (this.options.remote) {
       this.$element
@@ -29230,7 +27986,7 @@ require('../../js/affix.js')
     }
   }
 
-  Modal.VERSION  = '3.3.2'
+  Modal.VERSION  = '3.3.4'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -29264,6 +28020,12 @@ require('../../js/affix.js')
 
     this.$element.on('click.dismiss.bs.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
+    this.$dialog.on('mousedown.dismiss.bs.modal', function () {
+      that.$element.one('mouseup.dismiss.bs.modal', function (e) {
+        if ($(e.target).is(that.$element)) that.ignoreBackdropClick = true
+      })
+    })
+
     this.backdrop(function () {
       var transition = $.support.transition && that.$element.hasClass('fade')
 
@@ -29275,7 +28037,6 @@ require('../../js/affix.js')
         .show()
         .scrollTop(0)
 
-      if (that.options.backdrop) that.adjustBackdrop()
       that.adjustDialog()
 
       if (transition) {
@@ -29291,7 +28052,7 @@ require('../../js/affix.js')
       var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget })
 
       transition ?
-        that.$element.find('.modal-dialog') // wait for modal to slide in
+        that.$dialog // wait for modal to slide in
           .one('bsTransitionEnd', function () {
             that.$element.trigger('focus').trigger(e)
           })
@@ -29320,6 +28081,9 @@ require('../../js/affix.js')
       .removeClass('in')
       .attr('aria-hidden', true)
       .off('click.dismiss.bs.modal')
+      .off('mouseup.dismiss.bs.modal')
+
+    this.$dialog.off('mousedown.dismiss.bs.modal')
 
     $.support.transition && this.$element.hasClass('fade') ?
       this.$element
@@ -29380,13 +28144,18 @@ require('../../js/affix.js')
       var doAnimate = $.support.transition && animate
 
       this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
-        .prependTo(this.$element)
-        .on('click.dismiss.bs.modal', $.proxy(function (e) {
-          if (e.target !== e.currentTarget) return
-          this.options.backdrop == 'static'
-            ? this.$element[0].focus.call(this.$element[0])
-            : this.hide.call(this)
-        }, this))
+        .appendTo(this.$body)
+
+      this.$element.on('click.dismiss.bs.modal', $.proxy(function (e) {
+        if (this.ignoreBackdropClick) {
+          this.ignoreBackdropClick = false
+          return
+        }
+        if (e.target !== e.currentTarget) return
+        this.options.backdrop == 'static'
+          ? this.$element[0].focus()
+          : this.hide()
+      }, this))
 
       if (doAnimate) this.$backdrop[0].offsetWidth // force reflow
 
@@ -29421,14 +28190,7 @@ require('../../js/affix.js')
   // these following methods are used to handle overflowing modals
 
   Modal.prototype.handleUpdate = function () {
-    if (this.options.backdrop) this.adjustBackdrop()
     this.adjustDialog()
-  }
-
-  Modal.prototype.adjustBackdrop = function () {
-    this.$backdrop
-      .css('height', 0)
-      .css('height', this.$element[0].scrollHeight)
   }
 
   Modal.prototype.adjustDialog = function () {
@@ -29448,17 +28210,23 @@ require('../../js/affix.js')
   }
 
   Modal.prototype.checkScrollbar = function () {
-    this.bodyIsOverflowing = document.body.scrollHeight > document.documentElement.clientHeight
+    var fullWindowWidth = window.innerWidth
+    if (!fullWindowWidth) { // workaround for missing window.innerWidth in IE8
+      var documentElementRect = document.documentElement.getBoundingClientRect()
+      fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
+    }
+    this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
     this.scrollbarWidth = this.measureScrollbar()
   }
 
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
+    this.originalBodyPad = document.body.style.paddingRight || ''
     if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
   }
 
   Modal.prototype.resetScrollbar = function () {
-    this.$body.css('padding-right', '')
+    this.$body.css('padding-right', this.originalBodyPad)
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
@@ -29523,9 +28291,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],242:[function(require,module,exports){
+},{}],241:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: popover.js v3.3.2
+ * Bootstrap: popover.js v3.3.4
  * http://getbootstrap.com/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -29545,7 +28313,7 @@ require('../../js/affix.js')
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.3.2'
+  Popover.VERSION  = '3.3.4'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -29601,11 +28369,6 @@ require('../../js/affix.js')
     return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
   }
 
-  Popover.prototype.tip = function () {
-    if (!this.$tip) this.$tip = $(this.options.template)
-    return this.$tip
-  }
-
 
   // POPOVER PLUGIN DEFINITION
   // =========================
@@ -29616,7 +28379,7 @@ require('../../js/affix.js')
       var data    = $this.data('bs.popover')
       var options = typeof option == 'object' && option
 
-      if (!data && option == 'destroy') return
+      if (!data && /destroy|hide/.test(option)) return
       if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -29638,9 +28401,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],243:[function(require,module,exports){
+},{}],242:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.2
+ * Bootstrap: scrollspy.js v3.3.4
  * http://getbootstrap.com/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -29655,10 +28418,8 @@ require('../../js/affix.js')
   // ==========================
 
   function ScrollSpy(element, options) {
-    var process  = $.proxy(this.process, this)
-
-    this.$body          = $('body')
-    this.$scrollElement = $(element).is('body') ? $(window) : $(element)
+    this.$body          = $(document.body)
+    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target || '') + ' .nav li > a'
     this.offsets        = []
@@ -29666,12 +28427,12 @@ require('../../js/affix.js')
     this.activeTarget   = null
     this.scrollHeight   = 0
 
-    this.$scrollElement.on('scroll.bs.scrollspy', process)
+    this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
     this.refresh()
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.2'
+  ScrollSpy.VERSION  = '3.3.4'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -29682,19 +28443,18 @@ require('../../js/affix.js')
   }
 
   ScrollSpy.prototype.refresh = function () {
-    var offsetMethod = 'offset'
-    var offsetBase   = 0
+    var that          = this
+    var offsetMethod  = 'offset'
+    var offsetBase    = 0
+
+    this.offsets      = []
+    this.targets      = []
+    this.scrollHeight = this.getScrollHeight()
 
     if (!$.isWindow(this.$scrollElement[0])) {
       offsetMethod = 'position'
       offsetBase   = this.$scrollElement.scrollTop()
     }
-
-    this.offsets = []
-    this.targets = []
-    this.scrollHeight = this.getScrollHeight()
-
-    var self     = this
 
     this.$body
       .find(this.selector)
@@ -29710,8 +28470,8 @@ require('../../js/affix.js')
       })
       .sort(function (a, b) { return a[0] - b[0] })
       .each(function () {
-        self.offsets.push(this[0])
-        self.targets.push(this[1])
+        that.offsets.push(this[0])
+        that.targets.push(this[1])
       })
   }
 
@@ -29740,7 +28500,7 @@ require('../../js/affix.js')
     for (i = offsets.length; i--;) {
       activeTarget != targets[i]
         && scrollTop >= offsets[i]
-        && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+        && (offsets[i + 1] === undefined || scrollTop < offsets[i + 1])
         && this.activate(targets[i])
     }
   }
@@ -29751,8 +28511,8 @@ require('../../js/affix.js')
     this.clear()
 
     var selector = this.selector +
-        '[data-target="' + target + '"],' +
-        this.selector + '[href="' + target + '"]'
+      '[data-target="' + target + '"],' +
+      this.selector + '[href="' + target + '"]'
 
     var active = $(selector)
       .parents('li')
@@ -29815,9 +28575,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],244:[function(require,module,exports){
+},{}],243:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: tab.js v3.3.2
+ * Bootstrap: tab.js v3.3.4
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -29835,7 +28595,7 @@ require('../../js/affix.js')
     this.element = $(element)
   }
 
-  Tab.VERSION = '3.3.2'
+  Tab.VERSION = '3.3.4'
 
   Tab.TRANSITION_DURATION = 150
 
@@ -29906,7 +28666,7 @@ require('../../js/affix.js')
         element.removeClass('fade')
       }
 
-      if (element.parent('.dropdown-menu')) {
+      if (element.parent('.dropdown-menu').length) {
         element
           .closest('li.dropdown')
             .addClass('active')
@@ -29970,9 +28730,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],245:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: tooltip.js v3.3.2
+ * Bootstrap: tooltip.js v3.3.4
  * http://getbootstrap.com/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
@@ -29988,17 +28748,17 @@ require('../../js/affix.js')
   // ===============================
 
   var Tooltip = function (element, options) {
-    this.type       =
-    this.options    =
-    this.enabled    =
-    this.timeout    =
-    this.hoverState =
+    this.type       = null
+    this.options    = null
+    this.enabled    = null
+    this.timeout    = null
+    this.hoverState = null
     this.$element   = null
 
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.3.2'
+  Tooltip.VERSION  = '3.3.4'
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -30024,6 +28784,10 @@ require('../../js/affix.js')
     this.$element  = $(element)
     this.options   = this.getOptions(options)
     this.$viewport = this.options.viewport && $(this.options.viewport.selector || this.options.viewport)
+
+    if (this.$element[0] instanceof document.constructor && !this.options.selector) {
+      throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
+    }
 
     var triggers = this.options.trigger.split(' ')
 
@@ -30245,10 +29009,10 @@ require('../../js/affix.js')
     this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
   }
 
-  Tooltip.prototype.replaceArrow = function (delta, dimension, isHorizontal) {
+  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
     this.arrow()
-      .css(isHorizontal ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
-      .css(isHorizontal ? 'top' : 'left', '')
+      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
+      .css(isVertical ? 'top' : 'left', '')
   }
 
   Tooltip.prototype.setContent = function () {
@@ -30261,7 +29025,7 @@ require('../../js/affix.js')
 
   Tooltip.prototype.hide = function (callback) {
     var that = this
-    var $tip = this.tip()
+    var $tip = $(this.$tip)
     var e    = $.Event('hide.bs.' + this.type)
 
     function complete() {
@@ -30278,7 +29042,7 @@ require('../../js/affix.js')
 
     $tip.removeClass('in')
 
-    $.support.transition && this.$tip.hasClass('fade') ?
+    $.support.transition && $tip.hasClass('fade') ?
       $tip
         .one('bsTransitionEnd', complete)
         .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
@@ -30422,7 +29186,7 @@ require('../../js/affix.js')
       var data    = $this.data('bs.tooltip')
       var options = typeof option == 'object' && option
 
-      if (!data && option == 'destroy') return
+      if (!data && /destroy|hide/.test(option)) return
       if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
       if (typeof option == 'string') data[option]()
     })
@@ -30444,9 +29208,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],246:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
 /* ========================================================================
- * Bootstrap: transition.js v3.3.2
+ * Bootstrap: transition.js v3.3.4
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2015 Twitter, Inc.
@@ -30505,9 +29269,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],247:[function(require,module,exports){
+},{}],246:[function(require,module,exports){
 
-},{}],248:[function(require,module,exports){
+},{}],247:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -30574,106 +29338,192 @@ Buffer.TYPED_ARRAY_SUPPORT = (function () {
  * By augmenting the instances, we can avoid modifying the `Uint8Array`
  * prototype.
  */
-function Buffer (subject, encoding, noZero) {
-  if (!(this instanceof Buffer))
-    return new Buffer(subject, encoding, noZero)
+function Buffer (arg) {
+  if (!(this instanceof Buffer)) {
+    // Avoid going through an ArgumentsAdaptorTrampoline in the common case.
+    if (arguments.length > 1) return new Buffer(arg, arguments[1])
+    return new Buffer(arg)
+  }
 
-  var type = typeof subject
+  this.length = 0
+  this.parent = undefined
 
-  // Find the length
-  var length
-  if (type === 'number') {
-    length = +subject
-  } else if (type === 'string') {
-    length = Buffer.byteLength(subject, encoding)
-  } else if (type === 'object' && subject !== null) { // assume object is array-like
-    if (subject.type === 'Buffer' && isArray(subject.data))
-      subject = subject.data
-    length = +subject.length
-  } else {
+  // Common case.
+  if (typeof arg === 'number') {
+    return fromNumber(this, arg)
+  }
+
+  // Slightly less common case.
+  if (typeof arg === 'string') {
+    return fromString(this, arg, arguments.length > 1 ? arguments[1] : 'utf8')
+  }
+
+  // Unusual.
+  return fromObject(this, arg)
+}
+
+function fromNumber (that, length) {
+  that = allocate(that, length < 0 ? 0 : checked(length) | 0)
+  if (!Buffer.TYPED_ARRAY_SUPPORT) {
+    for (var i = 0; i < length; i++) {
+      that[i] = 0
+    }
+  }
+  return that
+}
+
+function fromString (that, string, encoding) {
+  if (typeof encoding !== 'string' || encoding === '') encoding = 'utf8'
+
+  // Assumption: byteLength() return value is always < kMaxLength.
+  var length = byteLength(string, encoding) | 0
+  that = allocate(that, length)
+
+  that.write(string, encoding)
+  return that
+}
+
+function fromObject (that, object) {
+  if (Buffer.isBuffer(object)) return fromBuffer(that, object)
+
+  if (isArray(object)) return fromArray(that, object)
+
+  if (object == null) {
     throw new TypeError('must start with number, buffer, array or string')
   }
 
-  if (length > kMaxLength)
-    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
-      'size: 0x' + kMaxLength.toString(16) + ' bytes')
-
-  if (length < 0)
-    length = 0
-  else
-    length >>>= 0 // Coerce to uint32.
-
-  var self = this
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    // Preferred: Return an augmented `Uint8Array` instance for best performance
-    /*eslint-disable consistent-this */
-    self = Buffer._augment(new Uint8Array(length))
-    /*eslint-enable consistent-this */
-  } else {
-    // Fallback: Return THIS instance of Buffer (created by `new`)
-    self.length = length
-    self._isBuffer = true
+  if (typeof ArrayBuffer !== 'undefined' && object.buffer instanceof ArrayBuffer) {
+    return fromTypedArray(that, object)
   }
 
-  var i
-  if (Buffer.TYPED_ARRAY_SUPPORT && typeof subject.byteLength === 'number') {
-    // Speed optimization -- use set if we're copying from a typed array
-    self._set(subject)
-  } else if (isArrayish(subject)) {
-    // Treat array-ish objects as a byte array
-    if (Buffer.isBuffer(subject)) {
-      for (i = 0; i < length; i++)
-        self[i] = subject.readUInt8(i)
-    } else {
-      for (i = 0; i < length; i++)
-        self[i] = ((subject[i] % 256) + 256) % 256
-    }
-  } else if (type === 'string') {
-    self.write(subject, 0, encoding)
-  } else if (type === 'number' && !Buffer.TYPED_ARRAY_SUPPORT && !noZero) {
-    for (i = 0; i < length; i++) {
-      self[i] = 0
-    }
-  }
+  if (object.length) return fromArrayLike(that, object)
 
-  if (length > 0 && length <= Buffer.poolSize)
-    self.parent = rootParent
-
-  return self
+  return fromJsonObject(that, object)
 }
 
-function SlowBuffer (subject, encoding, noZero) {
-  if (!(this instanceof SlowBuffer))
-    return new SlowBuffer(subject, encoding, noZero)
+function fromBuffer (that, buffer) {
+  var length = checked(buffer.length) | 0
+  that = allocate(that, length)
+  buffer.copy(that, 0, 0, length)
+  return that
+}
 
-  var buf = new Buffer(subject, encoding, noZero)
+function fromArray (that, array) {
+  var length = checked(array.length) | 0
+  that = allocate(that, length)
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+// Duplicate of fromArray() to keep fromArray() monomorphic.
+function fromTypedArray (that, array) {
+  var length = checked(array.length) | 0
+  that = allocate(that, length)
+  // Truncating the elements is probably not what people expect from typed
+  // arrays with BYTES_PER_ELEMENT > 1 but it's compatible with the behavior
+  // of the old Buffer constructor.
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+function fromArrayLike (that, array) {
+  var length = checked(array.length) | 0
+  that = allocate(that, length)
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+// Deserialize { type: 'Buffer', data: [1,2,3,...] } into a Buffer object.
+// Returns a zero-length buffer for inputs that don't conform to the spec.
+function fromJsonObject (that, object) {
+  var array
+  var length = 0
+
+  if (object.type === 'Buffer' && isArray(object.data)) {
+    array = object.data
+    length = checked(array.length) | 0
+  }
+  that = allocate(that, length)
+
+  for (var i = 0; i < length; i += 1) {
+    that[i] = array[i] & 255
+  }
+  return that
+}
+
+function allocate (that, length) {
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    // Return an augmented `Uint8Array` instance, for best performance
+    that = Buffer._augment(new Uint8Array(length))
+  } else {
+    // Fallback: Return an object instance of the Buffer class
+    that.length = length
+    that._isBuffer = true
+  }
+
+  var fromPool = length !== 0 && length <= Buffer.poolSize >>> 1
+  if (fromPool) that.parent = rootParent
+
+  return that
+}
+
+function checked (length) {
+  // Note: cannot use `length < kMaxLength` here because that fails when
+  // length is NaN (which is otherwise coerced to zero.)
+  if (length >= kMaxLength) {
+    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
+                         'size: 0x' + kMaxLength.toString(16) + ' bytes')
+  }
+  return length | 0
+}
+
+function SlowBuffer (subject, encoding) {
+  if (!(this instanceof SlowBuffer)) return new SlowBuffer(subject, encoding)
+
+  var buf = new Buffer(subject, encoding)
   delete buf.parent
   return buf
 }
 
-Buffer.isBuffer = function (b) {
+Buffer.isBuffer = function isBuffer (b) {
   return !!(b != null && b._isBuffer)
 }
 
-Buffer.compare = function (a, b) {
-  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b))
+Buffer.compare = function compare (a, b) {
+  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
     throw new TypeError('Arguments must be Buffers')
+  }
 
   if (a === b) return 0
 
   var x = a.length
   var y = b.length
-  for (var i = 0, len = Math.min(x, y); i < len && a[i] === b[i]; i++) {}
+
+  var i = 0
+  var len = Math.min(x, y)
+  while (i < len) {
+    if (a[i] !== b[i]) break
+
+    ++i
+  }
+
   if (i !== len) {
     x = a[i]
     y = b[i]
   }
+
   if (x < y) return -1
   if (y < x) return 1
   return 0
 }
 
-Buffer.isEncoding = function (encoding) {
+Buffer.isEncoding = function isEncoding (encoding) {
   switch (String(encoding).toLowerCase()) {
     case 'hex':
     case 'utf8':
@@ -30692,8 +29542,8 @@ Buffer.isEncoding = function (encoding) {
   }
 }
 
-Buffer.concat = function (list, totalLength) {
-  if (!isArray(list)) throw new TypeError('Usage: Buffer.concat(list[, length])')
+Buffer.concat = function concat (list, length) {
+  if (!isArray(list)) throw new TypeError('list argument must be an Array of Buffers.')
 
   if (list.length === 0) {
     return new Buffer(0)
@@ -30702,14 +29552,14 @@ Buffer.concat = function (list, totalLength) {
   }
 
   var i
-  if (totalLength === undefined) {
-    totalLength = 0
+  if (length === undefined) {
+    length = 0
     for (i = 0; i < list.length; i++) {
-      totalLength += list[i].length
+      length += list[i].length
     }
   }
 
-  var buf = new Buffer(totalLength)
+  var buf = new Buffer(length)
   var pos = 0
   for (i = 0; i < list.length; i++) {
     var item = list[i]
@@ -30719,47 +29569,44 @@ Buffer.concat = function (list, totalLength) {
   return buf
 }
 
-Buffer.byteLength = function (str, encoding) {
-  var ret
-  str = str + ''
+function byteLength (string, encoding) {
+  if (typeof string !== 'string') string = String(string)
+
+  if (string.length === 0) return 0
+
   switch (encoding || 'utf8') {
     case 'ascii':
     case 'binary':
     case 'raw':
-      ret = str.length
-      break
+      return string.length
     case 'ucs2':
     case 'ucs-2':
     case 'utf16le':
     case 'utf-16le':
-      ret = str.length * 2
-      break
+      return string.length * 2
     case 'hex':
-      ret = str.length >>> 1
-      break
+      return string.length >>> 1
     case 'utf8':
     case 'utf-8':
-      ret = utf8ToBytes(str).length
-      break
+      return utf8ToBytes(string).length
     case 'base64':
-      ret = base64ToBytes(str).length
-      break
+      return base64ToBytes(string).length
     default:
-      ret = str.length
+      return string.length
   }
-  return ret
 }
+Buffer.byteLength = byteLength
 
 // pre-set for values that may exist in the future
 Buffer.prototype.length = undefined
 Buffer.prototype.parent = undefined
 
 // toString(encoding, start=0, end=buffer.length)
-Buffer.prototype.toString = function (encoding, start, end) {
+Buffer.prototype.toString = function toString (encoding, start, end) {
   var loweredCase = false
 
-  start = start >>> 0
-  end = end === undefined || end === Infinity ? this.length : end >>> 0
+  start = start | 0
+  end = end === undefined || end === Infinity ? this.length : end | 0
 
   if (!encoding) encoding = 'utf8'
   if (start < 0) start = 0
@@ -30791,45 +29638,84 @@ Buffer.prototype.toString = function (encoding, start, end) {
         return utf16leSlice(this, start, end)
 
       default:
-        if (loweredCase)
-          throw new TypeError('Unknown encoding: ' + encoding)
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
         encoding = (encoding + '').toLowerCase()
         loweredCase = true
     }
   }
 }
 
-Buffer.prototype.equals = function (b) {
+Buffer.prototype.equals = function equals (b) {
   if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
   if (this === b) return true
   return Buffer.compare(this, b) === 0
 }
 
-Buffer.prototype.inspect = function () {
+Buffer.prototype.inspect = function inspect () {
   var str = ''
   var max = exports.INSPECT_MAX_BYTES
   if (this.length > 0) {
     str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
-    if (this.length > max)
-      str += ' ... '
+    if (this.length > max) str += ' ... '
   }
   return '<Buffer ' + str + '>'
 }
 
-Buffer.prototype.compare = function (b) {
+Buffer.prototype.compare = function compare (b) {
   if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
   if (this === b) return 0
   return Buffer.compare(this, b)
 }
 
+Buffer.prototype.indexOf = function indexOf (val, byteOffset) {
+  if (byteOffset > 0x7fffffff) byteOffset = 0x7fffffff
+  else if (byteOffset < -0x80000000) byteOffset = -0x80000000
+  byteOffset >>= 0
+
+  if (this.length === 0) return -1
+  if (byteOffset >= this.length) return -1
+
+  // Negative offsets start from the end of the buffer
+  if (byteOffset < 0) byteOffset = Math.max(this.length + byteOffset, 0)
+
+  if (typeof val === 'string') {
+    if (val.length === 0) return -1 // special case: looking for empty string always fails
+    return String.prototype.indexOf.call(this, val, byteOffset)
+  }
+  if (Buffer.isBuffer(val)) {
+    return arrayIndexOf(this, val, byteOffset)
+  }
+  if (typeof val === 'number') {
+    if (Buffer.TYPED_ARRAY_SUPPORT && Uint8Array.prototype.indexOf === 'function') {
+      return Uint8Array.prototype.indexOf.call(this, val, byteOffset)
+    }
+    return arrayIndexOf(this, [ val ], byteOffset)
+  }
+
+  function arrayIndexOf (arr, val, byteOffset) {
+    var foundIndex = -1
+    for (var i = 0; byteOffset + i < arr.length; i++) {
+      if (arr[byteOffset + i] === val[foundIndex === -1 ? 0 : i - foundIndex]) {
+        if (foundIndex === -1) foundIndex = i
+        if (i - foundIndex + 1 === val.length) return byteOffset + foundIndex
+      } else {
+        foundIndex = -1
+      }
+    }
+    return -1
+  }
+
+  throw new TypeError('val must be string, number or Buffer')
+}
+
 // `get` will be removed in Node 0.13+
-Buffer.prototype.get = function (offset) {
+Buffer.prototype.get = function get (offset) {
   console.log('.get() is deprecated. Access using array indexes instead.')
   return this.readUInt8(offset)
 }
 
 // `set` will be removed in Node 0.13+
-Buffer.prototype.set = function (v, offset) {
+Buffer.prototype.set = function set (v, offset) {
   console.log('.set() is deprecated. Access using array indexes instead.')
   return this.writeUInt8(v, offset)
 }
@@ -30854,21 +29740,19 @@ function hexWrite (buf, string, offset, length) {
     length = strLen / 2
   }
   for (var i = 0; i < length; i++) {
-    var byte = parseInt(string.substr(i * 2, 2), 16)
-    if (isNaN(byte)) throw new Error('Invalid hex string')
-    buf[offset + i] = byte
+    var parsed = parseInt(string.substr(i * 2, 2), 16)
+    if (isNaN(parsed)) throw new Error('Invalid hex string')
+    buf[offset + i] = parsed
   }
   return i
 }
 
 function utf8Write (buf, string, offset, length) {
-  var charsWritten = blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
-  return charsWritten
+  return blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
 }
 
 function asciiWrite (buf, string, offset, length) {
-  var charsWritten = blitBuffer(asciiToBytes(string), buf, offset, length)
-  return charsWritten
+  return blitBuffer(asciiToBytes(string), buf, offset, length)
 }
 
 function binaryWrite (buf, string, offset, length) {
@@ -30876,77 +29760,86 @@ function binaryWrite (buf, string, offset, length) {
 }
 
 function base64Write (buf, string, offset, length) {
-  var charsWritten = blitBuffer(base64ToBytes(string), buf, offset, length)
-  return charsWritten
+  return blitBuffer(base64ToBytes(string), buf, offset, length)
 }
 
-function utf16leWrite (buf, string, offset, length) {
-  var charsWritten = blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length)
-  return charsWritten
+function ucs2Write (buf, string, offset, length) {
+  return blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length)
 }
 
-Buffer.prototype.write = function (string, offset, length, encoding) {
-  // Support both (string, offset, length, encoding)
-  // and the legacy (string, encoding, offset, length)
-  if (isFinite(offset)) {
-    if (!isFinite(length)) {
+Buffer.prototype.write = function write (string, offset, length, encoding) {
+  // Buffer#write(string)
+  if (offset === undefined) {
+    encoding = 'utf8'
+    length = this.length
+    offset = 0
+  // Buffer#write(string, encoding)
+  } else if (length === undefined && typeof offset === 'string') {
+    encoding = offset
+    length = this.length
+    offset = 0
+  // Buffer#write(string, offset[, length][, encoding])
+  } else if (isFinite(offset)) {
+    offset = offset | 0
+    if (isFinite(length)) {
+      length = length | 0
+      if (encoding === undefined) encoding = 'utf8'
+    } else {
       encoding = length
       length = undefined
     }
-  } else {  // legacy
+  // legacy write(string, encoding, offset, length) - remove in v0.13
+  } else {
     var swap = encoding
     encoding = offset
-    offset = length
+    offset = length | 0
     length = swap
   }
 
-  offset = Number(offset) || 0
-
-  if (length < 0 || offset < 0 || offset > this.length)
-    throw new RangeError('attempt to write outside buffer bounds')
-
   var remaining = this.length - offset
-  if (!length) {
-    length = remaining
-  } else {
-    length = Number(length)
-    if (length > remaining) {
-      length = remaining
+  if (length === undefined || length > remaining) length = remaining
+
+  if ((string.length > 0 && (length < 0 || offset < 0)) || offset > this.length) {
+    throw new RangeError('attempt to write outside buffer bounds')
+  }
+
+  if (!encoding) encoding = 'utf8'
+
+  var loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'hex':
+        return hexWrite(this, string, offset, length)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Write(this, string, offset, length)
+
+      case 'ascii':
+        return asciiWrite(this, string, offset, length)
+
+      case 'binary':
+        return binaryWrite(this, string, offset, length)
+
+      case 'base64':
+        // Warning: maxLength not taken into account in base64Write
+        return base64Write(this, string, offset, length)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return ucs2Write(this, string, offset, length)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
     }
   }
-  encoding = String(encoding || 'utf8').toLowerCase()
-
-  var ret
-  switch (encoding) {
-    case 'hex':
-      ret = hexWrite(this, string, offset, length)
-      break
-    case 'utf8':
-    case 'utf-8':
-      ret = utf8Write(this, string, offset, length)
-      break
-    case 'ascii':
-      ret = asciiWrite(this, string, offset, length)
-      break
-    case 'binary':
-      ret = binaryWrite(this, string, offset, length)
-      break
-    case 'base64':
-      ret = base64Write(this, string, offset, length)
-      break
-    case 'ucs2':
-    case 'ucs-2':
-    case 'utf16le':
-    case 'utf-16le':
-      ret = utf16leWrite(this, string, offset, length)
-      break
-    default:
-      throw new TypeError('Unknown encoding: ' + encoding)
-  }
-  return ret
 }
 
-Buffer.prototype.toJSON = function () {
+Buffer.prototype.toJSON = function toJSON () {
   return {
     type: 'Buffer',
     data: Array.prototype.slice.call(this._arr || this, 0)
@@ -31020,43 +29913,39 @@ function utf16leSlice (buf, start, end) {
   return res
 }
 
-Buffer.prototype.slice = function (start, end) {
+Buffer.prototype.slice = function slice (start, end) {
   var len = this.length
   start = ~~start
   end = end === undefined ? len : ~~end
 
   if (start < 0) {
     start += len
-    if (start < 0)
-      start = 0
+    if (start < 0) start = 0
   } else if (start > len) {
     start = len
   }
 
   if (end < 0) {
     end += len
-    if (end < 0)
-      end = 0
+    if (end < 0) end = 0
   } else if (end > len) {
     end = len
   }
 
-  if (end < start)
-    end = start
+  if (end < start) end = start
 
   var newBuf
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     newBuf = Buffer._augment(this.subarray(start, end))
   } else {
     var sliceLen = end - start
-    newBuf = new Buffer(sliceLen, undefined, true)
+    newBuf = new Buffer(sliceLen, undefined)
     for (var i = 0; i < sliceLen; i++) {
       newBuf[i] = this[i + start]
     }
   }
 
-  if (newBuf.length)
-    newBuf.parent = this.parent || this
+  if (newBuf.length) newBuf.parent = this.parent || this
 
   return newBuf
 }
@@ -31065,62 +29954,58 @@ Buffer.prototype.slice = function (start, end) {
  * Need to make sure that buffer isn't trying to write out of bounds.
  */
 function checkOffset (offset, ext, length) {
-  if ((offset % 1) !== 0 || offset < 0)
-    throw new RangeError('offset is not uint')
-  if (offset + ext > length)
-    throw new RangeError('Trying to access beyond buffer length')
+  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
+  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
 }
 
-Buffer.prototype.readUIntLE = function (offset, byteLength, noAssert) {
-  offset = offset >>> 0
-  byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkOffset(offset, byteLength, this.length)
+Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
 
   var val = this[offset]
   var mul = 1
   var i = 0
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     val += this[offset + i] * mul
+  }
 
   return val
 }
 
-Buffer.prototype.readUIntBE = function (offset, byteLength, noAssert) {
-  offset = offset >>> 0
-  byteLength = byteLength >>> 0
-  if (!noAssert)
+Buffer.prototype.readUIntBE = function readUIntBE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) {
     checkOffset(offset, byteLength, this.length)
+  }
 
   var val = this[offset + --byteLength]
   var mul = 1
-  while (byteLength > 0 && (mul *= 0x100))
+  while (byteLength > 0 && (mul *= 0x100)) {
     val += this[offset + --byteLength] * mul
+  }
 
   return val
 }
 
-Buffer.prototype.readUInt8 = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 1, this.length)
+Buffer.prototype.readUInt8 = function readUInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
   return this[offset]
 }
 
-Buffer.prototype.readUInt16LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readUInt16LE = function readUInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   return this[offset] | (this[offset + 1] << 8)
 }
 
-Buffer.prototype.readUInt16BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readUInt16BE = function readUInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   return (this[offset] << 8) | this[offset + 1]
 }
 
-Buffer.prototype.readUInt32LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readUInt32LE = function readUInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return ((this[offset]) |
       (this[offset + 1] << 8) |
@@ -31128,117 +30013,104 @@ Buffer.prototype.readUInt32LE = function (offset, noAssert) {
       (this[offset + 3] * 0x1000000)
 }
 
-Buffer.prototype.readUInt32BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readUInt32BE = function readUInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return (this[offset] * 0x1000000) +
-      ((this[offset + 1] << 16) |
-      (this[offset + 2] << 8) |
-      this[offset + 3])
+    ((this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    this[offset + 3])
 }
 
-Buffer.prototype.readIntLE = function (offset, byteLength, noAssert) {
-  offset = offset >>> 0
-  byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkOffset(offset, byteLength, this.length)
+Buffer.prototype.readIntLE = function readIntLE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
 
   var val = this[offset]
   var mul = 1
   var i = 0
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     val += this[offset + i] * mul
+  }
   mul *= 0x80
 
-  if (val >= mul)
-    val -= Math.pow(2, 8 * byteLength)
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
 
   return val
 }
 
-Buffer.prototype.readIntBE = function (offset, byteLength, noAssert) {
-  offset = offset >>> 0
-  byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkOffset(offset, byteLength, this.length)
+Buffer.prototype.readIntBE = function readIntBE (offset, byteLength, noAssert) {
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
 
   var i = byteLength
   var mul = 1
   var val = this[offset + --i]
-  while (i > 0 && (mul *= 0x100))
+  while (i > 0 && (mul *= 0x100)) {
     val += this[offset + --i] * mul
+  }
   mul *= 0x80
 
-  if (val >= mul)
-    val -= Math.pow(2, 8 * byteLength)
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
 
   return val
 }
 
-Buffer.prototype.readInt8 = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 1, this.length)
-  if (!(this[offset] & 0x80))
-    return (this[offset])
+Buffer.prototype.readInt8 = function readInt8 (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  if (!(this[offset] & 0x80)) return (this[offset])
   return ((0xff - this[offset] + 1) * -1)
 }
 
-Buffer.prototype.readInt16LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readInt16LE = function readInt16LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   var val = this[offset] | (this[offset + 1] << 8)
   return (val & 0x8000) ? val | 0xFFFF0000 : val
 }
 
-Buffer.prototype.readInt16BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 2, this.length)
+Buffer.prototype.readInt16BE = function readInt16BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 2, this.length)
   var val = this[offset + 1] | (this[offset] << 8)
   return (val & 0x8000) ? val | 0xFFFF0000 : val
 }
 
-Buffer.prototype.readInt32LE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readInt32LE = function readInt32LE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return (this[offset]) |
-      (this[offset + 1] << 8) |
-      (this[offset + 2] << 16) |
-      (this[offset + 3] << 24)
+    (this[offset + 1] << 8) |
+    (this[offset + 2] << 16) |
+    (this[offset + 3] << 24)
 }
 
-Buffer.prototype.readInt32BE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readInt32BE = function readInt32BE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
 
   return (this[offset] << 24) |
-      (this[offset + 1] << 16) |
-      (this[offset + 2] << 8) |
-      (this[offset + 3])
+    (this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    (this[offset + 3])
 }
 
-Buffer.prototype.readFloatLE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readFloatLE = function readFloatLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
   return ieee754.read(this, offset, true, 23, 4)
 }
 
-Buffer.prototype.readFloatBE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 4, this.length)
+Buffer.prototype.readFloatBE = function readFloatBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 4, this.length)
   return ieee754.read(this, offset, false, 23, 4)
 }
 
-Buffer.prototype.readDoubleLE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 8, this.length)
+Buffer.prototype.readDoubleLE = function readDoubleLE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
   return ieee754.read(this, offset, true, 52, 8)
 }
 
-Buffer.prototype.readDoubleBE = function (offset, noAssert) {
-  if (!noAssert)
-    checkOffset(offset, 8, this.length)
+Buffer.prototype.readDoubleBE = function readDoubleBE (offset, noAssert) {
+  if (!noAssert) checkOffset(offset, 8, this.length)
   return ieee754.read(this, offset, false, 52, 8)
 }
 
@@ -31248,43 +30120,42 @@ function checkInt (buf, value, offset, ext, max, min) {
   if (offset + ext > buf.length) throw new RangeError('index out of range')
 }
 
-Buffer.prototype.writeUIntLE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
   value = +value
-  offset = offset >>> 0
-  byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
 
   var mul = 1
   var i = 0
   this[offset] = value & 0xFF
-  while (++i < byteLength && (mul *= 0x100))
-    this[offset + i] = (value / mul) >>> 0 & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeUIntBE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeUIntBE = function writeUIntBE (value, offset, byteLength, noAssert) {
   value = +value
-  offset = offset >>> 0
-  byteLength = byteLength >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
+  offset = offset | 0
+  byteLength = byteLength | 0
+  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
 
   var i = byteLength - 1
   var mul = 1
   this[offset + i] = value & 0xFF
-  while (--i >= 0 && (mul *= 0x100))
-    this[offset + i] = (value / mul) >>> 0 & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeUInt8 = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt8 = function writeUInt8 (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 1, 0xff, 0)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
   if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
   this[offset] = value
   return offset + 1
@@ -31298,27 +30169,29 @@ function objectWriteUInt16 (buf, value, offset, littleEndian) {
   }
 }
 
-Buffer.prototype.writeUInt16LE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt16LE = function writeUInt16LE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0xffff, 0)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = value
     this[offset + 1] = (value >>> 8)
-  } else objectWriteUInt16(this, value, offset, true)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
   return offset + 2
 }
 
-Buffer.prototype.writeUInt16BE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt16BE = function writeUInt16BE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0xffff, 0)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 8)
     this[offset + 1] = value
-  } else objectWriteUInt16(this, value, offset, false)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
   return offset + 2
 }
 
@@ -31329,139 +30202,140 @@ function objectWriteUInt32 (buf, value, offset, littleEndian) {
   }
 }
 
-Buffer.prototype.writeUInt32LE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt32LE = function writeUInt32LE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0xffffffff, 0)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset + 3] = (value >>> 24)
     this[offset + 2] = (value >>> 16)
     this[offset + 1] = (value >>> 8)
     this[offset] = value
-  } else objectWriteUInt32(this, value, offset, true)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
   return offset + 4
 }
 
-Buffer.prototype.writeUInt32BE = function (value, offset, noAssert) {
+Buffer.prototype.writeUInt32BE = function writeUInt32BE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0xffffffff, 0)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 24)
     this[offset + 1] = (value >>> 16)
     this[offset + 2] = (value >>> 8)
     this[offset + 3] = value
-  } else objectWriteUInt32(this, value, offset, false)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
   return offset + 4
 }
 
-Buffer.prototype.writeIntLE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeIntLE = function writeIntLE (value, offset, byteLength, noAssert) {
   value = +value
-  offset = offset >>> 0
+  offset = offset | 0
   if (!noAssert) {
-    checkInt(this,
-             value,
-             offset,
-             byteLength,
-             Math.pow(2, 8 * byteLength - 1) - 1,
-             -Math.pow(2, 8 * byteLength - 1))
+    var limit = Math.pow(2, 8 * byteLength - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
   }
 
   var i = 0
   var mul = 1
   var sub = value < 0 ? 1 : 0
   this[offset] = value & 0xFF
-  while (++i < byteLength && (mul *= 0x100))
+  while (++i < byteLength && (mul *= 0x100)) {
     this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeIntBE = function (value, offset, byteLength, noAssert) {
+Buffer.prototype.writeIntBE = function writeIntBE (value, offset, byteLength, noAssert) {
   value = +value
-  offset = offset >>> 0
+  offset = offset | 0
   if (!noAssert) {
-    checkInt(this,
-             value,
-             offset,
-             byteLength,
-             Math.pow(2, 8 * byteLength - 1) - 1,
-             -Math.pow(2, 8 * byteLength - 1))
+    var limit = Math.pow(2, 8 * byteLength - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
   }
 
   var i = byteLength - 1
   var mul = 1
   var sub = value < 0 ? 1 : 0
   this[offset + i] = value & 0xFF
-  while (--i >= 0 && (mul *= 0x100))
+  while (--i >= 0 && (mul *= 0x100)) {
     this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
 
   return offset + byteLength
 }
 
-Buffer.prototype.writeInt8 = function (value, offset, noAssert) {
+Buffer.prototype.writeInt8 = function writeInt8 (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 1, 0x7f, -0x80)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
   if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
   if (value < 0) value = 0xff + value + 1
   this[offset] = value
   return offset + 1
 }
 
-Buffer.prototype.writeInt16LE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt16LE = function writeInt16LE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = value
     this[offset + 1] = (value >>> 8)
-  } else objectWriteUInt16(this, value, offset, true)
+  } else {
+    objectWriteUInt16(this, value, offset, true)
+  }
   return offset + 2
 }
 
-Buffer.prototype.writeInt16BE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt16BE = function writeInt16BE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 8)
     this[offset + 1] = value
-  } else objectWriteUInt16(this, value, offset, false)
+  } else {
+    objectWriteUInt16(this, value, offset, false)
+  }
   return offset + 2
 }
 
-Buffer.prototype.writeInt32LE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt32LE = function writeInt32LE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = value
     this[offset + 1] = (value >>> 8)
     this[offset + 2] = (value >>> 16)
     this[offset + 3] = (value >>> 24)
-  } else objectWriteUInt32(this, value, offset, true)
+  } else {
+    objectWriteUInt32(this, value, offset, true)
+  }
   return offset + 4
 }
 
-Buffer.prototype.writeInt32BE = function (value, offset, noAssert) {
+Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) {
   value = +value
-  offset = offset >>> 0
-  if (!noAssert)
-    checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  offset = offset | 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
   if (value < 0) value = 0xffffffff + value + 1
   if (Buffer.TYPED_ARRAY_SUPPORT) {
     this[offset] = (value >>> 24)
     this[offset + 1] = (value >>> 16)
     this[offset + 2] = (value >>> 8)
     this[offset + 3] = value
-  } else objectWriteUInt32(this, value, offset, false)
+  } else {
+    objectWriteUInt32(this, value, offset, false)
+  }
   return offset + 4
 }
 
@@ -31472,76 +30346,77 @@ function checkIEEE754 (buf, value, offset, ext, max, min) {
 }
 
 function writeFloat (buf, value, offset, littleEndian, noAssert) {
-  if (!noAssert)
+  if (!noAssert) {
     checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38)
+  }
   ieee754.write(buf, value, offset, littleEndian, 23, 4)
   return offset + 4
 }
 
-Buffer.prototype.writeFloatLE = function (value, offset, noAssert) {
+Buffer.prototype.writeFloatLE = function writeFloatLE (value, offset, noAssert) {
   return writeFloat(this, value, offset, true, noAssert)
 }
 
-Buffer.prototype.writeFloatBE = function (value, offset, noAssert) {
+Buffer.prototype.writeFloatBE = function writeFloatBE (value, offset, noAssert) {
   return writeFloat(this, value, offset, false, noAssert)
 }
 
 function writeDouble (buf, value, offset, littleEndian, noAssert) {
-  if (!noAssert)
+  if (!noAssert) {
     checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308)
+  }
   ieee754.write(buf, value, offset, littleEndian, 52, 8)
   return offset + 8
 }
 
-Buffer.prototype.writeDoubleLE = function (value, offset, noAssert) {
+Buffer.prototype.writeDoubleLE = function writeDoubleLE (value, offset, noAssert) {
   return writeDouble(this, value, offset, true, noAssert)
 }
 
-Buffer.prototype.writeDoubleBE = function (value, offset, noAssert) {
+Buffer.prototype.writeDoubleBE = function writeDoubleBE (value, offset, noAssert) {
   return writeDouble(this, value, offset, false, noAssert)
 }
 
 // copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
-Buffer.prototype.copy = function (target, target_start, start, end) {
-  var self = this // source
-
+Buffer.prototype.copy = function copy (target, targetStart, start, end) {
   if (!start) start = 0
   if (!end && end !== 0) end = this.length
-  if (target_start >= target.length) target_start = target.length
-  if (!target_start) target_start = 0
+  if (targetStart >= target.length) targetStart = target.length
+  if (!targetStart) targetStart = 0
   if (end > 0 && end < start) end = start
 
   // Copy 0 bytes; we're done
   if (end === start) return 0
-  if (target.length === 0 || self.length === 0) return 0
+  if (target.length === 0 || this.length === 0) return 0
 
   // Fatal error conditions
-  if (target_start < 0)
+  if (targetStart < 0) {
     throw new RangeError('targetStart out of bounds')
-  if (start < 0 || start >= self.length) throw new RangeError('sourceStart out of bounds')
+  }
+  if (start < 0 || start >= this.length) throw new RangeError('sourceStart out of bounds')
   if (end < 0) throw new RangeError('sourceEnd out of bounds')
 
   // Are we oob?
-  if (end > this.length)
-    end = this.length
-  if (target.length - target_start < end - start)
-    end = target.length - target_start + start
+  if (end > this.length) end = this.length
+  if (target.length - targetStart < end - start) {
+    end = target.length - targetStart + start
+  }
 
   var len = end - start
 
   if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
     for (var i = 0; i < len; i++) {
-      target[i + target_start] = this[i + start]
+      target[i + targetStart] = this[i + start]
     }
   } else {
-    target._set(this.subarray(start, start + len), target_start)
+    target._set(this.subarray(start, start + len), targetStart)
   }
 
   return len
 }
 
 // fill(value, start=0, end=buffer.length)
-Buffer.prototype.fill = function (value, start, end) {
+Buffer.prototype.fill = function fill (value, start, end) {
   if (!value) value = 0
   if (!start) start = 0
   if (!end) end = this.length
@@ -31575,7 +30450,7 @@ Buffer.prototype.fill = function (value, start, end) {
  * Creates a new `ArrayBuffer` with the *copied* memory of the buffer instance.
  * Added in Node 0.12. Only available in browsers that support ArrayBuffer.
  */
-Buffer.prototype.toArrayBuffer = function () {
+Buffer.prototype.toArrayBuffer = function toArrayBuffer () {
   if (typeof Uint8Array !== 'undefined') {
     if (Buffer.TYPED_ARRAY_SUPPORT) {
       return (new Buffer(this)).buffer
@@ -31599,12 +30474,11 @@ var BP = Buffer.prototype
 /**
  * Augment a Uint8Array *instance* (not the Uint8Array class!) with Buffer methods
  */
-Buffer._augment = function (arr) {
+Buffer._augment = function _augment (arr) {
   arr.constructor = Buffer
   arr._isBuffer = true
 
-  // save reference to original Uint8Array get/set methods before overwriting
-  arr._get = arr.get
+  // save reference to original Uint8Array set method before overwriting
   arr._set = arr.set
 
   // deprecated, will be removed in node 0.13+
@@ -31617,6 +30491,7 @@ Buffer._augment = function (arr) {
   arr.toJSON = BP.toJSON
   arr.equals = BP.equals
   arr.compare = BP.compare
+  arr.indexOf = BP.indexOf
   arr.copy = BP.copy
   arr.slice = BP.slice
   arr.readUIntLE = BP.readUIntLE
@@ -31679,12 +30554,6 @@ function base64clean (str) {
 function stringtrim (str) {
   if (str.trim) return str.trim()
   return str.replace(/^\s+|\s+$/g, '')
-}
-
-function isArrayish (subject) {
-  return isArray(subject) || Buffer.isBuffer(subject) ||
-      subject && typeof subject === 'object' &&
-      typeof subject.length === 'number'
 }
 
 function toHex (n) {
@@ -31804,8 +30673,7 @@ function base64ToBytes (str) {
 
 function blitBuffer (src, dst, offset, length) {
   for (var i = 0; i < length; i++) {
-    if ((i + offset >= dst.length) || (i >= src.length))
-      break
+    if ((i + offset >= dst.length) || (i >= src.length)) break
     dst[i + offset] = src[i]
   }
   return i
@@ -31819,7 +30687,7 @@ function decodeUtf8Char (str) {
   }
 }
 
-},{"base64-js":249,"ieee754":250,"is-array":251}],249:[function(require,module,exports){
+},{"base64-js":248,"ieee754":249,"is-array":250}],248:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -31945,8 +30813,8 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],250:[function(require,module,exports){
-exports.read = function(buffer, offset, isLE, mLen, nBytes) {
+},{}],249:[function(require,module,exports){
+exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m,
       eLen = nBytes * 8 - mLen - 1,
       eMax = (1 << eLen) - 1,
@@ -31954,32 +30822,32 @@ exports.read = function(buffer, offset, isLE, mLen, nBytes) {
       nBits = -7,
       i = isLE ? (nBytes - 1) : 0,
       d = isLE ? -1 : 1,
-      s = buffer[offset + i];
+      s = buffer[offset + i]
 
-  i += d;
+  i += d
 
-  e = s & ((1 << (-nBits)) - 1);
-  s >>= (-nBits);
-  nBits += eLen;
-  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8);
+  e = s & ((1 << (-nBits)) - 1)
+  s >>= (-nBits)
+  nBits += eLen
+  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
 
-  m = e & ((1 << (-nBits)) - 1);
-  e >>= (-nBits);
-  nBits += mLen;
-  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8);
+  m = e & ((1 << (-nBits)) - 1)
+  e >>= (-nBits)
+  nBits += mLen
+  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
 
   if (e === 0) {
-    e = 1 - eBias;
+    e = 1 - eBias
   } else if (e === eMax) {
-    return m ? NaN : ((s ? -1 : 1) * Infinity);
+    return m ? NaN : ((s ? -1 : 1) * Infinity)
   } else {
-    m = m + Math.pow(2, mLen);
-    e = e - eBias;
+    m = m + Math.pow(2, mLen)
+    e = e - eBias
   }
-  return (s ? -1 : 1) * m * Math.pow(2, e - mLen);
-};
+  return (s ? -1 : 1) * m * Math.pow(2, e - mLen)
+}
 
-exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
+exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   var e, m, c,
       eLen = nBytes * 8 - mLen - 1,
       eMax = (1 << eLen) - 1,
@@ -31987,51 +30855,51 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
       rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0),
       i = isLE ? 0 : (nBytes - 1),
       d = isLE ? 1 : -1,
-      s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0;
+      s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0
 
-  value = Math.abs(value);
+  value = Math.abs(value)
 
   if (isNaN(value) || value === Infinity) {
-    m = isNaN(value) ? 1 : 0;
-    e = eMax;
+    m = isNaN(value) ? 1 : 0
+    e = eMax
   } else {
-    e = Math.floor(Math.log(value) / Math.LN2);
+    e = Math.floor(Math.log(value) / Math.LN2)
     if (value * (c = Math.pow(2, -e)) < 1) {
-      e--;
-      c *= 2;
+      e--
+      c *= 2
     }
     if (e + eBias >= 1) {
-      value += rt / c;
+      value += rt / c
     } else {
-      value += rt * Math.pow(2, 1 - eBias);
+      value += rt * Math.pow(2, 1 - eBias)
     }
     if (value * c >= 2) {
-      e++;
-      c /= 2;
+      e++
+      c /= 2
     }
 
     if (e + eBias >= eMax) {
-      m = 0;
-      e = eMax;
+      m = 0
+      e = eMax
     } else if (e + eBias >= 1) {
-      m = (value * c - 1) * Math.pow(2, mLen);
-      e = e + eBias;
+      m = (value * c - 1) * Math.pow(2, mLen)
+      e = e + eBias
     } else {
-      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen);
-      e = 0;
+      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
+      e = 0
     }
   }
 
-  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8);
+  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
 
-  e = (e << mLen) | m;
-  eLen += mLen;
-  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8);
+  e = (e << mLen) | m
+  eLen += mLen
+  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
 
-  buffer[offset + i - d] |= s * 128;
-};
+  buffer[offset + i - d] |= s * 128
+}
 
-},{}],251:[function(require,module,exports){
+},{}],250:[function(require,module,exports){
 
 /**
  * isArray
@@ -32066,7 +30934,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],252:[function(require,module,exports){
+},{}],251:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -32369,7 +31237,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],253:[function(require,module,exports){
+},{}],252:[function(require,module,exports){
 var http = module.exports;
 var EventEmitter = require('events').EventEmitter;
 var Request = require('./lib/request');
@@ -32515,7 +31383,7 @@ http.STATUS_CODES = {
     510 : 'Not Extended',               // RFC 2774
     511 : 'Network Authentication Required' // RFC 6585
 };
-},{"./lib/request":254,"events":252,"url":277}],254:[function(require,module,exports){
+},{"./lib/request":253,"events":251,"url":276}],253:[function(require,module,exports){
 var Stream = require('stream');
 var Response = require('./response');
 var Base64 = require('Base64');
@@ -32726,7 +31594,7 @@ var isXHR2Compatible = function (obj) {
     if (typeof FormData !== 'undefined' && obj instanceof FormData) return true;
 };
 
-},{"./response":255,"Base64":256,"inherits":257,"stream":275}],255:[function(require,module,exports){
+},{"./response":254,"Base64":255,"inherits":256,"stream":274}],254:[function(require,module,exports){
 var Stream = require('stream');
 var util = require('util');
 
@@ -32848,7 +31716,7 @@ var isArray = Array.isArray || function (xs) {
     return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{"stream":275,"util":279}],256:[function(require,module,exports){
+},{"stream":274,"util":278}],255:[function(require,module,exports){
 ;(function () {
 
   var object = typeof exports != 'undefined' ? exports : this; // #8: web workers
@@ -32910,7 +31778,7 @@ var isArray = Array.isArray || function (xs) {
 
 }());
 
-},{}],257:[function(require,module,exports){
+},{}],256:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -32935,12 +31803,12 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],258:[function(require,module,exports){
+},{}],257:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],259:[function(require,module,exports){
+},{}],258:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -33028,7 +31896,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],260:[function(require,module,exports){
+},{}],259:[function(require,module,exports){
 (function (global){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
@@ -33539,7 +32407,7 @@ process.chdir = function (dir) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],261:[function(require,module,exports){
+},{}],260:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -33625,7 +32493,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],262:[function(require,module,exports){
+},{}],261:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -33712,16 +32580,16 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],263:[function(require,module,exports){
+},{}],262:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":261,"./encode":262}],264:[function(require,module,exports){
+},{"./decode":260,"./encode":261}],263:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":265}],265:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":264}],264:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -33814,7 +32682,7 @@ function forEach (xs, f) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_readable":267,"./_stream_writable":269,"_process":259,"core-util-is":270,"inherits":257}],266:[function(require,module,exports){
+},{"./_stream_readable":266,"./_stream_writable":268,"_process":258,"core-util-is":269,"inherits":256}],265:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -33862,7 +32730,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":268,"core-util-is":270,"inherits":257}],267:[function(require,module,exports){
+},{"./_stream_transform":267,"core-util-is":269,"inherits":256}],266:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -34848,7 +33716,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"_process":259,"buffer":248,"core-util-is":270,"events":252,"inherits":257,"isarray":258,"stream":275,"string_decoder/":276}],268:[function(require,module,exports){
+},{"_process":258,"buffer":247,"core-util-is":269,"events":251,"inherits":256,"isarray":257,"stream":274,"string_decoder/":275}],267:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -35060,7 +33928,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":265,"core-util-is":270,"inherits":257}],269:[function(require,module,exports){
+},{"./_stream_duplex":264,"core-util-is":269,"inherits":256}],268:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -35450,7 +34318,7 @@ function endWritable(stream, state, cb) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":265,"_process":259,"buffer":248,"core-util-is":270,"inherits":257,"stream":275}],270:[function(require,module,exports){
+},{"./_stream_duplex":264,"_process":258,"buffer":247,"core-util-is":269,"inherits":256,"stream":274}],269:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -35560,10 +34428,10 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":248}],271:[function(require,module,exports){
+},{"buffer":247}],270:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":266}],272:[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":265}],271:[function(require,module,exports){
 var Stream = require('stream'); // hack to fix a circular dependency issue when used with browserify
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = Stream;
@@ -35573,13 +34441,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":265,"./lib/_stream_passthrough.js":266,"./lib/_stream_readable.js":267,"./lib/_stream_transform.js":268,"./lib/_stream_writable.js":269,"stream":275}],273:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":264,"./lib/_stream_passthrough.js":265,"./lib/_stream_readable.js":266,"./lib/_stream_transform.js":267,"./lib/_stream_writable.js":268,"stream":274}],272:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":268}],274:[function(require,module,exports){
+},{"./lib/_stream_transform.js":267}],273:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":269}],275:[function(require,module,exports){
+},{"./lib/_stream_writable.js":268}],274:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -35708,7 +34576,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":252,"inherits":257,"readable-stream/duplex.js":264,"readable-stream/passthrough.js":271,"readable-stream/readable.js":272,"readable-stream/transform.js":273,"readable-stream/writable.js":274}],276:[function(require,module,exports){
+},{"events":251,"inherits":256,"readable-stream/duplex.js":263,"readable-stream/passthrough.js":270,"readable-stream/readable.js":271,"readable-stream/transform.js":272,"readable-stream/writable.js":273}],275:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -35931,7 +34799,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":248}],277:[function(require,module,exports){
+},{"buffer":247}],276:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -36640,14 +35508,14 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":260,"querystring":263}],278:[function(require,module,exports){
+},{"punycode":259,"querystring":262}],277:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],279:[function(require,module,exports){
+},{}],278:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -37237,7 +36105,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":278,"_process":259,"inherits":257}],280:[function(require,module,exports){
+},{"./support/isBuffer":277,"_process":258,"inherits":256}],279:[function(require,module,exports){
 module.exports = function() {
   var d3 = {
     version: "3.4.11"
@@ -46471,88 +45339,91 @@ module.exports = function() {
   return d3;
 }();
 
-},{}],281:[function(require,module,exports){
+},{}],280:[function(require,module,exports){
 (function (process,global){
 /*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
  *            See https://raw.githubusercontent.com/jakearchibald/es6-promise/master/LICENSE
- * @version   2.0.1
+ * @version   2.1.1
  */
 
 (function() {
     "use strict";
-
-    function $$utils$$objectOrFunction(x) {
+    function lib$es6$promise$utils$$objectOrFunction(x) {
       return typeof x === 'function' || (typeof x === 'object' && x !== null);
     }
 
-    function $$utils$$isFunction(x) {
+    function lib$es6$promise$utils$$isFunction(x) {
       return typeof x === 'function';
     }
 
-    function $$utils$$isMaybeThenable(x) {
+    function lib$es6$promise$utils$$isMaybeThenable(x) {
       return typeof x === 'object' && x !== null;
     }
 
-    var $$utils$$_isArray;
-
+    var lib$es6$promise$utils$$_isArray;
     if (!Array.isArray) {
-      $$utils$$_isArray = function (x) {
+      lib$es6$promise$utils$$_isArray = function (x) {
         return Object.prototype.toString.call(x) === '[object Array]';
       };
     } else {
-      $$utils$$_isArray = Array.isArray;
+      lib$es6$promise$utils$$_isArray = Array.isArray;
     }
 
-    var $$utils$$isArray = $$utils$$_isArray;
-    var $$utils$$now = Date.now || function() { return new Date().getTime(); };
-    function $$utils$$F() { }
-
-    var $$utils$$o_create = (Object.create || function (o) {
-      if (arguments.length > 1) {
-        throw new Error('Second argument not supported');
-      }
-      if (typeof o !== 'object') {
-        throw new TypeError('Argument must be an object');
-      }
-      $$utils$$F.prototype = o;
-      return new $$utils$$F();
-    });
-
-    var $$asap$$len = 0;
-
-    var $$asap$$default = function asap(callback, arg) {
-      $$asap$$queue[$$asap$$len] = callback;
-      $$asap$$queue[$$asap$$len + 1] = arg;
-      $$asap$$len += 2;
-      if ($$asap$$len === 2) {
-        // If len is 1, that means that we need to schedule an async flush.
+    var lib$es6$promise$utils$$isArray = lib$es6$promise$utils$$_isArray;
+    var lib$es6$promise$asap$$len = 0;
+    var lib$es6$promise$asap$$toString = {}.toString;
+    var lib$es6$promise$asap$$vertxNext;
+    function lib$es6$promise$asap$$asap(callback, arg) {
+      lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len] = callback;
+      lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len + 1] = arg;
+      lib$es6$promise$asap$$len += 2;
+      if (lib$es6$promise$asap$$len === 2) {
+        // If len is 2, that means that we need to schedule an async flush.
         // If additional callbacks are queued before the queue is flushed, they
         // will be processed by this flush that we are scheduling.
-        $$asap$$scheduleFlush();
+        lib$es6$promise$asap$$scheduleFlush();
       }
-    };
+    }
 
-    var $$asap$$browserGlobal = (typeof window !== 'undefined') ? window : {};
-    var $$asap$$BrowserMutationObserver = $$asap$$browserGlobal.MutationObserver || $$asap$$browserGlobal.WebKitMutationObserver;
+    var lib$es6$promise$asap$$default = lib$es6$promise$asap$$asap;
+
+    var lib$es6$promise$asap$$browserWindow = (typeof window !== 'undefined') ? window : undefined;
+    var lib$es6$promise$asap$$browserGlobal = lib$es6$promise$asap$$browserWindow || {};
+    var lib$es6$promise$asap$$BrowserMutationObserver = lib$es6$promise$asap$$browserGlobal.MutationObserver || lib$es6$promise$asap$$browserGlobal.WebKitMutationObserver;
+    var lib$es6$promise$asap$$isNode = typeof process !== 'undefined' && {}.toString.call(process) === '[object process]';
 
     // test for web worker but not in IE10
-    var $$asap$$isWorker = typeof Uint8ClampedArray !== 'undefined' &&
+    var lib$es6$promise$asap$$isWorker = typeof Uint8ClampedArray !== 'undefined' &&
       typeof importScripts !== 'undefined' &&
       typeof MessageChannel !== 'undefined';
 
     // node
-    function $$asap$$useNextTick() {
+    function lib$es6$promise$asap$$useNextTick() {
+      var nextTick = process.nextTick;
+      // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+      // setImmediate should be used instead instead
+      var version = process.versions.node.match(/^(?:(\d+)\.)?(?:(\d+)\.)?(\*|\d+)$/);
+      if (Array.isArray(version) && version[1] === '0' && version[2] === '10') {
+        nextTick = setImmediate;
+      }
       return function() {
-        process.nextTick($$asap$$flush);
+        nextTick(lib$es6$promise$asap$$flush);
       };
     }
 
-    function $$asap$$useMutationObserver() {
+    // vertx
+    function lib$es6$promise$asap$$useVertxTimer() {
+      return function() {
+        lib$es6$promise$asap$$vertxNext(lib$es6$promise$asap$$flush);
+      };
+    }
+
+    function lib$es6$promise$asap$$useMutationObserver() {
       var iterations = 0;
-      var observer = new $$asap$$BrowserMutationObserver($$asap$$flush);
+      var observer = new lib$es6$promise$asap$$BrowserMutationObserver(lib$es6$promise$asap$$flush);
       var node = document.createTextNode('');
       observer.observe(node, { characterData: true });
 
@@ -46562,73 +45433,86 @@ module.exports = function() {
     }
 
     // web worker
-    function $$asap$$useMessageChannel() {
+    function lib$es6$promise$asap$$useMessageChannel() {
       var channel = new MessageChannel();
-      channel.port1.onmessage = $$asap$$flush;
+      channel.port1.onmessage = lib$es6$promise$asap$$flush;
       return function () {
         channel.port2.postMessage(0);
       };
     }
 
-    function $$asap$$useSetTimeout() {
+    function lib$es6$promise$asap$$useSetTimeout() {
       return function() {
-        setTimeout($$asap$$flush, 1);
+        setTimeout(lib$es6$promise$asap$$flush, 1);
       };
     }
 
-    var $$asap$$queue = new Array(1000);
-
-    function $$asap$$flush() {
-      for (var i = 0; i < $$asap$$len; i+=2) {
-        var callback = $$asap$$queue[i];
-        var arg = $$asap$$queue[i+1];
+    var lib$es6$promise$asap$$queue = new Array(1000);
+    function lib$es6$promise$asap$$flush() {
+      for (var i = 0; i < lib$es6$promise$asap$$len; i+=2) {
+        var callback = lib$es6$promise$asap$$queue[i];
+        var arg = lib$es6$promise$asap$$queue[i+1];
 
         callback(arg);
 
-        $$asap$$queue[i] = undefined;
-        $$asap$$queue[i+1] = undefined;
+        lib$es6$promise$asap$$queue[i] = undefined;
+        lib$es6$promise$asap$$queue[i+1] = undefined;
       }
 
-      $$asap$$len = 0;
+      lib$es6$promise$asap$$len = 0;
     }
 
-    var $$asap$$scheduleFlush;
+    function lib$es6$promise$asap$$attemptVertex() {
+      try {
+        var r = require;
+        var vertx = r('vertx');
+        lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
+        return lib$es6$promise$asap$$useVertxTimer();
+      } catch(e) {
+        return lib$es6$promise$asap$$useSetTimeout();
+      }
+    }
 
+    var lib$es6$promise$asap$$scheduleFlush;
     // Decide what async method to use to triggering processing of queued callbacks:
-    if (typeof process !== 'undefined' && {}.toString.call(process) === '[object process]') {
-      $$asap$$scheduleFlush = $$asap$$useNextTick();
-    } else if ($$asap$$BrowserMutationObserver) {
-      $$asap$$scheduleFlush = $$asap$$useMutationObserver();
-    } else if ($$asap$$isWorker) {
-      $$asap$$scheduleFlush = $$asap$$useMessageChannel();
+    if (lib$es6$promise$asap$$isNode) {
+      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useNextTick();
+    } else if (lib$es6$promise$asap$$BrowserMutationObserver) {
+      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useMutationObserver();
+    } else if (lib$es6$promise$asap$$isWorker) {
+      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useMessageChannel();
+    } else if (lib$es6$promise$asap$$browserWindow === undefined && typeof require === 'function') {
+      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$attemptVertex();
     } else {
-      $$asap$$scheduleFlush = $$asap$$useSetTimeout();
+      lib$es6$promise$asap$$scheduleFlush = lib$es6$promise$asap$$useSetTimeout();
     }
 
-    function $$$internal$$noop() {}
-    var $$$internal$$PENDING   = void 0;
-    var $$$internal$$FULFILLED = 1;
-    var $$$internal$$REJECTED  = 2;
-    var $$$internal$$GET_THEN_ERROR = new $$$internal$$ErrorObject();
+    function lib$es6$promise$$internal$$noop() {}
 
-    function $$$internal$$selfFullfillment() {
+    var lib$es6$promise$$internal$$PENDING   = void 0;
+    var lib$es6$promise$$internal$$FULFILLED = 1;
+    var lib$es6$promise$$internal$$REJECTED  = 2;
+
+    var lib$es6$promise$$internal$$GET_THEN_ERROR = new lib$es6$promise$$internal$$ErrorObject();
+
+    function lib$es6$promise$$internal$$selfFullfillment() {
       return new TypeError("You cannot resolve a promise with itself");
     }
 
-    function $$$internal$$cannotReturnOwn() {
-      return new TypeError('A promises callback cannot return that same promise.')
+    function lib$es6$promise$$internal$$cannotReturnOwn() {
+      return new TypeError('A promises callback cannot return that same promise.');
     }
 
-    function $$$internal$$getThen(promise) {
+    function lib$es6$promise$$internal$$getThen(promise) {
       try {
         return promise.then;
       } catch(error) {
-        $$$internal$$GET_THEN_ERROR.error = error;
-        return $$$internal$$GET_THEN_ERROR;
+        lib$es6$promise$$internal$$GET_THEN_ERROR.error = error;
+        return lib$es6$promise$$internal$$GET_THEN_ERROR;
       }
     }
 
-    function $$$internal$$tryThen(then, value, fulfillmentHandler, rejectionHandler) {
+    function lib$es6$promise$$internal$$tryThen(then, value, fulfillmentHandler, rejectionHandler) {
       try {
         then.call(value, fulfillmentHandler, rejectionHandler);
       } catch(e) {
@@ -46636,117 +45520,116 @@ module.exports = function() {
       }
     }
 
-    function $$$internal$$handleForeignThenable(promise, thenable, then) {
-       $$asap$$default(function(promise) {
+    function lib$es6$promise$$internal$$handleForeignThenable(promise, thenable, then) {
+       lib$es6$promise$asap$$default(function(promise) {
         var sealed = false;
-        var error = $$$internal$$tryThen(then, thenable, function(value) {
+        var error = lib$es6$promise$$internal$$tryThen(then, thenable, function(value) {
           if (sealed) { return; }
           sealed = true;
           if (thenable !== value) {
-            $$$internal$$resolve(promise, value);
+            lib$es6$promise$$internal$$resolve(promise, value);
           } else {
-            $$$internal$$fulfill(promise, value);
+            lib$es6$promise$$internal$$fulfill(promise, value);
           }
         }, function(reason) {
           if (sealed) { return; }
           sealed = true;
 
-          $$$internal$$reject(promise, reason);
+          lib$es6$promise$$internal$$reject(promise, reason);
         }, 'Settle: ' + (promise._label || ' unknown promise'));
 
         if (!sealed && error) {
           sealed = true;
-          $$$internal$$reject(promise, error);
+          lib$es6$promise$$internal$$reject(promise, error);
         }
       }, promise);
     }
 
-    function $$$internal$$handleOwnThenable(promise, thenable) {
-      if (thenable._state === $$$internal$$FULFILLED) {
-        $$$internal$$fulfill(promise, thenable._result);
-      } else if (promise._state === $$$internal$$REJECTED) {
-        $$$internal$$reject(promise, thenable._result);
+    function lib$es6$promise$$internal$$handleOwnThenable(promise, thenable) {
+      if (thenable._state === lib$es6$promise$$internal$$FULFILLED) {
+        lib$es6$promise$$internal$$fulfill(promise, thenable._result);
+      } else if (thenable._state === lib$es6$promise$$internal$$REJECTED) {
+        lib$es6$promise$$internal$$reject(promise, thenable._result);
       } else {
-        $$$internal$$subscribe(thenable, undefined, function(value) {
-          $$$internal$$resolve(promise, value);
+        lib$es6$promise$$internal$$subscribe(thenable, undefined, function(value) {
+          lib$es6$promise$$internal$$resolve(promise, value);
         }, function(reason) {
-          $$$internal$$reject(promise, reason);
+          lib$es6$promise$$internal$$reject(promise, reason);
         });
       }
     }
 
-    function $$$internal$$handleMaybeThenable(promise, maybeThenable) {
+    function lib$es6$promise$$internal$$handleMaybeThenable(promise, maybeThenable) {
       if (maybeThenable.constructor === promise.constructor) {
-        $$$internal$$handleOwnThenable(promise, maybeThenable);
+        lib$es6$promise$$internal$$handleOwnThenable(promise, maybeThenable);
       } else {
-        var then = $$$internal$$getThen(maybeThenable);
+        var then = lib$es6$promise$$internal$$getThen(maybeThenable);
 
-        if (then === $$$internal$$GET_THEN_ERROR) {
-          $$$internal$$reject(promise, $$$internal$$GET_THEN_ERROR.error);
+        if (then === lib$es6$promise$$internal$$GET_THEN_ERROR) {
+          lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$GET_THEN_ERROR.error);
         } else if (then === undefined) {
-          $$$internal$$fulfill(promise, maybeThenable);
-        } else if ($$utils$$isFunction(then)) {
-          $$$internal$$handleForeignThenable(promise, maybeThenable, then);
+          lib$es6$promise$$internal$$fulfill(promise, maybeThenable);
+        } else if (lib$es6$promise$utils$$isFunction(then)) {
+          lib$es6$promise$$internal$$handleForeignThenable(promise, maybeThenable, then);
         } else {
-          $$$internal$$fulfill(promise, maybeThenable);
+          lib$es6$promise$$internal$$fulfill(promise, maybeThenable);
         }
       }
     }
 
-    function $$$internal$$resolve(promise, value) {
+    function lib$es6$promise$$internal$$resolve(promise, value) {
       if (promise === value) {
-        $$$internal$$reject(promise, $$$internal$$selfFullfillment());
-      } else if ($$utils$$objectOrFunction(value)) {
-        $$$internal$$handleMaybeThenable(promise, value);
+        lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$selfFullfillment());
+      } else if (lib$es6$promise$utils$$objectOrFunction(value)) {
+        lib$es6$promise$$internal$$handleMaybeThenable(promise, value);
       } else {
-        $$$internal$$fulfill(promise, value);
+        lib$es6$promise$$internal$$fulfill(promise, value);
       }
     }
 
-    function $$$internal$$publishRejection(promise) {
+    function lib$es6$promise$$internal$$publishRejection(promise) {
       if (promise._onerror) {
         promise._onerror(promise._result);
       }
 
-      $$$internal$$publish(promise);
+      lib$es6$promise$$internal$$publish(promise);
     }
 
-    function $$$internal$$fulfill(promise, value) {
-      if (promise._state !== $$$internal$$PENDING) { return; }
+    function lib$es6$promise$$internal$$fulfill(promise, value) {
+      if (promise._state !== lib$es6$promise$$internal$$PENDING) { return; }
 
       promise._result = value;
-      promise._state = $$$internal$$FULFILLED;
+      promise._state = lib$es6$promise$$internal$$FULFILLED;
 
-      if (promise._subscribers.length === 0) {
-      } else {
-        $$asap$$default($$$internal$$publish, promise);
+      if (promise._subscribers.length !== 0) {
+        lib$es6$promise$asap$$default(lib$es6$promise$$internal$$publish, promise);
       }
     }
 
-    function $$$internal$$reject(promise, reason) {
-      if (promise._state !== $$$internal$$PENDING) { return; }
-      promise._state = $$$internal$$REJECTED;
+    function lib$es6$promise$$internal$$reject(promise, reason) {
+      if (promise._state !== lib$es6$promise$$internal$$PENDING) { return; }
+      promise._state = lib$es6$promise$$internal$$REJECTED;
       promise._result = reason;
 
-      $$asap$$default($$$internal$$publishRejection, promise);
+      lib$es6$promise$asap$$default(lib$es6$promise$$internal$$publishRejection, promise);
     }
 
-    function $$$internal$$subscribe(parent, child, onFulfillment, onRejection) {
+    function lib$es6$promise$$internal$$subscribe(parent, child, onFulfillment, onRejection) {
       var subscribers = parent._subscribers;
       var length = subscribers.length;
 
       parent._onerror = null;
 
       subscribers[length] = child;
-      subscribers[length + $$$internal$$FULFILLED] = onFulfillment;
-      subscribers[length + $$$internal$$REJECTED]  = onRejection;
+      subscribers[length + lib$es6$promise$$internal$$FULFILLED] = onFulfillment;
+      subscribers[length + lib$es6$promise$$internal$$REJECTED]  = onRejection;
 
       if (length === 0 && parent._state) {
-        $$asap$$default($$$internal$$publish, parent);
+        lib$es6$promise$asap$$default(lib$es6$promise$$internal$$publish, parent);
       }
     }
 
-    function $$$internal$$publish(promise) {
+    function lib$es6$promise$$internal$$publish(promise) {
       var subscribers = promise._subscribers;
       var settled = promise._state;
 
@@ -46759,7 +45642,7 @@ module.exports = function() {
         callback = subscribers[i + settled];
 
         if (child) {
-          $$$internal$$invokeCallback(settled, child, callback, detail);
+          lib$es6$promise$$internal$$invokeCallback(settled, child, callback, detail);
         } else {
           callback(detail);
         }
@@ -46768,29 +45651,29 @@ module.exports = function() {
       promise._subscribers.length = 0;
     }
 
-    function $$$internal$$ErrorObject() {
+    function lib$es6$promise$$internal$$ErrorObject() {
       this.error = null;
     }
 
-    var $$$internal$$TRY_CATCH_ERROR = new $$$internal$$ErrorObject();
+    var lib$es6$promise$$internal$$TRY_CATCH_ERROR = new lib$es6$promise$$internal$$ErrorObject();
 
-    function $$$internal$$tryCatch(callback, detail) {
+    function lib$es6$promise$$internal$$tryCatch(callback, detail) {
       try {
         return callback(detail);
       } catch(e) {
-        $$$internal$$TRY_CATCH_ERROR.error = e;
-        return $$$internal$$TRY_CATCH_ERROR;
+        lib$es6$promise$$internal$$TRY_CATCH_ERROR.error = e;
+        return lib$es6$promise$$internal$$TRY_CATCH_ERROR;
       }
     }
 
-    function $$$internal$$invokeCallback(settled, promise, callback, detail) {
-      var hasCallback = $$utils$$isFunction(callback),
+    function lib$es6$promise$$internal$$invokeCallback(settled, promise, callback, detail) {
+      var hasCallback = lib$es6$promise$utils$$isFunction(callback),
           value, error, succeeded, failed;
 
       if (hasCallback) {
-        value = $$$internal$$tryCatch(callback, detail);
+        value = lib$es6$promise$$internal$$tryCatch(callback, detail);
 
-        if (value === $$$internal$$TRY_CATCH_ERROR) {
+        if (value === lib$es6$promise$$internal$$TRY_CATCH_ERROR) {
           failed = true;
           error = value.error;
           value = null;
@@ -46799,7 +45682,7 @@ module.exports = function() {
         }
 
         if (promise === value) {
-          $$$internal$$reject(promise, $$$internal$$cannotReturnOwn());
+          lib$es6$promise$$internal$$reject(promise, lib$es6$promise$$internal$$cannotReturnOwn());
           return;
         }
 
@@ -46808,175 +45691,162 @@ module.exports = function() {
         succeeded = true;
       }
 
-      if (promise._state !== $$$internal$$PENDING) {
+      if (promise._state !== lib$es6$promise$$internal$$PENDING) {
         // noop
       } else if (hasCallback && succeeded) {
-        $$$internal$$resolve(promise, value);
+        lib$es6$promise$$internal$$resolve(promise, value);
       } else if (failed) {
-        $$$internal$$reject(promise, error);
-      } else if (settled === $$$internal$$FULFILLED) {
-        $$$internal$$fulfill(promise, value);
-      } else if (settled === $$$internal$$REJECTED) {
-        $$$internal$$reject(promise, value);
+        lib$es6$promise$$internal$$reject(promise, error);
+      } else if (settled === lib$es6$promise$$internal$$FULFILLED) {
+        lib$es6$promise$$internal$$fulfill(promise, value);
+      } else if (settled === lib$es6$promise$$internal$$REJECTED) {
+        lib$es6$promise$$internal$$reject(promise, value);
       }
     }
 
-    function $$$internal$$initializePromise(promise, resolver) {
+    function lib$es6$promise$$internal$$initializePromise(promise, resolver) {
       try {
         resolver(function resolvePromise(value){
-          $$$internal$$resolve(promise, value);
+          lib$es6$promise$$internal$$resolve(promise, value);
         }, function rejectPromise(reason) {
-          $$$internal$$reject(promise, reason);
+          lib$es6$promise$$internal$$reject(promise, reason);
         });
       } catch(e) {
-        $$$internal$$reject(promise, e);
+        lib$es6$promise$$internal$$reject(promise, e);
       }
     }
 
-    function $$$enumerator$$makeSettledResult(state, position, value) {
-      if (state === $$$internal$$FULFILLED) {
-        return {
-          state: 'fulfilled',
-          value: value
-        };
-      } else {
-        return {
-          state: 'rejected',
-          reason: value
-        };
-      }
-    }
+    function lib$es6$promise$enumerator$$Enumerator(Constructor, input) {
+      var enumerator = this;
 
-    function $$$enumerator$$Enumerator(Constructor, input, abortOnReject, label) {
-      this._instanceConstructor = Constructor;
-      this.promise = new Constructor($$$internal$$noop, label);
-      this._abortOnReject = abortOnReject;
+      enumerator._instanceConstructor = Constructor;
+      enumerator.promise = new Constructor(lib$es6$promise$$internal$$noop);
 
-      if (this._validateInput(input)) {
-        this._input     = input;
-        this.length     = input.length;
-        this._remaining = input.length;
+      if (enumerator._validateInput(input)) {
+        enumerator._input     = input;
+        enumerator.length     = input.length;
+        enumerator._remaining = input.length;
 
-        this._init();
+        enumerator._init();
 
-        if (this.length === 0) {
-          $$$internal$$fulfill(this.promise, this._result);
+        if (enumerator.length === 0) {
+          lib$es6$promise$$internal$$fulfill(enumerator.promise, enumerator._result);
         } else {
-          this.length = this.length || 0;
-          this._enumerate();
-          if (this._remaining === 0) {
-            $$$internal$$fulfill(this.promise, this._result);
+          enumerator.length = enumerator.length || 0;
+          enumerator._enumerate();
+          if (enumerator._remaining === 0) {
+            lib$es6$promise$$internal$$fulfill(enumerator.promise, enumerator._result);
           }
         }
       } else {
-        $$$internal$$reject(this.promise, this._validationError());
+        lib$es6$promise$$internal$$reject(enumerator.promise, enumerator._validationError());
       }
     }
 
-    $$$enumerator$$Enumerator.prototype._validateInput = function(input) {
-      return $$utils$$isArray(input);
+    lib$es6$promise$enumerator$$Enumerator.prototype._validateInput = function(input) {
+      return lib$es6$promise$utils$$isArray(input);
     };
 
-    $$$enumerator$$Enumerator.prototype._validationError = function() {
+    lib$es6$promise$enumerator$$Enumerator.prototype._validationError = function() {
       return new Error('Array Methods must be provided an Array');
     };
 
-    $$$enumerator$$Enumerator.prototype._init = function() {
+    lib$es6$promise$enumerator$$Enumerator.prototype._init = function() {
       this._result = new Array(this.length);
     };
 
-    var $$$enumerator$$default = $$$enumerator$$Enumerator;
+    var lib$es6$promise$enumerator$$default = lib$es6$promise$enumerator$$Enumerator;
 
-    $$$enumerator$$Enumerator.prototype._enumerate = function() {
-      var length  = this.length;
-      var promise = this.promise;
-      var input   = this._input;
-
-      for (var i = 0; promise._state === $$$internal$$PENDING && i < length; i++) {
-        this._eachEntry(input[i], i);
-      }
-    };
-
-    $$$enumerator$$Enumerator.prototype._eachEntry = function(entry, i) {
-      var c = this._instanceConstructor;
-      if ($$utils$$isMaybeThenable(entry)) {
-        if (entry.constructor === c && entry._state !== $$$internal$$PENDING) {
-          entry._onerror = null;
-          this._settledAt(entry._state, i, entry._result);
-        } else {
-          this._willSettleAt(c.resolve(entry), i);
-        }
-      } else {
-        this._remaining--;
-        this._result[i] = this._makeResult($$$internal$$FULFILLED, i, entry);
-      }
-    };
-
-    $$$enumerator$$Enumerator.prototype._settledAt = function(state, i, value) {
-      var promise = this.promise;
-
-      if (promise._state === $$$internal$$PENDING) {
-        this._remaining--;
-
-        if (this._abortOnReject && state === $$$internal$$REJECTED) {
-          $$$internal$$reject(promise, value);
-        } else {
-          this._result[i] = this._makeResult(state, i, value);
-        }
-      }
-
-      if (this._remaining === 0) {
-        $$$internal$$fulfill(promise, this._result);
-      }
-    };
-
-    $$$enumerator$$Enumerator.prototype._makeResult = function(state, i, value) {
-      return value;
-    };
-
-    $$$enumerator$$Enumerator.prototype._willSettleAt = function(promise, i) {
+    lib$es6$promise$enumerator$$Enumerator.prototype._enumerate = function() {
       var enumerator = this;
 
-      $$$internal$$subscribe(promise, undefined, function(value) {
-        enumerator._settledAt($$$internal$$FULFILLED, i, value);
+      var length  = enumerator.length;
+      var promise = enumerator.promise;
+      var input   = enumerator._input;
+
+      for (var i = 0; promise._state === lib$es6$promise$$internal$$PENDING && i < length; i++) {
+        enumerator._eachEntry(input[i], i);
+      }
+    };
+
+    lib$es6$promise$enumerator$$Enumerator.prototype._eachEntry = function(entry, i) {
+      var enumerator = this;
+      var c = enumerator._instanceConstructor;
+
+      if (lib$es6$promise$utils$$isMaybeThenable(entry)) {
+        if (entry.constructor === c && entry._state !== lib$es6$promise$$internal$$PENDING) {
+          entry._onerror = null;
+          enumerator._settledAt(entry._state, i, entry._result);
+        } else {
+          enumerator._willSettleAt(c.resolve(entry), i);
+        }
+      } else {
+        enumerator._remaining--;
+        enumerator._result[i] = entry;
+      }
+    };
+
+    lib$es6$promise$enumerator$$Enumerator.prototype._settledAt = function(state, i, value) {
+      var enumerator = this;
+      var promise = enumerator.promise;
+
+      if (promise._state === lib$es6$promise$$internal$$PENDING) {
+        enumerator._remaining--;
+
+        if (state === lib$es6$promise$$internal$$REJECTED) {
+          lib$es6$promise$$internal$$reject(promise, value);
+        } else {
+          enumerator._result[i] = value;
+        }
+      }
+
+      if (enumerator._remaining === 0) {
+        lib$es6$promise$$internal$$fulfill(promise, enumerator._result);
+      }
+    };
+
+    lib$es6$promise$enumerator$$Enumerator.prototype._willSettleAt = function(promise, i) {
+      var enumerator = this;
+
+      lib$es6$promise$$internal$$subscribe(promise, undefined, function(value) {
+        enumerator._settledAt(lib$es6$promise$$internal$$FULFILLED, i, value);
       }, function(reason) {
-        enumerator._settledAt($$$internal$$REJECTED, i, reason);
+        enumerator._settledAt(lib$es6$promise$$internal$$REJECTED, i, reason);
       });
     };
-
-    var $$promise$all$$default = function all(entries, label) {
-      return new $$$enumerator$$default(this, entries, true /* abort on reject */, label).promise;
-    };
-
-    var $$promise$race$$default = function race(entries, label) {
+    function lib$es6$promise$promise$all$$all(entries) {
+      return new lib$es6$promise$enumerator$$default(this, entries).promise;
+    }
+    var lib$es6$promise$promise$all$$default = lib$es6$promise$promise$all$$all;
+    function lib$es6$promise$promise$race$$race(entries) {
       /*jshint validthis:true */
       var Constructor = this;
 
-      var promise = new Constructor($$$internal$$noop, label);
+      var promise = new Constructor(lib$es6$promise$$internal$$noop);
 
-      if (!$$utils$$isArray(entries)) {
-        $$$internal$$reject(promise, new TypeError('You must pass an array to race.'));
+      if (!lib$es6$promise$utils$$isArray(entries)) {
+        lib$es6$promise$$internal$$reject(promise, new TypeError('You must pass an array to race.'));
         return promise;
       }
 
       var length = entries.length;
 
       function onFulfillment(value) {
-        $$$internal$$resolve(promise, value);
+        lib$es6$promise$$internal$$resolve(promise, value);
       }
 
       function onRejection(reason) {
-        $$$internal$$reject(promise, reason);
+        lib$es6$promise$$internal$$reject(promise, reason);
       }
 
-      for (var i = 0; promise._state === $$$internal$$PENDING && i < length; i++) {
-        $$$internal$$subscribe(Constructor.resolve(entries[i]), undefined, onFulfillment, onRejection);
+      for (var i = 0; promise._state === lib$es6$promise$$internal$$PENDING && i < length; i++) {
+        lib$es6$promise$$internal$$subscribe(Constructor.resolve(entries[i]), undefined, onFulfillment, onRejection);
       }
 
       return promise;
-    };
-
-    var $$promise$resolve$$default = function resolve(object, label) {
+    }
+    var lib$es6$promise$promise$race$$default = lib$es6$promise$promise$race$$race;
+    function lib$es6$promise$promise$resolve$$resolve(object) {
       /*jshint validthis:true */
       var Constructor = this;
 
@@ -46984,31 +45854,31 @@ module.exports = function() {
         return object;
       }
 
-      var promise = new Constructor($$$internal$$noop, label);
-      $$$internal$$resolve(promise, object);
+      var promise = new Constructor(lib$es6$promise$$internal$$noop);
+      lib$es6$promise$$internal$$resolve(promise, object);
       return promise;
-    };
-
-    var $$promise$reject$$default = function reject(reason, label) {
+    }
+    var lib$es6$promise$promise$resolve$$default = lib$es6$promise$promise$resolve$$resolve;
+    function lib$es6$promise$promise$reject$$reject(reason) {
       /*jshint validthis:true */
       var Constructor = this;
-      var promise = new Constructor($$$internal$$noop, label);
-      $$$internal$$reject(promise, reason);
+      var promise = new Constructor(lib$es6$promise$$internal$$noop);
+      lib$es6$promise$$internal$$reject(promise, reason);
       return promise;
-    };
+    }
+    var lib$es6$promise$promise$reject$$default = lib$es6$promise$promise$reject$$reject;
 
-    var $$es6$promise$promise$$counter = 0;
+    var lib$es6$promise$promise$$counter = 0;
 
-    function $$es6$promise$promise$$needsResolver() {
+    function lib$es6$promise$promise$$needsResolver() {
       throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
     }
 
-    function $$es6$promise$promise$$needsNew() {
+    function lib$es6$promise$promise$$needsNew() {
       throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
     }
 
-    var $$es6$promise$promise$$default = $$es6$promise$promise$$Promise;
-
+    var lib$es6$promise$promise$$default = lib$es6$promise$promise$$Promise;
     /**
       Promise objects represent the eventual result of an asynchronous operation. The
       primary way of interacting with a promise is through its `then` method, which
@@ -47112,32 +45982,32 @@ module.exports = function() {
       Useful for tooling.
       @constructor
     */
-    function $$es6$promise$promise$$Promise(resolver) {
-      this._id = $$es6$promise$promise$$counter++;
+    function lib$es6$promise$promise$$Promise(resolver) {
+      this._id = lib$es6$promise$promise$$counter++;
       this._state = undefined;
       this._result = undefined;
       this._subscribers = [];
 
-      if ($$$internal$$noop !== resolver) {
-        if (!$$utils$$isFunction(resolver)) {
-          $$es6$promise$promise$$needsResolver();
+      if (lib$es6$promise$$internal$$noop !== resolver) {
+        if (!lib$es6$promise$utils$$isFunction(resolver)) {
+          lib$es6$promise$promise$$needsResolver();
         }
 
-        if (!(this instanceof $$es6$promise$promise$$Promise)) {
-          $$es6$promise$promise$$needsNew();
+        if (!(this instanceof lib$es6$promise$promise$$Promise)) {
+          lib$es6$promise$promise$$needsNew();
         }
 
-        $$$internal$$initializePromise(this, resolver);
+        lib$es6$promise$$internal$$initializePromise(this, resolver);
       }
     }
 
-    $$es6$promise$promise$$Promise.all = $$promise$all$$default;
-    $$es6$promise$promise$$Promise.race = $$promise$race$$default;
-    $$es6$promise$promise$$Promise.resolve = $$promise$resolve$$default;
-    $$es6$promise$promise$$Promise.reject = $$promise$reject$$default;
+    lib$es6$promise$promise$$Promise.all = lib$es6$promise$promise$all$$default;
+    lib$es6$promise$promise$$Promise.race = lib$es6$promise$promise$race$$default;
+    lib$es6$promise$promise$$Promise.resolve = lib$es6$promise$promise$resolve$$default;
+    lib$es6$promise$promise$$Promise.reject = lib$es6$promise$promise$reject$$default;
 
-    $$es6$promise$promise$$Promise.prototype = {
-      constructor: $$es6$promise$promise$$Promise,
+    lib$es6$promise$promise$$Promise.prototype = {
+      constructor: lib$es6$promise$promise$$Promise,
 
     /**
       The primary way of interacting with a promise is through its `then` method,
@@ -47336,20 +46206,20 @@ module.exports = function() {
         var parent = this;
         var state = parent._state;
 
-        if (state === $$$internal$$FULFILLED && !onFulfillment || state === $$$internal$$REJECTED && !onRejection) {
+        if (state === lib$es6$promise$$internal$$FULFILLED && !onFulfillment || state === lib$es6$promise$$internal$$REJECTED && !onRejection) {
           return this;
         }
 
-        var child = new this.constructor($$$internal$$noop);
+        var child = new this.constructor(lib$es6$promise$$internal$$noop);
         var result = parent._result;
 
         if (state) {
           var callback = arguments[state - 1];
-          $$asap$$default(function(){
-            $$$internal$$invokeCallback(state, child, callback, result);
+          lib$es6$promise$asap$$default(function(){
+            lib$es6$promise$$internal$$invokeCallback(state, child, callback, result);
           });
         } else {
-          $$$internal$$subscribe(parent, child, onFulfillment, onRejection);
+          lib$es6$promise$$internal$$subscribe(parent, child, onFulfillment, onRejection);
         }
 
         return child;
@@ -47386,55 +46256,51 @@ module.exports = function() {
         return this.then(null, onRejection);
       }
     };
-
-    var $$es6$promise$polyfill$$default = function polyfill() {
+    function lib$es6$promise$polyfill$$polyfill() {
       var local;
 
       if (typeof global !== 'undefined') {
-        local = global;
-      } else if (typeof window !== 'undefined' && window.document) {
-        local = window;
+          local = global;
+      } else if (typeof self !== 'undefined') {
+          local = self;
       } else {
-        local = self;
+          try {
+              local = Function('return this')();
+          } catch (e) {
+              throw new Error('polyfill failed because global object is unavailable in this environment');
+          }
       }
 
-      var es6PromiseSupport =
-        "Promise" in local &&
-        // Some of these methods are missing from
-        // Firefox/Chrome experimental implementations
-        "resolve" in local.Promise &&
-        "reject" in local.Promise &&
-        "all" in local.Promise &&
-        "race" in local.Promise &&
-        // Older version of the spec had a resolver object
-        // as the arg rather than a function
-        (function() {
-          var resolve;
-          new local.Promise(function(r) { resolve = r; });
-          return $$utils$$isFunction(resolve);
-        }());
+      var P = local.Promise;
 
-      if (!es6PromiseSupport) {
-        local.Promise = $$es6$promise$promise$$default;
+      if (P && Object.prototype.toString.call(P.resolve()) === '[object Promise]' && !P.cast) {
+        return;
       }
-    };
 
-    var es6$promise$umd$$ES6Promise = {
-      'Promise': $$es6$promise$promise$$default,
-      'polyfill': $$es6$promise$polyfill$$default
+      local.Promise = lib$es6$promise$promise$$default;
+    }
+    var lib$es6$promise$polyfill$$default = lib$es6$promise$polyfill$$polyfill;
+
+    var lib$es6$promise$umd$$ES6Promise = {
+      'Promise': lib$es6$promise$promise$$default,
+      'polyfill': lib$es6$promise$polyfill$$default
     };
 
     /* global define:true module:true window: true */
     if (typeof define === 'function' && define['amd']) {
-      define(function() { return es6$promise$umd$$ES6Promise; });
+      define(function() { return lib$es6$promise$umd$$ES6Promise; });
     } else if (typeof module !== 'undefined' && module['exports']) {
-      module['exports'] = es6$promise$umd$$ES6Promise;
+      module['exports'] = lib$es6$promise$umd$$ES6Promise;
     } else if (typeof this !== 'undefined') {
-      this['ES6Promise'] = es6$promise$umd$$ES6Promise;
+      this['ES6Promise'] = lib$es6$promise$umd$$ES6Promise;
     }
+
+    lib$es6$promise$polyfill$$default();
 }).call(this);
+
+
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":259}],282:[function(require,module,exports){
+},{"_process":258}],281:[function(require,module,exports){
 (function() {
   exports.ACCEPT_HEADER = {
     'xml': 'application/xml',
@@ -47459,7 +46325,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{}],283:[function(require,module,exports){
+},{}],282:[function(require,module,exports){
 (function() {
   var ACCEPT_HEADER, JSONStream, PESKY_COMMA, URL, URLENC, USER_AGENT, VERSION, blocking, defer, error, getMsg, http, invoke, merge, parseOptions, rejectAfter, streaming, utils, _ref;
 
@@ -47632,7 +46498,9 @@ module.exports = function() {
     parsed = URL.parse(opts.url, true);
     parsed.withCredentials = false;
     parsed.method = opts.type || 'GET';
-    parsed.port = opts.port || parsed.port || 80;
+    if (opts.port != null) {
+      parsed.port = opts.port;
+    }
     parsed.headers = {
       'User-Agent': USER_AGENT,
       'Accept': ACCEPT_HEADER[opts.dataType]
@@ -47686,7 +46554,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./constants":282,"./util":294,"./version":295,"JSONStream":297,"http":253,"url":277}],284:[function(require,module,exports){
+},{"./constants":281,"./util":293,"./version":294,"JSONStream":296,"http":252,"url":276}],283:[function(require,module,exports){
 (function() {
   var CategoryResults, IDResolutionJob, IdResults, ONE_MINUTE, concatMap, defer, difference, fold, funcutils, get, id, intermine, uniqBy, withCB,
     __hasProp = {}.hasOwnProperty,
@@ -47986,7 +46854,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":294}],285:[function(require,module,exports){
+},{"./util":293}],284:[function(require,module,exports){
 (function() {
   var INVITES, List, REQUIRES_VERSION, SHARES, TAGS_PATH, dejoin, get, getFolderName, intermine, invoke, isFolder, merge, set, utils, withCB,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -48176,7 +47044,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":294}],286:[function(require,module,exports){
+},{"./util":293}],285:[function(require,module,exports){
 (function() {
   var JAVA_LANG_OBJ, Model, PathInfo, Table, error, find, flatten, intermine, omap, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -48315,7 +47183,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./path":287,"./table":292,"./util":294}],287:[function(require,module,exports){
+},{"./path":286,"./table":291,"./util":293}],286:[function(require,module,exports){
 (function() {
   var NAMES, PARSED, PathInfo, any, concatMap, copy, error, get, intermine, makeKey, set, success, utils, withCB,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -48558,7 +47426,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":294}],288:[function(require,module,exports){
+},{"./util":293}],287:[function(require,module,exports){
 (function() {
   var Promise;
 
@@ -48568,7 +47436,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"es6-promise":281}],289:[function(require,module,exports){
+},{"es6-promise":280}],288:[function(require,module,exports){
 (function() {
   var BASIC_ATTRS, CODES, Events, LIST_PIPE, Query, REQUIRES_VERSION, RESULTS_METHODS, SIMPLE_ATTRS, bioUriArgs, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, merge, mth, multiConStr, noUndefVals, noValueConStr, partition, removeIrrelevantSortOrders, simpleConStr, stringToSortOrder, stringifySortOrder, toQueryString, typeConStr, union, utils, withCB, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -50393,7 +49261,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":294,"./xml":296,"backbone-events-standalone":301}],290:[function(require,module,exports){
+},{"./util":293,"./xml":295,"backbone-events-standalone":300}],289:[function(require,module,exports){
 (function() {
   var ALWAYS_AUTH, CLASSKEYS, CLASSKEY_PATH, DEFAULT_ERROR_HANDLER, DEFAULT_PROTOCOL, ENRICHMENT_PATH, HAS_PROTOCOL, HAS_SUFFIX, IDResolutionJob, ID_RESOLUTION_PATH, LISTS_PATH, LIST_OPERATION_PATHS, LIST_PIPE, List, MODELS, MODEL_PATH, Model, NEEDS_AUTH, NO_AUTH, PATH_VALUES_PATH, PREF_PATH, Promise, QUERY_RESULTS_PATH, QUICKSEARCH_PATH, Query, RELEASES, RELEASE_PATH, REQUIRES_VERSION, SUBTRACT_PATH, SUFFIX, SUMMARYFIELDS_PATH, SUMMARY_FIELDS, Service, TABLE_ROW_PATH, TEMPLATES_PATH, TO_NAMES, USER_TOKENS, User, VERSIONS, VERSION_PATH, WHOAMI_PATH, WIDGETS, WIDGETS_PATH, WITH_OBJ_PATH, dejoin, error, get, getListFinder, http, invoke, map, merge, p, set, success, to_query_string, utils, version, withCB, _get_or_fetch, _i, _j, _len, _len1, _ref, _ref1,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -51234,6 +50102,10 @@ module.exports = function() {
       })(this));
     };
 
+    Service.prototype.resolutionJob = function(id) {
+      return IDResolutionJob.create(this)(id);
+    };
+
     Service.prototype.createList = function(opts, ids, cb) {
       var adjust, req;
       if (opts == null) {
@@ -51411,7 +50283,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./http":283,"./id-resolution-job":284,"./lists":285,"./model":286,"./promise":288,"./query":289,"./user":293,"./util":294,"./version":295}],291:[function(require,module,exports){
+},{"./http":282,"./id-resolution-job":283,"./lists":284,"./model":285,"./promise":287,"./query":288,"./user":292,"./util":293,"./version":294}],290:[function(require,module,exports){
 (function (global){
 (function() {
   var FakeDomParser;
@@ -51428,7 +50300,7 @@ module.exports = function() {
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],292:[function(require,module,exports){
+},{}],291:[function(require,module,exports){
 (function() {
   var Promise, merge, properties,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -51506,7 +50378,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./promise":288}],293:[function(require,module,exports){
+},{"./promise":287}],292:[function(require,module,exports){
 (function() {
   var any, do_pref_req, error, get, isFunction, withCB, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -51604,7 +50476,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":294}],294:[function(require,module,exports){
+},{"./util":293}],293:[function(require,module,exports){
 (function() {
   var Promise, REQUIRES, comp, curry, encode, entities, error, flatten, fold, id, invoke, invokeWith, isArray, merge, pairFold, qsFromList, root, success, thenFold, _ref,
     __slice = [].slice,
@@ -52099,13 +50971,13 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./promise":288}],295:[function(require,module,exports){
+},{"./promise":287}],294:[function(require,module,exports){
 (function() {
-  exports.VERSION = '3.13.0';
+  exports.VERSION = '3.14.0';
 
 }).call(this);
 
-},{}],296:[function(require,module,exports){
+},{}],295:[function(require,module,exports){
 (function() {
   var DOMParser, sanitize;
 
@@ -52146,7 +51018,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"xmldom":291}],297:[function(require,module,exports){
+},{"xmldom":290}],296:[function(require,module,exports){
 (function (process,Buffer){
 
 
@@ -52343,7 +51215,7 @@ if(!module.parent && process.title !== 'browser') {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":259,"buffer":248,"jsonparse":298,"through":299}],298:[function(require,module,exports){
+},{"_process":258,"buffer":247,"jsonparse":297,"through":298}],297:[function(require,module,exports){
 (function (Buffer){
 /*global Buffer*/
 // Named constants with unique integer values
@@ -52748,7 +51620,7 @@ proto.onToken = function (token, value) {
 module.exports = Parser;
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":248}],299:[function(require,module,exports){
+},{"buffer":247}],298:[function(require,module,exports){
 (function (process){
 var Stream = require('stream')
 
@@ -52792,7 +51664,7 @@ function through (write, end, opts) {
   stream.queue = stream.push = function (data) {
 //    console.error(ended)
     if(_ended) return stream
-    if(data == null) _ended = true
+    if(data === null) _ended = true
     buffer.push(data)
     drain()
     return stream
@@ -52860,7 +51732,7 @@ function through (write, end, opts) {
 
 
 }).call(this,require('_process'))
-},{"_process":259,"stream":275}],300:[function(require,module,exports){
+},{"_process":258,"stream":274}],299:[function(require,module,exports){
 /**
  * Standalone extraction of Backbone.Events, no external dependency required.
  * Degrades nicely when Backone/underscore are already available in the current
@@ -52884,7 +51756,6 @@ function through (write, end, opts) {
 /* global exports:true, define, module */
 (function() {
   var root = this,
-      breaker = {},
       nativeForEach = Array.prototype.forEach,
       hasOwnProperty = Object.prototype.hasOwnProperty,
       slice = Array.prototype.slice,
@@ -52922,12 +51793,12 @@ function through (write, end, opts) {
           obj.forEach(iterator, context);
         } else if (obj.length === +obj.length) {
           for (var i = 0, l = obj.length; i < l; i++) {
-            if (iterator.call(context, obj[i], i, obj) === breaker) return;
+            iterator.call(context, obj[i], i, obj);
           }
         } else {
           for (var key in obj) {
             if (this.has(obj, key)) {
-              if (iterator.call(context, obj[key], key, obj) === breaker) return;
+              iterator.call(context, obj[key], key, obj);
             }
           }
         }
@@ -53125,24 +51996,24 @@ function through (write, end, opts) {
   };
 
   // Export Events as BackboneEvents depending on current context
-  if (typeof define === "function") {
-    define(function() {
-      return Events;
-    });
-  } else if (typeof exports !== 'undefined') {
+  if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = Events;
     }
     exports.BackboneEvents = Events;
+  }else if (typeof define === "function"  && typeof define.amd == "object") {
+    define(function() {
+      return Events;
+    });
   } else {
     root.BackboneEvents = Events;
   }
 })(this);
 
-},{}],301:[function(require,module,exports){
+},{}],300:[function(require,module,exports){
 module.exports = require('./backbone-events-standalone');
 
-},{"./backbone-events-standalone":300}],302:[function(require,module,exports){
+},{"./backbone-events-standalone":299}],301:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*!
@@ -53466,7 +52337,7 @@ $.extend( $.ui, {
 
 })( jQuery );
 
-},{"jquery":309}],303:[function(require,module,exports){
+},{"jquery":308}],302:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./mouse');
@@ -54431,7 +53302,7 @@ $.ui.plugin.add("draggable", "zIndex", {
 
 })(jQuery);
 
-},{"./core":302,"./mouse":305,"./widget":308,"jquery":309}],304:[function(require,module,exports){
+},{"./core":301,"./mouse":304,"./widget":307,"jquery":308}],303:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./widget');
@@ -54828,7 +53699,7 @@ $.ui.ddmanager = {
 
 })(jQuery);
 
-},{"./core":302,"./draggable":303,"./mouse":305,"./widget":308,"jquery":309}],305:[function(require,module,exports){
+},{"./core":301,"./draggable":302,"./mouse":304,"./widget":307,"jquery":308}],304:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./widget');
 
@@ -55002,7 +53873,7 @@ $.widget("ui.mouse", {
 
 })(jQuery);
 
-},{"./widget":308,"jquery":309}],306:[function(require,module,exports){
+},{"./widget":307,"jquery":308}],305:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./mouse');
@@ -55685,7 +54556,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 
 }(jQuery));
 
-},{"./core":302,"./mouse":305,"./widget":308,"jquery":309}],307:[function(require,module,exports){
+},{"./core":301,"./mouse":304,"./widget":307,"jquery":308}],306:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./mouse');
@@ -56981,7 +55852,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 })(jQuery);
 
-},{"./core":302,"./mouse":305,"./widget":308,"jquery":309}],308:[function(require,module,exports){
+},{"./core":301,"./mouse":304,"./widget":307,"jquery":308}],307:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*!
@@ -57506,9 +56377,9 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 
 })( jQuery );
 
-},{"jquery":309}],309:[function(require,module,exports){
+},{"jquery":308}],308:[function(require,module,exports){
 /*!
- * jQuery JavaScript Library v2.1.3
+ * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
  *
  * Includes Sizzle.js
@@ -57518,7 +56389,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2014-12-18T15:11Z
+ * Date: 2015-04-28T16:01Z
  */
 
 (function( global, factory ) {
@@ -57576,7 +56447,7 @@ var
 	// Use the correct document accordingly with window argument (sandbox)
 	document = window.document,
 
-	version = "2.1.3",
+	version = "2.1.4",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -58040,7 +56911,12 @@ jQuery.each("Boolean Number String Function Array Date RegExp Object Error".spli
 });
 
 function isArraylike( obj ) {
-	var length = obj.length,
+
+	// Support: iOS 8.2 (not reproducible in simulator)
+	// `in` check used to prevent JIT error (gh-2145)
+	// hasOwn isn't used here due to false negatives
+	// regarding Nodelist length in IE
+	var length = "length" in obj && obj.length,
 		type = jQuery.type( obj );
 
 	if ( type === "function" || jQuery.isWindow( obj ) ) {
@@ -66713,7 +65589,7 @@ return jQuery;
 
 }));
 
-},{}],310:[function(require,module,exports){
+},{}],309:[function(require,module,exports){
 (function (root, pluralize) {
   /* istanbul ignore else */
   if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -67141,7 +66017,7 @@ return jQuery;
   return pluralize;
 });
 
-},{}],311:[function(require,module,exports){
+},{}],310:[function(require,module,exports){
 /*!
  * typeahead.js 0.10.5
  * https://github.com/twitter/typeahead.js
@@ -68924,7 +67800,1555 @@ return jQuery;
         };
     })();
 })(window.jQuery);
-},{}],312:[function(require,module,exports){
-module.exports=require(233)
-},{"/home/alex/projects/javascript/imtables/node_modules/backbone/node_modules/underscore/underscore.js":233}]},{},[15])(15)
+},{}],311:[function(require,module,exports){
+//     Underscore.js 1.8.3
+//     http://underscorejs.org
+//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+//     Underscore may be freely distributed under the MIT license.
+
+(function() {
+
+  // Baseline setup
+  // --------------
+
+  // Establish the root object, `window` in the browser, or `exports` on the server.
+  var root = this;
+
+  // Save the previous value of the `_` variable.
+  var previousUnderscore = root._;
+
+  // Save bytes in the minified (but not gzipped) version:
+  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+  // Create quick reference variables for speed access to core prototypes.
+  var
+    push             = ArrayProto.push,
+    slice            = ArrayProto.slice,
+    toString         = ObjProto.toString,
+    hasOwnProperty   = ObjProto.hasOwnProperty;
+
+  // All **ECMAScript 5** native function implementations that we hope to use
+  // are declared here.
+  var
+    nativeIsArray      = Array.isArray,
+    nativeKeys         = Object.keys,
+    nativeBind         = FuncProto.bind,
+    nativeCreate       = Object.create;
+
+  // Naked function reference for surrogate-prototype-swapping.
+  var Ctor = function(){};
+
+  // Create a safe reference to the Underscore object for use below.
+  var _ = function(obj) {
+    if (obj instanceof _) return obj;
+    if (!(this instanceof _)) return new _(obj);
+    this._wrapped = obj;
+  };
+
+  // Export the Underscore object for **Node.js**, with
+  // backwards-compatibility for the old `require()` API. If we're in
+  // the browser, add `_` as a global object.
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = _;
+    }
+    exports._ = _;
+  } else {
+    root._ = _;
+  }
+
+  // Current version.
+  _.VERSION = '1.8.3';
+
+  // Internal function that returns an efficient (for current engines) version
+  // of the passed-in callback, to be repeatedly applied in other Underscore
+  // functions.
+  var optimizeCb = function(func, context, argCount) {
+    if (context === void 0) return func;
+    switch (argCount == null ? 3 : argCount) {
+      case 1: return function(value) {
+        return func.call(context, value);
+      };
+      case 2: return function(value, other) {
+        return func.call(context, value, other);
+      };
+      case 3: return function(value, index, collection) {
+        return func.call(context, value, index, collection);
+      };
+      case 4: return function(accumulator, value, index, collection) {
+        return func.call(context, accumulator, value, index, collection);
+      };
+    }
+    return function() {
+      return func.apply(context, arguments);
+    };
+  };
+
+  // A mostly-internal function to generate callbacks that can be applied
+  // to each element in a collection, returning the desired result — either
+  // identity, an arbitrary callback, a property matcher, or a property accessor.
+  var cb = function(value, context, argCount) {
+    if (value == null) return _.identity;
+    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+    if (_.isObject(value)) return _.matcher(value);
+    return _.property(value);
+  };
+  _.iteratee = function(value, context) {
+    return cb(value, context, Infinity);
+  };
+
+  // An internal function for creating assigner functions.
+  var createAssigner = function(keysFunc, undefinedOnly) {
+    return function(obj) {
+      var length = arguments.length;
+      if (length < 2 || obj == null) return obj;
+      for (var index = 1; index < length; index++) {
+        var source = arguments[index],
+            keys = keysFunc(source),
+            l = keys.length;
+        for (var i = 0; i < l; i++) {
+          var key = keys[i];
+          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+        }
+      }
+      return obj;
+    };
+  };
+
+  // An internal function for creating a new object that inherits from another.
+  var baseCreate = function(prototype) {
+    if (!_.isObject(prototype)) return {};
+    if (nativeCreate) return nativeCreate(prototype);
+    Ctor.prototype = prototype;
+    var result = new Ctor;
+    Ctor.prototype = null;
+    return result;
+  };
+
+  var property = function(key) {
+    return function(obj) {
+      return obj == null ? void 0 : obj[key];
+    };
+  };
+
+  // Helper for collection methods to determine whether a collection
+  // should be iterated as an array or as an object
+  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+  var getLength = property('length');
+  var isArrayLike = function(collection) {
+    var length = getLength(collection);
+    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+  };
+
+  // Collection Functions
+  // --------------------
+
+  // The cornerstone, an `each` implementation, aka `forEach`.
+  // Handles raw objects in addition to array-likes. Treats all
+  // sparse array-likes as if they were dense.
+  _.each = _.forEach = function(obj, iteratee, context) {
+    iteratee = optimizeCb(iteratee, context);
+    var i, length;
+    if (isArrayLike(obj)) {
+      for (i = 0, length = obj.length; i < length; i++) {
+        iteratee(obj[i], i, obj);
+      }
+    } else {
+      var keys = _.keys(obj);
+      for (i = 0, length = keys.length; i < length; i++) {
+        iteratee(obj[keys[i]], keys[i], obj);
+      }
+    }
+    return obj;
+  };
+
+  // Return the results of applying the iteratee to each element.
+  _.map = _.collect = function(obj, iteratee, context) {
+    iteratee = cb(iteratee, context);
+    var keys = !isArrayLike(obj) && _.keys(obj),
+        length = (keys || obj).length,
+        results = Array(length);
+    for (var index = 0; index < length; index++) {
+      var currentKey = keys ? keys[index] : index;
+      results[index] = iteratee(obj[currentKey], currentKey, obj);
+    }
+    return results;
+  };
+
+  // Create a reducing function iterating left or right.
+  function createReduce(dir) {
+    // Optimized iterator function as using arguments.length
+    // in the main function will deoptimize the, see #1991.
+    function iterator(obj, iteratee, memo, keys, index, length) {
+      for (; index >= 0 && index < length; index += dir) {
+        var currentKey = keys ? keys[index] : index;
+        memo = iteratee(memo, obj[currentKey], currentKey, obj);
+      }
+      return memo;
+    }
+
+    return function(obj, iteratee, memo, context) {
+      iteratee = optimizeCb(iteratee, context, 4);
+      var keys = !isArrayLike(obj) && _.keys(obj),
+          length = (keys || obj).length,
+          index = dir > 0 ? 0 : length - 1;
+      // Determine the initial value if none is provided.
+      if (arguments.length < 3) {
+        memo = obj[keys ? keys[index] : index];
+        index += dir;
+      }
+      return iterator(obj, iteratee, memo, keys, index, length);
+    };
+  }
+
+  // **Reduce** builds up a single result from a list of values, aka `inject`,
+  // or `foldl`.
+  _.reduce = _.foldl = _.inject = createReduce(1);
+
+  // The right-associative version of reduce, also known as `foldr`.
+  _.reduceRight = _.foldr = createReduce(-1);
+
+  // Return the first value which passes a truth test. Aliased as `detect`.
+  _.find = _.detect = function(obj, predicate, context) {
+    var key;
+    if (isArrayLike(obj)) {
+      key = _.findIndex(obj, predicate, context);
+    } else {
+      key = _.findKey(obj, predicate, context);
+    }
+    if (key !== void 0 && key !== -1) return obj[key];
+  };
+
+  // Return all the elements that pass a truth test.
+  // Aliased as `select`.
+  _.filter = _.select = function(obj, predicate, context) {
+    var results = [];
+    predicate = cb(predicate, context);
+    _.each(obj, function(value, index, list) {
+      if (predicate(value, index, list)) results.push(value);
+    });
+    return results;
+  };
+
+  // Return all the elements for which a truth test fails.
+  _.reject = function(obj, predicate, context) {
+    return _.filter(obj, _.negate(cb(predicate)), context);
+  };
+
+  // Determine whether all of the elements match a truth test.
+  // Aliased as `all`.
+  _.every = _.all = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var keys = !isArrayLike(obj) && _.keys(obj),
+        length = (keys || obj).length;
+    for (var index = 0; index < length; index++) {
+      var currentKey = keys ? keys[index] : index;
+      if (!predicate(obj[currentKey], currentKey, obj)) return false;
+    }
+    return true;
+  };
+
+  // Determine if at least one element in the object matches a truth test.
+  // Aliased as `any`.
+  _.some = _.any = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var keys = !isArrayLike(obj) && _.keys(obj),
+        length = (keys || obj).length;
+    for (var index = 0; index < length; index++) {
+      var currentKey = keys ? keys[index] : index;
+      if (predicate(obj[currentKey], currentKey, obj)) return true;
+    }
+    return false;
+  };
+
+  // Determine if the array or object contains a given item (using `===`).
+  // Aliased as `includes` and `include`.
+  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
+    if (!isArrayLike(obj)) obj = _.values(obj);
+    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
+    return _.indexOf(obj, item, fromIndex) >= 0;
+  };
+
+  // Invoke a method (with arguments) on every item in a collection.
+  _.invoke = function(obj, method) {
+    var args = slice.call(arguments, 2);
+    var isFunc = _.isFunction(method);
+    return _.map(obj, function(value) {
+      var func = isFunc ? method : value[method];
+      return func == null ? func : func.apply(value, args);
+    });
+  };
+
+  // Convenience version of a common use case of `map`: fetching a property.
+  _.pluck = function(obj, key) {
+    return _.map(obj, _.property(key));
+  };
+
+  // Convenience version of a common use case of `filter`: selecting only objects
+  // containing specific `key:value` pairs.
+  _.where = function(obj, attrs) {
+    return _.filter(obj, _.matcher(attrs));
+  };
+
+  // Convenience version of a common use case of `find`: getting the first object
+  // containing specific `key:value` pairs.
+  _.findWhere = function(obj, attrs) {
+    return _.find(obj, _.matcher(attrs));
+  };
+
+  // Return the maximum element (or element-based computation).
+  _.max = function(obj, iteratee, context) {
+    var result = -Infinity, lastComputed = -Infinity,
+        value, computed;
+    if (iteratee == null && obj != null) {
+      obj = isArrayLike(obj) ? obj : _.values(obj);
+      for (var i = 0, length = obj.length; i < length; i++) {
+        value = obj[i];
+        if (value > result) {
+          result = value;
+        }
+      }
+    } else {
+      iteratee = cb(iteratee, context);
+      _.each(obj, function(value, index, list) {
+        computed = iteratee(value, index, list);
+        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+          result = value;
+          lastComputed = computed;
+        }
+      });
+    }
+    return result;
+  };
+
+  // Return the minimum element (or element-based computation).
+  _.min = function(obj, iteratee, context) {
+    var result = Infinity, lastComputed = Infinity,
+        value, computed;
+    if (iteratee == null && obj != null) {
+      obj = isArrayLike(obj) ? obj : _.values(obj);
+      for (var i = 0, length = obj.length; i < length; i++) {
+        value = obj[i];
+        if (value < result) {
+          result = value;
+        }
+      }
+    } else {
+      iteratee = cb(iteratee, context);
+      _.each(obj, function(value, index, list) {
+        computed = iteratee(value, index, list);
+        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+          result = value;
+          lastComputed = computed;
+        }
+      });
+    }
+    return result;
+  };
+
+  // Shuffle a collection, using the modern version of the
+  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+  _.shuffle = function(obj) {
+    var set = isArrayLike(obj) ? obj : _.values(obj);
+    var length = set.length;
+    var shuffled = Array(length);
+    for (var index = 0, rand; index < length; index++) {
+      rand = _.random(0, index);
+      if (rand !== index) shuffled[index] = shuffled[rand];
+      shuffled[rand] = set[index];
+    }
+    return shuffled;
+  };
+
+  // Sample **n** random values from a collection.
+  // If **n** is not specified, returns a single random element.
+  // The internal `guard` argument allows it to work with `map`.
+  _.sample = function(obj, n, guard) {
+    if (n == null || guard) {
+      if (!isArrayLike(obj)) obj = _.values(obj);
+      return obj[_.random(obj.length - 1)];
+    }
+    return _.shuffle(obj).slice(0, Math.max(0, n));
+  };
+
+  // Sort the object's values by a criterion produced by an iteratee.
+  _.sortBy = function(obj, iteratee, context) {
+    iteratee = cb(iteratee, context);
+    return _.pluck(_.map(obj, function(value, index, list) {
+      return {
+        value: value,
+        index: index,
+        criteria: iteratee(value, index, list)
+      };
+    }).sort(function(left, right) {
+      var a = left.criteria;
+      var b = right.criteria;
+      if (a !== b) {
+        if (a > b || a === void 0) return 1;
+        if (a < b || b === void 0) return -1;
+      }
+      return left.index - right.index;
+    }), 'value');
+  };
+
+  // An internal function used for aggregate "group by" operations.
+  var group = function(behavior) {
+    return function(obj, iteratee, context) {
+      var result = {};
+      iteratee = cb(iteratee, context);
+      _.each(obj, function(value, index) {
+        var key = iteratee(value, index, obj);
+        behavior(result, value, key);
+      });
+      return result;
+    };
+  };
+
+  // Groups the object's values by a criterion. Pass either a string attribute
+  // to group by, or a function that returns the criterion.
+  _.groupBy = group(function(result, value, key) {
+    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
+  });
+
+  // Indexes the object's values by a criterion, similar to `groupBy`, but for
+  // when you know that your index values will be unique.
+  _.indexBy = group(function(result, value, key) {
+    result[key] = value;
+  });
+
+  // Counts instances of an object that group by a certain criterion. Pass
+  // either a string attribute to count by, or a function that returns the
+  // criterion.
+  _.countBy = group(function(result, value, key) {
+    if (_.has(result, key)) result[key]++; else result[key] = 1;
+  });
+
+  // Safely create a real, live array from anything iterable.
+  _.toArray = function(obj) {
+    if (!obj) return [];
+    if (_.isArray(obj)) return slice.call(obj);
+    if (isArrayLike(obj)) return _.map(obj, _.identity);
+    return _.values(obj);
+  };
+
+  // Return the number of elements in an object.
+  _.size = function(obj) {
+    if (obj == null) return 0;
+    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
+  };
+
+  // Split a collection into two arrays: one whose elements all satisfy the given
+  // predicate, and one whose elements all do not satisfy the predicate.
+  _.partition = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var pass = [], fail = [];
+    _.each(obj, function(value, key, obj) {
+      (predicate(value, key, obj) ? pass : fail).push(value);
+    });
+    return [pass, fail];
+  };
+
+  // Array Functions
+  // ---------------
+
+  // Get the first element of an array. Passing **n** will return the first N
+  // values in the array. Aliased as `head` and `take`. The **guard** check
+  // allows it to work with `_.map`.
+  _.first = _.head = _.take = function(array, n, guard) {
+    if (array == null) return void 0;
+    if (n == null || guard) return array[0];
+    return _.initial(array, array.length - n);
+  };
+
+  // Returns everything but the last entry of the array. Especially useful on
+  // the arguments object. Passing **n** will return all the values in
+  // the array, excluding the last N.
+  _.initial = function(array, n, guard) {
+    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+  };
+
+  // Get the last element of an array. Passing **n** will return the last N
+  // values in the array.
+  _.last = function(array, n, guard) {
+    if (array == null) return void 0;
+    if (n == null || guard) return array[array.length - 1];
+    return _.rest(array, Math.max(0, array.length - n));
+  };
+
+  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
+  // Especially useful on the arguments object. Passing an **n** will return
+  // the rest N values in the array.
+  _.rest = _.tail = _.drop = function(array, n, guard) {
+    return slice.call(array, n == null || guard ? 1 : n);
+  };
+
+  // Trim out all falsy values from an array.
+  _.compact = function(array) {
+    return _.filter(array, _.identity);
+  };
+
+  // Internal implementation of a recursive `flatten` function.
+  var flatten = function(input, shallow, strict, startIndex) {
+    var output = [], idx = 0;
+    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
+      var value = input[i];
+      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
+        //flatten current level of array or arguments object
+        if (!shallow) value = flatten(value, shallow, strict);
+        var j = 0, len = value.length;
+        output.length += len;
+        while (j < len) {
+          output[idx++] = value[j++];
+        }
+      } else if (!strict) {
+        output[idx++] = value;
+      }
+    }
+    return output;
+  };
+
+  // Flatten out an array, either recursively (by default), or just one level.
+  _.flatten = function(array, shallow) {
+    return flatten(array, shallow, false);
+  };
+
+  // Return a version of the array that does not contain the specified value(s).
+  _.without = function(array) {
+    return _.difference(array, slice.call(arguments, 1));
+  };
+
+  // Produce a duplicate-free version of the array. If the array has already
+  // been sorted, you have the option of using a faster algorithm.
+  // Aliased as `unique`.
+  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
+    if (!_.isBoolean(isSorted)) {
+      context = iteratee;
+      iteratee = isSorted;
+      isSorted = false;
+    }
+    if (iteratee != null) iteratee = cb(iteratee, context);
+    var result = [];
+    var seen = [];
+    for (var i = 0, length = getLength(array); i < length; i++) {
+      var value = array[i],
+          computed = iteratee ? iteratee(value, i, array) : value;
+      if (isSorted) {
+        if (!i || seen !== computed) result.push(value);
+        seen = computed;
+      } else if (iteratee) {
+        if (!_.contains(seen, computed)) {
+          seen.push(computed);
+          result.push(value);
+        }
+      } else if (!_.contains(result, value)) {
+        result.push(value);
+      }
+    }
+    return result;
+  };
+
+  // Produce an array that contains the union: each distinct element from all of
+  // the passed-in arrays.
+  _.union = function() {
+    return _.uniq(flatten(arguments, true, true));
+  };
+
+  // Produce an array that contains every item shared between all the
+  // passed-in arrays.
+  _.intersection = function(array) {
+    var result = [];
+    var argsLength = arguments.length;
+    for (var i = 0, length = getLength(array); i < length; i++) {
+      var item = array[i];
+      if (_.contains(result, item)) continue;
+      for (var j = 1; j < argsLength; j++) {
+        if (!_.contains(arguments[j], item)) break;
+      }
+      if (j === argsLength) result.push(item);
+    }
+    return result;
+  };
+
+  // Take the difference between one array and a number of other arrays.
+  // Only the elements present in just the first array will remain.
+  _.difference = function(array) {
+    var rest = flatten(arguments, true, true, 1);
+    return _.filter(array, function(value){
+      return !_.contains(rest, value);
+    });
+  };
+
+  // Zip together multiple lists into a single array -- elements that share
+  // an index go together.
+  _.zip = function() {
+    return _.unzip(arguments);
+  };
+
+  // Complement of _.zip. Unzip accepts an array of arrays and groups
+  // each array's elements on shared indices
+  _.unzip = function(array) {
+    var length = array && _.max(array, getLength).length || 0;
+    var result = Array(length);
+
+    for (var index = 0; index < length; index++) {
+      result[index] = _.pluck(array, index);
+    }
+    return result;
+  };
+
+  // Converts lists into objects. Pass either a single array of `[key, value]`
+  // pairs, or two parallel arrays of the same length -- one of keys, and one of
+  // the corresponding values.
+  _.object = function(list, values) {
+    var result = {};
+    for (var i = 0, length = getLength(list); i < length; i++) {
+      if (values) {
+        result[list[i]] = values[i];
+      } else {
+        result[list[i][0]] = list[i][1];
+      }
+    }
+    return result;
+  };
+
+  // Generator function to create the findIndex and findLastIndex functions
+  function createPredicateIndexFinder(dir) {
+    return function(array, predicate, context) {
+      predicate = cb(predicate, context);
+      var length = getLength(array);
+      var index = dir > 0 ? 0 : length - 1;
+      for (; index >= 0 && index < length; index += dir) {
+        if (predicate(array[index], index, array)) return index;
+      }
+      return -1;
+    };
+  }
+
+  // Returns the first index on an array-like that passes a predicate test
+  _.findIndex = createPredicateIndexFinder(1);
+  _.findLastIndex = createPredicateIndexFinder(-1);
+
+  // Use a comparator function to figure out the smallest index at which
+  // an object should be inserted so as to maintain order. Uses binary search.
+  _.sortedIndex = function(array, obj, iteratee, context) {
+    iteratee = cb(iteratee, context, 1);
+    var value = iteratee(obj);
+    var low = 0, high = getLength(array);
+    while (low < high) {
+      var mid = Math.floor((low + high) / 2);
+      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
+    }
+    return low;
+  };
+
+  // Generator function to create the indexOf and lastIndexOf functions
+  function createIndexFinder(dir, predicateFind, sortedIndex) {
+    return function(array, item, idx) {
+      var i = 0, length = getLength(array);
+      if (typeof idx == 'number') {
+        if (dir > 0) {
+            i = idx >= 0 ? idx : Math.max(idx + length, i);
+        } else {
+            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+        }
+      } else if (sortedIndex && idx && length) {
+        idx = sortedIndex(array, item);
+        return array[idx] === item ? idx : -1;
+      }
+      if (item !== item) {
+        idx = predicateFind(slice.call(array, i, length), _.isNaN);
+        return idx >= 0 ? idx + i : -1;
+      }
+      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+        if (array[idx] === item) return idx;
+      }
+      return -1;
+    };
+  }
+
+  // Return the position of the first occurrence of an item in an array,
+  // or -1 if the item is not included in the array.
+  // If the array is large and already in sort order, pass `true`
+  // for **isSorted** to use binary search.
+  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
+  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
+
+  // Generate an integer Array containing an arithmetic progression. A port of
+  // the native Python `range()` function. See
+  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+  _.range = function(start, stop, step) {
+    if (stop == null) {
+      stop = start || 0;
+      start = 0;
+    }
+    step = step || 1;
+
+    var length = Math.max(Math.ceil((stop - start) / step), 0);
+    var range = Array(length);
+
+    for (var idx = 0; idx < length; idx++, start += step) {
+      range[idx] = start;
+    }
+
+    return range;
+  };
+
+  // Function (ahem) Functions
+  // ------------------
+
+  // Determines whether to execute a function as a constructor
+  // or a normal function with the provided arguments
+  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
+    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+    var self = baseCreate(sourceFunc.prototype);
+    var result = sourceFunc.apply(self, args);
+    if (_.isObject(result)) return result;
+    return self;
+  };
+
+  // Create a function bound to a given object (assigning `this`, and arguments,
+  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
+  // available.
+  _.bind = function(func, context) {
+    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
+    var args = slice.call(arguments, 2);
+    var bound = function() {
+      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
+    };
+    return bound;
+  };
+
+  // Partially apply a function by creating a version that has had some of its
+  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+  // as a placeholder, allowing any combination of arguments to be pre-filled.
+  _.partial = function(func) {
+    var boundArgs = slice.call(arguments, 1);
+    var bound = function() {
+      var position = 0, length = boundArgs.length;
+      var args = Array(length);
+      for (var i = 0; i < length; i++) {
+        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+      }
+      while (position < arguments.length) args.push(arguments[position++]);
+      return executeBound(func, bound, this, this, args);
+    };
+    return bound;
+  };
+
+  // Bind a number of an object's methods to that object. Remaining arguments
+  // are the method names to be bound. Useful for ensuring that all callbacks
+  // defined on an object belong to it.
+  _.bindAll = function(obj) {
+    var i, length = arguments.length, key;
+    if (length <= 1) throw new Error('bindAll must be passed function names');
+    for (i = 1; i < length; i++) {
+      key = arguments[i];
+      obj[key] = _.bind(obj[key], obj);
+    }
+    return obj;
+  };
+
+  // Memoize an expensive function by storing its results.
+  _.memoize = function(func, hasher) {
+    var memoize = function(key) {
+      var cache = memoize.cache;
+      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+      return cache[address];
+    };
+    memoize.cache = {};
+    return memoize;
+  };
+
+  // Delays a function for the given number of milliseconds, and then calls
+  // it with the arguments supplied.
+  _.delay = function(func, wait) {
+    var args = slice.call(arguments, 2);
+    return setTimeout(function(){
+      return func.apply(null, args);
+    }, wait);
+  };
+
+  // Defers a function, scheduling it to run after the current call stack has
+  // cleared.
+  _.defer = _.partial(_.delay, _, 1);
+
+  // Returns a function, that, when invoked, will only be triggered at most once
+  // during a given window of time. Normally, the throttled function will run
+  // as much as it can, without ever going more than once per `wait` duration;
+  // but if you'd like to disable the execution on the leading edge, pass
+  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+  _.throttle = function(func, wait, options) {
+    var context, args, result;
+    var timeout = null;
+    var previous = 0;
+    if (!options) options = {};
+    var later = function() {
+      previous = options.leading === false ? 0 : _.now();
+      timeout = null;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    };
+    return function() {
+      var now = _.now();
+      if (!previous && options.leading === false) previous = now;
+      var remaining = wait - (now - previous);
+      context = this;
+      args = arguments;
+      if (remaining <= 0 || remaining > wait) {
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        previous = now;
+        result = func.apply(context, args);
+        if (!timeout) context = args = null;
+      } else if (!timeout && options.trailing !== false) {
+        timeout = setTimeout(later, remaining);
+      }
+      return result;
+    };
+  };
+
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  _.debounce = function(func, wait, immediate) {
+    var timeout, args, context, timestamp, result;
+
+    var later = function() {
+      var last = _.now() - timestamp;
+
+      if (last < wait && last >= 0) {
+        timeout = setTimeout(later, wait - last);
+      } else {
+        timeout = null;
+        if (!immediate) {
+          result = func.apply(context, args);
+          if (!timeout) context = args = null;
+        }
+      }
+    };
+
+    return function() {
+      context = this;
+      args = arguments;
+      timestamp = _.now();
+      var callNow = immediate && !timeout;
+      if (!timeout) timeout = setTimeout(later, wait);
+      if (callNow) {
+        result = func.apply(context, args);
+        context = args = null;
+      }
+
+      return result;
+    };
+  };
+
+  // Returns the first function passed as an argument to the second,
+  // allowing you to adjust arguments, run code before and after, and
+  // conditionally execute the original function.
+  _.wrap = function(func, wrapper) {
+    return _.partial(wrapper, func);
+  };
+
+  // Returns a negated version of the passed-in predicate.
+  _.negate = function(predicate) {
+    return function() {
+      return !predicate.apply(this, arguments);
+    };
+  };
+
+  // Returns a function that is the composition of a list of functions, each
+  // consuming the return value of the function that follows.
+  _.compose = function() {
+    var args = arguments;
+    var start = args.length - 1;
+    return function() {
+      var i = start;
+      var result = args[start].apply(this, arguments);
+      while (i--) result = args[i].call(this, result);
+      return result;
+    };
+  };
+
+  // Returns a function that will only be executed on and after the Nth call.
+  _.after = function(times, func) {
+    return function() {
+      if (--times < 1) {
+        return func.apply(this, arguments);
+      }
+    };
+  };
+
+  // Returns a function that will only be executed up to (but not including) the Nth call.
+  _.before = function(times, func) {
+    var memo;
+    return function() {
+      if (--times > 0) {
+        memo = func.apply(this, arguments);
+      }
+      if (times <= 1) func = null;
+      return memo;
+    };
+  };
+
+  // Returns a function that will be executed at most one time, no matter how
+  // often you call it. Useful for lazy initialization.
+  _.once = _.partial(_.before, 2);
+
+  // Object Functions
+  // ----------------
+
+  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
+                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+  function collectNonEnumProps(obj, keys) {
+    var nonEnumIdx = nonEnumerableProps.length;
+    var constructor = obj.constructor;
+    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
+
+    // Constructor is a special case.
+    var prop = 'constructor';
+    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+
+    while (nonEnumIdx--) {
+      prop = nonEnumerableProps[nonEnumIdx];
+      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+        keys.push(prop);
+      }
+    }
+  }
+
+  // Retrieve the names of an object's own properties.
+  // Delegates to **ECMAScript 5**'s native `Object.keys`
+  _.keys = function(obj) {
+    if (!_.isObject(obj)) return [];
+    if (nativeKeys) return nativeKeys(obj);
+    var keys = [];
+    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+    // Ahem, IE < 9.
+    if (hasEnumBug) collectNonEnumProps(obj, keys);
+    return keys;
+  };
+
+  // Retrieve all the property names of an object.
+  _.allKeys = function(obj) {
+    if (!_.isObject(obj)) return [];
+    var keys = [];
+    for (var key in obj) keys.push(key);
+    // Ahem, IE < 9.
+    if (hasEnumBug) collectNonEnumProps(obj, keys);
+    return keys;
+  };
+
+  // Retrieve the values of an object's properties.
+  _.values = function(obj) {
+    var keys = _.keys(obj);
+    var length = keys.length;
+    var values = Array(length);
+    for (var i = 0; i < length; i++) {
+      values[i] = obj[keys[i]];
+    }
+    return values;
+  };
+
+  // Returns the results of applying the iteratee to each element of the object
+  // In contrast to _.map it returns an object
+  _.mapObject = function(obj, iteratee, context) {
+    iteratee = cb(iteratee, context);
+    var keys =  _.keys(obj),
+          length = keys.length,
+          results = {},
+          currentKey;
+      for (var index = 0; index < length; index++) {
+        currentKey = keys[index];
+        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
+      }
+      return results;
+  };
+
+  // Convert an object into a list of `[key, value]` pairs.
+  _.pairs = function(obj) {
+    var keys = _.keys(obj);
+    var length = keys.length;
+    var pairs = Array(length);
+    for (var i = 0; i < length; i++) {
+      pairs[i] = [keys[i], obj[keys[i]]];
+    }
+    return pairs;
+  };
+
+  // Invert the keys and values of an object. The values must be serializable.
+  _.invert = function(obj) {
+    var result = {};
+    var keys = _.keys(obj);
+    for (var i = 0, length = keys.length; i < length; i++) {
+      result[obj[keys[i]]] = keys[i];
+    }
+    return result;
+  };
+
+  // Return a sorted list of the function names available on the object.
+  // Aliased as `methods`
+  _.functions = _.methods = function(obj) {
+    var names = [];
+    for (var key in obj) {
+      if (_.isFunction(obj[key])) names.push(key);
+    }
+    return names.sort();
+  };
+
+  // Extend a given object with all the properties in passed-in object(s).
+  _.extend = createAssigner(_.allKeys);
+
+  // Assigns a given object with all the own properties in the passed-in object(s)
+  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+  _.extendOwn = _.assign = createAssigner(_.keys);
+
+  // Returns the first key on an object that passes a predicate test
+  _.findKey = function(obj, predicate, context) {
+    predicate = cb(predicate, context);
+    var keys = _.keys(obj), key;
+    for (var i = 0, length = keys.length; i < length; i++) {
+      key = keys[i];
+      if (predicate(obj[key], key, obj)) return key;
+    }
+  };
+
+  // Return a copy of the object only containing the whitelisted properties.
+  _.pick = function(object, oiteratee, context) {
+    var result = {}, obj = object, iteratee, keys;
+    if (obj == null) return result;
+    if (_.isFunction(oiteratee)) {
+      keys = _.allKeys(obj);
+      iteratee = optimizeCb(oiteratee, context);
+    } else {
+      keys = flatten(arguments, false, false, 1);
+      iteratee = function(value, key, obj) { return key in obj; };
+      obj = Object(obj);
+    }
+    for (var i = 0, length = keys.length; i < length; i++) {
+      var key = keys[i];
+      var value = obj[key];
+      if (iteratee(value, key, obj)) result[key] = value;
+    }
+    return result;
+  };
+
+   // Return a copy of the object without the blacklisted properties.
+  _.omit = function(obj, iteratee, context) {
+    if (_.isFunction(iteratee)) {
+      iteratee = _.negate(iteratee);
+    } else {
+      var keys = _.map(flatten(arguments, false, false, 1), String);
+      iteratee = function(value, key) {
+        return !_.contains(keys, key);
+      };
+    }
+    return _.pick(obj, iteratee, context);
+  };
+
+  // Fill in a given object with default properties.
+  _.defaults = createAssigner(_.allKeys, true);
+
+  // Creates an object that inherits from the given prototype object.
+  // If additional properties are provided then they will be added to the
+  // created object.
+  _.create = function(prototype, props) {
+    var result = baseCreate(prototype);
+    if (props) _.extendOwn(result, props);
+    return result;
+  };
+
+  // Create a (shallow-cloned) duplicate of an object.
+  _.clone = function(obj) {
+    if (!_.isObject(obj)) return obj;
+    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+  };
+
+  // Invokes interceptor with the obj, and then returns obj.
+  // The primary purpose of this method is to "tap into" a method chain, in
+  // order to perform operations on intermediate results within the chain.
+  _.tap = function(obj, interceptor) {
+    interceptor(obj);
+    return obj;
+  };
+
+  // Returns whether an object has a given set of `key:value` pairs.
+  _.isMatch = function(object, attrs) {
+    var keys = _.keys(attrs), length = keys.length;
+    if (object == null) return !length;
+    var obj = Object(object);
+    for (var i = 0; i < length; i++) {
+      var key = keys[i];
+      if (attrs[key] !== obj[key] || !(key in obj)) return false;
+    }
+    return true;
+  };
+
+
+  // Internal recursive comparison function for `isEqual`.
+  var eq = function(a, b, aStack, bStack) {
+    // Identical objects are equal. `0 === -0`, but they aren't identical.
+    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+    if (a === b) return a !== 0 || 1 / a === 1 / b;
+    // A strict comparison is necessary because `null == undefined`.
+    if (a == null || b == null) return a === b;
+    // Unwrap any wrapped objects.
+    if (a instanceof _) a = a._wrapped;
+    if (b instanceof _) b = b._wrapped;
+    // Compare `[[Class]]` names.
+    var className = toString.call(a);
+    if (className !== toString.call(b)) return false;
+    switch (className) {
+      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+      case '[object RegExp]':
+      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+      case '[object String]':
+        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+        // equivalent to `new String("5")`.
+        return '' + a === '' + b;
+      case '[object Number]':
+        // `NaN`s are equivalent, but non-reflexive.
+        // Object(NaN) is equivalent to NaN
+        if (+a !== +a) return +b !== +b;
+        // An `egal` comparison is performed for other numeric values.
+        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+      case '[object Date]':
+      case '[object Boolean]':
+        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+        // millisecond representations. Note that invalid dates with millisecond representations
+        // of `NaN` are not equivalent.
+        return +a === +b;
+    }
+
+    var areArrays = className === '[object Array]';
+    if (!areArrays) {
+      if (typeof a != 'object' || typeof b != 'object') return false;
+
+      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+      // from different frames are.
+      var aCtor = a.constructor, bCtor = b.constructor;
+      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
+                               _.isFunction(bCtor) && bCtor instanceof bCtor)
+                          && ('constructor' in a && 'constructor' in b)) {
+        return false;
+      }
+    }
+    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+    // Initializing stack of traversed objects.
+    // It's done here since we only need them for objects and arrays comparison.
+    aStack = aStack || [];
+    bStack = bStack || [];
+    var length = aStack.length;
+    while (length--) {
+      // Linear search. Performance is inversely proportional to the number of
+      // unique nested structures.
+      if (aStack[length] === a) return bStack[length] === b;
+    }
+
+    // Add the first object to the stack of traversed objects.
+    aStack.push(a);
+    bStack.push(b);
+
+    // Recursively compare objects and arrays.
+    if (areArrays) {
+      // Compare array lengths to determine if a deep comparison is necessary.
+      length = a.length;
+      if (length !== b.length) return false;
+      // Deep compare the contents, ignoring non-numeric properties.
+      while (length--) {
+        if (!eq(a[length], b[length], aStack, bStack)) return false;
+      }
+    } else {
+      // Deep compare objects.
+      var keys = _.keys(a), key;
+      length = keys.length;
+      // Ensure that both objects contain the same number of properties before comparing deep equality.
+      if (_.keys(b).length !== length) return false;
+      while (length--) {
+        // Deep compare each member
+        key = keys[length];
+        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
+      }
+    }
+    // Remove the first object from the stack of traversed objects.
+    aStack.pop();
+    bStack.pop();
+    return true;
+  };
+
+  // Perform a deep comparison to check if two objects are equal.
+  _.isEqual = function(a, b) {
+    return eq(a, b);
+  };
+
+  // Is a given array, string, or object empty?
+  // An "empty" object has no enumerable own-properties.
+  _.isEmpty = function(obj) {
+    if (obj == null) return true;
+    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
+    return _.keys(obj).length === 0;
+  };
+
+  // Is a given value a DOM element?
+  _.isElement = function(obj) {
+    return !!(obj && obj.nodeType === 1);
+  };
+
+  // Is a given value an array?
+  // Delegates to ECMA5's native Array.isArray
+  _.isArray = nativeIsArray || function(obj) {
+    return toString.call(obj) === '[object Array]';
+  };
+
+  // Is a given variable an object?
+  _.isObject = function(obj) {
+    var type = typeof obj;
+    return type === 'function' || type === 'object' && !!obj;
+  };
+
+  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
+  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
+    _['is' + name] = function(obj) {
+      return toString.call(obj) === '[object ' + name + ']';
+    };
+  });
+
+  // Define a fallback version of the method in browsers (ahem, IE < 9), where
+  // there isn't any inspectable "Arguments" type.
+  if (!_.isArguments(arguments)) {
+    _.isArguments = function(obj) {
+      return _.has(obj, 'callee');
+    };
+  }
+
+  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
+  // IE 11 (#1621), and in Safari 8 (#1929).
+  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
+    _.isFunction = function(obj) {
+      return typeof obj == 'function' || false;
+    };
+  }
+
+  // Is a given object a finite number?
+  _.isFinite = function(obj) {
+    return isFinite(obj) && !isNaN(parseFloat(obj));
+  };
+
+  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+  _.isNaN = function(obj) {
+    return _.isNumber(obj) && obj !== +obj;
+  };
+
+  // Is a given value a boolean?
+  _.isBoolean = function(obj) {
+    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
+  };
+
+  // Is a given value equal to null?
+  _.isNull = function(obj) {
+    return obj === null;
+  };
+
+  // Is a given variable undefined?
+  _.isUndefined = function(obj) {
+    return obj === void 0;
+  };
+
+  // Shortcut function for checking if an object has a given property directly
+  // on itself (in other words, not on a prototype).
+  _.has = function(obj, key) {
+    return obj != null && hasOwnProperty.call(obj, key);
+  };
+
+  // Utility Functions
+  // -----------------
+
+  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+  // previous owner. Returns a reference to the Underscore object.
+  _.noConflict = function() {
+    root._ = previousUnderscore;
+    return this;
+  };
+
+  // Keep the identity function around for default iteratees.
+  _.identity = function(value) {
+    return value;
+  };
+
+  // Predicate-generating functions. Often useful outside of Underscore.
+  _.constant = function(value) {
+    return function() {
+      return value;
+    };
+  };
+
+  _.noop = function(){};
+
+  _.property = property;
+
+  // Generates a function for a given object that returns a given property.
+  _.propertyOf = function(obj) {
+    return obj == null ? function(){} : function(key) {
+      return obj[key];
+    };
+  };
+
+  // Returns a predicate for checking whether an object has a given set of
+  // `key:value` pairs.
+  _.matcher = _.matches = function(attrs) {
+    attrs = _.extendOwn({}, attrs);
+    return function(obj) {
+      return _.isMatch(obj, attrs);
+    };
+  };
+
+  // Run a function **n** times.
+  _.times = function(n, iteratee, context) {
+    var accum = Array(Math.max(0, n));
+    iteratee = optimizeCb(iteratee, context, 1);
+    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
+    return accum;
+  };
+
+  // Return a random integer between min and max (inclusive).
+  _.random = function(min, max) {
+    if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+  };
+
+  // A (possibly faster) way to get the current timestamp as an integer.
+  _.now = Date.now || function() {
+    return new Date().getTime();
+  };
+
+   // List of HTML entities for escaping.
+  var escapeMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '`': '&#x60;'
+  };
+  var unescapeMap = _.invert(escapeMap);
+
+  // Functions for escaping and unescaping strings to/from HTML interpolation.
+  var createEscaper = function(map) {
+    var escaper = function(match) {
+      return map[match];
+    };
+    // Regexes for identifying a key that needs to be escaped
+    var source = '(?:' + _.keys(map).join('|') + ')';
+    var testRegexp = RegExp(source);
+    var replaceRegexp = RegExp(source, 'g');
+    return function(string) {
+      string = string == null ? '' : '' + string;
+      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+    };
+  };
+  _.escape = createEscaper(escapeMap);
+  _.unescape = createEscaper(unescapeMap);
+
+  // If the value of the named `property` is a function then invoke it with the
+  // `object` as context; otherwise, return it.
+  _.result = function(object, property, fallback) {
+    var value = object == null ? void 0 : object[property];
+    if (value === void 0) {
+      value = fallback;
+    }
+    return _.isFunction(value) ? value.call(object) : value;
+  };
+
+  // Generate a unique integer id (unique within the entire client session).
+  // Useful for temporary DOM ids.
+  var idCounter = 0;
+  _.uniqueId = function(prefix) {
+    var id = ++idCounter + '';
+    return prefix ? prefix + id : id;
+  };
+
+  // By default, Underscore uses ERB-style template delimiters, change the
+  // following template settings to use alternative delimiters.
+  _.templateSettings = {
+    evaluate    : /<%([\s\S]+?)%>/g,
+    interpolate : /<%=([\s\S]+?)%>/g,
+    escape      : /<%-([\s\S]+?)%>/g
+  };
+
+  // When customizing `templateSettings`, if you don't want to define an
+  // interpolation, evaluation or escaping regex, we need one that is
+  // guaranteed not to match.
+  var noMatch = /(.)^/;
+
+  // Certain characters need to be escaped so that they can be put into a
+  // string literal.
+  var escapes = {
+    "'":      "'",
+    '\\':     '\\',
+    '\r':     'r',
+    '\n':     'n',
+    '\u2028': 'u2028',
+    '\u2029': 'u2029'
+  };
+
+  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
+
+  var escapeChar = function(match) {
+    return '\\' + escapes[match];
+  };
+
+  // JavaScript micro-templating, similar to John Resig's implementation.
+  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+  // and correctly escapes quotes within interpolated code.
+  // NB: `oldSettings` only exists for backwards compatibility.
+  _.template = function(text, settings, oldSettings) {
+    if (!settings && oldSettings) settings = oldSettings;
+    settings = _.defaults({}, settings, _.templateSettings);
+
+    // Combine delimiters into one regular expression via alternation.
+    var matcher = RegExp([
+      (settings.escape || noMatch).source,
+      (settings.interpolate || noMatch).source,
+      (settings.evaluate || noMatch).source
+    ].join('|') + '|$', 'g');
+
+    // Compile the template source, escaping string literals appropriately.
+    var index = 0;
+    var source = "__p+='";
+    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+      source += text.slice(index, offset).replace(escaper, escapeChar);
+      index = offset + match.length;
+
+      if (escape) {
+        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+      } else if (interpolate) {
+        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+      } else if (evaluate) {
+        source += "';\n" + evaluate + "\n__p+='";
+      }
+
+      // Adobe VMs need the match returned to produce the correct offest.
+      return match;
+    });
+    source += "';\n";
+
+    // If a variable is not specified, place data values in local scope.
+    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+    source = "var __t,__p='',__j=Array.prototype.join," +
+      "print=function(){__p+=__j.call(arguments,'');};\n" +
+      source + 'return __p;\n';
+
+    try {
+      var render = new Function(settings.variable || 'obj', '_', source);
+    } catch (e) {
+      e.source = source;
+      throw e;
+    }
+
+    var template = function(data) {
+      return render.call(this, data, _);
+    };
+
+    // Provide the compiled source as a convenience for precompilation.
+    var argument = settings.variable || 'obj';
+    template.source = 'function(' + argument + '){\n' + source + '}';
+
+    return template;
+  };
+
+  // Add a "chain" function. Start chaining a wrapped Underscore object.
+  _.chain = function(obj) {
+    var instance = _(obj);
+    instance._chain = true;
+    return instance;
+  };
+
+  // OOP
+  // ---------------
+  // If Underscore is called as a function, it returns a wrapped object that
+  // can be used OO-style. This wrapper holds altered versions of all the
+  // underscore functions. Wrapped objects may be chained.
+
+  // Helper function to continue chaining intermediate results.
+  var result = function(instance, obj) {
+    return instance._chain ? _(obj).chain() : obj;
+  };
+
+  // Add your own custom functions to the Underscore object.
+  _.mixin = function(obj) {
+    _.each(_.functions(obj), function(name) {
+      var func = _[name] = obj[name];
+      _.prototype[name] = function() {
+        var args = [this._wrapped];
+        push.apply(args, arguments);
+        return result(this, func.apply(_, args));
+      };
+    });
+  };
+
+  // Add all of the Underscore functions to the wrapper object.
+  _.mixin(_);
+
+  // Add all mutator Array functions to the wrapper.
+  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+    var method = ArrayProto[name];
+    _.prototype[name] = function() {
+      var obj = this._wrapped;
+      method.apply(obj, arguments);
+      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
+      return result(this, obj);
+    };
+  });
+
+  // Add all accessor Array functions to the wrapper.
+  _.each(['concat', 'join', 'slice'], function(name) {
+    var method = ArrayProto[name];
+    _.prototype[name] = function() {
+      return result(this, method.apply(this._wrapped, arguments));
+    };
+  });
+
+  // Extracts the result from a wrapped and chained object.
+  _.prototype.value = function() {
+    return this._wrapped;
+  };
+
+  // Provide unwrapping proxy for some methods used in engine operations
+  // such as arithmetic and JSON stringification.
+  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
+
+  _.prototype.toString = function() {
+    return '' + this._wrapped;
+  };
+
+  // AMD registration happens at the end for compatibility with AMD loaders
+  // that may not enforce next-turn semantics on modules. Even though general
+  // practice for AMD registration is to be anonymous, underscore registers
+  // as a named module because, like jQuery, it is a base library that is
+  // popular enough to be bundled in a third party lib, but not be part of
+  // an AMD load request. Those cases could generate an error when an
+  // anonymous define() is called outside of a loader request.
+  if (typeof define === 'function' && define.amd) {
+    define('underscore', [], function() {
+      return _;
+    });
+  }
+}.call(this));
+
+},{}]},{},[15])(15)
 });

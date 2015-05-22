@@ -1895,9 +1895,17 @@
   content: "\e226";}
 .imtables .glyphicon-bitcoin:before {
   content: "\e227";}
+.imtables .glyphicon-btc:before {
+  content: "\e227";}
+.imtables .glyphicon-xbt:before {
+  content: "\e227";}
 .imtables .glyphicon-yen:before {
   content: "\00a5";}
+.imtables .glyphicon-jpy:before {
+  content: "\00a5";}
 .imtables .glyphicon-ruble:before {
+  content: "\20bd";}
+.imtables .glyphicon-rub:before {
   content: "\20bd";}
 .imtables .glyphicon-scale:before {
   content: "\e230";}
@@ -2047,6 +2055,8 @@
   margin: 0;
   overflow: visible;
   clip: auto;}
+.imtables [role="button"] {
+  cursor: pointer;}
 .imtables h1,
 .imtables h2,
 .imtables h3,
@@ -3099,9 +3109,11 @@
 .imtables .form-control[disabled],
 .imtables .form-control[readonly],
 .imtables fieldset[disabled] .form-control {
-  cursor: not-allowed;
   background-color: #eeeeee;
   opacity: 1;}
+.imtables .form-control[disabled],
+.imtables fieldset[disabled] .form-control {
+  cursor: not-allowed;}
 .imtables textarea.form-control {
   height: auto;}
 .imtables input[type="search"] {
@@ -3157,6 +3169,7 @@
   margin-top: -5px;}
 .imtables .radio-inline,
 .imtables .checkbox-inline {
+  position: relative;
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -3187,7 +3200,8 @@
 .imtables .form-control-static {
   padding-top: 7px;
   padding-bottom: 7px;
-  margin-bottom: 0;}
+  margin-bottom: 0;
+  min-height: 34px;}
 .imtables .form-control-static.input-lg,
 .imtables .form-control-static.input-sm {
   padding-left: 0;
@@ -3220,7 +3234,8 @@
   height: 30px;
   padding: 5px 10px;
   font-size: 12px;
-  line-height: 1.5;}
+  line-height: 1.5;
+  min-height: 32px;}
 .imtables .input-lg {
   height: 46px;
   padding: 10px 16px;
@@ -3249,7 +3264,8 @@
   height: 46px;
   padding: 10px 16px;
   font-size: 18px;
-  line-height: 1.3333333;}
+  line-height: 1.3333333;
+  min-height: 38px;}
 .imtables .has-feedback {
   position: relative;}
 .imtables .has-feedback .form-control {
@@ -3772,11 +3788,9 @@
 .imtables .fade.in {
   opacity: 1;}
 .imtables .collapse {
-  display: none;
-  visibility: hidden;}
+  display: none;}
 .imtables .collapse.in {
-  display: block;
-  visibility: visible;}
+  display: block;}
 .imtables tr.collapse.in {
   display: table-row;}
 .imtables tbody.collapse.in {
@@ -3797,7 +3811,7 @@
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px solid;
+  border-top: 4px dashed;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;}
 .imtables .dropup,
@@ -4304,11 +4318,9 @@
 .imtables .nav-tabs-justified > .active > a:focus {
     border-bottom-color: #ffffff;}}
 .imtables .tab-content > .tab-pane {
-  display: none;
-  visibility: hidden;}
+  display: none;}
 .imtables .tab-content > .active {
-  display: block;
-  visibility: visible;}
+  display: block;}
 .imtables .nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-right-radius: 0;
@@ -4340,7 +4352,6 @@
     box-shadow: none;}
 .imtables .navbar-collapse.collapse {
     display: block!important;
-    visibility: visible!important;
     height: auto!important;
     padding-bottom: 0;
     overflow: visible!important;}
@@ -4907,7 +4918,8 @@
 .imtables .btn .badge {
   position: relative;
   top: -1px;}
-.imtables .btn-xs .badge {
+.imtables .btn-xs .badge,
+.imtables .btn-group-xs > .btn .badge {
   top: 0;
   padding: 1px 5px;}
 .imtables a.badge:hover,
@@ -5556,9 +5568,9 @@
   height: 100%;
   width: 100%;
   border: 0;}
-.imtables .embed-responsive.embed-responsive-16by9 {
+.imtables .embed-responsive-16by9 {
   padding-bottom: 56.25%;}
-.imtables .embed-responsive.embed-responsive-4by3 {
+.imtables .embed-responsive-4by3 {
   padding-bottom: 75%;}
 .imtables .well {
   min-height: 20px;
@@ -5610,7 +5622,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0;}
 .imtables .modal.fade .modal-dialog {
@@ -5645,10 +5657,12 @@
   background-clip: padding-box;
   outline: 0;}
 .imtables .modal-backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   left: 0;
+  z-index: 1040;
   background-color: #000000;}
 .imtables .modal-backdrop.fade {
   opacity: 0;
@@ -5701,7 +5715,6 @@
   position: absolute;
   z-index: 1070;
   display: block;
-  visibility: visible;
   font-family: 'Open Sans' , 'Droid Sans' , 'Helvetica Neue' , Helvetica , Arial , sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -6142,8 +6155,7 @@
   background-color: transparent;
   border: 0;}
 .imtables .hidden {
-  display: none!important;
-  visibility: hidden!important;}
+  display: none!important;}
 .imtables .affix {
   position: fixed;}
   width: device-width;
