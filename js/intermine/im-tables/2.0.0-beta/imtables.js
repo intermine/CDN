@@ -92,7 +92,7 @@
 
 }).call(this);
 
-},{"./options":63,"es6-promise":280,"jquery":308,"underscore":311}],2:[function(require,module,exports){
+},{"./options":62,"es6-promise":277,"jquery":305,"underscore":308}],2:[function(require,module,exports){
 (function() {
   var Backbone, CoreModel, invert,
     __hasProp = {}.hasOwnProperty,
@@ -174,7 +174,7 @@
 
 }).call(this);
 
-},{"backbone":232}],3:[function(require,module,exports){
+},{"backbone":229}],3:[function(require,module,exports){
 (function() {
   var $, Backbone, CoreModel, CoreView, Event, Icons, IndeterminateProgressBar, Messages, Templates, getKid, helpers, kid, listenToCollection, listenToModel, listenToState, listenToThing, onChange, _,
     __hasProp = {}.hasOwnProperty,
@@ -580,7 +580,7 @@
 
 }).call(this);
 
-},{"./core-model":2,"./event":11,"./icons":14,"./messages":16,"./shim":66,"./templates":67,"./templates/helpers":68,"./utils/on-change":93,"backbone":232,"jquery":308,"underscore":311}],4:[function(require,module,exports){
+},{"./core-model":2,"./event":11,"./icons":14,"./messages":16,"./shim":65,"./templates":66,"./templates/helpers":67,"./utils/on-change":92,"backbone":229,"jquery":305,"underscore":308}],4:[function(require,module,exports){
 (function() {
   var Checkbox, CoreView, Messages, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -652,7 +652,7 @@
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates":67}],5:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates":66}],5:[function(require,module,exports){
 (function() {
   var Backbone, CoreCollection, CoreModel,
     __hasProp = {}.hasOwnProperty,
@@ -691,7 +691,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"backbone":232}],6:[function(require,module,exports){
+},{"../core-model":2,"backbone":229}],6:[function(require,module,exports){
 (function() {
   var CoreView, InputWithButton, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -770,7 +770,7 @@
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":311}],7:[function(require,module,exports){
+},{"../core-view":3,"../templates":66,"underscore":308}],7:[function(require,module,exports){
 (function() {
   var CoreView, InputWithLabel, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -894,7 +894,7 @@
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":311}],8:[function(require,module,exports){
+},{"../core-view":3,"../templates":66,"underscore":308}],8:[function(require,module,exports){
 (function() {
   var Model, NestedModel, isPlainObject, mergeOldAndNew, setSection, _,
     __hasProp = {}.hasOwnProperty,
@@ -1047,7 +1047,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":311}],9:[function(require,module,exports){
+},{"../core-model":2,"underscore":308}],9:[function(require,module,exports){
 (function() {
   var InputWithLabel, SelectWithLabel, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -1113,7 +1113,7 @@
 
 }).call(this);
 
-},{"../templates":67,"./input-with-label":7,"underscore":311}],10:[function(require,module,exports){
+},{"../templates":66,"./input-with-label":7,"underscore":308}],10:[function(require,module,exports){
 (function() {
   var ArrayOf, Backbone, Callable, CoreCollection, CoreModel, DataModel, InstanceOfAssertion, InterMineService, IsArray, StringType, StructuralTypeAssertion, _,
     __slice = [].slice;
@@ -1344,7 +1344,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"./collection":5,"backbone":232,"underscore":311}],11:[function(require,module,exports){
+},{"../core-model":2,"./collection":5,"backbone":229,"underscore":308}],11:[function(require,module,exports){
 (function() {
   var Event;
 
@@ -1512,7 +1512,7 @@
 
 }).call(this);
 
-},{"./core/nested-model":8,"./templates":67,"underscore":311}],14:[function(require,module,exports){
+},{"./core/nested-model":8,"./templates":66,"underscore":308}],14:[function(require,module,exports){
 (function() {
   var ICONS, Icons, Model, Options, registerIconSet, _,
     __hasProp = {}.hasOwnProperty,
@@ -1782,9 +1782,9 @@
 
 }).call(this);
 
-},{"./core-model":2,"./options":63,"underscore":311}],15:[function(require,module,exports){
+},{"./core-model":2,"./options":62,"underscore":308}],15:[function(require,module,exports){
 (function() {
-  var Dashboard, Formatting, Messages, Options, Promise, Table, Types, asElement, connect, createView, load, simpleFormatter, version, _;
+  var Dashboard, Formatting, Messages, Options, Promise, Table, Types, asElement, connect, createView, load, simpleFormatter, _;
 
   _ = require('underscore');
 
@@ -1793,8 +1793,6 @@
   connect = require('imjs').Service.connect;
 
   Promise = require('es6-promise').Promise;
-
-  version = require('./version');
 
   Types = require('./core/type-assertions');
 
@@ -1861,8 +1859,6 @@
     return ret;
   };
 
-  exports.version = version;
-
   exports.setMessages = Messages.set.bind(Messages);
 
   exports.configure = Options.set.bind(Options);
@@ -1879,7 +1875,7 @@
 
 }).call(this);
 
-},{"./core/type-assertions":10,"./formatting":13,"./messages":16,"./options":63,"./shim":66,"./utils/simple-formatter":104,"./version":111,"./views/dashboard":136,"./views/table":209,"es6-promise":280,"imjs":289,"underscore":311}],16:[function(require,module,exports){
+},{"./core/type-assertions":10,"./formatting":13,"./messages":16,"./options":62,"./shim":65,"./utils/simple-formatter":102,"./views/dashboard":134,"./views/table":206,"es6-promise":277,"imjs":286,"underscore":308}],16:[function(require,module,exports){
 (function() {
   var Backbone, DEFAULTS, HELPERS, Messages, actionMessages, common, numToString, pluralise, _, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -1974,7 +1970,7 @@
 
 }).call(this);
 
-},{"./messages/actions":17,"./messages/common":20,"./templates/helpers":68,"backbone":232,"underscore":311}],17:[function(require,module,exports){
+},{"./messages/actions":17,"./messages/common":20,"./templates/helpers":67,"backbone":229,"underscore":308}],17:[function(require,module,exports){
 (function() {
   module.exports = {
     'export.Export': 'Export',
@@ -1989,7 +1985,6 @@
     'export.category.Compression': "<% if (compression) { %>\n  <%= compression.toUpperCase() %>\n<% } else { %>\n  No\n<% } %> Compression",
     'export.category.Options': "Options",
     'export.category.JsonFormat': "As <%= (jsonFormat === 'objects') ? 'Objects' : 'Rows' %>",
-    'export.category.FastaFormat': 'FASTA options',
     'export.category.ColumnHeaders': "<% if (headers) { %>\n  <%= {friendly: 'Formatted', path: 'Raw'}[headerType] %>\n<% } else { %>\n  No\n<% } %>\nColumn Headers",
     'export.category.Destination': "<% if (dest === 'download') { %>\n  Download <%= format.EXT %> file\n<% } else { %>\n  Send <%= format.EXT %> to <%= dest %>\n<% } %>",
     'export.galaxy.name': ['<% if (orgs.length === 1) { %><%= orgs[0] %> <% } %>', '<%= cls %> data', '<% if (branding) { %> from <%= branding.name %><% } %>'].join(''),
@@ -2378,26 +2373,6 @@
 
   Messages = require('../messages');
 
-  Messages.setWithPrefix('logic', {
-    Heading: 'Manage Constraint Logic',
-    Manage: function() {
-      return Messages.getText('logic.Heading');
-    },
-    ManageShort: 'Constraint Logic',
-    LogicLabel: function() {
-      return Messages.getText('logic.ManageShort');
-    },
-    ApplyLogic: 'Change logic'
-  });
-
-}).call(this);
-
-},{"../messages":16}],26:[function(require,module,exports){
-(function() {
-  var Messages;
-
-  Messages = require('../messages');
-
   Messages.setWithPrefix('subtables', {
     OpenHint: 'Click to view/hide rows',
     RemoveColumn: 'Remove this column'
@@ -2405,7 +2380,7 @@
 
 }).call(this);
 
-},{"../messages":16}],27:[function(require,module,exports){
+},{"../messages":16}],26:[function(require,module,exports){
 (function() {
   var Messages;
 
@@ -2439,7 +2414,7 @@
 
 }).call(this);
 
-},{"../messages":16}],28:[function(require,module,exports){
+},{"../messages":16}],27:[function(require,module,exports){
 (function() {
   var Messages;
 
@@ -2487,7 +2462,7 @@
 
 }).call(this);
 
-},{"../messages":16}],29:[function(require,module,exports){
+},{"../messages":16}],28:[function(require,module,exports){
 (function() {
   var Messages;
 
@@ -2511,7 +2486,7 @@
 
 }).call(this);
 
-},{"../messages":16}],30:[function(require,module,exports){
+},{"../messages":16}],29:[function(require,module,exports){
 (function() {
   var $, centre;
 
@@ -2559,7 +2534,7 @@
 
 }).call(this);
 
-},{"jquery":308}],31:[function(require,module,exports){
+},{"jquery":305}],30:[function(require,module,exports){
 (function() {
   var _;
 
@@ -2593,7 +2568,7 @@
 
 }).call(this);
 
-},{"underscore":311}],32:[function(require,module,exports){
+},{"underscore":308}],31:[function(require,module,exports){
 (function() {
   var _;
 
@@ -2610,11 +2585,10 @@
     }
     _results = [];
     while ((ta = this._typeaheads.shift())) {
-      ta.off('typeahead:select');
       ta.off('typeahead:selected');
       ta.off('typeahead:autocompleted');
-      ta.off('typeahead:close');
-      _results.push(ta.typeahead('destroy'));
+      ta.typeahead('destroy');
+      _results.push(ta.remove());
     }
     return _results;
   };
@@ -2624,16 +2598,12 @@
     return _.last((_ref = this._typeaheads) != null ? _ref : []);
   };
 
-  exports.activateTypeahead = function(input, opts, data, placeholder, cb, onChange) {
+  exports.activateTypeahead = function(input, opts, data, placeholder, cb) {
     input.attr({
       placeholder: placeholder
     }).typeahead(opts, data);
     input.on('typeahead:selected', cb);
-    input.on('typeahead:select', cb);
     input.on('typeahead:autocompleted', cb);
-    if (onChange != null) {
-      input.on('typeahead:close', onChange);
-    }
     this.initTypeaheads().push(input);
     input.focus();
     return this;
@@ -2641,7 +2611,7 @@
 
 }).call(this);
 
-},{"underscore":311}],33:[function(require,module,exports){
+},{"underscore":308}],32:[function(require,module,exports){
 (function() {
   var CACHE, _;
 
@@ -2650,18 +2620,13 @@
   CACHE = {};
 
   exports.runQuery = function(overrides) {
-    var endpoint, format, key, params, _ref;
+    var key, params;
     if (overrides == null) {
       overrides = {};
     }
     params = this.getExportParameters(overrides);
     key = "results:" + this.query.service.root + ":" + (JSON.stringify(params));
-    endpoint = 'query/results';
-    format = this.model.get('format');
-    if ((_ref = format.needs) != null ? _ref.length : void 0) {
-      endpoint += "/" + format.id;
-    }
-    return CACHE[key] != null ? CACHE[key] : CACHE[key] = this.query.service.post(endpoint, params);
+    return CACHE[key] != null ? CACHE[key] : CACHE[key] = this.query.service.post('query/results', params);
   };
 
   exports.getEstimatedSize = function() {
@@ -2714,15 +2679,12 @@
     if ((data.format === 'json') && ('rows' !== this.model.get('jsonFormat'))) {
       data.format += this.model.get('jsonFormat');
     }
-    if ((data.format === 'fasta') && (this.model.get('fastaExtension'))) {
-      data.extension = this.model.get('fastaExtension');
-    }
     return _.extend(data, overrides);
   };
 
 }).call(this);
 
-},{"underscore":311}],34:[function(require,module,exports){
+},{"underscore":308}],33:[function(require,module,exports){
 (function() {
   exports.setPathNames = function() {
     var end, q, s, service, set, setError, type, v, _ref, _ref1;
@@ -2749,7 +2711,7 @@
 
 }).call(this);
 
-},{}],35:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function() {
   var AppendToListModel, CoreModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -2769,8 +2731,7 @@
     AppendToListModel.prototype.defaults = function() {
       return {
         target: null,
-        type: null,
-        size: null
+        type: null
       };
     };
 
@@ -2780,7 +2741,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":311}],36:[function(require,module,exports){
+},{"../core-model":2,"underscore":308}],35:[function(require,module,exports){
 (function() {
   var AvailableColumns, Collection, PathModel, cmp, displayName, partsLen,
     __hasProp = {}.hasOwnProperty,
@@ -2847,7 +2808,7 @@
 
 }).call(this);
 
-},{"../core/collection":5,"./path":56}],37:[function(require,module,exports){
+},{"../core/collection":5,"./path":55}],36:[function(require,module,exports){
 (function() {
   var CellModel, CoreModel, DELIM, Options, Promise, _,
     __hasProp = {}.hasOwnProperty,
@@ -2932,7 +2893,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../options":63,"es6-promise":280,"underscore":311}],38:[function(require,module,exports){
+},{"../core-model":2,"../options":62,"es6-promise":277,"underscore":308}],37:[function(require,module,exports){
 (function() {
   var CodeGenModel, CoreModel, Options,
     __hasProp = {}.hasOwnProperty,
@@ -2963,7 +2924,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../options":63}],39:[function(require,module,exports){
+},{"../core-model":2,"../options":62}],38:[function(require,module,exports){
 (function() {
   var Collection, ColumnHeaders, HeaderModel, buildHeaders,
     __hasProp = {}.hasOwnProperty,
@@ -3016,7 +2977,7 @@
 
 }).call(this);
 
-},{"../core/collection":5,"../utils/build-headers":71,"./header":44}],40:[function(require,module,exports){
+},{"../core/collection":5,"../utils/build-headers":70,"./header":43}],39:[function(require,module,exports){
 (function() {
   var ConstraintModel, LIST_OPS, LOOP_OPS, PathModel, RANGE_OPS, TERNARY_OPS, constraintType, _, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -3103,7 +3064,7 @@
 
 }).call(this);
 
-},{"./path":56,"imjs":289,"underscore":311}],41:[function(require,module,exports){
+},{"./path":55,"imjs":286,"underscore":308}],40:[function(require,module,exports){
 (function() {
   var CoreCollection, CoreModel, CreateListModel, ON_COMMA, trim, _,
     __hasProp = {}.hasOwnProperty,
@@ -3206,7 +3167,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"underscore":311}],42:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"underscore":308}],41:[function(require,module,exports){
 (function() {
   var Format, formats, _;
 
@@ -3215,7 +3176,7 @@
   Format = (function() {
     function Format(_arg) {
       var EXT, desc, ext, icon, name, needs;
-      this.id = _arg.id, this.group = _arg.group, icon = _arg.icon, needs = _arg.needs, this.maxColumns = _arg.maxColumns;
+      this.id = _arg.id, this.group = _arg.group, icon = _arg.icon, needs = _arg.needs;
       ext = this.id === 'tab' ? 'tsv' : this.id;
       EXT = ext.toUpperCase();
       if (icon == null) {
@@ -3280,8 +3241,7 @@
       id: 'fasta',
       group: 'bio',
       icon: 'dna',
-      needs: ['Protein', 'SequenceFeature'],
-      maxColumns: 1
+      needs: ['Protein', 'SequenceFeature']
     }), new Format({
       id: 'gff3',
       group: 'bio',
@@ -3331,7 +3291,7 @@
 
 }).call(this);
 
-},{"underscore":311}],43:[function(require,module,exports){
+},{"underscore":308}],42:[function(require,module,exports){
 (function() {
   var CoreModel, FPObject,
     __hasProp = {}.hasOwnProperty,
@@ -3360,7 +3320,7 @@
 
 }).call(this);
 
-},{"../core-model":2}],44:[function(require,module,exports){
+},{"../core-model":2}],43:[function(require,module,exports){
 (function() {
   var HeaderModel, Options, PathModel, firstResult, looksLikePath, uc, _,
     __hasProp = {}.hasOwnProperty,
@@ -3505,7 +3465,7 @@
 
 }).call(this);
 
-},{"../options":63,"./path":56,"underscore":311}],45:[function(require,module,exports){
+},{"../options":62,"./path":55,"underscore":308}],44:[function(require,module,exports){
 (function() {
   var Collection, History, StepModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -3566,14 +3526,11 @@
       this.listenTo(q, "change:views", this.onChangeViews);
       this.listenTo(q, "change:joins", this.onChangeJoins);
       this.listenTo(q, "change:sortorder", this.onChangeSortOrder);
-      this.listenTo(q, "change:logic", this.onChangeLogic);
       return this.listenTo(q, "undo", this.popState);
     };
 
     History.prototype.onChangeConstraints = function() {
-      return this.onChange('constraints', 'filter', function(cons) {
-        return _.map(cons, JSON.stringify);
-      });
+      return this.onChange('constraints', 'filter', JSON.stringify);
     };
 
     History.prototype.onChangeViews = function() {
@@ -3581,24 +3538,13 @@
     };
 
     History.prototype.onChangeJoins = function() {
-      return this.onChange('joins', 'join', function(joins) {
-        return _.map(joins, function(style, path) {
-          return "" + path + ":" + style;
-        });
+      return this.onChange('joins', 'join', function(style, path) {
+        return "" + path + ":" + style;
       });
     };
 
     History.prototype.onChangeSortOrder = function() {
-      return this.onChange('sortOrder', 'sort order element', function(so) {
-        return _.map(so, JSON.stringify);
-      });
-    };
-
-    History.prototype.onChangeLogic = function() {
-      return this.onChange('constraintLogic', 'constraint logic element', function(expr) {
-        var _ref;
-        return (_ref = expr != null ? expr.match(/([A-Z]+)/) : void 0) != null ? _ref : [];
-      });
+      return this.onChange('sortOrder', 'sort order element', JSON.stringify);
     };
 
     History.prototype.triggerChangedCurrent = function() {
@@ -3614,8 +3560,8 @@
       }
       query = this.currentQuery;
       prev = this.last().get('query');
-      xs = f(prev[prop]);
-      ys = f(query[prop]);
+      xs = _.map(prev[prop], f);
+      ys = _.map(query[prop], f);
       was = xs.length;
       now = ys.length;
       n = Math.abs(was - now);
@@ -3697,7 +3643,7 @@
 
 }).call(this);
 
-},{"../core/collection":5,"./step":59,"underscore":311}],46:[function(require,module,exports){
+},{"../core/collection":5,"./step":58,"underscore":308}],45:[function(require,module,exports){
 (function() {
   var CoreModel, IMObject, _,
     __hasProp = {}.hasOwnProperty,
@@ -3743,7 +3689,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":311}],47:[function(require,module,exports){
+},{"../core-model":2,"underscore":308}],46:[function(require,module,exports){
 (function() {
   var Collection, Join, Joins, PathModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -3834,7 +3780,7 @@
 
 }).call(this);
 
-},{"../core/collection":5,"./path":56,"underscore":311}],48:[function(require,module,exports){
+},{"../core/collection":5,"./path":55,"underscore":308}],47:[function(require,module,exports){
 (function() {
   var CoreModel, NestedTableModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -3926,7 +3872,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"underscore":311}],49:[function(require,module,exports){
+},{"../core-model":2,"underscore":308}],48:[function(require,module,exports){
 (function() {
   var CoreModel, NullObject,
     __hasProp = {}.hasOwnProperty,
@@ -3958,7 +3904,7 @@
 
 }).call(this);
 
-},{"../core-model":2}],50:[function(require,module,exports){
+},{"../core-model":2}],49:[function(require,module,exports){
 (function() {
   var Backbone, NumericRange, _,
     __hasProp = {}.hasOwnProperty,
@@ -4046,7 +3992,7 @@
 
 }).call(this);
 
-},{"backbone":232,"underscore":311}],51:[function(require,module,exports){
+},{"backbone":229,"underscore":308}],50:[function(require,module,exports){
 (function() {
   var IMObject, ObjectStore, _;
 
@@ -4106,7 +4052,7 @@
 
 }).call(this);
 
-},{"./intermine-object":46,"underscore":311}],52:[function(require,module,exports){
+},{"./intermine-object":45,"underscore":308}],51:[function(require,module,exports){
 (function() {
   var Backbone, OpenNodes, UniqItems, descendsFrom,
     __hasProp = {}.hasOwnProperty,
@@ -4168,7 +4114,7 @@
 
 }).call(this);
 
-},{"./uniq-items":62,"backbone":232}],53:[function(require,module,exports){
+},{"./uniq-items":61,"backbone":229}],52:[function(require,module,exports){
 (function() {
   var OrderElementModel, PathModel,
     __hasProp = {}.hasOwnProperty,
@@ -4205,7 +4151,7 @@
 
 }).call(this);
 
-},{"./path":56}],54:[function(require,module,exports){
+},{"./path":55}],53:[function(require,module,exports){
 (function() {
   var Page;
 
@@ -4275,7 +4221,7 @@
 
 }).call(this);
 
-},{}],55:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 (function() {
   var Backbone, PathSet, UniqItems,
     __hasProp = {}.hasOwnProperty,
@@ -4331,7 +4277,7 @@
 
 }).call(this);
 
-},{"./uniq-items":62,"backbone":232}],56:[function(require,module,exports){
+},{"./uniq-items":61,"backbone":229}],55:[function(require,module,exports){
 (function() {
   var BOOLEAN_TYPES, CoreModel, NUMERIC_TYPES, PathModel, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -4420,7 +4366,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"imjs":289}],57:[function(require,module,exports){
+},{"../core-model":2,"imjs":286}],56:[function(require,module,exports){
 (function() {
   var Collection, CoreModel, RowModel, RowsCollection, _,
     __hasProp = {}.hasOwnProperty,
@@ -4484,7 +4430,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"underscore":311}],58:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"underscore":308}],57:[function(require,module,exports){
 (function() {
   var Collection, CoreModel, SelectedObjects, SelectionModel, types,
     __hasProp = {}.hasOwnProperty,
@@ -4605,7 +4551,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"../core/type-assertions":10}],59:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"../core/type-assertions":10}],58:[function(require,module,exports){
 (function() {
   var CoreModel, Executor, StepModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -4669,7 +4615,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../utils/count-executor":77,"underscore":311}],60:[function(require,module,exports){
+},{"../core-model":2,"../utils/count-executor":76,"underscore":308}],59:[function(require,module,exports){
 (function() {
   var Collection, CoreModel, Options, SummaryHistogram, SummaryItemModel, SummaryItems, SummaryModel, getColumnSummary, inty, _,
     __hasProp = {}.hasOwnProperty,
@@ -5024,7 +4970,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"../options":63,"../services/column-summary":65,"underscore":311}],61:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"../options":62,"../services/column-summary":64,"underscore":308}],60:[function(require,module,exports){
 (function() {
   var CoreModel, Options, PathSet, TableModel,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -5093,7 +5039,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../options":63,"./path-set":55}],62:[function(require,module,exports){
+},{"../core-model":2,"../options":62,"./path-set":54}],61:[function(require,module,exports){
 (function() {
   var Backbone, Collection, CoreModel, Item, UniqItems, _,
     __hasProp = {}.hasOwnProperty,
@@ -5210,7 +5156,7 @@
 
 }).call(this);
 
-},{"../core-model":2,"../core/collection":5,"backbone":232,"underscore":311}],63:[function(require,module,exports){
+},{"../core-model":2,"../core/collection":5,"backbone":229,"underscore":308}],62:[function(require,module,exports){
 (function() {
   var NestedModel, Options,
     __hasProp = {}.hasOwnProperty,
@@ -5369,13 +5315,13 @@
 
 }).call(this);
 
-},{"./core/nested-model":8}],64:[function(require,module,exports){
+},{"./core/nested-model":8}],63:[function(require,module,exports){
 (function() {
   exports.IS_BLANK = /^\s*$/;
 
 }).call(this);
 
-},{}],65:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 (function() {
   var CACHE, getKey;
 
@@ -5394,7 +5340,7 @@
 
 }).call(this);
 
-},{}],66:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 (function (global){
 (function() {
   var $, Backbone, jQuery, oldjq;
@@ -5430,7 +5376,7 @@
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"backbone":232,"bootstrap":233,"jquery":308,"jquery-ui/draggable":302,"jquery-ui/droppable":303,"jquery-ui/slider":305,"jquery-ui/sortable":306,"typeahead.js":310}],67:[function(require,module,exports){
+},{"backbone":229,"bootstrap":230,"jquery":305,"jquery-ui/draggable":299,"jquery-ui/droppable":300,"jquery-ui/slider":302,"jquery-ui/sortable":303,"typeahead.js":307}],66:[function(require,module,exports){
 var _ = require('underscore');
 
 var TEMPLATES = exports;
@@ -5453,118 +5399,116 @@ function getTemplate (name) {
 }
 // Simple templates we can define inline.
 TEMPLATES.clear = '<div style="clear:both"></div>';
-exports.constraint_adder = "<div class=\"im-constraint-adder-options\"></div>\n<div class=\"im-path-finder\"><div>\n<div class=\"im-new-constraint\"></div>\n";
-exports.value_control_row = "<td>\n  <input type=\"checkbox\" {{ (selected) ? 'checked' : void 0 }}>\n</td>\n<td class=\"im-multi-value\">\n  {{# if (editing) { }}\n    <div class=\"input-group\">\n      <input type=\"text\" value=\"{{ value }}\" class=\"form-control\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-success im-save\"\n                title=\"{{ messages.getText('multivalue.SaveValue') }}\"\n                type=\"button\">\n            {{{ icons.icon('OK') }}}\n            <span class=\"im-long\">{{ messages.getText('multivalue.SaveValue') }}</span>\n        </button>\n        <button class=\"btn btn-danger im-cancel\"\n                title=\"{{ messages.getText('Cancel') }}\"\n                type=\"button\">\n            {{{ icons.icon('Cancel') }}}\n            <span class=\"im-long\">{{ messages.getText('Cancel') }}</span>\n        </button>\n      </span>\n    </div>\n  {{# } else { }}\n    <a class=\"im-edit pull-right\">{{{ icons.icon('Edit') }}}</a>\n    {{ value }}\n  {{# } }}\n</td>\n";
-exports.constraints_heading = "<% /* requires constraints.length */ %>\n<h3>\n  <%- Messages.getText('constraints.Heading', {n: constraints.length}) %>\n</h3>\n";
-exports.join_style = "<% /* requires innerJoinBtn, outerJoinBtn */ %>\n<div class=\"btn-group pull-right\">\n  <button class=\"<%- innerJoinBtn %>\">\n    <%- Messages.getText('joins.Inner') %>\n  </button>\n  <button class=\"<%- outerJoinBtn %>\">\n    <%- Messages.getText('joins.Outer') %>\n  </button>\n</div>\n";
-exports.export_row_controls = "<h4 class=\"im-title\"></h4>\n\n<div class=\"form-group\">\n    <label class=\"size-label\"></label>\n    <input name=\"size\"\n           step=\"1\"\n           type=\"range\"\n           min=\"1\"\n           max=\"<%= max %>\"\n           value=\"<%= size || max %>\">\n</div>\n\n<div class=\"form-group\">\n    <label class=\"start-label\"></label>\n    <input name=\"start\"\n           step=\"1\"\n           type=\"range\"\n           min=\"0\"\n           max=\"<%= max - 1 %>\"\n           value=\"<%= start %>\">\n</div>\n\n<div class=\"form-group im-reset\">\n</div>\n";
-exports.summary_no_results = "<div class=\"alert alert-warning\">\n    <%= Icons.icon('Warning') %>\n    <%- Messages.getText('summary.NoResults', {path: pathName}) %>\n</div>\n\n";
-exports.page_sizer = "<% /* Expects size, sizes */ %>\n<% if (sizes.length) { %>\n    <label>\n        <span class=\"hidden-tablet\">Rows per page:</span>\n    </label>\n    <select class=\"form-control\" title=\"Rows per page\">\n        <% sizes.forEach(function (s) { %>\n            <option value=\"<%= s[0] %>\" <%= (s[0] === size) && 'selected' %>>\n            <%= s[1] || s[0] %>\n            </option>\n        <% }); %>\n    </select>\n<% } %>\n";
-exports.modal_dialogue_opener = "<button class=\"btn btn-default im-open-dialogue\">\n  <%= Icons.icon(labels.ICON) %>\n  <span class=\"im-hidden-sm hidden-sm hidden-xs\">\n    <%- Messages.getText(labels.LONG, state) %>\n  </span>\n  <span class=\"im-visible-sm-inline visible-sm-inline\">\n    <%- Messages.getText(labels.SHORT, state) %>\n  <span>\n</button>\n";
-exports.summary_selected_count = "<% if (state.selectedCount) { %>\n    <div class=\"alert alert-info im-selected-count\">\n        <strong>\n            <%- Messages.getText('summary.SelectedCount', state) %>\n        </strong>\n    </div>\n<% } %>\n";
-exports.export_add_column_control = "<div class=\"row\">\n    <div class=\"col-sm-1 im-help\"\n         title=\"<%- Messages.getText('export.help.AdditionalCols') %>\">\n        <%= Icons.icon('Help', 'lg') %>\n    </div>\n    <div class=\"col-sm-11 form-group\">\n        <input type=\"text\" class=\"form-control\">\n    </div>\n</div>\n";
-exports.type_value_controls = "<label class=\"span4\">\n    <%- messages.getText('conbuilder.IsA') %>\n</label>\n<% if (subclasses.length == 1) { %>\n  <select disabled class=\"form-control\">\n      <option><%- subclasses[0].text %></option>\n  </select>\n<% } else { %>\n  <%= select(subclasses, isSelected, 'form-control im-value-type') %>\n<% } %>\n  \n";
-exports.select_with_label = "<label><%- Messages.getText(label) %></label>\n\n<% if (options.length) { %>\n    <select class=\"form-control\">\n        <% _.each(options, function (option) { %>\n            <option selected=\"<%= selected(option) ? 'selected' : void 0 %>\"\n                    value=\"<%- option.name %>\">\n                <%- Messages.getText(optionLabel, option) %>\n            </option>\n        <% }) %>\n    </select>\n    <% if (helpMessage) { %>\n        <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n              class=\"help-block\">\n                <%- Messages.getText(helpMessage) %>\n        </span>\n    <% } %>\n<% } else { %>\n    <span class=\"help-block\">\n        <%- Messages.getText(noOptionsMessage, {model: model}) %>\n    </span>\n<% } %>\n\n";
-exports.export_fasta_options = "<h3><%- Messages.getText('export.category.Options') %></h3>\n\n<div class=\"form-group\">\n    <label><%- Messages.getText('FastaExtension') %></label>\n    <input type=\"text\"\n           value=\"<%- fastaExtension %>\"\n           placeholder=\"5kbp\"\n           class=\"form-control im-fasta-ext\">\n</div>\n";
-exports.list_dialogue_button_node = "<a href=\"#\">\n    <strong>\n        <%- displayName || path %>\n    </strong>\n    <% if (state.count) { %>\n        (<%- numToString(state.count) %>\n        <%- pluralise((typeName || type), state.count) %>)\n    <% } %>\n</a>\n";
-exports.undo_history = "<button class=\"btn btn-default im-undo\">\n  <%= Icons.icon('Undo') %>\n  <span class=\"visible-lg-inline\">\n    <%- Messages.getText('Undo') %>\n  </span>\n</button>\n\n<button class=\"btn btn-default dropdown-toggle\"\n        data-toggle=\"dropdown\">\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu im-state-list\">\n    <li>\n      <button\n          title=\"<%- Messages.getText('undo.ToggleTrivialTitle', state) %>\"\n          class=\"btn btn-xs btn-default im-toggle-trivial <%= state.hideTrivial ? 'active' : void 0 %>\">\n        <%- Messages.getText('undo.ToggleTrivial', state) %>\n      </button>\n    </li>\n</ul>\n";
-exports.cell_preview_reference_relation = "<% _.each(collection, function (relation) { %>\n  <li class=\"im-relation\">\n    <span class=\"im-name\"><%- _.last(relation.parts) %></span>\n    <span class=\"im-count\"><%- numToString(relation.count) %></span>\n  </li>\n<% }); %>\n";
-exports.select = "<select class=\"<%- data.classes %>\">\n  <% _.each(data.options, function (opt) { %>\n    <option value=\"<%- data.key(opt) %>\"\n      <%- data.selectedTest(opt) ? 'selected' : void 0 %> >\n      <% if (data.contentHandler) { %>\n        <%- data.contentHandler(opt) %>\n      <% } else { %>\n        <%- opt.text %>\n      <% } %>\n    </option>\n  <% }); %>\n</select>\n";
-exports.list_dialogue_expander = "<button class=\"btn btn-default im-expand-dialogue <%= minimised ? 'active' : void 0 %>\">\n  <%- Messages.getText('lists.picker.Collapse') %>\n</button>\n";
-exports.code_gen_body = "<div class=\"row\">\n  <div class=\"col-sm-2\">\n    <% /* requires lang :: string, options :: {Extra :: {}, Langs :: [string]} */ %>\n    <div class=\"btn-group language-selector\">\n      <button type=\"button\"\n              data-toggle=\"dropdown\"\n              aria-expanded=\"false\"\n              class=\"btn btn-default dropdown-toggle\">\n        <span class=\"im-current-lang\">\n          <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n        <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\"\n                class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n              <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n      </ul>\n    </div>\n    <div class=\"im-show-boilerplate\"></div>\n    <div class=\"im-highlight-syntax\"></div>\n    <div class=\"im-extra-options\"></div>\n  </div>\n  <div class=\"col-sm-10\">\n    <pre class=\"im-generated-code\"><%- generatedCode %></pre>\n  </div>\n</div>\n";
-exports.checkbox = "<label>\n    <input type=\"checkbox\" \n           <%= checked ? 'checked' : void 0 %>\n           >\n    <%- label %>\n</label>\n";
-exports.table_cell = "<% if (state.minimised) { %>\n  &hellip;\n<% } else if (entity.id == null) { %>\n  <% if (value != null && formattedValue != null) { %>\n    <span class=\"im-displayed-value\"><%= value %></span>\n  <% } else if (entity.isNULL) { %>\n    <span class=\"im-null-entity\">\n      <%- Messages.getText('table.cell.NullEntity', {type: entity['class']}) %>\n    </span>\n  <% } else { %>\n    <%= NULL_VALUE %>\n  <% } %>\n<% } else { %>\n  <input\n    class=\"im-list-chooser\"\n    type=\"checkbox\"\n    <% if (input.checked) { %>checked<% } %>\n    <% if (input.disabled) { %>disabled<% } %>\n    style=\"display:<%- input.display %>\">\n\n  <a class=\"im-cell-link\" target=\"<%- target %>\" href=\"<%= url %>\">\n\n    <% if (isForeign) { %>\n      <% if (icon) { %>\n        <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n      <% } else { %>\n        <%= Icons.icon('ExternalLink') %>\n      <% } %>\n    <% } %>\n\n    <% if (value != null && formattedValue != null) { %>\n      <span class=\"im-displayed-value\"><%= formattedValue %></span>\n    <% } else { %>\n      <%= NULL_VALUE %>\n    <% } %>\n\n  </a>\n\n  <% if (value != null && field === 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <%= Icons.icon('ExternalLink') %>\n      <%- Messages.getText('table.cell.Link') %>\n    </a>\n  <% } %>\n<% } %>\n";
-exports.export_dialogue_footer = "<% if (linkToFile) { %>\n    <div class=\"pull-left alert alert-info\">\n        <%- Messages.getText('export.cloud.FileLocation', {cloud: dest}) %>\n        <a href=\"<%= linkToFile %>\" target=\"_blank\"><%- linkToFile %></a>\n    </div>\n<% } %>\n\n<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n\n<% if (dest === 'download') { %>\n    <a class=\"btn btn-primary\"\n        href=\"<%- exportURI %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <button type=\"button\"\n            <%= (error || doneness != null) ? 'disabled' : void 0 %>\n            class=\"btn btn-primary\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </button>\n<% } %>\n\n";
-exports.formatted_sorting = "<a> <% /* requires Icons, direction and name */ %>\n    <%= Icons.icon(direction || 'unsorted') %>\n    <span class=\"im-sort-path\"><%- name %></span>\n</a>\n";
-exports.modal_footer = "<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n<% if (exportLink != null) { %>\n    <a class=\"btn btn-primary\"\n        <%= (error) ? 'disabled' : void 0 %>\n        href=\"<%- exportLink %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <% /* We need the wrapper to deal with the fact that tooltips do not\n        * work on disabled buttons. */ %>\n    <div class=\"im-tooltip-wrapper\"\n        <% if (disabled && disabledReason) { %>\n          title=\"<%- Messages.getText(disabledReason)  %>\"\n        <% } %>>\n        <button type=\"button\"\n                <%= (error || disabled) ? 'disabled' : void 0 %>\n                class=\"btn btn-primary\">\n            <%= Icons.icon(primaryIcon) %>\n            <%- primaryAction %>\n        </button>\n    </div>\n<% } %>\n";
-exports.column_manager_position_controls = "<div class=\"im-position-controls\">\n    <% if (index > 0) { %>\n        <%= Icons.iconWithProps('ASC', {\n            className: 'im-move-up',\n            title: Messages.getText('columns.MoveUp')\n        }) %>\n    <% } %>\n    <% if (!isLast) { %>\n        <%= Icons.iconWithProps('DESC', {\n            className: 'im-move-down',\n            title: Messages.getText('columns.MoveDown')\n        }) %>\n    <% } %>\n</div>\n\n";
-exports.row_surrogate = "<%= Icons.icon(above ? 'ASC' : 'DESC') %>\n<%- item %>: <%- count %>\n";
-exports.list_dialogue_button = "<button class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">\n  <%= Icons.icon('Lists') %>\n  <span class=\"hidden-xxs\">\n    <%- Messages.getText('lists.SaveAsList') %>\n  </span>\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n    <li class=\"divider\"></li>\n    <li>\n        <a class=\"im-pick-items\" href=\"#\">\n            <%- Messages.getText('lists.StartPicking') %>\n        </a>\n    </li>\n    <li class=\"divider\"></li>\n    <li>\n        <div class=\"btn-group btn-group-justified\" role=\"group\">\n            <a role=\"button\" class=\"<%- createBtnClasses %>\">\n                <%- Messages.getText('lists.Create') %>\n            </a>\n            <a role=\"button\" class=\"<%- appendBtnClasses %>\">\n                <%- Messages.getText('lists.Append') %>\n            </a>\n        </div>\n    </li>\n</ul>\n";
 exports.active_constraint = "<div class=\"im-con-overview\">\n  <% if (data.con.editable != null && data.con.editable === false) { %>\n    <a title=\"<%- data.messages.getText('conbuilder.NotEditable') %>\">\n        <%= data.icons.icon('Lock') %>\n    </a>\n  <% } else { %>\n    <a class=\"im-remove-constraint\"\n        title=\"<%- data.messages.getText('conbuilder.Remove') %>\"\n        >\n        <%= data.icons.icon('RemoveConstraint') %>\n    </a>\n    <a class=\"im-edit\" title=\"<%- data.messages.getText('conbuilder.EditCon') %>\">\n        <%= data.icons.icon('Edit') %>\n    </a>\n  <% } %>\n</div>\n\n<% /* We use the :empty selector on this element - hence it must be on one line */ %>\n<div class=\"im-constraint-editor\"></div>\n";
-exports.logic_manager_body = "<div class=\"form-group\">\n  <label class=\"form-label\">\n    <%- Messages.getText('logic.LogicLabel') %>\n    <input type=\"text\"\n          class=\"im-logic form-control\"\n          placeholder=\"<%- state.defaultLogic %>\"\n          value=\"<%- logic %>\">\n  </label>\n</div>\n<div class=\"form-group\">\n  <button class=\"pull-right btn btn-primary <%- (state.disabled) ? 'disabled' : null %>\"\n          type=\"submit\">\n    <%- Messages.getText('logic.ApplyLogic') %>\n  </button>\n</div>\n";
-exports.table_throbber = "<tr class=\"im-table-throbber\">\n  <td colspan=\"<%= colcount %>\">\n    <h2><%- Messages.getText('table.RequestingData') %></h2>\n    <div class=\"progress progress-info progress-striped active\">\n      <div class=\"bar\" style=\"width: 100%\"></div>\n    </div>\n  </td>\n</tr>\n";
-exports.join_manager_body = "<ul class=\"list-group\"></ul>\n\n<div class=\"alert alert-info\">\n  <%= Icons.icon('Info') %>\n  <strong class=\"im-clickable\">\n    <%- Messages.getText('joins.ExplanationTitle') %>\n  </strong>\n  <p class=\"<%= (!state.explaining) ? 'im-latent' : void 0 %>\">\n    <%- Messages.getText('joins.Explanation') %>\n  </p>\n</div>\n";
-exports.large_table_disuader = "<div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>\n            <%= size %> rows - are you sure?\n            </h3>\n        </div>\n\n        <div class=\"modal-body\">\n\n            <p><%= Messages.getText('largetable.appeal', {size: size}) %></p>\n\n            <ul>\n                <li>\n                    <p>\n                        If you want to see all the data, you can page \n                        <span class=\"label label-info\">\n                            <%= Icons.icon('GoBack') %>\n                            backwards\n                        </span>\n                        and \n                        <span class=\"label label-info\">\n                            forwards\n                            <%= Icons.icon('GoForward') %>\n                        </span>\n                        through the results.\n                    </p>\n                    <div class=\"btn-group\">\n                        <a class=\"btn btn-default im-alternative-action page-backwards\" href=\"#\">\n                            <%= Icons.icon('GoBack') %>\n                            go one page back\n                        </a>\n                        <a class=\"btn btn-default im-alternative-action page-forwards\" href=\"#\">\n                            go one page forward\n                            <%= Icons.icon('GoForward') %>\n                        </a>\n                    </div>\n                </li>\n\n                <li>\n                    <p>\n                        If you are looking for something specific, you can use the\n                        <span class=\"label label-info\">filtering tools</span>\n                        to narrow down the result set. Then you \n                        might be able to fit the items you are interested in in a\n                        single page.\n                    </p>\n                    <button class=\"btn btn-default im-alternative-action add-filter-dialogue\">\n                        <%= Icons.icon('Filter') %>\n                        Add a new filter.\n                    </button>\n                </li>\n\n                <li>\n                    <p>\n                        If you want to get and save the results, we suggest\n                        <span class=\"label label-info\">downloading</span>\n                        the results in a format that suits you. \n                    <p>\n                    <button class=\"btn btn-default im-alternative-action download-menu\">\n                        <%= Icons.icon('Export') %>\n                        Open the download menu.\n                    </buttn>\n                </li>\n\n            </ul>\n        </div>\n\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary pull-right\">\n                <%- Messages.getText('largetable.ok', {size: size}) %>\n            </button>\n            <button class=\"btn pull-left close\">\n                <%- Messages.getText('largetable.abort') %>\n            </button>\n        </div>\n    </div>\n</div>\n";
-exports.input_with_button = "<input type=\"text\" class=\"form-control\"\n       value=\"<%- value %>\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\">\n<span class=\"input-group-btn\">\n  <button class=\"btn btn-default\" type=\"button\">\n    <%- Messages.getText(button) %>\n  </button>\n</span>\n\n";
+exports.active_constraints = "<% /* requires: constraints.length */ %>\n<div class=\"well im-current-constraints\">\n    <p class=\"well-help\">\n      <% if (constraints.length) { %>\n        <%- Messages.getText('constraints.EditOrRemove') %>\n      <% } else { %>\n        <%- Messages.getText('constraints.None') %>\n      <% } %>\n    </p>\n\n    <ul class=\"im-active-constraints\">\n    </ul>\n</div>\n";
+exports.active_progress_bar = "<div class=\"progress progress-info progress-striped active\">\n  <div class=\"bar\" style=\"width: 100%\"></div>\n</div>\n";
 exports.add_value_control = "<div class=\"im-table-height-wrapper\">\n    <table class=\"table table-condensed\"></table>\n</div>\n<div class=\"input-group\">\n    <input type=\"text\" class=\"im-new-multi-value form-control\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-primary im-add\" type=\"button\">\n            <span class=\"im-long\"><%- messages.getText('multivalue.AddValue') %></span>\n            <span class=\"im-short\"><%- messages.getText('multivalue.AddValueShort') %></span>\n        </button>\n    </span>\n</div>\n";
-exports.export_format_controls = "<h4 class=\"im-title\"></h4>\n\n<% _.each(formats, function (formatDef) { %>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                   name=\"format\"\n                   value=\"<%= formatDef.id %>\"\n                   <%= (formatDef.id === format) ? 'checked' : void 0 %>>\n            <%= Icons.icon(formatDef.icon) %>\n            <%= Messages.getText(formatDef.desc) %>\n        </label>\n    </div>\n<% }); %>\n";
-exports.export_column_controls = "<h4><%- Messages.getText('export.heading.Columns') %></h4>\n\n<ul class=\"list-group\">\n</ul>\n\n<div class=\"row controls\"></div>\n";
-exports.list_dialogue_body = "<div class=\"im-list-name\"></div>\n\n<div class=\"row\">\n  <div class=\"col-sm-12 im-more-options\">\n    <h4>\n      <%= Icons.icon('Options') %>\n      <span class=\"msg\"><%- Messages.getText('lists.ShowExtraOptions', state) %></span>\n    </h4>\n  </div>\n</div>\n\n<div class=\"im-optional-attributes\" style=\"<%- state.minimised ? 'display:none' : void 0 %>\">\n  <div class=\"im-list-desc\"></div>\n\n  <div class=\"well im-tags\">\n    <div class=\"row im-active-tags\">\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6 im-apology\">\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"im-next-tag\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
-exports.constraint_editor = "<fieldset class=\"im-constraint-options form-group row\">\n  <label class=\"col-sm-3 path-label\"><%- data.con.displayName %></label>\n  <% if (data.con.op) { %>\n    <div class=\"im-operator col-sm-3\">\n        <select class=\"form-control im-ops\">\n        <option selected><%- data.con.op %></option>\n        <% data.otherOperators.forEach(function (op) { %>\n            <option><%- op %></option>\n        <% }); %>\n        </select>\n    </div>\n  <% } %>\n  <div class=\"col-sm-6 im-value-options im-value-section\">\n  </div>\n</fieldset>\n\n<div class=\"btn-group im-con-buttons\">\n  <% data.buttons.forEach(function (b, i) { %>\n  <button class=\"btn btn-<%= (i === 0) ? 'primary' : 'default' %> <%- b.classes %>\">\n    <%- data.messages.getText(b.key) %>\n  </button>\n  <% }); %>\n</div>\n";
+exports.attribute_value_controls = "<input class=\"form-control im-constraint-value im-value-options im-con-value im-con-value-attr\"\n    type=\"text\"\n    placeholder=\"<%- messages.getText('conbuilder.ValuePlaceholder') %>\"\n    value=\"<%- con.value %>\">\n";
+exports.attribute_value_select = "<select class=\"form-control im-con-value-attr\">\n    <% _.each(items, function (item) { %>\n    <option <%= (item.item === value) ? 'selected' : void 0 %> value=\"<%- item.item %>\">\n            <%- item.item %>\n        </option>\n    <% }); %>\n</select>\n";
+exports.boolean_value_controls = "<button class=\"btn btn-default im-true {{ (value === true) ? ' active' : void 0 }}\">\n  True\n</button>\n<button class=\"btn btn-default im-false {{ (value === false) ? ' active' : void 0 }}\">\n  False\n</button>\n";
+exports.cell_preview_attribute = "<tr>\n  <td class=\"im-field-name\"><%- _.last(parts) %></td>\n  <td class=\"im-field-value <%- field.toLowerCase() %> <%- type %>\">\n    <% if (isNumeric) { %>\n      <%- numToString(+value) %>\n    <% } else { %>\n      <%- value %>\n    <% } %>\n    <% if (tooLong) { %>\n      <span class=\"im-overspill\"><%- valueOverspill %></span>\n      <a class=\"im-too-long\">\n        <span class=\"im-ellipsis\">...</span>\n        <%= Icons.icon('More') %>\n      </a>\n    <% } %>\n  </td>\n</tr>\n";
+exports.cell_preview_error = "<div class=\"alert alert-error\">\n    <h4>Error</h4>\n    <p>Sorry. We could not fetch the preview due to an error:</p>\n    <code><%- message %></code>\n</div>\n";
+exports.cell_preview_items = "<colgroup>\n  <col class=\"im-item-field\"/>\n  <col class=\"im-item-value\"/>\n</colgroup>\n<tbody></tbody>\n";
+exports.cell_preview_reference_relation = "<% _.each(collection, function (relation) { %>\n  <li class=\"im-relation\">\n    <span class=\"im-name\"><%- _.last(relation.parts) %></span>\n    <span class=\"im-count\"><%- numToString(relation.count) %></span>\n  </li>\n<% }); %>\n";
+exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
+exports.checkbox = "<label>\n    <input type=\"checkbox\" \n           <%= checked ? 'checked' : void 0 %>\n           >\n    <%- label %>\n</label>\n";
+exports.classy_popover = "<div class=\"popover <%- classes %>\" role=\"tooltip\">\n  <div class=\"arrow\"></div>\n  <h3 class=\"popover-title\"></h3>\n  <div class=\"popover-content\"></div>\n</div>\n";
+exports.code_gen_body = "<div class=\"row\">\n  <div class=\"col-sm-2\">\n    <% /* requires lang :: string, options :: {Extra :: {}, Langs :: [string]} */ %>\n    <div class=\"btn-group language-selector\">\n      <button type=\"button\"\n              data-toggle=\"dropdown\"\n              aria-expanded=\"false\"\n              class=\"btn btn-default dropdown-toggle\">\n        <span class=\"im-current-lang\">\n          <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n        </span>\n        <span class=\"caret\"></span>\n      </button>\n      <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\"\n                class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n              <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n      </ul>\n    </div>\n    <div class=\"im-show-boilerplate\"></div>\n    <div class=\"im-highlight-syntax\"></div>\n    <div class=\"im-extra-options\"></div>\n  </div>\n  <div class=\"col-sm-10\">\n    <pre class=\"im-generated-code\"><%- generatedCode %></pre>\n  </div>\n</div>\n";
+exports.code_gen_button_main = "<%= Icons.icon('CodeFile') %>\n<span class=\"hidden-sm hidden-xs\">\n  <%- Messages.getText('codegen.GenerateCodeIn', {lang: lang}) %>\n</span>\n<span class=\"visible-sm-inline im-current-lang\">\n    <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n</span>\n\n";
+exports.code_gen_button = "<% /* requires lang :: string, options.Langs :: [string] */ %>\n<div class=\"btn-group language-selector\">\n    <button type=\"button\"\n            class=\"btn btn-default im-show-code-gen-dialogue\">\n    </button>\n    <button type=\"button\"\n            data-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            class=\"btn btn-default dropdown-toggle\">\n        <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\" class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n                <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n    </ul>\n</div>\n";
+exports.code_gen_js = "<% if (asHTML) { %>\n<!-- The Element we will target -->\n<div id=\"some-elem\"></div>\n<!-- The imtables source -->\n<script src=\"<%= imtablesJS %>\" charset=\"UTF-8\"></script>\n<link rel=\"stylesheet\" href=\"<%= imtablesCSS %>\">\n<script>\n<% } %>\n<% if (!asHTML) { %>\n/* Install from npm: npm install imtables\n * This snippet assumes the presence on the page of an element like:\n * <div id=\"some-elem\"></div>\n */\nvar imtables = require('imtables');\n<% } %>\n\nvar selector = '#some-elem';\nvar service  = {root: '<%= service.root %>'};\nvar query    = <%= JSON.stringify(query, null, 2) %>;\n\nimtables.loadTable(\n  selector, // Can also be an element, or a jQuery object.\n  <%= JSON.stringify(page) %>, // May be null\n  {service: service, query: query} // May be an imjs.Query\n).then(\n  function (table) { console.log('Table loaded', table); },\n  function (error) { console.error('Could not load table', error); }\n);\n<% if (asHTML) { %>\n</script>\n<% } %>\n";
+exports.column_header = "<% /* requires the properties of HeaderModel +\n    *  penult, last, headerClasses, colTitleClasses, penultClasses\n    *  and the usual Icons, Messages\n    */ %>\n<div class=\"<%- headerClasses %>\">\n\n<div class=\"im-th-buttons\">\n    \n    <% if (outerJoined && isReference) { %>\n      <a href=\"#\" \n          class=\"im-subtable-expander im-th-button\"\n          title=\"<%- Messages.getText('table.header.ToggleTables') %>\">\n        <%= Icons.icon('Table') %>\n      </a>\n    <% } %>\n\n    <% if (sortable) { %>\n        <span class=\"im-th-dropdown im-col-sort dropdown\">\n            <a class=\"im-th-button im-col-sort-indicator\"\n                title=\"<%- Messages.getText('table.header.SortColumn', {dir: sortDirection}) %>\">\n                <%= Icons.icon(sortDirection || 'unsorted') %>\n            </a>\n            <div class=\"dropdown-menu\">\n                <div><%- Messages.getText('table.header.FailedToInitSortMenu') %></div>\n            </div>\n        </span>\n    <% } %>\n\n    <a class=\"im-th-button im-col-remover\"\n        title=\"<%- Messages.getText('table.header.RemoveColumn') %>\">\n        <%= Icons.icon('headerIconRemove') %>\n    </a>\n\n    <a class=\"im-th-button im-col-minumaximiser\"\n        title=\"<%- Messages.getText('table.header.ToggleColumn') %>\">\n        <%= Icons.icon(minimised ? 'headerIconReveal' : 'headerIconHide') %>\n    </a>\n\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n        <a class=\"im-th-button im-col-filters dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.FilterTitle', {count: numOfCons}) %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Filter') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitFilter') %></div>\n        </div>\n    </span>\n\n    <span class=\"dropdown im-summary im-th-dropdown\">\n        <a class=\"im-th-button summary-img dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.ViewSummary') %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Summary') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitSummary') %></div>\n        </div>\n    </span>\n\n    <% if (isComposed) { %>\n        <a class=\"im-th-button im-col-composed\"\n            title=\"<%- Messages.getText('table.header.Composed', {replaces: replaces}) %>\">\n            <%= Icons.icon('Composed') %>\n        </a>\n    <% } %>\n</div>\n\n<div class=\"<%- colTitleClasses %>\">\n  <div class=\"<%- penultClasses %>\">\n      <%- penult %>\n  </div>\n  <% if (last) { %>\n    <div class=\"im-title-part im-last\">\n        <%- last %>\n    </div>\n  <% } %>\n</div>\n\n</div>\n\n";
+exports.column_manager_order_direction = "<% /* requires: direction, isNumeric */ %>\n<span class=\"im-change-direction\"\n  title=\"<%- Messages.getText('columns.ChangeDirection') %>\">\n  <span class=\"sr-only\">\n    <%- Messages.getText('columns.CurrentDirection', {\n      dir: direction, numeric: isNumeric\n    }) %>\n  </span>\n  <%= Icons.icon('Sort' + (isNumeric ? 'Numeric' : 'String') + direction) %>\n</span>\n";
+exports.column_manager_path_chooser_buttons = "<button class=\"btn btn-default im-rearrange-columns\">\n  <%- Messages.getText('Cancel') %>\n</button>\n<button class=\"btn btn-success im-add-column\"\n  <%= collection.length ? (void 0) : 'disabled' %> >\n  <%- Messages.getText('columns.AddColumn', {num: collection.length}) %>\n</button>\n\n";
+exports.column_manager_path_chooser = "<div class=\"btn-group pull-right\">\n</div>\n<h4>\n  <%- Messages.getText('columns.ChooseAPathFrom', {root: state.rootName}) %>\n</h4>\n\n";
 exports.column_manager_path_name = "<% /* requires parts */ %>\n<span class=\"im-path-name\">\n    <% _.each(parts, function (part) { %>\n        <span class=\"im-name-part\"><%- part %></span>\n    <% }); %>\n</span>\n\n";
 exports.column_manager_path_remover = "<% /* requires: removeTitle */ %>\n<span class=\"pull-right im-remove-view\"\n      title=\"<%- Messages.getText(removeTitle) %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n\n";
-exports.facet_frequency = "<% /* requires: error, initialized */ %>\n<% if (error) { %>\n    <% /* Oh noes - something went wrong. */ %>\n    <div class=\"alert alert-warning\">\n        <%= Icons.icon('Error') %>\n        <strong><%- Messages.getText('Error') %></strong>\n        <% if (error.key) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } else if (initialized) { %>\n    <% /* Huzzah - there is data, which will be added here as child views */ %>\n<% } else { %>\n    <% /* Boo - no data. Show an indeterminate progress bar while we wait. */ %>\n    <div class=\"progress\">\n      <div class=\"progress-bar progress-bar-info progress-bar-striped active\"\n           role=\"progressbar\"\n           style=\"width:100%\">\n        <span class=\"sr-only\"><%- Messages.getText('Loading') %>.</span>\n      </div>\n    </div>\n<% } %>\n";
-exports.column_manager_path_chooser_buttons = "<button class=\"btn btn-default im-rearrange-columns\">\n  <%- Messages.getText('Cancel') %>\n</button>\n<button class=\"btn btn-success im-add-column\"\n  <%= collection.length ? (void 0) : 'disabled' %> >\n  <%- Messages.getText('columns.AddColumn', {num: collection.length}) %>\n</button>\n\n";
-exports.null_value = "<span class=\"im-null-value\">&nbsp;</span>\n";
-exports.table_subtable = "<span class=\"im-subtable-summary\">\n</span>\n<div class=\"im-table-wrapper\">\n</div>\n";
-exports.constraint_adder_options = "<% if (showTree) { %>\n    <div class=\"col-sm-5\">\n        <div class=\"input-group\">\n            <span class=\"input-group-addon\">find</span>\n            <input type=\"text\"\n                value=\"<%- filter %>\"\n                class=\"im-tree-filter form-control\" placeholder=\"path\">\n            <span class=\"input-group-btn\">\n                <button class=\"btn btn-default im-clear-filter\" type=\"button\">\n                    <%- Messages.getText('Clear') %>\n                </button>\n            </span>\n        </div>\n    </div>\n<% } %>\n<div class=\"col-sm-7\">\n    <div class=\"btn-group\">\n        <% if (!showTree) { %>\n            <button type=\"button\" class=\"btn btn-default btn-chooser im-choose\">\n                <%= Icons.icon('Tree') %>\n                <span><%- Messages.getText('constraints.BrowseForColumn') %></span>\n            </button>\n        <% } else { %>\n            <button <%= anyNodeChosen ? void 0 : 'disabled' %>\n                    class=\"btn btn-primary im-approve\"\n                    type=\"button\" >\n                <%- Messages.getText('constraints.Choose') %>\n                <% _.each(chosen, function (path, i) { %>\n                    <%- path %>\n                    <% if (i + 2 === chosen.length) { %>\n                        <%- Messages.get('and') %>\n                    <% } else if (i + 2 < chosen.length) { %>\n                        <%- Messages.get('comma') %>\n                    <% } %>\n                <% }); %>\n            </button>\n        <% } %>\n    </div>\n    <div class=\"form-group\">\n        <label class=\"im-tree-option\">\n            <%- Messages.getText('columns.AllowRevRef') %>\n            <input type=\"checkbox\"\n                    class=\"im-allow-rev-ref\"\n                    <%= allowRevRefs ? 'checked' : void 0 %> >\n        </label>\n    </div>\n</div>\n";
-exports.summary_items_controls = "<button class=\"btn btn-default pull-right im-download\">\n  <%= Icons.icon('Download') %>\n  <%- Messages.getText('summary.DownloadData') %>\n</button>\n\n<div class=\"btn-group im-filter-group\">\n  <button type=\"submit\"\n        class=\"btn btn-primary im-filter-in\"\n        <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <%- Messages.getText('Filter') %>\n  </button>\n  <button class=\"btn btn-primary dropdown-toggle\" \n          title=\"<%- Messages.getText('summary.SelectFilter') %>\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <span class=\"caret\"></span>\n  </button>\n  <ul class=\"dropdown-menu\">\n    <li>\n      <a href=\"#\" class=\"im-filter-in\">\n        <%- Messages.getText('summary.Include') %>\n      </a>\n    </li>\n    <li>\n      <a href=\"#\" class=\"im-filter-out\">\n        <%- Messages.getText('summary.Exclude') %>\n      </a>\n    </li>\n  </ul>\n</div>\n\n<div class=\"btn-group\">\n  <button class=\"btn btn-default btn-cancel\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>\n          title=\"<%- Messages.getText('summary.Reset') %>\">\n    <%= Icons.icon('Undo') %>\n  </button>\n  <% if (!(/boolean/i).test(type)) { %>\n    <button class=\"btn btn-default btn-toggle-selection\"\n            title=\"<%- Messages.getText('summary.Toggle') %>\">\n        <%= Icons.icon('Toggle') %>\n    </button>\n  <% } %>\n</div>\n\n";
-exports.modal_base = "<div class=\"modal-dialog <%- modalSize %>\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n            <h4 class=\"modal-title\"><%- title %></h4>\n        </div>\n        <div class=\"modal-body\">\n            <%= body %>\n        </div>\n    </div>\n</div>\n";
-exports.count_summary = "<% if (size && count) { %>\n  <% var msg = (size == 0 ? '.ShowingAll' : '.ShowingRange'); %>\n  <% ['xs', 'sm', 'md', 'lg'].forEach(function (pageSize) { %>\n    <span class=\"visible-<%= pageSize %>-inline\">\n      <%- Messages.getText('table.' + pageSize + msg, page) %>\n    </span>\n  <% }); %>\n<% } %>\n";
-exports.active_progress_bar = "<div class=\"progress progress-info progress-striped active\">\n  <div class=\"bar\" style=\"width: 100%\"></div>\n</div>\n";
-exports.boolean_value_controls = "<button class=\"btn btn-default im-true {{ (value === true) ? ' active' : void 0 }}\">\n  True\n</button>\n<button class=\"btn btn-default im-false {{ (value === false) ? ' active' : void 0 }}\">\n  False\n</button>\n";
-exports.summary_heading = "<% /* requires:\n    *  numeric, available, got, uniqueValues\n    *  state.typeName, state.endName\n    *  filtered \n    */ %>\n<h3>\n  <% if (numeric) { %>\n    <%- Messages.getText('summary.NumericDistribution', {n: available}) %>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n  <% } else { %> \n    <span class=\"im-item-got\">\n      <%- Messages.getText('summary.Got', {available: available, got: got}) %>\n    </span>\n    <span class=\"im-item-available\">\n      <%- Messages.getText('Number', {n: available}) %>\n    </span>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n    <span class=\"im-item-total\">\n      <%- Messages.getText('summary.Total', {\n            filtered: filtered,\n            total: uniqueValues\n          }) %>\n    </span>\n  <% } %> \n</h3>\n";
-exports.column_manager_path_chooser = "<div class=\"btn-group pull-right\">\n</div>\n<h4>\n  <%- Messages.getText('columns.ChooseAPathFrom', {root: state.rootName}) %>\n</h4>\n\n";
-exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
-exports.classy_popover = "<div class=\"popover <%- classes %>\" role=\"tooltip\">\n  <div class=\"arrow\"></div>\n  <h3 class=\"popover-title\"></h3>\n  <div class=\"popover-content\"></div>\n</div>\n";
-exports.code_gen_button_main = "<%= Icons.icon('CodeFile') %>\n<span class=\"hidden-sm hidden-xs\">\n  <%- Messages.getText('codegen.GenerateCodeIn', {lang: lang}) %>\n</span>\n<span class=\"visible-sm-inline im-current-lang\">\n    <%- Messages.getText('codegen.Lang', {lang: lang}) %>\n</span>\n\n";
-exports.undo_history_step = "<% if (!state.current) { %>\n  <button class=\"btn btn-default btn-small im-state-revert\"\n      title=\"<%- Messages.getText('undo.RevertToState') %>\">\n      <%= Icons.icon('Undo') %>\n  </button>\n<% } %>\n\n<h4>\n    <%- Messages.getText('undo.StepTitle', title) %>\n</h4>\n\n<% if (state.current) { %>\n  <span class=\"help-block\"><%- Messages.getText('undo.IsCurrentState') %></span>\n<% } %>\n<div style=\"clear:both\"></div>\n\n<span class=\"im-revision\" title=\"<%- Messages.getText('undo.RevisionTitle', {v: revision}) %>\">\n  <%- Messages.getText('undo.Revision', {v: revision}) %>\n</span>\n\n<div class=\"im-step-count\">\n  <span><%- Messages.getText('undo.StepCount', {count: count}) %></span>\n  <% if (diff) { %>\n    <span class=\"label im-label-<%= (diff > 0 ) ? 'pos' : 'neg' %>\">\n      <% if (diff > 0) { %>+<% } %><%- numToString(diff) %>\n    </span>\n  <% } %>\n</div>\n\n<div class=\"im-step-details\"></div>\n\n<div style=\"clear:both\"></div>\n";
-exports.export_preview = "<div class=\"form-group im-export-formats\">\n  <label><%- Messages.getText('export.param.Format') %></label>\n  <select class=\"form-control\">\n    <% _.each(formats, function (fmt) { %>\n      <option value=\"<%- fmt.id %>\"\n              <%= (fmt.id === format.id) ? 'selected' : void 0 %>>\n        <%- Messages.getText(fmt.name) %>\n      </option>\n    <% }); %>\n  </select>\n</div>\n\n<pre class=\"im-export-preview\">\n<%- state.preview %>\n</pre>\n\n<div class=\"alert alert-info\">\n    <strong class=\"nb\">nb</strong>\n    <%- Messages.getText('export.preview.Limit') %>\n</div>\n";
-exports.list_value_controls = "<% if (suitableLists.length) { %>\n    <%= select(suitableLists, isSelected, 'span7 im-value-options im-con-value im-con-value-list form-control', formatList, getOptionValue) %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLists') %>\n<% } %>\n";
-exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
-exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- state.extraPlaceholder %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
-exports.undo_history_step_section = "<div class=\"im-section-summary\">\n  <% if (collection.length) { %>\n    <%= Icons.icon(state.open ? 'ExpandedSection' : 'CollapsedSection') %>\n  <% } %>\n  <%- Messages.getText(summaryLabel, {n: count}) %>\n</div>\n<% if (collection.length) { %>\n  <div class=\"<%- collectionClasses %>\">\n    <% _.each(collection, function (e) { %>\n      <span class=\"label label-<%= e.added ? 'success' : (e.removed ? 'danger' : 'default') %>\">\n        <%- labelContent(e) %>\n      </span>\n    <% }); %>\n  </div>\n<% } %>\n";
-exports.summary_items = "<% if (!(/boolean/i).test(type)) { %>\n    <div class=\"input-group im-filter-group\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-default im-clear-value-filter\">\n        <%= Icons.icon('Refresh') %>\n        </button>\n    </span>\n    <input type=\"search\" class=\"form-control im-filter-values\"\n        value=\"<%- filterTerm %>\"\n        placeholder=\"<%- Messages.getText('summary.FilterValuesPlaceholder') %>\">\n    </div>\n<% } %>\n\n<div class=\"im-item-table\">\n  <table class=\"table table-condensed table-striped\">\n    <colgroup>\n      <% _.each(colClasses, function (cls) { %>\n        <col class=\"<%- cls %>\">\n      <% }); %>\n    </colgroup>\n    <thead>\n      <tr>\n        <% _.each(colHeaders, function (hdr) { %>\n          <th><%- hdr %></th>\n        <% }); %>\n      </tr>\n    </thead>\n    <tbody class=\"scrollable\">\n    </tbody>\n  </table>\n\n  <% if (hasMore) { %>\n    <div class=\"im-load-more\">\n      <%- Messages.getText('summary.MoreItems') %>\n    </div>\n  <% } %>\n</div>\n\n<div class=\"im-summary-controls\">\n</div>\n";
-exports.facet_title = "<%= Icons.icon(state.open ? 'Expanded' : 'Collapsed') %>\n<span class=\"im-facet-title\"><%- pathName %></span>\n&nbsp;\n<span class=\"im-facet-count\"><%- Messages.getText('Number', {n: got} %></span>\n";
-exports.too_many_suggestions = "<span class=\"alert alert-info\">\n  {{{ icons.icon('Info') }}}\n  {{ messages.getText('conbuilder.TooManySuggestions') }}\n  There are {{ extra }} values we could not include.\n</span>\n";
-exports.active_constraints = "<% /* requires: constraints.length */ %>\n<div class=\"well im-current-constraints\">\n    <p class=\"well-help\">\n      <% if (constraints.length) { %>\n        <%- Messages.getText('constraints.EditOrRemove') %>\n      <% } else { %>\n        <%- Messages.getText('constraints.None') %>\n      <% } %>\n    </p>\n\n    <ul class=\"im-active-constraints\">\n    </ul>\n</div>\n";
-exports.reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n    <%- Messages.getText('Reset') %>\n</button>\n";
-exports.cell_preview_attribute = "<tr>\n  <td class=\"im-field-name\"><%- _.last(parts) %></td>\n  <td class=\"im-field-value <%- field.toLowerCase() %> <%- type %>\">\n    <% if (isNumeric) { %>\n      <%- numToString(+value) %>\n    <% } else { %>\n      <%- value %>\n    <% } %>\n    <% if (tooLong) { %>\n      <span class=\"im-overspill\"><%- valueOverspill %></span>\n      <a class=\"im-too-long\">\n        <span class=\"im-ellipsis\">...</span>\n        <%= Icons.icon('More') %>\n      </a>\n    <% } %>\n  </td>\n</tr>\n";
-exports.export_destination_radios = "<label><%- Messages.getText('export.param.Destination') %></label>\n<% _.each(destinations, function (d) { %>\n    <div class=\"radio im-dest-<%- d %>\">\n        <label>\n            <input type=\"radio\"\n                    name=\"dest\"\n                    <%= (d === dest) ? 'checked' : void 0 %>>\n            <%- Messages.getText(d) %>\n        </label>\n    </div>\n<% }); %>\n\n";
-exports.export_dialogue = "<div class=\"row\">\n    <nav class=\"col-sm-3 menu\">\n    </nav>\n    <div class=\"col-sm-9 main\">\n    </div>\n</div>\n";
-exports.column_manager_select_list = "<div class=\"im-removal-and-rearrangement\">\n  <button class=\"pull-right btn btn-success im-add-view-path\">\n      <%= Icons.icon('Add') %>\n      <%- Messages.getText('columns.FindColumnToAdd') %>\n  </button>\n\n  <h4>\n    <%- Messages.getText('columns.ColumnsSelected', {columns: collection, removed: hasRubbish}) %>\n  </h4>\n\n  <span class=\"help-block\"><%- Messages.getText('columns.CurrentViewHelp') %></span>\n\n  <div class=\"well im-current-view\">\n\n    <div class=\"row\">\n\n      <div class=\"col-md-6\">\n        <ul class=\"list-group im-active-view im-connected-list\">\n        </ul>\n      </div>\n\n      <div class=\"col-md-6\">\n        <div class=\"im-rubbish-bin\">\n            <%= Icons.icon((hasRubbish ? 'RubbishFull' : 'Rubbish'), 'lg') %>\n            <% if (hasRubbish) { %>\n                <ul class=\"list-group im-removed im-removed-view im-connected-list\">\n                </ul>\n            <% } %>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"im-addition\">\n</div>\n\n";
-exports.table_building = "<h2><%- Messages.getText('table.Building') %></h2>\n<%= IndeterminateProgressBar %>\n";
-exports.constraint_summary = "<% if (code) { %>\n  <li><span class=\"text-muted\"><strong><%- code %>:</strong></span></li>\n<% } %>\n<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span title=\"<%- label.content %>\" class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
-exports.cell_preview_items = "<colgroup>\n  <col class=\"im-item-field\"/>\n  <col class=\"im-item-value\"/>\n</colgroup>\n<tbody></tbody>\n";
-exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(marker) { %>\n        <span class=\"im-slider-marker\"><%- marker.value %></span>\n    <% }); %>\n</div>\n";
-exports.export_tab_menu = "<% _.each(data.tabs, function (tabDef) { %>\n  <li role=\"presentation\" class=\"im-tab-<%= tabDef.ident %> <%= data.tab === tabDef.ident ? 'active' : void 0 %>\">\n    <a><%- data.Messages.getText(tabDef.key, data) %></a>\n  </li>\n<% }); %>\n";
-exports.loop_value_controls = "<% if (candidateLoops.length) { %>\n    <%= select(candidateLoops, isSelected, 'form-control im-value-options im-con-value') %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLoops') %>\n<% } %>\n";
-exports.export_column_control = "<span class=\"badge\"><%- item.getType() %></span>\n<span class=\"im-active-state\">\n    <% if (active) { %>\n        <%= Icons.icon('Check') %>\n    <% } else { %>\n        <%= Icons.icon('UnCheck') %>\n    <% } %>\n</span>\n<%- name %>\n";
-exports.export_rows_reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n        <%- Messages.getText('export.ResetRowSelection') %>\n</button>\n\n<% if (tablePage) { %>\n    <button type=\"button\"\n            <%= (tablePage.start === start && tablePage.size === size) ? 'disabled' : void 0 %>\n            class=\"btn btn-default im-set-table-page\">\n            <%- Messages.getText('export.SetTablePage') %>\n    </button>\n<% } %>\n        \n";
-exports.input_with_label = "<label><%- Messages.getText(label) %></label>\n<input class=\"form-control\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\"\n       value=\"<%- value %>\">\n<% if (helpMessage) { %>\n  <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n        class=\"help-block\">\n        <%- Messages.getText(helpMessage) %>\n  </span>\n<% } %>\n";
-exports.error_message = "<% if (error) { %>\n    <div class=\"alert alert-<%= error.level || 'danger' %>\">\n        <%= icons.icon('Error') %>\n        <span class=\"im-conbuilder-error\">\n            <%- error.message || error %>\n        </span>\n    </div>\n<% } %>\n\n";
-exports.column_manager_tabs = "<ul class=\"nav nav-tabs\">\n    <li role=\"presentation\" class=\"<%- classes.view %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.ViewTabTitle') %>\n      </a>\n    </li>\n    <li role=\"presentation\" class=\"<%- classes.sortorder %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.SortOrderTabTitle') %>\n      </a>\n    </li>\n</ul>\n";
-exports.modal_error = "<% /* Renders an alert box at various levels, with appropriate icons and messages */ %>\n<% if (error) { %>\n    <div class=\"pull-left alert <%- errorAlert(error) %>\">\n        <% if (!error.cannotDismiss) { %>\n            <button type=\"button\" class=\"dismiss\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n        <% } %>\n        <%= Icons.icon(errorIcon(error)) %>\n        <strong><%- Messages.getText('ErrorTitle', error) %></strong>\n        <% if (error.key != null) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } %>\n";
-exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <% if (canUndo) { %>\n      <button class=\"pull-right btn btn-large btn-default btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n  </div>\n</td>\n";
-exports.only_one_item = "<div class=\"alert alert-info\">\n    <%= Icons.icon('Info') %>\n    <%= Messages.getText('summary.OnlyOne', {names: state, item: items[0]}) %>\n</div>\n\n";
-exports.code_gen_button = "<% /* requires lang :: string, options.Langs :: [string] */ %>\n<div class=\"btn-group language-selector\">\n    <button type=\"button\"\n            class=\"btn btn-default im-show-code-gen-dialogue\">\n    </button>\n    <button type=\"button\"\n            data-toggle=\"dropdown\"\n            aria-expanded=\"false\"\n            class=\"btn btn-default dropdown-toggle\">\n        <span class=\"caret\"></span>\n    </button>\n    <ul class=\"dropdown-menu im-code-gen-langs\" role=\"menu\">\n        <% _.each(options.Langs, function (l) { %>\n            <li data-lang=\"<%- l %>\" class=\"<%= (l === lang) ? 'active' : void 0 %>\">\n                <a href=\"#\"><%- Messages.getText('codegen.Lang', {lang: l}) %></a>\n            </li>\n        <% }); %>\n    </ul>\n</div>\n";
-exports.export_compression_controls = "<h4><%- Messages.getText('export.category.Compression', state) %></h4>\n\n<div class=\"checkbox im-compress\">\n    <label>\n        <input type=\"checkbox\" <%= compress ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.UseCompression') %>\n    </label>\n</div>\n\n<fieldset <%= compress ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"gzip\"\n                <%= (compression === 'gzip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseGZIP') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"zip\"\n                <%= (compression === 'zip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseZIP') %>\n        </label>\n    </div>\n</fieldset>\n\n";
-exports.column_manager_order_direction = "<% /* requires: direction, isNumeric */ %>\n<span class=\"im-change-direction\"\n  title=\"<%- Messages.getText('columns.ChangeDirection') %>\">\n  <span class=\"sr-only\">\n    <%- Messages.getText('columns.CurrentDirection', {\n      dir: direction, numeric: isNumeric\n    }) %>\n  </span>\n  <%= Icons.icon('Sort' + (isNumeric ? 'Numeric' : 'String') + direction) %>\n</span>\n";
-exports.progress_bar = "<% /* requires: doneness (float: 0 <= i <= 1) */ %>\n<% if (doneness != null && doneness >= 0) { %>\n    <div class=\"progress\">\n        <div class=\"progress-bar progress-bar-striped active\"\n             role=\"progressbar\"\n             aria-valuenow=\"<%- doneness %>\"\n             aria-valuemin=\"0\"\n             aria-valuemax=\"1\"\n             style=\"width: <%- 100 * doneness %>%;\">\n            <% if (doneness < 1) { %>\n              <span class=\"sr-only\">\n                <%- Math.round(100 * doneness) %>% <%- Messages.getText('Complete') %>\n              </span>\n            <% } %>\n        </div>\n    </div>\n<% } %>\n";
-exports.export_json_options = "<h3><%- Messages.getText('export.category.Options') %></h3>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"rows\"\n               <%= (jsonFormat === 'rows') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Rows') %>\n        <pre><%- Messages.getText('export.json.RowsExample') %></pre>\n    </label>\n</div>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"objects\"\n               <%= (jsonFormat === 'objects') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Objects') %>\n        <pre><%- Messages.getText('export.json.ObjExample') %></pre>\n    </label>\n</div>\n\n<% if ((size || start) && jsonFormat === 'objects') { %>\n    <div class=\"alert alert-warning\">\n        <h4><%- Messages.get('Warning') %></h4>\n        <p><%- Messages.get('export.json.ObjWarning') %></p>\n    </div>\n<% } %>\n\n";
-exports.export_destination_galaxy_options = "<div class=\"form-group\">\n    <label><%- Messages.getText('GalaxyURILabel') %></label>\n    <input type=\"url\"\n           class=\"form-control im-galaxy-uri-param\"\n           value=\"<%- Galaxy.Current || Galaxy.Main %>\">\n</div>\n<div class=\"checkbox im-save-galaxy\">\n    <label>\n        <input type=\"checkbox\" <%= (Galaxy.Save) ? 'checked' : void 0 %>>\n        <%- Messages.getText('SaveGalaxyURL') %></label>\n    </label>\n</div>\n";
-exports.new_filter_dialogue = "<div class=\"modal-body\">\n</div>\n<div class=\"modal-footer\">\n    <button class=\"disabled btn btn-primary pull-right im-add-constraint\">\n        <%- Messages.getText('constraints.AddFilter') %>\n    </button>\n    <button class=\"btn im-close pull-left\">\n        <%- Messages.getText('Cancel') %>\n        Cancel\n    </button>\n</div>\n";
-exports.list_tags_apology = "<% if (!hasTags) { %>\n  <span>\n    <%- Messages.getText('lists.NoTags') %>\n  </span>\n<% } %>\n";
+exports.column_manager_position_controls = "<div class=\"im-position-controls\">\n    <% if (index > 0) { %>\n        <%= Icons.iconWithProps('ASC', {\n            className: 'im-move-up',\n            title: Messages.getText('columns.MoveUp')\n        }) %>\n    <% } %>\n    <% if (!isLast) { %>\n        <%= Icons.iconWithProps('DESC', {\n            className: 'im-move-down',\n            title: Messages.getText('columns.MoveDown')\n        }) %>\n    <% } %>\n</div>\n\n";
 exports.column_manager_restore_path = "<% /* requires: restoreTitle */ %>\n<span class=\"pull-right im-restore-view\"\n    title=\"<%- Messages.getText(restoreTitle) %>\">\n    <%= Icons.icon('Add') %>\n</span>\n\n";
-exports.table_subtables_header = "<a title=\"<%- Messages.getText('subtables.RemoveColumn') %>\">\n  <%= Icons.icon('Remove') %>\n</a>\n<% if (displayName && columnName) { %>\n  <%- displayName.replace(columnName, '').replace(/^ > /, '') %>\n<% } %>\n";
-exports.pagination = "<ul class=\"pagination\">\n    <li class=\"hidden-xs <%= gotoStart || 'im-goto-start' %>\" title=\"Go to start\">\n        <a class=\"im-pagination-button\">&#x21e4;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveBack || 'im-go-back-5' %>\"\n        title=\"Go back five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x219e;</a>\n    </li>\n    <li class=\"<%= goOneBack || 'im-go-back-1' %>\"\n        title=\"Go to previous page\">\n        <a class=\"im-pagination-button\">&larr;</a>\n    </li>\n    <li class=\"im-current-page\">\n        <% if (useSelect) { %>\n          <form class=\"im-page-form form form-inline\">\n            <select class=\"form-control\">\n              <% for (i = 0; i < max; i++) { %>\n                <option\n                  <%= selected(i) ? 'selected' : void 0 %>\n                  value=\"<%= i * size %>\">\n                  page <%= i + 1 %>\n                </option>\n              <% } %>\n            </select>\n          </form>\n        <% } else { %>\n          <a href=\"#\">&hellip;</a>\n          <form class=\"im-page-form form form-inline\"\n                style=\"display:none;\">\n            <div class=\"control-group\">\n                <input type=\"number\"\n                       value=\"<%= currentPage %>\"\n                       max=\"<%= max %>\"\n                       min=\"<%= min %>\"\n                       class=\"form-control im-page-number\">\n            </div>\n          </form>\n        <% } %>\n    </li>\n    <li class=\"<%= goOneForward || 'im-go-fwd-1' %>\"\n        title=\"Go to next page\">\n        <a class=\"im-pagination-button\">&rarr;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveForward || 'im-go-fwd-5' %>\"\n        title=\"Go forward five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x21a0;</a>\n    </li>\n    <li class=\"hidden-xs <%= gotoEnd || 'im-goto-end' %>\"\n        title=\"Go to last page\">\n        <a class=\"im-pagination-button\">&#x21e5;</a>\n    </li>\n</ul>\n";
-exports.facet_row = "<% /* requires: selected, symbol, item, count, percent, opacity, share */ %>\n<td class=\"im-selector-col\">\n  <span><%- symbol %></span>\n  <div class=\"checkbox\"></div>\n</td>\n\n<td class=\"im-item-col\">\n  <% if (item != null) { %>\n    <%- item %>\n  <% } else { %>\n    <span class=null-value>&nbsp;</span>\n  <% } %>\n</td>\n\n<td class=\"im-count-col\">\n  <% if (max > 1) { %>\n    <div class=\"im-facet-bar\"\n         style=\"width:<%- percent %>%;background:<%- Messages.getText('summary.FacetBar', {opacity: opacity}) %>\">\n    </div>\n  <% } %>\n  <span class=\"im-count\"><%- numToString(count) %></span>\n</td>\n\n<% if (share != null) { %>\n    <td class=\"im-percent-col\"><i><%- share.toFixed() %>%</i></td>\n<% } %>\n";
-exports.table_subtable_summary = "<% if (rows.length) { %>\n  <%= Icons.icon('Table') %>\n<% } else { %>\n  <%= Icons.icon('EmptyTable') %>\n<% } %>\n<%- rows.length %>\n<%- pluralise(contentName, rows.length) %>\n";
-exports.attribute_value_select = "<select class=\"form-control im-con-value-attr\">\n    <% _.each(items, function (item) { %>\n    <option <%= (item.item === value) ? 'selected' : void 0 %> value=\"<%- item.item %>\">\n            <%- item.item %>\n        </option>\n    <% }); %>\n</select>\n";
-exports.code_gen_js = "<% if (asHTML) { %>\n<!-- The Element we will target -->\n<div id=\"some-elem\"></div>\n<!-- The imtables source -->\n<script src=\"<%= imtablesJS %>\" charset=\"UTF-8\"></script>\n<link rel=\"stylesheet\" href=\"<%= imtablesCSS %>\">\n<script>\n<% } %>\n<% if (!asHTML) { %>\n/* Install from npm: npm install imtables\n * This snippet assumes the presence on the page of an element like:\n * <div id=\"some-elem\"></div>\n */\nvar imtables = require('imtables');\n<% } %>\n\nvar selector = '#some-elem';\nvar service  = {root: '<%= service.root %>'};\nvar query    = <%= JSON.stringify(query, null, 2) %>;\n\nimtables.loadTable(\n  selector, // Can also be an element, or a jQuery object.\n  <%= JSON.stringify(page) %>, // May be null\n  {service: service, query: query} // May be an imjs.Query\n).then(\n  function (table) { console.log('Table loaded', table); },\n  function (error) { console.error('Could not load table', error); }\n);\n<% if (asHTML) { %>\n</script>\n<% } %>\n";
-exports.export_flat_file_options = "<h4><%- Messages.getText('export.category.ColumnHeaders', state) %></h4>\n\n<div class=\"checkbox im-headers\">\n    <label>\n        <input type=\"checkbox\" <%= headers ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.AddHeaders') %>\n    </label>\n</div>\n\n<fieldset <%= headers ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-friendly\"\n                <%= (headerType === 'friendly') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.FriendlyHeaders') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-path\"\n                <%= (headerType === 'path') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.PathHeaders') %>\n        </label>\n    </div>\n</fieldset>\n\n";
-exports.cell_preview_error = "<div class=\"alert alert-error\">\n    <h4>Error</h4>\n    <p>Sorry. We could not fetch the preview due to an error:</p>\n    <code><%- message %></code>\n</div>\n";
-exports.cell_preview_reference = "<tr>\n    <td class=\"im-field-name\"><%- _.rest(parts).join(' ') %></td>\n    <td class=\"im-field-value <%- field.toLowerCase() %>\">\n        <%- values.join(', ') %>\n    </td>\n</tr>\n";
-exports.export_destination_options = "<div class=\"form-group im-param-name\">\n    <label><%- Messages.getText('export.param.Name') %></label>\n    <div class=\"input-group\">\n      <input type=\"text\"\n             value=\"<%- filename %>\"\n             class=\"form-control\"\n             placeholder=\"<%- Messages.getText('export.param.Name') %>\"\n             aria-label=\"<%- Messages.getText('export.param.Name') %>\">\n      <div class=\"input-group-btn\">\n        <button type=\"button\"\n                class=\"btn btn-default dropdown-toggle\"\n                data-toggle=\"dropdown\"\n                aria-expanded=\"false\">\n          .<%- format %>\n          <span class=\"caret\"></span>\n        </button>\n        <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n          <% _.chain(formats).groupBy('group').each(function (fmts, grp) { %>\n            <% if (this.i++) { %><li class=\"divider\"></li><% } %>\n            <% _.each(fmts, function (fmt) { %>\n                <li>\n                    <a href=\"#\"\n                       class=\"im-fmt-<%- fmt.id %>\">\n                      <%= Icons.icon(fmt.icon) %>\n                      <%- Messages.getText(fmt.name) %>\n                    </a>\n                </li>\n            <% }); %>\n          <% }, {i: 0}); %>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<% if (format && format.desc) { %>\n  <div class=\"alert alert-info\">\n    <%- Messages.getText(format.desc) %>\n  </div>\n<% } %>\n\n<div class=\"row\">\n    <div class=\"col-sm-6 im-param-dest\">\n    </div>\n    <div class=\"col-sm-6 im-dest-opts\">\n    </div>\n</div>\n";
-exports.column_header = "<% /* requires the properties of HeaderModel +\n    *  penult, last, headerClasses, colTitleClasses, penultClasses\n    *  and the usual Icons, Messages\n    */ %>\n<div class=\"<%- headerClasses %>\">\n\n<div class=\"im-th-buttons\">\n    \n    <% if (outerJoined && isReference) { %>\n      <a href=\"#\" \n          class=\"im-subtable-expander im-th-button\"\n          title=\"<%- Messages.getText('table.header.ToggleTables') %>\">\n        <%= Icons.icon('Table') %>\n      </a>\n    <% } %>\n\n    <% if (sortable) { %>\n        <span class=\"im-th-dropdown im-col-sort dropdown\">\n            <a class=\"im-th-button im-col-sort-indicator\"\n                title=\"<%- Messages.getText('table.header.SortColumn', {dir: sortDirection}) %>\">\n                <%= Icons.icon(sortDirection || 'unsorted') %>\n            </a>\n            <div class=\"dropdown-menu\">\n                <div><%- Messages.getText('table.header.FailedToInitSortMenu') %></div>\n            </div>\n        </span>\n    <% } %>\n\n    <a class=\"im-th-button im-col-remover\"\n        title=\"<%- Messages.getText('table.header.RemoveColumn') %>\">\n        <%= Icons.icon('headerIconRemove') %>\n    </a>\n\n    <a class=\"im-th-button im-col-minumaximiser\"\n        title=\"<%- Messages.getText('table.header.ToggleColumn') %>\">\n        <%= Icons.icon(minimised ? 'headerIconReveal' : 'headerIconHide') %>\n    </a>\n\n    <span class=\"dropdown im-filter-summary im-th-dropdown\">\n        <a class=\"im-th-button im-col-filters dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.FilterTitle', {count: numOfCons}) %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Filter') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitFilter') %></div>\n        </div>\n    </span>\n\n    <span class=\"dropdown im-summary im-th-dropdown\">\n        <a class=\"im-th-button summary-img dropdown-toggle\"\n            title=\"<%- Messages.getText('table.header.ViewSummary') %>\"\n            data-toggle=\"dropdown\" >\n            <%= Icons.icon('Summary') %>\n        </a>\n        <div class=\"dropdown-menu\">\n            <div><%- Messages.getText('table.header.FailedToInitSummary') %></div>\n        </div>\n    </span>\n\n    <% if (isComposed) { %>\n        <a class=\"im-th-button im-col-composed\"\n            title=\"<%- Messages.getText('table.header.Composed', {replaces: replaces}) %>\">\n            <%= Icons.icon('Composed') %>\n        </a>\n    <% } %>\n</div>\n\n<div class=\"<%- colTitleClasses %>\">\n  <div class=\"<%- penultClasses %>\">\n      <%- penult %>\n  </div>\n  <% if (last) { %>\n    <div class=\"im-title-part im-last\">\n        <%- last %>\n    </div>\n  <% } %>\n</div>\n\n</div>\n\n";
-exports.summary_stats = "<table class=\"table\">\n    <thead>\n        <tr>\n            <th><%- Messages.getText('summary.Max') %></th>\n            <th><%- Messages.getText('summary.Min') %></th>\n            <th><%- Messages.getText('summary.Average') %></th>\n            <th><%- Messages.getText('summary.StdDev') %></th>\n        </tr>\n        <tr>\n            <td><%- Messages.getText('Number', {n: max}) %></td>\n            <td><%- Messages.getText('Number', {n: min}) %></td>\n            <td><%- Messages.getText('Number', {n: average}) %></td>\n            <td><%- Messages.getText('Number', {n: stdev}) %></td>\n        </tr>\n    </thead>\n</table>\n\n<div class=\"row im-range-controls\">\n    <div class=\"col-sm-4 im-range-from\">\n        <input type=\"text\"\n               class=\"form-control im-range-min input im-range-val\"\n               value=\"<%- min %>\">\n    </div>\n    <div class=\"col-sm-1 im-ellipsis\">\n        <span>...</span>\n    </div>\n    <div class=\"col-sm-4 im-range-to\">\n        <input type=\"text\"\n               class=\"form-control im-range-max input im-range-val\"\n               value=\"<%- max %>\">\n    </div>\n    <div class=\"col-sm-3 im-range-buttons\">\n        <div class=\"btn-group pull-right\">\n            <button class=\"btn btn-primary disabled\">Apply</button>\n            <button class=\"btn btn-cancel disabled\">Reset</button>\n        </div>\n    </div>\n</div>\n\n<div class=\"slider\"></div>\n\n";
-exports.list_tag = "<%- id %>\n<span class=\"im-remove\" title=\"<%- Messages.getText('lists.RemoveTag') %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n";
-exports.facet_item = "<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%- count %>)\n        </b>\n        <%- item %>\n    </a>\n</dd>\n";
-exports.attribute_value_controls = "<div>\n    <input class=\"form-control im-constraint-value im-value-options im-con-value im-con-value-attr\"\n           type=\"text\"\n           placeholder=\"<%- state.valuePlaceholder %>\"\n           value=\"<%- con.value %>\">\n</div>\n";
-exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
+exports.column_manager_select_list = "<div class=\"im-removal-and-rearrangement\">\n  <button class=\"pull-right btn btn-success im-add-view-path\">\n      <%= Icons.icon('Add') %>\n      <%- Messages.getText('columns.FindColumnToAdd') %>\n  </button>\n\n  <h4>\n    <%- Messages.getText('columns.ColumnsSelected', {columns: collection, removed: hasRubbish}) %>\n  </h4>\n\n  <span class=\"help-block\"><%- Messages.getText('columns.CurrentViewHelp') %></span>\n\n  <div class=\"well im-current-view\">\n\n    <div class=\"row\">\n\n      <div class=\"col-md-6\">\n        <ul class=\"list-group im-active-view im-connected-list\">\n        </ul>\n      </div>\n\n      <div class=\"col-md-6\">\n        <div class=\"im-rubbish-bin\">\n            <%= Icons.icon((hasRubbish ? 'RubbishFull' : 'Rubbish'), 'lg') %>\n            <% if (hasRubbish) { %>\n                <ul class=\"list-group im-removed im-removed-view im-connected-list\">\n                </ul>\n            <% } %>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"im-addition\">\n</div>\n\n";
+exports.column_manager_sort_order_editor = "<% /* requires: collection, available */ %>\n<h4>\n  <%- Messages.getText('columns.CurrentSortOrder', {\n    oes: collection\n  }) %>\n</h4>\n\n<span class=\"help-block\">\n  <%- Messages.getText('columns.CurrentSortOrderHelp') %>\n</span>\n\n<div class=\"well im-current-sort-order\">\n\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n        <% if (collection.length) { %>\n          <ul class=\"list-group im-active-oes im-connected-list\"></ul>\n        <% } else { %>\n          <div class=\"im-empty-collection\">\n            <%- Messages.getText('columns.NoSortOrder') %>\n          </div>\n        <% } %>\n    </div>\n\n    <div class=\"col-md-6\">\n        <% if (available) { %>\n          <div class=\"im-rubbish-bin\">\n            <ul class=\"list-group im-removed im-available-oes im-connected-list\">\n            </ul>\n          </div>\n        <% } %>\n    </div>\n  </div>\n</div>\n";
+exports.column_manager_tabs = "<ul class=\"nav nav-tabs\">\n    <li role=\"presentation\" class=\"<%- classes.view %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.ViewTabTitle') %>\n      </a>\n    </li>\n    <li role=\"presentation\" class=\"<%- classes.sortorder %>\">\n      <a href=\"#\">\n        <%- Messages.getText('columns.SortOrderTabTitle') %>\n      </a>\n    </li>\n</ul>\n";
+exports.column_name_popover = "<% _.each(parts, function (part) { %>\n  <span class=\"im-name-part\"><%- part %></span>\n<% }); %>\n";
+exports.constraint_adder_options = "<% if (showTree) { %>\n    <div class=\"col-sm-5\">\n        <div class=\"input-group\">\n            <span class=\"input-group-addon\">find</span>\n            <input type=\"text\"\n                value=\"<%- filter %>\"\n                class=\"im-tree-filter form-control\" placeholder=\"path\">\n            <span class=\"input-group-btn\">\n                <button class=\"btn btn-default im-clear-filter\" type=\"button\">\n                    <%- Messages.getText('Clear') %>\n                </button>\n            </span>\n        </div>\n    </div>\n<% } %>\n<div class=\"col-sm-7\">\n    <div class=\"btn-group\">\n        <% if (!showTree) { %>\n            <button type=\"button\" class=\"btn btn-default btn-chooser im-choose\">\n                <%= Icons.icon('Tree') %>\n                <span><%- Messages.getText('constraints.BrowseForColumn') %></span>\n            </button>\n        <% } else { %>\n            <button <%= anyNodeChosen ? void 0 : 'disabled' %>\n                    class=\"btn btn-primary im-approve\"\n                    type=\"button\" >\n                <%- Messages.getText('constraints.Choose') %>\n                <% _.each(chosen, function (path, i) { %>\n                    <%- path %>\n                    <% if (i + 2 === chosen.length) { %>\n                        <%- Messages.get('and') %>\n                    <% } else if (i + 2 < chosen.length) { %>\n                        <%- Messages.get('comma') %>\n                    <% } %>\n                <% }); %>\n            </button>\n        <% } %>\n    </div>\n    <div class=\"form-group\">\n        <label class=\"im-tree-option\">\n            <%- Messages.getText('columns.AllowRevRef') %>\n            <input type=\"checkbox\"\n                    class=\"im-allow-rev-ref\"\n                    <%= allowRevRefs ? 'checked' : void 0 %> >\n        </label>\n    </div>\n</div>\n";
+exports.constraint_adder = "<div class=\"im-constraint-adder-options\"></div>\n<div class=\"im-path-finder\"><div>\n<div class=\"im-new-constraint\"></div>\n";
+exports.constraint_editor = "<fieldset class=\"im-constraint-options form-group row\">\n  <label class=\"col-sm-3 path-label\"><%- data.con.displayName %></label>\n  <% if (data.con.op) { %>\n    <div class=\"im-operator col-sm-3\">\n        <select class=\"form-control im-ops\">\n        <option selected><%- data.con.op %></option>\n        <% data.otherOperators.forEach(function (op) { %>\n            <option><%- op %></option>\n        <% }); %>\n        </select>\n    </div>\n  <% } %>\n  <div class=\"col-sm-6 im-value-options im-value-section\">\n  </div>\n</fieldset>\n\n<div class=\"btn-group im-con-buttons\">\n  <% data.buttons.forEach(function (b, i) { %>\n  <button class=\"btn btn-<%= (i === 0) ? 'primary' : 'default' %> <%- b.classes %>\">\n    <%- data.messages.getText(b.key) %>\n  </button>\n  <% }); %>\n</div>\n";
+exports.constraint_summary = "<% _.each(labels, function (label) { %>\n  <li>        \n    <span class=\"label label-<%- label.type %>\">\n      <% if (_.include(['error', 'warning'], label.type)) { %>\n        <%= Icons.icon('Error') %>\n        <%- Messages.getText('consummary.' + label.content) %>\n      <% } else if (label.type === 'path') { %>\n        <% _.each(label.content.split(' > '), function (part) { %>\n          <span class=\"im-name-part\"><%- part %></span>\n        <% }); %>\n      <% } else { %>\n        <% if (label.icon) { %><%= Icons.icon(label.icon) %><% } %>\n        <%- label.content %>\n      <% } %>\n    </span>\n  </li>\n<% }); %>\n";
+exports.constraints_heading = "<% /* requires constraints.length */ %>\n<h3>\n  <%- Messages.getText('constraints.Heading', {n: constraints.length}) %>\n</h3>\n";
+exports.count_summary = "<% if (size && count) { %>\n  <% var msg = (size == 0 ? '.ShowingAll' : '.ShowingRange'); %>\n  <% ['xs', 'sm', 'md', 'lg'].forEach(function (pageSize) { %>\n    <span class=\"visible-<%= pageSize %>-inline\">\n      <%- Messages.getText('table.' + pageSize + msg, page) %>\n    </span>\n  <% }); %>\n<% } %>\n";
 exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role=\"menu\" class=\"im-export-summary\">\n    <% _.each(formats, function (icon, param) { %>\n      <li role=\"presentation\">\n        <a role=\"menuitem\"\n            href=\"<%= query.getExportURI(param) %>&summaryPath=<%= path %>\">\n            <%= Icons.icon(icon) %>\n            <%- icon.toUpperCase() %>\n        </a>\n      </li>\n    <% }); %>\n</ul>\n";
+exports.error_message = "<% if (error) { %>\n    <div class=\"alert alert-<%= error.level || 'danger' %>\">\n        <%= icons.icon('Error') %>\n        <span class=\"im-conbuilder-error\">\n            <%- error.message || error %>\n        </span>\n    </div>\n<% } %>\n\n";
+exports.export_add_column_control = "<div class=\"row\">\n    <div class=\"col-sm-1 im-help\"\n         title=\"<%- Messages.getText('export.help.AdditionalCols') %>\">\n        <%= Icons.icon('Help', 'lg') %>\n    </div>\n    <div class=\"col-sm-11 form-group\">\n        <input type=\"text\" class=\"form-control\">\n    </div>\n</div>\n";
+exports.export_column_control = "<span class=\"badge\"><%- item.getType() %></span>\n<span class=\"im-active-state\">\n    <% if (active) { %>\n        <%= Icons.icon('Check') %>\n    <% } else { %>\n        <%= Icons.icon('UnCheck') %>\n    <% } %>\n</span>\n<%- name %>\n";
+exports.export_column_controls = "<h4><%- Messages.getText('export.heading.Columns') %></h4>\n\n<ul class=\"list-group\">\n</ul>\n\n<div class=\"row controls\"></div>\n";
+exports.export_compression_controls = "<h4><%- Messages.getText('export.category.Compression', state) %></h4>\n\n<div class=\"checkbox im-compress\">\n    <label>\n        <input type=\"checkbox\" <%= compress ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.UseCompression') %>\n    </label>\n</div>\n\n<fieldset <%= compress ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"gzip\"\n                <%= (compression === 'gzip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseGZIP') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"zip\"\n                <%= (compression === 'zip') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.UseZIP') %>\n        </label>\n    </div>\n</fieldset>\n\n";
+exports.export_destination_galaxy_options = "<div class=\"form-group\">\n    <label><%- Messages.getText('GalaxyURILabel') %></label>\n    <input type=\"url\"\n           class=\"form-control im-galaxy-uri-param\"\n           value=\"<%- Galaxy.Current || Galaxy.Main %>\">\n</div>\n<div class=\"checkbox im-save-galaxy\">\n    <label>\n        <input type=\"checkbox\" <%= (Galaxy.Save) ? 'checked' : void 0 %>>\n        <%- Messages.getText('SaveGalaxyURL') %></label>\n    </label>\n</div>\n";
+exports.export_destination_options = "<div class=\"form-group im-param-name\">\n    <label><%- Messages.getText('export.param.Name') %></label>\n    <div class=\"input-group\">\n      <input type=\"text\"\n             value=\"<%- filename %>\"\n             class=\"form-control\"\n             placeholder=\"<%- Messages.getText('export.param.Name') %>\"\n             aria-label=\"<%- Messages.getText('export.param.Name') %>\">\n      <div class=\"input-group-btn\">\n        <button type=\"button\"\n                class=\"btn btn-default dropdown-toggle\"\n                data-toggle=\"dropdown\"\n                aria-expanded=\"false\">\n          .<%- format %>\n          <span class=\"caret\"></span>\n        </button>\n        <ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n          <% _.chain(formats).groupBy('group').each(function (fmts, grp) { %>\n            <% if (this.i++) { %><li class=\"divider\"></li><% } %>\n            <% _.each(fmts, function (fmt) { %>\n                <li>\n                    <a href=\"#\"\n                       class=\"im-fmt-<%- fmt.id %>\">\n                      <%= Icons.icon(fmt.icon) %>\n                      <%- Messages.getText(fmt.name) %>\n                    </a>\n                </li>\n            <% }); %>\n          <% }, {i: 0}); %>\n        </ul>\n      </div>\n    </div>\n</div>\n\n<% if (format && format.desc) { %>\n  <div class=\"alert alert-info\">\n    <%- Messages.getText(format.desc) %>\n  </div>\n<% } %>\n\n<div class=\"row\">\n    <div class=\"col-sm-6 im-param-dest\">\n    </div>\n    <div class=\"col-sm-6 im-dest-opts\">\n    </div>\n</div>\n";
+exports.export_destination_radios = "<label><%- Messages.getText('export.param.Destination') %></label>\n<% _.each(destinations, function (d) { %>\n    <div class=\"radio im-dest-<%- d %>\">\n        <label>\n            <input type=\"radio\"\n                    name=\"dest\"\n                    <%= (d === dest) ? 'checked' : void 0 %>>\n            <%- Messages.getText(d) %>\n        </label>\n    </div>\n<% }); %>\n\n";
+exports.export_dialogue_footer = "<% if (linkToFile) { %>\n    <div class=\"pull-left alert alert-info\">\n        <%- Messages.getText('export.cloud.FileLocation', {cloud: dest}) %>\n        <a href=\"<%= linkToFile %>\" target=\"_blank\"><%- linkToFile %></a>\n    </div>\n<% } %>\n\n<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n\n<% if (dest === 'download') { %>\n    <a class=\"btn btn-primary\"\n        href=\"<%- exportURI %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <button type=\"button\"\n            <%= (error || doneness != null) ? 'disabled' : void 0 %>\n            class=\"btn btn-primary\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </button>\n<% } %>\n\n";
+exports.export_dialogue = "<div class=\"row\">\n    <nav class=\"col-sm-3 menu\">\n    </nav>\n    <div class=\"col-sm-9 main\">\n    </div>\n</div>\n";
+exports.export_flat_file_options = "<h4><%- Messages.getText('export.category.ColumnHeaders', state) %></h4>\n\n<div class=\"checkbox im-headers\">\n    <label>\n        <input type=\"checkbox\" <%= headers ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.AddHeaders') %>\n    </label>\n</div>\n\n<fieldset <%= headers ? void 0 : 'disabled' %>>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-friendly\"\n                <%= (headerType === 'friendly') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.FriendlyHeaders') %>\n        </label>\n    </div>\n\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                name=\"hdrs-path\"\n                <%= (headerType === 'path') ? 'checked' : void 0 %>>\n            <%- Messages.getText('export.ff.PathHeaders') %>\n        </label>\n    </div>\n</fieldset>\n\n";
+exports.export_format_controls = "<h4 class=\"im-title\"></h4>\n\n<% _.each(formats, function (formatDef) { %>\n    <div class=\"radio\">\n        <label>\n            <input type=\"radio\"\n                   name=\"format\"\n                   value=\"<%= formatDef.id %>\"\n                   <%= (formatDef.id === format) ? 'checked' : void 0 %>>\n            <%= Icons.icon(formatDef.icon) %>\n            <%= Messages.getText(formatDef.desc) %>\n        </label>\n    </div>\n<% }); %>\n";
+exports.export_json_options = "<h3><%- Messages.getText('export.category.Options') %></h3>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"rows\"\n               <%= (jsonFormat === 'rows') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Rows') %>\n        <pre><%- Messages.getText('export.json.RowsExample') %></pre>\n    </label>\n</div>\n\n<div class=\"radio\">\n    <label>\n        <input type=\"radio\"\n               name=\"objects\"\n               <%= (jsonFormat === 'objects') ? 'checked' : void 0 %>>\n        <%- Messages.getText('export.json.Objects') %>\n        <pre><%- Messages.getText('export.json.ObjExample') %></pre>\n    </label>\n</div>\n\n<% if ((size || start) && jsonFormat === 'objects') { %>\n    <div class=\"alert alert-warning\">\n        <h4><%- Messages.get('Warning') %></h4>\n        <p><%- Messages.get('export.json.ObjWarning') %></p>\n    </div>\n<% } %>\n\n";
+exports.export_preview = "<div class=\"form-group im-export-formats\">\n  <label><%- Messages.getText('export.param.Format') %></label>\n  <select class=\"form-control\">\n    <% _.each(formats, function (fmt) { %>\n      <option value=\"<%- fmt.id %>\"\n              <%= (fmt.id === format.id) ? 'selected' : void 0 %>>\n        <%- Messages.getText(fmt.name) %>\n      </option>\n    <% }); %>\n  </select>\n</div>\n\n<pre class=\"im-export-preview\">\n<%- state.preview %>\n</pre>\n\n<div class=\"alert alert-info\">\n    <strong class=\"nb\">nb</strong>\n    <%- Messages.getText('export.preview.Limit') %>\n</div>\n";
+exports.export_row_controls = "<h4 class=\"im-title\"></h4>\n\n<div class=\"form-group\">\n    <label class=\"size-label\"></label>\n    <input name=\"size\"\n           step=\"1\"\n           type=\"range\"\n           min=\"1\"\n           max=\"<%= max %>\"\n           value=\"<%= size || max %>\">\n</div>\n\n<div class=\"form-group\">\n    <label class=\"start-label\"></label>\n    <input name=\"start\"\n           step=\"1\"\n           type=\"range\"\n           min=\"0\"\n           max=\"<%= max - 1 %>\"\n           value=\"<%= start %>\">\n</div>\n\n<div class=\"form-group im-reset\">\n</div>\n";
+exports.export_rows_reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n        <%- Messages.getText('export.ResetRowSelection') %>\n</button>\n\n<% if (tablePage) { %>\n    <button type=\"button\"\n            <%= (tablePage.start === start && tablePage.size === size) ? 'disabled' : void 0 %>\n            class=\"btn btn-default im-set-table-page\">\n            <%- Messages.getText('export.SetTablePage') %>\n    </button>\n<% } %>\n        \n";
+exports.export_tab_menu = "<% _.each(data.tabs, function (tabDef) { %>\n  <li role=\"presentation\" class=\"im-tab-<%= tabDef.ident %> <%= data.tab === tabDef.ident ? 'active' : void 0 %>\">\n    <a><%- data.Messages.getText(tabDef.key, data) %></a>\n  </li>\n<% }); %>\n";
+exports.extra_value_controls = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- messages.getText('conbuilder.ExtraPlaceholder') %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
+exports.facet_frequency = "<% /* requires: error, initialized */ %>\n<% if (error) { %>\n    <% /* Oh noes - something went wrong. */ %>\n    <div class=\"alert alert-warning\">\n        <%= Icons.icon('Error') %>\n        <strong><%- Messages.getText('Error') %></strong>\n        <% if (error.key) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } else if (initialized) { %>\n    <% /* Huzzah - there is data, which will be added here as child views */ %>\n<% } else { %>\n    <% /* Boo - no data. Show an indeterminate progress bar while we wait. */ %>\n    <div class=\"progress\">\n      <div class=\"progress-bar progress-bar-info progress-bar-striped active\"\n           role=\"progressbar\"\n           style=\"width:100%\">\n        <span class=\"sr-only\"><%- Messages.getText('Loading') %>.</span>\n      </div>\n    </div>\n<% } %>\n";
+exports.facet_item = "<dd>\n    <a href=#>\n        <b class=\"im-facet-count pull-right\">\n            (<%- count %>)\n        </b>\n        <%- item %>\n    </a>\n</dd>\n";
+exports.facet_row = "<% /* requires: selected, symbol, item, count, percent, opacity, share */ %>\n<td class=\"im-selector-col\">\n  <span><%- symbol %></span>\n  <div class=\"checkbox\"></div>\n</td>\n\n<td class=\"im-item-col\">\n  <% if (item != null) { %>\n    <%- item %>\n  <% } else { %>\n    <span class=null-value>&nbsp;</span>\n  <% } %>\n</td>\n\n<td class=\"im-count-col\">\n  <% if (max > 1) { %>\n    <div class=\"im-facet-bar\"\n         style=\"width:<%- percent %>%;background:<%- Messages.getText('summary.FacetBar', {opacity: opacity}) %>\">\n    </div>\n  <% } %>\n  <span class=\"im-count\"><%- numToString(count) %></span>\n</td>\n\n<% if (share != null) { %>\n    <td class=\"im-percent-col\"><i><%- share.toFixed() %>%</i></td>\n<% } %>\n";
+exports.facet_title = "<%= Icons.icon(state.open ? 'Expanded' : 'Collapsed') %>\n<span class=\"im-facet-title\"><%- pathName %></span>\n&nbsp;\n<span class=\"im-facet-count\"><%- Messages.getText('Number', {n: got} %></span>\n";
+exports.formatted_sorting = "<a> <% /* requires Icons, direction and name */ %>\n    <%= Icons.icon(direction || 'unsorted') %>\n    <span class=\"im-sort-path\"><%- name %></span>\n</a>\n";
+exports.input_with_button = "<input type=\"text\" class=\"form-control\"\n       value=\"<%- value %>\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\">\n<span class=\"input-group-btn\">\n  <button class=\"btn btn-default\" type=\"button\">\n    <%- Messages.getText(button) %>\n  </button>\n</span>\n\n";
+exports.input_with_label = "<label><%- Messages.getText(label) %></label>\n<input class=\"form-control\"\n       placeholder=\"<%- Messages.getText(placeholder) %>\"\n       value=\"<%- value %>\">\n<% if (helpMessage) { %>\n  <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n        class=\"help-block\">\n        <%- Messages.getText(helpMessage) %>\n  </span>\n<% } %>\n";
+exports.join_manager_body = "<ul class=\"list-group\"></ul>\n\n<div class=\"alert alert-info\">\n  <%= Icons.icon('Info') %>\n  <strong class=\"im-clickable\">\n    <%- Messages.getText('joins.ExplanationTitle') %>\n  </strong>\n  <p class=\"<%= (!state.explaining) ? 'im-latent' : void 0 %>\">\n    <%- Messages.getText('joins.Explanation') %>\n  </p>\n</div>\n";
+exports.join_style = "<% /* requires innerJoinBtn, outerJoinBtn */ %>\n<div class=\"btn-group pull-right\">\n  <button class=\"<%- innerJoinBtn %>\">\n    <%- Messages.getText('joins.Inner') %>\n  </button>\n  <button class=\"<%- outerJoinBtn %>\">\n    <%- Messages.getText('joins.Outer') %>\n  </button>\n</div>\n";
+exports.large_table_disuader = "<div class=\"modal-dialog\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>\n            <%= size %> rows - are you sure?\n            </h3>\n        </div>\n\n        <div class=\"modal-body\">\n\n            <p><%= Messages.getText('largetable.appeal', {size: size}) %></p>\n\n            <ul>\n                <li>\n                    <p>\n                        If you want to see all the data, you can page \n                        <span class=\"label label-info\">\n                            <%= Icons.icon('GoBack') %>\n                            backwards\n                        </span>\n                        and \n                        <span class=\"label label-info\">\n                            forwards\n                            <%= Icons.icon('GoForward') %>\n                        </span>\n                        through the results.\n                    </p>\n                    <div class=\"btn-group\">\n                        <a class=\"btn btn-default im-alternative-action page-backwards\" href=\"#\">\n                            <%= Icons.icon('GoBack') %>\n                            go one page back\n                        </a>\n                        <a class=\"btn btn-default im-alternative-action page-forwards\" href=\"#\">\n                            go one page forward\n                            <%= Icons.icon('GoForward') %>\n                        </a>\n                    </div>\n                </li>\n\n                <li>\n                    <p>\n                        If you are looking for something specific, you can use the\n                        <span class=\"label label-info\">filtering tools</span>\n                        to narrow down the result set. Then you \n                        might be able to fit the items you are interested in in a\n                        single page.\n                    </p>\n                    <button class=\"btn btn-default im-alternative-action add-filter-dialogue\">\n                        <%= Icons.icon('Filter') %>\n                        Add a new filter.\n                    </button>\n                </li>\n\n                <li>\n                    <p>\n                        If you want to get and save the results, we suggest\n                        <span class=\"label label-info\">downloading</span>\n                        the results in a format that suits you. \n                    <p>\n                    <button class=\"btn btn-default im-alternative-action download-menu\">\n                        <%= Icons.icon('Export') %>\n                        Open the download menu.\n                    </buttn>\n                </li>\n\n            </ul>\n        </div>\n\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary pull-right\">\n                <%- Messages.getText('largetable.ok', {size: size}) %>\n            </button>\n            <button class=\"btn pull-left close\">\n                <%- Messages.getText('largetable.abort') %>\n            </button>\n        </div>\n    </div>\n</div>\n";
+exports.list_dialogue_body = "<div class=\"im-list-name\"></div>\n\n<div class=\"row\">\n  <div class=\"col-sm-12 im-more-options\">\n    <h4>\n      <%= Icons.icon('Options') %>\n      <span class=\"msg\"><%- Messages.getText('lists.ShowExtraOptions', state) %></span>\n    </h4>\n  </div>\n</div>\n\n<div class=\"im-optional-attributes\" style=\"<%- state.minimised ? 'display:none' : void 0 %>\">\n  <div class=\"im-list-desc\"></div>\n\n  <div class=\"well im-tags\">\n    <div class=\"row im-active-tags\">\n    </div>\n    <div class=\"row\">\n      <div class=\"col-sm-6 im-apology\">\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"im-next-tag\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
+exports.list_dialogue_button_node = "<a href=\"#\">\n    <strong>\n        <%- displayName || path %>\n    </strong>\n    <% if (state.count) { %>\n        (<%- numToString(state.count) %>\n        <%- pluralise((typeName || type), state.count) %>)\n    <% } %>\n</a>\n";
+exports.list_dialogue_button = "<button class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\">\n  <%= Icons.icon('Lists') %>\n  <span class=\"hidden-xxs\">\n    <%- Messages.getText('lists.SaveAsList') %>\n  </span>\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu dropdown-menu-right\" role=\"menu\">\n    <li class=\"divider\"></li>\n    <li>\n        <a class=\"im-pick-items\" href=\"#\">\n            <%- Messages.getText('lists.StartPicking') %>\n        </a>\n    </li>\n    <li class=\"divider\"></li>\n    <li>\n        <div class=\"btn-group btn-group-justified\" role=\"group\">\n            <a role=\"button\" class=\"<%- createBtnClasses %>\">\n                <%- Messages.getText('lists.Create') %>\n            </a>\n            <a role=\"button\" class=\"<%- appendBtnClasses %>\">\n                <%- Messages.getText('lists.Append') %>\n            </a>\n        </div>\n    </li>\n</ul>\n";
+exports.list_dialogue_expander = "<button class=\"btn btn-default im-expand-dialogue <%= minimised ? 'active' : void 0 %>\">\n  <%- Messages.getText('lists.picker.Collapse') %>\n</button>\n";
+exports.list_tag = "<%- id %>\n<span class=\"im-remove\" title=\"<%- Messages.getText('lists.RemoveTag') %>\">\n    <%= Icons.icon('Remove') %>\n</span>\n";
+exports.list_tags_apology = "<% if (!hasTags) { %>\n  <span>\n    <%- Messages.getText('lists.NoTags') %>\n  </span>\n<% } %>\n";
+exports.list_value_controls = "<% if (suitableLists.length) { %>\n    <%= select(suitableLists, isSelected, 'span7 im-value-options im-con-value im-con-value-list form-control', formatList, getOptionValue) %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLists') %>\n<% } %>\n";
+exports.loop_value_controls = "<% if (candidateLoops.length) { %>\n    <%= select(candidateLoops, isSelected, 'form-control im-value-options im-con-value') %>\n<% } else { %>\n    <%- messages.getText('conbuilder.NoSuitableLoops') %>\n<% } %>\n";
+exports.modal_base = "<div class=\"modal-dialog <%- modalSize %>\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <button type=\"button\" class=\"close\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n            <h4 class=\"modal-title\"><%- title %></h4>\n        </div>\n        <div class=\"modal-body\">\n            <%= body %>\n        </div>\n    </div>\n</div>\n";
+exports.modal_dialogue_opener = "<button class=\"btn btn-default im-open-dialogue\">\n  <%= Icons.icon(labels.ICON) %>\n  <span class=\"im-hidden-sm hidden-sm hidden-xs\">\n    <%- Messages.getText(labels.LONG, state) %>\n  </span>\n  <span class=\"im-visible-sm-inline visible-sm-inline\">\n    <%- Messages.getText(labels.SHORT, state) %>\n  <span>\n</button>\n";
+exports.modal_error = "<% /* Renders an alert box at various levels, with appropriate icons and messages */ %>\n<% if (error) { %>\n    <div class=\"pull-left alert <%- errorAlert(error) %>\">\n        <% if (!error.cannotDismiss) { %>\n            <button type=\"button\" class=\"dismiss\">\n                <span aria-hidden=\"true\">&times;</span>\n                <span class=\"sr-only\">Close</span>\n            </button>\n        <% } %>\n        <%= Icons.icon(errorIcon(error)) %>\n        <strong><%- Messages.getText('ErrorTitle', error) %></strong>\n        <% if (error.key != null) { %>\n            <%- Messages.getText(error.key) %>\n        <% } else { %>\n            <%- error.message || error %>\n        <% } %>\n    </div>\n<% } %>\n";
+exports.modal_footer = "<button type=\"button\" class=\"btn btn-cancel\">\n    <%- dismissAction %>\n</button>\n<% if (exportLink != null) { %>\n    <a class=\"btn btn-primary\"\n        <%= (error) ? 'disabled' : void 0 %>\n        href=\"<%- exportLink %>\">\n        <%= Icons.icon(primaryIcon) %>\n        <%- primaryAction %>\n    </a>\n<% } else { %>\n    <% /* We need the wrapper to deal with the fact that tooltips do not\n        * work on disabled buttons. */ %>\n    <div class=\"im-tooltip-wrapper\"\n        <% if (disabled && disabledReason) { %>\n          title=\"<%- Messages.getText(disabledReason)  %>\"\n        <% } %>>\n        <button type=\"button\"\n                <%= (error || disabled) ? 'disabled' : void 0 %>\n                class=\"btn btn-primary\">\n            <%= Icons.icon(primaryIcon) %>\n            <%- primaryAction %>\n        </button>\n    </div>\n<% } %>\n";
+exports.new_filter_dialogue = "<div class=\"modal-body\">\n</div>\n<div class=\"modal-footer\">\n    <button class=\"disabled btn btn-primary pull-right im-add-constraint\">\n        <%- Messages.getText('constraints.AddFilter') %>\n    </button>\n    <button class=\"btn im-close pull-left\">\n        <%- Messages.getText('Cancel') %>\n        Cancel\n    </button>\n</div>\n";
+exports.no_results = "<% /* requires: selectList :: [], canUndo :: bool */ %>\n<td colspan=\"<%- selectList.length %>\">\n  <div class=\"alert alert-warning\">\n    <% if (canUndo) { %>\n      <button class=\"pull-right btn btn-large btn-default btn-undo\">\n        <%= Icons.icon('Undo') %>\n        <%- Messages.getText('Undo') %>\n      </button>\n    <% } %>\n    <strong><%- Messages.getText('table.Empty') %></strong>\n    <p><%- Messages.getText('table.EmptyWhy') %></p>\n  </div>\n</td>\n";
+exports.null_value = "<span class=\"im-null-value\">&nbsp;</span>\n";
+exports.only_one_item = "<div class=\"alert alert-info\">\n    <%= Icons.icon('Info') %>\n    <%= Messages.getText('summary.OnlyOne', {names: state, item: items[0]}) %>\n</div>\n\n";
+exports.page_sizer = "<% if (sizes.length) { %>\n    <label>\n        <span class=\"hidden-tablet\">Rows per page:</span>\n    </label>\n    <select class=\"form-control\" title=\"Rows per page\">\n        <% sizes.forEach(function (s) { %>\n            <option value=\"<%= s[0] %>\" <%= (s[0] === size) && 'selected' %>>\n            <%= s[1] || s[0] %>\n            </option>\n        <% }); %>\n    </select>\n<% } %>\n";
+exports.pagination = "<ul class=\"pagination\">\n    <li class=\"hidden-xs <%= gotoStart || 'im-goto-start' %>\" title=\"Go to start\">\n        <a class=\"im-pagination-button\">&#x21e4;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveBack || 'im-go-back-5' %>\"\n        title=\"Go back five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x219e;</a>\n    </li>\n    <li class=\"<%= goOneBack || 'im-go-back-1' %>\"\n        title=\"Go to previous page\">\n        <a class=\"im-pagination-button\">&larr;</a>\n    </li>\n    <li class=\"im-current-page\">\n        <% if (useSelect) { %>\n          <form class=\"im-page-form form form-inline\">\n            <select class=\"form-control\">\n              <% for (i = 0; i < max; i++) { %>\n                <option\n                  <%= selected(i) ? 'selected' : void 0 %>\n                  value=\"<%= i * size %>\">\n                  page <%= i + 1 %>\n                </option>\n              <% } %>\n            </select>\n          </form>\n        <% } else { %>\n          <a href=\"#\">&hellip;</a>\n          <form class=\"im-page-form form form-inline\"\n                style=\"display:none;\">\n            <div class=\"control-group\">\n                <input type=\"number\"\n                       value=\"<%= currentPage %>\"\n                       max=\"<%= max %>\"\n                       min=\"<%= min %>\"\n                       class=\"form-control im-page-number\">\n            </div>\n          </form>\n        <% } %>\n    </li>\n    <li class=\"<%= goOneForward || 'im-go-fwd-1' %>\"\n        title=\"Go to next page\">\n        <a class=\"im-pagination-button\">&rarr;</a>\n    </li>\n    <li class=\"hidden-xs hidden-sm <%= goFiveForward || 'im-go-fwd-5' %>\"\n        title=\"Go forward five pages\"\n        class=\"visible-desktop\">\n        <a class=\"im-pagination-button\">&#x21a0;</a>\n    </li>\n    <li class=\"hidden-xs <%= gotoEnd || 'im-goto-end' %>\"\n        title=\"Go to last page\">\n        <a class=\"im-pagination-button\">&#x21e5;</a>\n    </li>\n</ul>\n";
+exports.progress_bar = "<% /* requires: doneness (float: 0 <= i <= 1) */ %>\n<% if (doneness != null && doneness >= 0) { %>\n    <div class=\"progress\">\n        <div class=\"progress-bar progress-bar-striped active\"\n             role=\"progressbar\"\n             aria-valuenow=\"<%- doneness %>\"\n             aria-valuemin=\"0\"\n             aria-valuemax=\"1\"\n             style=\"width: <%- 100 * doneness %>%;\">\n            <% if (doneness < 1) { %>\n              <span class=\"sr-only\">\n                <%- Math.round(100 * doneness) %>% <%- Messages.getText('Complete') %>\n              </span>\n            <% } %>\n        </div>\n    </div>\n<% } %>\n";
+exports.reset_button = "<button type=\"button\"\n        <%= (isAll) ? 'disabled' : void 0 %>\n        class=\"btn btn-default btn-reset\">\n    <%- Messages.getText('Reset') %>\n</button>\n";
+exports.row_surrogate = "<%= Icons.icon(above ? 'ASC' : 'DESC') %>\n<%- item %>: <%- count %>\n";
+exports.select_with_label = "<label><%- Messages.getText(label) %></label>\n\n<% if (options.length) { %>\n    <select class=\"form-control\">\n        <% _.each(options, function (option) { %>\n            <option selected=\"<%= selected(option) ? 'selected' : void 0 %>\"\n                    value=\"<%- option.name %>\">\n                <%- Messages.getText(optionLabel, option) %>\n            </option>\n        <% }) %>\n    </select>\n    <% if (helpMessage) { %>\n        <span style=\"display:<%= hasProblem ? 'block' : 'none' %>\"\n              class=\"help-block\">\n                <%- Messages.getText(helpMessage) %>\n        </span>\n    <% } %>\n<% } else { %>\n    <span class=\"help-block\">\n        <%- Messages.getText(noOptionsMessage, {model: model}) %>\n    </span>\n<% } %>\n\n";
+exports.select = "<select class=\"<%- data.classes %>\">\n  <% _.each(data.options, function (opt) { %>\n    <option value=\"<%- data.key(opt) %>\"\n      <%- data.selectedTest(opt) ? 'selected' : void 0 %> >\n      <% if (data.contentHandler) { %>\n        <%- data.contentHandler(opt) %>\n      <% } else { %>\n        <%- opt.text %>\n      <% } %>\n    </option>\n  <% }); %>\n</select>\n";
+exports.slider = "<div class=\"im-slider\">\n    <% _.each(markers, function(marker) { %>\n        <span class=\"im-slider-marker <%- (marker.percent > 50) ? 'high' : 'low' %>\"\n              style=\"left:<%- marker.percent %>%\">\n            <%- marker.value %>\n        </span>\n    <% }); %>\n</div>\n";
+exports.summary_heading = "<% /* requires:\n    *  numeric, available, got, uniqueValues\n    *  state.typeName, state.endName\n    *  filtered \n    */ %>\n<h3>\n  <% if (numeric) { %>\n    <%- Messages.getText('summary.NumericDistribution', {n: available}) %>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n  <% } else { %> \n    <span class=\"im-item-got\">\n      <%- Messages.getText('summary.Got', {available: available, got: got}) %>\n    </span>\n    <span class=\"im-item-available\">\n      <%- Messages.getText('Number', {n: available}) %>\n    </span>\n    <span class=\"im-type-name\"><%- state.typeName %></span>\n    <span class=\"im-attr-name\"><%- pluralise(state.endName, got) %></span>\n    <span class=\"im-item-total\">\n      <%- Messages.getText('summary.Total', {\n            filtered: filtered,\n            total: uniqueValues\n          }) %>\n    </span>\n  <% } %> \n</h3>\n";
+exports.summary_items_controls = "<button class=\"btn btn-default pull-right im-download\">\n  <%= Icons.icon('Download') %>\n  <%- Messages.getText('summary.DownloadData') %>\n</button>\n\n<div class=\"btn-group im-filter-group\">\n  <button type=\"submit\"\n        class=\"btn btn-primary im-filter-in\"\n        <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <%- Messages.getText('Filter') %>\n  </button>\n  <button class=\"btn btn-primary dropdown-toggle\" \n          title=\"<%- Messages.getText('summary.SelectFilter') %>\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>>\n    <span class=\"caret\"></span>\n  </button>\n  <ul class=\"dropdown-menu\">\n    <li>\n      <a href=\"#\" class=\"im-filter-in\">\n        <%- Messages.getText('summary.Include') %>\n      </a>\n    </li>\n    <li>\n      <a href=\"#\" class=\"im-filter-out\">\n        <%- Messages.getText('summary.Exclude') %>\n      </a>\n    </li>\n  </ul>\n</div>\n\n<div class=\"btn-group\">\n  <button class=\"btn btn-default btn-cancel\"\n          <%= (anyItemSelected) ? void 0 : 'disabled' %>\n          title=\"<%- Messages.getText('summary.Reset') %>\">\n    <%= Icons.icon('Undo') %>\n  </button>\n  <% if (!(/boolean/i).test(type)) { %>\n    <button class=\"btn btn-default btn-toggle-selection\"\n            title=\"<%- Messages.getText('summary.Toggle') %>\">\n        <%= Icons.icon('Toggle') %>\n    </button>\n  <% } %>\n</div>\n\n";
+exports.summary_items = "<% if (!(/boolean/i).test(type)) { %>\n    <div class=\"input-group im-filter-group\">\n    <span class=\"input-group-btn\">\n        <button class=\"btn btn-default im-clear-value-filter\">\n        <%= Icons.icon('Refresh') %>\n        </button>\n    </span>\n    <input type=\"search\" class=\"form-control im-filter-values\"\n        value=\"<%- filterTerm %>\"\n        placeholder=\"<%- Messages.getText('summary.FilterValuesPlaceholder') %>\">\n    </div>\n<% } %>\n\n<div class=\"im-item-table\">\n  <table class=\"table table-condensed table-striped\">\n    <colgroup>\n      <% _.each(colClasses, function (cls) { %>\n        <col class=\"<%- cls %>\">\n      <% }); %>\n    </colgroup>\n    <thead>\n      <tr>\n        <% _.each(colHeaders, function (hdr) { %>\n          <th><%- hdr %></th>\n        <% }); %>\n      </tr>\n    </thead>\n    <tbody class=\"scrollable\">\n    </tbody>\n  </table>\n\n  <% if (hasMore) { %>\n    <div class=\"im-load-more\">\n      <%- Messages.getText('summary.MoreItems') %>\n    </div>\n  <% } %>\n</div>\n\n<div class=\"im-summary-controls\">\n</div>\n";
+exports.summary_no_results = "<div class=\"alert alert-warning\">\n    <%= Icons.icon('Warning') %>\n    <%- Messages.getText('summary.NoResults', {path: pathName}) %>\n</div>\n\n";
+exports.summary_selected_count = "<% if (state.selectedCount) { %>\n    <div class=\"alert alert-info im-selected-count\">\n        <strong>\n            <%- Messages.getText('summary.SelectedCount', state) %>\n        </strong>\n    </div>\n<% } %>\n";
+exports.summary_stats = "<table class=\"table\">\n    <thead>\n        <tr>\n            <th><%- Messages.getText('summary.Max') %></th>\n            <th><%- Messages.getText('summary.Min') %></th>\n            <th><%- Messages.getText('summary.Average') %></th>\n            <th><%- Messages.getText('summary.StdDev') %></th>\n        </tr>\n        <tr>\n            <td><%- Messages.getText('Number', {n: max}) %></td>\n            <td><%- Messages.getText('Number', {n: min}) %></td>\n            <td><%- Messages.getText('Number', {n: average}) %></td>\n            <td><%- Messages.getText('Number', {n: stdev}) %></td>\n        </tr>\n    </thead>\n</table>\n\n<div class=\"row im-range-controls\">\n    <div class=\"col-sm-4 im-range-from\">\n        <input type=\"text\"\n               class=\"form-control im-range-min input im-range-val\"\n               value=\"<%- min %>\">\n    </div>\n    <div class=\"col-sm-1 im-ellipsis\">\n        <span>...</span>\n    </div>\n    <div class=\"col-sm-4 im-range-to\">\n        <input type=\"text\"\n               class=\"form-control im-range-max input im-range-val\"\n               value=\"<%- max %>\">\n    </div>\n    <div class=\"col-sm-3 im-range-buttons\">\n        <div class=\"btn-group pull-right\">\n            <button class=\"btn btn-primary disabled\">Apply</button>\n            <button class=\"btn btn-cancel disabled\">Reset</button>\n        </div>\n    </div>\n</div>\n\n<div class=\"slider\"></div>\n\n";
+exports.table_building = "<h2><%- Messages.getText('table.Building') %></h2>\n<%= IndeterminateProgressBar %>\n";
+exports.table_cell = "<% if (state.minimised) { %>\n  &hellip;\n<% } else if (entity.id == null) { %>\n  <% if (value != null && formattedValue != null) { %>\n    <span class=\"im-displayed-value\"><%= value %></span>\n  <% } else if (entity.isNULL) { %>\n    <span class=\"im-null-entity\">\n      <%- Messages.getText('table.cell.NullEntity', {type: entity['class']}) %>\n    </span>\n  <% } else { %>\n    <%= NULL_VALUE %>\n  <% } %>\n<% } else { %>\n  <input\n    class=\"im-list-chooser\"\n    type=\"checkbox\"\n    <% if (input.checked) { %>checked<% } %>\n    <% if (input.disabled) { %>disabled<% } %>\n    style=\"display:<%- input.display %>\">\n\n  <a class=\"im-cell-link\" target=\"<%- target %>\" href=\"<%= url %>\">\n\n    <% if (isForeign) { %>\n      <% if (icon) { %>\n        <img src=\"<%= icon %>\" class=\"im-external-link\"></img>\n      <% } else { %>\n        <%= Icons.icon('ExternalLink') %>\n      <% } %>\n    <% } %>\n\n    <% if (value != null && formattedValue != null) { %>\n      <span class=\"im-displayed-value\"><%= formattedValue %></span>\n    <% } else { %>\n      <%= NULL_VALUE %>\n    <% } %>\n\n  </a>\n\n  <% if (value != null && field === 'url' && rawValue != url) { %>\n    <a class=\"im-cell-link external\" href=\"<%= rawValue %>\">\n      <%= Icons.icon('ExternalLink') %>\n      <%- Messages.getText('table.cell.Link') %>\n    </a>\n  <% } %>\n<% } %>\n";
+exports.table_error = "<div class=\"alert alert-error alert-warning\">\n\n  <h2><%= Icons.icon('Bug') %><%- Messages.getText('error.Oops') %></h2>\n\n  <p>\n    <i><%- Messages.getText(error.key || 'error.' + domain + '.Heading') %></i>\n  </p>\n\n  <p><%- Messages.getText('error.' + domain + '.Body') %></p>\n\n  <a class=\"btn btn-primary pull-right\" href=\"mailto:<%= mailto %>\">\n    <%= Icons.icon('Mail') %>\n    <%- Messages.getText('error.EmailHelp') %>\n  </a>\n\n  <button class=\"btn btn-default im-show-query\">\n    <%= Icons.icon('xml') %>\n    <%- Messages.getText('error.ShowQuery') %>\n  </button>\n  <% if (error.message) { %>\n    <button class=\"btn btn-default im-show-error\">\n      <%= Icons.icon('Bug') %>\n      <%- Messages.getText('error.ShowError') %>\n    </button>\n  <% } %>\n\n  <pre class=\"query-xml well im-latent\"><%- indent(query) %></pre>\n\n  <% if (error.message) { %>\n    <pre class=\"error-message well im-latent\"><%- error.message %></pre>\n  <% } %>\n\n</div>\n";
+exports.table_subtable_summary = "<% if (rows.length) { %>\n  <%= Icons.icon('Table') %>\n<% } else { %>\n  <%= Icons.icon('EmptyTable') %>\n<% } %>\n<%- rows.length %>\n<%- pluralise(contentName, rows.length) %>\n";
+exports.table_subtable = "<span class=\"im-subtable-summary\">\n</span>\n<div class=\"im-table-wrapper\">\n</div>\n";
+exports.table_subtables_header = "<a title=\"<%- Messages.getText('subtables.RemoveColumn') %>\">\n  <%= Icons.icon('Remove') %>\n</a>\n<% if (displayName && columnName) { %>\n  <%- displayName.replace(columnName, '').replace(/^ > /, '') %>\n<% } %>\n";
+exports.table_throbber = "<tr class=\"im-table-throbber\">\n  <td colspan=\"<%= colcount %>\">\n    <h2><%- Messages.getText('table.RequestingData') %></h2>\n    <div class=\"progress progress-info progress-striped active\">\n      <div class=\"bar\" style=\"width: 100%\"></div>\n    </div>\n  </td>\n</tr>\n";
+exports.too_many_suggestions = "<span class=\"alert alert-info\">\n  {{{ icons.icon('Info') }}}\n  {{ messages.getText('conbuilder.TooManySuggestions') }}\n  There are {{ extra }} values we could not include.\n</span>\n";
+exports.type_value_controls = "<label class=\"span4\">\n    <%- messages.getText('conbuilder.IsA') %>\n</label>\n<% if (subclasses.length == 1) { %>\n  <select disabled class=\"form-control\">\n      <option><%- subclasses[0].text %></option>\n  </select>\n<% } else { %>\n  <%= select(subclasses, isSelected, 'form-control im-value-type') %>\n<% } %>\n  \n";
+exports.undo_history_step_section = "<div class=\"im-section-summary\">\n  <% if (collection.length) { %>\n    <%= Icons.icon(state.open ? 'ExpandedSection' : 'CollapsedSection') %>\n  <% } %>\n  <%- Messages.getText(summaryLabel, {n: count}) %>\n</div>\n<% if (collection.length) { %>\n  <div class=\"<%- collectionClasses %>\">\n    <% _.each(collection, function (e) { %>\n      <span class=\"label label-<%= e.added ? 'success' : (e.removed ? 'danger' : 'default') %>\">\n        <%- labelContent(e) %>\n      </span>\n    <% }); %>\n  </div>\n<% } %>\n";
+exports.undo_history_step = "<% if (!state.current) { %>\n  <button class=\"btn btn-default btn-small im-state-revert\"\n      title=\"<%- Messages.getText('undo.RevertToState') %>\">\n      <%= Icons.icon('Undo') %>\n  </button>\n<% } %>\n\n<h4>\n    <%- Messages.getText('undo.StepTitle', title) %>\n</h4>\n\n<% if (state.current) { %>\n  <span class=\"help-block\"><%- Messages.getText('undo.IsCurrentState') %></span>\n<% } %>\n<div style=\"clear:both\"></div>\n\n<span class=\"im-revision\" title=\"<%- Messages.getText('undo.RevisionTitle', {v: revision}) %>\">\n  <%- Messages.getText('undo.Revision', {v: revision}) %>\n</span>\n\n<div class=\"im-step-count\">\n  <span><%- Messages.getText('undo.StepCount', {count: count}) %></span>\n  <% if (diff) { %>\n    <span class=\"label im-label-<%= (diff > 0 ) ? 'pos' : 'neg' %>\">\n      <% if (diff > 0) { %>+<% } %><%- numToString(diff) %>\n    </span>\n  <% } %>\n</div>\n\n<div class=\"im-step-details\"></div>\n\n<div style=\"clear:both\"></div>\n";
+exports.undo_history = "<button class=\"btn btn-default im-undo\">\n  <%= Icons.icon('Undo') %>\n  <span class=\"visible-lg-inline\">\n    <%- Messages.getText('Undo') %>\n  </span>\n</button>\n\n<button class=\"btn btn-default dropdown-toggle\"\n        data-toggle=\"dropdown\">\n  <span class=\"caret\"></span>\n</button>\n\n<ul class=\"dropdown-menu im-state-list\">\n    <li>\n      <button\n          title=\"<%- Messages.getText('undo.ToggleTrivialTitle', state) %>\"\n          class=\"btn btn-xs btn-default im-toggle-trivial <%= state.hideTrivial ? 'active' : void 0 %>\">\n        <%- Messages.getText('undo.ToggleTrivial', state) %>\n      </button>\n    </li>\n</ul>\n";
+exports.value_control_row = "<td>\n  <input type=\"checkbox\" {{ (selected) ? 'checked' : void 0 }}>\n</td>\n<td class=\"im-multi-value\">\n  {{# if (editing) { }}\n    <div class=\"input-group\">\n      <input type=\"text\" value=\"{{ value }}\" class=\"form-control\">\n      <span class=\"input-group-btn\">\n        <button class=\"btn btn-success im-save\"\n                title=\"{{ messages.getText('multivalue.SaveValue') }}\"\n                type=\"button\">\n            {{{ icons.icon('OK') }}}\n            <span class=\"im-long\">{{ messages.getText('multivalue.SaveValue') }}</span>\n        </button>\n        <button class=\"btn btn-danger im-cancel\"\n                title=\"{{ messages.getText('Cancel') }}\"\n                type=\"button\">\n            {{{ icons.icon('Cancel') }}}\n            <span class=\"im-long\">{{ messages.getText('Cancel') }}</span>\n        </button>\n      </span>\n    </div>\n  {{# } else { }}\n    <a class=\"im-edit pull-right\">{{{ icons.icon('Edit') }}}</a>\n    {{ value }}\n  {{# } }}\n</td>\n";
 
-},{"underscore":311}],68:[function(require,module,exports){
+},{"underscore":308}],67:[function(require,module,exports){
 (function() {
   var Options, fs, pluralize, select_html, select_templ, _;
 
@@ -5666,7 +5610,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../options":63,"pluralize":309,"underscore":311}],69:[function(require,module,exports){
+},{"../options":62,"pluralize":306,"underscore":308}],68:[function(require,module,exports){
 (function() {
   module.exports = {
     interpolate: /\{\{\{ (.+?) \}\}\}/g,
@@ -5676,7 +5620,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],70:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 (function() {
   var Branding, Options, Promise, getInstance, instances;
 
@@ -5723,7 +5667,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../options":63,"es6-promise":280}],71:[function(require,module,exports){
+},{"../options":62,"es6-promise":277}],70:[function(require,module,exports){
 (function() {
   var Formatting, createColumns, getReplacedTest, index, isKeyField, notBanned, returnIfOK,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -5830,7 +5774,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../formatting":13,"./create-columns":78,"./get-replaced-test":85,"./is-key-field":89}],72:[function(require,module,exports){
+},{"../formatting":13,"./create-columns":77,"./get-replaced-test":84,"./is-key-field":88}],71:[function(require,module,exports){
 (function() {
   module.exports = function(cells, headers) {
     var added, c, col, hi, n, p, parent, rp, skipped, _i, _j, _len, _len1, _ref, _ref1;
@@ -5877,13 +5821,13 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],73:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 (function() {
   var calculateRowTemplate, getOJCBelow, getTopLevelOJC,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   getOJCBelow = function(query, p, below) {
-    var highest, oj, path;
+    var highest, next, nextPath, oj, path;
     oj = query.getOuterJoin(p);
     if ((!oj) || (oj === below)) {
       return null;
@@ -5892,16 +5836,18 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
     highest = path.isCollection() ? oj : null;
     path = path.getParent();
     while (path && (!path.isRoot())) {
-      (function(next) {
-        var nextPath;
-        if (next != null) {
-          nextPath = query.makePath(next);
-        }
-        if ((nextPath != null ? nextPath.isCollection() : void 0) && (next !== below)) {
-          highest = next;
-        }
-        return path = nextPath != null ? nextPath.getParent() : void 0;
-      })(query.getOuterJoin(path));
+      next = query.getOuterJoin(path);
+      if (next != null) {
+        nextPath = query.makePath(next);
+      }
+      if ((nextPath != null ? nextPath.isCollection() : void 0) && (next !== below)) {
+        highest = next;
+      }
+      if (nextPath) {
+        path = nextPath.getParent();
+      } else {
+        path = null;
+      }
     }
     return highest;
   };
@@ -5953,7 +5899,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],74:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 (function() {
   exports.bool = function(x) {
     return !!x;
@@ -5961,7 +5907,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function() {
   var CellModel, CellModelFactory, FPObject, NestedTableModel, NullObject, ObjectStore, _;
 
@@ -6049,7 +5995,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../models/cell":37,"../models/fast-path-object":43,"../models/nested-table":48,"../models/null-object":49,"../models/object-store":51,"underscore":311}],76:[function(require,module,exports){
+},{"../models/cell":36,"../models/fast-path-object":42,"../models/nested-table":47,"../models/null-object":48,"../models/object-store":50,"underscore":308}],75:[function(require,module,exports){
 (function() {
   var _;
 
@@ -6067,14 +6013,14 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"underscore":311}],77:[function(require,module,exports){
+},{"underscore":308}],76:[function(require,module,exports){
 (function() {
   var CACHE, key;
 
   CACHE = {};
 
   key = function(q) {
-    return "" + q.service.root + ":" + q.service.token + ":" + (q.toXML());
+    return "" + q.root + ":" + q.token + ":" + (q.toXML());
   };
 
   exports.count = function(q) {
@@ -6088,7 +6034,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],78:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 (function() {
   var createColumns, longestCommonPrefix, structure;
 
@@ -6139,7 +6085,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"./calculate-row-template":73,"./longest-common-prefix":91}],79:[function(require,module,exports){
+},{"./calculate-row-template":72,"./longest-common-prefix":90}],78:[function(require,module,exports){
 (function() {
   var ClassSet, _;
 
@@ -6171,7 +6117,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"underscore":311}],80:[function(require,module,exports){
+},{"underscore":308}],79:[function(require,module,exports){
 (function() {
   var getMissingData, hasData, thenSet;
 
@@ -6199,7 +6145,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"./fetch-missing-data":82,"./has-fields":87}],81:[function(require,module,exports){
+},{"./fetch-missing-data":81,"./has-fields":86}],80:[function(require,module,exports){
 (function() {
   var Backbone, _;
 
@@ -6233,7 +6179,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"backbone":232,"underscore":311}],82:[function(require,module,exports){
+},{"backbone":229,"underscore":308}],81:[function(require,module,exports){
 (function() {
   var buildProps, refs, refsIn, _;
 
@@ -6296,7 +6242,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"underscore":311}],83:[function(require,module,exports){
+},{"underscore":308}],82:[function(require,module,exports){
 (function() {
   var getLeaves,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -6343,7 +6289,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],84:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 (function() {
   var EQL, Promise, getOrganisms, hasAnOrganism, nameOrShortName, organisable, uniquelyFlat, wild, _,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -6434,7 +6380,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"es6-promise":280,"underscore":311}],85:[function(require,module,exports){
+},{"es6-promise":277,"underscore":308}],84:[function(require,module,exports){
 (function() {
   var getReplacedTest, isIDPath, shouldFormat;
 
@@ -6466,7 +6412,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../formatting":13}],86:[function(require,module,exports){
+},{"../formatting":13}],85:[function(require,module,exports){
 (function() {
   var Promise, getResultClass;
 
@@ -6491,7 +6437,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"es6-promise":280}],87:[function(require,module,exports){
+},{"es6-promise":277}],86:[function(require,module,exports){
 (function() {
   module.exports = function(fields) {
     if (fields == null) {
@@ -6506,7 +6452,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],88:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function() {
   var indent;
 
@@ -6539,7 +6485,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],89:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 (function() {
   var isKeyField,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -6559,7 +6505,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],90:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 (function (global){
 (function() {
   var $, Options, Promise;
@@ -6587,7 +6533,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../options":63,"es6-promise":280,"jquery":308}],91:[function(require,module,exports){
+},{"../options":62,"es6-promise":277,"jquery":305}],90:[function(require,module,exports){
 (function() {
   var longestCommonPrefix, prefixesAll, _,
     __slice = [].slice;
@@ -6625,7 +6571,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"underscore":311}],92:[function(require,module,exports){
+},{"underscore":308}],91:[function(require,module,exports){
 (function() {
   exports.href = function(address, subject, body) {
     var pairs, params;
@@ -6640,7 +6586,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],93:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 (function() {
   var onChange;
 
@@ -6652,7 +6598,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],94:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 (function() {
   var openWindowWithPost;
 
@@ -6680,7 +6626,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],95:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 (function() {
   var pairsToParams, _;
 
@@ -6712,7 +6658,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"underscore":311}],96:[function(require,module,exports){
+},{"underscore":308}],95:[function(require,module,exports){
 (function() {
   var contains_i, _;
 
@@ -6758,67 +6704,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"underscore":311}],97:[function(require,module,exports){
-(function() {
-  var CACHE, Promise, getPathSuggestions, matchPathsToNames, _;
-
-  _ = require('underscore');
-
-  Promise = require('es6-promise').Promise;
-
-  CACHE = {};
-
-  matchPathsToNames = function(paths) {
-    return function(names) {
-      var name, path, _i, _len, _ref, _ref1, _results;
-      _ref = _.zip(paths, names);
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        _ref1 = _ref[_i], path = _ref1[0], name = _ref1[1];
-        _results.push({
-          path: path,
-          name: name
-        });
-      }
-      return _results;
-    };
-  };
-
-  module.exports = getPathSuggestions = function(query, depth) {
-    var key, namings, p, paths;
-    key = "" + query.service.root + ":" + query.root + ":" + depth;
-    if (key in CACHE) {
-      return CACHE[key];
-    }
-    paths = (function() {
-      var _i, _len, _ref, _results;
-      _ref = query.getPossiblePaths(depth);
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        p = _ref[_i];
-        _results.push(query.makePath(p));
-      }
-      return _results;
-    })();
-    paths = paths.filter(function(p) {
-      var _ref;
-      return !(((_ref = p.end) != null ? _ref.name : void 0) === 'id');
-    });
-    namings = (function() {
-      var _i, _len, _results;
-      _results = [];
-      for (_i = 0, _len = paths.length; _i < _len; _i++) {
-        p = paths[_i];
-        _results.push(p.getDisplayName());
-      }
-      return _results;
-    })();
-    return CACHE[key] != null ? CACHE[key] : CACHE[key] = Promise.all(namings).then(matchPathsToNames(paths));
-  };
-
-}).call(this);
-
-},{"es6-promise":280,"underscore":311}],98:[function(require,module,exports){
+},{"underscore":308}],96:[function(require,module,exports){
 (function() {
   var PopoverFactory, PreviewCachingService;
 
@@ -6885,7 +6771,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],99:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 (function() {
   exports.fromPairs = function(pairs) {
     var p;
@@ -6902,7 +6788,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],100:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 (function() {
   var $, Options, Promise, loadDropbox, loadResource;
 
@@ -6940,7 +6826,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../options":63,"./load-resource":90,"es6-promise":280,"jquery":308}],101:[function(require,module,exports){
+},{"../options":62,"./load-resource":89,"es6-promise":277,"jquery":305}],99:[function(require,module,exports){
 (function() {
   var Messages, Options, Promise, getBranding, getOrganisms, getParameters, getResultClass, openWindowWithPost, parseUrl, send, _;
 
@@ -7037,7 +6923,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../messages":16,"../options":63,"./branding":70,"./get-organisms":84,"./get-result-class":86,"./open-window-with-post":94,"./parse-url":95,"es6-promise":280,"underscore":311}],102:[function(require,module,exports){
+},{"../messages":16,"../options":62,"./branding":69,"./get-organisms":83,"./get-result-class":85,"./open-window-with-post":93,"./parse-url":94,"es6-promise":277,"underscore":308}],100:[function(require,module,exports){
 (function() {
   var Options, Promise, fromPairs, getGenomeSpaceUrl, save, _;
 
@@ -7079,7 +6965,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../options":63,"./query-string":99,"es6-promise":280,"underscore":311}],103:[function(require,module,exports){
+},{"../options":62,"./query-string":97,"es6-promise":277,"underscore":308}],101:[function(require,module,exports){
 (function() {
   var $, BOUNDARY, CLOSE_DELIM, DELIMITER, DRIVE_METHOD, DRIVE_PATH, ERR, FILE_CT, GoogleExporter, LIB, METADATA_CT, MetaData, Options, Promise, REQ_CT, REQ_PARAMS, SCOPE, VERSION, loadResource, sendToGoogleDrive, withExporter, _, __GOOGLE;
 
@@ -7258,7 +7144,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../options":63,"./load-resource":90,"es6-promise":280,"jquery":308,"underscore":311}],104:[function(require,module,exports){
+},{"../options":62,"./load-resource":89,"es6-promise":277,"jquery":305,"underscore":308}],102:[function(require,module,exports){
 (function() {
   var callable, compose, escape, getData, _ref,
     __slice = [].slice;
@@ -7286,7 +7172,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"./ensure-required-data":80,"underscore":311}],105:[function(require,module,exports){
+},{"./ensure-required-data":79,"underscore":308}],103:[function(require,module,exports){
 (function() {
   var NEXT_DIRECTION_OF, sortQueryByPath;
 
@@ -7310,7 +7196,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],106:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 (function() {
   var stripExtraneousWhiteSpace;
 
@@ -7324,7 +7210,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],107:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 (function() {
   var Icons, Messages, Options, SuggestionSource, fs, html, mustacheSettings, template, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -7365,18 +7251,6 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
     SuggestionSource.prototype.suggest = function(term, cb) {
       var matches, parts, s, _ref, _ref1;
-      if ((term == null) || term === '') {
-        return cb((function() {
-          var _i, _len, _ref, _results;
-          _ref = this.suggestions.slice(0, 10);
-          _results = [];
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            s = _ref[_i];
-            _results.push(s);
-          }
-          return _results;
-        }).call(this));
-      }
       parts = (_ref = term != null ? (_ref1 = term.toLowerCase()) != null ? _ref1.split(' ') : void 0 : void 0) != null ? _ref : [];
       matches = function(_arg) {
         var item;
@@ -7408,7 +7282,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../icons":14,"../messages":16,"../options":63,"../templates/mustache-settings":69,"underscore":311}],108:[function(require,module,exports){
+},{"../icons":14,"../messages":16,"../options":62,"../templates/mustache-settings":68,"underscore":308}],106:[function(require,module,exports){
 (function() {
   var ALREADY_DONE, CACHES, Options, Page, Promise, ResultCache,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -7592,7 +7466,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{"../models/page":54,"../options":63,"es6-promise":280}],109:[function(require,module,exports){
+},{"../models/page":53,"../options":62,"es6-promise":277}],107:[function(require,module,exports){
 (function() {
   var toNamedPath;
 
@@ -7607,7 +7481,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this);
 
-},{}],110:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 (function (global){
 (function() {
   var CDN, PROMISES, Promise, promiseResource, withResource,
@@ -7636,12 +7510,12 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../cdn":1,"es6-promise":280}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-36';
+},{"../cdn":1,"es6-promise":277}],109:[function(require,module,exports){
+module.exports = '2.0.0-beta-18';
 
-},{}],112:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 (function() {
-  var $, ActiveConstraint, ConstraintEditor, ConstraintModel, ConstraintSummary, CoreModel, Icons, Messages, Model, Options, Promise, Query, Templates, View, aeql, basicEql, _, _ref,
+  var $, ActiveConstraint, ConstraintEditor, ConstraintSummary, Icons, Messages, Model, Options, Promise, Query, Templates, View, aeql, basicEql, _, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -7653,8 +7527,6 @@ module.exports = '2.0.0-beta-36';
   Promise = require('es6-promise').Promise;
 
   _ref = require('imjs'), Query = _ref.Query, Model = _ref.Model;
-
-  CoreModel = require('../core-model');
 
   Messages = require('../messages');
 
@@ -7731,27 +7603,6 @@ module.exports = '2.0.0-beta-36';
     return same;
   };
 
-  ConstraintModel = (function(_super) {
-    __extends(ConstraintModel, _super);
-
-    function ConstraintModel() {
-      return ConstraintModel.__super__.constructor.apply(this, arguments);
-    }
-
-    ConstraintModel.prototype.defaults = function() {
-      return {
-        code: null
-      };
-    };
-
-    ConstraintModel.prototype.isTypeConstraint = function() {
-      return this.get('op') == null;
-    };
-
-    return ConstraintModel;
-
-  })(CoreModel);
-
   module.exports = ActiveConstraint = (function(_super) {
     var IS_BLANK;
 
@@ -7760,8 +7611,6 @@ module.exports = '2.0.0-beta-36';
     function ActiveConstraint() {
       return ActiveConstraint.__super__.constructor.apply(this, arguments);
     }
-
-    ActiveConstraint.prototype.Model = ConstraintModel;
 
     ActiveConstraint.prototype.tagName = "div";
 
@@ -8021,9 +7870,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../icons":14,"../messages":16,"../options":63,"../templates":67,"./constraint-editor":129,"./constraint-summary":130,"es6-promise":280,"imjs":289,"jquery":308,"underscore":311}],113:[function(require,module,exports){
+},{"../core-view":3,"../icons":14,"../messages":16,"../options":62,"../templates":66,"./constraint-editor":127,"./constraint-summary":128,"es6-promise":277,"imjs":286,"jquery":305,"underscore":308}],111:[function(require,module,exports){
 (function() {
-  var $, AttributeValueControls, CoreView, HasTypeaheads, INTEGRAL_TYPES, IS_BLANK, Messages, NUMERIC_TYPES, NestedModel, Options, Promise, Query, SuggestionSource, Templates, getBranding, numToString, numify, selectTemplate, trim, _, _ref, _ref1,
+  var $, AttributeValueControls, CoreView, HasTypeaheads, INTEGRAL_TYPES, IS_BLANK, Messages, NUMERIC_TYPES, Options, Promise, Query, SuggestionSource, Templates, numToString, numify, selectTemplate, trim, _, _ref, _ref1,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
@@ -8041,10 +7890,6 @@ module.exports = '2.0.0-beta-36';
   CoreView = require('../core-view');
 
   Options = require('../options');
-
-  NestedModel = require('../core/nested-model');
-
-  getBranding = require('../utils/branding');
 
   IS_BLANK = require('../patterns').IS_BLANK;
 
@@ -8085,10 +7930,10 @@ module.exports = '2.0.0-beta-36';
     AttributeValueControls.prototype.template = Templates.template('attribute_value_controls');
 
     AttributeValueControls.prototype.getData = function() {
-      return _.extend(this.getBaseData(), {
+      return {
         messages: Messages,
         con: this.model.toJSON()
-      });
+      };
     };
 
     AttributeValueControls.prototype.initialize = function(_arg) {
@@ -8096,25 +7941,11 @@ module.exports = '2.0.0-beta-36';
       this.query = _arg.query;
       AttributeValueControls.__super__.initialize.apply(this, arguments);
       this.sliders = [];
-      this.branding = new NestedModel;
       this.cast = (_ref2 = this.model.get('path').getType(), __indexOf.call(NUMERIC_TYPES, _ref2) >= 0) ? numify : trim;
       this.listenTo(Messages, 'change', this.reRender);
-      this.state.set({
-        valuePlaceholder: Messages.getText('conbuilder.ValuePlaceholder')
-      });
-      this.listenTo(this.branding, 'change:defaults.value', function() {
-        return this.state.set({
-          valuePlaceholder: this.branding.get('defaults.value')
-        });
-      });
       if (this.query != null) {
         this.listenTo(this.query, 'change:constraints', this.clearCachedData);
-        this.listenTo(this.query, 'change:constraints', this.reRender);
-        return getBranding(this.query.service).then((function(_this) {
-          return function(branding) {
-            return _this.branding.set(branding);
-          };
-        })(this));
+        return this.listenTo(this.query, 'change:constraints', this.reRender);
       }
     };
 
@@ -8128,26 +7959,19 @@ module.exports = '2.0.0-beta-36';
       };
     };
 
-    AttributeValueControls.prototype.stateEvents = function() {
-      return {
-        'change:valuePlaceholder': this.reRender
-      };
-    };
-
     AttributeValueControls.prototype.onChangeOp = function() {
       var newOp;
       newOp = this.model.get('op');
-      if ((this.model.get('value') != null) && __indexOf.call(Query.MULTIVALUE_OPS, newOp) >= 0) {
-        this.model.set({
+      if (__indexOf.call(Query.MULTIVALUE_OPS, newOp) >= 0) {
+        return this.model.set({
           value: null,
           values: [this.model.get('value')]
         });
       }
-      return this.reRender();
     };
 
     AttributeValueControls.prototype.onChangeValue = function() {
-      return this.reRender();
+      return this.updateInput();
     };
 
     AttributeValueControls.prototype.removeAllChildren = function() {
@@ -8282,7 +8106,6 @@ module.exports = '2.0.0-beta-36';
 
     AttributeValueControls.prototype.replaceInputWithSelect = function(items) {
       var value;
-      console.log("Select of " + items.length + " items");
       if (this.model.has('value')) {
         value = this.model.get('value');
         if ((value != null) && !(_.any(items, function(_arg) {
@@ -8307,8 +8130,8 @@ module.exports = '2.0.0-beta-36';
     };
 
     AttributeValueControls.prototype.handleSummary = function(items, total) {
-      var dataset, handleSuggestion, input, opts, source, _ref2;
-      if (((_ref2 = this.model.get('op')) === '=' || _ref2 === '!=') && items.length < Options.get('DropdownMax')) {
+      var dataset, input, opts, source;
+      if (this.model.get('op') === '=' && items.length < Options.get('DropdownMax')) {
         return this.replaceInputWithSelect(items);
       }
       input = this.$('.im-con-value-attr');
@@ -8326,16 +8149,11 @@ module.exports = '2.0.0-beta-36';
         }
       };
       this.removeTypeAheads();
-      handleSuggestion = (function(_this) {
-        return function(evt, suggestion) {
+      return this.activateTypeahead(input, opts, dataset, items[0].item, (function(_this) {
+        return function(e, suggestion) {
           return _this.model.set({
             value: suggestion.item
           });
-        };
-      })(this);
-      return this.activateTypeahead(input, opts, dataset, items[0].item, handleSuggestion, (function(_this) {
-        return function() {
-          return _this.setAttributeValue();
         };
       })(this));
     };
@@ -8386,8 +8204,6 @@ module.exports = '2.0.0-beta-36';
       input = this.$('input');
       container.append(this.clearer);
       markers = this.getMarkers(min, max, isInt);
-      this.removeSliders();
-      input.off('change.slider');
       $slider = $(this.makeSlider(markers));
       $slider.appendTo(container).slider({
         min: min,
@@ -8402,15 +8218,11 @@ module.exports = '2.0.0-beta-36';
         placeholder: caster(average)
       });
       container.append(this.clearer);
-      input.on('change.slider', function(e) {
+      input.change(function(e) {
         return $slider.slider('value', caster(input.val()));
       });
+      this.removeSliders();
       return this.sliders.push($slider);
-    };
-
-    AttributeValueControls.prototype.remove = function() {
-      AttributeValueControls.__super__.remove.apply(this, arguments);
-      return this.removeTypeAheads();
     };
 
     return AttributeValueControls;
@@ -8419,7 +8231,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../core/nested-model":8,"../messages":16,"../mixins/has-typeaheads":32,"../options":63,"../patterns":64,"../templates":67,"../templates/helpers":68,"../utils/branding":70,"../utils/suggestion-source":107,"es6-promise":280,"imjs":289,"jquery":308,"underscore":311}],114:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../mixins/has-typeaheads":31,"../options":62,"../patterns":63,"../templates":66,"../templates/helpers":67,"../utils/suggestion-source":105,"es6-promise":277,"imjs":286,"jquery":305,"underscore":308}],112:[function(require,module,exports){
 (function() {
   var BooleanValueControls, Messages, Options, View, fs, html, mustacheSettings, _,
     __hasProp = {}.hasOwnProperty,
@@ -8487,7 +8299,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../options":63,"../templates/mustache-settings":69,"underscore":311}],115:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../options":62,"../templates/mustache-settings":68,"underscore":308}],113:[function(require,module,exports){
 (function() {
   var CodeGenButton, CodeGenModel, CoreView, Dialogue, MainButton, Messages, Options, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -8563,10 +8375,9 @@ module.exports = '2.0.0-beta-36';
     CodeGenButton.prototype.chooseLang = function(e) {
       var lang;
       lang = this.$(e.target).closest('li').data('lang');
-      this.model.set({
+      return this.model.set({
         lang: lang
       });
-      return this.showDialogue();
     };
 
     CodeGenButton.prototype.showDialogue = function() {
@@ -8587,7 +8398,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/code-gen":18,"../models/code-gen":38,"../options":63,"../templates":67,"./code-gen-dialogue":116,"underscore":311}],116:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/code-gen":18,"../models/code-gen":37,"../options":62,"../templates":66,"./code-gen-dialogue":114,"underscore":308}],114:[function(require,module,exports){
 (function (global){
 (function() {
   var CANNOT_SAVE, C_STYLE_COMMENTS, Checkbox, CodeGenDialogue, CodeGenModel, HTML_MIMETYPE, JS_MIMETYPE, MIMETYPES, Messages, Modal, OCTOTHORPE_COMMENTS, Options, Promise, Templates, XML_MIMETYPE, alreadyRejected, canSaveFromMemory, indentXml, stripEmptyValues, stripExtraneousWhiteSpace, withFileSaver, withPrettyPrintOne, withResource, _,
@@ -8763,7 +8574,7 @@ module.exports = '2.0.0-beta-36';
     };
 
     CodeGenDialogue.prototype.act = function() {
-      var blob, filename, lang, _ref;
+      var blob, lang, _ref;
       lang = this.model.get('lang');
       if (lang === 'js' && this.model.get('extrajs')) {
         lang = 'html';
@@ -8771,12 +8582,7 @@ module.exports = '2.0.0-beta-36';
       blob = new Blob([this.state.get('generatedCode')], {
         type: MIMETYPES[lang]
       });
-      filename = "" + ((_ref = this.query.name) != null ? _ref : 'name') + "." + lang;
-      return withFileSaver((function(_this) {
-        return function(saveAs) {
-          return saveAs(blob, filename);
-        };
-      })(this));
+      return saveAs(blob, "" + ((_ref = this.query.name) != null ? _ref : 'name') + "." + lang);
     };
 
     CodeGenDialogue.prototype.onChangeLang = function() {
@@ -8963,7 +8769,7 @@ module.exports = '2.0.0-beta-36';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../core/checkbox":4,"../messages":16,"../messages/code-gen":18,"../models/code-gen":38,"../options":63,"../templates":67,"../utils/indent-xml":88,"../utils/strip-extra-whitespace":106,"../utils/with-cdn-resource":110,"./modal":197,"es6-promise":280,"underscore":311}],117:[function(require,module,exports){
+},{"../core/checkbox":4,"../messages":16,"../messages/code-gen":18,"../models/code-gen":37,"../options":62,"../templates":66,"../utils/indent-xml":87,"../utils/strip-extra-whitespace":104,"../utils/with-cdn-resource":108,"./modal":194,"es6-promise":277,"underscore":308}],115:[function(require,module,exports){
 (function() {
   var AvailableColumns, Collection, ColumnManager, ColumnManagerTabs, IndexedCollection, Messages, Modal, OrderByList, OrderByModel, PathModel, SelectList, SelectListEditor, SortOrderEditor, Templates, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -9255,7 +9061,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core/collection":5,"../messages":16,"../messages/columns":19,"../models/available-columns":36,"../models/order-element":53,"../models/path":56,"../templates":67,"./column-manager/select-list":122,"./column-manager/sort-order":124,"./column-manager/tabs":125,"./modal":197,"underscore":311}],118:[function(require,module,exports){
+},{"../core/collection":5,"../messages":16,"../messages/columns":19,"../models/available-columns":35,"../models/order-element":52,"../models/path":55,"../templates":66,"./column-manager/select-list":120,"./column-manager/sort-order":122,"./column-manager/tabs":123,"./modal":194,"underscore":308}],116:[function(require,module,exports){
 (function() {
   var AvailablePath, CUTOFF, UnselectedColumn, _,
     __hasProp = {}.hasOwnProperty,
@@ -9335,7 +9141,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"./unselected-column":126,"underscore":311}],119:[function(require,module,exports){
+},{"./unselected-column":124,"underscore":308}],117:[function(require,module,exports){
 (function() {
   var ColumnManger, ColumnMangerButton, QueryDialogueButton,
     __hasProp = {}.hasOwnProperty,
@@ -9370,7 +9176,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../messages/columns":19,"../column-manager":117,"../query-dialogue-button":206}],120:[function(require,module,exports){
+},{"../../messages/columns":19,"../column-manager":115,"../query-dialogue-button":203}],118:[function(require,module,exports){
 (function() {
   var OrderElement, SelectedColumn, TEMPLATE_PARTS, Templates, nextDirection, _,
     __hasProp = {}.hasOwnProperty,
@@ -9425,7 +9231,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../templates":67,"./selected-column":123,"underscore":311}],121:[function(require,module,exports){
+},{"../../templates":66,"./selected-column":121,"underscore":308}],119:[function(require,module,exports){
 (function() {
   var Buttons, ColumnChooser, CoreView, OpenNodes, Options, PathChooser, PathSet, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -9584,9 +9390,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../models/open-nodes":52,"../../models/path-set":55,"../../options":63,"../../templates":67,"../path-chooser":201}],122:[function(require,module,exports){
+},{"../../core-view":3,"../../models/open-nodes":51,"../../models/path-set":54,"../../options":62,"../../templates":66,"../path-chooser":198}],120:[function(require,module,exports){
 (function() {
-  var ColumnChooser, CoreView, HandlesDOMReSort, SelectListEditor, SelectedColumn, Templates, UnselectedColumn, binnedId, childId, incr, _,
+  var Collection, ColumnChooser, CoreView, HandlesDOMReSort, SelectListEditor, SelectedColumn, Templates, UnselectedColumn, binnedId, childId, incr, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9595,6 +9401,8 @@ module.exports = '2.0.0-beta-36';
   CoreView = require('../../core-view');
 
   Templates = require('../../templates');
+
+  Collection = require('../../core/collection');
 
   HandlesDOMReSort = require('../../mixins/handles-dom-resort');
 
@@ -9810,6 +9618,16 @@ module.exports = '2.0.0-beta-36';
       wide = modalWidth >= cutoff;
       this.collection.each((function(_this) {
         return function(model) {
+          return model.collection = _this.collection;
+        };
+      })(this));
+      this.rubbishBin.each((function(_this) {
+        return function(model) {
+          return model.collection = _this.rubbishBin;
+        };
+      })(this));
+      this.collection.each((function(_this) {
+        return function(model) {
           return _this.renderChild(childId(model), new SelectedColumn({
             model: model
           }), columns);
@@ -9860,7 +9678,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./path-chooser":121,"./selected-column":123,"./unselected-column":126,"underscore":311}],123:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../mixins/handles-dom-resort":30,"../../templates":66,"./path-chooser":119,"./selected-column":121,"./unselected-column":124,"underscore":308}],121:[function(require,module,exports){
 (function() {
   var Collection, CoreView, PathModel, SelectedColumn, TEMPLATE_PARTS, Templates, decr, ignore, incr, _,
     __hasProp = {}.hasOwnProperty,
@@ -10011,7 +9829,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../models/path":56,"../../templates":67,"../../utils/events":81,"underscore":311}],124:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../models/path":55,"../../templates":66,"../../utils/events":80,"underscore":308}],122:[function(require,module,exports){
 (function (global){
 (function() {
   var AvailablePath, CoreModel, CoreView, HandlesDOMReSort, OrderElement, SortOrderEditor, Templates, activeId, inactiveId, _,
@@ -10255,7 +10073,7 @@ module.exports = '2.0.0-beta-36';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../core-model":2,"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./available-path":118,"./order-element":120,"underscore":311}],125:[function(require,module,exports){
+},{"../../core-model":2,"../../core-view":3,"../../mixins/handles-dom-resort":30,"../../templates":66,"./available-path":116,"./order-element":118,"underscore":308}],123:[function(require,module,exports){
 (function() {
   var ClassSet, ColumnManagerTabs, CoreView, Templates, tabClassSet, _,
     __hasProp = {}.hasOwnProperty,
@@ -10357,7 +10175,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"../../utils/css-class-set":79,"underscore":311}],126:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"../../utils/css-class-set":78,"underscore":308}],124:[function(require,module,exports){
 (function() {
   var SelectedColumn, TEMPLATE_PARTS, Templates, UnselectedColumn, _,
     __hasProp = {}.hasOwnProperty,
@@ -10401,9 +10219,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../templates":67,"./selected-column":123,"underscore":311}],127:[function(require,module,exports){
+},{"../../templates":66,"./selected-column":121,"underscore":308}],125:[function(require,module,exports){
 (function() {
-  var ConstraintAdderOptions, HasTypeaheads, IS_BLANK, Options, Promise, Templates, View, getPathSuggestions, pathSuggester, shortenLongName, _,
+  var ConstraintAdderOptions, HasTypeaheads, IS_BLANK, Options, Promise, Templates, View, pathSuggester, shortenLongName, _,
     __slice = [].slice,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -10423,8 +10241,6 @@ module.exports = '2.0.0-beta-36';
   IS_BLANK = require('../patterns').IS_BLANK;
 
   pathSuggester = require('../utils/path-suggester');
-
-  getPathSuggestions = require('../utils/path-suggestions');
 
   shortenLongName = function(name) {
     var parts, rest, x, y, z, _i;
@@ -10486,14 +10302,48 @@ module.exports = '2.0.0-beta-36';
     };
 
     ConstraintAdderOptions.prototype.generatePathSuggestions = function() {
-      var depth;
+      var depth, namings, p, paths;
       depth = Options.get('SuggestionDepth');
-      return getPathSuggestions(this.query, depth).then((function(_this) {
+      paths = (function() {
+        var _i, _len, _ref, _results;
+        _ref = this.query.getPossiblePaths(depth);
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          p = _ref[_i];
+          _results.push(this.query.makePath(p));
+        }
+        return _results;
+      }).call(this);
+      paths = paths.filter((function(_this) {
+        return function(p) {
+          return _this.pathAcceptable(p);
+        };
+      })(this));
+      namings = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = paths.length; _i < _len; _i++) {
+          p = paths[_i];
+          _results.push(p.getDisplayName());
+        }
+        return _results;
+      })();
+      return Promise.all(namings).then(function(names) {
+        var name, path, _i, _len, _ref, _ref1, _results;
+        _ref = _.zip(paths, names);
+        _results = [];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          _ref1 = _ref[_i], path = _ref1[0], name = _ref1[1];
+          _results.push({
+            path: path,
+            name: name
+          });
+        }
+        return _results;
+      }).then((function(_this) {
         return function(suggestions) {
           return _this.state.set({
-            suggestions: suggestions.filter(function(s) {
-              return _this.pathAcceptable(s.path);
-            })
+            suggestions: suggestions
           });
         };
       })(this));
@@ -10636,7 +10486,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../mixins/has-typeaheads":32,"../options":63,"../patterns":64,"../templates":67,"../utils/path-suggester":96,"../utils/path-suggestions":97,"es6-promise":280,"underscore":311}],128:[function(require,module,exports){
+},{"../core-view":3,"../mixins/has-typeaheads":31,"../options":62,"../patterns":63,"../templates":66,"../utils/path-suggester":95,"es6-promise":277,"underscore":308}],126:[function(require,module,exports){
 (function() {
   var ConstraintAdder, ConstraintAdderModel, ConstraintAdderOptions, CoreModel, Messages, NewConstraint, OPTIONS_SEL, OpenNodes, PathChooser, PathSet, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -10805,7 +10655,6 @@ module.exports = '2.0.0-beta-36';
 
     ConstraintAdder.prototype.hideTree = function() {
       this.trigger('resetting:tree');
-      this.$('.im-path-finder').removeClass('open');
       return this.removeChild('tree');
     };
 
@@ -10821,7 +10670,6 @@ module.exports = '2.0.0-beta-36';
         view: this.view,
         trail: []
       });
-      this.$('.im-path-finder').addClass('open');
       return this.renderChild('tree', pathFinder, this.$('.im-path-finder'));
     };
 
@@ -10849,7 +10697,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../messages":16,"../models/open-nodes":52,"../models/path-set":55,"../templates":67,"./constraint-adder-options":127,"./new-constraint":199,"./path-chooser":201,"underscore":311}],129:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../messages":16,"../models/open-nodes":51,"../models/path-set":54,"../templates":66,"./constraint-adder-options":125,"./new-constraint":196,"./path-chooser":198,"underscore":308}],127:[function(require,module,exports){
 (function() {
   var ATTRIBUTE_OPS, ATTRIBUTE_VALUE_OPS, AttributeValueControls, BASIC_OPS, BOOLEAN_TYPES, BooleanValueControls, ConstraintEditor, CoreView, ErrorMessage, Icons, LIST_OPS, ListValueControls, LookupValueControls, LoopValueControls, MULTIVALUE_OPS, Messages, Model, MultiValueControls, NO_OP, NULL_OPS, NUMERIC_TYPES, Query, REFERENCE_OPS, TEMPLATE, TypeValueControls, fs, html, operatorsFor, _, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -11033,8 +10881,7 @@ module.exports = '2.0.0-beta-36';
       }
       if (this.isMultiValueConstraint()) {
         return new MultiValueControls({
-          model: this.model,
-          query: this.query
+          model: this.model
         });
       }
       if (this.isListConstraint()) {
@@ -11045,8 +10892,7 @@ module.exports = '2.0.0-beta-36';
       }
       if (this.isBooleanConstraint()) {
         return new BooleanValueControls({
-          model: this.model,
-          query: this.query
+          model: this.model
         });
       }
       if (this.isLoopConstraint()) {
@@ -11057,14 +10903,12 @@ module.exports = '2.0.0-beta-36';
       }
       if (this.isLookupConstraint()) {
         return new LookupValueControls({
-          model: this.model,
-          query: this.query
+          model: this.model
         });
       }
       if (this.isRangeConstraint()) {
         return new MultiValueControls({
-          model: this.model,
-          query: this.query
+          model: this.model
         });
       }
       if (this.path.isAttribute()) {
@@ -11199,7 +11043,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../icons":14,"../messages":16,"./attribute-value-controls":113,"./boolean-value-controls":114,"./error-message":137,"./list-value-controls":193,"./lookup-value-controls":194,"./loop-value-controls":195,"./multi-value-controls":198,"./type-value-controls":228,"imjs":289,"underscore":311}],130:[function(require,module,exports){
+},{"../core-view":3,"../icons":14,"../messages":16,"./attribute-value-controls":111,"./boolean-value-controls":112,"./error-message":135,"./list-value-controls":190,"./lookup-value-controls":191,"./loop-value-controls":192,"./multi-value-controls":195,"./type-value-controls":225,"imjs":286,"underscore":308}],128:[function(require,module,exports){
 (function() {
   var ConstraintSummary, CoreView, IS_BLANK, Messages, Model, Query, Templates, _, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -11356,7 +11200,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../patterns":64,"../templates":67,"imjs":289,"underscore":311}],131:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../patterns":63,"../templates":66,"imjs":286,"underscore":308}],129:[function(require,module,exports){
 (function() {
   var ActiveConstraint, ConstraintAdder, Constraints, CoreView, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -11435,7 +11279,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages/constraints":21,"../templates":67,"./active-constraint":112,"./constraint-adder":128,"underscore":311}],132:[function(require,module,exports){
+},{"../core-view":3,"../messages/constraints":21,"../templates":66,"./active-constraint":110,"./constraint-adder":126,"underscore":308}],130:[function(require,module,exports){
 (function() {
   var AdderButton, CoreView, Messages, PathModel, _,
     __hasProp = {}.hasOwnProperty,
@@ -11498,7 +11342,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"underscore":311}],133:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":55,"underscore":308}],131:[function(require,module,exports){
 (function() {
   var AdderButton, ComposedColumnConstraintAdder, ConstraintAdder, CoreView, DropdownButtonGrp, Messages, OPTS_SEL, Option, PathModel, Templates, Toggle, _,
     __hasProp = {}.hasOwnProperty,
@@ -11675,7 +11519,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"../../templates":67,"../constraint-adder":128,"./column-adder-button":132,"underscore":311}],134:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":55,"../../templates":66,"../constraint-adder":126,"./column-adder-button":130,"underscore":308}],132:[function(require,module,exports){
 (function() {
   var AdderButton, ConstraintAdder, CoreView, Messages, OPTS_SEL, PathModel, SingleColumnConstraintAdder, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -11749,7 +11593,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":56,"../../templates":67,"../constraint-adder":128,"./column-adder-button":132,"underscore":311}],135:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/constraints":21,"../../models/path":55,"../../templates":66,"../constraint-adder":126,"./column-adder-button":130,"underscore":308}],133:[function(require,module,exports){
 (function() {
   var ComposedColumnConstraintAdder, Constraints, SingleColumnConstraintAdder, SingleColumnConstraints,
     __hasProp = {}.hasOwnProperty,
@@ -11818,7 +11662,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../constraints":131,"./composed-column-adder":133,"./single-column-adder":134}],136:[function(require,module,exports){
+},{"../constraints":129,"./composed-column-adder":131,"./single-column-adder":132}],134:[function(require,module,exports){
 (function() {
   var Bus, CC_NOT_FOUND, Children, CoreView, Dashboard, ERR, History, QueryTools, SelectedObjects, Table, TableModel, Types, _,
     __hasProp = {}.hasOwnProperty,
@@ -11915,7 +11759,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../core/type-assertions":10,"../models/history":45,"../models/selected-objects":58,"../models/table":61,"../utils/children":76,"../utils/events":81,"./query-tools":208,"./table":209,"underscore":311}],137:[function(require,module,exports){
+},{"../core-view":3,"../core/type-assertions":10,"../models/history":44,"../models/selected-objects":57,"../models/table":60,"../utils/children":75,"../utils/events":80,"./query-tools":205,"./table":206,"underscore":308}],135:[function(require,module,exports){
 (function() {
   var CoreView, ErrorMessage, Icons, Templates, fs, _,
     __hasProp = {}.hasOwnProperty,
@@ -11968,9 +11812,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../icons":14,"../templates":67,"fs":246,"underscore":311}],138:[function(require,module,exports){
+},{"../core-view":3,"../icons":14,"../templates":66,"fs":243,"underscore":308}],136:[function(require,module,exports){
 (function() {
-  var $, ColumnControls, CompressionControls, ConstraintAdder, DestinationOptions, ExportDialogue, ExportModel, FOOTER, FastaOptions, FlatFileOptions, FormatControls, Formats, INITIAL_STATE, JSONOptions, Menu, Messages, Modal, Model, Options, Preview, RowControls, RunsQuery, Templates, UndismissableError, isa, openWindowWithPost, sendToDropBox, sendToGalaxy, sendToGenomeSpace, sendToGoogleDrive, _,
+  var $, ColumnControls, CompressionControls, ConstraintAdder, DestinationOptions, ExportDialogue, ExportModel, FOOTER, FlatFileOptions, FormatControls, Formats, INITIAL_STATE, JSONOptions, Menu, Messages, Modal, Model, Options, Preview, RowControls, RunsQuery, Templates, UndismissableError, isa, openWindowWithPost, sendToDropBox, sendToGalaxy, sendToGenomeSpace, sendToGoogleDrive, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -12008,8 +11852,6 @@ module.exports = '2.0.0-beta-36';
   FlatFileOptions = require('./export-dialogue/flat-file-options');
 
   JSONOptions = require('./export-dialogue/json-options');
-
-  FastaOptions = require('./export-dialogue/fasta-options');
 
   DestinationOptions = require('./export-dialogue/destination-options');
 
@@ -12066,7 +11908,6 @@ module.exports = '2.0.0-beta-36';
         compression: 'gzip',
         headers: false,
         jsonFormat: 'rows',
-        fastaExtension: null,
         headerType: 'friendly'
       };
     };
@@ -12112,7 +11953,6 @@ module.exports = '2.0.0-beta-36';
       this.listenTo(this.state, 'change:tab', this.renderMain);
       this.listenTo(this.model, 'change', this.updateState);
       this.listenTo(this.model, 'change:columns', this.setMax);
-      this.listenTo(this.model, 'change:format', this.onChangeFormat);
       this.categoriseQuery();
       this.model.set({
         columns: this.query.views
@@ -12125,45 +11965,6 @@ module.exports = '2.0.0-beta-36';
       this.updateState();
       this.setMax();
       return this.readUserPreferences();
-    };
-
-    ExportDialogue.prototype.onChangeFormat = function() {
-      return _.defer((function(_this) {
-        return function() {
-          var activeCols, cs, format, maxCols, newColumns, nodecolumns, oldColumns, p, v, _i, _len, _ref, _ref1;
-          format = _this.model.get('format');
-          activeCols = _this.model.get('columns');
-          if ((_ref = format.needs) != null ? _ref.length : void 0) {
-            oldColumns = activeCols.slice();
-            newColumns = [];
-            _ref1 = _this.query.views;
-            for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-              v = _ref1[_i];
-              p = _this.query.makePath(v).getParent();
-              if (_.any(format.needs, function(needed) {
-                return p.isa(needed);
-              })) {
-                newColumns.push(p.append('id').toString());
-              }
-            }
-            nodecolumns = _.uniq(newColumns);
-            _this.model.set({
-              nodecolumns: nodecolumns
-            });
-            maxCols = format.maxColumns;
-            cs = maxCols ? _.first(nodecolumns, maxCols) : nodecolumns.slice();
-            _this.model.set({
-              columns: cs
-            });
-            return _this.model.once('change:format', function() {
-              _this.model.set({
-                columns: oldColumns
-              });
-              return _this.model.unset('nodecolumns');
-            });
-          }
-        };
-      })(this));
     };
 
     ExportDialogue.prototype.readUserPreferences = function() {
@@ -12230,7 +12031,7 @@ module.exports = '2.0.0-beta-36';
       columnDesc = _.isEqual(columns, this.query.views) ? Messages.get('All') : columns.length;
       rowCount = this.getRowCount();
       error = columns.length === 0 ? new UndismissableError('NoColumnsSelected') : start >= max ? new UndismissableError('OffsetOutOfBounds') : null;
-      this.state.set(this.model.pick('headers', 'headerType', 'jsonFormat', 'fastaExtension'));
+      this.state.set(this.model.pick('headers', 'headerType', 'jsonFormat'));
       return this.state.set({
         error: error,
         format: format,
@@ -12265,8 +12066,6 @@ module.exports = '2.0.0-beta-36';
           return FlatFileOptions;
         case 'opts-json':
           return JSONOptions;
-        case 'opts-fasta':
-          return FastaOptions;
         case 'dest':
           return DestinationOptions;
         case 'rows':
@@ -12390,7 +12189,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-model":2,"../messages":16,"../mixins/runs-query":33,"../models/export-formats":42,"../options":63,"../templates":67,"../utils/open-window-with-post":94,"../utils/send-to-dropbox":100,"../utils/send-to-galaxy":101,"../utils/send-to-genomespace":102,"../utils/send-to-google-drive":103,"./constraint-adder":128,"./export-dialogue/column-controls":140,"./export-dialogue/compression-controls":141,"./export-dialogue/destination-options":142,"./export-dialogue/fasta-options":143,"./export-dialogue/flat-file-options":144,"./export-dialogue/format-controls":145,"./export-dialogue/json-options":146,"./export-dialogue/preview":148,"./export-dialogue/row-controls":149,"./export-dialogue/tab-menu":150,"./modal":197,"jquery":308,"underscore":311}],139:[function(require,module,exports){
+},{"../core-model":2,"../messages":16,"../mixins/runs-query":32,"../models/export-formats":41,"../options":62,"../templates":66,"../utils/open-window-with-post":93,"../utils/send-to-dropbox":98,"../utils/send-to-galaxy":99,"../utils/send-to-genomespace":100,"../utils/send-to-google-drive":101,"./constraint-adder":126,"./export-dialogue/column-controls":138,"./export-dialogue/compression-controls":139,"./export-dialogue/destination-options":140,"./export-dialogue/flat-file-options":141,"./export-dialogue/format-controls":142,"./export-dialogue/json-options":143,"./export-dialogue/preview":145,"./export-dialogue/row-controls":146,"./export-dialogue/tab-menu":147,"./modal":194,"jquery":305,"underscore":308}],137:[function(require,module,exports){
 (function() {
   var Counter, ExportDialogue, ExportDialogueButton, QueryDialogueButton, _,
     __hasProp = {}.hasOwnProperty,
@@ -12464,12 +12263,11 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../utils/count-executor":77,"../export-dialogue":138,"../query-dialogue-button":206,"underscore":311}],140:[function(require,module,exports){
+},{"../../utils/count-executor":76,"../export-dialogue":136,"../query-dialogue-button":203,"underscore":308}],138:[function(require,module,exports){
 (function() {
   var AddColumnControl, ColumnControls, ColumnView, HasTypeaheads, HeadingLabel, LabelView, Messages, PathSet, ResetButton, Templates, View, pathSuggester, _,
     __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore');
 
@@ -12662,7 +12460,6 @@ module.exports = '2.0.0-beta-36';
     ColumnView.prototype.RERENDER_EVENT = 'change';
 
     ColumnView.prototype.initialize = function() {
-      var path, _ref;
       ColumnView.__super__.initialize.apply(this, arguments);
       if (!this.model.has('active')) {
         this.model.set({
@@ -12673,11 +12470,7 @@ module.exports = '2.0.0-beta-36';
         this.model.set({
           name: null
         });
-        path = this.model.get('item');
-        if (((_ref = this.model.get('item').end) != null ? _ref.name : void 0) === 'id') {
-          path = path.getParent();
-        }
-        return path.getDisplayName((function(_this) {
+        return this.model.get('item').getDisplayName((function(_this) {
           return function(error, name) {
             return _this.model.set({
               error: error,
@@ -12718,23 +12511,20 @@ module.exports = '2.0.0-beta-36';
     ColumnControls.prototype.className = 'container-fluid';
 
     ColumnControls.prototype.initialize = function(_arg) {
-      var activeCols, c, format, n, ns, p, v, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
+      var activeCols, c, p, v, _i, _j, _len, _len1, _ref;
       this.query = _arg.query;
       ColumnControls.__super__.initialize.apply(this, arguments);
       this.columns = new PathSet;
-      format = this.model.get('format');
       activeCols = this.model.get('columns');
-      if (!((_ref = format.needs) != null ? _ref.length : void 0)) {
-        _ref1 = this.query.views;
-        for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-          v = _ref1[_i];
-          p = this.query.makePath(v);
-          this.columns.add(p, {
-            active: _.any(activeCols, function(ac) {
-              return ac === v;
-            })
-          });
-        }
+      _ref = this.query.views;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        v = _ref[_i];
+        p = this.query.makePath(v);
+        this.columns.add(p, {
+          active: _.any(activeCols, function(ac) {
+            return ac === v;
+          })
+        });
       }
       for (_j = 0, _len1 = activeCols.length; _j < _len1; _j++) {
         c = activeCols[_j];
@@ -12742,20 +12532,12 @@ module.exports = '2.0.0-beta-36';
           active: true
         });
       }
-      if ((ns = this.model.get('nodecolumns'))) {
-        for (_k = 0, _len2 = ns.length; _k < _len2; _k++) {
-          n = ns[_k];
-          this.columns.add(this.query.makePath(n), {
-            active: false
-          });
-        }
-      }
       this.listenTo(this.columns, 'add remove reset change:active', this.setColumns);
       return this.listenTo(this.columns, 'add remove reset', this.reRender);
     };
 
-    ColumnControls.prototype.setColumns = function(m) {
-      var c, columns, max, newlySelected, others;
+    ColumnControls.prototype.setColumns = function() {
+      var c, columns;
       columns = (function() {
         var _i, _len, _ref, _results;
         _ref = this.columns.where({
@@ -12768,39 +12550,6 @@ module.exports = '2.0.0-beta-36';
         }
         return _results;
       }).call(this);
-      if ((max = this.model.get('format').maxColumns)) {
-        if ((m != null) && columns.length > max) {
-          newlySelected = m.get('item').toString();
-          others = (function() {
-            var _i, _len, _results;
-            _results = [];
-            for (_i = 0, _len = columns.length; _i < _len; _i++) {
-              c = columns[_i];
-              if (c !== newlySelected) {
-                _results.push(c);
-              }
-            }
-            return _results;
-          })();
-          columns = [newlySelected].concat(_.first(others, max - 1));
-          _.defer((function(_this) {
-            return function() {
-              var _i, _len, _ref, _ref1, _results;
-              _ref = _this.columns.where({
-                active: true
-              });
-              _results = [];
-              for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-                c = _ref[_i];
-                _results.push(c.set({
-                  active: (_ref1 = c.get('item').toString(), __indexOf.call(columns, _ref1) >= 0)
-                }));
-              }
-              return _results;
-            };
-          })(this));
-        }
-      }
       return this.model.set({
         columns: columns
       });
@@ -12837,7 +12586,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../mixins/has-typeaheads":32,"../../models/path-set":55,"../../templates":67,"../../utils/path-suggester":96,"../label-view":179,"underscore":311}],141:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../mixins/has-typeaheads":31,"../../models/path-set":54,"../../templates":66,"../../utils/path-suggester":95,"../label-view":176,"underscore":308}],139:[function(require,module,exports){
 (function() {
   var CompressionControls, ModalBody, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -12890,7 +12639,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../templates":67,"./main":147,"underscore":311}],142:[function(require,module,exports){
+},{"../../templates":66,"./main":144,"underscore":308}],140:[function(require,module,exports){
 (function() {
   var CoreView, DestinationOptions, DestinationSubOptions, Formats, Options, RadioButtons, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -13086,58 +12835,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../models/export-formats":42,"../../options":63,"../../templates":67,"underscore":311}],143:[function(require,module,exports){
-(function() {
-  var FastaOptions, LabelView, Messages, Templates, View, _,
-    __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  _ = require('underscore');
-
-  View = require('../../core-view');
-
-  LabelView = require('../label-view');
-
-  Messages = require('../../messages');
-
-  Templates = require('../../templates');
-
-  module.exports = FastaOptions = (function(_super) {
-    __extends(FastaOptions, _super);
-
-    function FastaOptions() {
-      return FastaOptions.__super__.constructor.apply(this, arguments);
-    }
-
-    FastaOptions.prototype.RERENDER_EVENT = 'change';
-
-    FastaOptions.prototype.tagName = 'form';
-
-    FastaOptions.prototype.template = Templates.template('export_fasta_options');
-
-    FastaOptions.prototype.setFastaExtension = function(ext) {
-      return this.model.set({
-        fastaExtension: ext
-      });
-    };
-
-    FastaOptions.prototype.events = function() {
-      return {
-        'change .im-fasta-ext': (function(_this) {
-          return function(e) {
-            return _this.setFastaExtension(e.target.value);
-          };
-        })(this)
-      };
-    };
-
-    return FastaOptions;
-
-  })(View);
-
-}).call(this);
-
-},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":311}],144:[function(require,module,exports){
+},{"../../core-view":3,"../../models/export-formats":41,"../../options":62,"../../templates":66,"underscore":308}],141:[function(require,module,exports){
 (function() {
   var FlatFileOptions, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13190,7 +12888,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"underscore":311}],145:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"underscore":308}],142:[function(require,module,exports){
 (function() {
   var FormatControls, Formats, HeadingView, LabelView, Messages, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13265,7 +12963,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../models/export-formats":42,"../../templates":67,"../label-view":179,"underscore":311}],146:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../models/export-formats":41,"../../templates":66,"../label-view":176,"underscore":308}],143:[function(require,module,exports){
 (function() {
   var JSONOptions, LabelView, Messages, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13317,7 +13015,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":311}],147:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../templates":66,"../label-view":176,"underscore":308}],144:[function(require,module,exports){
 (function() {
   var ModalBody, View,
     __hasProp = {}.hasOwnProperty,
@@ -13343,7 +13041,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3}],148:[function(require,module,exports){
+},{"../../core-view":3}],145:[function(require,module,exports){
 (function() {
   var CoreView, Formats, Messages, PROPS, Preview, RunsQuery, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -13387,27 +13085,19 @@ module.exports = '2.0.0-beta-36';
     };
 
     Preview.prototype.setPreview = function() {
-      var format;
-      format = this.model.get('format');
-      if (format.group === 'bio') {
-        return this.state.set({
-          preview: 'Previews are not supported for bio-informatics formats'
-        });
-      } else {
-        return this.runQuery(PROPS).then((function(_this) {
-          return function(resp) {
-            if (_.isString(resp)) {
-              return _this.state.set({
-                preview: resp
-              });
-            } else {
-              return _this.state.set({
-                preview: JSON.stringify(resp, null, 2)
-              });
-            }
-          };
-        })(this));
-      }
+      return this.runQuery(PROPS).then((function(_this) {
+        return function(resp) {
+          if (_.isString(resp)) {
+            return _this.state.set({
+              preview: resp
+            });
+          } else {
+            return _this.state.set({
+              preview: JSON.stringify(resp, null, 2)
+            });
+          }
+        };
+      })(this));
     };
 
     Preview.prototype.template = Templates.template('export_preview');
@@ -13439,7 +13129,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../mixins/runs-query":33,"../../models/export-formats":42,"../../templates":67,"underscore":311}],149:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../mixins/runs-query":32,"../../models/export-formats":41,"../../templates":66,"underscore":308}],146:[function(require,module,exports){
 (function() {
   var HeadingLabel, LabelView, Messages, OffsetLabel, ResetButton, RowControls, SizeLabel, Templates, View, _,
     __hasProp = {}.hasOwnProperty,
@@ -13618,7 +13308,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../templates":67,"../label-view":179,"underscore":311}],150:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../templates":66,"../label-view":176,"underscore":308}],147:[function(require,module,exports){
 (function() {
   var Options, TABS, Tab, TabMenu, Templates, View, _,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -13634,34 +13324,22 @@ module.exports = '2.0.0-beta-36';
   Templates = require('../../templates');
 
   Tab = (function() {
-    function Tab(ident, key, formats, groups) {
+    function Tab(ident, key, formats) {
       this.ident = ident;
       this.formats = formats != null ? formats : [];
-      this.groups = groups != null ? groups : null;
       this.key = "export.category." + key;
     }
 
     Tab.prototype.isFor = function(format) {
       var _ref;
-      if (this.formats.length) {
-        return (_ref = format.ext, __indexOf.call(this.formats, _ref) >= 0);
-      }
-      if (this.groups != null) {
-        return this.groups[format.group];
-      }
-      return true;
+      return (this.formats.length === 0) || (_ref = format.ext, __indexOf.call(this.formats, _ref) >= 0);
     };
 
     return Tab;
 
   })();
 
-  TABS = [
-    new Tab('dest', 'Destination'), new Tab('opts-json', 'JsonFormat', ['json']), new Tab('opts-fasta', 'FastaFormat', ['fasta']), new Tab('columns', 'Columns'), new Tab('rows', 'Rows', [], {
-      flat: true,
-      machine: true
-    }), new Tab('compression', 'Compression'), new Tab('column-headers', 'ColumnHeaders', ['tsv', 'csv']), new Tab('preview', 'Preview')
-  ];
+  TABS = [new Tab('dest', 'Destination'), new Tab('opts-json', 'JsonFormat', ['json']), new Tab('columns', 'Columns'), new Tab('rows', 'Rows'), new Tab('compression', 'Compression'), new Tab('column-headers', 'ColumnHeaders', ['tsv', 'csv']), new Tab('preview', 'Preview')];
 
   module.exports = TabMenu = (function(_super) {
     __extends(TabMenu, _super);
@@ -13804,7 +13482,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../options":63,"../../templates":67,"underscore":311}],151:[function(require,module,exports){
+},{"../../core-view":3,"../../options":62,"../../templates":66,"underscore":308}],148:[function(require,module,exports){
 (function() {
   var CoreView, Event, FacetItems, FacetView, FacetVisualisation, NumericRange, Options, SelectedCount, SetsPathNames, SummaryHeading, SummaryItems,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -13995,7 +13673,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../event":11,"../../mixins/sets-path-names":34,"../../models/numeric-range":50,"../../models/summary-items":60,"../../options":63,"./items":153,"./selected-count":160,"./summary-heading":161,"./visualisation":166}],152:[function(require,module,exports){
+},{"../../core-view":3,"../../event":11,"../../mixins/sets-path-names":33,"../../models/numeric-range":49,"../../models/summary-items":59,"../../options":62,"./items":150,"./selected-count":157,"./summary-heading":158,"./visualisation":163}],149:[function(require,module,exports){
 (function() {
   var HistoFacet, Messages, Options, VisualisationBase, bool, d3, scale, _,
     __hasProp = {}.hasOwnProperty,
@@ -14132,7 +13810,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../messages":16,"../../messages/summary":27,"../../options":63,"../../utils/casts":74,"./visualisation-base":165,"d3-browserify":279,"underscore":311}],153:[function(require,module,exports){
+},{"../../messages":16,"../../messages/summary":26,"../../options":62,"../../utils/casts":73,"./visualisation-base":162,"d3-browserify":276,"underscore":308}],150:[function(require,module,exports){
 (function() {
   var CoreView, FacetItems, NoResults, OnlyOneItem, REQ_ATTRS, SummaryItems, SummaryStats, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -14223,7 +13901,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"./no-results":154,"./only-one-item":156,"./summary-items":163,"./summary-stats":164,"underscore":311}],154:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"./no-results":151,"./only-one-item":153,"./summary-items":160,"./summary-stats":161,"underscore":308}],151:[function(require,module,exports){
 (function() {
   var CoreView, NoResults, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -14260,7 +13938,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/summary":27,"../../templates":67}],155:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/summary":26,"../../templates":66}],152:[function(require,module,exports){
 (function() {
   var $, Messages, NULL_SELECTION_WIDTH, NumericDistribution, Options, VisualisationBase, bucketRange, d3, limited, scale, _,
     __hasProp = {}.hasOwnProperty,
@@ -14565,7 +14243,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../messages":16,"../../messages/summary":27,"../../options":63,"./visualisation-base":165,"d3-browserify":279,"jquery":308,"underscore":311}],156:[function(require,module,exports){
+},{"../../messages":16,"../../messages/summary":26,"../../options":62,"./visualisation-base":162,"d3-browserify":276,"jquery":305,"underscore":308}],153:[function(require,module,exports){
 (function() {
   var CoreView, OnlyOneItem, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -14604,7 +14282,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67}],157:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66}],154:[function(require,module,exports){
 (function() {
   var $, DONUT, KEY, Options, PieChart, TWEEN_START, VisualisationBase, d3, getArc, getArcTween, getChartPalette, getEndPosition, getStartPosition, isPastSixOClock, opacity, _,
     __hasProp = {}.hasOwnProperty,
@@ -14793,7 +14471,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../options":63,"./visualisation-base":165,"d3-browserify":279,"jquery":308,"underscore":311}],158:[function(require,module,exports){
+},{"../../options":62,"./visualisation-base":162,"d3-browserify":276,"jquery":305,"underscore":308}],155:[function(require,module,exports){
 (function() {
   var CoreView, RowSurrogate, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -14845,7 +14523,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"underscore":311}],159:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"underscore":308}],156:[function(require,module,exports){
 (function() {
   var Checkbox, CoreView, FacetRow, RowSurrogate, Templates, bool, _,
     __hasProp = {}.hasOwnProperty,
@@ -15012,7 +14690,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/checkbox":4,"../../messages/summary":27,"../../templates":67,"./row-surrogate":158,"underscore":311}],160:[function(require,module,exports){
+},{"../../core-view":3,"../../core/checkbox":4,"../../messages/summary":26,"../../templates":66,"./row-surrogate":155,"underscore":308}],157:[function(require,module,exports){
 (function() {
   var CoreView, SelectedCount, Templates, fracWithinRange, fullyContained, getPartialCount, partiallyOverlapping, sum, sumCounts, sumPartials, _,
     __hasProp = {}.hasOwnProperty,
@@ -15173,7 +14851,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/summary":27,"../../templates":67,"underscore":311}],161:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/summary":26,"../../templates":66,"underscore":308}],158:[function(require,module,exports){
 (function() {
   var CoreView, SummaryHeading, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -15225,7 +14903,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/summary":27,"../../templates":67,"underscore":311}],162:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/summary":26,"../../templates":66,"underscore":308}],159:[function(require,module,exports){
 (function() {
   var BASIC_OPS, CoreView, IGNORE, MIN_VALS_OPTIMISATION, Messages, SUMMARY_FORMATS, SummaryItemsControls, Templates, bool, negateOps, _,
     __hasProp = {}.hasOwnProperty,
@@ -15400,7 +15078,7 @@ module.exports = '2.0.0-beta-36';
     };
 
     SummaryItemsControls.prototype.addConstraint = function(ops, e) {
-      var anyIsNull, item, unselected, vals, _ref;
+      var item, unselected, vals, _ref;
       IGNORE(e);
       vals = (function() {
         var _i, _len, _ref, _results;
@@ -15422,10 +15100,7 @@ module.exports = '2.0.0-beta-36';
           error: new Error('All items are selected')
         });
       }
-      anyIsNull = _.any(vals, function(v) {
-        return v == null;
-      });
-      if ((!anyIsNull) && this.model.hasAll() && ((MIN_VALS_OPTIMISATION > (_ref = vals.length) && _ref > unselected.length))) {
+      if (this.model.hasAll() && ((MIN_VALS_OPTIMISATION > (_ref = vals.length) && _ref > unselected.length))) {
         return this.constrainTo(negateOps(ops), (function() {
           var _i, _len, _results;
           _results = [];
@@ -15494,7 +15169,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/summary":27,"../../templates":67,"underscore":311}],163:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/summary":26,"../../templates":66,"underscore":308}],160:[function(require,module,exports){
 (function() {
   var Backbone, CoreView, FacetRow, IGNORE, Messages, SetsPathNames, SummaryItems, SummaryItemsControls, Templates, rowId, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -15684,7 +15359,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/summary":27,"../../mixins/sets-path-names":34,"../../templates":67,"./row":159,"./summary-items-controls":162,"backbone":232,"underscore":311}],164:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/summary":26,"../../mixins/sets-path-names":33,"../../templates":66,"./row":156,"./summary-items-controls":159,"backbone":229,"underscore":308}],161:[function(require,module,exports){
 (function() {
   var CoreView, DOWN, NULL_STATS, SummaryStats, Templates, UP, _,
     __hasProp = {}.hasOwnProperty,
@@ -15938,7 +15613,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"underscore":311}],165:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"underscore":308}],162:[function(require,module,exports){
 (function() {
   var CoreView, VisualisationBase, d3, _,
     __hasProp = {}.hasOwnProperty,
@@ -16062,7 +15737,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"d3-browserify":279,"underscore":311}],166:[function(require,module,exports){
+},{"../../core-view":3,"d3-browserify":276,"underscore":308}],163:[function(require,module,exports){
 (function() {
   var CoreView, FacetVisualisation, Histogram, NumericDistribution, Options, PieChart, SummaryItems,
     __hasProp = {}.hasOwnProperty,
@@ -16136,9 +15811,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../options":63,"./histogram":152,"./numeric":155,"./pie":157,"./summary-items":163}],167:[function(require,module,exports){
+},{"../../core-view":3,"../../options":62,"./histogram":149,"./numeric":152,"./pie":154,"./summary-items":160}],164:[function(require,module,exports){
 (function() {
-  var Body, Constraints, CoreView, FilterDialogue, LogicManager, Messages, Modal, Templates, _,
+  var Body, Constraints, CoreView, FilterDialogue, Messages, Modal, Templates, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -16156,103 +15831,7 @@ module.exports = '2.0.0-beta-36';
 
   require('../messages/constraints');
 
-  require('../messages/logic');
-
-  LogicManager = (function(_super) {
-    __extends(LogicManager, _super);
-
-    function LogicManager() {
-      return LogicManager.__super__.constructor.apply(this, arguments);
-    }
-
-    LogicManager.prototype.className = 'form im-evenly-spaced im-constraint-logic';
-
-    LogicManager.prototype.tagName = 'form';
-
-    LogicManager.prototype.template = Templates.template('logic-manager-body');
-
-    LogicManager.prototype.parameters = ['query'];
-
-    LogicManager.prototype.initialize = function() {
-      var c, codes;
-      LogicManager.__super__.initialize.apply(this, arguments);
-      codes = (function() {
-        var _i, _len, _ref, _results;
-        _ref = this.query.constraints;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          c = _ref[_i];
-          if (c.code) {
-            _results.push(c.code);
-          }
-        }
-        return _results;
-      }).call(this);
-      this.model.set({
-        logic: this.query.constraintLogic
-      });
-      return this.state.set({
-        disabled: true,
-        defaultLogic: codes.join(' and ')
-      });
-    };
-
-    LogicManager.prototype.events = function() {
-      return {
-        'change .im-logic': this.setLogic,
-        'submit': this.applyChanges
-      };
-    };
-
-    LogicManager.prototype.modelEvents = function() {
-      return {
-        'change:logic': this.setDisabled
-      };
-    };
-
-    LogicManager.prototype.stateEvents = function() {
-      return {
-        'change:disabled': this.reRender
-      };
-    };
-
-    LogicManager.prototype.setDisabled = function() {
-      var current, newLogic;
-      newLogic = this.model.get('logic');
-      current = this.query.constraintLogic;
-      return this.state.set({
-        disabled: newLogic === current
-      });
-    };
-
-    LogicManager.prototype.setLogic = function(e) {
-      return this.model.set({
-        logic: e.target.value
-      });
-    };
-
-    LogicManager.prototype.applyChanges = function(e) {
-      var newLogic;
-      if (e != null) {
-        e.preventDefault();
-      }
-      if (e != null) {
-        e.stopPropagation();
-      }
-      if (!this.state.get('disabled')) {
-        newLogic = this.model.get('logic');
-        this.query.constraintLogic = newLogic;
-        return this.query.trigger('change:logic', newLogic);
-      }
-    };
-
-    return LogicManager;
-
-  })(CoreView);
-
   Body = (function(_super) {
-    var CODES;
-
     __extends(Body, _super);
 
     function Body() {
@@ -16261,69 +15840,15 @@ module.exports = '2.0.0-beta-36';
 
     Body.prototype.template = Templates.template('active-constraints');
 
-    Body.prototype.initialize = function() {
-      Body.__super__.initialize.apply(this, arguments);
-      return this.assignCodes();
-    };
-
     Body.prototype.stateEvents = function() {
       return {
         'change:adding': this.reRender
       };
     };
 
-    CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    Body.prototype.assignCodes = function() {
-      var c, code, codes, constraints, _i, _len, _results;
-      constraints = (function() {
-        var _i, _len, _ref, _results;
-        _ref = this.query.constraints;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          c = _ref[_i];
-          if (c.op != null) {
-            _results.push(c);
-          }
-        }
-        return _results;
-      }).call(this);
-      if (constraints.length < 2) {
-        return;
-      }
-      codes = CODES.split('');
-      _results = [];
-      for (_i = 0, _len = constraints.length; _i < _len; _i++) {
-        c = constraints[_i];
-        if (c.code == null) {
-          _results.push((function() {
-            var _results1;
-            _results1 = [];
-            while ((c.code == null) && (code = codes.shift())) {
-              if (!(_.any(constraints, function(con) {
-                return con.code === code;
-              }))) {
-                _results1.push(c.code = code);
-              } else {
-                _results1.push(void 0);
-              }
-            }
-            return _results1;
-          })());
-        }
-      }
-      return _results;
-    };
-
     Body.prototype.postRender = function() {
-      var constraints, mth;
+      var mth;
       Body.__super__.postRender.apply(this, arguments);
-      constraints = this.getConstraints();
-      if (constraints.length > 1) {
-        this.renderChild('logic', new LogicManager({
-          query: this.query
-        }));
-      }
       mth = this.state.get('adding') ? 'slideUp' : 'slideDown';
       return this.$('.im-current-constraints')[mth](400);
     };
@@ -16415,7 +15940,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/constraints":21,"../messages/logic":25,"../templates":67,"./constraints":131,"./modal":197,"underscore":311}],168:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/constraints":21,"../templates":66,"./constraints":129,"./modal":194,"underscore":308}],165:[function(require,module,exports){
 (function() {
   var FilterDialogue, FilterDialogueButton, QueryDialogueButton,
     __hasProp = {}.hasOwnProperty,
@@ -16450,7 +15975,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../messages/constraints":21,"../filter-dialogue":167,"../query-dialogue-button":206}],169:[function(require,module,exports){
+},{"../../messages/constraints":21,"../filter-dialogue":164,"../query-dialogue-button":203}],166:[function(require,module,exports){
 (function() {
   var CoreView, FormattedSorting, SortedPath, Templates, sortQueryByPath,
     __hasProp = {}.hasOwnProperty,
@@ -16557,7 +16082,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"../utils/sort-query-by-path":105,"./formatted/sorting-path":170}],170:[function(require,module,exports){
+},{"../core-view":3,"../templates":66,"../utils/sort-query-by-path":103,"./formatted/sorting-path":167}],167:[function(require,module,exports){
 (function() {
   var CoreView, INITIAL_CARETS, Icons, SortedPath, Templates, sortQueryByPath,
     __hasProp = {}.hasOwnProperty,
@@ -16622,7 +16147,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../icons":14,"../../templates":67,"../../utils/sort-query-by-path":105}],171:[function(require,module,exports){
+},{"../../core-view":3,"../../icons":14,"../../templates":66,"../../utils/sort-query-by-path":103}],168:[function(require,module,exports){
 (function() {
   exports.openDialogue = function(dialogue) {
     this.renderChild('__dialogue__', dialogue);
@@ -16636,7 +16161,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{}],172:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 (function() {
   var AttrDetailsModel, Collection, CoreModel, CoreView, CountsTitle, DetailsModel, ERROR, HIDDEN_FIELDS, ItemDetails, Options, PathModel, Preview, PreviewModel, Promise, RefDetailsModel, ReferenceCounts, ServiceType, SortedByName, Templates, acceptAttr, acceptRef, cantFindField, concat, getLeaves, types, _,
     __hasProp = {}.hasOwnProperty,
@@ -17082,7 +16607,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../models/path":56,"../options":63,"../templates":67,"../utils/get-leaves":83,"./item-preview/counts-title":173,"./item-preview/details":174,"./item-preview/reference-counts":175,"es6-promise":280,"underscore":311}],173:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../models/path":55,"../options":62,"../templates":66,"../utils/get-leaves":82,"./item-preview/counts-title":170,"./item-preview/details":171,"./item-preview/reference-counts":172,"es6-promise":277,"underscore":308}],170:[function(require,module,exports){
 (function() {
   var CoreView, CountsTitle, Messages, _,
     __hasProp = {}.hasOwnProperty,
@@ -17131,7 +16656,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"underscore":311}],174:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"underscore":308}],171:[function(require,module,exports){
 (function() {
   var ATTR, CoreView, ITEMS, ItemDetails, REFERENCE, Templates, ignore, _,
     __hasProp = {}.hasOwnProperty,
@@ -17210,7 +16735,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"../../utils/events":81,"underscore":311}],175:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"../../utils/events":80,"underscore":308}],172:[function(require,module,exports){
 (function() {
   var CoreView, ReferenceCounts, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -17245,7 +16770,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67}],176:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66}],173:[function(require,module,exports){
 (function() {
   var Body, CoreView, FilterDialogue, Joins, Messages, Modal, areEql, _,
     __hasProp = {}.hasOwnProperty,
@@ -17355,7 +16880,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/joins":23,"../models/joins":47,"./join-manager/body":177,"./modal":197,"underscore":311}],177:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/joins":23,"../models/joins":46,"./join-manager/body":174,"./modal":194,"underscore":308}],174:[function(require,module,exports){
 (function() {
   var BtnClasses, ClassSet, CoreView, Join, JoinManagerBody, LINE_PARTS, Templates, otherStyle, _,
     __hasProp = {}.hasOwnProperty,
@@ -17521,7 +17046,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/joins":23,"../../templates":67,"../../utils/css-class-set":79,"underscore":311}],178:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/joins":23,"../../templates":66,"../../utils/css-class-set":78,"underscore":308}],175:[function(require,module,exports){
 (function() {
   var JoinManager, JoinManagerButton, QueryDialogueButton,
     __hasProp = {}.hasOwnProperty,
@@ -17556,7 +17081,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../messages/joins":23,"../join-manager":176,"../query-dialogue-button":206}],179:[function(require,module,exports){
+},{"../../messages/joins":23,"../join-manager":173,"../query-dialogue-button":203}],176:[function(require,module,exports){
 (function() {
   var LabelView, View,
     __hasProp = {}.hasOwnProperty,
@@ -17581,7 +17106,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3}],180:[function(require,module,exports){
+},{"../core-view":3}],177:[function(require,module,exports){
 (function() {
   var AppendFromPath, BaseAppendDialogue, FromPathMixin, Promise,
     __hasProp = {}.hasOwnProperty,
@@ -17608,7 +17133,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"./base-append-dialogue":183,"./from-path-mixin":189,"es6-promise":280}],181:[function(require,module,exports){
+},{"./base-append-dialogue":180,"./from-path-mixin":186,"es6-promise":277}],178:[function(require,module,exports){
 (function() {
   var AppendFromSelection, BaseAppendDialogue, Floating, FromSelectionMixin, Promise,
     __hasProp = {}.hasOwnProperty,
@@ -17639,7 +17164,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../mixins/floating-dialogue":30,"./base-append-dialogue":183,"./from-selection-mixin":190,"es6-promise":280}],182:[function(require,module,exports){
+},{"../../mixins/floating-dialogue":29,"./base-append-dialogue":180,"./from-selection-mixin":187,"es6-promise":277}],179:[function(require,module,exports){
 (function() {
   var AppendToListBody, CoreView, Messages, SelectWithLabel, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -17694,7 +17219,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/select-with-label":9,"../../messages":16,"../../messages/lists":24,"../../templates":67,"underscore":311}],183:[function(require,module,exports){
+},{"../../core-view":3,"../../core/select-with-label":9,"../../messages":16,"../../messages/lists":24,"../../templates":66,"underscore":308}],180:[function(require,module,exports){
 (function() {
   var AppendToListBody, AppendToListModel, BaseAppendDialogue, BaseCreateListDialogue, CoreCollection, CoreModel, LIST_NOT_SUITABLE, Messages, NO_SUITABLE_LISTS, NO_TARGET_SELECTED, PossibleList, PossibleLists, Promise, TARGET_DOES_NOT_EXIST, onlyCurrent, theListIsSuitable, unpackLists, _,
     __hasProp = {}.hasOwnProperty,
@@ -17855,36 +17380,8 @@ module.exports = '2.0.0-beta-36';
       });
     };
 
-    BaseAppendDialogue.prototype.act = function() {
-      return this.getQuery().then((function(_this) {
-        return function(query) {
-          return _this.fetchOldList(query);
-        };
-      })(this)).then((function(_this) {
-        return function(oldWithQuery) {
-          return _this.processQuery(oldWithQuery);
-        };
-      })(this)).then(this.resolve, (function(_this) {
-        return function(e) {
-          return _this.state.set({
-            error: e
-          });
-        };
-      })(this));
-    };
-
-    BaseAppendDialogue.prototype.fetchOldList = function(query) {
-      return query.service.fetchList(this.model.get('target')).then(function(oldlist) {
-        return [oldlist, query];
-      });
-    };
-
-    BaseAppendDialogue.prototype.processQuery = function(values) {
-      var appendPromise, oldlist, query;
-      oldlist = values[0], query = values[values.length - 1];
-      return appendPromise = query.appendToList(this.model.get('target')).then(function(result) {
-        return [oldlist, result];
-      });
+    BaseAppendDialogue.prototype.processQuery = function(query) {
+      return query.appendToList(this.model.get('target'));
     };
 
     BaseAppendDialogue.prototype.modelEvents = function() {
@@ -18000,7 +17497,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-model":2,"../../core/collection":5,"../../messages":16,"../../models/append-to-list":35,"./append-to-list-body":182,"./base-dialogue":184,"es6-promise":280,"underscore":311}],184:[function(require,module,exports){
+},{"../../core-model":2,"../../core/collection":5,"../../messages":16,"../../models/append-to-list":34,"./append-to-list-body":179,"./base-dialogue":181,"es6-promise":277,"underscore":308}],181:[function(require,module,exports){
 (function() {
   var ABSTRACT, BaseCreateListDialogue, CreateListModel, ListDialogueBody, Messages, Modal, _,
     __hasProp = {}.hasOwnProperty,
@@ -18196,7 +17693,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../messages":16,"../../messages/lists":24,"../../models/create-list":41,"../modal":197,"./body":185,"underscore":311}],185:[function(require,module,exports){
+},{"../../messages":16,"../../messages/lists":24,"../../models/create-list":40,"../modal":194,"./body":182,"underscore":308}],182:[function(require,module,exports){
 (function() {
   var CoreView, CreateListModel, InputWithButton, InputWithLabel, ListDialogueBody, ListTag, Messages, TagsApology, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -18370,7 +17867,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/input-with-button":6,"../../core/input-with-label":7,"../../messages":16,"../../messages/lists":24,"../../models/create-list":41,"../../templates":67,"./tag":191,"./tags-apology":192,"underscore":311}],186:[function(require,module,exports){
+},{"../../core-view":3,"../../core/input-with-button":6,"../../core/input-with-label":7,"../../messages":16,"../../messages/lists":24,"../../models/create-list":40,"../../templates":66,"./tag":188,"./tags-apology":189,"underscore":308}],183:[function(require,module,exports){
 (function() {
   var AppendFromPath, AppendPicker, ClassSet, Collection, CoreModel, CoreView, Counter, CreateFromPath, CreatePicker, ListDialogueButton, PathModel, Paths, SelectableNode, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -18718,7 +18215,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-model":2,"../../core-view":3,"../../core/collection":5,"../../messages/lists":24,"../../models/path":56,"../../templates":67,"../../utils/count-executor":77,"../../utils/css-class-set":79,"./append-from-path":180,"./append-from-selection":181,"./create-from-path":187,"./create-from-selection":188,"underscore":311}],187:[function(require,module,exports){
+},{"../../core-model":2,"../../core-view":3,"../../core/collection":5,"../../messages/lists":24,"../../models/path":55,"../../templates":66,"../../utils/count-executor":76,"../../utils/css-class-set":78,"./append-from-path":177,"./append-from-selection":178,"./create-from-path":184,"./create-from-selection":185,"underscore":308}],184:[function(require,module,exports){
 (function() {
   var BaseCreateListDialogue, CreateFromPath, FromPathMixin, Promise,
     __hasProp = {}.hasOwnProperty,
@@ -18745,7 +18242,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"./base-dialogue":184,"./from-path-mixin":189,"es6-promise":280}],188:[function(require,module,exports){
+},{"./base-dialogue":181,"./from-path-mixin":186,"es6-promise":277}],185:[function(require,module,exports){
 (function() {
   var BaseCreateListDialogue, CreateFromSelection, Floating, FromSelectionMixin, Promise, _,
     __hasProp = {}.hasOwnProperty,
@@ -18778,7 +18275,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../mixins/floating-dialogue":30,"./base-dialogue":184,"./from-selection-mixin":190,"es6-promise":280,"underscore":311}],189:[function(require,module,exports){
+},{"../../mixins/floating-dialogue":29,"./base-dialogue":181,"./from-selection-mixin":187,"es6-promise":277,"underscore":308}],186:[function(require,module,exports){
 (function() {
   var Promise;
 
@@ -18811,7 +18308,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"es6-promise":280}],190:[function(require,module,exports){
+},{"es6-promise":277}],187:[function(require,module,exports){
 (function() {
   var NO_COMMON_TYPE, NO_OBJECTS_SELECTED, SelectedObjects, TypeAssertions;
 
@@ -18909,7 +18406,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core/type-assertions":10,"../../models/selected-objects":58}],191:[function(require,module,exports){
+},{"../../core/type-assertions":10,"../../models/selected-objects":57}],188:[function(require,module,exports){
 (function() {
   var CoreView, ListTag, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -18960,7 +18457,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67}],192:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66}],189:[function(require,module,exports){
 (function() {
   var CoreView, TagsApology, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -19001,7 +18498,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/lists":24,"../../templates":67,"underscore":311}],193:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/lists":24,"../../templates":66,"underscore":308}],190:[function(require,module,exports){
 (function() {
   var ListValueControls, Messages, Promise, View, formatList, fs, getOptionValue, helpers, html, mustacheSettings, template, withDisplayNames, _,
     __hasProp = {}.hasOwnProperty,
@@ -19201,9 +18698,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../templates/mustache-settings":69,"es6-promise":280,"underscore":311}],194:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates/helpers":67,"../templates/mustache-settings":68,"es6-promise":277,"underscore":308}],191:[function(require,module,exports){
 (function() {
-  var AttributeValueControls, LoopValueControls, Messages, Promise, SuggestionSource, fs, html, template, _,
+  var AttributeValueControls, LoopValueControls, Promise, fs, html, template, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -19213,13 +18710,9 @@ module.exports = '2.0.0-beta-36';
 
   Promise = require('es6-promise').Promise;
 
-  SuggestionSource = require('../utils/suggestion-source');
-
-  Messages = require('../messages');
-
   AttributeValueControls = require('./attribute-value-controls');
 
-  html = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- state.extraPlaceholder %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
+  html = "<label class=\"im-value-options\">\n    <%- messages.getText('conbuilder.ExtraLabel') %>\n    <input type=\"text\" class=\"im-extra-value form-control\"\n            placeholder=\"<%- messages.getText('conbuilder.ExtraPlaceholder') %>\"\n            value=\"<%- con.extraValue %>\">\n</label>\n\n";
 
   template = _.template(html);
 
@@ -19229,26 +18722,6 @@ module.exports = '2.0.0-beta-36';
     function LoopValueControls() {
       return LoopValueControls.__super__.constructor.apply(this, arguments);
     }
-
-    LoopValueControls.prototype.initialize = function() {
-      LoopValueControls.__super__.initialize.apply(this, arguments);
-      this.state.set({
-        extraPlaceholder: Messages.get('conbuilder.ExtraPlaceholder')
-      });
-      this.listenTo(this.branding, 'change:defaults.extraValue.path', this.reRender);
-      this.listenTo(this.branding, 'change:defaults.extraValue.value', function() {
-        return this.state.set({
-          extraPlaceholder: this.branding.get('defaults.extraValue.value')
-        });
-      });
-      return this.listenTo(this.model, 'change', this.reRender);
-    };
-
-    LoopValueControls.prototype.stateEvents = function() {
-      return _.extend(LoopValueControls.__super__.stateEvents.apply(this, arguments), {
-        'change:extraPlaceholder': this.reRender
-      });
-    };
 
     LoopValueControls.prototype.template = function(data) {
       var base;
@@ -19263,119 +18736,20 @@ module.exports = '2.0.0-beta-36';
       };
     };
 
-    LoopValueControls.prototype.setExtraValue = function() {
-      var input, value;
-      input = this.$('input.im-extra-value.tt-input');
-      if (!input.length) {
-        input = this.$('input.im-extra-value');
-      }
-      value = input.val();
-      if (value) {
-        return this.model.set({
-          extraValue: value
-        });
-      } else {
-        return this.model.unset('extraValue');
-      }
-    };
-
-    LoopValueControls.prototype.setBoth = function() {
-      this.setValue();
-      return this.setExtraValue();
-    };
-
-    LoopValueControls.prototype.suggestExtra = function() {
-      var handler, path, suggesting, suggestingExtra, summPath, target;
-      path = this.branding.get('defaults.extraValue.path');
-      target = this.branding.get('defaults.extraValue.extraFor');
-      return suggestingExtra = (path == null) || !this.model.get('path').isa(target) ? Promise.resolve(true) : (summPath = "" + (this.model.get('path')) + "." + path, suggesting = (this.__extra_suggestions != null ? this.__extra_suggestions : this.__extra_suggestions = this.query.summarise(summPath)), handler = this.handleSuggestionSet.bind(this, this.$('input.im-extra-value'), 'extraValue'), suggesting.then(function(_arg) {
-        var results;
-        results = _arg.results;
-        return results;
-      }).then(handler));
-    };
-
-    LoopValueControls.prototype.suggestValue = function() {
-      var cls, gettingKeys, handler, path, s;
-      path = this.model.get('path');
-      s = this.query.service;
-      cls = path.getEndClass().name;
-      gettingKeys = s.fetchClassKeys().then(function(keys) {
-        return keys[cls];
+    LoopValueControls.prototype.setValue = function() {
+      return this.model.set({
+        value: this.$('.im-con-value-attr').val()
       });
-      if (this.__value_suggestions == null) {
-        this.__value_suggestions = gettingKeys.then((function(_this) {
-          return function(keys) {
-            var k, summaries;
-            if (!(keys != null ? keys.length : void 0)) {
-              return [];
-            }
-            summaries = (function() {
-              var _i, _len, _results;
-              _results = [];
-              for (_i = 0, _len = keys.length; _i < _len; _i++) {
-                k = keys[_i];
-                _results.push(this.query.summarise(path + k.replace(/^[^\.]+/, '')));
-              }
-              return _results;
-            }).call(_this);
-            return Promise.all(summaries).then(function(resultSets) {
-              return resultSets.reduce((function(acc, rs) {
-                return acc.concat(rs.results);
-              }), []);
-            });
-          };
-        })(this));
-      }
-      handler = this.handleSuggestionSet.bind(this, this.$('input.im-con-value-attr'), 'value');
-      return this.__value_suggestions.then(handler);
     };
 
-    LoopValueControls.prototype.handleSuggestionSet = function(input, prop, results) {
-      var dataset, handleSuggestion, mostCommon, opts, source, total;
-      total = results.length;
-      if (total === 0) {
-        return;
-      }
-      source = new SuggestionSource(results, total);
-      opts = {
-        minLength: 0,
-        highlight: true
-      };
-      dataset = {
-        name: "" + prop + "_suggestions",
-        source: source.suggest,
-        displayKey: 'item',
-        templates: {
-          footer: source.tooMany
-        }
-      };
-      handleSuggestion = (function(_this) {
-        return function(control) {
-          return function(e, suggestion) {
-            return _this.model.set(prop, suggestion.item);
-          };
-        };
-      })(this);
-      mostCommon = results[0].item;
-      return this.activateTypeahead(input, opts, dataset, mostCommon, handleSuggestion(input), (function(_this) {
-        return function() {
-          return _this.setBoth();
-        };
-      })(this));
+    LoopValueControls.prototype.setExtraValue = function() {
+      return this.model.set({
+        extraValue: this.$('.im-extra-value').val()
+      });
     };
 
     LoopValueControls.prototype.provideSuggestions = function() {
-      var suggestingExtra, suggestingValue;
-      this.removeTypeAheads();
-      suggestingValue = this.suggestValue();
-      suggestingExtra = this.suggestExtra();
-      return Promise.all([suggestingExtra, suggestingValue]);
-    };
-
-    LoopValueControls.prototype.remove = function() {
-      LoopValueControls.__super__.remove.apply(this, arguments);
-      return this.branding.destroy();
+      return Promise.resolve(true);
     };
 
     return LoopValueControls;
@@ -19384,7 +18758,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../messages":16,"../utils/suggestion-source":107,"./attribute-value-controls":113,"es6-promise":280,"underscore":311}],195:[function(require,module,exports){
+},{"./attribute-value-controls":111,"es6-promise":277,"underscore":308}],192:[function(require,module,exports){
 (function() {
   var LoopValueControls, Messages, Promise, View, fs, helpers, html, mustacheSettings, template, toNamedPath, toOption, _,
     __hasProp = {}.hasOwnProperty,
@@ -19518,7 +18892,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../templates/mustache-settings":69,"../utils/to-named-path":109,"es6-promise":280,"underscore":311}],196:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates/helpers":67,"../templates/mustache-settings":68,"../utils/to-named-path":107,"es6-promise":277,"underscore":308}],193:[function(require,module,exports){
 (function() {
   var CoreView, ModalFooter, Templates, defaultData, _,
     __hasProp = {}.hasOwnProperty,
@@ -19568,7 +18942,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":311}],197:[function(require,module,exports){
+},{"../core-view":3,"../templates":66,"underscore":308}],194:[function(require,module,exports){
 (function() {
   var Messages, Modal, ModalFooter, Promise, Templates, View, modalTemplate, _,
     __hasProp = {}.hasOwnProperty,
@@ -19773,7 +19147,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates":67,"./modal-footer":196,"es6-promise":280,"underscore":311}],198:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates":66,"./modal-footer":193,"es6-promise":277,"underscore":308}],195:[function(require,module,exports){
 (function() {
   var Collection, IS_BLANK, Icons, Messages, Model, MultiValueControls, Options, Templates, ValueControl, ValueModel, Values, View, ignore, mustacheSettings, _,
     __hasProp = {}.hasOwnProperty,
@@ -20089,7 +19463,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../core/collection":5,"../icons":14,"../messages":16,"../options":63,"../patterns":64,"../templates":67,"../templates/mustache-settings":69,"../utils/events":81,"backbone":232,"underscore":311}],199:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../core/collection":5,"../icons":14,"../messages":16,"../options":62,"../patterns":63,"../templates":66,"../templates/mustache-settings":68,"../utils/events":80,"backbone":229,"underscore":308}],196:[function(require,module,exports){
 (function() {
   var ActiveConstraint, Messages, NewConstraint,
     __hasProp = {}.hasOwnProperty,
@@ -20133,7 +19507,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../messages":16,"./active-constraint":112}],200:[function(require,module,exports){
+},{"../messages":16,"./active-constraint":110}],197:[function(require,module,exports){
 (function() {
   var ConstraintAdder, Messages, Modal, NewFilterDialogue, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -20211,7 +19585,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../messages":16,"../templates":67,"./constraint-adder":128,"./modal":197,"underscore":311}],201:[function(require,module,exports){
+},{"../messages":16,"../templates":66,"./constraint-adder":126,"./modal":194,"underscore":308}],198:[function(require,module,exports){
 (function() {
   var Attribute, CoreView, Options, PathChooser, Reference, ReverseReference, RootClass, appendField, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -20415,7 +19789,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../options":63,"./pathtree/attribute":202,"./pathtree/reference":203,"./pathtree/reverse-reference":204,"./pathtree/root":205,"underscore":311}],202:[function(require,module,exports){
+},{"../core-view":3,"../options":62,"./pathtree/attribute":199,"./pathtree/reference":200,"./pathtree/reverse-reference":201,"./pathtree/root":202,"underscore":308}],199:[function(require,module,exports){
 (function() {
   var Attribute, Icons, Options, View, highlightMatch, notBlank, stripLeadingSegments, _,
     __hasProp = {}.hasOwnProperty,
@@ -20609,7 +19983,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../icons":14,"../../options":63,"underscore":311}],203:[function(require,module,exports){
+},{"../../core-view":3,"../../icons":14,"../../options":62,"underscore":308}],200:[function(require,module,exports){
 (function() {
   var Attribute, Icons, Reference, ignore,
     __hasProp = {}.hasOwnProperty,
@@ -20685,7 +20059,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../icons":14,"../../utils/events":81,"./attribute":202}],204:[function(require,module,exports){
+},{"../../icons":14,"../../utils/events":80,"./attribute":199}],201:[function(require,module,exports){
 (function() {
   var Icons, Reference, ReverseReference,
     __hasProp = {}.hasOwnProperty,
@@ -20731,7 +20105,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../icons":14,"./reference":203}],205:[function(require,module,exports){
+},{"../../icons":14,"./reference":200}],202:[function(require,module,exports){
 (function() {
   var Attribute, Icons, RootClass, _,
     __hasProp = {}.hasOwnProperty,
@@ -20802,7 +20176,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../icons":14,"./attribute":202,"underscore":311}],206:[function(require,module,exports){
+},{"../../icons":14,"./attribute":199,"underscore":308}],203:[function(require,module,exports){
 (function() {
   var CoreView, QueryDialogueButton, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -20908,7 +20282,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../templates":67,"underscore":311}],207:[function(require,module,exports){
+},{"../core-view":3,"../templates":66,"underscore":308}],204:[function(require,module,exports){
 (function() {
   var ColumnMangerButton, CoreView, FilterDialogueButton, HistoryType, JoinManagerButton, Listenable, QueryManagement, Structure, Types, UnionOf, _ref,
     __hasProp = {}.hasOwnProperty,
@@ -20968,7 +20342,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../core/type-assertions":10,"./column-manager/button":119,"./filter-dialogue/button":168,"./join-manager/button":178}],208:[function(require,module,exports){
+},{"../core-view":3,"../core/type-assertions":10,"./column-manager/button":117,"./filter-dialogue/button":165,"./join-manager/button":175}],205:[function(require,module,exports){
 (function() {
   var $, Bus, CodeGenButton, CoreView, ExportDialogueButton, ListDialogueButton, Options, QueryManagement, QueryTools, SUBSECTIONS, Templates, UndoHistory, subsection, _,
     __hasProp = {}.hasOwnProperty,
@@ -21117,7 +20491,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../options":63,"../templates":67,"../utils/events":81,"./code-gen-button":115,"./export-dialogue/button":139,"./list-dialogue/button":186,"./query-management-tools":207,"./undo-history":229,"jquery":308,"underscore":311}],209:[function(require,module,exports){
+},{"../core-view":3,"../options":62,"../templates":66,"../utils/events":80,"./code-gen-button":113,"./export-dialogue/button":137,"./list-dialogue/button":183,"./query-management-tools":204,"./undo-history":226,"jquery":305,"underscore":308}],206:[function(require,module,exports){
 (function() {
   var CellModelFactory, Collection, ColumnHeaders, CoreModel, CoreView, ErrorNotice, History, Messages, Options, PageSizer, Pagination, ResultsTable, RowsCollection, SelectedObjects, Table, TableModel, TableResults, TableSummary, Templates, Types, UNKNOWN_ERROR, UniqItems, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -21563,13 +20937,15 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../messages":16,"../messages/table":28,"../models/column-headers":39,"../models/history":45,"../models/rows":57,"../models/selected-objects":58,"../models/table":61,"../models/uniq-items":62,"../options":63,"../templates":67,"../utils/cell-model-factory":75,"../utils/table-results":108,"./table/error-notice":214,"./table/inner":217,"./table/page-sizer":220,"./table/pagination":221,"./table/summary":227,"underscore":311}],210:[function(require,module,exports){
+},{"../core-model":2,"../core-view":3,"../core/collection":5,"../core/type-assertions":10,"../messages":16,"../messages/table":27,"../models/column-headers":38,"../models/history":44,"../models/rows":56,"../models/selected-objects":57,"../models/table":60,"../models/uniq-items":61,"../options":62,"../templates":66,"../utils/cell-model-factory":74,"../utils/table-results":106,"./table/error-notice":211,"./table/inner":214,"./table/page-sizer":217,"./table/pagination":218,"./table/summary":224,"underscore":308}],207:[function(require,module,exports){
 (function() {
-  var CoreView, EmptyApology, RowView, TableBody, Templates, buildSkipped, _,
+  var $, CoreView, EmptyApology, RowView, TableBody, Templates, buildSkipped, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   _ = require('underscore');
+
+  $ = require('jquery');
 
   CoreView = require('../../core-view');
 
@@ -21735,7 +21111,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/table":28,"../../templates":67,"../../utils/build-skipset":72,"underscore":311}],211:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/table":27,"../../templates":66,"../../utils/build-skipset":71,"jquery":305,"underscore":308}],208:[function(require,module,exports){
 (function() {
   var Cell, NestedTableModel, SubTable;
 
@@ -21780,7 +21156,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../models/nested-table":48,"./cell":212,"./subtable":226}],212:[function(require,module,exports){
+},{"../../models/nested-table":47,"./cell":209,"./subtable":223}],209:[function(require,module,exports){
 (function (global){
 (function() {
   var $, Cell, CellModel, CoreView, Formatting, Messages, Options, SelectedObjects, Templates, compatible, popoverTemplate, types, _, _compatible,
@@ -22404,7 +21780,7 @@ module.exports = '2.0.0-beta-36';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../messages":16,"../../models/cell":37,"../../models/selected-objects":58,"../../options":63,"../../templates":67,"jquery":308,"underscore":311}],213:[function(require,module,exports){
+},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../messages":16,"../../models/cell":36,"../../models/selected-objects":57,"../../options":62,"../../templates":66,"jquery":305,"underscore":308}],210:[function(require,module,exports){
 (function() {
   var BAD_MODEL, DropDownColumnSummary, FacetView, NO_QUERY, PathModel, ignore, _,
     __hasProp = {}.hasOwnProperty,
@@ -22461,7 +21837,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../models/path":56,"../../utils/events":81,"../facets/facet-view":151,"underscore":311}],214:[function(require,module,exports){
+},{"../../models/path":55,"../../utils/events":80,"../facets/facet-view":148,"underscore":308}],211:[function(require,module,exports){
 (function (global){
 (function() {
   var CoreView, ErrorNotice, Messages, Options, Templates, VERSION, getDomain, imjs, indentXML, mailto, withPrettyPrintOne, withResource, _,
@@ -22564,7 +21940,7 @@ module.exports = '2.0.0-beta-36';
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../core-view":3,"../../messages":16,"../../messages/error":22,"../../options":63,"../../templates":67,"../../utils/indent-xml":88,"../../utils/mailto":92,"../../utils/with-cdn-resource":110,"../../version":111,"imjs":289,"underscore":311}],215:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/error":22,"../../options":62,"../../templates":66,"../../utils/indent-xml":87,"../../utils/mailto":91,"../../utils/with-cdn-resource":108,"../../version":109,"imjs":286,"underscore":308}],212:[function(require,module,exports){
 (function() {
   var ColumnHeader, CoreView, TableHead, _,
     __hasProp = {}.hasOwnProperty,
@@ -22631,7 +22007,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"./header":216,"underscore":311}],216:[function(require,module,exports){
+},{"../../core-view":3,"./header":213,"underscore":308}],213:[function(require,module,exports){
 (function() {
   var ClassSet, Collection, ColumnHeader, CoreView, DropDownColumnSummary, FormattedSorting, HeaderModel, Messages, ModelReader, Options, OuterJoinDropDown, SingleColumnConstraints, Templates, getViewPortHeight, getViewPortWidth, ignore, onChange, sortQueryByPath, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -23001,7 +22377,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/table":28,"../../models/header":44,"../../options":63,"../../templates":67,"../../utils/css-class-set":79,"../../utils/events":81,"../../utils/on-change":93,"../../utils/sort-query-by-path":105,"../constraints/single-column":135,"../formatted-sorting":169,"./column-summary":213,"./outer-join-summary":219,"underscore":311}],217:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/table":27,"../../models/header":43,"../../options":62,"../../templates":66,"../../utils/css-class-set":78,"../../utils/events":80,"../../utils/on-change":92,"../../utils/sort-query-by-path":103,"../constraints/single-column":133,"../formatted-sorting":166,"./column-summary":210,"./outer-join-summary":216,"underscore":308}],214:[function(require,module,exports){
 (function() {
   var CellFactory, ColumnHeaders, CoreView, Formatting, History, PathSet, PopoverFactory, Preview, ResultsTable, SelectedObjects, TableBody, TableHead, TableModel, Templates, Types, flip, _,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -23124,7 +22500,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../models/column-headers":39,"../../models/history":45,"../../models/path-set":55,"../../models/selected-objects":58,"../../models/table":61,"../../templates":67,"../../utils/popover-factory":98,"../item-preview":172,"./body":210,"./cell-factory":211,"./head":215,"underscore":311}],218:[function(require,module,exports){
+},{"../../core-view":3,"../../core/type-assertions":10,"../../formatting":13,"../../models/column-headers":38,"../../models/history":44,"../../models/path-set":54,"../../models/selected-objects":57,"../../models/table":60,"../../templates":66,"../../utils/popover-factory":96,"../item-preview":169,"./body":207,"./cell-factory":208,"./head":212,"underscore":308}],215:[function(require,module,exports){
 (function() {
   var Actions, LargeTableDisuader, Modal, large_table_disuader, _,
     __hasProp = {}.hasOwnProperty,
@@ -23194,7 +22570,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../templates":67,"../modal":197,"underscore":311}],219:[function(require,module,exports){
+},{"../../templates":66,"../modal":194,"underscore":308}],216:[function(require,module,exports){
 (function() {
   var Collection, CoreView, DropDownColumnSummary, OuterJoinDropDown, PathModel, SubColumn, SubColumns, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -23331,7 +22707,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../models/path":56,"../../templates":67,"./column-summary":213,"underscore":311}],220:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../models/path":55,"../../templates":66,"./column-summary":210,"underscore":308}],217:[function(require,module,exports){
 (function() {
   var CoreView, Events, ExportDialogue, HasDialogues, LargeTableDisuader, NewFilterDialogue, PageSizer, Paging, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -23379,7 +22755,7 @@ module.exports = '2.0.0-beta-36';
       var s, size;
       PageSizer.__super__.initialize.apply(this, arguments);
       size = this.model.get('size');
-      if ((size != null) && __indexOf.call((function() {
+      if ((size != null) && !_.include((function() {
         var _i, _len, _ref, _results;
         _ref = this.sizes;
         _results = [];
@@ -23388,7 +22764,7 @@ module.exports = '2.0.0-beta-36';
           _results.push(s);
         }
         return _results;
-      }).call(this), size) < 0) {
+      }).call(this), size)) {
         return this.sizes = [[size, size]].concat(this.sizes);
       }
     };
@@ -23479,21 +22855,12 @@ module.exports = '2.0.0-beta-36';
         }
         return _results;
       }).call(this);
-      if (sizes.length && __indexOf.call((function() {
-        var _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = sizes.length; _i < _len; _i++) {
-          s = sizes[_i][0];
-          _results.push(s);
-        }
-        return _results;
-      })(), size) < 0) {
-        sizes.push([size, size]);
+      if (sizes.length && (__indexOf.call(sizes, size) < 0)) {
+        sizes.push([size]);
       }
-      return {
-        size: size,
+      return _.extend(PageSizer.__super__.getData.apply(this, arguments), {
         sizes: sizes
-      };
+      });
     };
 
     PageSizer.prototype.pageSizeFeasibilityThreshold = 250;
@@ -23516,7 +22883,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../events":12,"../../templates":67,"../export-dialogue":138,"../has-dialogues":171,"../new-filter-dialogue":200,"./large-table-disuader":218,"./paging":222,"underscore":311}],221:[function(require,module,exports){
+},{"../../core-view":3,"../../events":12,"../../templates":66,"../export-dialogue":136,"../has-dialogues":168,"../new-filter-dialogue":197,"./large-table-disuader":215,"./paging":219,"underscore":308}],218:[function(require,module,exports){
 (function() {
   var Pagination, Paging, SELECT_LIMIT, View, ensureNumber, fs, html, strip, _,
     __hasProp = {}.hasOwnProperty,
@@ -23690,7 +23057,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"./paging":222,"underscore":311}],222:[function(require,module,exports){
+},{"../../core-view":3,"./paging":219,"underscore":308}],219:[function(require,module,exports){
 (function() {
   exports.getCurrentPage = function() {
     var size, start, _ref;
@@ -23731,7 +23098,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{}],223:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
 (function() {
   var CoreView, SubtableHeader, SubtableHeaders, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -23843,7 +23210,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/subtables":26,"../../templates":67,"underscore":311}],224:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/subtables":25,"../../templates":66,"underscore":308}],221:[function(require,module,exports){
 (function() {
   var CoreView, SubtableHeader, SubtableInner, buildSkipped,
     __hasProp = {}.hasOwnProperty,
@@ -23932,7 +23299,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../utils/build-skipset":72,"./subtable-header":223}],225:[function(require,module,exports){
+},{"../../core-view":3,"../../utils/build-skipset":71,"./subtable-header":220}],222:[function(require,module,exports){
 (function() {
   var CoreView, Messages, SubtableSummary, Templates,
     __hasProp = {}.hasOwnProperty,
@@ -23994,7 +23361,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages":16,"../../messages/subtables":26,"../../templates":67}],226:[function(require,module,exports){
+},{"../../core-view":3,"../../messages":16,"../../messages/subtables":25,"../../templates":66}],223:[function(require,module,exports){
 (function() {
   var Collection, CoreView, INITIAL_STATE, NestedTableModel, Options, PathCollection, PathModel, SubTable, SubtableInner, SubtableSummary, Templates, TypeAssertions, ignore, _,
     __hasProp = {}.hasOwnProperty,
@@ -24149,7 +23516,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../core/type-assertions":10,"../../models/nested-table":48,"../../models/path":56,"../../options":63,"../../templates":67,"../../utils/events":81,"./subtable-inner":224,"./subtable-summary":225,"underscore":311}],227:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../core/type-assertions":10,"../../models/nested-table":47,"../../models/path":55,"../../options":62,"../../templates":66,"../../utils/events":80,"./subtable-inner":221,"./subtable-summary":222,"underscore":308}],224:[function(require,module,exports){
 (function() {
   var CoreView, TableSummary, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -24194,7 +23561,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../messages/table":28,"../../templates":67,"underscore":311}],228:[function(require,module,exports){
+},{"../../core-view":3,"../../messages/table":27,"../../templates":66,"underscore":308}],225:[function(require,module,exports){
 (function() {
   var Messages, Promise, TypeValueControls, View, asOption, fs, helpers, html, toNamedPath, _,
     __hasProp = {}.hasOwnProperty,
@@ -24357,7 +23724,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../templates/helpers":68,"../utils/to-named-path":109,"es6-promise":280,"underscore":311}],229:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../templates/helpers":67,"../utils/to-named-path":107,"es6-promise":277,"underscore":308}],226:[function(require,module,exports){
 (function() {
   var CoreView, ELLIPSIS, Ellipsis, Messages, Options, Step, Templates, UndoHistory, childId, notTrivial, _,
     __hasProp = {}.hasOwnProperty,
@@ -24555,7 +23922,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../core-view":3,"../messages":16,"../messages/undo":29,"../options":63,"../templates":67,"./undo-history/step":231,"underscore":311}],230:[function(require,module,exports){
+},{"../core-view":3,"../messages":16,"../messages/undo":28,"../options":62,"../templates":66,"./undo-history/step":228,"underscore":308}],227:[function(require,module,exports){
 (function() {
   var ClassSet, CoreView, QueryProperty, Templates, _,
     __hasProp = {}.hasOwnProperty,
@@ -24648,7 +24015,7 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../templates":67,"../../utils/css-class-set":79,"underscore":311}],231:[function(require,module,exports){
+},{"../../core-view":3,"../../templates":66,"../../utils/css-class-set":78,"underscore":308}],228:[function(require,module,exports){
 (function() {
   var Collection, ConstraintList, ConstraintModel, ConstraintsView, CoreView, M, ObjConstructorPM, OrderElementModel, PathModel, QueryProperty, SelectListView, SortOrder, SortOrderView, Templates, UndoStep, ViewList, idsLength, liftPathAndType, valuesLength, withAdded, _,
     __hasProp = {}.hasOwnProperty,
@@ -25071,9 +24438,9 @@ module.exports = '2.0.0-beta-36';
 
 }).call(this);
 
-},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/constraints":21,"../../messages/undo":29,"../../models/constraint":40,"../../models/order-element":53,"../../models/path":56,"../../templates":67,"./query-property-section":230,"underscore":311}],232:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../messages":16,"../../messages/constraints":21,"../../messages/undo":28,"../../models/constraint":39,"../../models/order-element":52,"../../models/path":55,"../../templates":66,"./query-property-section":227,"underscore":308}],229:[function(require,module,exports){
 (function (global){
-//     Backbone.js 1.2.0
+//     Backbone.js 1.2.1
 
 //     (c) 2010-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 //     Backbone may be freely distributed under the MIT license.
@@ -25115,12 +24482,11 @@ module.exports = '2.0.0-beta-36';
   // restored later on, if `noConflict` is used.
   var previousBackbone = root.Backbone;
 
-  // Create local references to array methods we'll want to use later.
-  var array = [];
-  var slice = array.slice;
+  // Create a local reference to a common array method we'll want to use later.
+  var slice = [].slice;
 
   // Current version of the library. Keep in sync with `package.json`.
-  Backbone.VERSION = '1.2.0';
+  Backbone.VERSION = '1.2.1';
 
   // For Backbone's purposes, jQuery, Zepto, Ender, or My Library (kidding) owns
   // the `$` variable.
@@ -25143,6 +24509,35 @@ module.exports = '2.0.0-beta-36';
   // `application/x-www-form-urlencoded` instead and will send the model in a
   // form param named `model`.
   Backbone.emulateJSON = false;
+
+  // Proxy Underscore methods to a Backbone class' prototype using a
+  // particular attribute as the data argument
+  var addMethod = function(length, method, attribute) {
+    switch (length) {
+      case 1: return function() {
+        return _[method](this[attribute]);
+      };
+      case 2: return function(value) {
+        return _[method](this[attribute], value);
+      };
+      case 3: return function(iteratee, context) {
+        return _[method](this[attribute], iteratee, context);
+      };
+      case 4: return function(iteratee, defaultVal, context) {
+        return _[method](this[attribute], iteratee, defaultVal, context);
+      };
+      default: return function() {
+        var args = slice.call(arguments);
+        args.unshift(this[attribute]);
+        return _[method].apply(_, args);
+      };
+    }
+  };
+  var addUnderscoreMethods = function(Class, methods, attribute) {
+    _.each(methods, function(length, method) {
+      if (_[method]) Class.prototype[method] = addMethod(length, method, attribute);
+    });
+  };
 
   // Backbone.Events
   // ---------------
@@ -25171,6 +24566,7 @@ module.exports = '2.0.0-beta-36';
     var i = 0, names;
     if (name && typeof name === 'object') {
       // Handle event maps.
+      if (callback !== void 0 && 'context' in opts && opts.context === void 0) opts.context = callback;
       for (names = _.keys(name); i < names.length ; i++) {
         memo = iteratee(memo, names[i], name[names[i]], opts);
       }
@@ -25280,7 +24676,7 @@ module.exports = '2.0.0-beta-36';
     // No events to consider.
     if (!events) return;
 
-    var i = 0, length, listening;
+    var i = 0, listening;
     var context = options.context, listeners = options.listeners;
 
     // Delete all events listeners and "drop" events.
@@ -25349,7 +24745,7 @@ module.exports = '2.0.0-beta-36';
   };
 
   // Reduces the event callbacks into a map of `{event: onceWrapper}`.
-  // `offer` unbinds the `onceWrapper` after it as been called.
+  // `offer` unbinds the `onceWrapper` after it has been called.
   var onceMap = function(map, name, callback, offer) {
     if (callback) {
       var once = map[name] = _.once(function() {
@@ -25400,35 +24796,6 @@ module.exports = '2.0.0-beta-36';
       case 3: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2, a3); return;
       default: while (++i < l) (ev = events[i]).callback.apply(ev.ctx, args); return;
     }
-  };
-
-  // Proxy Underscore methods to a Backbone class' prototype using a
-  // particular attribute as the data argument
-  var addMethod = function(length, method, attribute) {
-    switch (length) {
-      case 1: return function() {
-        return _[method](this[attribute]);
-      };
-      case 2: return function(value) {
-        return _[method](this[attribute], value);
-      };
-      case 3: return function(iteratee, context) {
-        return _[method](this[attribute], iteratee, context);
-      };
-      case 4: return function(iteratee, defaultVal, context) {
-        return _[method](this[attribute], iteratee, defaultVal, context);
-      };
-      default: return function() {
-        var args = slice.call(arguments);
-        args.unshift(this[attribute]);
-        return _[method].apply(_, args);
-      };
-    }
-  };
-  var addUnderscoreMethods = function(Class, methods, attribute) {
-    _.each(methods, function(length, method) {
-      if (_[method]) Class.prototype[method] = addMethod(length, method, attribute);
-    });
   };
 
   // Aliases for backwards compatibility.
@@ -25519,10 +24886,10 @@ module.exports = '2.0.0-beta-36';
     // the core primitive operation of a model, updating the data and notifying
     // anyone who needs to know about the change in state. The heart of the beast.
     set: function(key, val, options) {
-      var attr, attrs, unset, changes, silent, changing, prev, current;
       if (key == null) return this;
 
       // Handle both `"key", value` and `{key: value}` -style arguments.
+      var attrs;
       if (typeof key === 'object') {
         attrs = key;
         options = val;
@@ -25536,29 +24903,32 @@ module.exports = '2.0.0-beta-36';
       if (!this._validate(attrs, options)) return false;
 
       // Extract attributes and options.
-      unset           = options.unset;
-      silent          = options.silent;
-      changes         = [];
-      changing        = this._changing;
-      this._changing  = true;
+      var unset      = options.unset;
+      var silent     = options.silent;
+      var changes    = [];
+      var changing   = this._changing;
+      this._changing = true;
 
       if (!changing) {
         this._previousAttributes = _.clone(this.attributes);
         this.changed = {};
       }
-      current = this.attributes, prev = this._previousAttributes;
+
+      var current = this.attributes;
+      var changed = this.changed;
+      var prev    = this._previousAttributes;
 
       // Check for changes of `id`.
       if (this.idAttribute in attrs) this.id = attrs[this.idAttribute];
 
       // For each `set` attribute, update or delete the current value.
-      for (attr in attrs) {
+      for (var attr in attrs) {
         val = attrs[attr];
         if (!_.isEqual(current[attr], val)) changes.push(attr);
         if (!_.isEqual(prev[attr], val)) {
-          this.changed[attr] = val;
+          changed[attr] = val;
         } else {
-          delete this.changed[attr];
+          delete changed[attr];
         }
         unset ? delete current[attr] : current[attr] = val;
       }
@@ -25614,13 +24984,14 @@ module.exports = '2.0.0-beta-36';
     // determining if there *would be* a change.
     changedAttributes: function(diff) {
       if (!diff) return this.hasChanged() ? _.clone(this.changed) : false;
-      var val, changed = false;
       var old = this._changing ? this._previousAttributes : this.attributes;
+      var changed = {};
       for (var attr in diff) {
-        if (_.isEqual(old[attr], (val = diff[attr]))) continue;
-        (changed || (changed = {}))[attr] = val;
+        var val = diff[attr];
+        if (_.isEqual(old[attr], val)) continue;
+        changed[attr] = val;
       }
-      return changed;
+      return _.size(changed) ? changed : false;
     },
 
     // Get the previous value of an attribute, recorded at the time the last
@@ -25639,12 +25010,12 @@ module.exports = '2.0.0-beta-36';
     // Fetch the model from the server, merging the response with the model's
     // local attributes. Any changed attributes will trigger a "change" event.
     fetch: function(options) {
-      options = options ? _.clone(options) : {};
-      if (options.parse === void 0) options.parse = true;
+      options = _.extend({parse: true}, options);
       var model = this;
       var success = options.success;
       options.success = function(resp) {
-        if (!model.set(model.parse(resp, options), options)) return false;
+        var serverAttrs = options.parse ? model.parse(resp, options) : resp;
+        if (!model.set(serverAttrs, options)) return false;
         if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
       };
@@ -25656,9 +25027,8 @@ module.exports = '2.0.0-beta-36';
     // If the server returns an attributes hash that differs, the model's
     // state will be `set` again.
     save: function(key, val, options) {
-      var attrs, method, xhr, attributes = this.attributes, wait;
-
       // Handle both `"key", value` and `{key: value}` -style arguments.
+      var attrs;
       if (key == null || typeof key === 'object') {
         attrs = key;
         options = val;
@@ -25666,8 +25036,8 @@ module.exports = '2.0.0-beta-36';
         (attrs = {})[key] = val;
       }
 
-      options = _.extend({validate: true}, options);
-      wait = options.wait;
+      options = _.extend({validate: true, parse: true}, options);
+      var wait = options.wait;
 
       // If we're not waiting and attributes exist, save acts as
       // `set(attr).save(null, opts)` with validation. Otherwise, check if
@@ -25678,35 +25048,31 @@ module.exports = '2.0.0-beta-36';
         if (!this._validate(attrs, options)) return false;
       }
 
-      // Set temporary attributes if `{wait: true}`.
-      if (attrs && wait) {
-        this.attributes = _.extend({}, attributes, attrs);
-      }
-
       // After a successful server-side save, the client is (optionally)
       // updated with the server-side state.
-      if (options.parse === void 0) options.parse = true;
       var model = this;
       var success = options.success;
+      var attributes = this.attributes;
       options.success = function(resp) {
         // Ensure attributes are restored during synchronous saves.
         model.attributes = attributes;
         var serverAttrs = options.parse ? model.parse(resp, options) : resp;
-        if (wait) serverAttrs = _.extend(attrs || {}, serverAttrs);
-        if (_.isObject(serverAttrs) && !model.set(serverAttrs, options)) {
-          return false;
-        }
+        if (wait) serverAttrs = _.extend({}, attrs, serverAttrs);
+        if (serverAttrs && !model.set(serverAttrs, options)) return false;
         if (success) success.call(options.context, model, resp, options);
         model.trigger('sync', model, resp, options);
       };
       wrapError(this, options);
 
-      method = this.isNew() ? 'create' : (options.patch ? 'patch' : 'update');
+      // Set temporary attributes if `{wait: true}` to properly find new ids.
+      if (attrs && wait) this.attributes = _.extend({}, attributes, attrs);
+
+      var method = this.isNew() ? 'create' : (options.patch ? 'patch' : 'update');
       if (method === 'patch' && !options.attrs) options.attrs = attrs;
-      xhr = this.sync(method, this, options);
+      var xhr = this.sync(method, this, options);
 
       // Restore attributes.
-      if (attrs && wait) this.attributes = attributes;
+      this.attributes = attributes;
 
       return xhr;
     },
@@ -25751,8 +25117,8 @@ module.exports = '2.0.0-beta-36';
         _.result(this.collection, 'url') ||
         urlError();
       if (this.isNew()) return base;
-      var id = this.id || this.attributes[this.idAttribute];
-      return base.replace(/([^\/])$/, '$1/') + encodeURIComponent(id);
+      var id = this.get(this.idAttribute);
+      return base.replace(/[^\/]$/, '$&/') + encodeURIComponent(id);
     },
 
     // **parse** converts a response into the hash of attributes to be `set` on
@@ -25773,7 +25139,7 @@ module.exports = '2.0.0-beta-36';
 
     // Check if the model is currently in a valid state.
     isValid: function(options) {
-      return this._validate({}, _.extend(options || {}, { validate: true }));
+      return this._validate({}, _.defaults({validate: true}, options));
     },
 
     // Run validation against the next complete set of model attributes,
@@ -25836,7 +25202,7 @@ module.exports = '2.0.0-beta-36';
     // The JSON representation of a Collection is an array of the
     // models' attributes.
     toJSON: function(options) {
-      return this.map(function(model){ return model.toJSON(options); });
+      return this.map(function(model) { return model.toJSON(options); });
     },
 
     // Proxy `Backbone.sync` by default.
@@ -25851,12 +25217,12 @@ module.exports = '2.0.0-beta-36';
 
     // Remove a model, or a list of models from the set.
     remove: function(models, options) {
-      var singular = !_.isArray(models), removed;
+      options = _.extend({}, options);
+      var singular = !_.isArray(models);
       models = singular ? [models] : _.clone(models);
-      options || (options = {});
-      removed = this._removeModels(models, options);
+      var removed = this._removeModels(models, options);
       if (!options.silent && removed) this.trigger('update', this, options);
-      return singular ? models[0] : models;
+      return singular ? removed[0] : removed;
     },
 
     // Update a collection by `set`-ing a new list of models, adding new ones,
@@ -25865,7 +25231,7 @@ module.exports = '2.0.0-beta-36';
     // the core operation for updating the data contained by the collection.
     set: function(models, options) {
       options = _.defaults({}, options, setOptions);
-      if (options.parse) models = this.parse(models, options);
+      if (options.parse && !this._isModel(models)) models = this.parse(models, options);
       var singular = !_.isArray(models);
       models = singular ? (models ? [models] : []) : models.slice();
       var id, model, attrs, existing, sort;
@@ -25985,8 +25351,7 @@ module.exports = '2.0.0-beta-36';
     // Remove a model from the end of the collection.
     pop: function(options) {
       var model = this.at(this.length - 1);
-      this.remove(model, options);
-      return model;
+      return this.remove(model, options);
     },
 
     // Add a model to the beginning of the collection.
@@ -25997,8 +25362,7 @@ module.exports = '2.0.0-beta-36';
     // Remove a model from the beginning of the collection.
     shift: function(options) {
       var model = this.at(0);
-      this.remove(model, options);
-      return model;
+      return this.remove(model, options);
     },
 
     // Slice out a sub-array of models from the collection.
@@ -26061,8 +25425,7 @@ module.exports = '2.0.0-beta-36';
     // collection when they arrive. If `reset: true` is passed, the response
     // data will be passed through the `reset` method instead of `set`.
     fetch: function(options) {
-      options = options ? _.clone(options) : {};
-      if (options.parse === void 0) options.parse = true;
+      options = _.extend({parse: true}, options);
       var success = options.success;
       var collection = this;
       options.success = function(resp) {
@@ -26081,7 +25444,8 @@ module.exports = '2.0.0-beta-36';
     create: function(model, options) {
       options = options ? _.clone(options) : {};
       var wait = options.wait;
-      if (!(model = this._prepareModel(model, options))) return false;
+      model = this._prepareModel(model, options);
+      if (!model) return false;
       if (!wait) this.add(model, options);
       var collection = this;
       var success = options.success;
@@ -26135,31 +25499,27 @@ module.exports = '2.0.0-beta-36';
       return false;
     },
 
-    // Internal method called by both remove and set. Does not trigger any
-    // additional events. Returns true if anything was actually removed.
+    // Internal method called by both remove and set.
+    // Returns removed models, or false if nothing is removed.
     _removeModels: function(models, options) {
-      var i, l, index, model, removed = false;
-      for (var i = 0, j = 0; i < models.length; i++) {
-        var model = models[i] = this.get(models[i]);
+      var removed = [];
+      for (var i = 0; i < models.length; i++) {
+        var model = this.get(models[i]);
         if (!model) continue;
-        var id = this.modelId(model.attributes);
-        if (id != null) delete this._byId[id];
-        delete this._byId[model.cid];
+
         var index = this.indexOf(model);
         this.models.splice(index, 1);
         this.length--;
+
         if (!options.silent) {
           options.index = index;
           model.trigger('remove', model, this, options);
         }
-        models[j++] = model;
+
+        removed.push(model);
         this._removeReference(model, options);
-        removed = true;
       }
-      // We only need to slice if models array should be smaller, which is
-      // caused by some models not actually getting removed.
-      if (models.length !== j) models = models.slice(0, j);
-      return removed;
+      return removed.length ? removed : false;
     },
 
     // Method for checking whether an object should be considered a model for
@@ -26178,6 +25538,9 @@ module.exports = '2.0.0-beta-36';
 
     // Internal method to sever a model's ties to a collection.
     _removeReference: function(model, options) {
+      delete this._byId[model.cid];
+      var id = this.modelId(model.attributes);
+      if (id != null) delete this._byId[id];
       if (this === model.collection) delete model.collection;
       model.off('all', this._onModelEvent, this);
     },
@@ -26208,7 +25571,7 @@ module.exports = '2.0.0-beta-36';
   var collectionMethods = { forEach: 3, each: 3, map: 3, collect: 3, reduce: 4,
       foldl: 4, inject: 4, reduceRight: 4, foldr: 4, find: 3, detect: 3, filter: 3,
       select: 3, reject: 3, every: 3, all: 3, some: 3, any: 3, include: 2,
-      contains: 2, invoke: 2, max: 3, min: 3, toArray: 1, size: 1, first: 3,
+      contains: 2, invoke: 0, max: 3, min: 3, toArray: 1, size: 1, first: 3,
       head: 3, take: 3, initial: 3, rest: 3, tail: 3, drop: 3, last: 3,
       without: 0, difference: 0, indexOf: 3, shuffle: 1, lastIndexOf: 3,
       isEmpty: 1, chain: 1, sample: 3, partition: 3 };
@@ -26245,7 +25608,6 @@ module.exports = '2.0.0-beta-36';
   // if an existing element is not provided...
   var View = Backbone.View = function(options) {
     this.cid = _.uniqueId('view');
-    options || (options = {});
     _.extend(this, _.pick(options, viewOptions));
     this._ensureElement();
     this.initialize.apply(this, arguments);
@@ -26328,11 +25690,12 @@ module.exports = '2.0.0-beta-36';
     // Uses event delegation for efficiency.
     // Omitting the selector binds the event to `this.el`.
     delegateEvents: function(events) {
-      if (!(events || (events = _.result(this, 'events')))) return this;
+      events || (events = _.result(this, 'events'));
+      if (!events) return this;
       this.undelegateEvents();
       for (var key in events) {
         var method = events[key];
-        if (!_.isFunction(method)) method = this[events[key]];
+        if (!_.isFunction(method)) method = this[method];
         if (!method) continue;
         var match = key.match(delegateEventSplitter);
         this.delegate(match[1], match[2], _.bind(method, this));
@@ -26345,6 +25708,7 @@ module.exports = '2.0.0-beta-36';
     // `blur`, and not `change`, `submit`, and `reset` in Internet Explorer.
     delegate: function(eventName, selector, listener) {
       this.$el.on(eventName + '.delegateEvents' + this.cid, selector, listener);
+      return this;
     },
 
     // Clears all callbacks previously bound to the view by `delegateEvents`.
@@ -26359,6 +25723,7 @@ module.exports = '2.0.0-beta-36';
     // `selector` and `listener` are both optional.
     undelegate: function(eventName, selector, listener) {
       this.$el.off(eventName + '.delegateEvents' + this.cid, selector, listener);
+      return this;
     },
 
     // Produces a DOM element to be assigned to your view. Exposed for
@@ -26722,15 +26087,16 @@ module.exports = '2.0.0-beta-36';
       // support the `hashchange` event, HTML5 history, or the user wants
       // `hashChange` but not `pushState`.
       if (!this._hasHashChange && this._wantsHashChange && !this._usePushState) {
-        var iframe = document.createElement('iframe');
-        iframe.src = 'javascript:0';
-        iframe.style.display = 'none';
-        iframe.tabIndex = -1;
+        this.iframe = document.createElement('iframe');
+        this.iframe.src = 'javascript:0';
+        this.iframe.style.display = 'none';
+        this.iframe.tabIndex = -1;
         var body = document.body;
         // Using `appendChild` will throw on IE < 9 if the document is not ready.
-        this.iframe = body.insertBefore(iframe, body.firstChild).contentWindow;
-        this.iframe.document.open().close();
-        this.iframe.location.hash = '#' + this.fragment;
+        var iWindow = body.insertBefore(this.iframe, body.firstChild).contentWindow;
+        iWindow.document.open();
+        iWindow.document.close();
+        iWindow.location.hash = '#' + this.fragment;
       }
 
       // Add a cross-platform `addEventListener` shim for older browsers.
@@ -26768,7 +26134,7 @@ module.exports = '2.0.0-beta-36';
 
       // Clean up the iframe if necessary.
       if (this.iframe) {
-        document.body.removeChild(this.iframe.frameElement);
+        document.body.removeChild(this.iframe);
         this.iframe = null;
       }
 
@@ -26791,7 +26157,7 @@ module.exports = '2.0.0-beta-36';
       // If the user pressed the back button, the iframe's hash will have
       // changed and we should use that for comparison.
       if (current === this.fragment && this.iframe) {
-        current = this.getHash(this.iframe);
+        current = this.getHash(this.iframe.contentWindow);
       }
 
       if (current === this.fragment) return false;
@@ -26849,12 +26215,18 @@ module.exports = '2.0.0-beta-36';
       // fragment to store history.
       } else if (this._wantsHashChange) {
         this._updateHash(this.location, fragment, options.replace);
-        if (this.iframe && (fragment !== this.getHash(this.iframe))) {
+        if (this.iframe && (fragment !== this.getHash(this.iframe.contentWindow))) {
+          var iWindow = this.iframe.contentWindow;
+
           // Opening and closing the iframe tricks IE7 and earlier to push a
           // history entry on hash-tag change.  When replace is true, we don't
           // want this.
-          if (!options.replace) this.iframe.document.open().close();
-          this._updateHash(this.iframe.location, fragment, options.replace);
+          if (!options.replace) {
+            iWindow.document.open();
+            iWindow.document.close();
+          }
+
+          this._updateHash(iWindow.location, fragment, options.replace);
         }
 
       // If you've told us that you explicitly don't want fallback hashchange-
@@ -26943,7 +26315,7 @@ module.exports = '2.0.0-beta-36';
 }));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":308,"underscore":311}],233:[function(require,module,exports){
+},{"jquery":305,"underscore":308}],230:[function(require,module,exports){
 // This file is autogenerated via the `commonjs` Grunt task. You can require() this file in a CommonJS environment.
 require('../../js/transition.js')
 require('../../js/alert.js')
@@ -26957,7 +26329,7 @@ require('../../js/popover.js')
 require('../../js/scrollspy.js')
 require('../../js/tab.js')
 require('../../js/affix.js')
-},{"../../js/affix.js":234,"../../js/alert.js":235,"../../js/button.js":236,"../../js/carousel.js":237,"../../js/collapse.js":238,"../../js/dropdown.js":239,"../../js/modal.js":240,"../../js/popover.js":241,"../../js/scrollspy.js":242,"../../js/tab.js":243,"../../js/tooltip.js":244,"../../js/transition.js":245}],234:[function(require,module,exports){
+},{"../../js/affix.js":231,"../../js/alert.js":232,"../../js/button.js":233,"../../js/carousel.js":234,"../../js/collapse.js":235,"../../js/dropdown.js":236,"../../js/modal.js":237,"../../js/popover.js":238,"../../js/scrollspy.js":239,"../../js/tab.js":240,"../../js/tooltip.js":241,"../../js/transition.js":242}],231:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: affix.js v3.3.4
  * http://getbootstrap.com/javascript/#affix
@@ -27121,7 +26493,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],235:[function(require,module,exports){
+},{}],232:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: alert.js v3.3.4
  * http://getbootstrap.com/javascript/#alerts
@@ -27217,7 +26589,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],236:[function(require,module,exports){
+},{}],233:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: button.js v3.3.4
  * http://getbootstrap.com/javascript/#buttons
@@ -27335,7 +26707,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],237:[function(require,module,exports){
+},{}],234:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: carousel.js v3.3.4
  * http://getbootstrap.com/javascript/#carousel
@@ -27574,7 +26946,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],238:[function(require,module,exports){
+},{}],235:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: collapse.js v3.3.4
  * http://getbootstrap.com/javascript/#collapse
@@ -27787,7 +27159,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],239:[function(require,module,exports){
+},{}],236:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: dropdown.js v3.3.4
  * http://getbootstrap.com/javascript/#dropdowns
@@ -27950,7 +27322,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],240:[function(require,module,exports){
+},{}],237:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: modal.js v3.3.4
  * http://getbootstrap.com/javascript/#modals
@@ -28291,7 +27663,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],241:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: popover.js v3.3.4
  * http://getbootstrap.com/javascript/#popovers
@@ -28401,7 +27773,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],242:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: scrollspy.js v3.3.4
  * http://getbootstrap.com/javascript/#scrollspy
@@ -28575,7 +27947,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],243:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: tab.js v3.3.4
  * http://getbootstrap.com/javascript/#tabs
@@ -28730,7 +28102,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],244:[function(require,module,exports){
+},{}],241:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: tooltip.js v3.3.4
  * http://getbootstrap.com/javascript/#tooltip
@@ -29208,7 +28580,7 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],245:[function(require,module,exports){
+},{}],242:[function(require,module,exports){
 /* ========================================================================
  * Bootstrap: transition.js v3.3.4
  * http://getbootstrap.com/javascript/#transitions
@@ -29269,9 +28641,9 @@ require('../../js/affix.js')
 
 }(jQuery);
 
-},{}],246:[function(require,module,exports){
+},{}],243:[function(require,module,exports){
 
-},{}],247:[function(require,module,exports){
+},{}],244:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -30687,7 +30059,7 @@ function decodeUtf8Char (str) {
   }
 }
 
-},{"base64-js":248,"ieee754":249,"is-array":250}],248:[function(require,module,exports){
+},{"base64-js":245,"ieee754":246,"is-array":247}],245:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -30813,7 +30185,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],249:[function(require,module,exports){
+},{}],246:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m,
       eLen = nBytes * 8 - mLen - 1,
@@ -30899,7 +30271,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],250:[function(require,module,exports){
+},{}],247:[function(require,module,exports){
 
 /**
  * isArray
@@ -30934,7 +30306,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],251:[function(require,module,exports){
+},{}],248:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -31237,7 +30609,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],252:[function(require,module,exports){
+},{}],249:[function(require,module,exports){
 var http = module.exports;
 var EventEmitter = require('events').EventEmitter;
 var Request = require('./lib/request');
@@ -31383,7 +30755,7 @@ http.STATUS_CODES = {
     510 : 'Not Extended',               // RFC 2774
     511 : 'Network Authentication Required' // RFC 6585
 };
-},{"./lib/request":253,"events":251,"url":276}],253:[function(require,module,exports){
+},{"./lib/request":250,"events":248,"url":273}],250:[function(require,module,exports){
 var Stream = require('stream');
 var Response = require('./response');
 var Base64 = require('Base64');
@@ -31594,7 +30966,7 @@ var isXHR2Compatible = function (obj) {
     if (typeof FormData !== 'undefined' && obj instanceof FormData) return true;
 };
 
-},{"./response":254,"Base64":255,"inherits":256,"stream":274}],254:[function(require,module,exports){
+},{"./response":251,"Base64":252,"inherits":253,"stream":271}],251:[function(require,module,exports){
 var Stream = require('stream');
 var util = require('util');
 
@@ -31716,7 +31088,7 @@ var isArray = Array.isArray || function (xs) {
     return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{"stream":274,"util":278}],255:[function(require,module,exports){
+},{"stream":271,"util":275}],252:[function(require,module,exports){
 ;(function () {
 
   var object = typeof exports != 'undefined' ? exports : this; // #8: web workers
@@ -31778,7 +31150,7 @@ var isArray = Array.isArray || function (xs) {
 
 }());
 
-},{}],256:[function(require,module,exports){
+},{}],253:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -31803,12 +31175,12 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],257:[function(require,module,exports){
+},{}],254:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],258:[function(require,module,exports){
+},{}],255:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -31896,7 +31268,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],259:[function(require,module,exports){
+},{}],256:[function(require,module,exports){
 (function (global){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
@@ -32407,7 +31779,7 @@ process.chdir = function (dir) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],260:[function(require,module,exports){
+},{}],257:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -32493,7 +31865,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],261:[function(require,module,exports){
+},{}],258:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -32580,16 +31952,16 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],262:[function(require,module,exports){
+},{}],259:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":260,"./encode":261}],263:[function(require,module,exports){
+},{"./decode":257,"./encode":258}],260:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":264}],264:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":261}],261:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -32682,7 +32054,7 @@ function forEach (xs, f) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_readable":266,"./_stream_writable":268,"_process":258,"core-util-is":269,"inherits":256}],265:[function(require,module,exports){
+},{"./_stream_readable":263,"./_stream_writable":265,"_process":255,"core-util-is":266,"inherits":253}],262:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -32730,7 +32102,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":267,"core-util-is":269,"inherits":256}],266:[function(require,module,exports){
+},{"./_stream_transform":264,"core-util-is":266,"inherits":253}],263:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -33716,7 +33088,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"_process":258,"buffer":247,"core-util-is":269,"events":251,"inherits":256,"isarray":257,"stream":274,"string_decoder/":275}],267:[function(require,module,exports){
+},{"_process":255,"buffer":244,"core-util-is":266,"events":248,"inherits":253,"isarray":254,"stream":271,"string_decoder/":272}],264:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -33928,7 +33300,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":264,"core-util-is":269,"inherits":256}],268:[function(require,module,exports){
+},{"./_stream_duplex":261,"core-util-is":266,"inherits":253}],265:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -34318,7 +33690,7 @@ function endWritable(stream, state, cb) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":264,"_process":258,"buffer":247,"core-util-is":269,"inherits":256,"stream":274}],269:[function(require,module,exports){
+},{"./_stream_duplex":261,"_process":255,"buffer":244,"core-util-is":266,"inherits":253,"stream":271}],266:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -34428,10 +33800,10 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":247}],270:[function(require,module,exports){
+},{"buffer":244}],267:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":265}],271:[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":262}],268:[function(require,module,exports){
 var Stream = require('stream'); // hack to fix a circular dependency issue when used with browserify
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = Stream;
@@ -34441,13 +33813,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":264,"./lib/_stream_passthrough.js":265,"./lib/_stream_readable.js":266,"./lib/_stream_transform.js":267,"./lib/_stream_writable.js":268,"stream":274}],272:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":261,"./lib/_stream_passthrough.js":262,"./lib/_stream_readable.js":263,"./lib/_stream_transform.js":264,"./lib/_stream_writable.js":265,"stream":271}],269:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":267}],273:[function(require,module,exports){
+},{"./lib/_stream_transform.js":264}],270:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":268}],274:[function(require,module,exports){
+},{"./lib/_stream_writable.js":265}],271:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -34576,7 +33948,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":251,"inherits":256,"readable-stream/duplex.js":263,"readable-stream/passthrough.js":270,"readable-stream/readable.js":271,"readable-stream/transform.js":272,"readable-stream/writable.js":273}],275:[function(require,module,exports){
+},{"events":248,"inherits":253,"readable-stream/duplex.js":260,"readable-stream/passthrough.js":267,"readable-stream/readable.js":268,"readable-stream/transform.js":269,"readable-stream/writable.js":270}],272:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -34799,7 +34171,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":247}],276:[function(require,module,exports){
+},{"buffer":244}],273:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -35508,14 +34880,14 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":259,"querystring":262}],277:[function(require,module,exports){
+},{"punycode":256,"querystring":259}],274:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],278:[function(require,module,exports){
+},{}],275:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -36105,7 +35477,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":277,"_process":258,"inherits":256}],279:[function(require,module,exports){
+},{"./support/isBuffer":274,"_process":255,"inherits":253}],276:[function(require,module,exports){
 module.exports = function() {
   var d3 = {
     version: "3.4.11"
@@ -45339,14 +44711,14 @@ module.exports = function() {
   return d3;
 }();
 
-},{}],280:[function(require,module,exports){
+},{}],277:[function(require,module,exports){
 (function (process,global){
 /*!
  * @overview es6-promise - a tiny implementation of Promises/A+.
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
  *            See https://raw.githubusercontent.com/jakearchibald/es6-promise/master/LICENSE
- * @version   2.1.1
+ * @version   2.2.0
  */
 
 (function() {
@@ -45376,6 +44748,8 @@ module.exports = function() {
     var lib$es6$promise$asap$$len = 0;
     var lib$es6$promise$asap$$toString = {}.toString;
     var lib$es6$promise$asap$$vertxNext;
+    var lib$es6$promise$asap$$customSchedulerFn;
+
     function lib$es6$promise$asap$$asap(callback, arg) {
       lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len] = callback;
       lib$es6$promise$asap$$queue[lib$es6$promise$asap$$len + 1] = arg;
@@ -45384,11 +44758,18 @@ module.exports = function() {
         // If len is 2, that means that we need to schedule an async flush.
         // If additional callbacks are queued before the queue is flushed, they
         // will be processed by this flush that we are scheduling.
-        lib$es6$promise$asap$$scheduleFlush();
+        if (lib$es6$promise$asap$$customSchedulerFn) {
+          lib$es6$promise$asap$$customSchedulerFn(lib$es6$promise$asap$$flush);
+        } else {
+          lib$es6$promise$asap$$scheduleFlush();
+        }
       }
     }
 
     var lib$es6$promise$asap$$default = lib$es6$promise$asap$$asap;
+    function lib$es6$promise$asap$$setScheduler(scheduleFn) {
+      lib$es6$promise$asap$$customSchedulerFn = scheduleFn;
+    }
 
     var lib$es6$promise$asap$$browserWindow = (typeof window !== 'undefined') ? window : undefined;
     var lib$es6$promise$asap$$browserGlobal = lib$es6$promise$asap$$browserWindow || {};
@@ -45882,7 +45263,7 @@ module.exports = function() {
     /**
       Promise objects represent the eventual result of an asynchronous operation. The
       primary way of interacting with a promise is through its `then` method, which
-      registers callbacks to receive either a promise’s eventual value or the reason
+      registers callbacks to receive either a promise's eventual value or the reason
       why the promise cannot be fulfilled.
 
       Terminology
@@ -46005,6 +45386,8 @@ module.exports = function() {
     lib$es6$promise$promise$$Promise.race = lib$es6$promise$promise$race$$default;
     lib$es6$promise$promise$$Promise.resolve = lib$es6$promise$promise$resolve$$default;
     lib$es6$promise$promise$$Promise.reject = lib$es6$promise$promise$reject$$default;
+    lib$es6$promise$promise$$Promise._setScheduler = lib$es6$promise$asap$$setScheduler;
+    lib$es6$promise$promise$$Promise._asap = lib$es6$promise$asap$$default;
 
     lib$es6$promise$promise$$Promise.prototype = {
       constructor: lib$es6$promise$promise$$Promise,
@@ -46300,7 +45683,7 @@ module.exports = function() {
 
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":258}],281:[function(require,module,exports){
+},{"_process":255}],278:[function(require,module,exports){
 (function() {
   exports.ACCEPT_HEADER = {
     'xml': 'application/xml',
@@ -46325,7 +45708,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{}],282:[function(require,module,exports){
+},{}],279:[function(require,module,exports){
 (function() {
   var ACCEPT_HEADER, JSONStream, PESKY_COMMA, URL, URLENC, USER_AGENT, VERSION, blocking, defer, error, getMsg, http, invoke, merge, parseOptions, rejectAfter, streaming, utils, _ref;
 
@@ -46554,7 +45937,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./constants":281,"./util":293,"./version":294,"JSONStream":296,"http":252,"url":276}],283:[function(require,module,exports){
+},{"./constants":278,"./util":290,"./version":291,"JSONStream":293,"http":249,"url":273}],280:[function(require,module,exports){
 (function() {
   var CategoryResults, IDResolutionJob, IdResults, ONE_MINUTE, concatMap, defer, difference, fold, funcutils, get, id, intermine, uniqBy, withCB,
     __hasProp = {}.hasOwnProperty,
@@ -46854,7 +46237,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":293}],284:[function(require,module,exports){
+},{"./util":290}],281:[function(require,module,exports){
 (function() {
   var INVITES, List, REQUIRES_VERSION, SHARES, TAGS_PATH, dejoin, get, getFolderName, intermine, invoke, isFolder, merge, set, utils, withCB,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -47044,7 +46427,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":293}],285:[function(require,module,exports){
+},{"./util":290}],282:[function(require,module,exports){
 (function() {
   var JAVA_LANG_OBJ, Model, PathInfo, Table, error, find, flatten, intermine, omap, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -47183,7 +46566,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./path":286,"./table":291,"./util":293}],286:[function(require,module,exports){
+},{"./path":283,"./table":288,"./util":290}],283:[function(require,module,exports){
 (function() {
   var NAMES, PARSED, PathInfo, any, concatMap, copy, error, get, intermine, makeKey, set, success, utils, withCB,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -47426,7 +46809,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":293}],287:[function(require,module,exports){
+},{"./util":290}],284:[function(require,module,exports){
 (function() {
   var Promise;
 
@@ -47436,7 +46819,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"es6-promise":280}],288:[function(require,module,exports){
+},{"es6-promise":277}],285:[function(require,module,exports){
 (function() {
   var BASIC_ATTRS, CODES, Events, LIST_PIPE, Query, REQUIRES_VERSION, RESULTS_METHODS, SIMPLE_ATTRS, bioUriArgs, conAttrs, conStr, conToJSON, conValStr, concatMap, copyCon, decapitate, didntRemove, f, filter, fold, get, get_canonical_op, headLess, id, idConStr, intermine, interpretConArray, interpretConstraint, invoke, merge, mth, multiConStr, noUndefVals, noValueConStr, partition, removeIrrelevantSortOrders, simpleConStr, stringToSortOrder, stringifySortOrder, toQueryString, typeConStr, union, utils, withCB, _fn, _get_data_fetcher, _i, _j, _len, _len1, _ref,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -49261,7 +48644,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":293,"./xml":295,"backbone-events-standalone":300}],289:[function(require,module,exports){
+},{"./util":290,"./xml":292,"backbone-events-standalone":297}],286:[function(require,module,exports){
 (function() {
   var ALWAYS_AUTH, CLASSKEYS, CLASSKEY_PATH, DEFAULT_ERROR_HANDLER, DEFAULT_PROTOCOL, ENRICHMENT_PATH, HAS_PROTOCOL, HAS_SUFFIX, IDResolutionJob, ID_RESOLUTION_PATH, LISTS_PATH, LIST_OPERATION_PATHS, LIST_PIPE, List, MODELS, MODEL_PATH, Model, NEEDS_AUTH, NO_AUTH, PATH_VALUES_PATH, PREF_PATH, Promise, QUERY_RESULTS_PATH, QUICKSEARCH_PATH, Query, RELEASES, RELEASE_PATH, REQUIRES_VERSION, SUBTRACT_PATH, SUFFIX, SUMMARYFIELDS_PATH, SUMMARY_FIELDS, Service, TABLE_ROW_PATH, TEMPLATES_PATH, TO_NAMES, USER_TOKENS, User, VERSIONS, VERSION_PATH, WHOAMI_PATH, WIDGETS, WIDGETS_PATH, WITH_OBJ_PATH, dejoin, error, get, getListFinder, http, invoke, map, merge, p, set, success, to_query_string, utils, version, withCB, _get_or_fetch, _i, _j, _len, _len1, _ref, _ref1,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -50283,7 +49666,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./http":282,"./id-resolution-job":283,"./lists":284,"./model":285,"./promise":287,"./query":288,"./user":292,"./util":293,"./version":294}],290:[function(require,module,exports){
+},{"./http":279,"./id-resolution-job":280,"./lists":281,"./model":282,"./promise":284,"./query":285,"./user":289,"./util":290,"./version":291}],287:[function(require,module,exports){
 (function (global){
 (function() {
   var FakeDomParser;
@@ -50300,7 +49683,7 @@ module.exports = function() {
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],291:[function(require,module,exports){
+},{}],288:[function(require,module,exports){
 (function() {
   var Promise, merge, properties,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -50378,7 +49761,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./promise":287}],292:[function(require,module,exports){
+},{"./promise":284}],289:[function(require,module,exports){
 (function() {
   var any, do_pref_req, error, get, isFunction, withCB, _ref,
     __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
@@ -50476,7 +49859,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./util":293}],293:[function(require,module,exports){
+},{"./util":290}],290:[function(require,module,exports){
 (function() {
   var Promise, REQUIRES, comp, curry, encode, entities, error, flatten, fold, id, invoke, invokeWith, isArray, merge, pairFold, qsFromList, root, success, thenFold, _ref,
     __slice = [].slice,
@@ -50971,13 +50354,13 @@ module.exports = function() {
 
 }).call(this);
 
-},{"./promise":287}],294:[function(require,module,exports){
+},{"./promise":284}],291:[function(require,module,exports){
 (function() {
   exports.VERSION = '3.14.0';
 
 }).call(this);
 
-},{}],295:[function(require,module,exports){
+},{}],292:[function(require,module,exports){
 (function() {
   var DOMParser, sanitize;
 
@@ -51018,7 +50401,7 @@ module.exports = function() {
 
 }).call(this);
 
-},{"xmldom":290}],296:[function(require,module,exports){
+},{"xmldom":287}],293:[function(require,module,exports){
 (function (process,Buffer){
 
 
@@ -51215,7 +50598,7 @@ if(!module.parent && process.title !== 'browser') {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":258,"buffer":247,"jsonparse":297,"through":298}],297:[function(require,module,exports){
+},{"_process":255,"buffer":244,"jsonparse":294,"through":295}],294:[function(require,module,exports){
 (function (Buffer){
 /*global Buffer*/
 // Named constants with unique integer values
@@ -51620,7 +51003,7 @@ proto.onToken = function (token, value) {
 module.exports = Parser;
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":247}],298:[function(require,module,exports){
+},{"buffer":244}],295:[function(require,module,exports){
 (function (process){
 var Stream = require('stream')
 
@@ -51732,7 +51115,7 @@ function through (write, end, opts) {
 
 
 }).call(this,require('_process'))
-},{"_process":258,"stream":274}],299:[function(require,module,exports){
+},{"_process":255,"stream":271}],296:[function(require,module,exports){
 /**
  * Standalone extraction of Backbone.Events, no external dependency required.
  * Degrades nicely when Backone/underscore are already available in the current
@@ -52010,10 +51393,10 @@ function through (write, end, opts) {
   }
 })(this);
 
-},{}],300:[function(require,module,exports){
+},{}],297:[function(require,module,exports){
 module.exports = require('./backbone-events-standalone');
 
-},{"./backbone-events-standalone":299}],301:[function(require,module,exports){
+},{"./backbone-events-standalone":296}],298:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*!
@@ -52337,7 +51720,7 @@ $.extend( $.ui, {
 
 })( jQuery );
 
-},{"jquery":308}],302:[function(require,module,exports){
+},{"jquery":305}],299:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./mouse');
@@ -53302,7 +52685,7 @@ $.ui.plugin.add("draggable", "zIndex", {
 
 })(jQuery);
 
-},{"./core":301,"./mouse":304,"./widget":307,"jquery":308}],303:[function(require,module,exports){
+},{"./core":298,"./mouse":301,"./widget":304,"jquery":305}],300:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./widget');
@@ -53699,7 +53082,7 @@ $.ui.ddmanager = {
 
 })(jQuery);
 
-},{"./core":301,"./draggable":302,"./mouse":304,"./widget":307,"jquery":308}],304:[function(require,module,exports){
+},{"./core":298,"./draggable":299,"./mouse":301,"./widget":304,"jquery":305}],301:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./widget');
 
@@ -53873,7 +53256,7 @@ $.widget("ui.mouse", {
 
 })(jQuery);
 
-},{"./widget":307,"jquery":308}],305:[function(require,module,exports){
+},{"./widget":304,"jquery":305}],302:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./mouse');
@@ -54556,7 +53939,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 
 }(jQuery));
 
-},{"./core":301,"./mouse":304,"./widget":307,"jquery":308}],306:[function(require,module,exports){
+},{"./core":298,"./mouse":301,"./widget":304,"jquery":305}],303:[function(require,module,exports){
 var jQuery = require('jquery');
 require('./core');
 require('./mouse');
@@ -55852,7 +55235,7 @@ $.widget("ui.sortable", $.ui.mouse, {
 
 })(jQuery);
 
-},{"./core":301,"./mouse":304,"./widget":307,"jquery":308}],307:[function(require,module,exports){
+},{"./core":298,"./mouse":301,"./widget":304,"jquery":305}],304:[function(require,module,exports){
 var jQuery = require('jquery');
 
 /*!
@@ -56377,7 +55760,7 @@ $.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
 
 })( jQuery );
 
-},{"jquery":308}],308:[function(require,module,exports){
+},{"jquery":305}],305:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -65589,7 +64972,7 @@ return jQuery;
 
 }));
 
-},{}],309:[function(require,module,exports){
+},{}],306:[function(require,module,exports){
 (function (root, pluralize) {
   /* istanbul ignore else */
   if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
@@ -66017,7 +65400,7 @@ return jQuery;
   return pluralize;
 });
 
-},{}],310:[function(require,module,exports){
+},{}],307:[function(require,module,exports){
 /*!
  * typeahead.js 0.10.5
  * https://github.com/twitter/typeahead.js
@@ -67800,7 +67183,7 @@ return jQuery;
         };
     })();
 })(window.jQuery);
-},{}],311:[function(require,module,exports){
+},{}],308:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
