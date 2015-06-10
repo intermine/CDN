@@ -9392,7 +9392,7 @@ module.exports = '2.0.0-beta-38';
 
 },{"../../core-view":3,"../../models/open-nodes":51,"../../models/path-set":54,"../../options":62,"../../templates":66,"../path-chooser":198}],120:[function(require,module,exports){
 (function() {
-  var ColumnChooser, CoreView, HandlesDOMReSort, SelectListEditor, SelectedColumn, Templates, UnselectedColumn, binnedId, childId, incr, _,
+  var Collection, ColumnChooser, CoreView, HandlesDOMReSort, SelectListEditor, SelectedColumn, Templates, UnselectedColumn, binnedId, childId, incr, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9401,6 +9401,8 @@ module.exports = '2.0.0-beta-38';
   CoreView = require('../../core-view');
 
   Templates = require('../../templates');
+
+  Collection = require('../../core/collection');
 
   HandlesDOMReSort = require('../../mixins/handles-dom-resort');
 
@@ -9616,6 +9618,16 @@ module.exports = '2.0.0-beta-38';
       wide = modalWidth >= cutoff;
       this.collection.each((function(_this) {
         return function(model) {
+          return model.collection = _this.collection;
+        };
+      })(this));
+      this.rubbishBin.each((function(_this) {
+        return function(model) {
+          return model.collection = _this.rubbishBin;
+        };
+      })(this));
+      this.collection.each((function(_this) {
+        return function(model) {
           return _this.renderChild(childId(model), new SelectedColumn({
             model: model
           }), columns);
@@ -9666,7 +9678,7 @@ module.exports = '2.0.0-beta-38';
 
 }).call(this);
 
-},{"../../core-view":3,"../../mixins/handles-dom-resort":30,"../../templates":66,"./path-chooser":119,"./selected-column":121,"./unselected-column":124,"underscore":308}],121:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../mixins/handles-dom-resort":30,"../../templates":66,"./path-chooser":119,"./selected-column":121,"./unselected-column":124,"underscore":308}],121:[function(require,module,exports){
 (function() {
   var Collection, CoreView, PathModel, SelectedColumn, TEMPLATE_PARTS, Templates, decr, ignore, incr, _,
     __hasProp = {}.hasOwnProperty,
