@@ -1,0 +1,28 @@
+.pdchart {
+  width: 100%;
+}
+
+.pdchart rect {
+  fill: steelblue;
+}
+
+.pdchart text {
+  fill: black;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: black;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
