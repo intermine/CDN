@@ -6295,9 +6295,23 @@
 @media print {
 .imtables .hidden-print {
     display: none!important;}}
-.imtables .im-filter-manager .im-path-finder {
+.imtables .im-path-finder {
+  overflow: visible;}
+.imtables .im-filter-manager .im-path-finder.open {
   max-height: 400px;
   overflow-y: auto;}
+.imtables .im-new-constraint .im-con-overview .im-name-part {
+  display: none;}
+.imtables .im-new-constraint .im-con-overview .im-name-part:first-child:after {
+  content: '...';}
+.imtables .im-new-constraint .im-con-overview .im-name-part:nth-last-child(-n+4):after {
+  content: "\00bb";
+  margin-left: 0.5em;}
+.imtables .im-new-constraint .im-con-overview .im-name-part:last-child:after {
+  content: '';}
+.imtables .im-new-constraint .im-con-overview .im-name-part:first-child,
+.imtables .im-new-constraint .im-con-overview .im-name-part:nth-last-child(-n+3) {
+  display: inline-block;}
 .imtables .im-filter-summary .label-path .im-name-part {
   display: none;}
 .imtables .im-filter-summary .label-path .im-name-part:last-child {
@@ -6318,7 +6332,6 @@
   height: 1px;
   position: relative;}
 .imtables .im-constraint-editor .ui-slider .im-slider-marker {
-  position: absolute;
   font-family: Menlo , Monaco , Consolas , "Courier New" , monospace;
   top: 1em;}
 .imtables .im-constraint-editor .ui-slider .im-slider-marker.high {
@@ -6342,7 +6355,7 @@
 .imtables .im-con-overview .breadcrumb li:before {
   content: '';}
 .imtables .im-con-overview .breadcrumb .label {
-  font-size: 1.25em;}
+  font-size: 1.1em;}
 .imtables span.twitter-typeahead {
   float: left;
   width: 100%;}
@@ -6485,6 +6498,12 @@
   -o-transition: 0.1s linear background-image;
   transition: 0.1s linear background-image;
   overflow: visible;}
+.imtables .im-slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;}
+.imtables .im-path-chooser ul {
+  padding-left: 2em;}
 .imtables .im-path-chooser li {
   list-style-type: none;
   margin-left: 0px;
@@ -6644,6 +6663,10 @@
 .imtables .im-summary-items .im-facet-row .checkbox {
   margin-top: 0;
   margin-bottom: 0;}
+.imtables .im-summary-items .im-item-col .null-value:after {
+  font-weight: bold;
+  color: #dedede;
+  content: 'NOTHING';}
 .imtables .im-summary-items .im-count-col {
   font-weight: bold;
   text-shadow: -1px -1px #ffffff;
@@ -7211,7 +7234,7 @@
 .imtables .im-column-th .im-constraints .im-value-section .im-multi-value-table .im-add .im-short {
   display: inline;}
 .imtables .popover.item-preview {
-  min-width: 300px;}
+  min-width: 385px;}
 .imtables .im-cell-preview-inner {
   font-size: 90%;}
 .imtables .im-cell-preview-inner h4 {
@@ -7224,6 +7247,7 @@
 .imtables .im-cell-preview-inner .im-related-counts .im-relation {
   padding: 0.1em 1em;
   width: 50%;
+  margin-left: 0;
   float: left;
   float: left!important;
   display: inline-block;}
@@ -7418,3 +7442,10 @@
   display: inline-block;}
 .imtables ul.dropdown-menu > li {
   margin-left: 0px;}
+.imtables .im-evenly-spaced {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;}
