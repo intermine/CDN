@@ -7647,7 +7647,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":281}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-39';
+module.exports = '2.0.0-beta-40';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -7900,7 +7900,6 @@ module.exports = '2.0.0-beta-39';
     ActiveConstraint.prototype.getValueProblem = function(con) {
       var op, path, value, _ref1;
       path = con.path, op = con.op, value = con.value;
-      console.debug(con);
       if ((value == null) || (IS_BLANK.test(value))) {
         return 'NoValue';
       }
@@ -7955,7 +7954,6 @@ module.exports = '2.0.0-beta-39';
       if ((con.values != null) && !con.values.length) {
         return this.query.trigger("change:constraints");
       } else {
-        console.debug('Adding constraint');
         con.path = con.path.toString();
         this.query.addConstraint(con);
         this.constraint = con;
@@ -8292,7 +8290,6 @@ module.exports = '2.0.0-beta-39';
 
     AttributeValueControls.prototype.replaceInputWithSelect = function(items) {
       var value;
-      console.log("Select of " + items.length + " items");
       if (this.model.has('value')) {
         value = this.model.get('value');
         if ((value != null) && !(_.any(items, function(_arg) {
@@ -9132,7 +9129,6 @@ module.exports = '2.0.0-beta-39';
       this.rubbishBin = new SelectList;
       this.sortOrder = new OrderByList;
       this.availableColumns = new AvailableColumns;
-      console.log("Column Manager started with query", this.query);
       _ref = this.query.views;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         v = _ref[_i];
@@ -9141,13 +9137,11 @@ module.exports = '2.0.0-beta-39';
       _ref1 = this.query.sortOrder;
       for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
         _ref2 = _ref1[_j], path = _ref2.path, direction = _ref2.direction;
-        console.log("ADDING SORT sort order", path);
         this.sortOrder.add({
           direction: direction,
           path: this.query.makePath(path)
         });
       }
-      console.log("calling @getRelevantPaths returns", this.getRelevantPaths());
       _ref3 = this.getRelevantPaths();
       for (_k = 0, _len2 = _ref3.length; _k < _len2; _k++) {
         path = _ref3[_k];
@@ -9604,7 +9598,7 @@ module.exports = '2.0.0-beta-39';
 
 },{"../../core-view":3,"../../models/open-nodes":52,"../../models/path-set":55,"../../options":63,"../../templates":67,"../path-chooser":201}],122:[function(require,module,exports){
 (function() {
-  var ColumnChooser, CoreView, HandlesDOMReSort, SelectListEditor, SelectedColumn, Templates, UnselectedColumn, binnedId, childId, incr, _,
+  var Collection, ColumnChooser, CoreView, HandlesDOMReSort, SelectListEditor, SelectedColumn, Templates, UnselectedColumn, binnedId, childId, incr, _,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -9613,6 +9607,8 @@ module.exports = '2.0.0-beta-39';
   CoreView = require('../../core-view');
 
   Templates = require('../../templates');
+
+  Collection = require('../../core/collection');
 
   HandlesDOMReSort = require('../../mixins/handles-dom-resort');
 
@@ -9828,6 +9824,16 @@ module.exports = '2.0.0-beta-39';
       wide = modalWidth >= cutoff;
       this.collection.each((function(_this) {
         return function(model) {
+          return model.collection = _this.collection;
+        };
+      })(this));
+      this.rubbishBin.each((function(_this) {
+        return function(model) {
+          return model.collection = _this.rubbishBin;
+        };
+      })(this));
+      this.collection.each((function(_this) {
+        return function(model) {
           return _this.renderChild(childId(model), new SelectedColumn({
             model: model
           }), columns);
@@ -9878,7 +9884,7 @@ module.exports = '2.0.0-beta-39';
 
 }).call(this);
 
-},{"../../core-view":3,"../../mixins/handles-dom-resort":31,"../../templates":67,"./path-chooser":121,"./selected-column":123,"./unselected-column":126,"underscore":312}],123:[function(require,module,exports){
+},{"../../core-view":3,"../../core/collection":5,"../../mixins/handles-dom-resort":31,"../../templates":67,"./path-chooser":121,"./selected-column":123,"./unselected-column":126,"underscore":312}],123:[function(require,module,exports){
 (function() {
   var Collection, CoreView, PathModel, SelectedColumn, TEMPLATE_PARTS, Templates, decr, ignore, incr, _,
     __hasProp = {}.hasOwnProperty,
@@ -21087,7 +21093,6 @@ module.exports = '2.0.0-beta-39';
         _ref = ['save', 'code', 'lists'];
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           kid = _ref[_i];
-          console.log('listening to', this.children[kid]);
           this.listenTo(this.children[kid], 'rendered', this.setButtonStyle);
         }
       }
@@ -21217,8 +21222,7 @@ module.exports = '2.0.0-beta-39';
       this.listenTo(this.history, 'changed:current', this.onChangeQuery);
       this.listenTo(this.blacklistedFormatters, 'reset add remove', this.buildColumnHeaders);
       this.listenTo(this.columnHeaders, 'change:minimised', this.onChangeHeaderMinimised);
-      this.onChangeQuery();
-      return console.debug('initialised table');
+      return this.onChangeQuery();
     };
 
     Table.prototype.onChangeQuery = function() {
@@ -21367,7 +21371,6 @@ module.exports = '2.0.0-beta-39';
 
     Table.prototype.fillRows = function() {
       var error, size, start, success, _ref;
-      console.debug('filling rows');
       _ref = this.model.pick('start', 'size'), start = _ref.start, size = _ref.size;
       success = (function(_this) {
         return function() {
@@ -23148,6 +23151,10 @@ module.exports = '2.0.0-beta-39';
 
     LargeTableDisuader.prototype.template = _.template(large_table_disuader);
 
+    LargeTableDisuader.prototype.act = function() {
+      return this.resolve("accept");
+    };
+
     LargeTableDisuader.prototype.events = function() {
       return _.extend(LargeTableDisuader.__super__.events.apply(this, arguments), {
         'click .btn-primary': ((function(_this) {
@@ -23454,7 +23461,7 @@ module.exports = '2.0.0-beta-39';
     PageSizer.prototype.template = Templates.template('page_sizer');
 
     PageSizer.prototype.getData = function() {
-      var count, s, size, sizes;
+      var count, found, s, size, sizes;
       count = this.model.get('count');
       size = this.model.get('size');
       sizes = (function() {
@@ -23469,16 +23476,15 @@ module.exports = '2.0.0-beta-39';
         }
         return _results;
       }).call(this);
-      if (sizes.length && __indexOf.call((function() {
-        var _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = sizes.length; _i < _len; _i++) {
-          s = sizes[_i][0];
-          _results.push(s);
+      if (sizes.length && count < this.sizes[this.sizes.length - 1][0]) {
+        found = _.find(sizes, function(next) {
+          return next[0] === count;
+        });
+        if (found) {
+          found[1] += found[0] + " (All)";
+        } else {
+          sizes.push([count, "" + count + " (All)"]);
         }
-        return _results;
-      })(), size) < 0) {
-        sizes.push([size, size]);
       }
       return {
         size: size,
