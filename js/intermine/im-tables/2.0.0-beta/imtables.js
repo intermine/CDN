@@ -5274,6 +5274,7 @@
           }
         },
         ItemDetails: {
+          ShowReferenceCounts: false,
           Fields: {},
           Count: {}
         },
@@ -7647,7 +7648,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":281}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-40';
+module.exports = '2.0.0-beta-42';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -8825,13 +8826,33 @@ module.exports = '2.0.0-beta-40';
             generatedCode: this.generateJS()
           });
         default:
-          return this.query.fetchCode(lang).then((function(_this) {
-            return function(code) {
-              return _this.state.set({
-                generatedCode: code
-              });
-            };
-          })(this));
+          return this.getCodeFromCache(lang);
+      }
+    };
+
+    CodeGenDialogue.prototype.getCodeFromCache = function(lang) {
+      var opts, _ref;
+      if (this.cache == null) {
+        this.cache = {};
+      }
+      if (((_ref = this.cache) != null ? _ref[lang] : void 0) != null) {
+        return this.state.set({
+          generatedCode: this.cache[lang]
+        });
+      } else {
+        opts = {
+          query: this.query.toXML(),
+          lang: lang,
+          date: Date.now()
+        };
+        return this.query.service.post('query/code?cachebuster=' + Date.now(), opts).then((function(_this) {
+          return function(res) {
+            _this.cache[lang] = res.code;
+            return _this.state.set({
+              generatedCode: res.code
+            });
+          };
+        })(this));
       }
     };
 
@@ -16922,8 +16943,12 @@ module.exports = '2.0.0-beta-40';
           var gettingCounts, gettingDetails;
           _this.schema = schema;
           gettingDetails = _this.getAllDetails();
-          gettingCounts = _this.getRelationCounts();
-          return Promise.all(gettingDetails.concat(gettingCounts));
+          if (Options.get('ItemDetails.ShowReferenceCounts')) {
+            gettingCounts = _this.getRelationCounts();
+            return Promise.all(gettingDetails.concat(gettingCounts));
+          } else {
+            return Promise.all(gettingDetails);
+          }
         };
       })(this));
     };
@@ -21984,7 +22009,8 @@ module.exports = '2.0.0-beta-40';
       myId = this.el.id;
       currentOwner = this.tableState.get('previewOwner');
       if (myId !== currentOwner) {
-        return this.hidePreview();
+        this.hidePreview();
+        return this._hidePreview();
       }
     };
 
