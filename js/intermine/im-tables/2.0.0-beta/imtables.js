@@ -7651,7 +7651,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":282}],111:[function(require,module,exports){
-module.exports = '2.0.0-beta-43';
+module.exports = '2.0.0-beta-44';
 
 },{}],112:[function(require,module,exports){
 (function() {
@@ -17029,6 +17029,9 @@ module.exports = '2.0.0-beta-43';
 
     Preview.prototype.handleAttribute = function(item, clds, field, rawValue) {
       var cuttoff, details, path, snipPoint, tooLong, valueString;
+      if (rawValue == null) {
+        rawValue = "";
+      }
       path = this.getPathForField(clds, field);
       details = {
         path: path,
