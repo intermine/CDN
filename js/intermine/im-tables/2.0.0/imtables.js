@@ -7702,7 +7702,7 @@ exports.download_popover = "<% /* requires: formats, query, path */ %>\n<ul role
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"../cdn":1,"es6-promise":284}],113:[function(require,module,exports){
-module.exports = '2.0.0-beta-45';
+module.exports = '2.0.0';
 
 },{}],114:[function(require,module,exports){
 (function() {
