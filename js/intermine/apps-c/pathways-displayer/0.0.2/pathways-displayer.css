@@ -1,0 +1,136 @@
+#pathwaysappcontainer {
+  display: block;
+  height: 300px;
+}
+
+#pathwaysappcontainer h4{
+  padding-top: 11px;
+}
+
+#pathwaysappcontainer .pwayMain {
+  
+  /*height: 200px;*/
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+}
+
+#pathwaysappcontainer .pwayMain table {
+
+  border-collapse: collapse;
+  width: 100%;
+  z-index: 0;
+
+
+}
+
+#pathwaysappcontainer .pwayResults tr:hover td{
+  background-color: #FFF3D3;
+}
+
+
+#pathwaysappcontainer .pwayMain .pwayResults tr.highlighted {
+  background-color: #FFF3D3;
+}
+
+#pathwaysappcontainer .circle {
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  background: orange;
+  margin: auto;
+  vertical-align: top;
+}
+
+#pathwaysappcontainer .clickable:hover {
+ cursor:pointer;
+}
+
+#pathwaysappcontainer .dataPane {
+  
+  position: absolute;
+  top:0;
+  right:0;
+  background: #FFF3D3;
+  color: black;
+  text-align: center;
+  /*padding-left: 5px;*/
+  width: 0px;
+  /*height: 200px;*/
+  -webkit-transition:width 0.25s; 
+  text-align: left;
+  /*
+  -webkit-box-shadow: -3px 0px 5px rgba(50, 50, 50, 0.35);
+  -moz-box-shadow:    -3px 0px 5px rgba(50, 50, 50, 0.35);
+  box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);
+  */
+  /*z-index: 2;*/
+  overflow-x: hidden;
+  height: 100%;
+}
+
+#pathwaysappcontainer .active {
+  width: 50%;
+  visibility: visible;
+  border-left: 1px solid #bdbdbd;
+  
+  -webkit-transition:width 0.25s; 
+  /*
+    -webkit-box-shadow: -3px 0px 5px rgba(50, 50, 50, 0.35);
+  -moz-box-shadow:    -3px 0px 5px rgba(50, 50, 50, 0.35);
+  box-shadow:         -3px 0px 5px rgba(50, 50, 50, 0.35);*/
+}
+
+
+#pathwaysappcontainer .flyin {
+-webkit-transition: opacity 400ms linear, width 80ms ease-in-out, right 200ms ease-out;
+}
+
+.somethingdataPane:hover {
+  visibility:visible;
+  right: 0px;
+  width: 50%;
+}
+
+.pwayWrapper {
+  position:relative;
+}
+
+#pathwaysappcontainer table.detailsTable {
+  width: 100%;
+}
+
+#pwayResultsContainer {
+  overflow: auto;
+  overflow-x: hidden;
+  max-height: 250px;
+}
+
+#pathwaysappcontainer .innerDetailsContainer {
+  padding: 0px 10px 0px 10px;
+}
+
+
+#statusBar {
+  border: 1px solid #bdbdbd;
+  font-size: 10px;
+  padding: 2px;
+}
+
+#pathwaysappcontainer .hidden {
+  display: none;
+  color: green;
+}
+
+#pathwaysappcontainer ul.inline
+{
+display: inline;
+list-style-type:none;
+margin:0;
+padding:0;
+}
+
+#pathwaysappcontainer ul.inline li {
+  display: inline;
+}
