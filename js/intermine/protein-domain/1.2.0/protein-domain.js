@@ -16,7 +16,7 @@ if(typeof mineUrl === 'undefined'){
 var BASEURL = mineUrl + "/service/query/results?query=";
 var QUERYSTART = "%3Cquery%20model=%22genomic%22%20view=%22" +
 "Protein.proteinDomainRegions.start%20Protein.proteinDomainRegions.end%20" +
-"Protein.proteinDomainRegions.originalDb%20Protein.proteinDomainRegions.originalId%20" +
+"Protein.proteinDomainRegions.database%20Protein.proteinDomainRegions.identifier%20" +
 "Protein.proteinDomainRegions.proteinDomain.shortName%20" +
 "Protein.proteinDomainRegions.proteinDomain.primaryIdentifier%22%20%3E%20%3C" +
 // "Protein.proteinDomainRegions.proteinDomain.primaryIdentifier%20" +
