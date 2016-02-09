@@ -2,12 +2,13 @@
 //
 // INPUT:   - the gene id (primaryIdentifier) or list name
 //          - the mine url (if not present, defaults to araport)
+//          - the id of the svg element (from the calling page)
+//
 // OUTPUT:  heat map
 //
 // TODO: - rm ticks y axis ?
 //       - add x axis labels (tissue)
 //       - add legend ?
-//       - adapt for list (see op)
 //
 */
 
@@ -16,6 +17,7 @@
 //var DEFAULT_MINEURL = "https://apps.araport.org/thalemine/";
 var DEFAULT_MINEURL = "http://intermine.modencode.org/thalemineval/";
 var DEFAULT_ID = "AT3G24650";
+var DEFAULT_SVG = "echart";
 
 if(typeof mineUrl === 'undefined'){
    mineUrl = DEFAULT_MINEURL;
@@ -25,22 +27,37 @@ if(typeof queryId === 'undefined'){
    queryId = DEFAULT_ID;
  };
 
+if(typeof svgId === 'undefined'){
+   svgId = DEFAULT_SVG;
+ };
+
+console.log(svgId +"--"+mineUrl+" -|- " + queryId);
+
 var BASEURL = mineUrl + "/service/query/results?query=";
 
 // v4 no description
-var QUERYSTART = "%3Cquery%20name=%22%22%20model=%22genomic%22%20view=%22Gene.primaryIdentifier%20Gene.symbol%20Gene.RNASeqExpressions.expressionLevel%20Gene.RNASeqExpressions.unit%20Gene.RNASeqExpressions.experiment.SRAaccession%20Gene.RNASeqExpressions.experiment.tissue%22%20longDescription=%22%22%20sortOrder=%22Gene.primaryIdentifier%20asc%20Gene.RNASeqExpressions.experiment.tissue%20asc%22%3E%20%3Cconstraint%20path=%22Gene.primaryIdentifier%22%20op=%22=%22%20value=%22"
+//~ var QUERYSTART = "%3Cquery%20name=%22%22%20model=%22genomic%22%20view=%22Gene.primaryIdentifier%20Gene.symbol%20Gene.RNASeqExpressions.expressionLevel%20Gene.RNASeqExpressions.unit%20Gene.RNASeqExpressions.experiment.SRAaccession%20Gene.RNASeqExpressions.experiment.tissue%22%20longDescription=%22%22%20sortOrder=%22Gene.primaryIdentifier%20asc%20Gene.RNASeqExpressions.experiment.tissue%20asc%22%3E%20%3Cconstraint%20path=%22Gene.primaryIdentifier%22%20op=%22=%22%20value=%22"
+
+var QUERYSTART = "%3Cquery%20name=%22%22%20model=%22genomic%22%20view=%22Gene.primaryIdentifier%20Gene.symbol%20Gene.RNASeqExpressions.expressionLevel%20Gene.RNASeqExpressions.unit%20Gene.RNASeqExpressions.experiment.SRAaccession%20Gene.RNASeqExpressions.experiment.tissue%22%20longDescription=%22%22%20sortOrder=%22Gene.primaryIdentifier%20asc%20Gene.RNASeqExpressions.experiment.tissue%20asc%22%3E%20%3Cconstraint%20path=%22";
+
+var IDS="Gene.primaryIdentifier%22%20op=%22=%22%20value=%22"
+
+var LIST="Gene%22%20op=%22IN%22%20value=%22"
+
+var qType=IDS;  // default query type: ids
 
 var QUERYEND="%22/%3E%20%3C/query%3E";
 
-// TODO: query for list
-// op = -> IN
-// (value id -> list name)
+if(typeof listName != 'undefined'){ // set only on a bagDetails page
+    qType = LIST;
+    queryId = listName;
+ };
 
-var QUERY= BASEURL + QUERYSTART + queryId + QUERYEND;
+var query = BASEURL + QUERYSTART + qType + queryId + QUERYEND;
 
 var PORTAL = "portal.do?class=Gene&externalids=";
 
-var svg = d3.select("#echart");
+var svg = d3.select("#" + svgId);
 
 //var colors = d3.scale.category20c();
 // will be set according to range
@@ -325,7 +342,7 @@ svg.select(".xlabel")
 //   render();
 // });
 
-d3.json(QUERY, function(returned) {
+d3.json(query, function(returned) {
   data = returned.results;
   render();
 });
