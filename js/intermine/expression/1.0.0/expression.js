@@ -6,9 +6,9 @@
 //
 // OUTPUT:  heat map
 //
-// TODO: - rm ticks y axis ?
-//       - add x axis labels (tissue)
+// TODO: - add x axis labels (tissue)
 //       - add legend ?
+//       - uso log? (range too wide in list)
 //
 */
 
@@ -55,7 +55,8 @@ if(typeof listName != 'undefined'){ // set only on a bagDetails page
 
 var query = BASEURL + QUERYSTART + qType + queryId + QUERYEND;
 
-var PORTAL = "portal.do?class=Gene&externalids=";
+var GPORTAL = "portal.do?class=Gene&externalids=";
+var EPORTAL = "portal.do?class=RnaseqExperiment&externalids=";
 
 var svg = d3.select("#" + svgId);
 
@@ -150,7 +151,7 @@ var render = function() {
 //console.log("x: " + d3.extent(data, function(d) { return d[4]; }));
 //console.log("y: " + d3.extent(data, function(d) { return d[0]; }));
 console.log("z: " + d3.extent(data, function(d) { return d[2]; }));
-console.log("genes: " + d3.map(data, function(d){return d[0];}).size());
+//console.log("genes: " + d3.map(data, function(d){return d[0];}).size());
 
   xAxis = d3.svg.axis()
     .scale(x)
@@ -162,7 +163,7 @@ console.log("genes: " + d3.map(data, function(d){return d[0];}).size());
     .orient("left")
     ;
 
-console.log("Y: " + y.domain() + "--" + y.range());
+//console.log("Y: " + y.domain() + "--" + y.range());
 
 // Draw our elements!!
 
@@ -191,7 +192,7 @@ console.log("Y: " + y.domain() + "--" + y.range());
   bar.append("a")
     .on("mouseover", function(d, i){
       d3.select(this)
-          .attr({"xlink:href": mineUrl + PORTAL + d[0]})
+          .attr({"xlink:href": mineUrl + EPORTAL + d[4]})
           .attr({"xlink:title": d[0] +" - " + d[4] + " (" + d[5] + "): " + d[2]});
     })
     .append("rect")
@@ -226,6 +227,7 @@ console.log("Y: " + y.domain() + "--" + y.range());
         return "translate(" + margin.left + "," + margin.right  + ")"})
       .call(d3.svg.axis().scale(y).orient("left"))
       .call(yAxis)
+
   // label
     //~ .append("text")
       //~ .attr("class", "ylabel")
@@ -235,8 +237,16 @@ console.log("Y: " + y.domain() + "--" + y.range());
       //~ .attr("text-anchor", "beginning")
       //~ .text("GENE")
       ;
-}
 
+// add links to gene report page
+d3.selectAll("text")
+    .filter(function(d){ return typeof(d) == "string"; })
+    .style("cursor", "pointer")
+    .on("click", function(d){
+        document.location.href = mineUrl + GPORTAL + d;
+    });
+
+}
 
   //~ bar.append("a")
     //~ .on("mouseover", function(d){
