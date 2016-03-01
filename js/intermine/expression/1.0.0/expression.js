@@ -66,7 +66,8 @@ var color = null;
 var barHeight = 20;
 var legendCells = 8;
 
-var cellWidth = barHeight/2; // default value
+var halfBar = barHeight/2;
+var cellWidth = halfBar; // default value
 
 // margins
 var margin = {left: 4*barHeight, top: 3*barHeight, right: 3*barHeight, bottom: 4*barHeight};
@@ -282,12 +283,12 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     .attr("class", "legendLinear")
     .attr("transform", "translate(" + (margin.left + 40*cellWidth) +","+ (barHeight*geneNr + 2*margin.top) +")")
     .attr("data-style-padding", 0)
-    .style("font-size","10px")
+    .style("font-size", halfBar +"px")
     ;
 
   legendLinear = d3.legend.color()
     .shapeWidth(4*cellWidth)
-    .shapeHeight(barHeight/2)
+    .shapeHeight(halfBar)
     .cells(legendCells)
     .orient('horizontal')
     //.labelFormat(d3.format("f"))  // no decimal
@@ -299,7 +300,7 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
 
 
 /* works, just min and max
- var legendRectSize = barHeight/2
+ var legendRectSize = halfBar;
  var legendSpacing = legendRectSize/2;
 
  var legend = svg.selectAll('.legend')
@@ -329,7 +330,7 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     svg.append("rect")
       .attr("class", "legendbox")
       .attr("x", legendRectSize)
-      .attr("y", barHeight*geneNr + 2*margin.top +barHeight/2)
+      .attr("y", barHeight*geneNr + 2*margin.top + halfBar)
       .attr("height", 1.5*barHeight)
       .attr("width", 7*barHeight)
       .style("stroke", "grey")
@@ -400,7 +401,7 @@ svg.select(".legendLinear")
    .call(
      d3.legend.color()
       .shapeWidth(4*cellWidth)
-      .shapeHeight(barHeight/2)
+      .shapeHeight(halfBar)
       .cells(legendCells)
       .orient('horizontal')
       //.labelFormat(d3.format("f"))  // no decimal
