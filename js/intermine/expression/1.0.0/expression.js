@@ -125,13 +125,13 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
       .attr('height', barHeight)
       //.attr('fill', )
       .append("xhtml:body")
-      .html('<h3 class="goog"> ' + sampleNr + ' Samples RNA Seq Expressions - source: Araport</h3>\
+      .html('<h3 class="goog"> ' + sampleNr + ' Samples RNA Seq Expression - source: <a href="https://www.araport.org/">Araport</a></h3>\
              <p> <p>');
 
   // Size our SVG tall enough so that it fits each bar.
   // Width was already defined when we loaded.
   svg.attr("height", margin.top + (barHeight * geneNr) + margin.bottom + 2*barHeight);
-  cellWidth=((width - margin.right -margin.left)/sampleNr);
+  cellWidth=((width - margin.right -margin.left -2*barHeight)/sampleNr);
 
   // Coerce data to the appropriate types. NOT USED
   data.forEach(function(d) {
@@ -188,7 +188,8 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
       .attr("x", 0)
       .attr("y", (margin.top - barHeight))
       .attr("height", (margin.top + barHeight*geneNr + margin.bottom))
-      .attr("width", width - 2*cellWidth)
+      //.attr("width", width - 2*cellWidth)
+      .attr("width", width - halfBar)
       .style("stroke", "grey")
       .style("fill", "none")
       //.style("stroke-width", 1)
@@ -281,26 +282,33 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
 
   svg.append("g")
     .attr("class", "legendLinear")
-    .attr("transform", "translate(" + (margin.left + 40*cellWidth) +","+ (barHeight*geneNr + 2*margin.top) +")")
+//    .attr("transform", "translate(" + (margin.left + 40*cellWidth) +","+ (barHeight*geneNr + 2*margin.top) +")")
+    .attr("transform", "translate(" + (margin.left + sampleNr*cellWidth + halfBar) +","+ (margin.top) +")")
     .attr("data-style-padding", 0)
-    .style("font-size", halfBar +"px")
+    .style("font-size", halfBar+"px")
     ;
 
   legendLinear = d3.legend.color()
-    .shapeWidth(4*cellWidth)
+    //.shapeWidth(4*cellWidth)
+    .shapeWidth(halfBar)
     .shapeHeight(halfBar)
     .cells(legendCells)
-    .orient('horizontal')
+    //.orient('horizontal')
+    .ascending('true')
+    .labelOffset(5)
     //.labelFormat(d3.format("f"))  // no decimal
-    .title("Expression value (Transcript Per Million)")
-    .scale(linearLegend);
+    //.title("Expression value (Transcripts Per Million)")
+    .title("TPM")
+    .scale(linearLegend)
+    //.on("cellover", function(d){alert("Transcript Per Million " + d);})
+    ;
 
   svg.select(".legendLinear")
     .call(legendLinear);
 
 
 /* works, just min and max
- var legendRectSize = halfBar;
+ var legendRectSize = halfBar
  var legendSpacing = legendRectSize/2;
 
  var legend = svg.selectAll('.legend')
@@ -330,7 +338,7 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     svg.append("rect")
       .attr("class", "legendbox")
       .attr("x", legendRectSize)
-      .attr("y", barHeight*geneNr + 2*margin.top + halfBar)
+      .attr("y", barHeight*geneNr + 2*margin.top +halfBar)
       .attr("height", 1.5*barHeight)
       .attr("width", 7*barHeight)
       .style("stroke", "grey")
@@ -348,7 +356,7 @@ var rescale = function() {
 
  // Our input hasn't changed (domain) but our range has. Rescale it!
   //x.range([0, newwidth]);
-  cellWidth=((newwidth - margin.right - margin.left)/sampleNr);
+  cellWidth=((newwidth - margin.right - margin.left - 2*barHeight)/sampleNr);
   x.rangeBands([0,sampleNr*cellWidth]);
 
   // Use our existing data:
@@ -372,7 +380,7 @@ var rescale = function() {
       //~ .text(function(d) { return (d[2])});
 
   // resize the bounding box
-  var bb = svg.select(".boundingbox").attr("width", (newwidth -2*cellWidth));
+  var bb = svg.select(".boundingbox").attr("width", (newwidth -halfBar));
 
   // resize the x axis
   xAxis.scale(x);
@@ -397,16 +405,19 @@ var rescale = function() {
 
 // resize legend
 svg.select(".legendLinear")
-   .attr("transform", "translate(" + (margin.left + 40*cellWidth) +","+ (barHeight*geneNr + 2*margin.top) +")")
+//   .attr("transform", "translate(" + (margin.left + 40*cellWidth) +","+ (barHeight*geneNr + 2*margin.top) +")")
+    .attr("transform", "translate(" + (margin.left + sampleNr*cellWidth + halfBar) +","+ (margin.top) +")")
    .call(
      d3.legend.color()
-      .shapeWidth(4*cellWidth)
-      .shapeHeight(halfBar)
-      .cells(legendCells)
-      .orient('horizontal')
-      //.labelFormat(d3.format("f"))  // no decimal
-      .title("Expression value (Transcript Per Million)")
-      .scale(linearLegend)
+    .shapeWidth(halfBar)
+    .shapeHeight(halfBar)
+    .cells(legendCells)
+    .ascending('true')
+    .labelOffset(5)
+    //.orient('horizontal')
+    //.labelFormat(d3.format("f"))  // no decimal
+    .title("TPM")
+    .scale(linearLegend)
    );
 
   // resize the header
