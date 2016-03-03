@@ -122,7 +122,7 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
       .attr('x', 0)
       .attr('y', 0)
       .attr('width', width)
-      .attr('height', barHeight)
+      .attr('height', 2*barHeight)
       //.attr('fill', )
       .append("xhtml:body")
       .html('<h3 class="goog"> ' + sampleNr + ' Samples RNA Seq Expression - source: <a href="https://www.araport.org/">Araport</a></h3>\
