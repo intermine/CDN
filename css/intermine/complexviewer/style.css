@@ -1,3 +1,7 @@
 #complexDisplayer {
-  min-height: 250px;
+  height: 250px;
+}
+
+#networkSVG {
+  height: 250px;
 }
