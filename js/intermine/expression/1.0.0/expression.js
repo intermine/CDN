@@ -8,8 +8,7 @@
 //          colouring is done using the log2(level+1)
 //          the mouse over displays the actual value of level
 //
-// TODO: - scale text in legend?
-//       - add bands for tissues (and revert to sra for x axis?)
+// TODO: - add bands for tissues (and revert to sra for x axis?)
 //
 */
 
@@ -107,14 +106,9 @@ var render = function() {
 console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + " Max:" + maxE + " log:" + max);
 
   if (geneNr == 1 ) {
+  // adjust margins (no y labels)
     margin.left = barHeight;
     margin.right = 2*barHeight;
-  }
-
-  var color = d3.scale.linear()
-    .domain([0, max])
-    //.range(["lightgray", "green"]);
-    .range(["palegreen", "red"]);
 
   // Build the report header
     head = svg.append('foreignObject')
@@ -127,6 +121,12 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
       .append("xhtml:body")
       .html('<h3 class="goog"> ' + sampleNr + ' Samples RNA Seq Expression - source: <a href="https://www.araport.org/">Araport</a></h3>\
              <p> <p>');
+}
+
+  var color = d3.scale.linear()
+    .domain([0, max])
+    //.range(["lightgray", "green"]);
+    .range(["palegreen", "red"]);
 
   // Size our SVG tall enough so that it fits each bar.
   // Width was already defined when we loaded.
@@ -142,7 +142,6 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
   });
 
  // Compute the scale domains and set the ranges
-
   z = d3.scale.linear().range("white", "blue"); //?
   z.domain([0, d3.max(data, function(d) { return Math.log2(d[2]+1); })]);
 
@@ -154,7 +153,6 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     .domain(d3.map(data, function(d){return d[5]}).keys())
     .range([0, 7*cellWidth, 9*cellWidth, 16*cellWidth, 40*cellWidth, 85*cellWidth, 87*cellWidth, 96*cellWidth, 103*cellWidth, 106*cellWidth, 110*cellWidth, sampleNr*cellWidth])
   ;
-
 /* old version with the sample id
   x = d3.scale.ordinal()
    .domain(d3.map(data, function(d){return d[4]}).keys())
@@ -183,33 +181,32 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
 // Draw our elements!!
 
 // BOX
-    svg.append("rect")
-      .attr("class", "boundingbox")
-      .attr("x", 0)
-      .attr("y", (margin.top - barHeight))
-      .attr("height", (margin.top + barHeight*geneNr + margin.bottom))
-      //.attr("width", width - 2*cellWidth)
-      .attr("width", width - halfBar)
-      .style("stroke", "grey")
-      .style("fill", "none")
-      //.style("stroke-width", 1)
-      ;
+  svg.append("rect")
+    .attr("class", "boundingbox")
+    .attr("x", 0)
+    .attr("y", (margin.top - barHeight))
+    .attr("height", (margin.top + barHeight*geneNr + margin.bottom))
+    .attr("width", width - halfBar)
+    .style("stroke", "grey")
+    .style("fill", "none")
+    //.style("stroke-width", 1)
+    ;
 
   var bar = svg.selectAll("g")
-      .data(data)
+    .data(data)
 
   // New bars:
   bar.enter().append("g")
-      .attr("class", "proteinbar")
-      .attr("transform", function(d, i) {
-         return "translate("+(margin.left + (i%sampleNr)*cellWidth) + "," + (margin.top + barHeight*Math.floor(i/sampleNr) ) + ")";
-     });
+    .attr("class", "exbar")
+    .attr("transform", function(d, i) {
+      return "translate("+(margin.left + (i%sampleNr)*cellWidth) + "," + (margin.top + barHeight*Math.floor(i/sampleNr) ) + ")";
+    });
 
   bar.append("a")
     .on("mouseover", function(d, i){
       d3.select(this)
-          .attr({"xlink:href": mineUrl + EPORTAL + d[4]})
-          .attr({"xlink:title": d[0] +" - " + d[4] + " (" + d[5] + "): " + d[2]});
+        .attr({"xlink:href": mineUrl + EPORTAL + d[4]})
+        .attr({"xlink:title": d[0] +" - " + d[4] + " (" + d[5] + "): " + d[2]});
     })
     .append("rect")
     .attr("width", cellWidth)
@@ -257,9 +254,9 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     ;
 */
 
- if (geneNr > 1 ) { // don't display if only 1 row
+ // Y AXIS
 
-  // Y AXIS
+ if (geneNr > 1 ) { // don't display if only 1 row
   svg.append("g")
      .attr("class", "y axis")
      .attr("transform", function() {
@@ -273,7 +270,8 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
       ;
 }
 
-// USING d3-legend
+// LEGEND
+// using d3-legend
 
   linearLegend = d3.scale.linear()
     .domain([0,maxE])
@@ -284,12 +282,10 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     .attr("class", "legendLinear")
 //    .attr("transform", "translate(" + (margin.left + 40*cellWidth) +","+ (barHeight*geneNr + 2*margin.top) +")")
     .attr("transform", "translate(" + (margin.left + sampleNr*cellWidth + halfBar) +","+ (margin.top) +")")
-    .attr("data-style-padding", 0)
     .style("font-size", halfBar+"px")
     ;
 
   legendLinear = d3.legend.color()
-    //.shapeWidth(4*cellWidth)
     .shapeWidth(halfBar)
     .shapeHeight(halfBar)
     .cells(legendCells)
@@ -297,55 +293,30 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
     .ascending('true')
     .labelOffset(5)
     //.labelFormat(d3.format("f"))  // no decimal
-    //.title("Expression value (Transcripts Per Million)")
     .title("TPM")
     .scale(linearLegend)
-    //.on("cellover", function(d){alert("Transcript Per Million " + d);})
     ;
 
   svg.select(".legendLinear")
     .call(legendLinear);
 
-
-/* works, just min and max
- var legendRectSize = halfBar
- var legendSpacing = legendRectSize/2;
-
- var legend = svg.selectAll('.legend')
-    .data(color.domain())
-    .enter()
-    .append('g')
-    .attr('class', 'legend')
-    .attr('transform', function(d, i) {
-        var h = barHeight + i * 3 * barHeight ;
-        var v = barHeight*geneNr + margin.top + margin.bottom;
-        return 'translate(' + h + ',' + v + ')';
-     });
-
-  legend.append('rect')
-    .attr('width', legendRectSize)
-    .attr('height', legendRectSize)
-    .style('fill', color)
-    .style('stroke', color);
-
-  legend.append('text')
-    .attr('x', legendRectSize + legendSpacing)
-    .attr('y', legendRectSize )
-    .style("font-size","14px")
-    .text(function(d) { return (Math.pow(2, d) -1).toFixed(2); });
-
-// legend box
-    svg.append("rect")
-      .attr("class", "legendbox")
-      .attr("x", legendRectSize)
-      .attr("y", barHeight*geneNr + 2*margin.top +halfBar)
-      .attr("height", 1.5*barHeight)
-      .attr("width", 7*barHeight)
-      .style("stroke", "grey")
-      .style("fill", "none")
-      //.style("stroke-width", 1)
-      ;
-*/
+  // Explanatory text
+   svg.append("text")
+    .attr("class", "note1")
+    .attr("x", margin.left + 40*cellWidth)
+    .attr("y", barHeight*(geneNr + 1) + 2*margin.top)
+    .style("font-size", 1.2*halfBar+"px")
+    .style("fill", "gray")
+    .text("Levels expressed in Transcript Per Million (TPM).")
+    ;
+   svg.append("text")
+    .attr("class", "note2")
+    .attr("x", margin.left + 40*cellWidth)
+    .attr("y", barHeight*(geneNr+2) + 2*margin.top)
+    .style("font-size", 1.2*halfBar+"px")
+    .style("fill", "gray")
+    .text("The colouring is a log2 scale of TPM.")
+    ;
 
 }
 
@@ -360,7 +331,7 @@ var rescale = function() {
   x.rangeBands([0,sampleNr*cellWidth]);
 
   // Use our existing data:
-  var bar = svg.selectAll(".proteinbar").data(data)
+  var bar = svg.selectAll(".exbar").data(data)
 
   bar.attr("transform", function(d,i) {
         return "translate("+(margin.left + (i%sampleNr)*cellWidth) + "," + (margin.top + barHeight*Math.floor(i/sampleNr) ) + ")";
@@ -371,13 +342,6 @@ var rescale = function() {
       .attr("width", cellWidth)
       .attr("height", barHeight - 1)
       ;
-
-  // Also reposition the bars using the new scales.
-  //~ bar.select("text")
-      //~ .attr("x", function(d,i) { return i*cellWidth; })
-      //~ .attr("y", barHeight / 2)
-      //~ .attr("dy", ".15em")
-      //~ .text(function(d) { return (d[2])});
 
   // resize the bounding box
   var bb = svg.select(".boundingbox").attr("width", (newwidth -halfBar));
@@ -423,15 +387,16 @@ svg.select(".legendLinear")
   // resize the header
   head = svg.select(".myheader").attr("width",newwidth);
 
+  // resize the notes (only x changes)
+  svg.select(".note1")
+    .attr("x", margin.left + 40*cellWidth)
+    ;
+   svg.select(".note2")
+    .attr("x", margin.left + 40*cellWidth)
+    ;
 }
 
 // Fetch our JSON and feed it to the draw function
-
-// d3.json("data.json", function(returned) {
-//   data = returned.results;
-//   render();
-// });
-
 d3.json(query, function(returned) {
   data = returned.results;
   render();
