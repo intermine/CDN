@@ -40,7 +40,7 @@ var constraintPath = 'primaryIdentifier';
 if(typeof listName != 'undefined'){ // set only on a bagDetails page
     queryId = listName;
     constraintOp = 'IN';
-    constraintPath = 'Gene';
+    constraintPath = type;
  };
 
 console.log(type + ": " + svgId + " " + mineUrl + " " + queryId + " (" + constraintOp + " " + constraintPath + ")");
