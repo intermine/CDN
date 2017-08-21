@@ -26,9 +26,9 @@ if(typeof queryId === 'undefined'){
    queryId = DEFAULT_ID;
  };
 
-//if(typeof svgId === 'undefined'){
+if(typeof svgId === 'undefined'){
    svgId = DEFAULT_SVG;
-// };
+ };
 
 if(typeof type === 'undefined'){
    type  = DEFAULT_TYPE;
@@ -134,7 +134,7 @@ console.log("WWW " + width + " MAX: " + max + " -- " + groups);
   // when no results don't display anything
   svg.attr("height", 0);
 
-  if (data.length > 0) {
+  if (data.length > 0 && max > 0) {
 
   // Build the report header
     head = svg.append('foreignObject')
@@ -225,7 +225,10 @@ bar.append("a")
   svg.append("g")
     .attr("class","legend")
     .attr("transform","translate(" + (margin.left + max*sf + 2*barHeight)  + "," + 2*margin.top +")")
+    .style("stroke", "black")
     .style("font-size","12px")
+    .style("fill", "none")
+    .style("stroke-width", .8)
     .call(d3.legend);
 
 // explanatory text, when we know...
