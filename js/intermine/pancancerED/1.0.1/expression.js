@@ -108,7 +108,7 @@ var halfBar = barHeight/2;
 var cellWidth = halfBar; // default value
 
 // margins
-var margin = {left: 4*barHeight, top: 3*barHeight, right: 3*barHeight, bottom: 16*barHeight};
+var margin = {left: 4*barHeight, top: 3*barHeight, right: 3*barHeight, bottom: 4*barHeight};
 
 // Original Width
 var width = parseInt(svg.style("width"));
@@ -202,19 +202,16 @@ if (mineUrl.includes("thalemine")) {
 //  breast                 |     4
 //  esophagus              |     4
 //  kidney                 |     5
-
 //  large intestine        |     3
 //  liver                  |     5
 //  lung                   |     5
 //  mouth mucosa           |     3
 //  ovary                  |     2
-
 //  pancreas               |     2
 //  prostate gland         |     3
 //  skeletal muscle tissue |     2
 //  skin                   |     3
 //  stomach                |     3
-
 //  thyroid gland          |     3
 //  urinary bladder        |     3
 //  uterine cervix         |     4
@@ -421,8 +418,11 @@ var rescale = function() {
 
   // resize the x axis
   xAxis.scale(x);
-  x.range([0, 7*cellWidth, 9*cellWidth, 16*cellWidth, 40*cellWidth, 85*cellWidth, 87*cellWidth, 96*cellWidth, 103*cellWidth, 106*cellWidth, 110*cellWidth, sampleNr*cellWidth])
-  ;
+  //x.range([0, 7*cellWidth, 9*cellWidth, 16*cellWidth, 40*cellWidth, 85*cellWidth, 87*cellWidth, 96*cellWidth, 103*cellWidth, 106*cellWidth, 110*cellWidth, sampleNr*cellWidth])
+  x.range([0, 4*cellWidth, 19*cellWidth, 23*cellWidth, 27*cellWidth, 32*cellWidth, 35*cellWidth,
+    40*cellWidth, 45*cellWidth, 48*cellWidth, 50*cellWidth, 52*cellWidth, 55*cellWidth, 57*cellWidth,
+    60*cellWidth, 63*cellWidth, 66*cellWidth, 69*cellWidth, 73*cellWidth, sampleNr*cellWidth])
+    ;
   svg.select(".x.axis")
     .attr("transform", function() {
       return "translate( " + margin.left + "," + (margin.top + geneNr*barHeight) + ")"})
