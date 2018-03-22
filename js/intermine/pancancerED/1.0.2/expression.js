@@ -65,6 +65,7 @@ var query    = {
     "PanCancerExpressions.experiment.tissueType",
     "PanCancerExpressions.experiment.tissue",
     "PanCancerExpressions.experiment.location"
+    ,"PanCancerExpressions.experiment.id"
   ],
   "orderBy": [
     {
@@ -97,7 +98,8 @@ var query    = {
 
 // Displayer defaults and constants
 var GPORTAL = "portal.do?class=" + type + "&externalids=";
-var EPORTAL = "portal.do?class=PanCancerExperiment&externalids=";
+//var EPORTAL = "portal.do?class=PanCancerExperiment&externalids=";
+var EPORTAL = "report.do?id=";
 
 var svg = d3.select("#" + svgId);
 
@@ -113,7 +115,7 @@ var halfBar = barHeight/2;
 var cellWidth = halfBar; // default value
 
 // margins
-var margin = {left: 4*barHeight, top: 3*barHeight, right: 3*barHeight, bottom: 4*barHeight};
+var margin = {left: 5*barHeight, top: 3*barHeight, right: 3*barHeight, bottom: 4*barHeight};
 
 // Original Width
 var width = parseInt(svg.style("width"));
@@ -180,11 +182,12 @@ console.log("s:" + sampleNr + " t:" + tissueNr + " g:" + geneNr + " x:" + xNr + 
 
   // Coerce data to the appropriate types.
   data.forEach(function(d) {
-    //d.sra = +d[4];
-    //d.gene = +d[0];
+    d.ens = d[1];
+    d.symbol = d[0];
     d.level = +d[2];
-    d.tissue = +d[5];
+    d.tissue = d[5];
     if (d[6] == null) {d.loc = ""} else {d.loc = " " + d[6]};
+    d.expid = +d[7];
   });
 
  // Compute the scale domains and set the ranges
@@ -236,7 +239,7 @@ x = d3.scale.ordinal()
 }
 
   y = d3.scale.ordinal()
-   .domain(d3.map(data, function(d){return d[0];}).keys())
+   .domain(d3.map(data, function(d){return d[1];}).keys())
    .rangeRoundBands([0, geneNr*barHeight]);
   ;
 
@@ -281,7 +284,7 @@ x = d3.scale.ordinal()
   bar.append("a")
     .on("mouseover", function(d, i){
       d3.select(this)
-        .attr({"xlink:href": mineUrl + EPORTAL + d[4]})
+        .attr({"xlink:href": mineUrl + EPORTAL + d[7]})
         //.attr({"xlink:title": d[0] + "[" + d[1] + "]" + " - " + d[4] + " " + d[6] + " [" + d[5] + "]: " + d[2]});
         .attr({"xlink:title": d[0] + " > " + d[4] + d.loc + ", " + d[5] + ":  " + d[2]});
     })
@@ -352,6 +355,9 @@ x = d3.scale.ordinal()
     //.on("mouseover", function(d){ d3.select(this).attr({"xlink:title": "AAAA" })})
 
     .on("click", function(d){ document.location.href = mineUrl + GPORTAL + d; })
+
+    // NOTE: we set the axis 'unit' at line 239, here we have just the string if the data item (e.i. ENS id, or sumbol)
+    // so we cannot display symbol and use ENS id to link:TODO
   ;
 }
 
@@ -388,7 +394,7 @@ x = d3.scale.ordinal()
   // Explanatory text
    svg.append("text")
     .attr("class", "note1")
-    .attr("x", margin.left + 2*cellWidth)
+    .attr("x", margin.left)
     .attr("y", barHeight*(geneNr + 1) + 2*margin.top)
     .style("font-size", 1.2*halfBar+"px")
     .style("fill", "gray")
@@ -396,7 +402,7 @@ x = d3.scale.ordinal()
     ;
    svg.append("text")
     .attr("class", "note2")
-    .attr("x", margin.left + 40*cellWidth)
+    .attr("x", margin.left)
     .attr("y", barHeight*(geneNr+2) + 2*margin.top)
     .style("font-size", 1.2*halfBar+"px")
     .style("fill", "gray")
