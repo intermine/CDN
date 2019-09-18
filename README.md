@@ -1,8 +1,8 @@
-#InterMine Content Delivery Network
+# InterMine Content Delivery Network
 
 This repository hosts web libraries used in the [InterMine](http://intermine.org) ecosystem.
 
-##Host your own
+## Host your own
 
 The main repo is hosted by [GitHub](https://status.github.com/), but sometimes
 it goes down. Before that happens, we encourage you to host your own copy. Your
