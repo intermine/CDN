@@ -1,0 +1,5 @@
+This folder contains the generated BlueGenes CSS for use during development of
+BlueGenes Tools, so that their styling during development is consistent with
+how they'll look when deployed within BlueGenes. The files will be updated
+in-place, replacing the old ones, but this should happen very infrequently as
+changes to global CSS selectors are rare.
